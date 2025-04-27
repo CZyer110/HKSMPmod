@@ -1,0 +1,884 @@
+guiTypes = {
+
+####################### 
+	containerWindowType = {
+		name = "horsttool_open_container"
+		position = { x = -503 y = 4 }
+		Orientation = UPPER_RIGHT
+		buttonType = {
+			name = "tool_open"
+			quadTextureSprite = "GFX_generic_box_96"
+			position = { x = 0 y = 0 }
+			scale=1.1
+			pdx_tooltip = "[ST_TOOLTIP]"
+			clicksound = click_ok
+			oversound = ui_menu_over
+		}
+		
+		instantTextboxType = {
+			name = "title"
+			position = {x=3 y=4}
+			font = "hoi_18mbs"
+			text = "[transfer_states_tooltip]"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+
+	}
+		
+	containerWindowType = { 
+		name = "horsttool_container"
+		position = {x=1200 y=20}
+		size = { width=750 height=750}
+		
+		fade_time = 300
+		fade_type = linear
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			#spriteType = "GFX_generic_bg_307x113"
+		spriteType = "GFX_diplo_action_justify_wargoals_bg"
+		}
+		
+		
+		instantTextboxType = {
+			name = "why use lel lennard"
+			#position = {x=14 y=8}
+			position = {x=113.5 y=30}
+			font = "hoi_24header"
+			text = "why_use_lel_lennard_tt"
+			maxWidth = 300
+			maxHeight = 23
+			format = centre
+		}
+		
+#######################################################################
+
+
+		buttonType = {
+			name = "change_host_nation" 
+			position = {x=18 y=471}       
+			spriteType = "GFX_change_host_nation"
+            scale = 0.75
+			pdx_tooltip = "CHANGE_HOST_NATION_TT"
+			#pdx_tooltip_delayed = "CHANGE_HOST_NATION_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_steel"  
+			position = {x=20 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 5
+            scale = 1.25
+			pdx_tooltip = "States_resursed_steel_TT"
+			#pdx_tooltip_delayed = "States_resursed_steel_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_rubber" 
+			position = {x=70 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 3
+            scale = 1.25
+			pdx_tooltip = "States_resursed_rubber_TT"
+			#pdx_tooltip_delayed = "States_resursed_rubber_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_oil" 
+			position = {x=120 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 1
+            scale = 1.25
+			pdx_tooltip = "States_resursed_oil_TT"
+			#pdx_tooltip_delayed = "States_resursed_oil_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_alu" 
+			position = {x=170 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 2
+            scale = 1.25
+			pdx_tooltip = "States_resursed_alu_TT"
+			#pdx_tooltip_delayed = "States_resursed_alu_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_tungsten" 
+			position = {x=220 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 4
+            scale = 1.25
+			pdx_tooltip = "States_resursed_tungsten_TT"
+			#pdx_tooltip_delayed = "States_resursed_tungsten_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_chromium" 
+			position = {x=270 y=130}       
+			spriteType = "GFX_resources_strip"
+			frame = 6
+            scale = 1.25
+			pdx_tooltip = "States_resursed_chromium_TT"
+			#pdx_tooltip_delayed = "States_resursed_chromium_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_steel1"  
+			position = {x=20 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 5
+            scale = 1.25
+			pdx_tooltip = "States_resursed_steel1_TT"
+			#pdx_tooltip_delayed = "States_resursed_steel_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_rubber1" 
+			position = {x=70 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 3
+            scale = 1.25
+			pdx_tooltip = "States_resursed_rubber1_TT"
+			#pdx_tooltip_delayed = "States_resursed_rubber_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_oil1" 
+			position = {x=120 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 1
+            scale = 1.25
+			pdx_tooltip = "States_resursed_oil1_TT"
+			#pdx_tooltip_delayed = "States_resursed_oil_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_alu1" 
+			position = {x=170 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 2
+            scale = 1.25
+			pdx_tooltip = "States_resursed_alu1_TT"
+			#pdx_tooltip_delayed = "States_resursed_alu_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_tungsten1" 
+			position = {x=220 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 4
+            scale = 1.25
+			pdx_tooltip = "States_resursed_tungsten1_TT"
+			#pdx_tooltip_delayed = "States_resursed_tungsten_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "States_resursed_chromium1" 
+			position = {x=270 y=180}       
+			spriteType = "GFX_resources_strip"
+			frame = 6
+            scale = 1.25
+			pdx_tooltip = "States_resursed_chromium1_TT"
+			#pdx_tooltip_delayed = "States_resursed_chromium_TT_DELAYED"
+		}
+
+		buttonType = {
+			name = "add_cheat" 
+			position = {x=10 y=90}
+			spriteType = "GFX_horst_addcheat"
+            scale = 0.3
+			pdx_tooltip = "ADD_CHEAT"
+			pdx_tooltip_delayed = "ADD_CHEAT_DELAYED"
+		}
+		buttonType = {
+			name = "add_debuff" 
+			position = {x=235 y=90 }
+			spriteType = "GFX_horst_addcheat"
+            scale = 0.3
+			pdx_tooltip = "ADD_DEBUFF"
+			pdx_tooltip_delayed = "ADD_DEBUFF_DELAYED"
+		}
+		buttonType = {
+			name = "remove_debuff" 
+			position = {x=425 y=90 }
+			spriteType = "GFX_horst_addcheat"
+            scale = 0.3
+			pdx_tooltip = "REMOVE_DEBUFF"
+			pdx_tooltip_delayed = "ADD_REMOVE_DELAYED"
+		}
+		buttonType = {
+			name = "whitepeace"	
+			position = {x=115 y=345}
+			spriteType = "GFX_relation_truce"
+					scale=1.8
+			pdx_tooltip = "WHITEPEACE"
+			pdx_tooltip_delayed = "WHITEPEACE_DELAYED"
+			#scale = 0.95
+		}
+		buttonType = {
+			name = "add_color"   
+			position = {x=210 y=475}
+			spriteType = "GFX_air_base_copy_btn" 
+            scale = 0.8
+			pdx_tooltip = "ADD_COLOR"
+			pdx_tooltip_delayed = "ADD_COLOR_DELAYED"
+		}
+		buttonType = {
+			name = "award_states" 
+			position = {x=250 y=310}	
+			spriteType = "GFX_global_diplorequest_icons"
+            		frame = 13
+			pdx_tooltip = "TRANSFER_STATES"
+			pdx_tooltip_delayed = "TRANSFER_STATES_DELAYED"
+		}
+		buttonType = {
+			name = "observer" 
+			position = {x=70 y=400}
+			spriteType = "GFX_observer_button"
+         	pdx_tooltip = "OBSERVER"
+			pdx_tooltip_delayed = "OBSERVER_DELAYED"
+			scale = 0.75
+		}
+		buttonType = {
+			name = "annex_country" 
+			position = {x=300 y=310}	
+			spriteType = "GFX_global_diplorequest_icons"
+            		frame = 2
+			pdx_tooltip = "ANNEX_COUNTRY"
+			pdx_tooltip_delayed = "ANNEX_COUNTRY_DELAYED"
+		}
+		buttonType = {
+			name = "add_compliance" 
+			position = {x=400 y=310}	
+			spriteType = "GFX_global_diplorequest_icons"
+                    frame = 14
+			pdx_tooltip = "ADD_COMPLIANCE"
+			pdx_tooltip_delayed = "ADD_COMPLIANCE_DELAYED"
+		}
+		buttonType = {
+			name = "add_compliance1" 
+			position = {x=400 y=350}	
+			spriteType = "GFX_global_diplorequest_icons"
+                    frame = 14
+			pdx_tooltip = "ADD_COMPLIANCE1"
+			pdx_tooltip_delayed = "ADD_COMPLIANCE_DELAYED"
+		}
+		buttonType = {
+			name = "add_cover" 
+			position = {x=450 y=310}	
+			spriteType = "GFX_global_diplorequest_icons"
+                    frame = 7
+			pdx_tooltip = "add_cover"
+			pdx_tooltip_delayed = "add_cover_DELAYED"
+		}
+		buttonType = {
+			name = "add_cover1" 
+			position = {x=450 y=350}	
+			spriteType = "GFX_global_diplorequest_icons"
+                    frame = 7
+			pdx_tooltip = "add_cover1"
+			pdx_tooltip_delayed = "add_cover_DELAYED"
+		}
+		buttonType = { 
+			name = "fix_production"  
+			position = {x=452 y=390}  	  
+			spriteType = "GFX_topbar_production_horst_tool"
+            		frame = 2
+			pdx_tooltip = "FIX_PRODUCTION_TT" 
+			pdx_tooltip_delayed = "FIX_PRODUCTION_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "fix_xp"         
+			position = {x=401 y=390} 	    
+			spriteType = "GFX_endgame_army_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "FIX_XP_TT" 
+			pdx_tooltip_delayed = "FIX_XP_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "fix_xp2"         
+			position = {x=350 y=390} 	    
+			spriteType = "GFX_endgame_convoys_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "FIX_XP2_TT" 
+			pdx_tooltip_delayed = "FIX_XP2_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "fix_xp3"         
+			position = {x=300 y=390} 	    
+			spriteType = "GFX_endgame_air_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "FIX_XP3_TT" 
+			pdx_tooltip_delayed = "FIX_XP3_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "convoy48"         
+			position = {x=250 y=390} 	    
+			spriteType = "GFX_endgame_convoys_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "convoy48" 
+			pdx_tooltip_delayed = "convoy48_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "manpower_add"         
+			position = {x=120 y=290} 	    
+			spriteType = "GFX_endgame_manpower_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "manpower_add" 
+			pdx_tooltip_delayed = "manpower_add_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "manpower_NO_add"         
+			position = {x=70 y=290} 	    
+			spriteType = "GFX_endgame_manpower_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "manpower_NO_add" 
+			pdx_tooltip_delayed = "manpower_NO_add_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "add_autonomy_ratio"         
+			position = {x=173 y=240} 	    
+			spriteType = "GFX_endgame_score_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "add_autonomy_ratio" 
+			pdx_tooltip_delayed = "add_autonomy_ratio_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "add_NO_autonomy_ratio"         
+			position = {x=120 y=240} 	    
+			spriteType = "GFX_endgame_score_button"
+			scale = 0.9
+            		#frame = 2    
+			pdx_tooltip = "add_NO_autonomy_ratio" 
+			pdx_tooltip_delayed = "add_NO_autonomy_ratio_TT_DELAYED"
+		}
+		buttonType = {
+			name = "mill_add"	
+			position = {x=172 y=290}
+			spriteType = "GFX_horst_civ_plus"
+			pdx_tooltip = "MILADD"
+			pdx_tooltip_delayed = "MILADD_DELAYED"
+			scale = 0.95
+		}
+		buttonType = { 
+			name = "civ_add"	
+			position = {x=172 y=342}
+			spriteType = "GFX_horst_civ_pluss"
+			pdx_tooltip = "CIVADD"
+			pdx_tooltip_delayed = "CIVADD_DELAYED"
+			scale = 0.95
+		}
+		
+		buttonType = { 
+			name = "wt_add"	
+			position = {x=73 y=350}
+			spriteType = "GFX_horst_increase_wt"
+			pdx_tooltip = "WTADD"
+			pdx_tooltip_delayed = "WTADD_DELAYED"
+			scale = 0.8
+		}
+
+		buttonType = { 
+			name = "wt_remove"	
+			position = {x=25 y=350}
+			spriteType = "GFX_horst_decrease_wt"
+			pdx_tooltip = "WTREMOVE"
+			pdx_tooltip_delayed = "WTREMOVE_DELAYED"
+			scale = 0.8
+		}
+		
+	 buttonType = {
+		name = "pingtool"	
+			position = {x=165 y=392}
+			spriteType = "GFX_focus_generic_refit_civilian_ships"
+		scale = 0.63
+			pdx_tooltip = "PINGTOOL"
+			pdx_tooltip_delayed = "PINGTOOL_DELAYED"
+		} 
+		buttonType = {
+			name = "addpp"	
+			position = {x=112 y=392}
+			spriteType = "GFX_horst_addpp"
+            scale=1
+			pdx_tooltip = "ADDPP"
+			pdx_tooltip_delayed = "ADDPP_DELAYED"
+		}
+####################################################################
+		buttonType = {
+            name = "horsttool_helpbutton" 
+            position = {x=460 y=471}
+           spriteType = "GFX_horst_help"
+            scale = 0.8
+            pdx_tooltip = "HORST_HELP"
+           pdx_tooltip_delayed = "HOST_HELP_DELAYED"
+         }
+####################################################################
+		buttonType = {
+			name = "cheat1"
+			position = {x=40 y=90}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat2"
+			position = {x=40 y=116}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		buttonType = {
+			name = "cheat3"
+			position = {x=40 y=142}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		buttonType = {
+			name = "cheat4"
+			position = {x=40 y=168}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+		buttonType = {
+			name = "cheat5"
+			position = {x=40 y=194}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+		buttonType = {
+			name = "cheat6"
+			position = {x=40 y=220}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+
+		buttonType = {
+			name = "cheat7"
+			position = {x=40 y=246}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+
+
+		buttonType = {
+			name = "cheat10"
+			position = {x=40 y=275}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+		
+		buttonType = {
+			name = "debuff1"
+			position = {x=270 y=90}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "debuff2"
+			position = {x=270 y=116}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		
+		buttonType = {
+			name = "pause_blocker_major"
+			position = {x=265 y=480}
+			spriteType = "GFX_generic_box_125"
+		}
+		instantTextboxType = {
+			name = "pause_blocker_major_text"
+			position = {x=265 y=485}
+			font = "hoi_18mbs"
+			text = "[pause_selected]"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "pause_blocker_all"
+			position = {x=265 y=505}
+			spriteType = "GFX_generic_box_125"
+		}
+		instantTextboxType = {
+			name = "pause_blocker_all_text"
+			position = {x=265 y=510}
+			font = "hoi_18mbs"
+			text = "PAUSE1"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "pause_blocker_shield"
+			position = {x=390 y=475}
+			spriteType = "GFX_ability_jap_last_stand"
+			pdx_tooltip = "pause_blocker_shield_tt"
+			pdx_tooltip_delayed = "pause_blocker_shield_delayed_tt"
+
+			
+			scale = 1.3
+		}
+		buttonType = {
+			name = "pause_blocker_host"
+			position = {x=265 y=530}
+			spriteType = "GFX_generic_box_125"
+		}
+		instantTextboxType = {
+			name = "pause_blocker_host_text"
+			position = {x=265 y=535}
+			font = "hoi_18mbs"
+			text = "PAUSE2"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		buttonType = {
+			name = "cb_red"
+			position = {x=80 y=480}
+			spriteType = "GFX_generic_box_125"
+		}
+		instantTextboxType = {
+			name = "cb_red_text"
+			position = {x=85 y=485}
+			font = "hoi_18mbs"
+			text = "[color_selected]"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		buttonType = {
+			name = "cb_orange"
+			position = {x=80 y=505}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+				instantTextboxType = {
+			name = "cb_orange_text"
+			position = {x=85 y=510}
+			font = "hoi_18mbs"
+			text = "COLOR2"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "cb_yellow"
+			position = {x=80 y=530}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+			name = "cb_yellow_text"
+			position = {x=85 y=535}
+			font = "hoi_18mbs"
+			text = "COLOR3"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "cb_green"
+			position = {x=80 y=555}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+			name = "cb_green_text"
+			position = {x=85 y=560}
+			font = "hoi_18mbs"
+			text = "COLOR4"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "cb_blue"
+			position = {x=80 y=580}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+			name = "cb_blue_text"
+			position = {x=85 y=585}
+			font = "hoi_18mbs"
+			text = "COLOR5"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+	buttonType = {
+		name = "cb_purple"
+			position = {x=80 y=605}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+												instantTextboxType = {
+		name = "cb_purple_text"
+			position = {x=85 y=610}
+			font = "hoi_18mbs"
+			text = "COLOR6"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+	buttonType = {
+		name = "cb_pink"
+			position = {x=80 y=630}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+		name = "cb_pink_text" 
+			position = {x=85 y=635}
+			font = "hoi_18mbs"
+			text = "COLOR7"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+		name = "resorser"
+			position = {x=320 y=135}
+			font = "hoi_18mbs"
+			text = "resorser12"   
+			maxWidth = 200
+			maxHeight = 23
+			alwaystransparent = yes
+		}
+		buttonType = {
+		name = "cb_teal"
+			position = {x=80 y=655}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+		name = "cb_teal_text"
+			position = {x=85 y=660}
+			font = "hoi_18mbs"
+			text = "COLOR8"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}	
+		buttonType = {
+		name = "cb_remove"
+			position = {x=80 y=680}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+		}
+		instantTextboxType = {
+		name = "cb_remove_text"
+			position = {x=85 y=685}
+			font = "hoi_18mbs"
+			text = "COLOR9"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}	
+		
+		
+		buttonType = {
+			name = "add_cores" 
+			position = {x=350 y=310}	
+			spriteType = "GFX_global_diplorequest_icons"
+            		frame = 6
+			pdx_tooltip = "ADD_CORES"
+			pdx_tooltip_delayed = "ADD_CORES_DELAYED"
+		}
+		instantTextboxType = {
+			name = "cheat1_text"
+			position = {x=45 y=95}
+			font = "hoi_18mbs"
+			text = "[cheat_selected]"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "cheat2_text"
+			position = {x=45 y=121}
+			font = "hoi_18mbs"
+			text = "CHEAT2"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "cheat3_text"
+			position = {x=45 y=147}
+			font = "hoi_18mbs"
+			text = "CHEAT3"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "cheat4_text"
+			position = {x=45 y=173}
+			font = "hoi_18mbs"
+			text = "CHEAT4"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat5_text"
+			position = {x=45 y=199}
+			font = "hoi_18mbs"
+			text = "CHEAT5"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat6_text"
+			position = {x=45 y=225}
+			font = "hoi_18mbs"
+			text = "CHEAT6"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat7_text"
+			position = {x=45 y=250}
+			font = "hoi_18mbs"
+			text = "CHEAT7"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat10_text"
+			position = {x=44 y=278 }
+			font = "hoi_18mbs"
+			text = "CHEAT10"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		#пьяница который не поверил что спиздил хорст тул у Вади. А ты даже спасибо не говоришь...
+		buttonType = {
+			name = "toogle_mark" 
+			position = {x=203 y=35}
+			spriteType = "GFX_button_123x34"
+			frame = 0
+			pdx_tooltip = "ST_STATE_MARK_FOR_TRANSFER"
+		}
+		
+		instantTextboxType = {
+			name = "debuff1_text"
+			position = {x=270 y=95}
+			font = "hoi_18mbs"
+			text = "[debuff_selected]"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "debuff2_text"
+			position = {x=270 y=121}
+			font = "hoi_18mbs"
+			text = "DEBUFF2"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		
+####################################################################
+		containerWindowType = {
+		name = "st_state_manager_powers_container"
+		position = {x=230 y=220}
+		size = { width=600 height=300}
+
+		fade_time = 300
+		fade_type = linear 
+		moveable = no 
+		
+		background = {
+			name = "Background" 
+			spriteType = "GFX_BPT_areadef_conf_bg"
+		}
+
+		instantTextboxType = {
+			name = "title"  
+			position = {x=0 y=3}
+			Orientation = "Centre" 
+			font = "hoi_24header"
+			text = "st_state_id_tt"
+			maxWidth = 250
+			maxHeight = 23
+			format = centre
+		}
+		buttonType = {
+			name = "toogle_mark" 
+			position = {x=40 y=35}
+			text = "Mark"
+			font = "hoi_24header"
+			spriteType = "GFX_sort_button_100x29"
+			pdx_tooltip = "ST_STATE_MARK_FOR_TRANSFER"
+		}
+		buttonType = {
+			name = "clear_all_markings" 
+			position = {x=180 y=30}
+			spriteType = "GFX_global_alert_icons"
+            		frame = 38
+			pdx_tooltip = "CLEAR_ALL_MARKINGS"
+			pdx_tooltip_delayed = "CLEAR_ALL_MARKINGS_DELAYED"
+			scale = .85
+		}
+	}
+	}
+	containerWindowType = {
+		name = "pause_block_window"
+		size = { width = 160 height = 30 } 
+		position = { x=80 y =0 }  	 	
+		background = {
+			name = "Background"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+	}
+}
