@@ -5,7 +5,7 @@ technologies = {
 		doctrine_name = "MOBILE_WARFARE_DOCTRINE"
 		
 		xp_research_type = army
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		
 		on_research_complete = {
 set_technology = {delay = 0}
@@ -1014,7 +1014,7 @@ set_technology = {modern_blitzkrieg = 0}
 		doctrine_name = "SUPERIOR_FIREPOWER_DOCTRINE"
 		
 		xp_research_type = army
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		
 		on_research_complete = {
 			set_technology = {mobile_warfare = 0}
@@ -1978,7 +1978,7 @@ set_technology = {air_land_battle = 0}
 		doctrine_name = "GRAND_BATTLEPLAN_DOCTRINE"
 
 		xp_research_type = army
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		
 		on_research_complete = {
 			set_technology = {mobile_warfare = 0}
@@ -2932,7 +2932,7 @@ set_technology = {c3i_theory = 0}
 		doctrine_name = "MASS_ASSAULT_DOCTRINE"
 		
 		xp_research_type = army
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		
 		on_research_complete = {
 			set_technology = {mobile_warfare = 0}

@@ -9,7 +9,7 @@ technologies = {
 		###########
 
 		xp_research_type = air
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		
 		xor = { force_rotation formation_flying }
 		
@@ -798,7 +798,7 @@ set_technology = {high_level_bombing = 0}
 			research_cost_coeff = 1
 		}
 		xp_research_type = air
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		doctrine = yes	
 		research_cost = 2.25
 		
@@ -1482,7 +1482,7 @@ set_technology = {high_level_bombing = 0}
 			research_cost_coeff = 1
 		}
 		xp_research_type = air
-		xp_unlock_cost = 0
+		xp_unlock_cost = 100
 		doctrine = yes	
 		research_cost = 2.25
 		
