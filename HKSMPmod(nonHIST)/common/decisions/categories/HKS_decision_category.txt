@@ -1,0 +1,5 @@
+HKS_decisions = {
+	allowed = {
+	}
+	priority = 100
+}
