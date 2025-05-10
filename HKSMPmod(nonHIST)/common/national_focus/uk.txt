@@ -1506,7 +1506,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			add_offsite_building = { type = arms_factory level = 6 }
+			add_timed_idea = { idea = british_fighter_discount days = 420 }
 		}
 	}
 	focus = {
@@ -3041,6 +3041,7 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 		completion_reward = {
+			add_war_support = 0.05
 			add_political_power = 60
 			CAN = {
 				if = {
@@ -5217,6 +5218,19 @@ focus_tree = {
 		}	
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY}
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+				is_core_of = ENG
+				}
+				add_resource = {
+					type = rubber
+					amount = 26
+				}
+				add_resource = {
+					type = tungsten
+					amount = 28
+				}
+			}
 			add_offsite_building = { type = industrial_complex level = 6 }
 			add_offsite_building = { type = arms_factory level = 8 }
 			set_global_flag = ENG_decolonized
@@ -12153,11 +12167,13 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ENG_the_fate_of_the_royal_family
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}	
 		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.1
 			remove_ideas = ENG_the_war_to_end_all_wars
 			add_ideas = ENG_for_the_good_of_the_revolution_idea
 		}
