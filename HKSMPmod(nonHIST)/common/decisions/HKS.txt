@@ -1,0 +1,102 @@
+HKS_decisions {	
+
+	HKS_Garrison_template = { #Гарнизонная дивка
+		icon = GFX_decision_generic_cavalry
+		fire_only_once = yes
+		priority = 100
+		complete_effect = {
+			division_template = {
+				name = "Garrizon"
+
+				division_names_group = GER_Cav_01
+
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+					cavalry = { x = 0 y = 3 }
+					cavalry = { x = 0 y = 4 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					cavalry = { x = 1 y = 2 }
+					cavalry = { x = 1 y = 3 }
+					cavalry = { x = 1 y = 4 }
+					cavalry = { x = 2 y = 0 }
+					cavalry = { x = 2 y = 1 }
+					cavalry = { x = 2 y = 2 }
+					cavalry = { x = 2 y = 3 }
+					cavalry = { x = 2 y = 4 }
+					cavalry = { x = 3 y = 0 }
+					cavalry = { x = 3 y = 1 }
+					cavalry = { x = 3 y = 2 }
+					cavalry = { x = 3 y = 3 }
+					cavalry = { x = 3 y = 4 }
+					cavalry = { x = 4 y = 0 }
+					cavalry = { x = 4 y = 1 }
+					cavalry = { x = 4 y = 2 }
+					cavalry = { x = 4 y = 3 }
+					cavalry = { x = 4 y = 4 }					
+				}
+			}
+		}
+	}
+	
+	HKS_xp_mio = { #Опыт для КБ
+
+		icon = GFX_decision_generic_industry
+
+		available = {
+			
+		}
+
+		visible = {
+			
+		}
+		
+		
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		
+		priority = 100
+		
+		complete_effect = {
+			army_experience = 10
+			navy_experience = 10
+			air_experience = 10
+		}
+		
+	}
+	
+	HKS_ITA_YUG_annex = {
+
+		icon = jap_conquer_china
+		
+		fire_only_once = yes
+
+		available = {
+			YUG = { is_subject_of = ITA }
+		}
+
+		visible = {
+			original_tag = ITA
+		}
+
+		complete_effect = {
+			ITA = {
+		        annex_country = {
+			        target = YUG
+			    	transfer_troops = yes
+			    }
+		    }
+			every_state = {
+			    limit = {
+					is_core_of = YUG
+				}
+				add_compliance = 100
+			}
+		}
+	}
+	
+}
