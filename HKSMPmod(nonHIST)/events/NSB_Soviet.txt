@@ -2663,6 +2663,14 @@ country_event = {
 		ai_chance = { base = 1 }
 	
 		SOV_fortify_mongolian_border_effect = yes
+		SOV = {
+			puppet = ROOT
+
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = SOV_complied_with_our_demands
+			}
+		}
 	}
 
 	option = { #Refuse

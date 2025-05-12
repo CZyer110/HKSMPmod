@@ -1,5 +1,4 @@
 HKS_decisions {	
-
 	HKS_Garrison_template = { #Гарнизонная дивка
 		icon = GFX_decision_generic_cavalry
 		fire_only_once = yes
@@ -65,38 +64,6 @@ HKS_decisions {
 			army_experience = 10
 			navy_experience = 10
 			air_experience = 10
-		}
-		
+		}	
 	}
-	
-	HKS_ITA_YUG_annex = {
-
-		icon = jap_conquer_china
-		
-		fire_only_once = yes
-
-		available = {
-			YUG = { is_subject_of = ITA }
-		}
-
-		visible = {
-			original_tag = ITA
-		}
-
-		complete_effect = {
-			ITA = {
-		        annex_country = {
-			        target = YUG
-			    	transfer_troops = yes
-			    }
-		    }
-			every_state = {
-			    limit = {
-					is_core_of = YUG
-				}
-				add_compliance = 100
-			}
-		}
-	}
-	
 }

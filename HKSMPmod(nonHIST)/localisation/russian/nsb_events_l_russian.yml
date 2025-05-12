@@ -794,7 +794,7 @@
  NSB_soviet_foreign_politics_events.11.desc: "Война все более вероятна, и [FROM.GetAdjective]ое правительство начало давить на нас, чтобы мы повышали свою боеготовность. Оно хочет, чтобы мы значительно увеличили ополчение и снизили время обучения, а также чтобы у нас было больше дивизий, готовых выступить на фронт. Таким образом они хотят снять нагрузку с [FROM.GetAdjective]их дивизий."
  NSB_soviet_foreign_politics_events.11.a: "Да, в этом есть смысл."
  NSB_soviet_foreign_politics_events.11.b: "Мы сами решим, как нам себя защищать."
- NSB_soviet_foreign_politics_events.12.t: "[FROM.GetNameDefCap] хочет расширить свое влияние и построить пограничные укрепления"
+ NSB_soviet_foreign_politics_events.12.t: "[FROM.GetNameDefCap] хочет расширить пограничные укрепления"
  NSB_soviet_foreign_politics_events.12.desc: "Обращая внимание на растущую угрозу со стороны государства [JAP.GetNameDef], [FROM.GetAdjective]ое правительство настоятельно рекомендует нам начать укреплять границу с державой [JAP.GetNameDef]. Так мы будем меньше отвлекать чужие людские ресурсы на нашу защиту, и за это нам обещана логистическая и материальная помощь."
  NSB_soviet_foreign_politics_events.12.a: "Мы приветствуем такую инициативу."
  NSB_soviet_foreign_politics_events.12.b: "Так мы создадим лишь напрасное напряжение в отношениях с соседом."

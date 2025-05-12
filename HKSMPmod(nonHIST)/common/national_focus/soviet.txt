@@ -8496,7 +8496,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 5
+		cost = 10
 
 		bypass = { has_global_flag = SOV_soviet_civil_war }
 
@@ -8525,7 +8525,7 @@ focus_tree = {
 		x = -2 
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 3
+		cost = 5
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = SOV_bring_old_trotskyists_back_trigger_tt
@@ -8576,7 +8576,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_the_left_opposition
-		cost = 3
+		cost = 10
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -8711,7 +8711,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = SOV_the_fourth_international
-		cost = 3
+		cost = 10
 
 		available = {
 		}
@@ -8737,7 +8737,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_integrate_smirnovs_bloc
-		cost = 3
+		cost = 10
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes
@@ -8831,7 +8831,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_integrate_smirnovs_bloc
-		cost = 3
+		cost = 10
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9809,7 +9809,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9838,7 +9838,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 5
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9987,7 +9987,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_organize_uprisings_in_the_country
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10012,7 +10012,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_organize_uprisings_in_the_country
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10034,7 +10034,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_undermine_stalins_authority
-		cost = 5
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 			NOT = { has_idea = SOV_lavrenty_beriya }
@@ -10920,7 +10920,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_left_opposition
 		mutually_exclusive = { focus = SOV_divert_attention_towards_military }
-		cost = 2
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11031,7 +11031,7 @@ focus_tree = {
 		x = 11
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 2
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11053,7 +11053,7 @@ focus_tree = {
 		x = 7
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11116,7 +11116,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 2
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11142,7 +11142,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_gain_support_from_party_members
-		cost = 5
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11197,7 +11197,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_cooperation_against_stalin
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11273,7 +11273,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_cooperation_against_stalin
-		cost = 3
+		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -12014,7 +12014,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = SOV_the_comintern
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -16201,7 +16201,7 @@ ai_will_do = {
 		x = -3
 		y = 1
 		relative_position_id = SOV_the_hands_do
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -16257,7 +16257,7 @@ ai_will_do = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_call_for_aid
-		cost = 5
+		cost = 1
 		ai_will_do = {
 			factor = 1
 			modifier = {
