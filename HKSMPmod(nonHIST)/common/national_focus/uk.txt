@@ -3512,7 +3512,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ENG_foundations_for_an_indian_state
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6730,7 +6730,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = uk_commonwealth_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -6841,7 +6841,6 @@ focus_tree = {
 				limit = { has_dlc = "Together for Victory" }
 				OR = {
 					AND = {
-						date > 1943.10.01
 						RAJ = {
 							is_subject_of = ENG
 							has_war = no
@@ -6875,7 +6874,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = uk_india_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -6941,7 +6940,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = uk_commonwealth_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -7101,7 +7100,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = uk_australia_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -7261,7 +7260,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = uk_commonwealth_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -7420,7 +7419,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = uk_commonwealth_focus
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -7572,7 +7571,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = uk_india_focus
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 			#modifier = {
@@ -7726,7 +7725,7 @@ focus_tree = {
 		}
 		search_filters = {FOCUS_FILTER_POLITICAL}	
 		completion_reward = {
-			add_political_power = 120
+			add_political_power = 200
 			custom_effect_tooltip = generic_skip_one_line_tt
 			every_country = {
 				limit = {
@@ -7766,7 +7765,6 @@ focus_tree = {
 		id = ENG_imperial_federation
 		prerequisite = { focus = ENG_imperial_conference }
 		available = {
-			date > 1940.01.01
 			if = {
 				limit = {
 					has_dlc = "Together for Victory"
