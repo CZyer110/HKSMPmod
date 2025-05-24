@@ -1686,7 +1686,7 @@ ideas = {
 			}
 
 			modifier = {
-				autonomy_gain = -3
+				autonomy_gain = -5
 			}
 
 			picture = eng_guided_by_britain
