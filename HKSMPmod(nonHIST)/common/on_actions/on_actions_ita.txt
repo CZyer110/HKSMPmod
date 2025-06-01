@@ -1,0 +1,176 @@
+on_actions = {
+	on_monthly_ITA = {
+		effect = {
+			if = {
+				limit = {
+					has_completed_focus = ITA_the_italian_republic
+					any_core_state = {
+						NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+						}
+					}
+				}
+				
+				#if = {
+					#limit = {
+						#check_variable = { custom_mafia_modifier_cooldown > 0 }
+					#}
+					#set_variable = { custom_mafia_modifier_cooldown = 0 }
+				#}
+
+				random_core_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = custom_mafia_modifier }
+
+							NOT = {
+								is_island_state = yes
+							}
+						}
+					random_neighbor_state = {
+						limit = {
+							is_core_of = ROOT
+							NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+							
+							}
+						}
+					add_dynamic_modifier = { modifier = custom_mafia_modifier }
+					}	
+				}
+			}	
+			#else = {
+				#add_to_variable = { custom_mafia_modifier_cooldown = 1 }
+			#}
+		}
+	}
+	
+	on_monthly_USA = {
+		effect = {
+			if = {
+				limit = {
+					any_core_state = {
+						NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+						}
+					}
+				}
+				
+				#if = {
+					#limit = {
+						#check_variable = { custom_mafia_modifier_cooldown > 0 }
+					#}
+					#set_variable = { custom_mafia_modifier_cooldown = 0 }
+				#}
+
+				random_core_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = custom_mafia_modifier }
+
+							NOT = {
+								is_island_state = yes
+							}
+						}
+					random_neighbor_state = {
+						limit = {
+							is_core_of = ROOT
+							NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+							
+							}
+						}
+					add_dynamic_modifier = { modifier = custom_mafia_modifier }
+					}	
+				}
+			}	
+			#else = {
+				#add_to_variable = { custom_mafia_modifier_cooldown = 1 }
+			#}
+		}
+	}
+	
+	on_monthly_ENG = {
+		effect = {
+			if = {
+				limit = {
+					any_core_state = {
+						NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+						}
+					}
+				}
+				
+				#if = {
+					#limit = {
+						#check_variable = { custom_mafia_modifier_cooldown > 0 }
+					#}
+					#set_variable = { custom_mafia_modifier_cooldown = 0 }
+				#}
+
+				random_core_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = custom_mafia_modifier }
+
+							NOT = {
+								is_island_state = yes
+							}
+						}
+					random_neighbor_state = {
+						limit = {
+							is_core_of = ROOT
+							NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+							
+							}
+						}
+					add_dynamic_modifier = { modifier = custom_mafia_modifier }
+					}	
+				}
+			}	
+			#else = {
+				#add_to_variable = { custom_mafia_modifier_cooldown = 1 }
+			#}
+		}
+	}
+	
+	on_monthly_FRA = {
+		effect = {
+			if = {
+				limit = {
+					any_core_state = {
+						NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+						}
+					}
+				}
+				
+				#if = {
+					#limit = {
+						#check_variable = { custom_mafia_modifier_cooldown > 0 }
+					#}
+					#set_variable = { custom_mafia_modifier_cooldown = 0 }
+				#}
+
+				random_core_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = custom_mafia_modifier }
+
+							NOT = {
+								is_island_state = yes
+							}
+						}
+					random_neighbor_state = {
+						limit = {
+							is_core_of = ROOT
+							NOT = { has_dynamic_modifier = { modifier = custom_mafia_modifier } 
+							
+							}
+						}
+					add_dynamic_modifier = { modifier = custom_mafia_modifier }
+					}	
+				}
+			}	
+			#else = {
+				#add_to_variable = { custom_mafia_modifier_cooldown = 1 }
+			#}
+		}
+	}
+	
+	
+	
+	
+	
+	
+}

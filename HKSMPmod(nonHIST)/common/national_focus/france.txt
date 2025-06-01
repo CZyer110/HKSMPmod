@@ -3364,7 +3364,9 @@
 		}
 
 		available = {
-			
+			NOT = {
+				has_completed_focus = FRA_the_council_of_rambouillet
+			}
 		}
 		
 		bypass = {
@@ -7260,6 +7262,7 @@
 		}
 
 		available = {
+			NOT = { has_completed_focus = FRA_the_blum_viollette_proposal }
 			is_subject = no
 		}
 		
@@ -7445,7 +7448,7 @@
 			focus = FRA_orleanist_restoration
 		}
 		relative_position_id = FRA_orleanist_restoration
-		cost = 3
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -7477,7 +7480,7 @@
 			focus = FRA_orleanist_restoration
 		}
 		relative_position_id = FRA_orleanist_restoration
-		cost = 3
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -7510,7 +7513,7 @@
 			focus = FRA_the_first_citizen_of_the_state
 		}
 		relative_position_id = FRA_guarantee_the_constitution
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -7603,7 +7606,7 @@
 			focus = FRA_counter_action
 		}
 		relative_position_id = FRA_counter_action
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -7669,7 +7672,7 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.1
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -7818,6 +7821,7 @@
 
 		available = {
 		SPR = { is_subject_of = FRA } 
+		NOT = { has_idea = FRA_unite_the_crowns_focus }
 		}
 		
 		bypass = {
@@ -7855,7 +7859,7 @@
 			focus = FRA_secure_the_crown_of_spain
 		}
 		relative_position_id = FRA_secure_the_crown_of_spain
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -7887,8 +7891,12 @@
 				}
 				add_to_faction = SPB
 			}
+			add_timed_idea = {
+				idea = FRA_unite_the_crowns_focus
+				days = 365
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_stability = 0.2
+			add_stability = -0.1
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_to_tech_sharing_group = FRA_legitimist_tech_sharing
 			SPB = { add_to_tech_sharing_group = FRA_legitimist_tech_sharing }
@@ -8048,7 +8056,7 @@
 			focus = FRA_avenge_waterloo
 		}
 		relative_position_id = FRA_avenge_waterloo
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -8120,7 +8128,7 @@
 			focus = FRA_avenge_waterloo
 		}
 		relative_position_id = FRA_avenge_waterloo
-		cost = 5
+		cost = 10
 		will_lead_to_war_with = GER
 		ai_will_do = {
 			factor = 1
@@ -8459,7 +8467,6 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
-			add_stability = 0.05
 			add_ideas = { FRA_la_deluge }
 		}
 	}

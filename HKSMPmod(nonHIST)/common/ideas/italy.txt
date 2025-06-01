@@ -832,6 +832,104 @@ ideas = {
 			}
 		}
 
+		ITA_industry_donnation = {
+			removal_cost = -1
+
+			picture = LIT_invested_in_farms
+				
+			allowed = {
+				original_tag = ITA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+					
+			modifier = {
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		 ITA_dockyard_expansion = {
+			picture = generic_sea_focused_navy
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_dockyard_factor = 0.1	
+			}
+		}
+		
+		ENG_industry_donnation = {
+			removal_cost = -1
+
+			picture = LIT_invested_in_farms
+				
+			allowed = {
+				original_tag = ENG
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+					
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.10
+			}
+		}
+		
+		ITA_military_donnation = {
+			removal_cost = -1
+
+			picture = LIT_invested_in_farms
+				
+			allowed = {
+				original_tag = ITA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+					
+			modifier = {
+				production_speed_arms_factory_factor = -0.05
+				industrial_capacity_factory = -0.05
+				experience_gain_army = -0.05
+			}
+		}
+		
+		FRA_military_donnation = {
+			removal_cost = -1
+
+			picture = LIT_invested_in_farms
+				
+			allowed = {
+				original_tag = FRA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+					
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				industrial_capacity_factory = 0.05
+				mobilization_speed = 0.15
+				training_time_factor = -0.1
+				experience_gain_army = 0.05
+			}
+		}
+
+
 		ITA_hardened_irregular_bands = {
 			removal_cost = -1
 
@@ -2494,6 +2592,7 @@ ideas = {
 				communism_drift = 0.01
 				resistance_damage_to_garrison_on_our_occupied_states = 0.1
 				operative_slot = 1
+				#TODO_Manu: Allows generation of female generals, aces and admirals
 			}
 		}
 
@@ -2515,6 +2614,7 @@ ideas = {
 				weekly_manpower = 400
 				communism_drift = 0.01
 				resistance_damage_to_garrison_on_our_occupied_states = 0.1
+				#TODO_Manu: Allows generation of female generals, aces and admirals
 			}
 		}
 
@@ -2675,6 +2775,25 @@ ideas = {
 				communism_drift = 0.01
 				army_core_defence_factor = 0.05
 				army_morale_factor = 0.05
+			}
+		}
+		
+		ITA_embittered_poor_peasants = {
+			picture = FRA_liberte_egalite_solidarite
+			allowed = {
+				original_tag = ITA
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = 0.2
 			}
 		}
 
@@ -3260,10 +3379,7 @@ ideas = {
 
 			
 			modifier = {
-				autonomy_gain_trade = -1
-				local_resources_factor = 0.2
-				compliance_gain = 0.1
-				resistance_damage_to_garrison = -0.2
+				resistance_damage_to_garrison = -0.15
 				non_core_manpower = 0.25
 				industry_repair_factor = 0.3
 				consumer_goods_factor = -0.15
