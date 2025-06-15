@@ -8052,8 +8052,8 @@ focus_tree = {
 		
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_5_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 5 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -8115,12 +8115,12 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_the_faithful_servant_of_lenin
-		cost = 10
+		cost = 5
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_5_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 5 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -8159,8 +8159,8 @@ focus_tree = {
 		
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_5_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 5 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -8230,8 +8230,8 @@ focus_tree = {
 		
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_15_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 15 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -8266,8 +8266,8 @@ focus_tree = {
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_15_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 15 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_10_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 10 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -8289,8 +8289,8 @@ focus_tree = {
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_propaganda_campaigns_taken_20_or_greater_tt
-				check_variable = { SOV_propaganda_campaigns_taken = 20 compare = greater_than_or_equals }
+				tooltip = SOV_propaganda_campaigns_taken_15_or_greater_tt
+				check_variable = { SOV_propaganda_campaigns_taken = 15 compare = greater_than_or_equals }
 			}
 		}
 		
@@ -13677,7 +13677,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_respect_baltic_self_determination
-		cost = 10
+		cost = 5
 		
 		ai_will_do = {
 			factor = 1
@@ -13842,7 +13842,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_claims_in_baltic
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -13947,7 +13947,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -14050,7 +14050,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -14155,7 +14155,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2.5
@@ -14741,7 +14741,7 @@ ai_will_do = {
 		x = 5
 		y = 0
 		relative_position_id = SOV_middle_east_diplomacy
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -15046,7 +15046,7 @@ ai_will_do = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_the_gobi_gambit
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -15374,7 +15374,7 @@ ai_will_do = {
 		x = 3
 		y = 0
 		relative_position_id = SOV_the_threat_from_the_land_of_the_rising_sun
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -15441,7 +15441,7 @@ ai_will_do = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_reconcile_japan
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -16354,7 +16354,7 @@ ai_will_do = {
 		id = SOV_aristocratic_investments
 		icon = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
 		prerequisite = { focus = SOV_the_hands_do }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = SOV_the_hands_do 
 		cost = 10
@@ -16637,7 +16637,7 @@ ai_will_do = {
 		x = 2
 		y = 2
 		relative_position_id = SOV_reopen_novodevichi
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -16660,7 +16660,7 @@ ai_will_do = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_the_synod
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -16685,7 +16685,7 @@ ai_will_do = {
 		x = 0
 		y = 3
 		relative_position_id = SOV_the_declaration
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -16711,7 +16711,7 @@ ai_will_do = {
 		x = 2
 		y = 4
 		relative_position_id = SOV_rebuild_the_savior_cathedral
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -16837,7 +16837,7 @@ ai_will_do = {
 		x = 5
 		y = 1
 		relative_position_id = SOV_reconvene_the_zemsky_sobor
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -16958,7 +16958,7 @@ ai_will_do = {
 		x = -5
 		y = 1
 		relative_position_id = SOV_reconvene_the_zemsky_sobor
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -16981,11 +16981,11 @@ ai_will_do = {
 	focus = {
 		id = SOV_capital_of_the_tsars
 		icon = GFX_SOV_capital_of_the_tsars_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_romanov_reconstruction }
-		x = -2
+		prerequisite = { focus = SOV_aristocratic_investments }
+		x = 0
 		y = 1
-		relative_position_id = SOV_romanov_reconstruction
-		cost = 10
+		relative_position_id = SOV_aristocratic_investments
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -17215,7 +17215,7 @@ ai_will_do = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_reinstitute_the_mestnichestvo
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -17804,7 +17804,7 @@ ai_will_do = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_westward_bound
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -17840,7 +17840,7 @@ ai_will_do = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_westward_bound 
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
