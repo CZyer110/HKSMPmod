@@ -18024,7 +18024,7 @@ focus_tree = {
 
 		prerequisite = { focus = ITA_the_italian_republic }
 
-		x = -18
+		x = -15
 		y = 1
 		relative_position_id = ITA_the_italian_republic
 
@@ -18104,7 +18104,7 @@ focus_tree = {
 		icon = GFX_focus_chi_british_cooperation
 		prerequisite = { focus = ITA_abroad_politics }
 
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = ITA_abroad_politics
 		cost = 3
@@ -18165,7 +18165,7 @@ focus_tree = {
 				has_war_with = ENG
 			}
 		}
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = ITA_anglo_italian_defense_pact
 		cost = 10
@@ -18285,7 +18285,7 @@ focus_tree = {
 		
 		prerequisite = { focus = ITA_eng_colonies_for_industry }
 		
-		x = -2 
+		x = 0 
 		y = 1
 		
 		relative_position_id = ITA_eng_colonies_for_industry
@@ -18395,7 +18395,7 @@ focus_tree = {
 		icon = GFX_focus_focus_fra_ratify_stresa
 		prerequisite = { focus = ITA_fra_colonies_for_equipment_try }
 		prerequisite = { focus = ITA_eng_colonies_for_industry }
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = ITA_fra_colonies_for_equipment_try
 		cost = 10
@@ -18423,7 +18423,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		prerequisite = { focus = ITA_abroad_politics }
 
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = ITA_abroad_politics
 		cost = 5
@@ -18525,6 +18525,22 @@ focus_tree = {
 		icon = GFX_focus_IRQ_protector_of_the_gulf
 		prerequisite = { focus = ITA_expand_the_influence}
 
+		bypass = {
+			OR = {
+				ROOT = {
+					has_war_with = PER
+				}
+				
+				PER = {
+					exists = no
+				}
+				
+				PER = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		
 		x = 0
 		y = 1
 		relative_position_id = ITA_expand_the_influence
@@ -18597,7 +18613,7 @@ focus_tree = {
 	id = ITA_dominance_in_the_Arabian_Sea 
 		icon = GFX_focus_BEL_maritime_phoenix
 		prerequisite = { focus = ITA_domination_over_persia}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = ITA_domination_over_persia
 		cost = 10
@@ -18701,7 +18717,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_domination_over_persia}
 		prerequisite = { focus = ITA_fra_colonies_for_equipment_try}
 		
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = ITA_domination_over_persia
 		cost = 5
