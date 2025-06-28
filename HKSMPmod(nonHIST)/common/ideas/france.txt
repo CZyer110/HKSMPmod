@@ -1,7 +1,47 @@
 ideas = {
 
 	country = {
+		FRA_fatherland = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
 
+			allowed_civil_war = {
+				tag = FRA #stays with main country
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				war_support_factor = 0.1
+				conscription_factor = 0.20
+				max_surrender_limit_offset = 0.05
+			}
+		}
+		
+		FRA_family = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				tag = FRA #stays with main country
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+				monthly_population = 1
+				war_stability_factor = 0.1
+				consumer_goods_factor = 0.05
+			}
+		}
+		
 		FRA_full_employment = {
 			picture = generic_production_bonus
 			allowed = {
@@ -378,7 +418,8 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				production_factory_efficiency_gain_factor = 0.1
+				industrial_capacity_factory = 0.15
+				production_factory_max_efficiency_factor = -0.1
 			}
 		}
 		FRA_constitutional_revision = {
@@ -414,7 +455,27 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				fascism_drift = -0.1
+				communism_drift = -0.05
+				fascism_drift = -0.05
+			}
+		}
+		
+		FRA_public_welfare = {
+			picture = generic_oppression
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.05 
 			}
 		}
 
