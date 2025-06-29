@@ -1142,7 +1142,27 @@ focus_tree = {
 					}
 				}
 			}
+			
 			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			51 = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				prioritize = { 56 }
+				add_resource = {
+					type = tungsten
+					amount = 6
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_resource = {
+					type = chromium
+					amount = 6
+				}
+			}	
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
 			51 = {
 				add_building_construction = {
 					type = dam
@@ -1153,6 +1173,7 @@ focus_tree = {
 					}
 				}
 			}
+			
 			custom_effect_tooltip = {
 				localization_key = building_state_modifier|dam
 				INDENT = "    "
@@ -1565,6 +1586,7 @@ focus_tree = {
 					type = tungsten
 					amount = 12
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				add_resource = {
 					type = chromium
 					amount = 12
@@ -8071,7 +8093,6 @@ focus_tree = {
 			}
 
 			hidden_effect = {
-				set_rule = {can_join_factions = no}
 				if = {
 					limit = {
 						has_game_rule = {
