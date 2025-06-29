@@ -1,5 +1,5 @@
 immune_to_pause_block = {
-	OR = { 
+	OR = {  
 		has_country_flag = host 
 		tag = FRA 
 		tag = GER 

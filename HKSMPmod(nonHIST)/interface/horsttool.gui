@@ -1,4 +1,4 @@
-guiTypes = {
+guiTypes = { 
 
 ####################### 
 	containerWindowType = {
@@ -212,12 +212,21 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "whitepeace"	
-			position = {x=115 y=345}
+			position = {x=70 y=420}
 			spriteType = "GFX_relation_truce"
 					scale=1.8
 			pdx_tooltip = "WHITEPEACE"
 			pdx_tooltip_delayed = "WHITEPEACE_DELAYED"
 			#scale = 0.95
+		}
+		buttonType = {
+			name = "tpt_war_button"  
+			position = { x = 130 y = 420 }
+			spriteType = "GFX_war_truce"
+			scale = 1.0
+			pdx_tooltip = "TPT_WAR_TT"
+			pdx_tooltip_delayed = "TPT_WAR_DELAYED" 
+			scale = 0.9
 		}
 		buttonType = {
 			name = "add_color"   
@@ -229,15 +238,16 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "award_states" 
-			position = {x=250 y=310}	
+			position = {x=250 y=300}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
             		frame = 13
 			pdx_tooltip = "TRANSFER_STATES"
 			pdx_tooltip_delayed = "TRANSFER_STATES_DELAYED"
 		}
 		buttonType = {
 			name = "observer" 
-			position = {x=70 y=400}
+			position = {x=20 y=420}
 			spriteType = "GFX_observer_button"
          	pdx_tooltip = "OBSERVER"
 			pdx_tooltip_delayed = "OBSERVER_DELAYED"
@@ -245,47 +255,61 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "annex_country" 
-			position = {x=300 y=310}	
+			position = {x=300 y=300}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
             		frame = 2
 			pdx_tooltip = "ANNEX_COUNTRY"
 			pdx_tooltip_delayed = "ANNEX_COUNTRY_DELAYED"
 		}
 		buttonType = {
-			name = "add_compliance" 
-			position = {x=400 y=310}	
+			name = "add_cores" 
+			position = {x=350 y=300}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
+            		frame = 6
+			pdx_tooltip = "ADD_CORES"
+			pdx_tooltip_delayed = "ADD_CORES_DELAYED"
+		}
+		buttonType = {
+			name = "add_compliance" 
+			position = {x=400 y=300}	
+			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
                     frame = 14
 			pdx_tooltip = "ADD_COMPLIANCE"
 			pdx_tooltip_delayed = "ADD_COMPLIANCE_DELAYED"
 		}
 		buttonType = {
 			name = "add_compliance1" 
-			position = {x=400 y=350}	
+			position = {x=400 y=340}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
                     frame = 14
 			pdx_tooltip = "ADD_COMPLIANCE1"
 			pdx_tooltip_delayed = "ADD_COMPLIANCE_DELAYED"
 		}
 		buttonType = {
 			name = "add_cover" 
-			position = {x=450 y=310}	
+			position = {x=450 y=300}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
                     frame = 7
 			pdx_tooltip = "add_cover"
 			pdx_tooltip_delayed = "add_cover_DELAYED"
 		}
 		buttonType = {
 			name = "add_cover1" 
-			position = {x=450 y=350}	
+			position = {x=450 y=340}	
 			spriteType = "GFX_global_diplorequest_icons"
+			scale = 0.9
                     frame = 7
 			pdx_tooltip = "add_cover1"
 			pdx_tooltip_delayed = "add_cover_DELAYED"
 		}
 		buttonType = { 
 			name = "fix_production"  
-			position = {x=452 y=390}  	  
+			position = {x=452 y=380}  	  
 			spriteType = "GFX_topbar_production_horst_tool"
             		frame = 2
 			pdx_tooltip = "FIX_PRODUCTION_TT" 
@@ -293,44 +317,80 @@ guiTypes = {
 		}
 		buttonType = { 
 			name = "fix_xp"         
-			position = {x=401 y=390} 	    
-			spriteType = "GFX_endgame_army_button"
-			scale = 0.9
+			position = {x=401 y=380} 	    
+			spriteType = "GFX_fendgame_army_button"
+			scale = 0.85
             		#frame = 2    
 			pdx_tooltip = "FIX_XP_TT" 
 			pdx_tooltip_delayed = "FIX_XP_TT_DELAYED"
 		}
 		buttonType = { 
 			name = "fix_xp2"         
-			position = {x=350 y=390} 	    
-			spriteType = "GFX_endgame_convoys_button"
-			scale = 0.9
+			position = {x=350 y=380} 	    
+			spriteType = "GFX_fendgame_navy_button"
+			scale = 0.85
             		#frame = 2    
 			pdx_tooltip = "FIX_XP2_TT" 
 			pdx_tooltip_delayed = "FIX_XP2_TT_DELAYED"
 		}
 		buttonType = { 
 			name = "fix_xp3"         
-			position = {x=300 y=390} 	    
-			spriteType = "GFX_endgame_air_button"
-			scale = 0.9
+			position = {x=300 y=380} 	    
+			spriteType = "GFX_fendgame_air_button"
+			scale = 0.85
             		#frame = 2    
 			pdx_tooltip = "FIX_XP3_TT" 
 			pdx_tooltip_delayed = "FIX_XP3_TT_DELAYED"
 		}
 		buttonType = { 
 			name = "convoy48"         
-			position = {x=250 y=390} 	    
-			spriteType = "GFX_endgame_convoys_button"
-			scale = 0.9
+			position = {x=250 y=380} 	    
+			spriteType = "GFX_fendgame_convoys_button"
+			scale = 0.85
             		#frame = 2    
 			pdx_tooltip = "convoy48" 
 			pdx_tooltip_delayed = "convoy48_TT_DELAYED"
 		}
 		buttonType = { 
+			name = "remove_fix_xp"         
+			position = {x=401 y=425} 	    
+			spriteType = "GFX_remove_endgame_army_button"
+			scale = 0.85
+            		#frame = 2    
+			pdx_tooltip = "remove_FIX_XP_TT" 
+			pdx_tooltip_delayed = "FIX_XP_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "remove_fix_xp2"         
+			position = {x=350 y=425} 	    
+			spriteType = "GFX_remove_endgame_navy_button"
+			scale = 0.85
+            		#frame = 2    
+			pdx_tooltip = "remove_FIX_XP2_TT" 
+			pdx_tooltip_delayed = "FIX_XP2_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "remove_fix_xp3"         
+			position = {x=300 y=425} 	    
+			spriteType = "GFX_remove_endgame_air_button"
+			scale = 0.85
+            		#frame = 2    
+			pdx_tooltip = "remove_FIX_XP3_TT" 
+			pdx_tooltip_delayed = "FIX_XP3_TT_DELAYED"
+		}
+		buttonType = { 
+			name = "remove_convoy48"         
+			position = {x=250 y=425} 	    
+			spriteType = "GFX_remove_endgame_convoys_button"
+			scale = 0.85
+            		#frame = 2    
+			pdx_tooltip = "remove_convoy48" 
+			pdx_tooltip_delayed = "convoy48_TT_DELAYED"
+		}
+		buttonType = { 
 			name = "manpower_add"         
-			position = {x=120 y=290} 	    
-			spriteType = "GFX_endgame_manpower_button"
+			position = {x=20 y=280} 	    
+			spriteType = "GFX_fendgame_manpower_button"
 			scale = 0.9
             		#frame = 2    
 			pdx_tooltip = "manpower_add" 
@@ -338,8 +398,8 @@ guiTypes = {
 		}
 		buttonType = { 
 			name = "manpower_NO_add"         
-			position = {x=70 y=290} 	    
-			spriteType = "GFX_endgame_manpower_button"
+			position = {x=70 y=280} 	    
+			spriteType = "GFX_remove_endgame_manpower_button"
 			scale = 0.9
             		#frame = 2    
 			pdx_tooltip = "manpower_NO_add" 
@@ -347,8 +407,8 @@ guiTypes = {
 		}
 		buttonType = { 
 			name = "add_autonomy_ratio"         
-			position = {x=173 y=240} 	    
-			spriteType = "GFX_endgame_score_button"
+			position = {x=20 y=230} 	    
+			spriteType = "GFX_fendgame_score_button"
 			scale = 0.9
             		#frame = 2    
 			pdx_tooltip = "add_autonomy_ratio" 
@@ -356,33 +416,78 @@ guiTypes = {
 		}
 		buttonType = { 
 			name = "add_NO_autonomy_ratio"         
-			position = {x=120 y=240} 	    
-			spriteType = "GFX_endgame_score_button"
+			position = {x=70 y=230} 	    
+			spriteType = "GFX_remove_endgame_score_button"
 			scale = 0.9
             		#frame = 2    
 			pdx_tooltip = "add_NO_autonomy_ratio" 
 			pdx_tooltip_delayed = "add_NO_autonomy_ratio_TT_DELAYED"
 		}
+		buttonType = { 
+			name = "add_autonomy_free"         
+			position = {x=115 y=230} 	    
+			spriteType = "GFX_goal_continuous_boost_freedom"
+			scale = 0.55
+            		#frame = 2    
+			pdx_tooltip = "add_autonomy_free" 
+			pdx_tooltip_delayed = "add_autonomy_freeTT_DELAYED"
+		}
 		buttonType = {
 			name = "mill_add"	
-			position = {x=172 y=290}
+			position = {x=120 y=275}
 			spriteType = "GFX_horst_civ_plus"
 			pdx_tooltip = "MILADD"
 			pdx_tooltip_delayed = "MILADD_DELAYED"
-			scale = 0.95
+			scale = 0.9
 		}
 		buttonType = { 
 			name = "civ_add"	
-			position = {x=172 y=342}
+			position = {x=120 y=325}
 			spriteType = "GFX_horst_civ_pluss"
 			pdx_tooltip = "CIVADD"
 			pdx_tooltip_delayed = "CIVADD_DELAYED"
-			scale = 0.95
+			scale = 0.9
 		}
+
+		buttonType = {
+		name = "pingtool"	
+			position = {x=120 y=370}
+			spriteType = "GFX_horst_naval_pluss"
+		scale = 0.9
+			pdx_tooltip = "PINGTOOL"
+			pdx_tooltip_delayed = "PINGTOOL_DELAYED"
+		} 
+
+
+		buttonType = {
+			name = "remove_mill_add"	
+			position = {x=170 y=275}
+			spriteType = "GFX_horst_remove_civ_plus"
+			pdx_tooltip = "remove_MILADD"
+			pdx_tooltip_delayed = "remove_MILADD_DELAYED"
+			scale = 0.9
+		}
+		buttonType = { 
+			name = "remove_civ_add"	
+			position = {x=170 y=325}
+			spriteType = "GFX_horst_remove_civ_pluss"
+			pdx_tooltip = "remove_CIVADD"
+			pdx_tooltip_delayed = "remove_CIVADD_DELAYED"
+			scale = 0.9
+		}
+
+		buttonType = {
+		name = "remove_pingtool"	
+			position = {x=170 y=370}
+			spriteType = "GFX_horst_remove_naval_pluss"
+		scale = 0.9
+			pdx_tooltip = "remove_PINGTOOL"
+			pdx_tooltip_delayed = "remove_PINGTOOL_DELAYED"
+		} 
 		
 		buttonType = { 
 			name = "wt_add"	
-			position = {x=73 y=350}
+			position = {x=73 y=330}
 			spriteType = "GFX_horst_increase_wt"
 			pdx_tooltip = "WTADD"
 			pdx_tooltip_delayed = "WTADD_DELAYED"
@@ -391,28 +496,27 @@ guiTypes = {
 
 		buttonType = { 
 			name = "wt_remove"	
-			position = {x=25 y=350}
+			position = {x=25 y=330}
 			spriteType = "GFX_horst_decrease_wt"
 			pdx_tooltip = "WTREMOVE"
 			pdx_tooltip_delayed = "WTREMOVE_DELAYED"
 			scale = 0.8
 		}
-		
-	 buttonType = {
-		name = "pingtool"	
-			position = {x=165 y=392}
-			spriteType = "GFX_focus_generic_refit_civilian_ships"
-		scale = 0.63
-			pdx_tooltip = "PINGTOOL"
-			pdx_tooltip_delayed = "PINGTOOL_DELAYED"
-		} 
 		buttonType = {
 			name = "addpp"	
-			position = {x=112 y=392}
+			position = {x=15 y=365}
 			spriteType = "GFX_horst_addpp"
-            scale=1
+            scale=0.95
 			pdx_tooltip = "ADDPP"
 			pdx_tooltip_delayed = "ADDPP_DELAYED"
+		}
+		buttonType = {
+			name = "remove_addpp"	
+			position = {x=65 y=365} 
+			spriteType = "GFX_horst_remove_addpp"
+            scale=0.95
+			pdx_tooltip = "remove_ADDPP"
+			pdx_tooltip_delayed = "remove_ADDPP_DELAYED"
 		}
 ####################################################################
 		buttonType = {
@@ -475,6 +579,20 @@ guiTypes = {
 		buttonType = {
 			name = "cheat10"
 			position = {x=40 y=275}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+		buttonType = {
+			name = "cheat11"
+			position = {x=40 y=300}
+			spriteType = "GFX_generic_box_125"
+			scale= 1
+			
+		}
+		buttonType = {
+			name = "cheat12"
+			position = {x=40 y=328}
 			spriteType = "GFX_generic_box_125"
 			scale= 1
 			
@@ -704,16 +822,6 @@ guiTypes = {
 			format = left
 			alwaystransparent = yes
 		}	
-		
-		
-		buttonType = {
-			name = "add_cores" 
-			position = {x=350 y=310}	
-			spriteType = "GFX_global_diplorequest_icons"
-            		frame = 6
-			pdx_tooltip = "ADD_CORES"
-			pdx_tooltip_delayed = "ADD_CORES_DELAYED"
-		}
 		instantTextboxType = {
 			name = "cheat1_text"
 			position = {x=45 y=95}
@@ -797,6 +905,26 @@ guiTypes = {
 			format = left
 			alwaystransparent = yes
 		}
+		instantTextboxType = {
+			name = "cheat11_text"
+			position = {x=44 y=302 }
+			font = "hoi_18mbs"
+			text = "CHEAT12"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat12_text"
+			position = {x=44 y=330 }
+			font = "hoi_18mbs"
+			text = "CHEAT12"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
 		#пьяница который не поверил что спиздил хорст тул у Вади. А ты даже спасибо не говоришь...
 		buttonType = {
 			name = "toogle_mark" 
@@ -855,7 +983,7 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "toogle_mark" 
-			position = {x=40 y=35}
+			position = {x=20 y=35}
 			text = "Mark"
 			font = "hoi_24header"
 			spriteType = "GFX_sort_button_100x29"
@@ -863,7 +991,7 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "clear_all_markings" 
-			position = {x=180 y=30}
+			position = {x=140 y=30}
 			spriteType = "GFX_global_alert_icons"
             		frame = 38
 			pdx_tooltip = "CLEAR_ALL_MARKINGS"

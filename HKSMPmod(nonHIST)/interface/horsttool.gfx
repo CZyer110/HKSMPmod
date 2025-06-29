@@ -31,6 +31,32 @@ spriteTypes = {
         texturefile = "gfx/horst_gui/horsttool/horst_civ_pluss.dds"
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }	
+
+    spriteType = {
+        name = "GFX_horst_remove_civ_pluss"
+        texturefile = "gfx/horst_gui/horsttool/horst_remove_civ_pluss.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }	
+     spriteType = {
+        name = "GFX_horst_remove_civ_plus"
+        texturefile = "gfx/horst_gui/horsttool/horst_remove_civ_plus.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }	
+     spriteType = {
+        name = "GFX_horst_remove_naval_pluss"
+        texturefile = "gfx/horst_gui/horsttool/horst_remove_naval_pluss.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }	
+    spriteType = {
+        name = "GFX_war_truce"
+        texturefile = "gfx/horst_gui/horsttool/war_truce.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+     spriteType = {
+        name = "GFX_horst_naval_pluss"
+        texturefile = "gfx/horst_gui/horsttool/horst_naval_pluss.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }	
 		spriteType = {
         name = "GFX_annex_override" 
         texturefile = "gfx/interface/playerlobby_kick.dds"
@@ -57,13 +83,80 @@ spriteTypes = {
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
 	spriteType = {
-        name = "GFX_horst_addpp"
+        name = "GFX_horst_addpp" 
         texturefile = "gfx/horst_gui/horsttool/horst_addpp.dds"
+        effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+        name = "GFX_horst_remove_addpp"
+        texturefile = "gfx/horst_gui/horsttool/horst_remove_addpp.dds"
         effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
 	spriteType = {
 		name = "GFX_horst_pingtool"
 		texturefile = "gfx/horst_gui/horsttool/horst_pingtool.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+
+    spriteType = {
+		name = "GFX_fendgame_air_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_air_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_fendgame_army_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_army_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_fendgame_convoys_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_convoys_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_fendgame_manpower_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_manpower_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_fendgame_navy_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_navy_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_fendgame_score_button"
+		texturefile = "gfx/horst_gui/horsttool/fendgame_score_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+
+    spriteType = {
+		name = "GFX_remove_endgame_air_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_air_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_remove_endgame_army_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_army_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_remove_endgame_convoys_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_convoys_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_remove_endgame_manpower_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_manpower_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_remove_endgame_navy_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_navy_button.dds"
+		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+    }
+    spriteType = {
+		name = "GFX_remove_endgame_score_button"
+		texturefile = "gfx/horst_gui/horsttool/remove_endgame_score_button.dds"
 		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
     }
 	

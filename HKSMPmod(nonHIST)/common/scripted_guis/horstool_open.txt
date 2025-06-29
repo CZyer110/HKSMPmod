@@ -1,6 +1,6 @@
 scripted_gui = {
 		
-	tool_open= {
+	tool_open= { 
 		context_type = player_context
 		window_name = "horsttool_open_container"
 		visible = {	has_country_flag = host	}
@@ -46,6 +46,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -69,6 +70,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -91,6 +93,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -113,6 +116,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -135,6 +139,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -157,6 +162,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.32 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -179,6 +185,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -202,6 +209,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -224,6 +232,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -246,6 +255,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -268,6 +278,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -290,6 +301,7 @@ scripted_gui = {
 						}
 					}
 					}
+					news_event = { id = horsttool.33 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -317,6 +329,12 @@ scripted_gui = {
 					var:marks = { add_political_power = 50 news_event = { id = news.4002 } }
 				}
 			}
+			remove_addpp_click = {
+				owner={
+					set_temp_variable = { ROOT.marks = this}
+					var:marks = { add_political_power = -50 news_event = { id = news.4008 } }
+				}
+			}
 			
 			whitepeace_click  = {
 				owner={
@@ -327,6 +345,33 @@ scripted_gui = {
 					}
 
 				}
+			}
+			tpt_war_button_click = {
+
+				owner={ set_variable = { ROOT.taker = this}}
+				var:ROOT.marked_states^0={owner={set_variable={ROOT.target=this   } }}
+				if={	limit={check_variable={ROOT.target=ROOT.taker}}	}
+				else={
+					var:ROOT.target={
+							    declare_war_on = {
+						            target = FROM
+						            type = annex_everything
+					            }
+							}
+						
+				}
+					
+				ROOT = {
+					for_each_scope_loop={
+						array=marked_states
+						clear_variable=mark_status
+					}
+					clear_array=marked_states
+					clear_variable=target
+					clear_variable=taker
+					clear_variable=first_marked_state
+				}
+				
 			}
 		
 			clear_all_markings_click = {
@@ -339,15 +384,20 @@ scripted_gui = {
 				}
 			}
 			
-			add_cores_click = {
+			add_cores_click = { 
 				owner={
 					set_temp_variable = { ROOT.taker = this}
 					for_each_loop={
 						array=ROOT.marked_states
 						value=state
-						var:state={add_core_of=var:taker}
+						var:state={
+							add_core_of=var:taker
+						}
 					}
+					
+					
 					ROOT = {
+					news_event = { id = horsttool.1000 days = 0}
 						for_each_scope_loop={
 							array=marked_states
 							clear_variable=mark_status
@@ -357,6 +407,10 @@ scripted_gui = {
 					}
 				}
 			}
+
+
+
+
 			add_compliance_click = { 
 				owner={
 					set_temp_variable = { ROOT.taker = this}
@@ -365,6 +419,7 @@ scripted_gui = {
 						value=state
 						var:state = { add_compliance = 100}
 					}
+					news_event = { id = horsttool.1001 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -383,6 +438,7 @@ scripted_gui = {
 						value=state
 						var:state = { add_compliance = -100}
 					}
+					news_event = { id = horsttool.1003 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -401,6 +457,7 @@ scripted_gui = {
 						value=state
 						var:state = { add_resistance = 75}
 					}
+					news_event = { id = horsttool.1002 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -419,6 +476,7 @@ scripted_gui = {
 						value=state
 						var:state = { add_resistance = -75}
 					}
+					news_event = { id = horsttool.1004 days = 0}
 					ROOT = {
 						for_each_scope_loop={
 							array=marked_states
@@ -439,6 +497,37 @@ scripted_gui = {
 			manpower_NO_add_click = { owner = { news_event = { id = news.4118 } add_manpower = -10000 }  }
 			add_autonomy_ratio_click = { owner = { news_event = { id = news.4119 } add_autonomy_ratio = { value = 0.1 } }  } 
 			add_NO_autonomy_ratio_click = { owner = { news_event = { id = news.4120 } add_autonomy_ratio = { value = -0.1 } }  }
+			remove_fix_xp_click = { owner = { news_event = { id = news.4121 } army_experience = -25 }  }
+			remove_fix_xp2_click = { owner = { news_event = { id = news.4122 } navy_experience = -25 }  }
+			remove_fix_xp3_click = { owner = { news_event = { id = news.4123 } air_experience = -25 }  }
+			remove_convoy48_click = { owner = { news_event = { id = news.4124 } add_equipment_to_stockpile = { type = convoy_1 amount = -50 } }  }
+
+
+            add_autonomy_free_click = {
+				owner={ set_variable = { ROOT.taker = this}}
+				var:ROOT.marked_states^0={owner={set_variable={ROOT.target=this   }news_event = { id = news.4125 days = 0} }}
+				if={	limit={check_variable={ROOT.target=ROOT.taker}}	}
+				else={
+					var:ROOT.target={
+							    set_autonomy = {
+							        target = PREV
+							        autonomy_state = autonomy_free
+						        }
+							}
+						
+				}
+					
+				ROOT = {
+					for_each_scope_loop={
+						array=marked_states
+						clear_variable=mark_status
+					}
+					clear_array=marked_states
+					clear_variable=target
+					clear_variable=taker
+					clear_variable=first_marked_state
+				}
+			}
 
 			award_states_click = {
 
@@ -477,7 +566,9 @@ scripted_gui = {
 					if={limit={check_variable={Root.selected_cheat=5}} add_stability  = 0.01 }
 					if={limit={check_variable={Root.selected_cheat=6}} add_war_support = 0.01 }
 					if={limit={check_variable={Root.selected_cheat=7}} add_research_slot = 1 }
-					if={limit={check_variable={Root.selected_cheat=10}}  }
+					if={limit={check_variable={Root.selected_cheat=10}} add_research_slot = -1 }
+					if={limit={check_variable={Root.selected_cheat=11}} add_war_support = -0.01 }
+					if={limit={check_variable={Root.selected_cheat=12}} add_stability  = -0.01 }
 					}
 				}
 				GER={
@@ -542,9 +633,21 @@ scripted_gui = {
 				set_variable={ROOT.first_marked_state=ROOT.marked_states^0}
 			}
 
-			pingtool_click = {  owner={ news_event = { id = horsttool.13 days = 0} add_offsite_building = { type = dockyard level = 1 }}}
+
+
+
+			pingtool_click = {  
+				owner = { 
+					news_event = { id = horsttool.13 days = 0} 
+					add_offsite_building = { type = dockyard level = 1 }
+				}
+			}
 			mill_add_click = { owner={ news_event = { id = horsttool.11 days = 0} add_offsite_building = { type = arms_factory level = 1 }}} 
 			civ_add_click = { owner={ news_event = { id = horsttool.12 days = 0} add_offsite_building = { type = industrial_complex level = 1 }}}
+
+			remove_pingtool_click = {  owner={ news_event = { id = horsttool.16 days = 0} add_offsite_building = { type = dockyard level = -1 }}}
+			remove_mill_add_click = { owner={ news_event = { id = horsttool.18 days = 0} add_offsite_building = { type = arms_factory level = -1 }}} 
+			remove_civ_add_click = { owner={ news_event = { id = horsttool.17 days = 0} add_offsite_building = { type = industrial_complex level = -1 }}}
 
 			horsttool_helpbutton_click = { ROOT = { country_event = { id =  horsthelp.2 } } }
 
@@ -612,6 +715,9 @@ scripted_gui = {
 			cheat6_click={set_variable={Root.selected_cheat=6} ROOT={clr_country_flag=cheating}}
 			cheat7_click={set_variable={Root.selected_cheat=7} ROOT={clr_country_flag=cheating}}
 			cheat10_click={set_variable={Root.selected_cheat=10} ROOT={clr_country_flag=cheating}}
+			cheat11_click={set_variable={Root.selected_cheat=11} ROOT={clr_country_flag=cheating}}
+			cheat12_click={set_variable={Root.selected_cheat=12} ROOT={clr_country_flag=cheating}}
+
 				
 			debuff1_click={if={limit={Root={has_country_flag=debuffing}} set_variable={Root.selected_debuff=1} ROOT={clr_country_flag=debuffing}} else={ROOT={set_country_flag=debuffing}}	}
 			debuff2_click={set_variable={Root.selected_debuff=2} ROOT={clr_country_flag=debuffing}}
@@ -661,6 +767,8 @@ scripted_gui = {
 
 			
 			annex_country_click_enabled = {	check_variable = { ROOT.marked_states^num > 0 }	}
+			tpt_war_button_click_enabled = {	check_variable = { ROOT.marked_states^num > 0 }	}
+			add_autonomy_free_click_enabled = {	check_variable = { ROOT.marked_states^num > 0 }	}
 
 			cheat1_visible={}
 			cheat1_text_visible={}
@@ -678,6 +786,10 @@ scripted_gui = {
 			cheat7_text_visible={ROOT={has_country_flag=cheating}}
 			cheat10_visible={ROOT={has_country_flag=cheating}}
 			cheat10_text_visible={ROOT={has_country_flag=cheating}}
+			cheat11_visible={ROOT={has_country_flag=cheating}}
+			cheat11_text_visible={ROOT={has_country_flag=cheating}}
+			cheat12_visible={ROOT={has_country_flag=cheating}}
+			cheat12_text_visible={ROOT={has_country_flag=cheating}}
 
 			award_states_click_enabled = {	check_variable = { ROOT.marked_states^num > 0 }	}
 
