@@ -4,6 +4,6 @@ tags={
 	"Balance"
 }
 name="HKS MPmod (nonHIST)"
-supported_version="1.16.4"
-path="C:/Users/s1102/OneDrive/Documents/Paradox Interactive/Hearts of Iron IV/mod/HKSMPmod(nonHIST)"
+supported_version="1.16.9"
+path="mod/HKSMPmod(nonHIST)"
 remote_file_id="3465579031"
