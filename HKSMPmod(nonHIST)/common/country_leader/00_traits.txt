@@ -927,9 +927,8 @@ leader_traits = {
 
 	constitutional_monarch = {
 		random = no
-		political_power_gain = 0.25
-		army_attack_against_major_factor = 0.05
-		army_defence_against_major_factor = 0.1
+		stability_factor = 0.05
+		political_power_factor = 0.15
 		weekly_casualties_war_support = 0.003
 		ai_will_do = {
 			factor = 1
