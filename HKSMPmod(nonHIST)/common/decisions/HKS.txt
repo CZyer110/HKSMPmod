@@ -1,4 +1,4 @@
-HKS_decisions {	
+HKS_decisions = {	
 	HKS_Garrison_template = { #Гарнизонная дивка
 		icon = GFX_decision_generic_cavalry
 		fire_only_once = yes

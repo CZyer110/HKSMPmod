@@ -8347,41 +8347,17 @@
 		y = 0
 
 		offset = {
-			x = -16
+			x = -15
 			y = 0
 			trigger = {
 				NOT = { has_dlc = "La Resistance" }
 			}
 		}
 		offset = {
-			x = -12
+			x = -11
 			y = 0
 			trigger = {
 				NOT = { has_dlc = "La Resistance"}
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FRA_form_the_popular_front
-			}
-		}
-		offset = {
-			x = -9
-			y = 0
-			trigger = {
-				NOT = { has_dlc = "La Resistance"}
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FRA_revive_the_national_bloc
-			}
-		}
-		offset = {
-			x = -27
-			y = 0
-			trigger = {
-				has_dlc = "La Resistance"
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
@@ -8393,6 +8369,30 @@
 			x = -8
 			y = 0
 			trigger = {
+				NOT = { has_dlc = "La Resistance"}
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = FRA_revive_the_national_bloc
+			}
+		}
+		offset = {
+			x = -26
+			y = 0
+			trigger = {
+				has_dlc = "La Resistance"
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = FRA_form_the_popular_front
+			}
+		}
+		offset = {
+			x = -7
+			y = 0
+			trigger = {
 				has_dlc = "La Resistance"
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
@@ -8402,7 +8402,7 @@
 			}
 		}
 		offset = {
-			x = -10
+			x = -9
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8414,7 +8414,7 @@
 			}
 		}
 		offset = {
-			x = -6
+			x = -5
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8426,7 +8426,7 @@
 			}
 		}
 		offset = {
-			x = -3
+			x = -2
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8439,7 +8439,7 @@
 			}
 		}
 		offset = {
-			x = -20
+			x = -19
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8452,7 +8452,7 @@
 			}
 		}
 		offset = {
-			x = -11
+			x = -10
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8464,7 +8464,7 @@
 			}
 		}
 		offset = {
-			x = -17
+			x = -16
 			y = 0
 			trigger = {
 				has_dlc = "La Resistance"
@@ -8492,8 +8492,6 @@
 		}
 
 		completion_reward = {
-			navy_experience = 25
-
 			random_owned_controlled_state = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
@@ -8512,9 +8510,6 @@
 					}
 				set_state_flag = FRA_naval_rearmament_2NB
 			}
-
-				
-			
 
 			random_owned_controlled_state = {
 				limit = {
@@ -8535,119 +8530,25 @@
 					}
 				set_state_flag = FRA_naval_rearmament_2NB
 			}
-		}
-	}
-
-	focus = {
-		id = FRA_colonial_naval_bases
-		icon = GFX_goal_generic_build_navy
-	 	prerequisite = { focus = FRA_naval_rearmament }
-		x = -3
-		y = 1
-		relative_position_id = FRA_naval_rearmament
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			459 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 1145
-						instant_build = yes
+			
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
 					}
-					set_state_flag = FRA_colonial_naval_bases
-				}
-			}
-			272 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 4948
-						instant_build = yes
-					}
-					set_state_flag = FRA_colonial_naval_bases
-				}
-			}
-			539 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 5139
-						instant_build = yes
-					}
-					set_state_flag = FRA_colonial_naval_bases
-				}
-			}
-			286 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-						type = naval_base
-						level = 3
-						province = 4401
-						instant_build = yes
-					}
-					set_state_flag = FRA_colonial_naval_bases
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FRA_develop_colonial_dockyards
-		icon = GFX_goal_generic_construct_naval_dockyard
-	 	prerequisite = { focus = FRA_colonial_naval_bases }
-		x = 0
-		y = 1
-		relative_position_id = FRA_colonial_naval_bases
-		cost = 10
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			459 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_extra_state_shared_building_slots = 2
+					prioritize = { 19 } #Bordo
+	
+				add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = dockyard
 						level = 2
 						instant_build = yes
 					}
-					set_state_flag = FRA_colonial_dockyards
-				}
-			}
-			272 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = dockyard
-						level = 2
-						instant_build = yes
-					}
-					set_state_flag = FRA_colonial_dockyards
-				}
-			}
-			286 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = dockyard
-						level = 2
-						instant_build = yes
-					}
-					set_state_flag = FRA_colonial_dockyards
-				}
+				set_state_flag = FRA_naval_rearmament_2NB
 			}
 		}
 	}
@@ -8657,7 +8558,7 @@
 		icon = GFX_focus_generic_navy_battleship2
 	 	prerequisite = { focus = FRA_naval_rearmament }
 	 	mutually_exclusive = { focus = FRA_the_young_school }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = FRA_naval_rearmament
 		cost = 10
@@ -8665,26 +8566,14 @@
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			random_owned_state = {
-				limit = {
-					is_core_of = ROOT
-					is_coastal = yes
-					is_controlled_by = ROOT
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 3
-					instant_build = yes
-				}
-			}
+			navy_experience = 20
+			add_ideas = FRA_the_old_school
 		}
 	}
 
 	focus = {
 		id = FRA_capital_ship_focus
 		icon = GFX_goal_generic_navy_battleship
-	 	mutually_exclusive = { focus = FRA_carrier_focus }
 	 	prerequisite = { focus = FRA_the_old_school }
 		x = -1
 		y = 1
@@ -8694,20 +8583,19 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
+			navy_experience = 20
 			add_tech_bonus = {
 				name = FRA_capital_ship_focus
-				bonus = 1.0
-				uses = 2
+				bonus = 1.5
+				uses = 1
 				category = bb_tech
-				category = bc_tech
 			}
 		}
 	}
-
+	
 	focus = {
-		id = FRA_carrier_focus
-		icon = GFX_goal_generic_navy_carrier
-	 	mutually_exclusive = { focus = FRA_capital_ship_focus }
+		id = FRA_surface_combat
+		icon = GFX_focus_generic_destroyer
 	 	prerequisite = { focus = FRA_the_old_school }
 		x = 1
 		y = 1
@@ -8717,33 +8605,18 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
+			navy_experience = 20
 			add_tech_bonus = {
-				name = FRA_carrier_focus
+				name = FRA_surface_combat
 				bonus = 1.0
-				uses = 2
-				category = cv_tech
+				uses = 1
+				category = dd_tech
 			}
-		}
-	}
-
-	focus = {
-		id = FRA_carrier_planes
-		icon = GFX_goal_generic_air_fighter
-
-	 	prerequisite = { focus = FRA_carrier_focus }
-		x = -1
-		y = 1
-		relative_position_id = FRA_carrier_focus
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
 			add_tech_bonus = {
-				name = FRA_carrier_focus
-				bonus = 1.0
-				uses = 2
-				category = naval_air
+				name = FRA_surface_combat
+				bonus = 0.5
+				uses = 3
+				category = asw_tech
 			}
 		}
 	}
@@ -8754,117 +8627,55 @@
 
 	 	prerequisite = { focus = FRA_capital_ship_focus }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = FRA_capital_ship_focus
 		cost = 10
 
-		available_if_capitulated = no
-
-		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "FRA" 
-						version_name = "Richelieu Class"
-					}
-					requested_factories = 1
-					progress = 0.50
-					amount = 1
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_heavy_2
-						creator = "FRA" 
-						version_name = "Richelieu Class"
-					}
-					requested_factories = 1
-					progress = 0.35
-					amount = 1
-				}
-			}
-			else = {
-				add_equipment_production = {
-					equipment = {
-						type = battleship_2
-						creator = "FRA" 
-					}
-					requested_factories = 1
-					progress = 0.50
-					amount = 1
-				}
-				add_equipment_production = {
-					equipment = {
-						type = battleship_2
-						creator = "FRA" 
-					}
-					requested_factories = 1
-					progress = 0.35
-					amount = 1
-				}
-			}
+		available = {
+			is_special_project_completed = sp:sp_naval_super_heavy_battleship
 		}
-	}
-	focus = {
-		id = FRA_prioritize_the_joffre
-		icon = GFX_goal_generic_navy_carrier
-
-	 	prerequisite = { focus = FRA_carrier_focus }
-		x = 0
-		y = 2
-		relative_position_id = FRA_carrier_focus
-		cost = 10
 
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
+			navy_experience = 20
+			create_equipment_variant = {
+				name = "Napoleon"
+				type = ship_hull_super_heavy_1
+				name_group = FRA_BB_HISTORICAL
+				parent_version = 0
+				allow_without_tech = yes
+				design_team = mio:FRA_acl_organization 
+				modules = {
+					fixed_ship_anti_air_slot = ship_anti_air_2 
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = heavy_ship_engine_2 
+					fixed_ship_secondaries_slot = dp_ship_secondaries_2
+					fixed_ship_armor_slot = ship_armor_shbb 
+							
+					fixed_ship_battery_slot = ship_super_heavy_battery_1
+							
+					front_1_custom_slot = ship_super_heavy_battery_1 
+					front_2_custom_slot = ship_super_heavy_battery_1 
+							
+					mid_1_custom_slot = ship_anti_air_2 
+					mid_2_custom_slot = ship_anti_air_2 
+					mid_3_custom_slot = ship_anti_air_2 
+							
+					rear_1_custom_slot  = ship_super_heavy_battery_1 
+					rear_2_custom_slot  = ship_super_heavy_battery_1 
 				}
-				set_technology = { basic_ship_hull_carrier = 1 }
-				custom_effect_tooltip = FRA_prioritize_the_joffre_tt
-				hidden_effect = {
-					create_equipment_variant = {
-						name = "Joffre Class"
-						type = ship_hull_carrier_1
-						name_group = FRA_CV_HISTORICAL
-						parent_version = 0
-						modules = {
-							fixed_ship_deck_slot_1 = ship_deck_space
-							fixed_ship_deck_slot_2 = ship_deck_space
-							fixed_ship_anti_air_slot = ship_anti_air_1
-							fixed_ship_radar_slot = empty
-							fixed_ship_engine_slot = carrier_ship_engine_2
-							fixed_ship_secondaries_slot = dp_ship_secondaries_2
-							front_1_custom_slot = empty
-						}
-					}
-					add_equipment_production = {
-						equipment = {
-							type = ship_hull_carrier_1
-							creator = "FRA" 
-							version_name = "Joffre Class"
-						}
-						requested_factories = 1
-						progress = 0.40
-						amount = 1
-					}
-				}	
 			}
-			else = {
-				add_equipment_production = {
+			add_equipment_production = {
 					equipment = {
-						type = carrier_2
+						type = ship_hull_super_heavy_1
 						creator = "FRA" 
+						version_name = "Napoleon"
 					}
 					requested_factories = 1
-					progress = 0.40
+					progress = 0.50
 					amount = 1
-				}
 			}
 		}
 	}
@@ -8873,7 +8684,7 @@
 		icon = GFX_goal_generic_navy_cruiser
 	 	prerequisite = { focus = FRA_naval_rearmament }
 	 	mutually_exclusive = { focus = FRA_the_old_school }
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = FRA_naval_rearmament
 		cost = 10
@@ -8881,6 +8692,7 @@
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			navy_experience = 20
 			add_ideas = FRA_the_young_school
 		}
 	}
@@ -8897,19 +8709,40 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-			navy_experience = 25
+			navy_experience = 20
 			add_tech_bonus = {
 				name = FRA_undersea_combat
-				bonus = 1.0
-				uses = 2
+				bonus = 1.5
+				uses = 1
 				category = ss_tech
 			}
 		}
 	}
+	
+	focus = {
+		id = FRA_fleet_submarine 
+		icon = GFX_goal_generic_navy_submarine
+	 	prerequisite = { focus = FRA_undersea_combat }
+		x = 0
+		y = 1
+		relative_position_id = FRA_undersea_combat
+		cost = 10
+		
+		available = {
+			is_special_project_completed = sp:sp_naval_cruiser_submarine
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 20
+			complete_special_project = sp:sp_naval_fleet_submarine 
+		}
+	}
 
 	focus = {
-		id = FRA_surface_combat
-		icon = GFX_focus_generic_destroyer
+		id = FRA_carrier_focus
+		icon = GFX_goal_generic_navy_carrier
 	 	prerequisite = { focus = FRA_the_young_school }
 		x = 1
 		y = 1
@@ -8919,39 +8752,57 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-			navy_experience = 25
+			navy_experience = 20
 			add_tech_bonus = {
-				name = FRA_surface_combat
-				bonus = 2.0
+				name = FRA_carrier_focus
+				bonus = 1.5
 				uses = 1
-				category = dd_tech
+				category = cv_tech
 			}
 		}
 	}
+	
+	focus = {
+		id = FRA_prioritize_the_joffre
+		icon = GFX_goal_generic_navy_carrier
+
+	 	prerequisite = { focus = FRA_carrier_focus }
+		x = 0
+		y = 1
+		relative_position_id = FRA_carrier_focus
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			navy_experience = 20
+			set_technology = {
+				air_torpedoe_2 = 1
+			}
+		}
+	}
+
 	focus = {
 		id = FRA_improved_screen_ships
 		icon = GFX_goal_generic_navy_cruiser
 	 	prerequisite = { focus = FRA_surface_combat }
-	 	prerequisite = { focus = FRA_undersea_combat }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = FRA_surface_combat
 		cost = 10
 
 		available_if_capitulated = yes
 
 		completion_reward = {
-			navy_experience = 25
+			navy_experience = 20
 			add_tech_bonus = {
 				name = FRA_improved_screen_ships
-				bonus = 2.0
+				bonus = 1.5
 				uses = 1
 				category = cl_tech
 			}
 		}
 	}
-
-	
 
 	focus = {
 		id = FRA_naval_doctrine
@@ -8960,8 +8811,9 @@
 	 		focus = FRA_prioritize_the_joffre
 	 		focus = FRA_rush_the_richelieus
 	 		focus = FRA_improved_screen_ships
+			focus = FRA_fleet_submarine
 	 	}
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = FRA_rush_the_richelieus
 		cost = 10
@@ -8969,13 +8821,34 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-
+			navy_experience = 50
 			add_doctrine_cost_reduction = {
 				name = FRA_naval_doctrine
-				cost_reduction = 0.5
-				uses = 2
+				cost_reduction = 0.75
+				uses = 3
 				category = naval_doctrine
 			}
+		}
+	}
+	
+	focus = {
+		id = FRA_colonial_naval_bases
+		icon = GFX_goal_generic_build_navy
+	 	prerequisite = { 
+	 		focus = FRA_prioritize_the_joffre
+	 		focus = FRA_rush_the_richelieus
+	 		focus = FRA_improved_screen_ships
+			focus = FRA_fleet_submarine
+	 	}
+		x = 4
+		y = 1
+		relative_position_id = FRA_rush_the_richelieus
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = FRA_colonial_naval_bases
 		}
 	}
 
@@ -9019,48 +8892,8 @@
 
 		completion_reward = {
 			air_experience = 25
-
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = air_base
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = FRA_air_focus_2air
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = air_base
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = FRA_air_focus_2air
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = air_base
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = FRA_air_focus_2air
+			mio:FRA_morane_saulnier_organization = {
+				add_mio_size = 3 
 			}
 		}
 	}
@@ -9068,7 +8901,6 @@
 	focus = {
 		id = FRA_fighter_focus
 		icon = GFX_goal_generic_air_fighter
-		mutually_exclusive = { focus = FRA_bomber_focus }
 	 	prerequisite = { focus = FRA_air_focus }
 		x = -1
 		y = 1
@@ -9080,30 +8912,9 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = FRA_fighter_focus
-				bonus = 1.0
+				bonus = 1.5
 				uses = 1
-				category = light_fighter
-			}
-		}
-	}
-
-	focus = {
-		id = FRA_heavy_fighter_focus
-		icon = GFX_goal_generic_air_fighter2
-	 	prerequisite = { focus = FRA_fighter_focus }
-		x = -1
-		y = 1
-		relative_position_id = FRA_fighter_focus
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = FRA_heavy_fighter_focus
-				bonus = 1.0
-				uses = 2
-				category = cat_heavy_fighter
+				category = light_air
 			}
 		}
 	}
@@ -9111,7 +8922,6 @@
 	focus = {
 		id = FRA_bomber_focus
 		icon = GFX_goal_generic_air_bomber
-		mutually_exclusive = { focus = FRA_fighter_focus }
 	 	prerequisite = { focus = FRA_air_focus }
 		x = 1
 		y = 1
@@ -9123,9 +8933,33 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = FRA_bomber_focus
-				bonus = 1.0
+				bonus = 1.5
 				uses = 1
-				category = tactical_bomber
+				category = medium_air
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_heavy_fighter_focus
+		icon = GFX_goal_generic_air_fighter2
+	 	prerequisite = { 
+	 		focus = FRA_fighter_focus 
+	 		focus = FRA_bomber_focus
+	 	}
+		x = -1
+		y = 1
+		relative_position_id = FRA_fighter_focus
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_heavy_fighter_focus
+				bonus = 0.5
+				uses = 3
+				category = plane_modules_tech
 			}
 		}
 	}
@@ -9149,52 +8983,29 @@
 
 			add_doctrine_cost_reduction = {
 				name = FRA_air_doctrine
-				cost_reduction = 0.5
+				cost_reduction = 0.75
 				uses = 2
 				category = air_doctrine
 			}
 		}
 	}
-
+	
 	focus = {
-		id = FRA_heavy_bomber_focus
-		icon = GFX_goal_generic_occupy_start_war
-	 	prerequisite = { focus = FRA_bomber_focus }
-		x = 1
-		y = 1
-		relative_position_id = FRA_bomber_focus
-		cost = 10
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = FRA_heavy_bomber_focus
-				bonus = 1.0
-				uses = 2
-				category = cat_strategic_bomber
-			}
-		}
-	}
-
-	focus = {
-		id = FRA_naval_bomber_focus
-		icon = GFX_goal_generic_air_naval_bomber
-	 	prerequisite = { focus = FRA_bomber_focus }
+		id = FRA_radar_technology
+		icon = GFX_goal_generic_air_doctrine
+	 	prerequisite = { 
+	 		focus = FRA_fighter_focus 
+	 		focus = FRA_bomber_focus
+	 	}
 		x = 3
 		y = 1
-		relative_position_id = FRA_bomber_focus
-		cost = 10
-
+		relative_position_id = FRA_fighter_focus
+		cost = 5
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = FRA_naval_bomber_focus
-				bonus = 1.0
-				uses = 2
-				category = naval_bomber
-			}
+			complete_special_project = sp:sp_air_radar
 		}
 	}
 }

@@ -1,6 +1,25 @@
 ideas = {
 
 	country = {
+		FRA_colonial_naval_bases = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				tag = FRA #stays with main country
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.1
+				production_speed_dockyard_factor = 0.15
+			}
+		}
+
 		FRA_fatherland = {
 			picture = generic_production_bonus
 			allowed = {
@@ -1357,7 +1376,28 @@ ideas = {
 			picture = generic_navy_bonus
 			
 			modifier = {
-				industrial_capacity_dockyard = 0.05
+				naval_torpedo_cooldown_factor = -0.25
+			}
+		}
+		
+		FRA_the_old_school = {
+			
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_navy_bonus
+			
+			modifier = {
+				navy_capital_ship_attack_factor = 0.15
+				navy_screen_attack_factor = 0.15
 			}
 		}
 
@@ -1679,9 +1719,7 @@ ideas = {
 					stability_weekly = 0.002					
 				}
 		}
-		
 	}
-	
 	tank_manufacturer = {
 
 		designer = yes
@@ -2041,6 +2079,5 @@ ideas = {
 				factor = 0.5
 			}
 		}
-
 	}
 }

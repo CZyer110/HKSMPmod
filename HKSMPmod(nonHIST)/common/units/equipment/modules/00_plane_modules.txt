@@ -843,7 +843,7 @@ equipment_modules = {
 		}
 		mission_type_stats = {
 			limit = {
-				## attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 1
@@ -893,7 +893,7 @@ equipment_modules = {
 		}
 		mission_type_stats = {
 			limit = {
-				## attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 2
@@ -943,7 +943,7 @@ equipment_modules = {
 		}
 		mission_type_stats = {
 			limit = {
-				## attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 2
@@ -993,7 +993,7 @@ equipment_modules = {
 		}
 		mission_type_stats = {
 			limit = {
-				## attack_logistics
+				 cas
 			}
 			add_stats = {
 				air_ground_attack = 2

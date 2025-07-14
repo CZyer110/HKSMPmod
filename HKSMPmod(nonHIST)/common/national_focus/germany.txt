@@ -1146,10 +1146,6 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
 			51 = {
-				limit = {
-					is_fully_controlled_by = ROOT
-				}
-				prioritize = { 56 }
 				add_resource = {
 					type = tungsten
 					amount = 6
