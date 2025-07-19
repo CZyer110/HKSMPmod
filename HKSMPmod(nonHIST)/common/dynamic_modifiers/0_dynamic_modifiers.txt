@@ -386,6 +386,19 @@ sibir_snabzenie = {
 	state_production_speed_supply_node_factor = 3.0
 }
 
+
+JAP_treade_teretori_debaf = {
+	enable = { always = yes }
+
+	icon = GFX_unplanned_offensive
+
+
+	research_speed_factor = JAP_isledovanie
+	production_speed_industrial_complex_factor = JAP_stroitelstvo_fabrik
+	industrial_capacity_factory = JAP_obem
+
+}
+
 POL_plan_modifier = {
 	enable = { always = yes }
 
@@ -1279,7 +1292,7 @@ malaria = {
 	
 }
 JAP_core_slot = {
-	enable = { always = yes  }
+	enable = { always = yes }
 	remove_trigger = {
 		ROOT = {
 			NOT = {
@@ -1289,8 +1302,8 @@ JAP_core_slot = {
 			} # ROOT refers to the state on which the modifier is added
 		}
 	}
-	global_building_slots_factor = 0.75
 	icon = GFX_modifiers_SWE_hygienic_housing
+	local_building_slots_factor = 0.25
 }
 
 

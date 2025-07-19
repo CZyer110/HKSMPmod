@@ -1117,7 +1117,7 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			HOL = { country_event = { id = wtt_japan.1 } }
+			HOL = { country_event = { id = wtt_japan.132 days = 6  }}
 		}
 	}
 
@@ -1152,7 +1152,7 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			ENG = { country_event = { id = wtt_japan.1 } }
+			ENG = { country_event = { id = wtt_japan.131 } }
 		}
 	}
 
@@ -1190,7 +1190,7 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			FRA = { country_event = { id = wtt_japan.1 } }
+			FRA = { country_event = { id = wtt_japan.133 } }
 		}
 	}
 
@@ -1226,7 +1226,7 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			POR = { country_event = { id = wtt_japan.1 } }
+			POR = { country_event = { id = wtt_japan.134 } }
 		}
 	}
 
@@ -1268,21 +1268,15 @@ JAP_pacific_guardian = {
 		}
 	}
 
-	JAP_guardian_of_PHI = {
+	JAP_guardian_of_usa = {
 
 		icon = jap_pacific_guardian
 
 		available = {
 			USA = {
 				#has_capitulated = yes
-				NOT = { has_war_with = ROOT }
-			}
-			PHI = {
-				is_puppet_of = USA
-			}
-			USA = {
-				#has_capitulated = yes
-				NOT = { has_war_with = ROOT }
+
+				NOT =  { has_war_with = ROOT}
 				OR = {
 					has_full_control_of_state = 638
 				}
@@ -1306,7 +1300,7 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			USA = { country_event = { id = wtt_japan.1 } }
+			USA = { country_event = { id = wtt_japan.135 } }
 		}
 	}
 }

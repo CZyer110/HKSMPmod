@@ -1331,6 +1331,37 @@ ideas = {
 				}
 			}
 		}
+		podchinenie_dominions = {
+
+		    allowed = {
+		        always = no
+		    }
+
+		    picture = EST_democratic_opposition
+
+		    removal_cost = -1
+
+            modifier = {
+                subjects_autonomy_gain = -5.
+            }
+
+		}
+
+		JAP_treade_teretori = {
+			allowed = {
+				always = no
+			}
+
+			picture = generic_trade_bonus
+
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				global_building_slots = 3
+			}
+		}
 	}
 
 	# TECHNOLOGY
