@@ -1765,7 +1765,11 @@ country_event = {
 	option = {
 		name = wtt_japan.126.b
 		ai_chance = {
+<<<<<<< HEAD
 			factor = 0
+=======
+			factor = 90
+>>>>>>> 76d2be19444682490cd45d62521f2113aacbe6dd
 		}
 		FROM = {
 			country_event = { id = wtt_japan.128 }
@@ -1773,6 +1777,7 @@ country_event = {
 	}
 }
 
+<<<<<<< HEAD
 # Event for Japan that MAN has accepted
 country_event = {
 	id = wtt_japan.130
@@ -1825,10 +1830,259 @@ country_event = {
 				}
 			}
 			white_peace = ROOT
+=======
+country_event = {
+	id = wtt_japan.131
+	title = wtt_japan.131.t
+	desc = wtt_japan.131.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.131.a
+		JAP = { puppet = MAL }
+		JAP = {
+			transfer_state = 326
+		}
+		MAL = { country_event = { id = wtt_japan.136 days = 3 } }
+		add_timed_idea = { 
+			idea = JAP_treade_teretori
+			days = 730
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+    option = {
+		name = wtt_japan.131.c
+        JAP = {
+            create_wargoal = {
+                type = puppet_wargoal_focus
+                target = MAL
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
+    }
+}
+
+country_event = {
+	id = wtt_japan.132
+	title = wtt_japan.132.t
+	desc = wtt_japan.132.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.132.a
+		JAP = { puppet = INS }
+		INS = { country_event = { id = wtt_japan.137 days = 3 } }
+		add_ideas = JAP_treade_teretori
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+    option = {
+		name = wtt_japan.132.c
+        JAP = {
+            create_wargoal = {
+                type = puppet_wargoal_focus
+                target = INS
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
+    }
+}
+
+country_event = {
+	id = wtt_japan.133
+	title = wtt_japan.133.t
+	desc = wtt_japan.133.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.133.a
+		JAP = {
+			transfer_state = 670
+			transfer_state = 671
+			transfer_state = 741
+			transfer_state = 286
+			transfer_state = 728
+		}
+		JAP = { country_event = { id = wtt_japan.138 days = 3 } }
+		add_ideas = JAP_treade_teretori
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+    option = {
+		name = wtt_japan.133.c
+        JAP = {
+            create_wargoal = {
+                type = puppet_wargoal_focus
+                target = FRA
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
+    }
+}
+
+country_event = {
+	id = wtt_japan.134
+	title = wtt_japan.134.t
+	desc = wtt_japan.134.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.134.a
+		JAP = {
+			transfer_state = 729
+		}
+		add_ideas = JAP_treade_teretori
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+    option = {
+		name = wtt_japan.134.b
+        JAP = {
+            create_wargoal = {
+                type = puppet_wargoal_focus
+                target = POR
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
+    }
+}
+
+country_event = {
+	id = wtt_japan.135
+	title = wtt_japan.135.t
+	desc = wtt_japan.135.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.135.a
+		JAP = {
+			transfer_state = 638
+		}
+		JAP = { puppet = PHI }
+		add_ideas = JAP_treade_teretori
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+    option = {
+		name = wtt_japan.135.b
+        JAP = {
+            create_wargoal = {
+                type = puppet_wargoal_focus
+                target = PHI
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
+    }
+}
+country_event = {
+	id = wtt_japan.136
+	title = wtt_japan.136.t
+	desc = wtt_japan.136.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.136.a
+		give_resource_rights = {
+        	receiver = ENG
+        	state = 336
+        }
+	}
+}
+
+country_event = {
+	id = wtt_japan.137
+	title = wtt_japan.137.t
+	desc = wtt_japan.137.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.137.a
+		give_resource_rights = {
+        	receiver = HOL
+        	state = 334
+		}
+		give_resource_rights = {
+        	receiver = HOL
+        	state = 673
+    	}
+		give_resource_rights = {
+        	receiver = HOL
+        	state = 335
+    	}
+		give_resource_rights = {
+        	receiver = HOL
+        	state = 667
+>>>>>>> 76d2be19444682490cd45d62521f2113aacbe6dd
 		}
 	}
 }
 
+<<<<<<< HEAD
+=======
+country_event = {
+	id = wtt_japan.138
+	title = wtt_japan.138.t
+	desc = wtt_japan.138.desc
+
+	is_triggered_only = yes 
+
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	option = {
+		name = wtt_japan.138.a
+		JAP = {
+			give_resource_rights = {
+            	receiver = FRA
+            	state = 671
+        	}
+		}
+	}
+}
+
+
+>>>>>>> 76d2be19444682490cd45d62521f2113aacbe6dd
 ###   ##  ###  ###  ### ###       ##   ##  #  # ### #   ###  ##  ###  ## 
 #  # #  # #  # #  # #   #  #     #  # #  # ## # #   #    #  #  #  #  #   
 ###  #  # ###  #  # ##  ###      #    #  # # ## ##  #    #  #     #   #  
