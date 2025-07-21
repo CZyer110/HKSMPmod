@@ -1279,7 +1279,7 @@ malaria = {
 	
 }
 JAP_core_slot = {
-	enable = { always = yes  }
+	enable = { always = yes }
 	remove_trigger = {
 		ROOT = {
 			NOT = {
@@ -1289,8 +1289,8 @@ JAP_core_slot = {
 			} # ROOT refers to the state on which the modifier is added
 		}
 	}
-	global_building_slots_factor = 0.75
 	icon = GFX_modifiers_SWE_hygienic_housing
+	local_building_slots_factor = 0.25
 }
 
 
