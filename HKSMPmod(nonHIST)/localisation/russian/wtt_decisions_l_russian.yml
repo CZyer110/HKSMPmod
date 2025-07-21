@@ -967,7 +967,6 @@
  JAP_guardian_of_INS: "Принять руководство Индонезией"
  JAP_guardian_of_MAL: "Принять руководство Малайей"
  JAP_guardian_of_indochina: "Принять руководство Индокитаем"
- JAP_guardian_of_usa: "Принять руководство Филипинами"
  CHI_industrial_evacuations_remove_AF: "Удалить все §Yвоенные заводы§!.\n"
  CHI_industrial_evacuations_remove_IC: "Удалить все §Yфабрики§!.\n"
  CHI_industrial_evacuations_add_AF: "Добавить 75% удаленных §Yвоенных заводов§!.\n"
@@ -1046,7 +1045,3 @@
  kitaj_union_complete_tt: "§YКитай§Y§W станет считаться национальной территорией государства §YЯпония§W."
  man_union_complete_tt: "§YМаньчжоу-го§Y§W станет считаться национальной территорией государства §YЯпония§W."
  men_union_complete_tt: "§YМензян§Y§W станет считаться национальной территорией государства §YЯпония§W."
-<<<<<<< HEAD
-=======
- podchinenie_dominiins: "Подчинение доминионов"
->>>>>>> 76d2be19444682490cd45d62521f2113aacbe6dd
