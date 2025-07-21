@@ -3,7 +3,7 @@ state= {
 	name="STATE_537"
 	manpower = 295196
 	resources={
-		oil=74 # was: 4
+		oil = 71
 	}
 	
 	state_category = rural
@@ -11,11 +11,6 @@ state= {
 	history= {
 		owner = JAP
 		add_core_of = JAP
-
-		add_dynamic_modifier = {
-			modifier = JAP_core_slot
-			scope = JAP
-		}
 		
 		buildings = {
 			infrastructure = 2

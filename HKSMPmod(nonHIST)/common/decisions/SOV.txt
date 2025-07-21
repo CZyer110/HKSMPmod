@@ -3821,6 +3821,8 @@ SOV_propaganda_campaigns = {
 		cost = SOV_propaganda_glory_to_partisans_cost
 
 		modifier = {
+			operation_targeted_sabotage_resources_outcome = 0.25
+			operation_targeted_sabotage_infrastructure_outcome = 0.25
 			operation_targeted_sabotage_industry_outcome = 0.25
 			operation_make_resistance_contacts_outcome = 0.25
 			operation_boost_resistance_outcome = 0.25
