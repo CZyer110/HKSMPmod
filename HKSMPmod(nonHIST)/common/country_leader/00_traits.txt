@@ -954,9 +954,8 @@ leader_traits = {
 	}
 	proletariat_internationalist = {
 		random = no
-		war_support_factor = 0.1
+		war_support_factor = 0.05
 		non_core_manpower = 0.025
-		justify_war_goal_time = -0.25
 	}
 
 	anti_democrat = {
@@ -4460,9 +4459,12 @@ leader_traits = {
 	trusty = {
 		trade_opinion_factor = 0.2
 		opinion_gain_monthly = 0.25
+		operation_coup_government_outcome = 0.25
 		operation_infiltrate_outcome = 0.25
 		operation_boost_resistance_outcome = 0.35
 		operation_targeted_sabotage_industry_outcome = 0.35
+		operation_targeted_sabotage_resources_outcome = 0.35
+		operation_targeted_sabotage_infrastructure_outcome = 0.35
 	}
 
 	##############
@@ -5890,8 +5892,8 @@ leader_traits = {
 		random = no
 		drift_defence_factor = 0.15
 		guarantee_cost = -0.5
-		party_popularity_stability_factor = 0.1
-		defensive_war_stability_factor = 0.1
+		party_popularity_stability_factor = 0.15
+		defensive_war_stability_factor = 0.4
 		political_advisor_cost_factor = -0.25
 	}
 

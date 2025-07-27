@@ -386,6 +386,19 @@ sibir_snabzenie = {
 	state_production_speed_supply_node_factor = 3.0
 }
 
+
+JAP_treade_teretori_debaf = {
+	enable = { always = yes }
+
+	icon = GFX_unplanned_offensive
+
+
+	research_speed_factor = JAP_isledovanie
+	production_speed_industrial_complex_factor = JAP_stroitelstvo_fabrik
+	industrial_capacity_factory = JAP_obem
+
+}
+
 POL_plan_modifier = {
 	enable = { always = yes }
 

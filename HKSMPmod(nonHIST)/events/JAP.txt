@@ -1,0 +1,71 @@
+add_namespace = wtt_japan
+
+country_event = {
+	id = wtt_japan.140
+	title = wtt_japan.140.a
+	desc = wtt_japan.140.b
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+	    name = wtt_japan.140.c
+		ai_chance = {
+    		base = 100
+	    }
+        annex_country = { target = MAN transfer_troops = yes }
+	}
+	option = {
+        name = wtt_japan.140.d
+    	ai_chance = {
+       		base = 0
+        }
+    }
+}
+
+country_event = {
+	id = wtt_japan.144
+	title = wtt_japan.144.a
+	desc = wtt_japan.144.b
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = wtt_japan.144.c
+		ai_chance = {
+			base = 100
+		}
+		annex_country = { target = MEN transfer_troops = yes }
+	}
+
+	option = {
+		name = wtt_japan.144.d
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = {
+	id = wtt_japan.145
+	title = wtt_japan.145.a
+	desc = wtt_japan.145.b
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = wtt_japan.145.c
+		ai_chance = {
+			base = 100
+		}
+		puppet = PHI
+	}
+	option = {
+		name = wtt_japan.145.d
+		ai_chance = {
+			base = 1
+		}
+	}
+}
