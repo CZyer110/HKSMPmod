@@ -1525,7 +1525,7 @@ ideas = {
 				industry = 0.15
 			}
 			modifier = {
-				global_building_slots_factor = 0.5
+				global_building_slots_factor = 0.35
 			}
 			traits = { industrial_concern }
 		}

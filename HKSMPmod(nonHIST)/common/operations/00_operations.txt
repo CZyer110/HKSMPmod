@@ -574,7 +574,7 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 				tag = FROM
 				token = token_army
 			}
-			army_experience = 25
+			army_experience = 15
 		}
 	}
 	outcome_extra_execute = { # SCOPE_OPERATION
@@ -585,10 +585,10 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 						tag = FROM
 						token = token_army
 					}
-					army_experience = 25
-					add_tech_bonus = {
+					army_experience = 15
+					add_doctrine_cost_reduction = {
 						name = operation_infiltrate_armed_forces_army
-						bonus = 0.25
+						cost_reduction = 0.15
 						uses = 1
 						category = land_doctrine
 					}
@@ -604,10 +604,10 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 						tag = FROM
 						token = token_army
 					}
-					army_experience = 25
-					add_tech_bonus = {
+					army_experience = 15
+					add_doctrine_cost_reduction = {
 						name = operation_infiltrate_armed_forces_army
-						bonus = 0.25
+						cost_reduction = 0.15
 						uses = 1
 						category = land_doctrine
 					}
