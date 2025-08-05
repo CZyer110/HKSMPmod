@@ -587,11 +587,10 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 					}
 					army_experience = 15
 					add_doctrine_cost_reduction = {
-						name = operation_infiltrate_armed_forces_army
-						cost_reduction = 0.15
+						cost_reduction = 0.2
 						uses = 1
 						category = land_doctrine
-					}
+					}						
 					add_intel = {
 						target = FROM
 						army_intel = 10
@@ -604,10 +603,10 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 						tag = FROM
 						token = token_army
 					}
-					army_experience = 15
-					add_doctrine_cost_reduction = {
+					army_experience = 25
+					add_tech_bonus = {
 						name = operation_infiltrate_armed_forces_army
-						cost_reduction = 0.15
+						bonus = 0.25
 						uses = 1
 						category = land_doctrine
 					}
@@ -908,7 +907,7 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 				tag = FROM
 				token = token_airforce
 			}
-			air_experience = 25
+			air_experience = 15
 		}
 	}
 
@@ -920,10 +919,9 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 						tag = FROM
 						token = token_airforce
 					}
-					air_experience = 25
-					add_tech_bonus = {
-						name = operation_infiltrate_armed_forces_airforce
-						bonus = 0.25
+					air_experience = 15
+					add_doctrine_cost_reduction = {
+						cost_reduction = 0.2
 						uses = 1
 						category = air_doctrine
 					}
@@ -1336,7 +1334,7 @@ operation_collaboration_government = { ### 10 2/55
 			value < 1.0
 		}
 	}
-	risk_chance = 0.8
+	risk_chance = 0.5
 	experience = 1.5
 	outcome_extra_chance = 0.33
 	outcome_execute = { # SCOPE_OPERATION
@@ -2394,7 +2392,7 @@ operation_coup_government_outcome = { ### 5 1/55
 						tag = FROM
 						token = token_navy
 					}
-					navy_experience = 25
+					navy_experience = 15
 					add_tech_bonus = {
 						name = operation_infiltrate_armed_forces_navy
 						bonus = 0.25
@@ -2413,10 +2411,9 @@ operation_coup_government_outcome = { ### 5 1/55
 						tag = FROM
 						token = token_navy
 					}
-					navy_experience = 25
-					add_tech_bonus = {
-						name = operation_infiltrate_armed_forces_navy
-						bonus = 0.25
+					navy_experience = 15
+					add_doctrine_cost_reduction = {
+						cost_reduction = 0.2
 						uses = 1
 						category = naval_doctrine
 					}

@@ -19,7 +19,26 @@ ideas = {
 				production_speed_dockyard_factor = 0.15
 			}
 		}
+		
+		FRA_autoroutes = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
 
+			allowed_civil_war = {
+				tag = FRA #stays with main country
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+				research_speed_factor = 0.05
+			}
+		}
+		
 		FRA_fatherland = {
 			picture = generic_production_bonus
 			allowed = {
@@ -246,7 +265,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.15
+				consumer_goods_factor = -0.1
 				stability_factor = -0.05
 			}
 		}
@@ -430,7 +449,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				non_core_manpower = 0.03
+				non_core_manpower = 0.05
 			}
 		}
 		FRA_france_undividable = {
@@ -450,7 +469,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				non_core_manpower = 0.08
+				non_core_manpower = 0.15
 			}
 		}
 		FRA_agricultural_protectionism = {
@@ -1867,7 +1886,6 @@ ideas = {
 			picture = generic_tank_manufacturer_3
 
 			available = {
-				has_completed_focus = FRA_infantry_tanks
 			}
 						
 			allowed = {
