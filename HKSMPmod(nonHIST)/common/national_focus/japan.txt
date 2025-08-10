@@ -4328,33 +4328,16 @@
 			NOT = { has_government = communism }
 		}
 
-		bypass = {
-			if = {
-				limit = {
-					SOV = {
-						NOT = { has_government = communism }
-					}
-				}
-			}
-		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
-			if = {
-				limit = {
-					SOV = {
-						has_government = communism
-					}
-				}
-				create_wargoal = {
-					type = topple_government
-					target = SOV
-					expire = 0
-				}
+			create_wargoal = {
+				type = topple_government
+				target = SOV
+				expire = 0
 			}
 		}
 	}
@@ -4457,7 +4440,9 @@
 					country_exists = KOR
 					has_government = democratic
 				}
-				KOR = { country_event = generic.5 }
+				JAP = {
+					puppet = KOR
+				}
 			}
 			else_if = {
 				limit = {
