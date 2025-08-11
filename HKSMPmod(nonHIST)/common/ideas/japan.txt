@@ -1352,7 +1352,7 @@ ideas = {
 				always = no
 			}
 
-			picture = generic_trade_bonus
+			picture = GFX_jap_supremacy_of_technology
 
 			removal_cost = -1
 

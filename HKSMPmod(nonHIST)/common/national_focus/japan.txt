@@ -4127,6 +4127,12 @@
 					country_event = china.1
 				}
 			}
+			create_wargoal = {
+				type = take_state_focus
+  				target = GXC
+    			generator = { 609 608 }
+    			expire = 730
+			}
 			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
 			unlock_decision_tooltip = JAP_china_step_up_war_effort
 		}
@@ -4806,7 +4812,9 @@
     	}
 
     	available = {
-
+			MAN = {
+				is_puppet_of = JAP
+			}
     	}
 
     	bypass = {
@@ -4935,7 +4943,9 @@
         }
 
         available = {
-
+			MEN = {
+				is_puppet_of = JAP
+			}
         }
 
         bypass = {

@@ -1059,33 +1059,6 @@ JAP_southern_expansion = {
 #Visible if independent
 JAP_pacific_guardian = {
 
-	JAP_release_korea = {
-
-		icon = generic_independence
-
-		available = {
-			country_exists = KOR
-		}
-
-		days_mission_timeout = 180
-
-		fire_only_once = yes
-		is_good = no 
-		activation = {
-			has_completed_focus = JAP_the_korean_question
-			has_full_control_of_state = 525
-			has_full_control_of_state = 527
-			KOR = { exists = no }
-		}
-
-		complete_effect = {
-			add_political_power = 50
-		}
-		timeout_effect = {
-			add_stability = -0.1 #naughty
-		}
-	}
-
 	JAP_guardian_of_INS = {
 
 		icon = jap_pacific_guardian
@@ -1095,9 +1068,6 @@ JAP_pacific_guardian = {
 				#has_capitulated = yes
 				NOT =  { has_war_with = ROOT}
 			}
-			"INS" = {
-				is_puppet_of = HOL
-			}
 		}
 
 		fire_only_once = yes
@@ -1117,7 +1087,15 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			HOL = { country_event = { id = wtt_japan.132 days = 6  }}
+			if = {
+				limit = {
+					is_puppet_of = HOL
+				}
+				HOL = { country_event = { id = wtt_japan.132 days = 6  }}
+			}
+			else = {
+				INS = { country_event = { id = wtt_japan.132 days = 6  }}
+			}
 		}
 	}
 
@@ -1126,12 +1104,9 @@ JAP_pacific_guardian = {
 		icon = jap_pacific_guardian
 
 		available = {
-			ENG = {
+			MAL = {
 				#has_capitulated = yes
 				NOT =  { has_war_with = ROOT}
-			}
-			MAL = {
-				is_puppet_of = ENG
 			}
 		}
 
@@ -1152,7 +1127,15 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			ENG = { country_event = { id = wtt_japan.131 } }
+			if = {
+				limit = {
+					is_puppet_of = ENG
+				}
+				ENG = { country_event = { id = wtt_japan.132 days = 6  }}
+			}
+			else = {
+				MAL = { country_event = { id = wtt_japan.132 days = 6  }}
+			}
 		}
 	}
 
