@@ -3074,7 +3074,7 @@ form_european_union_category = {
 				set_global_flag = form_european_union_flag
 				set_country_flag = form_european_union_flag
 			}
-
+			add_research_slot = 2 
 		}
 
 		ai_will_do = {
