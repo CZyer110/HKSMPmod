@@ -265,7 +265,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.15
 				stability_factor = -0.05
 			}
 		}
@@ -449,7 +449,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				non_core_manpower = 0.05
+				non_core_manpower = 0.03
 			}
 		}
 		FRA_france_undividable = {

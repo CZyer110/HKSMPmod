@@ -49,6 +49,7 @@ FRA_historical_plan = {
 		FRA_intervention_in_spain
 		FRA_buy_time
 		FRA_defensive_focus
+		FRA_firepower_kills
 		FRA_go_with_britain
 		#1938
 		FRA_devalue_the_franc
@@ -65,6 +66,7 @@ FRA_historical_plan = {
 		#1940
 		FRA_artillery_focus 
 		FRA_heavy_armor_focus 
+		FRA_division_cuirassee
 		FRA_arms_purchases_in_the_us
 		FRA_general_work_council
 		#1941
