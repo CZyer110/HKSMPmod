@@ -1,0 +1,97 @@
+toolpack_category = {
+	toolpack_become_host = {
+		icon = generic_nationalism
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = toolpack_fake_mp_condition_tt
+				NOT = {
+					any_country = {
+						has_country_flag = tp_is_host
+						is_ai = no
+					}
+				}
+			}
+		}
+
+		visible = {
+			is_ai = no
+			NOT = {
+				has_country_flag = tp_is_host
+			}
+		}
+
+		complete_effect = {				
+			set_country_flag = tp_is_host
+			set_variable = {
+				global.tp_host_tag = THIS.id
+			}
+			# if = {	#if the save is adjusted with toolpack before rehosting, this might be an issue
+			# 	limit = {
+			# 		NOT = {
+			# 			any_other_country = {
+			# 				is_ai = no
+			# 			}
+			# 		}
+			# 	}
+			# 	clr_global_flag = tp_is_multiplayer
+			# }
+		}
+	}
+	toolpack_relinquish_host = {
+		icon = generic_nationalism
+
+		allowed = {
+			always = yes
+		}
+		
+		visible = {
+			is_ai = no
+			has_country_flag = tp_is_host
+		}
+
+		complete_effect = {				
+			clr_country_flag = tp_is_host
+		}
+	}
+	toolpack_hide_decisions = {
+		icon = generic_nationalism
+
+		allowed = {
+			always = yes
+		}
+		
+		visible = {
+			is_ai = no
+			NOT = {
+				has_country_flag = tp_lower_decisions
+			}
+		}
+
+		complete_effect = {				
+			set_country_flag = tp_lower_decisions
+			custom_effect_tooltip = toolpack_hide_decisions_tt
+		}
+	}
+	toolpack_show_decisions = {
+		icon = generic_nationalism
+
+		allowed = {
+			always = yes
+		}
+		
+		visible = {
+			is_ai = no
+			has_country_flag = tp_lower_decisions
+		}
+
+		complete_effect = {				
+			clr_country_flag = tp_lower_decisions
+			custom_effect_tooltip = toolpack_show_decisions_tt
+		}
+	}
+}

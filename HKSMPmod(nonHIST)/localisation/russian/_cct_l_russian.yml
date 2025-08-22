@@ -1,0 +1,10 @@
+﻿l_russian:
+ 
+ cct_off:0 "Инструмент косметики страны: £trigger_no"
+ cct_on:0 "Инструмент косметики страны: £trigger_yes"
+ CCT_democratic_pretend: "Притвориться §Yдемократической§! страной"
+ CCT_neutrality_pretend: "Притвориться §Yнейтральной§! страной"
+ CCT_fascism_pretend: "Притвориться §Yфашистской§! страной"
+ CCT_communism_pretend: "Притвориться §Yкоммунистической§! страной"
+ CCT_clear_pretend: "Сбросить косметический тег"
+ CCT_target_pretend: "Притвориться [?global.toolpack_cct_country.GetNonIdeologyName]"

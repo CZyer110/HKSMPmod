@@ -1,0 +1,193 @@
+scripted_gui = {
+
+	ret_main_container = {
+	
+		context_type = selected_state_context
+		
+		window_name = "ret_main_container"
+		
+		visible = {
+			ROOT = {
+				is_ai = no
+				has_global_flag = ret_enabled
+				OR = {
+					has_country_flag = tp_is_host
+					NOT = {
+						has_global_flag = tp_is_multiplayer
+					}
+				}
+			}
+		}
+
+		effects = {
+			ret_reload_button_click = {
+				ret_load_releasable = yes
+			}
+			ret_release_country_1_click = {
+				transfer_state_to = country_with_core_of_this_state_1
+			}
+			ret_release_country_1_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_1
+				}
+			}
+			ret_release_country_1_3_click = {
+				
+			}
+			ret_release_country_2_click = {
+				transfer_state_to = country_with_core_of_this_state_2
+			}
+			ret_release_country_2_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_2
+				}
+			}
+			ret_release_country_3_click = {
+				transfer_state_to = country_with_core_of_this_state_3
+			}
+			ret_release_country_3_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_3
+				}
+			}
+			ret_release_country_4_click = {
+				transfer_state_to = country_with_core_of_this_state_4
+			}
+			ret_release_country_4_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_4
+				}
+			}
+			ret_release_country_5_click = {
+				transfer_state_to = country_with_core_of_this_state_5
+			}
+			ret_release_country_5_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_5
+				}
+			}
+			ret_release_country_6_click = {
+				transfer_state_to = country_with_core_of_this_state_6
+			}
+			ret_release_country_6_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_6
+				}
+			}
+			ret_release_country_7_click = {
+				transfer_state_to = country_with_core_of_this_state_7
+			}
+			ret_release_country_7_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_7
+				}
+			}
+			ret_release_country_8_click = {
+				transfer_state_to = country_with_core_of_this_state_8
+			}
+			ret_release_country_8_2_click = {
+				controller = {
+					release_on_controlled = PREV.country_with_core_of_this_state_8
+				}
+			}
+		}
+
+		triggers = {
+			ret_release_country_1_visible = {
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_release_country_1_2_visible = {
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_release_country_1_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_release_country_2_visible = {
+				has_variable = country_with_core_of_this_state_2
+			}
+			ret_release_country_2_2_visible = {
+				has_variable = country_with_core_of_this_state_2
+			}
+			ret_release_country_2_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_2
+			}
+			ret_release_country_3_visible = {
+				has_variable = country_with_core_of_this_state_3
+			}
+			ret_release_country_3_2_visible = {
+				has_variable = country_with_core_of_this_state_3
+			}
+			ret_release_country_3_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_3
+			}
+			ret_release_country_4_visible = {
+				has_variable = country_with_core_of_this_state_4
+			}
+			ret_release_country_4_2_visible = {
+				has_variable = country_with_core_of_this_state_4
+			}
+			ret_release_country_4_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_4
+			}
+			ret_release_country_5_visible = {
+				has_variable = country_with_core_of_this_state_5
+			}
+			ret_release_country_5_2_visible = {
+				has_variable = country_with_core_of_this_state_5
+			}
+			ret_release_country_5_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_5
+			}
+			ret_release_country_6_visible = {
+				has_variable = country_with_core_of_this_state_6
+			}
+			ret_release_country_6_2_visible = {
+				has_variable = country_with_core_of_this_state_6
+			}
+			ret_release_country_6_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_6
+			}
+			ret_release_country_7_visible = {
+				has_variable = country_with_core_of_this_state_7
+			}
+			ret_release_country_7_2_visible = {
+				has_variable = country_with_core_of_this_state_7
+			}
+			ret_release_country_7_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_7
+			}
+			ret_release_country_8_visible = {
+				has_variable = country_with_core_of_this_state_8
+			}
+			ret_release_country_8_2_visible = {
+				has_variable = country_with_core_of_this_state_8
+			}
+			ret_release_country_8_3_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_8
+			}
+			ret_banner_release_here_visible = {
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_banner_release_within_visible = {
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_banner_release_all_visible = {
+				always = no #disabling measure
+				has_variable = country_with_core_of_this_state_1
+			}
+			ret_banner_no_cores_here_visible = {
+				NOT = {
+					has_variable = country_with_core_of_this_state_1
+				}
+			}
+		}
+	}
+}

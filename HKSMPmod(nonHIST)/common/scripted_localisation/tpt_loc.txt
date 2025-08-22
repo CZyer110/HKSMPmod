@@ -1,0 +1,2926 @@
+defined_text = {
+	name = TPT_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = TPT_enabled
+		}
+		localization_key = TPT_ACTIVITY_OFF
+	}
+	text = {
+		localization_key = TPT_ACTIVITY_ON
+	}
+}
+
+defined_text = {
+	name = tpt_major_text
+
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					is_major = yes
+					NOT = { has_country_flag = tpt_not_major }
+				}
+				AND = {
+					is_major = no
+					has_country_flag = tpt_major
+				}
+			}
+		}
+		localization_key = tpt_major_yes
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					is_major = yes
+					has_country_flag = tpt_not_major
+				}
+				AND = {
+					is_major = no
+					NOT = { has_country_flag = tpt_major }
+				}
+			}
+		}
+		localization_key = tpt_major_no
+	}
+}
+
+defined_text = {
+	name = tpt_op_or_trade
+
+	text = {
+		trigger = {
+			has_global_flag = tpt_trade_yes
+		}
+		localization_key = tpt_key_trade_yes
+	}
+	text = {
+		localization_key = tpt_key_trade_no
+	}
+}
+
+defined_text = {
+	name = TPT_POP_FASCIST
+
+	text = {
+		trigger = {
+			fascism < 0.01
+		}
+		localization_key = TPT_POP_0
+	}
+	text = {
+		trigger = {
+			fascism > 0.008
+			fascism < 0.019
+		}
+		localization_key = TPT_POP_1
+	}
+	text = {
+		trigger = {
+			fascism > 0.018
+			fascism < 0.029
+		}
+		localization_key = TPT_POP_2
+	}
+	text = {
+		trigger = {
+			fascism > 0.028
+			fascism < 0.039
+		}
+		localization_key = TPT_POP_3
+	}
+	text = {
+		trigger = {
+			fascism > 0.038
+			fascism < 0.049
+		}
+		localization_key = TPT_POP_4
+	}
+	text = {
+		trigger = {
+			fascism > 0.048
+			fascism < 0.059
+		}
+		localization_key = TPT_POP_5
+	}
+	text = {
+		trigger = {
+			fascism > 0.058
+			fascism < 0.069
+		}
+		localization_key = TPT_POP_6
+	}
+	text = {
+		trigger = {
+			fascism > 0.068
+			fascism < 0.079
+		}
+		localization_key = TPT_POP_7
+	}
+	text = {
+		trigger = {
+			fascism > 0.078
+			fascism < 0.089
+		}
+		localization_key = TPT_POP_8
+	}
+	text = {
+		trigger = {
+			fascism > 0.088
+			fascism < 0.099
+		}
+		localization_key = TPT_POP_9
+	}
+	text = {
+		trigger = {
+			fascism > 0.098
+			fascism < 0.109
+		}
+		localization_key = TPT_POP_10
+	}
+	text = {
+		trigger = {
+			fascism > 0.108
+			fascism < 0.119
+		}
+		localization_key = TPT_POP_11
+	}
+	text = {
+		trigger = {
+			fascism > 0.118
+			fascism < 0.129
+		}
+		localization_key = TPT_POP_12
+	}
+	text = {
+		trigger = {
+			fascism > 0.128
+			fascism < 0.139
+		}
+		localization_key = TPT_POP_13
+	}
+	text = {
+		trigger = {
+			fascism > 0.138
+			fascism < 0.149
+		}
+		localization_key = TPT_POP_14
+	}
+	text = {
+		trigger = {
+			fascism > 0.148
+			fascism < 0.159
+		}
+		localization_key = TPT_POP_15
+	}
+	text = {
+		trigger = {
+			fascism > 0.158
+			fascism < 0.169
+		}
+		localization_key = TPT_POP_16
+	}
+	text = {
+		trigger = {
+			fascism > 0.168
+			fascism < 0.179
+		}
+		localization_key = TPT_POP_17
+	}
+	text = {
+		trigger = {
+			fascism > 0.178
+			fascism < 0.189
+		}
+		localization_key = TPT_POP_18
+	}
+	text = {
+		trigger = {
+			fascism > 0.188
+			fascism < 0.199
+		}
+		localization_key = TPT_POP_19
+	}
+	text = {
+		trigger = {
+			fascism > 0.198
+			fascism < 0.209
+		}
+		localization_key = TPT_POP_20
+	}
+	text = {
+		trigger = {
+			fascism > 0.208
+			fascism < 0.219
+		}
+		localization_key = TPT_POP_21
+	}
+	text = {
+		trigger = {
+			fascism > 0.218
+			fascism < 0.229
+		}
+		localization_key = TPT_POP_22
+	}
+	text = {
+		trigger = {
+			fascism > 0.228
+			fascism < 0.239
+		}
+		localization_key = TPT_POP_23
+	}
+	text = {
+		trigger = {
+			fascism > 0.238
+			fascism < 0.249
+		}
+		localization_key = TPT_POP_24
+	}
+	text = {
+		trigger = {
+			fascism > 0.248
+			fascism < 0.259
+		}
+		localization_key = TPT_POP_25
+	}
+	text = {
+		trigger = {
+			fascism > 0.258
+			fascism < 0.269
+		}
+		localization_key = TPT_POP_26
+	}
+	text = {
+		trigger = {
+			fascism > 0.268
+			fascism < 0.279
+		}
+		localization_key = TPT_POP_27
+	}
+	text = {
+		trigger = {
+			fascism > 0.278
+			fascism < 0.289
+		}
+		localization_key = TPT_POP_28
+	}
+	text = {
+		trigger = {
+			fascism > 0.288
+			fascism < 0.299
+		}
+		localization_key = TPT_POP_29
+	}
+	text = {
+		trigger = {
+			fascism > 0.298
+			fascism < 0.309
+		}
+		localization_key = TPT_POP_30
+	}
+	text = {
+		trigger = {
+			fascism > 0.308
+			fascism < 0.319
+		}
+		localization_key = TPT_POP_31
+	}
+	text = {
+		trigger = {
+			fascism > 0.318
+			fascism < 0.329
+		}
+		localization_key = TPT_POP_32
+	}
+	text = {
+		trigger = {
+			fascism > 0.328
+			fascism < 0.339
+		}
+		localization_key = TPT_POP_33
+	}
+	text = {
+		trigger = {
+			fascism > 0.338
+			fascism < 0.349
+		}
+		localization_key = TPT_POP_34
+	}
+	text = {
+		trigger = {
+			fascism > 0.348
+			fascism < 0.359
+		}
+		localization_key = TPT_POP_35
+	}
+	text = {
+		trigger = {
+			fascism > 0.358
+			fascism < 0.369
+		}
+		localization_key = TPT_POP_36
+	}
+	text = {
+		trigger = {
+			fascism > 0.368
+			fascism < 0.379
+		}
+		localization_key = TPT_POP_37
+	}
+	text = {
+		trigger = {
+			fascism > 0.378
+			fascism < 0.389
+		}
+		localization_key = TPT_POP_38
+	}
+	text = {
+		trigger = {
+			fascism > 0.388
+			fascism < 0.399
+		}
+		localization_key = TPT_POP_39
+	}
+	text = {
+		trigger = {
+			fascism > 0.398
+			fascism < 0.409
+		}
+		localization_key = TPT_POP_40
+	}
+	text = {
+		trigger = {
+			fascism > 0.408
+			fascism < 0.419
+		}
+		localization_key = TPT_POP_41
+	}
+	text = {
+		trigger = {
+			fascism > 0.418
+			fascism < 0.429
+		}
+		localization_key = TPT_POP_42
+	}
+	text = {
+		trigger = {
+			fascism > 0.428
+			fascism < 0.439
+		}
+		localization_key = TPT_POP_43
+	}
+	text = {
+		trigger = {
+			fascism > 0.438
+			fascism < 0.449
+		}
+		localization_key = TPT_POP_44
+	}
+	text = {
+		trigger = {
+			fascism > 0.448
+			fascism < 0.459
+		}
+		localization_key = TPT_POP_45
+	}
+	text = {
+		trigger = {
+			fascism > 0.458
+			fascism < 0.469
+		}
+		localization_key = TPT_POP_46
+	}
+	text = {
+		trigger = {
+			fascism > 0.468
+			fascism < 0.479
+		}
+		localization_key = TPT_POP_47
+	}
+	text = {
+		trigger = {
+			fascism > 0.478
+			fascism < 0.489
+		}
+		localization_key = TPT_POP_48
+	}
+	text = {
+		trigger = {
+			fascism > 0.488
+			fascism < 0.499
+		}
+		localization_key = TPT_POP_49
+	}
+	text = {
+		trigger = {
+			fascism > 0.498
+			fascism < 0.509
+		}
+		localization_key = TPT_POP_50
+	}
+	text = {
+		trigger = {
+			fascism > 0.508
+			fascism < 0.519
+		}
+		localization_key = TPT_POP_51
+	}
+	text = {
+		trigger = {
+			fascism > 0.518
+			fascism < 0.529
+		}
+		localization_key = TPT_POP_52
+	}
+	text = {
+		trigger = {
+			fascism > 0.528
+			fascism < 0.539
+		}
+		localization_key = TPT_POP_53
+	}
+	text = {
+		trigger = {
+			fascism > 0.538
+			fascism < 0.549
+		}
+		localization_key = TPT_POP_54
+	}
+	text = {
+		trigger = {
+			fascism > 0.548
+			fascism < 0.559
+		}
+		localization_key = TPT_POP_55
+	}
+	text = {
+		trigger = {
+			fascism > 0.558
+			fascism < 0.569
+		}
+		localization_key = TPT_POP_56
+	}
+	text = {
+		trigger = {
+			fascism > 0.568
+			fascism < 0.579
+		}
+		localization_key = TPT_POP_57
+	}
+	text = {
+		trigger = {
+			fascism > 0.578
+			fascism < 0.589
+		}
+		localization_key = TPT_POP_58
+	}
+	text = {
+		trigger = {
+			fascism > 0.588
+			fascism < 0.599
+		}
+		localization_key = TPT_POP_59
+	}
+	text = {
+		trigger = {
+			fascism > 0.598
+			fascism < 0.609
+		}
+		localization_key = TPT_POP_60
+	}
+	text = {
+		trigger = {
+			fascism > 0.608
+			fascism < 0.619
+		}
+		localization_key = TPT_POP_61
+	}
+	text = {
+		trigger = {
+			fascism > 0.618
+			fascism < 0.629
+		}
+		localization_key = TPT_POP_62
+	}
+	text = {
+		trigger = {
+			fascism > 0.628
+			fascism < 0.639
+		}
+		localization_key = TPT_POP_63
+	}
+	text = {
+		trigger = {
+			fascism > 0.638
+			fascism < 0.649
+		}
+		localization_key = TPT_POP_64
+	}
+	text = {
+		trigger = {
+			fascism > 0.648
+			fascism < 0.659
+		}
+		localization_key = TPT_POP_65
+	}
+	text = {
+		trigger = {
+			fascism > 0.658
+			fascism < 0.669
+		}
+		localization_key = TPT_POP_66
+	}
+	text = {
+		trigger = {
+			fascism > 0.668
+			fascism < 0.679
+		}
+		localization_key = TPT_POP_67
+	}
+	text = {
+		trigger = {
+			fascism > 0.678
+			fascism < 0.689
+		}
+		localization_key = TPT_POP_68
+	}
+	text = {
+		trigger = {
+			fascism > 0.688
+			fascism < 0.699
+		}
+		localization_key = TPT_POP_69
+	}
+	text = {
+		trigger = {
+			fascism > 0.698
+			fascism < 0.709
+		}
+		localization_key = TPT_POP_70
+	}
+	text = {
+		trigger = {
+			fascism > 0.708
+			fascism < 0.719
+		}
+		localization_key = TPT_POP_71
+	}
+	text = {
+		trigger = {
+			fascism > 0.718
+			fascism < 0.729
+		}
+		localization_key = TPT_POP_72
+	}
+	text = {
+		trigger = {
+			fascism > 0.728
+			fascism < 0.739
+		}
+		localization_key = TPT_POP_73
+	}
+	text = {
+		trigger = {
+			fascism > 0.738
+			fascism < 0.749
+		}
+		localization_key = TPT_POP_74
+	}
+	text = {
+		trigger = {
+			fascism > 0.748
+			fascism < 0.759
+		}
+		localization_key = TPT_POP_75
+	}
+	text = {
+		trigger = {
+			fascism > 0.758
+			fascism < 0.769
+		}
+		localization_key = TPT_POP_76
+	}
+	text = {
+		trigger = {
+			fascism > 0.768
+			fascism < 0.779
+		}
+		localization_key = TPT_POP_77
+	}
+	text = {
+		trigger = {
+			fascism > 0.778
+			fascism < 0.789
+		}
+		localization_key = TPT_POP_78
+	}
+	text = {
+		trigger = {
+			fascism > 0.788
+			fascism < 0.799
+		}
+		localization_key = TPT_POP_79
+	}
+	text = {
+		trigger = {
+			fascism > 0.798
+			fascism < 0.809
+		}
+		localization_key = TPT_POP_80
+	}
+	text = {
+		trigger = {
+			fascism > 0.808
+			fascism < 0.819
+		}
+		localization_key = TPT_POP_81
+	}
+	text = {
+		trigger = {
+			fascism > 0.818
+			fascism < 0.829
+		}
+		localization_key = TPT_POP_82
+	}
+	text = {
+		trigger = {
+			fascism > 0.828
+			fascism < 0.839
+		}
+		localization_key = TPT_POP_83
+	}
+	text = {
+		trigger = {
+			fascism > 0.838
+			fascism < 0.849
+		}
+		localization_key = TPT_POP_84
+	}
+	text = {
+		trigger = {
+			fascism > 0.848
+			fascism < 0.859
+		}
+		localization_key = TPT_POP_85
+	}
+	text = {
+		trigger = {
+			fascism > 0.858
+			fascism < 0.869
+		}
+		localization_key = TPT_POP_86
+	}
+	text = {
+		trigger = {
+			fascism > 0.868
+			fascism < 0.879
+		}
+		localization_key = TPT_POP_87
+	}
+	text = {
+		trigger = {
+			fascism > 0.878
+			fascism < 0.889
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			fascism > 0.888
+			fascism < 0.899
+		}
+		localization_key = TPT_POP_89
+	}
+	text = {
+		trigger = {
+			fascism > 0.898
+			fascism < 0.909
+		}
+		localization_key = TPT_POP_90
+	}
+	text = {
+		trigger = {
+			fascism > 0.908
+			fascism < 0.919
+		}
+		localization_key = TPT_POP_91
+	}
+	text = {
+		trigger = {
+			fascism > 0.918
+			fascism < 0.929
+		}
+		localization_key = TPT_POP_92
+	}
+	text = {
+		trigger = {
+			fascism > 0.928
+			fascism < 0.939
+		}
+		localization_key = TPT_POP_93
+	}
+	text = {
+		trigger = {
+			fascism > 0.938
+			fascism < 0.949
+		}
+		localization_key = TPT_POP_94
+	}
+	text = {
+		trigger = {
+			fascism > 0.948
+			fascism < 0.959
+		}
+		localization_key = TPT_POP_95
+	}
+	text = {
+		trigger = {
+			fascism > 0.958
+			fascism < 0.969
+		}
+		localization_key = TPT_POP_96
+	}
+	text = {
+		trigger = {
+			fascism > 0.968
+			fascism < 0.979
+		}
+		localization_key = TPT_POP_97
+	}
+	text = {
+		trigger = {
+			fascism > 0.978
+			fascism < 0.989
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			fascism > 0.988
+			fascism < 0.999
+		}
+		localization_key = TPT_POP_99
+	}
+	text = {
+		trigger = {
+			fascism > 0.998
+		}
+		localization_key = TPT_POP_100
+	}
+}
+
+
+### #### ###   ###
+#   #  # #  # #  # 
+#   #  # #  # #  # 
+### #### #   #   #
+
+
+defined_text = {
+	name = TPT_POP_COMMUNIST
+
+	text = {
+		trigger = {
+			communism < 0.01
+		}
+		localization_key = TPT_POP_0
+	}
+	text = {
+		trigger = {
+			communism > 0.008
+			communism < 0.019
+		}
+		localization_key = TPT_POP_1
+	}
+	text = {
+		trigger = {
+			communism > 0.018
+			communism < 0.029
+		}
+		localization_key = TPT_POP_2
+	}
+	text = {
+		trigger = {
+			communism > 0.028
+			communism < 0.039
+		}
+		localization_key = TPT_POP_3
+	}
+	text = {
+		trigger = {
+			communism > 0.038
+			communism < 0.049
+		}
+		localization_key = TPT_POP_4
+	}
+	text = {
+		trigger = {
+			communism > 0.048
+			communism < 0.059
+		}
+		localization_key = TPT_POP_5
+	}
+	text = {
+		trigger = {
+			communism > 0.058
+			communism < 0.069
+		}
+		localization_key = TPT_POP_6
+	}
+	text = {
+		trigger = {
+			communism > 0.068
+			communism < 0.079
+		}
+		localization_key = TPT_POP_7
+	}
+	text = {
+		trigger = {
+			communism > 0.078
+			communism < 0.089
+		}
+		localization_key = TPT_POP_8
+	}
+	text = {
+		trigger = {
+			communism > 0.088
+			communism < 0.099
+		}
+		localization_key = TPT_POP_9
+	}
+	text = {
+		trigger = {
+			communism > 0.098
+			communism < 0.109
+		}
+		localization_key = TPT_POP_10
+	}
+	text = {
+		trigger = {
+			communism > 0.108
+			communism < 0.119
+		}
+		localization_key = TPT_POP_11
+	}
+	text = {
+		trigger = {
+			communism > 0.118
+			communism < 0.129
+		}
+		localization_key = TPT_POP_12
+	}
+	text = {
+		trigger = {
+			communism > 0.128
+			communism < 0.139
+		}
+		localization_key = TPT_POP_13
+	}
+	text = {
+		trigger = {
+			communism > 0.138
+			communism < 0.149
+		}
+		localization_key = TPT_POP_14
+	}
+	text = {
+		trigger = {
+			communism > 0.148
+			communism < 0.159
+		}
+		localization_key = TPT_POP_15
+	}
+	text = {
+		trigger = {
+			communism > 0.158
+			communism < 0.169
+		}
+		localization_key = TPT_POP_16
+	}
+	text = {
+		trigger = {
+			communism > 0.168
+			communism < 0.179
+		}
+		localization_key = TPT_POP_17
+	}
+	text = {
+		trigger = {
+			communism > 0.178
+			communism < 0.189
+		}
+		localization_key = TPT_POP_18
+	}
+	text = {
+		trigger = {
+			communism > 0.188
+			communism < 0.199
+		}
+		localization_key = TPT_POP_19
+	}
+	text = {
+		trigger = {
+			communism > 0.198
+			communism < 0.209
+		}
+		localization_key = TPT_POP_20
+	}
+	text = {
+		trigger = {
+			communism > 0.208
+			communism < 0.219
+		}
+		localization_key = TPT_POP_21
+	}
+	text = {
+		trigger = {
+			communism > 0.218
+			communism < 0.229
+		}
+		localization_key = TPT_POP_22
+	}
+	text = {
+		trigger = {
+			communism > 0.228
+			communism < 0.239
+		}
+		localization_key = TPT_POP_23
+	}
+	text = {
+		trigger = {
+			communism > 0.238
+			communism < 0.249
+		}
+		localization_key = TPT_POP_24
+	}
+	text = {
+		trigger = {
+			communism > 0.248
+			communism < 0.259
+		}
+		localization_key = TPT_POP_25
+	}
+	text = {
+		trigger = {
+			communism > 0.258
+			communism < 0.269
+		}
+		localization_key = TPT_POP_26
+	}
+	text = {
+		trigger = {
+			communism > 0.268
+			communism < 0.279
+		}
+		localization_key = TPT_POP_27
+	}
+	text = {
+		trigger = {
+			communism > 0.278
+			communism < 0.289
+		}
+		localization_key = TPT_POP_28
+	}
+	text = {
+		trigger = {
+			communism > 0.288
+			communism < 0.299
+		}
+		localization_key = TPT_POP_29
+	}
+	text = {
+		trigger = {
+			communism > 0.298
+			communism < 0.309
+		}
+		localization_key = TPT_POP_30
+	}
+	text = {
+		trigger = {
+			communism > 0.308
+			communism < 0.319
+		}
+		localization_key = TPT_POP_31
+	}
+	text = {
+		trigger = {
+			communism > 0.318
+			communism < 0.329
+		}
+		localization_key = TPT_POP_32
+	}
+	text = {
+		trigger = {
+			communism > 0.328
+			communism < 0.339
+		}
+		localization_key = TPT_POP_33
+	}
+	text = {
+		trigger = {
+			communism > 0.338
+			communism < 0.349
+		}
+		localization_key = TPT_POP_34
+	}
+	text = {
+		trigger = {
+			communism > 0.348
+			communism < 0.359
+		}
+		localization_key = TPT_POP_35
+	}
+	text = {
+		trigger = {
+			communism > 0.358
+			communism < 0.369
+		}
+		localization_key = TPT_POP_36
+	}
+	text = {
+		trigger = {
+			communism > 0.368
+			communism < 0.379
+		}
+		localization_key = TPT_POP_37
+	}
+	text = {
+		trigger = {
+			communism > 0.378
+			communism < 0.389
+		}
+		localization_key = TPT_POP_38
+	}
+	text = {
+		trigger = {
+			communism > 0.388
+			communism < 0.399
+		}
+		localization_key = TPT_POP_39
+	}
+	text = {
+		trigger = {
+			communism > 0.398
+			communism < 0.409
+		}
+		localization_key = TPT_POP_40
+	}
+	text = {
+		trigger = {
+			communism > 0.408
+			communism < 0.419
+		}
+		localization_key = TPT_POP_41
+	}
+	text = {
+		trigger = {
+			communism > 0.418
+			communism < 0.429
+		}
+		localization_key = TPT_POP_42
+	}
+	text = {
+		trigger = {
+			communism > 0.428
+			communism < 0.439
+		}
+		localization_key = TPT_POP_43
+	}
+	text = {
+		trigger = {
+			communism > 0.438
+			communism < 0.449
+		}
+		localization_key = TPT_POP_44
+	}
+	text = {
+		trigger = {
+			communism > 0.448
+			communism < 0.459
+		}
+		localization_key = TPT_POP_45
+	}
+	text = {
+		trigger = {
+			communism > 0.458
+			communism < 0.469
+		}
+		localization_key = TPT_POP_46
+	}
+	text = {
+		trigger = {
+			communism > 0.468
+			communism < 0.479
+		}
+		localization_key = TPT_POP_47
+	}
+	text = {
+		trigger = {
+			communism > 0.478
+			communism < 0.489
+		}
+		localization_key = TPT_POP_48
+	}
+	text = {
+		trigger = {
+			communism > 0.488
+			communism < 0.499
+		}
+		localization_key = TPT_POP_49
+	}
+	text = {
+		trigger = {
+			communism > 0.498
+			communism < 0.509
+		}
+		localization_key = TPT_POP_50
+	}
+	text = {
+		trigger = {
+			communism > 0.508
+			communism < 0.519
+		}
+		localization_key = TPT_POP_51
+	}
+	text = {
+		trigger = {
+			communism > 0.518
+			communism < 0.529
+		}
+		localization_key = TPT_POP_52
+	}
+	text = {
+		trigger = {
+			communism > 0.528
+			communism < 0.539
+		}
+		localization_key = TPT_POP_53
+	}
+	text = {
+		trigger = {
+			communism > 0.538
+			communism < 0.549
+		}
+		localization_key = TPT_POP_54
+	}
+	text = {
+		trigger = {
+			communism > 0.548
+			communism < 0.559
+		}
+		localization_key = TPT_POP_55
+	}
+	text = {
+		trigger = {
+			communism > 0.558
+			communism < 0.569
+		}
+		localization_key = TPT_POP_56
+	}
+	text = {
+		trigger = {
+			communism > 0.568
+			communism < 0.579
+		}
+		localization_key = TPT_POP_57
+	}
+	text = {
+		trigger = {
+			communism > 0.578
+			communism < 0.589
+		}
+		localization_key = TPT_POP_58
+	}
+	text = {
+		trigger = {
+			communism > 0.588
+			communism < 0.599
+		}
+		localization_key = TPT_POP_59
+	}
+	text = {
+		trigger = {
+			communism > 0.598
+			communism < 0.609
+		}
+		localization_key = TPT_POP_60
+	}
+	text = {
+		trigger = {
+			communism > 0.608
+			communism < 0.619
+		}
+		localization_key = TPT_POP_61
+	}
+	text = {
+		trigger = {
+			communism > 0.618
+			communism < 0.629
+		}
+		localization_key = TPT_POP_62
+	}
+	text = {
+		trigger = {
+			communism > 0.628
+			communism < 0.639
+		}
+		localization_key = TPT_POP_63
+	}
+	text = {
+		trigger = {
+			communism > 0.638
+			communism < 0.649
+		}
+		localization_key = TPT_POP_64
+	}
+	text = {
+		trigger = {
+			communism > 0.648
+			communism < 0.659
+		}
+		localization_key = TPT_POP_65
+	}
+	text = {
+		trigger = {
+			communism > 0.658
+			communism < 0.669
+		}
+		localization_key = TPT_POP_66
+	}
+	text = {
+		trigger = {
+			communism > 0.668
+			communism < 0.679
+		}
+		localization_key = TPT_POP_67
+	}
+	text = {
+		trigger = {
+			communism > 0.678
+			communism < 0.689
+		}
+		localization_key = TPT_POP_68
+	}
+	text = {
+		trigger = {
+			communism > 0.688
+			communism < 0.699
+		}
+		localization_key = TPT_POP_69
+	}
+	text = {
+		trigger = {
+			communism > 0.698
+			communism < 0.709
+		}
+		localization_key = TPT_POP_70
+	}
+	text = {
+		trigger = {
+			communism > 0.708
+			communism < 0.719
+		}
+		localization_key = TPT_POP_71
+	}
+	text = {
+		trigger = {
+			communism > 0.718
+			communism < 0.729
+		}
+		localization_key = TPT_POP_72
+	}
+	text = {
+		trigger = {
+			communism > 0.728
+			communism < 0.739
+		}
+		localization_key = TPT_POP_73
+	}
+	text = {
+		trigger = {
+			communism > 0.738
+			communism < 0.749
+		}
+		localization_key = TPT_POP_74
+	}
+	text = {
+		trigger = {
+			communism > 0.748
+			communism < 0.759
+		}
+		localization_key = TPT_POP_75
+	}
+	text = {
+		trigger = {
+			communism > 0.758
+			communism < 0.769
+		}
+		localization_key = TPT_POP_76
+	}
+	text = {
+		trigger = {
+			communism > 0.768
+			communism < 0.779
+		}
+		localization_key = TPT_POP_77
+	}
+	text = {
+		trigger = {
+			communism > 0.778
+			communism < 0.789
+		}
+		localization_key = TPT_POP_78
+	}
+	text = {
+		trigger = {
+			communism > 0.788
+			communism < 0.799
+		}
+		localization_key = TPT_POP_79
+	}
+	text = {
+		trigger = {
+			communism > 0.798
+			communism < 0.809
+		}
+		localization_key = TPT_POP_80
+	}
+	text = {
+		trigger = {
+			communism > 0.808
+			communism < 0.819
+		}
+		localization_key = TPT_POP_81
+	}
+	text = {
+		trigger = {
+			communism > 0.818
+			communism < 0.829
+		}
+		localization_key = TPT_POP_82
+	}
+	text = {
+		trigger = {
+			communism > 0.828
+			communism < 0.839
+		}
+		localization_key = TPT_POP_83
+	}
+	text = {
+		trigger = {
+			communism > 0.838
+			communism < 0.849
+		}
+		localization_key = TPT_POP_84
+	}
+	text = {
+		trigger = {
+			communism > 0.848
+			communism < 0.859
+		}
+		localization_key = TPT_POP_85
+	}
+	text = {
+		trigger = {
+			communism > 0.858
+			communism < 0.869
+		}
+		localization_key = TPT_POP_86
+	}
+	text = {
+		trigger = {
+			communism > 0.868
+			communism < 0.879
+		}
+		localization_key = TPT_POP_87
+	}
+	text = {
+		trigger = {
+			communism > 0.878
+			communism < 0.889
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			communism > 0.888
+			communism < 0.899
+		}
+		localization_key = TPT_POP_89
+	}
+	text = {
+		trigger = {
+			communism > 0.898
+			communism < 0.909
+		}
+		localization_key = TPT_POP_90
+	}
+	text = {
+		trigger = {
+			communism > 0.908
+			communism < 0.919
+		}
+		localization_key = TPT_POP_91
+	}
+	text = {
+		trigger = {
+			communism > 0.918
+			communism < 0.929
+		}
+		localization_key = TPT_POP_92
+	}
+	text = {
+		trigger = {
+			communism > 0.928
+			communism < 0.939
+		}
+		localization_key = TPT_POP_93
+	}
+	text = {
+		trigger = {
+			communism > 0.938
+			communism < 0.949
+		}
+		localization_key = TPT_POP_94
+	}
+	text = {
+		trigger = {
+			communism > 0.948
+			communism < 0.959
+		}
+		localization_key = TPT_POP_95
+	}
+	text = {
+		trigger = {
+			communism > 0.958
+			communism < 0.969
+		}
+		localization_key = TPT_POP_96
+	}
+	text = {
+		trigger = {
+			communism > 0.968
+			communism < 0.979
+		}
+		localization_key = TPT_POP_97
+	}
+	text = {
+		trigger = {
+			communism > 0.978
+			communism < 0.989
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			communism > 0.988
+			communism < 0.999
+		}
+		localization_key = TPT_POP_99
+	}
+	text = {
+		trigger = {
+			communism > 0.998
+		}
+		localization_key = TPT_POP_100
+	}
+}
+
+###   #### ####  ####
+#  ## #    # ## ##  #
+#   # ###  #  # #   #
+#  ## #    #  ###   #
+###   #### #   #    #
+
+
+
+defined_text = {
+	name = TPT_POP_DEMOCRATIC
+
+	text = {
+		trigger = {
+			democratic < 0.01
+		}
+		localization_key = TPT_POP_0
+	}
+	text = {
+		trigger = {
+			democratic > 0.008
+			democratic < 0.019
+		}
+		localization_key = TPT_POP_1
+	}
+	text = {
+		trigger = {
+			democratic > 0.018
+			democratic < 0.029
+		}
+		localization_key = TPT_POP_2
+	}
+	text = {
+		trigger = {
+			democratic > 0.028
+			democratic < 0.039
+		}
+		localization_key = TPT_POP_3
+	}
+	text = {
+		trigger = {
+			democratic > 0.038
+			democratic < 0.049
+		}
+		localization_key = TPT_POP_4
+	}
+	text = {
+		trigger = {
+			democratic > 0.048
+			democratic < 0.059
+		}
+		localization_key = TPT_POP_5
+	}
+	text = {
+		trigger = {
+			democratic > 0.058
+			democratic < 0.069
+		}
+		localization_key = TPT_POP_6
+	}
+	text = {
+		trigger = {
+			democratic > 0.068
+			democratic < 0.079
+		}
+		localization_key = TPT_POP_7
+	}
+	text = {
+		trigger = {
+			democratic > 0.078
+			democratic < 0.089
+		}
+		localization_key = TPT_POP_8
+	}
+	text = {
+		trigger = {
+			democratic > 0.088
+			democratic < 0.099
+		}
+		localization_key = TPT_POP_9
+	}
+	text = {
+		trigger = {
+			democratic > 0.098
+			democratic < 0.109
+		}
+		localization_key = TPT_POP_10
+	}
+	text = {
+		trigger = {
+			democratic > 0.108
+			democratic < 0.119
+		}
+		localization_key = TPT_POP_11
+	}
+	text = {
+		trigger = {
+			democratic > 0.118
+			democratic < 0.129
+		}
+		localization_key = TPT_POP_12
+	}
+	text = {
+		trigger = {
+			democratic > 0.128
+			democratic < 0.139
+		}
+		localization_key = TPT_POP_13
+	}
+	text = {
+		trigger = {
+			democratic > 0.138
+			democratic < 0.149
+		}
+		localization_key = TPT_POP_14
+	}
+	text = {
+		trigger = {
+			democratic > 0.148
+			democratic < 0.159
+		}
+		localization_key = TPT_POP_15
+	}
+	text = {
+		trigger = {
+			democratic > 0.158
+			democratic < 0.169
+		}
+		localization_key = TPT_POP_16
+	}
+	text = {
+		trigger = {
+			democratic > 0.168
+			democratic < 0.179
+		}
+		localization_key = TPT_POP_17
+	}
+	text = {
+		trigger = {
+			democratic > 0.178
+			democratic < 0.189
+		}
+		localization_key = TPT_POP_18
+	}
+	text = {
+		trigger = {
+			democratic > 0.188
+			democratic < 0.199
+		}
+		localization_key = TPT_POP_19
+	}
+	text = {
+		trigger = {
+			democratic > 0.198
+			democratic < 0.209
+		}
+		localization_key = TPT_POP_20
+	}
+	text = {
+		trigger = {
+			democratic > 0.208
+			democratic < 0.219
+		}
+		localization_key = TPT_POP_21
+	}
+	text = {
+		trigger = {
+			democratic > 0.218
+			democratic < 0.229
+		}
+		localization_key = TPT_POP_22
+	}
+	text = {
+		trigger = {
+			democratic > 0.228
+			democratic < 0.239
+		}
+		localization_key = TPT_POP_23
+	}
+	text = {
+		trigger = {
+			democratic > 0.238
+			democratic < 0.249
+		}
+		localization_key = TPT_POP_24
+	}
+	text = {
+		trigger = {
+			democratic > 0.248
+			democratic < 0.259
+		}
+		localization_key = TPT_POP_25
+	}
+	text = {
+		trigger = {
+			democratic > 0.258
+			democratic < 0.269
+		}
+		localization_key = TPT_POP_26
+	}
+	text = {
+		trigger = {
+			democratic > 0.268
+			democratic < 0.279
+		}
+		localization_key = TPT_POP_27
+	}
+	text = {
+		trigger = {
+			democratic > 0.278
+			democratic < 0.289
+		}
+		localization_key = TPT_POP_28
+	}
+	text = {
+		trigger = {
+			democratic > 0.288
+			democratic < 0.299
+		}
+		localization_key = TPT_POP_29
+	}
+	text = {
+		trigger = {
+			democratic > 0.298
+			democratic < 0.309
+		}
+		localization_key = TPT_POP_30
+	}
+	text = {
+		trigger = {
+			democratic > 0.308
+			democratic < 0.319
+		}
+		localization_key = TPT_POP_31
+	}
+	text = {
+		trigger = {
+			democratic > 0.318
+			democratic < 0.329
+		}
+		localization_key = TPT_POP_32
+	}
+	text = {
+		trigger = {
+			democratic > 0.328
+			democratic < 0.339
+		}
+		localization_key = TPT_POP_33
+	}
+	text = {
+		trigger = {
+			democratic > 0.338
+			democratic < 0.349
+		}
+		localization_key = TPT_POP_34
+	}
+	text = {
+		trigger = {
+			democratic > 0.348
+			democratic < 0.359
+		}
+		localization_key = TPT_POP_35
+	}
+	text = {
+		trigger = {
+			democratic > 0.358
+			democratic < 0.369
+		}
+		localization_key = TPT_POP_36
+	}
+	text = {
+		trigger = {
+			democratic > 0.368
+			democratic < 0.379
+		}
+		localization_key = TPT_POP_37
+	}
+	text = {
+		trigger = {
+			democratic > 0.378
+			democratic < 0.389
+		}
+		localization_key = TPT_POP_38
+	}
+	text = {
+		trigger = {
+			democratic > 0.388
+			democratic < 0.399
+		}
+		localization_key = TPT_POP_39
+	}
+	text = {
+		trigger = {
+			democratic > 0.398
+			democratic < 0.409
+		}
+		localization_key = TPT_POP_40
+	}
+	text = {
+		trigger = {
+			democratic > 0.408
+			democratic < 0.419
+		}
+		localization_key = TPT_POP_41
+	}
+	text = {
+		trigger = {
+			democratic > 0.418
+			democratic < 0.429
+		}
+		localization_key = TPT_POP_42
+	}
+	text = {
+		trigger = {
+			democratic > 0.428
+			democratic < 0.439
+		}
+		localization_key = TPT_POP_43
+	}
+	text = {
+		trigger = {
+			democratic > 0.438
+			democratic < 0.449
+		}
+		localization_key = TPT_POP_44
+	}
+	text = {
+		trigger = {
+			democratic > 0.448
+			democratic < 0.459
+		}
+		localization_key = TPT_POP_45
+	}
+	text = {
+		trigger = {
+			democratic > 0.458
+			democratic < 0.469
+		}
+		localization_key = TPT_POP_46
+	}
+	text = {
+		trigger = {
+			democratic > 0.468
+			democratic < 0.479
+		}
+		localization_key = TPT_POP_47
+	}
+	text = {
+		trigger = {
+			democratic > 0.478
+			democratic < 0.489
+		}
+		localization_key = TPT_POP_48
+	}
+	text = {
+		trigger = {
+			democratic > 0.488
+			democratic < 0.499
+		}
+		localization_key = TPT_POP_49
+	}
+	text = {
+		trigger = {
+			democratic > 0.498
+			democratic < 0.509
+		}
+		localization_key = TPT_POP_50
+	}
+	text = {
+		trigger = {
+			democratic > 0.508
+			democratic < 0.519
+		}
+		localization_key = TPT_POP_51
+	}
+	text = {
+		trigger = {
+			democratic > 0.518
+			democratic < 0.529
+		}
+		localization_key = TPT_POP_52
+	}
+	text = {
+		trigger = {
+			democratic > 0.528
+			democratic < 0.539
+		}
+		localization_key = TPT_POP_53
+	}
+	text = {
+		trigger = {
+			democratic > 0.538
+			democratic < 0.549
+		}
+		localization_key = TPT_POP_54
+	}
+	text = {
+		trigger = {
+			democratic > 0.548
+			democratic < 0.559
+		}
+		localization_key = TPT_POP_55
+	}
+	text = {
+		trigger = {
+			democratic > 0.558
+			democratic < 0.569
+		}
+		localization_key = TPT_POP_56
+	}
+	text = {
+		trigger = {
+			democratic > 0.568
+			democratic < 0.579
+		}
+		localization_key = TPT_POP_57
+	}
+	text = {
+		trigger = {
+			democratic > 0.578
+			democratic < 0.589
+		}
+		localization_key = TPT_POP_58
+	}
+	text = {
+		trigger = {
+			democratic > 0.588
+			democratic < 0.599
+		}
+		localization_key = TPT_POP_59
+	}
+	text = {
+		trigger = {
+			democratic > 0.598
+			democratic < 0.609
+		}
+		localization_key = TPT_POP_60
+	}
+	text = {
+		trigger = {
+			democratic > 0.608
+			democratic < 0.619
+		}
+		localization_key = TPT_POP_61
+	}
+	text = {
+		trigger = {
+			democratic > 0.618
+			democratic < 0.629
+		}
+		localization_key = TPT_POP_62
+	}
+	text = {
+		trigger = {
+			democratic > 0.628
+			democratic < 0.639
+		}
+		localization_key = TPT_POP_63
+	}
+	text = {
+		trigger = {
+			democratic > 0.638
+			democratic < 0.649
+		}
+		localization_key = TPT_POP_64
+	}
+	text = {
+		trigger = {
+			democratic > 0.648
+			democratic < 0.659
+		}
+		localization_key = TPT_POP_65
+	}
+	text = {
+		trigger = {
+			democratic > 0.658
+			democratic < 0.669
+		}
+		localization_key = TPT_POP_66
+	}
+	text = {
+		trigger = {
+			democratic > 0.668
+			democratic < 0.679
+		}
+		localization_key = TPT_POP_67
+	}
+	text = {
+		trigger = {
+			democratic > 0.678
+			democratic < 0.689
+		}
+		localization_key = TPT_POP_68
+	}
+	text = {
+		trigger = {
+			democratic > 0.688
+			democratic < 0.699
+		}
+		localization_key = TPT_POP_69
+	}
+	text = {
+		trigger = {
+			democratic > 0.698
+			democratic < 0.709
+		}
+		localization_key = TPT_POP_70
+	}
+	text = {
+		trigger = {
+			democratic > 0.708
+			democratic < 0.719
+		}
+		localization_key = TPT_POP_71
+	}
+	text = {
+		trigger = {
+			democratic > 0.718
+			democratic < 0.729
+		}
+		localization_key = TPT_POP_72
+	}
+	text = {
+		trigger = {
+			democratic > 0.728
+			democratic < 0.739
+		}
+		localization_key = TPT_POP_73
+	}
+	text = {
+		trigger = {
+			democratic > 0.738
+			democratic < 0.749
+		}
+		localization_key = TPT_POP_74
+	}
+	text = {
+		trigger = {
+			democratic > 0.748
+			democratic < 0.759
+		}
+		localization_key = TPT_POP_75
+	}
+	text = {
+		trigger = {
+			democratic > 0.758
+			democratic < 0.769
+		}
+		localization_key = TPT_POP_76
+	}
+	text = {
+		trigger = {
+			democratic > 0.768
+			democratic < 0.779
+		}
+		localization_key = TPT_POP_77
+	}
+	text = {
+		trigger = {
+			democratic > 0.778
+			democratic < 0.789
+		}
+		localization_key = TPT_POP_78
+	}
+	text = {
+		trigger = {
+			democratic > 0.788
+			democratic < 0.799
+		}
+		localization_key = TPT_POP_79
+	}
+	text = {
+		trigger = {
+			democratic > 0.798
+			democratic < 0.809
+		}
+		localization_key = TPT_POP_80
+	}
+	text = {
+		trigger = {
+			democratic > 0.808
+			democratic < 0.819
+		}
+		localization_key = TPT_POP_81
+	}
+	text = {
+		trigger = {
+			democratic > 0.818
+			democratic < 0.829
+		}
+		localization_key = TPT_POP_82
+	}
+	text = {
+		trigger = {
+			democratic > 0.828
+			democratic < 0.839
+		}
+		localization_key = TPT_POP_83
+	}
+	text = {
+		trigger = {
+			democratic > 0.838
+			democratic < 0.849
+		}
+		localization_key = TPT_POP_84
+	}
+	text = {
+		trigger = {
+			democratic > 0.848
+			democratic < 0.859
+		}
+		localization_key = TPT_POP_85
+	}
+	text = {
+		trigger = {
+			democratic > 0.858
+			democratic < 0.869
+		}
+		localization_key = TPT_POP_86
+	}
+	text = {
+		trigger = {
+			democratic > 0.868
+			democratic < 0.879
+		}
+		localization_key = TPT_POP_87
+	}
+	text = {
+		trigger = {
+			democratic > 0.878
+			democratic < 0.889
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			democratic > 0.888
+			democratic < 0.899
+		}
+		localization_key = TPT_POP_89
+	}
+	text = {
+		trigger = {
+			democratic > 0.898
+			democratic < 0.909
+		}
+		localization_key = TPT_POP_90
+	}
+	text = {
+		trigger = {
+			democratic > 0.908
+			democratic < 0.919
+		}
+		localization_key = TPT_POP_91
+	}
+	text = {
+		trigger = {
+			democratic > 0.918
+			democratic < 0.929
+		}
+		localization_key = TPT_POP_92
+	}
+	text = {
+		trigger = {
+			democratic > 0.928
+			democratic < 0.939
+		}
+		localization_key = TPT_POP_93
+	}
+	text = {
+		trigger = {
+			democratic > 0.938
+			democratic < 0.949
+		}
+		localization_key = TPT_POP_94
+	}
+	text = {
+		trigger = {
+			democratic > 0.948
+			democratic < 0.959
+		}
+		localization_key = TPT_POP_95
+	}
+	text = {
+		trigger = {
+			democratic > 0.958
+			democratic < 0.969
+		}
+		localization_key = TPT_POP_96
+	}
+	text = {
+		trigger = {
+			democratic > 0.968
+			democratic < 0.979
+		}
+		localization_key = TPT_POP_97
+	}
+	text = {
+		trigger = {
+			democratic > 0.978
+			democratic < 0.989
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			democratic > 0.988
+			democratic < 0.999
+		}
+		localization_key = TPT_POP_99
+	}
+	text = {
+		trigger = {
+			democratic > 0.998
+		}
+		localization_key = TPT_POP_100
+	}
+}
+
+
+#   #  #### #####
+##  #  #      #
+# # #  ###    #
+#  ##  #      #
+#   #  ####   #
+
+
+
+defined_text = {
+	name = TPT_POP_NEUTRAL
+
+	text = {
+		trigger = {
+			neutrality < 0.01
+		}
+		localization_key = TPT_POP_0
+	}
+	text = {
+		trigger = {
+			neutrality > 0.008
+			neutrality < 0.019
+		}
+		localization_key = TPT_POP_1
+	}
+	text = {
+		trigger = {
+			neutrality > 0.018
+			neutrality < 0.029
+		}
+		localization_key = TPT_POP_2
+	}
+	text = {
+		trigger = {
+			neutrality > 0.028
+			neutrality < 0.039
+		}
+		localization_key = TPT_POP_3
+	}
+	text = {
+		trigger = {
+			neutrality > 0.038
+			neutrality < 0.049
+		}
+		localization_key = TPT_POP_4
+	}
+	text = {
+		trigger = {
+			neutrality > 0.048
+			neutrality < 0.059
+		}
+		localization_key = TPT_POP_5
+	}
+	text = {
+		trigger = {
+			neutrality > 0.058
+			neutrality < 0.069
+		}
+		localization_key = TPT_POP_6
+	}
+	text = {
+		trigger = {
+			neutrality > 0.068
+			neutrality < 0.079
+		}
+		localization_key = TPT_POP_7
+	}
+	text = {
+		trigger = {
+			neutrality > 0.078
+			neutrality < 0.089
+		}
+		localization_key = TPT_POP_8
+	}
+	text = {
+		trigger = {
+			neutrality > 0.088
+			neutrality < 0.099
+		}
+		localization_key = TPT_POP_9
+	}
+	text = {
+		trigger = {
+			neutrality > 0.098
+			neutrality < 0.109
+		}
+		localization_key = TPT_POP_10
+	}
+	text = {
+		trigger = {
+			neutrality > 0.108
+			neutrality < 0.119
+		}
+		localization_key = TPT_POP_11
+	}
+	text = {
+		trigger = {
+			neutrality > 0.118
+			neutrality < 0.129
+		}
+		localization_key = TPT_POP_12
+	}
+	text = {
+		trigger = {
+			neutrality > 0.128
+			neutrality < 0.139
+		}
+		localization_key = TPT_POP_13
+	}
+	text = {
+		trigger = {
+			neutrality > 0.138
+			neutrality < 0.149
+		}
+		localization_key = TPT_POP_14
+	}
+	text = {
+		trigger = {
+			neutrality > 0.148
+			neutrality < 0.159
+		}
+		localization_key = TPT_POP_15
+	}
+	text = {
+		trigger = {
+			neutrality > 0.158
+			neutrality < 0.169
+		}
+		localization_key = TPT_POP_16
+	}
+	text = {
+		trigger = {
+			neutrality > 0.168
+			neutrality < 0.179
+		}
+		localization_key = TPT_POP_17
+	}
+	text = {
+		trigger = {
+			neutrality > 0.178
+			neutrality < 0.189
+		}
+		localization_key = TPT_POP_18
+	}
+	text = {
+		trigger = {
+			neutrality > 0.188
+			neutrality < 0.199
+		}
+		localization_key = TPT_POP_19
+	}
+	text = {
+		trigger = {
+			neutrality > 0.198
+			neutrality < 0.209
+		}
+		localization_key = TPT_POP_20
+	}
+	text = {
+		trigger = {
+			neutrality > 0.208
+			neutrality < 0.219
+		}
+		localization_key = TPT_POP_21
+	}
+	text = {
+		trigger = {
+			neutrality > 0.218
+			neutrality < 0.229
+		}
+		localization_key = TPT_POP_22
+	}
+	text = {
+		trigger = {
+			neutrality > 0.228
+			neutrality < 0.239
+		}
+		localization_key = TPT_POP_23
+	}
+	text = {
+		trigger = {
+			neutrality > 0.238
+			neutrality < 0.249
+		}
+		localization_key = TPT_POP_24
+	}
+	text = {
+		trigger = {
+			neutrality > 0.248
+			neutrality < 0.259
+		}
+		localization_key = TPT_POP_25
+	}
+	text = {
+		trigger = {
+			neutrality > 0.258
+			neutrality < 0.269
+		}
+		localization_key = TPT_POP_26
+	}
+	text = {
+		trigger = {
+			neutrality > 0.268
+			neutrality < 0.279
+		}
+		localization_key = TPT_POP_27
+	}
+	text = {
+		trigger = {
+			neutrality > 0.278
+			neutrality < 0.289
+		}
+		localization_key = TPT_POP_28
+	}
+	text = {
+		trigger = {
+			neutrality > 0.288
+			neutrality < 0.299
+		}
+		localization_key = TPT_POP_29
+	}
+	text = {
+		trigger = {
+			neutrality > 0.298
+			neutrality < 0.309
+		}
+		localization_key = TPT_POP_30
+	}
+	text = {
+		trigger = {
+			neutrality > 0.308
+			neutrality < 0.319
+		}
+		localization_key = TPT_POP_31
+	}
+	text = {
+		trigger = {
+			neutrality > 0.318
+			neutrality < 0.329
+		}
+		localization_key = TPT_POP_32
+	}
+	text = {
+		trigger = {
+			neutrality > 0.328
+			neutrality < 0.339
+		}
+		localization_key = TPT_POP_33
+	}
+	text = {
+		trigger = {
+			neutrality > 0.338
+			neutrality < 0.349
+		}
+		localization_key = TPT_POP_34
+	}
+	text = {
+		trigger = {
+			neutrality > 0.348
+			neutrality < 0.359
+		}
+		localization_key = TPT_POP_35
+	}
+	text = {
+		trigger = {
+			neutrality > 0.358
+			neutrality < 0.369
+		}
+		localization_key = TPT_POP_36
+	}
+	text = {
+		trigger = {
+			neutrality > 0.368
+			neutrality < 0.379
+		}
+		localization_key = TPT_POP_37
+	}
+	text = {
+		trigger = {
+			neutrality > 0.378
+			neutrality < 0.389
+		}
+		localization_key = TPT_POP_38
+	}
+	text = {
+		trigger = {
+			neutrality > 0.388
+			neutrality < 0.399
+		}
+		localization_key = TPT_POP_39
+	}
+	text = {
+		trigger = {
+			neutrality > 0.398
+			neutrality < 0.409
+		}
+		localization_key = TPT_POP_40
+	}
+	text = {
+		trigger = {
+			neutrality > 0.408
+			neutrality < 0.419
+		}
+		localization_key = TPT_POP_41
+	}
+	text = {
+		trigger = {
+			neutrality > 0.418
+			neutrality < 0.429
+		}
+		localization_key = TPT_POP_42
+	}
+	text = {
+		trigger = {
+			neutrality > 0.428
+			neutrality < 0.439
+		}
+		localization_key = TPT_POP_43
+	}
+	text = {
+		trigger = {
+			neutrality > 0.438
+			neutrality < 0.449
+		}
+		localization_key = TPT_POP_44
+	}
+	text = {
+		trigger = {
+			neutrality > 0.448
+			neutrality < 0.459
+		}
+		localization_key = TPT_POP_45
+	}
+	text = {
+		trigger = {
+			neutrality > 0.458
+			neutrality < 0.469
+		}
+		localization_key = TPT_POP_46
+	}
+	text = {
+		trigger = {
+			neutrality > 0.468
+			neutrality < 0.479
+		}
+		localization_key = TPT_POP_47
+	}
+	text = {
+		trigger = {
+			neutrality > 0.478
+			neutrality < 0.489
+		}
+		localization_key = TPT_POP_48
+	}
+	text = {
+		trigger = {
+			neutrality > 0.488
+			neutrality < 0.499
+		}
+		localization_key = TPT_POP_49
+	}
+	text = {
+		trigger = {
+			neutrality > 0.498
+			neutrality < 0.509
+		}
+		localization_key = TPT_POP_50
+	}
+	text = {
+		trigger = {
+			neutrality > 0.508
+			neutrality < 0.519
+		}
+		localization_key = TPT_POP_51
+	}
+	text = {
+		trigger = {
+			neutrality > 0.518
+			neutrality < 0.529
+		}
+		localization_key = TPT_POP_52
+	}
+	text = {
+		trigger = {
+			neutrality > 0.528
+			neutrality < 0.539
+		}
+		localization_key = TPT_POP_53
+	}
+	text = {
+		trigger = {
+			neutrality > 0.538
+			neutrality < 0.549
+		}
+		localization_key = TPT_POP_54
+	}
+	text = {
+		trigger = {
+			neutrality > 0.548
+			neutrality < 0.559
+		}
+		localization_key = TPT_POP_55
+	}
+	text = {
+		trigger = {
+			neutrality > 0.558
+			neutrality < 0.569
+		}
+		localization_key = TPT_POP_56
+	}
+	text = {
+		trigger = {
+			neutrality > 0.568
+			neutrality < 0.579
+		}
+		localization_key = TPT_POP_57
+	}
+	text = {
+		trigger = {
+			neutrality > 0.578
+			neutrality < 0.589
+		}
+		localization_key = TPT_POP_58
+	}
+	text = {
+		trigger = {
+			neutrality > 0.588
+			neutrality < 0.599
+		}
+		localization_key = TPT_POP_59
+	}
+	text = {
+		trigger = {
+			neutrality > 0.598
+			neutrality < 0.609
+		}
+		localization_key = TPT_POP_60
+	}
+	text = {
+		trigger = {
+			neutrality > 0.608
+			neutrality < 0.619
+		}
+		localization_key = TPT_POP_61
+	}
+	text = {
+		trigger = {
+			neutrality > 0.618
+			neutrality < 0.629
+		}
+		localization_key = TPT_POP_62
+	}
+	text = {
+		trigger = {
+			neutrality > 0.628
+			neutrality < 0.639
+		}
+		localization_key = TPT_POP_63
+	}
+	text = {
+		trigger = {
+			neutrality > 0.638
+			neutrality < 0.649
+		}
+		localization_key = TPT_POP_64
+	}
+	text = {
+		trigger = {
+			neutrality > 0.648
+			neutrality < 0.659
+		}
+		localization_key = TPT_POP_65
+	}
+	text = {
+		trigger = {
+			neutrality > 0.658
+			neutrality < 0.669
+		}
+		localization_key = TPT_POP_66
+	}
+	text = {
+		trigger = {
+			neutrality > 0.668
+			neutrality < 0.679
+		}
+		localization_key = TPT_POP_67
+	}
+	text = {
+		trigger = {
+			neutrality > 0.678
+			neutrality < 0.689
+		}
+		localization_key = TPT_POP_68
+	}
+	text = {
+		trigger = {
+			neutrality > 0.688
+			neutrality < 0.699
+		}
+		localization_key = TPT_POP_69
+	}
+	text = {
+		trigger = {
+			neutrality > 0.698
+			neutrality < 0.709
+		}
+		localization_key = TPT_POP_70
+	}
+	text = {
+		trigger = {
+			neutrality > 0.708
+			neutrality < 0.719
+		}
+		localization_key = TPT_POP_71
+	}
+	text = {
+		trigger = {
+			neutrality > 0.718
+			neutrality < 0.729
+		}
+		localization_key = TPT_POP_72
+	}
+	text = {
+		trigger = {
+			neutrality > 0.728
+			neutrality < 0.739
+		}
+		localization_key = TPT_POP_73
+	}
+	text = {
+		trigger = {
+			neutrality > 0.738
+			neutrality < 0.749
+		}
+		localization_key = TPT_POP_74
+	}
+	text = {
+		trigger = {
+			neutrality > 0.748
+			neutrality < 0.759
+		}
+		localization_key = TPT_POP_75
+	}
+	text = {
+		trigger = {
+			neutrality > 0.758
+			neutrality < 0.769
+		}
+		localization_key = TPT_POP_76
+	}
+	text = {
+		trigger = {
+			neutrality > 0.768
+			neutrality < 0.779
+		}
+		localization_key = TPT_POP_77
+	}
+	text = {
+		trigger = {
+			neutrality > 0.778
+			neutrality < 0.789
+		}
+		localization_key = TPT_POP_78
+	}
+	text = {
+		trigger = {
+			neutrality > 0.788
+			neutrality < 0.799
+		}
+		localization_key = TPT_POP_79
+	}
+	text = {
+		trigger = {
+			neutrality > 0.798
+			neutrality < 0.809
+		}
+		localization_key = TPT_POP_80
+	}
+	text = {
+		trigger = {
+			neutrality > 0.808
+			neutrality < 0.819
+		}
+		localization_key = TPT_POP_81
+	}
+	text = {
+		trigger = {
+			neutrality > 0.818
+			neutrality < 0.829
+		}
+		localization_key = TPT_POP_82
+	}
+	text = {
+		trigger = {
+			neutrality > 0.828
+			neutrality < 0.839
+		}
+		localization_key = TPT_POP_83
+	}
+	text = {
+		trigger = {
+			neutrality > 0.838
+			neutrality < 0.849
+		}
+		localization_key = TPT_POP_84
+	}
+	text = {
+		trigger = {
+			neutrality > 0.848
+			neutrality < 0.859
+		}
+		localization_key = TPT_POP_85
+	}
+	text = {
+		trigger = {
+			neutrality > 0.858
+			neutrality < 0.869
+		}
+		localization_key = TPT_POP_86
+	}
+	text = {
+		trigger = {
+			neutrality > 0.868
+			neutrality < 0.879
+		}
+		localization_key = TPT_POP_87
+	}
+	text = {
+		trigger = {
+			neutrality > 0.878
+			neutrality < 0.889
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			neutrality > 0.888
+			neutrality < 0.899
+		}
+		localization_key = TPT_POP_89
+	}
+	text = {
+		trigger = {
+			neutrality > 0.898
+			neutrality < 0.909
+		}
+		localization_key = TPT_POP_90
+	}
+	text = {
+		trigger = {
+			neutrality > 0.908
+			neutrality < 0.919
+		}
+		localization_key = TPT_POP_91
+	}
+	text = {
+		trigger = {
+			neutrality > 0.918
+			neutrality < 0.929
+		}
+		localization_key = TPT_POP_92
+	}
+	text = {
+		trigger = {
+			neutrality > 0.928
+			neutrality < 0.939
+		}
+		localization_key = TPT_POP_93
+	}
+	text = {
+		trigger = {
+			neutrality > 0.938
+			neutrality < 0.949
+		}
+		localization_key = TPT_POP_94
+	}
+	text = {
+		trigger = {
+			neutrality > 0.948
+			neutrality < 0.959
+		}
+		localization_key = TPT_POP_95
+	}
+	text = {
+		trigger = {
+			neutrality > 0.958
+			neutrality < 0.969
+		}
+		localization_key = TPT_POP_96
+	}
+	text = {
+		trigger = {
+			neutrality > 0.968
+			neutrality < 0.979
+		}
+		localization_key = TPT_POP_97
+	}
+	text = {
+		trigger = {
+			neutrality > 0.978
+			neutrality < 0.989
+		}
+		localization_key = TPT_POP_88
+	}
+	text = {
+		trigger = {
+			neutrality > 0.988
+			neutrality < 0.999
+		}
+		localization_key = TPT_POP_99
+	}
+	text = {
+		trigger = {
+			neutrality > 0.998
+		}
+		localization_key = TPT_POP_100
+	}
+}

@@ -1,0 +1,106 @@
+scripted_gui = {
+
+	cct_main_container = {
+	
+		context_type = selected_country_context
+		
+		window_name = "cct_main_container"
+		
+		visible = {
+			ROOT = {
+				is_ai = no
+				has_global_flag = cct_enabled
+				OR = {
+					has_country_flag = tp_is_host
+					NOT = {
+						has_global_flag = tp_is_multiplayer
+					}
+				}
+			}
+		}
+
+		effects = {
+			cct_ideology_pretend_communism_click = {
+				meta_effect = {
+					text = {
+						set_cosmetic_tag = [TARGET_COUNTRY]_communism
+					}
+					TARGET_COUNTRY = "[THIS.GetTag]"
+				}
+				every_country={
+					news_event = { id = toolpacknews.143 days = 0}
+				}
+			}
+			cct_ideology_pretend_democratic_click = {
+				meta_effect = {
+					text = {
+						set_cosmetic_tag = [TARGET_COUNTRY]_democratic
+					}
+					TARGET_COUNTRY = "[THIS.GetTag]"
+				}
+				every_country={
+					news_event = { id = toolpacknews.146 days = 0}
+				}			
+			}
+			cct_ideology_pretend_fascism_click = {
+				meta_effect = {
+					text = {
+						set_cosmetic_tag = [TARGET_COUNTRY]_fascism
+					}
+					TARGET_COUNTRY = "[THIS.GetTag]"
+				}
+				every_country={
+					news_event = { id = toolpacknews.144 days = 0}
+				}
+			}
+			cct_ideology_pretend_neutrality_click = {
+				meta_effect = {
+					text = {
+						set_cosmetic_tag = [TARGET_COUNTRY]_neutrality
+					}
+					TARGET_COUNTRY = "[THIS.GetTag]"
+				}
+				every_country={
+					news_event = { id = toolpacknews.145 days = 0}
+				}
+			}
+			cct_ideology_pretend_target_click = {
+				meta_effect = {
+					text = {
+						set_cosmetic_tag = [TARGET_COUNTRY]
+					}
+					TARGET_COUNTRY = "[?global.toolpack_cct_country.GetTag]"
+				}
+				every_country={
+					news_event = { id = toolpacknews.147 days = 0}
+				}
+			}
+			cct_ideology_pretend_clear_click = {
+				drop_cosmetic_tag = yes
+				every_country={
+					news_event = { id = toolpacknews.148 days = 0}
+				}
+			}
+			cct_marker_click = {
+				set_variable = { global.toolpack_cct_country = THIS.id }
+				set_country_flag = toolpack_cct_is_target
+			}
+			cct_unmarker_click = {
+				clear_variable = global.toolpack_cct_country
+				clr_country_flag = toolpack_cct_is_target
+			}
+		}
+
+		triggers = {
+			cct_unmarker_visible = {
+				has_country_flag = toolpack_cct_is_target
+			}
+			cct_ideology_pretend_target_click_enabled = {
+				has_variable = global.toolpack_cct_country
+				NOT = {
+					has_country_flag = toolpack_cct_is_target
+				}
+			}
+		}
+	}
+}

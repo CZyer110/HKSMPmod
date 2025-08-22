@@ -1,0 +1,97 @@
+defined_text = {
+	name = SST_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = sst_enabled
+		}
+		localization_key = SST_ACTIVITY_OFF
+	}
+	text = {
+		localization_key = SST_ACTIVITY_ON
+	}
+}
+
+defined_text = {
+	name = SST_OPENING
+
+	text = {
+		trigger = {
+			has_global_flag = sst_enabled
+		}
+		localization_key = SST_OPEN
+	}
+	text = {
+		localization_key = SST_CLOSE
+	}
+}
+
+defined_text = {
+	name = GetSSTShipTier
+
+	text = {
+		trigger = {
+			has_global_flag = sst_y1_enabled
+		}
+		localization_key = "1"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y2_enabled
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y3_enabled
+		}
+		localization_key = "3"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y4_enabled
+		}
+		localization_key = "4"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y5_enabled
+		}
+		localization_key = "5"
+	}
+}
+
+defined_text = {
+	name = GetSSTCarrierTier
+
+	text = {
+		trigger = {
+			has_global_flag = sst_y1_enabled
+		}
+		localization_key = toolpack_carrier_hull_tier_1 #"ship_hull_carrier_conversion_bb"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y2_enabled
+		}
+		localization_key = toolpack_carrier_hull_tier_2 #"ship_hull_carrier_1"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y3_enabled
+		}
+		localization_key = toolpack_carrier_hull_tier_3 #"ship_hull_carrier_2"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y4_enabled
+		}
+		localization_key = toolpack_carrier_hull_tier_4 #"ship_hull_carrier_3"
+	}
+	text = {
+		trigger = {
+			has_global_flag = sst_y5_enabled
+		}
+		localization_key = toolpack_carrier_hull_tier_5 #"ship_hull_carrier_4"
+	}
+}

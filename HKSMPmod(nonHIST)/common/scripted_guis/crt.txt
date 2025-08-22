@@ -1,0 +1,292 @@
+scripted_gui = {
+
+	crt_main_container = {
+	
+		context_type = selected_country_context
+		
+		window_name = "crt_main_container"
+		
+		visible = {
+			ROOT = {
+				is_ai = no
+				has_global_flag = crt_enabled
+				OR = {
+					has_country_flag = tp_is_host
+					NOT = {
+						has_global_flag = tp_is_multiplayer
+					}
+				}
+			}
+		}
+
+		effects = {
+			crt_unlock_templates_button_click = {
+				country_lock_all_division_template = no
+				tpt_remove_template_lock = yes	#can leave on old code
+			}
+			crt_faction_creation_toggle_on_button_click = {
+				set_rule = {
+					can_create_factions = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.179 days = 0}
+				}
+			}
+			crt_faction_creation_toggle_off_button_click = {
+				set_rule = {
+					can_create_factions = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.180 days = 0}
+				}
+			}
+			crt_faction_joining_toggle_on_button_click = {
+				set_rule = { can_join_factions = yes }
+				every_country={
+					news_event = { id = toolpacknews.181 days = 0}
+				}
+			}
+			crt_faction_joining_toggle_off_button_click = {
+				set_rule = { can_join_factions = no }
+				every_country={
+					news_event = { id = toolpacknews.182 days = 0}
+				}
+			}
+			#peace
+			crt_puppeting_toggle_on_button_click = {
+				set_rule = {
+					can_puppet = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.183 days = 0}
+				}
+			}
+			crt_puppeting_toggle_off_button_click = {
+				set_rule = {
+					can_puppet = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.184 days = 0}
+				}
+			}
+			crt_coup_toggle_on_button_click = {
+				set_rule = {
+					can_force_government = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.185 days = 0}
+				}
+			}
+			crt_coup_toggle_off_button_click = {
+				set_rule = {
+					can_force_government = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.186 days = 0}
+				}
+			}
+			#Ideology
+			crt_kamikaze_toggle_on_button_click = {
+				set_rule = {
+					can_use_kamikaze_pilots = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.187 days = 0}
+				}
+			}
+			crt_kamikaze_toggle_off_button_click = {
+				set_rule = {
+					can_use_kamikaze_pilots = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.188 days = 0}
+				}
+			}
+			crt_female_ace_toggle_on_button_click = {
+				set_rule = {
+					can_generate_female_aces = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.189 days = 0}
+				}
+			}
+			crt_female_ace_toggle_off_button_click = {
+				set_rule = {
+					can_generate_female_aces = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.190 days = 0}
+				}
+			}
+			#Influence
+			crt_democratic_justify_toggle_on_button_click = {
+				set_rule = {
+					can_only_justify_war_on_threat_country = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.191 days = 0}
+				}
+			}
+			crt_democratic_justify_toggle_off_button_click = {
+				set_rule = {
+					can_only_justify_war_on_threat_country = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.192 days = 0}
+				}
+			}
+			crt_boost_all_toggle_on_button_click = {
+				set_rule = {
+					can_boost_other_ideologies = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.193 days = 0}
+				}
+			}
+			crt_boost_all_toggle_off_button_click = {
+				set_rule = {
+					can_boost_other_ideologies = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.194 days = 0}
+				}
+			}
+			crt_guarantee_all_toggle_on_button_click = {
+				set_rule = {
+					can_guarantee_other_ideologies = yes
+				}		
+				every_country={
+					news_event = { id = toolpacknews.195 days = 0}
+				}		
+			}
+			crt_guarantee_all_toggle_off_button_click = {
+				set_rule = {
+					can_guarantee_other_ideologies = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.196 days = 0}
+				}
+			}
+			crt_volunteer_toggle_on_button_click = {
+				set_rule = {
+					can_send_volunteers = yes
+				}
+				every_country={
+					news_event = { id = toolpacknews.197 days = 0}
+				}
+			}
+			crt_volunteer_toggle_off_button_click = {
+				set_rule = {
+					can_send_volunteers = no
+				}
+				every_country={
+					news_event = { id = toolpacknews.198 days = 0}
+				}
+			}
+		}
+
+		triggers = {
+			crt_unlock_templates_button_visible = {
+				always = yes
+			}
+			crt_unlock_templates_button_enabled = {
+				always = yes
+			}
+			crt_faction_creation_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_create_factions
+				}
+			}
+			crt_faction_creation_toggle_on_button_enabled = {
+				always = yes
+			}
+			crt_faction_creation_toggle_off_button_visible = {
+				has_rule = can_create_factions
+			}
+			crt_faction_creation_toggle_off_button_enabled = {
+				always = yes
+			}
+			crt_faction_joining_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_join_factions
+				}
+			}
+			crt_faction_joining_toggle_on_button_enabled = {
+				always = yes
+			}
+			crt_faction_joining_toggle_off_button_visible = {
+				has_rule = can_join_factions
+			}
+			crt_faction_joining_toggle_off_button_enabled = {
+				always = yes
+			}
+			#Peacedeal
+			crt_puppeting_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_puppet
+				}
+			}
+			crt_puppeting_toggle_off_button_visible = {
+				has_rule = can_puppet
+			}
+			crt_coup_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_force_government
+				}
+			}
+			crt_coup_toggle_off_button_visible = {
+				has_rule = can_force_government
+			}
+			#Ideology
+			crt_kamikaze_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_use_kamikaze_pilots
+				}
+			}
+			crt_kamikaze_toggle_off_button_visible = {
+				has_rule = can_use_kamikaze_pilots
+			}
+			crt_female_ace_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_generate_female_aces
+				}
+			}
+			crt_female_ace_toggle_off_button_visible = {
+				has_rule = can_generate_female_aces
+			}
+			#Influence
+			crt_boost_all_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_boost_other_ideologies
+				}
+			}
+			crt_boost_all_toggle_off_button_visible = {
+				has_rule = can_boost_other_ideologies
+			}
+			crt_guarantee_all_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_guarantee_other_ideologies
+				}
+			}
+			crt_guarantee_all_toggle_off_button_visible = {
+				has_rule = can_guarantee_other_ideologies
+			}
+			crt_democratic_justify_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_only_justify_war_on_threat_country
+				}
+			}
+			crt_democratic_justify_toggle_off_button_visible = {
+				has_rule = can_only_justify_war_on_threat_country
+			}
+			crt_volunteer_toggle_on_button_visible = {
+				NOT = {
+					has_rule = can_send_volunteers
+				}
+			}
+			crt_volunteer_toggle_off_button_visible = {
+				has_rule = can_send_volunteers
+			}
+		}
+	}
+}

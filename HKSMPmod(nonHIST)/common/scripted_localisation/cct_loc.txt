@@ -1,0 +1,13 @@
+defined_text = {
+	name = CCT_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = cct_enabled
+		}
+		localization_key = cct_on
+	}
+	text = {
+		localization_key = cct_off
+	}
+}

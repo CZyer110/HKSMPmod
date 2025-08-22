@@ -1,0 +1,13 @@
+defined_text = {
+	name = RET_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = ret_enabled
+		}
+		localization_key = ret_on
+	}
+	text = {
+		localization_key = ret_off
+	}
+}

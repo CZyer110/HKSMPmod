@@ -1,0 +1,134 @@
+
+guiTypes = {
+
+	containerWindowType = {
+		name = "cct_main_container"
+		position = { x = -60 y = 200 }
+		size = { width = 494 height = 255 }
+		orientation = UPPER_RIGHT
+		origo = upper_right
+
+		fade_time = 300
+		fade_type = linear
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			spriteType = "GFX_smt_bg"
+		}
+
+		iconType ={
+			name ="cct_country_name_background"
+			spriteType = "GFX_generic_text_bg_154"
+			position = { x = 15 y = 13 }
+			Orientation = "UPPER_LEFT"
+			allwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cct_country_name"
+			position = {x = 23 y = 16 }
+			font = "hoi_18mbs"
+			text = "CAT_COUNTRY_NAME"
+			maxWidth = 260
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "cct_marker"
+			position = { x = 351 y = 15 }
+			shortcut = "shift+r"
+			frame = 1
+			spriteType = "GFX_cont_focus_check_icon"
+			pdx_tooltip = "CAT_MARKER"
+			scale = 1
+		}
+		buttonType = {
+			name = "cct_unmarker"
+			position = { x = 351 y = 15 }
+			shortcut = "shift+r"		
+			frame = 2
+			spriteType = "GFX_cont_focus_check_icon"
+			pdx_tooltip = "CAT_UNMARKER"
+			scale = 1
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_democratic_text"
+			position = { x = 30 y = 60 }
+			font = "hoi_16mbs"
+			text = "CCT_democratic_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_democratic" 
+			position = { x = 210 y = 60 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_communism_text"
+			position = { x = 30 y = 80 }
+			font = "hoi_16mbs"
+			text = "CCT_communism_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_communism" 
+			position = { x = 210 y = 80 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_neutrality_text"
+			position = { x = 30 y = 100 }
+			font = "hoi_16mbs"
+			text = "CCT_neutrality_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_neutrality" 
+			position = { x = 210 y = 100 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_fascism_text"
+			position = { x = 30 y = 120 }
+			font = "hoi_16mbs"
+			text = "CCT_fascism_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_fascism" 
+			position = { x = 210 y = 120 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_target_text"
+			position = { x = 30 y = 155 }
+			font = "hoi_16mbs"
+			text = "CCT_target_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_target" 
+			position = { x = 210 y = 155 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+		instantTextboxType = {
+			name = "cct_ideology_pretend_clear_text"
+			position = { x = 30 y = 190 }
+			font = "hoi_16mbs"
+			text = "CCT_clear_pretend"
+			format = left
+		}
+		buttonType = {
+			name = "cct_ideology_pretend_clear" 
+			position = { x = 210 y = 190 }
+			spriteType = "GFX_bst_min_max_btn2"
+			scale = 0.7
+		}
+	}
+}

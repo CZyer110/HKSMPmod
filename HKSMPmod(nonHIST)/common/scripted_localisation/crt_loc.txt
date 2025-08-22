@@ -1,0 +1,13 @@
+defined_text = {
+	name = CRT_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = crt_enabled
+		}
+		localization_key = crt_on
+	}
+	text = {
+		localization_key = crt_off
+	}
+}

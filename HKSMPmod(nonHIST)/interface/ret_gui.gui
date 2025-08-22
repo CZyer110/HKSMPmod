@@ -1,0 +1,378 @@
+
+guiTypes = {
+
+	containerWindowType = {
+		name = "ret_main_container"
+		position = { x = -60 y = 200 }
+		size = { width = 494 height = 255 }
+		orientation = UPPER_RIGHT
+		origo = upper_right
+
+		fade_time = 300
+		fade_type = linear
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			spriteType = "GFX_dst_bg"
+		}
+
+		iconType ={
+			name ="ret_actor_bg"
+			spriteType = "GFX_smt_country_name_bg"
+			position = { x = 13 y = 11 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "ret_actor_name"
+			position = { x = 20 y = 14 }
+			font = "hoi_18mbs"
+			text = "SMT_NAME"
+			maxWidth = 400
+			maxHeight = 23
+			format = left
+		}
+		instantTextboxType = {
+			name = "ret_country_name_1"
+			position = { x = 30 y = 75 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_ONE"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_1" 
+			position = { x = 300 y = 78 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_1_2" 
+			position = { x = 360 y = 78 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_1_3" 
+			position = { x = 425 y = 78 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_2"
+			position = { x = 30 y = 95 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_TWO"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_2" 
+			position = { x = 300 y = 97 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_2_2" 
+			position = { x = 360 y = 97 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_2_3" 
+			position = { x = 425 y = 97 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_3"
+			position = { x = 30 y = 115 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_THREE"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_3" 
+			position = { x = 300 y = 117 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_3_2" 
+			position = { x = 360 y = 117 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_3_3" 
+			position = { x = 425 y = 117 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_4"
+			position = { x = 30 y = 135 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_FOUR"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_4" 
+			position = { x = 300 y = 137 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_4_2" 
+			position = { x = 360 y = 137 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_4_3" 
+			position = { x = 425 y = 137 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_5"
+			position = { x = 30 y = 155 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_FIVE"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_5" 
+			position = { x = 300 y = 157 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_5_2" 
+			position = { x = 360 y = 157 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_5_3" 
+			position = { x = 425 y = 157 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_6"
+			position = { x = 30 y = 175 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_SIX"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_6" 
+			position = { x = 300 y = 177 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_6_2" 
+			position = { x = 360 y = 177 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_6_3" 
+			position = { x = 425 y = 177 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_7"
+			position = { x = 30 y = 195 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_SEVEN"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_7" 
+			position = { x = 300 y = 197 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_7_2" 
+			position = { x = 360 y = 197 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_7_3" 
+			position = { x = 425 y = 197 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		instantTextboxType = {
+			name = "ret_country_name_8"
+			position = { x = 30 y = 215 }
+			font = "hoi_18mbs"
+			text = "RET_COUNTRY_EIGHT"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "ret_release_country_8" 
+			position = { x = 300 y = 217 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_8_2" 
+			position = { x = 360 y = 217 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_release_country_8_3" 
+			position = { x = 425 y = 217 }
+			spriteType = "GFX_bst_min_max_btn2"
+			#pdx_tooltip = "BST_MINIMUM_TT"
+			scale = 0.7
+			#buttonText = "RET_RELEASE"
+			#buttonFont = "hoi_16mbs"
+		}
+		buttonType = {
+			name = "ret_reload_button" 
+			position = { x = 450 y = 20 }
+			#shortcut = "ctrl+k"
+			spriteType = "GFX_ongoing_focus_goal_icon"
+			#pdx_tooltip = "BST_UNCAP_TT"
+			scale = 0.7
+		}
+		# instantTextboxType = {
+		# 	name = "ret_banner_release_release"
+		# 	position = { x = 230 y = 50 }
+		# 	font = "hoi_18mbs"
+		# 	text = "RET_RELEASE"
+		# 	maxwidth = 260
+		# 	maxHeight = 23
+		# 	format = left
+		# }
+		instantTextboxType = {
+			name = "ret_banner_release_here"
+			position = { x = 304 y = 50 }
+			font = "hoi_18mbs"
+			text = "RET_RELEASE_HERE"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		instantTextboxType = {
+			name = "ret_banner_release_within"
+			position = { x = 352 y = 40 }
+			font = "hoi_18mbs"
+			text = "RET_RELEASE_WITHIN"
+			maxwidth = 55
+			maxHeight = 23
+			format = centre
+		}
+		instantTextboxType = {
+			name = "ret_banner_release_all"
+			position = { x = 415 y = 50 }
+			font = "hoi_18mbs"
+			text = "RET_RELEASE_ALL"
+			maxwidth = 260
+			maxHeight = 23
+			format = left
+		}
+		instantTextboxType = {
+			name = "ret_banner_no_cores_here"
+			position = { x = 50 y = 120 }
+			font = "hoi_18mbs"
+			text = "RET_NO_CORES"
+			maxwidth = 400
+			maxHeight = 23
+			format = centre
+		}
+	}
+}

@@ -1,0 +1,244 @@
+
+guiTypes = {
+
+	containerWindowType = {
+		name = "crt_main_container"
+		position = { x = -60 y = 200 }
+		size = { width = 494 height = 255 }
+		orientation = UPPER_RIGHT
+		origo = upper_right
+
+		fade_time = 300
+		fade_type = linear
+		moveable = yes
+		
+		background = {
+			name = "Background"
+			spriteType = "GFX_dst_bg"
+		}
+
+		iconType ={
+			name ="crt_actor_bg"
+			spriteType = "GFX_generic_text_bg_154"
+			position = { x = 15 y = 15 }
+			Orientation = "UPPER_LEFT"
+			allwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "crt_actor_name"
+			position = { x = 20 y = 20 }
+			font = "hoi_18mbs"
+			text = "TPT_ACTOR_NAME"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+		### UNLOCK TEMPLATES ###
+		instantTextboxType = {
+			name = "crt_template_listing"
+			position = { x = 210 y = 16 }
+			font = "hoi_18mbs"
+			text = "CRT_TEMPLATE_LISTING"
+			maxWidth = 200
+			maxHeight = 23
+			format = right
+		}
+		buttonType = {
+			name = "crt_unlock_templates_button" 
+			position = { x = 420 y = 15 }
+			spriteType = "GFX_tpt_guarantee_green"
+			pdx_tooltip = "CRT_UNLOCK_TEMPLATES_TT"
+			scale = 1
+		}
+		##### OTHER OPTIONS
+		instantTextboxType = {
+			name = "crt_warning"
+			position = { x = 20 y = 70 }
+			font = "hoi_18mbs"
+			text = "CRT_WARNING"
+			maxWidth = 460
+			maxHeight = 23
+			format = center
+		}
+		### FACTIONS
+		instantTextboxType = {
+			name = "crt_category_faction"
+			position = { x = 40 y = 115 }
+			font = "hoi_18mbs"
+			text = "CRT_FACTION_CATEGORY"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "crt_faction_creation_toggle_on_button" 
+			position = { x = 60 y = 140 }
+			spriteType = "GFX_tpt_create_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_FACTION_CREATION_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_faction_creation_toggle_off_button"
+			position = { x = 60 y = 140 }
+			spriteType = "GFX_tpt_create_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_FACTION_CREATION_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_faction_joining_toggle_on_button" 
+			position = { x = 60 y = 190 }
+			spriteType = "GFX_tpt_join_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_FACTION_JOINING_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_faction_joining_toggle_off_button"
+			position = { x = 60 y = 190 }
+			spriteType = "GFX_tpt_join_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_FACTION_JOINING_OFF_TT"
+			scale = 1
+		}
+		### Peacedeals
+		instantTextboxType = {
+			name = "crt_category_peace"
+			position = { x = 140 y = 115 }
+			font = "hoi_18mbs"
+			text = "CRT_PEACE_CATEGORY"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "crt_puppeting_toggle_on_button" 
+			position = { x = 160 y = 140 }
+			spriteType = "GFX_tpt_create_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_PUPPETING_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_puppeting_toggle_off_button"
+			position = { x = 160 y = 140 }
+			spriteType = "GFX_tpt_create_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_PUPPETING_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_coup_toggle_on_button" 
+			position = { x = 160 y = 190 }
+			spriteType = "GFX_tpt_opinion_green"
+			pdx_tooltip = "CRT_TOGGLE_COUP_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_coup_toggle_off_button"
+			position = { x = 160 y = 190 }
+			spriteType = "GFX_tpt_opinion_red"
+			pdx_tooltip = "CRT_TOGGLE_COUP_OFF_TT"
+			scale = 1
+		}
+		### Ideology
+		instantTextboxType = {
+			name = "crt_category_ideology"
+			position = { x = 230 y = 115 }
+			font = "hoi_18mbs"
+			text = "CRT_IDEOLOGY_CATEGORY"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "crt_kamikaze_toggle_on_button" 
+			position = { x = 233 y = 140 }
+			spriteType = "GFX_tpt_create_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_KAMIKAZE_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_kamikaze_toggle_off_button"
+			position = { x = 233 y = 140 }
+			spriteType = "GFX_tpt_create_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_KAMIKAZE_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_female_ace_toggle_on_button" 
+			position = { x = 233 y = 190 }
+			spriteType = "GFX_tpt_join_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_FEMALE_ACE_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_female_ace_toggle_off_button"
+			position = { x = 233 y = 190 }
+			spriteType = "GFX_tpt_join_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_FEMALE_ACE_OFF_TT"
+			scale = 1
+		}
+		### Influence
+		instantTextboxType = {
+			name = "crt_category_influence"
+			position = { x = 350 y = 115 }
+			font = "hoi_18mbs"
+			text = "CRT_INFLUENCE_CATEGORY"
+			maxWidth = 200
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "crt_volunteer_toggle_on_button" 
+			position = { x = 380 y = 140 }
+			spriteType = "GFX_tpt_core_green"
+			pdx_tooltip = "CRT_TOGGLE_VOLUNTEER_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_volunteer_toggle_off_button"
+			position = { x = 380 y = 140 }
+			spriteType = "GFX_tpt_core_red"
+			pdx_tooltip = "CRT_TOGGLE_VOLUNTEER_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_guarantee_all_toggle_on_button" 
+			position = { x = 380 y = 190 }
+			spriteType = "GFX_tpt_join_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_GUARANTEE_ALL_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_guarantee_all_toggle_off_button"
+			position = { x = 380 y = 190 }
+			spriteType = "GFX_tpt_join_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_GUARANTEE_ALL_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_democratic_justify_toggle_on_button" 
+			position = { x = 330 y = 140 }
+			spriteType = "GFX_tpt_war_red"
+			pdx_tooltip = "CRT_TOGGLE_DEM_JUSTIFY_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_democratic_justify_toggle_off_button"
+			position = { x = 330 y = 140 }
+			spriteType = "GFX_tpt_war_green"
+			pdx_tooltip = "CRT_TOGGLE_DEM_JUSTIFY_OFF_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_boost_all_toggle_on_button" 
+			position = { x = 330 y = 190 }
+			spriteType = "GFX_tpt_join_faction_green"
+			pdx_tooltip = "CRT_TOGGLE_BOOSTING_ON_TT"
+			scale = 1
+		}
+		buttonType = {
+			name = "crt_boost_all_toggle_off_button"
+			position = { x = 330 y = 190 }
+			spriteType = "GFX_tpt_join_faction_red"
+			pdx_tooltip = "CRT_TOGGLE_BOOSTING_OFF_TT"
+			scale = 1
+		}
+	}
+}
