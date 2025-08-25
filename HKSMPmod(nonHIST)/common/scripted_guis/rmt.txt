@@ -135,12 +135,18 @@ scripted_gui = {
 							type = oil
 							amount = 1
 						}
+						every_country={
+							news_event = { id = toolpacknews.224 days = 0}
+						}
 					}
 					if = {
 						limit = { has_global_flag = rmt_rubber_enabled }
 						add_resource = {
 							type = rubber
 							amount = 1
+						}
+						every_country={
+							news_event = { id = toolpacknews.218 days = 0}
 						}
 					}
 					if = {
@@ -149,12 +155,18 @@ scripted_gui = {
 							type = steel
 							amount = 1
 						}
+						every_country={
+							news_event = { id = toolpacknews.219 days = 0}
+						}
 					}
 					if = {
 						limit = { has_global_flag = rmt_alu_enabled }
 						add_resource = {
 							type = aluminium
 							amount = 1
+						}
+						every_country={
+							news_event = { id = toolpacknews.220 days = 0}
 						}
 					}
 					if = {
@@ -163,12 +175,18 @@ scripted_gui = {
 							type = tungsten
 							amount = 1
 						}
+						every_country={
+							news_event = { id = toolpacknews.221 days = 0}
+						}
 					}
 					if = {
 						limit = { has_global_flag = rmt_chromium_enabled }
 						add_resource = {
 							type = chromium
 							amount = 1
+						}
+						every_country={
+							news_event = { id = toolpacknews.222 days = 0}
 						}
 					}
 					if = {
@@ -177,6 +195,9 @@ scripted_gui = {
 							modifier = { local_resources = 0.01 }
 						}
 						add_to_variable = { rmt_modifier_size = 1 }
+						every_country={
+							news_event = { id = toolpacknews.223 days = 0}
+						}
 					}
 				}
 				if = {
@@ -191,12 +212,18 @@ scripted_gui = {
 								type = oil
 								amount = 1
 							}
+						every_country={
+							news_event = { id = toolpacknews.224 days = 0}
+						}
 						}
 						if = {
 							limit = { has_global_flag = rmt_rubber_enabled }
 							add_resource = {
 								type = rubber
 								amount = 1
+							}
+							every_country={
+								news_event = { id = toolpacknews.219 days = 0}
 							}
 						}
 						if = {
@@ -205,12 +232,18 @@ scripted_gui = {
 								type = steel
 								amount = 1
 							}
+							every_country={
+								news_event = { id = toolpacknews.220 days = 0}
+							}
 						}
 						if = {
 							limit = { has_global_flag = rmt_alu_enabled }
 							add_resource = {
 								type = aluminium
 								amount = 1
+							}
+							every_country={
+								news_event = { id = toolpacknews.221 days = 0}
 							}
 						}
 						if = {
@@ -219,12 +252,18 @@ scripted_gui = {
 								type = tungsten
 								amount = 1
 							}
+							every_country={
+								news_event = { id = toolpacknews.222 days = 0}
+							}
 						}
 						if = {
 							limit = { has_global_flag = rmt_chromium_enabled }
 							add_resource = {
 								type = chromium
 								amount = 1
+							}
+							every_country={
+								news_event = { id = toolpacknews.223 days = 0}
 							}
 						}
 						if = {

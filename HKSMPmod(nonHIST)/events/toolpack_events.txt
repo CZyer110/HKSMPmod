@@ -2388,3 +2388,1250 @@ news_event = {
 		name = toolpacknews.2.a
 	}
 }
+news_event = {
+	id = toolpacknews.197
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.197.t
+	desc = toolpacknews.197.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.198
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.198.t
+	desc = toolpacknews.198.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.199
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.199.t
+	desc = toolpacknews.199.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.200
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.200.t
+	desc = toolpacknews.200.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.201
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.201.t
+	desc = toolpacknews.201.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.202
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.202.t
+	desc = toolpacknews.202.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.203
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.203.t
+	desc = toolpacknews.203.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.204
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.204.t
+	desc = toolpacknews.204.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.205
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.205.t
+	desc = toolpacknews.205.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.206
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.206.t
+	desc = toolpacknews.206.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.207
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.207.t
+	desc = toolpacknews.207.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.208
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.208.t
+	desc = toolpacknews.208.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.209
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.209.t
+	desc = toolpacknews.209.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.210
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.210.t
+	desc = toolpacknews.210.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.211
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.211.t
+	desc = toolpacknews.211.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.212
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.212.t
+	desc = toolpacknews.212.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.213
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.213.t
+	desc = toolpacknews.213.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.214
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.214.t
+	desc = toolpacknews.214.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.215
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.215.t
+	desc = toolpacknews.215.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.216
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.216.t
+	desc = toolpacknews.216.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.217
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.217.t
+	desc = toolpacknews.217.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.218
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.218.t
+	desc = toolpacknews.218.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.219
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.219.t
+	desc = toolpacknews.219.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.220
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.220.t
+	desc = toolpacknews.220.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.221
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.221.t
+	desc = toolpacknews.221.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.222
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.222.t
+	desc = toolpacknews.222.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.223
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.223.t
+	desc = toolpacknews.223.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.224
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.224.t
+	desc = toolpacknews.224.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.225
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.225.t
+	desc = toolpacknews.225.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.226
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.226.t
+	desc = toolpacknews.226.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.227
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.227.t
+	desc = toolpacknews.227.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.228
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.228.t
+	desc = toolpacknews.228.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.229
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.229.t
+	desc = toolpacknews.229.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.230
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.230.t
+	desc = toolpacknews.230.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.231
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.231.t
+	desc = toolpacknews.231.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.232
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.232.t
+	desc = toolpacknews.232.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.233
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.233.t
+	desc = toolpacknews.233.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.234
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.234.t
+	desc = toolpacknews.234.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.235
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.235.t
+	desc = toolpacknews.235.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.236
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.236.t
+	desc = toolpacknews.236.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.237
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.237.t
+	desc = toolpacknews.237.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.238
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.238.t
+	desc = toolpacknews.238.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.239
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.239.t
+	desc = toolpacknews.239.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.240
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.240.t
+	desc = toolpacknews.240.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.241
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.241.t
+	desc = toolpacknews.241.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.242
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.242.t
+	desc = toolpacknews.242.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.243
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.243.t
+	desc = toolpacknews.243.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.244
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.244.t
+	desc = toolpacknews.244.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.245
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.245.t
+	desc = toolpacknews.245.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.246
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.246.t
+	desc = toolpacknews.246.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.247
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.247.t
+	desc = toolpacknews.247.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.248
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.248.t
+	desc = toolpacknews.248.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.249
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.249.t
+	desc = toolpacknews.249.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.250
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.250.t
+	desc = toolpacknews.250.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.251
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.251.t
+	desc = toolpacknews.251.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.252
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.252.t
+	desc = toolpacknews.252.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.253
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.253.t
+	desc = toolpacknews.253.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.254
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.254.t
+	desc = toolpacknews.254.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.255
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.255.t
+	desc = toolpacknews.255.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.256
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.256.t
+	desc = toolpacknews.256.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.257
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.257.t
+	desc = toolpacknews.257.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.258
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.258.t
+	desc = toolpacknews.258.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.259
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.259.t
+	desc = toolpacknews.259.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.260
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.260.t
+	desc = toolpacknews.260.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.261
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.261.t
+	desc = toolpacknews.261.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.262
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.262.t
+	desc = toolpacknews.262.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.263
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.263.t
+	desc = toolpacknews.263.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.264
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.264.t
+	desc = toolpacknews.264.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.265
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.265.t
+	desc = toolpacknews.265.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.266
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.266.t
+	desc = toolpacknews.266.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.267
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.267.t
+	desc = toolpacknews.267.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.268
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.268.t
+	desc = toolpacknews.268.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.269
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.269.t
+	desc = toolpacknews.269.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.270
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.270.t
+	desc = toolpacknews.270.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.271
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.271.t
+	desc = toolpacknews.271.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.272
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.272.t
+	desc = toolpacknews.272.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.273
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.273.t
+	desc = toolpacknews.273.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.274
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.274.t
+	desc = toolpacknews.274.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.275
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.275.t
+	desc = toolpacknews.275.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.276
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.276.t
+	desc = toolpacknews.276.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.277
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.277.t
+	desc = toolpacknews.277.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.278
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.278.t
+	desc = toolpacknews.278.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.279
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.279.t
+	desc = toolpacknews.279.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.280
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.280.t
+	desc = toolpacknews.280.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.281
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.281.t
+	desc = toolpacknews.281.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.282
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.282.t
+	desc = toolpacknews.282.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.283
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.283.t
+	desc = toolpacknews.283.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.284
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.284.t
+	desc = toolpacknews.284.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.285
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.285.t
+	desc = toolpacknews.285.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.286
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.286.t
+	desc = toolpacknews.286.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.287
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.287.t
+	desc = toolpacknews.287.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.288
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.288.t
+	desc = toolpacknews.288.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.289
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.289.t
+	desc = toolpacknews.289.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.290
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.290.t
+	desc = toolpacknews.290.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.291
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.291.t
+	desc = toolpacknews.291.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.292
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.292.t
+	desc = toolpacknews.292.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.293
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.293.t
+	desc = toolpacknews.293.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.294
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.294.t
+	desc = toolpacknews.294.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.295
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.295.t
+	desc = toolpacknews.295.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.296
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.296.t
+	desc = toolpacknews.296.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.297
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.297.t
+	desc = toolpacknews.297.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.298
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.298.t
+	desc = toolpacknews.298.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.299
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.299.t
+	desc = toolpacknews.299.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+
+news_event = {
+	id = toolpacknews.300
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.300.t
+	desc = toolpacknews.300.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}

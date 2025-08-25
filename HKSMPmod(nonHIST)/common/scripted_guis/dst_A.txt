@@ -408,6 +408,9 @@ scripted_gui = {
 					limit = { owns_state = PREV }
 					set_country_flag = dsta_unit_deletion_target
 				}
+				every_country={
+					news_event = { id = toolpacknews.204 days = 0}
+				}
 			}
 			dst_spawn_1_click = {
 				set_variable = { dst_state_var = THIS }
@@ -479,6 +482,9 @@ scripted_gui = {
 				every_country = {
 					limit = { has_country_flag = dst_marked }
 					clr_country_flag = dst_marked
+				}
+				every_country={
+					news_event = { id = toolpacknews.200 days = 0}
 				}
 			}
 			dst_spawn_5_click = {
@@ -559,6 +565,9 @@ scripted_gui = {
 				every_country = {
 					limit = { has_country_flag = dst_marked }
 					clr_country_flag = dst_marked
+				}
+				every_country={
+					news_event = { id = toolpacknews.201 days = 0}
 				}
 			}
 			dst_spawn_10_click = {
@@ -649,6 +658,9 @@ scripted_gui = {
 				every_country = {
 					limit = { has_country_flag = dst_marked }
 					clr_country_flag = dst_marked
+				}
+				every_country={
+					news_event = { id = toolpacknews.202 days = 0}
 				}
 			}
 			dst_spawn_50_click = {
@@ -819,6 +831,9 @@ scripted_gui = {
 				every_country = {
 					limit = { has_country_flag = dst_marked }
 					clr_country_flag = dst_marked
+				}
+				every_country={
+					news_event = { id = toolpacknews.203 days = 0}
 				}
 			}
 		}

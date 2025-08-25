@@ -25,10 +25,16 @@ scripted_gui = {
 			}
 			ret_release_country_1_click = {
 				transfer_state_to = country_with_core_of_this_state_1
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_1_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_1
+				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
 				}
 			}
 			ret_release_country_1_3_click = {
@@ -36,58 +42,100 @@ scripted_gui = {
 			}
 			ret_release_country_2_click = {
 				transfer_state_to = country_with_core_of_this_state_2
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_2_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_2
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_3_click = {
 				transfer_state_to = country_with_core_of_this_state_3
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_3_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_3
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_4_click = {
 				transfer_state_to = country_with_core_of_this_state_4
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_4_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_4
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_5_click = {
 				transfer_state_to = country_with_core_of_this_state_5
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_5_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_5
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_6_click = {
 				transfer_state_to = country_with_core_of_this_state_6
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_6_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_6
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_7_click = {
 				transfer_state_to = country_with_core_of_this_state_7
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_7_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_7
 				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
+				}
 			}
 			ret_release_country_8_click = {
 				transfer_state_to = country_with_core_of_this_state_8
+				every_country={
+					news_event = { id = toolpacknews.216 days = 0}
+				}
 			}
 			ret_release_country_8_2_click = {
 				controller = {
 					release_on_controlled = PREV.country_with_core_of_this_state_8
+				}
+				every_country={
+					news_event = { id = toolpacknews.217 days = 0}
 				}
 			}
 		}

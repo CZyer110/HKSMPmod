@@ -8,7 +8,7 @@ scripted_gui = {
 		
 		visible = {
 			ROOT = {
-				is_ai = yes
+				is_ai = no
 				has_global_flag = toolpack_enabled
 				OR = {
 					has_country_flag = tp_is_host
