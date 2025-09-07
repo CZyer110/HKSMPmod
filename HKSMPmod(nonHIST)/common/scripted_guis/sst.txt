@@ -25,10 +25,16 @@ scripted_gui = {
 				OWNER = {
 					navy_experience = 50
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_clear_xp_click = {
 				OWNER = {
 					navy_experience = -50000
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			sst_help_button_click = {
@@ -151,7 +157,10 @@ scripted_gui = {
 			}
 ### SPAWN BUTTONS ###
 			sst_spawn_1_click = {
-				sst_spawn_ship = yes		#SCRIPTED EFFECTS
+				sst_spawn_ship = yes
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}		#SCRIPTED EFFECTS
 			}
 			sst_spawn_5_click = {
 				sst_spawn_ship = yes
@@ -159,6 +168,9 @@ scripted_gui = {
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_20_click = {
 				sst_spawn_ship = yes
@@ -181,6 +193,9 @@ scripted_gui = {
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_50_click = {
 				sst_spawn_ship = yes
@@ -233,11 +248,17 @@ scripted_gui = {
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
 				sst_spawn_ship = yes
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_convoys_10_click = {
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = 10
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			sst_spawn_convoys_50_click = {
@@ -245,11 +266,17 @@ scripted_gui = {
 					type = convoy
 					amount = 50
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_convoys_200_click = {
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = 200
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			sst_spawn_convoys__10_click = {
@@ -257,17 +284,26 @@ scripted_gui = {
 					type = convoy
 					amount = -10
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_convoys__50_click = {
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = -50
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			sst_spawn_convoys__200_click = {
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = -200
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 		}

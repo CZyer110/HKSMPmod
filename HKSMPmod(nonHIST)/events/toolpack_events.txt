@@ -1730,18 +1730,6 @@ news_event = {
 }
 
 news_event = {
-	id = toolpacknews.144
-	picture = GFX_news_event_the_megali_idea_succeeds
-	title = toolpacknews.144.t
-	desc = toolpacknews.144.d
-	is_triggered_only = yes
-
-	option = {
-		name = toolpacknews.2.a
-	}
-}
-
-news_event = {
 	id = toolpacknews.145
 	picture = GFX_news_event_the_megali_idea_succeeds
 	title = toolpacknews.145.t
@@ -2365,29 +2353,6 @@ news_event = {
 	}
 }
 
-news_event = {
-	id = toolpacknews.197
-	picture = GFX_news_event_the_megali_idea_succeeds
-	title = toolpacknews.197.t
-	desc = toolpacknews.197.d
-	is_triggered_only = yes
-
-	option = {
-		name = toolpacknews.2.a
-	}
-}
-
-news_event = {
-	id = toolpacknews.198
-	picture = GFX_news_event_the_megali_idea_succeeds
-	title = toolpacknews.198.t
-	desc = toolpacknews.198.d
-	is_triggered_only = yes
-
-	option = {
-		name = toolpacknews.2.a
-	}
-}
 news_event = {
 	id = toolpacknews.197
 	picture = GFX_news_event_the_megali_idea_succeeds
@@ -3635,3 +3600,16 @@ news_event = {
 		name = toolpacknews.2.a
 	}
 }
+
+news_event = {
+	id = toolpacknews.301
+	picture = GFX_news_event_the_megali_idea_succeeds
+	title = toolpacknews.301.t
+	desc = toolpacknews.301.d
+	is_triggered_only = yes
+
+	option = {
+		name = toolpacknews.2.a
+	}
+}
+

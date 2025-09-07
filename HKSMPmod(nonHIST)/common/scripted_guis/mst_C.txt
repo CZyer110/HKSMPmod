@@ -64,6 +64,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = 1000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -72,6 +75,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = 1000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -103,6 +109,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = 10000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -111,6 +120,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = 10000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -142,6 +154,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = 100000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -150,6 +165,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = 100000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -181,6 +199,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = 1000000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -189,6 +210,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = 1000000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -220,6 +244,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = -1000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -228,6 +255,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = -1000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -259,6 +289,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = -10000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -267,6 +300,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = -10000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -298,6 +334,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = -100000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -306,6 +345,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = -100000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -337,6 +379,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = -1000000
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -345,6 +390,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = -1000000
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 				if = {
@@ -369,6 +417,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = global.mst_variable_C1
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -377,6 +428,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = global.mst_variable_C1
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					
 				}
@@ -390,6 +444,9 @@ scripted_gui = {
 							limit = { has_country_flag = mst_marked }
 							add_manpower = global.mst_variable_C2
 						}
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = {
@@ -398,6 +455,9 @@ scripted_gui = {
 							}
 						}
 						add_manpower = global.mst_variable_C2
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					
 				}
@@ -414,12 +474,18 @@ scripted_gui = {
 							set_variable = { global.mst_subber_variable = global.mst_variable_C1 }
 							multiply_variable = { global.mst_subber_variable = -1 }
 							add_manpower = global.mst_subber_variable
+							every_country={
+								news_event = { id = toolpacknews.301 days = 0}
+							}
 						}
 						if = {
 							limit = { has_global_flag = mst_variable_C2_enabled }
 							set_variable = { global.mst_subber_variable = global.mst_variable_C2 }
 							multiply_variable = { global.mst_subber_variable = -1 }
 							add_manpower = global.mst_subber_variable
+							every_country={
+								news_event = { id = toolpacknews.301 days = 0}
+							}
 						}
 					}
 				}
@@ -434,12 +500,18 @@ scripted_gui = {
 						set_variable = { global.mst_subber_variable = global.mst_variable_C1 }
 						multiply_variable = { global.mst_subber_variable = -1 }
 						add_manpower = global.mst_subber_variable
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 					if = {
 						limit = { has_global_flag = mst_variable_C2_enabled }
 						set_variable = { global.mst_subber_variable = global.mst_variable_C2 }
 						multiply_variable = { global.mst_subber_variable = -1 }
 						add_manpower = global.mst_subber_variable
+						every_country={
+							news_event = { id = toolpacknews.301 days = 0}
+						}
 					}
 				}
 			}

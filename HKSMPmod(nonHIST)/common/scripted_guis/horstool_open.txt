@@ -319,8 +319,9 @@ scripted_gui = {
 				}			
 			}
 			change_host_nation_click = {
-				ROOT = { clr_country_flag = host		}
-				owner = { set_country_flag = host	news_event = { id = news.4005 }	  }
+				ROOT = { clr_country_flag = host }
+				ROOT = { clr_country_flag = tp_is_host }
+				owner = { set_country_flag = host set_country_flag = tp_is_host	news_event = { id = news.4005 }	  }
 			}
 			
 			addpp_click = {
