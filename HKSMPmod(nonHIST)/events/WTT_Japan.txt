@@ -1825,7 +1825,7 @@ country_event = {
 		name = wtt_japan.132.a
 		JAP = { puppet = INS }
 		INS = { country_event = { id = wtt_japan.137 days = 3 } }
-		add_ideas = JAP_treade_teretori
+		HOL = ( add_ideas = JAP_treade_teretori )
 		ai_chance = {
 			factor = 90
 		}

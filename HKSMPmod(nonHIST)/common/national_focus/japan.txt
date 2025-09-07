@@ -4133,6 +4133,13 @@
     			generator = { 609 608 }
     			expire = 730
 			}
+
+			create_wargoal = {
+				type = take_state_focus
+  				target = YUN
+    			generator = { 747 325 }
+    			expire = 730
+			}
 			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
 			unlock_decision_tooltip = JAP_china_step_up_war_effort
 		}
@@ -4608,40 +4615,6 @@
 		x = 2
 		y = 1
 		relative_position_id = JAP_the_korean_question
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			"PHI" = {
-				is_subject = no
-			}
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			"PHI" = { OVERLORD = { country_event = { id = wtt_japan.104 days = 1 } } }
-		}
-	}
-
-	focus = {
-		id = JAP_na_nasej_storone
-		icon = GFX_goal_generic_forceful_treaty
-		prerequisite = { focus = JAP_full_sovereignty_for_the_philippines }
-		x = 0
-		y = 1
-		relative_position_id = JAP_full_sovereignty_for_the_philippines
 
 		cost = 10
 

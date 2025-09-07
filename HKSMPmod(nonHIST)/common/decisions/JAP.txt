@@ -1129,12 +1129,12 @@ JAP_pacific_guardian = {
 		complete_effect = {
 			if = {
 				limit = {
-					is_puppet_of = ENG
+					MAL = { is_puppet_of = ENG }
 				}
-				ENG = { country_event = { id = wtt_japan.132 days = 6  }}
+				ENG = { country_event = { id = wtt_japan.131 days = 6  }}
 			}
 			else = {
-				MAL = { country_event = { id = wtt_japan.132 days = 6  }}
+				MAL = { country_event = { id = wtt_japan.131 days = 6  }}
 			}
 		}
 	}
