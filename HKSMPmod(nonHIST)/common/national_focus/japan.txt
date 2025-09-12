@@ -4127,18 +4127,20 @@
 					country_event = china.1
 				}
 			}
-			create_wargoal = {
-				type = take_state_focus
-  				target = GXC
-    			generator = { 609 608 }
-    			expire = 730
-			}
+			JAP = {
+				create_wargoal = {
+					type = take_state_focus
+  					target = GXC
+    				generator = { 609 608 }
+    				expire = 0
+				}
 
-			create_wargoal = {
-				type = take_state_focus
-  				target = YUN
-    			generator = { 747 325 }
-    			expire = 730
+				create_wargoal = {
+					type = take_state_focus
+  					target = YUN
+    				generator = { 747 325 }
+    				expire = 0
+				}
 			}
 			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
 			unlock_decision_tooltip = JAP_china_step_up_war_effort
