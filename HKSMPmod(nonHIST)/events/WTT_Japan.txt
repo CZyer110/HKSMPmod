@@ -1789,10 +1789,14 @@ country_event = {
 			transfer_state = 326
 		}
 		MAL = { country_event = { id = wtt_japan.136 days = 3 } }
-		add_timed_idea = { 
-			idea = JAP_treade_teretori
-			days = 730
-		}
+		MAL = {
+			overlord = {
+				add_timed_idea = { 
+				idea = JAP_treade_teretori
+				days = 730
+				}
+			}
+		} 
 		ai_chance = {
 			factor = 90
 		}
@@ -1825,7 +1829,12 @@ country_event = {
 		name = wtt_japan.132.a
 		JAP = { puppet = INS }
 		INS = { country_event = { id = wtt_japan.137 days = 3 } }
-		HOL = ( add_ideas = JAP_treade_teretori )
+		INS = { 
+			overlord = {
+				add_timed_idea = { idea = JAP_treade_teretori days = 730 }
+				 
+			}
+		}
 		ai_chance = {
 			factor = 90
 		}
