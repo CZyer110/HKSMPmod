@@ -1,0 +1,22 @@
+ideas = {
+
+	hidden_ideas = {
+	
+	
+		opt_ai = {
+			picture = GFX_placeholder11
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				ai_desired_divisions_factor = -0.40
+				ai_focus_naval_factor = -0.5
+			}
+		}
+		
+}}

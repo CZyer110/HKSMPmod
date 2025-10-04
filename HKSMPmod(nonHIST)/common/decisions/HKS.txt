@@ -1,4 +1,30 @@
 HKS_decisions = {	
+
+	HKS_opt_ai= { # ЧТобы не срал дивками 
+
+		icon = GFX_decision_generic_industry
+
+		available = {
+		ROOT = { is_ai = yes }
+		}
+
+		visible = {
+		ROOT = { is_ai = yes }
+		}
+		
+		
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		
+		priority = 100
+		
+		complete_effect = {
+			add_ideas = opt_ai
+		}	
+	}
+
 	HKS_Garrison_template = { #Гарнизонная дивка
 		icon = GFX_decision_generic_cavalry
 		fire_only_once = yes

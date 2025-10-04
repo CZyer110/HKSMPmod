@@ -35,7 +35,7 @@ FRA_alternate_plan_1 = {
 		FRA_naval_rearmament #October 10 1936
 		FRA_capital_ship_focus #October 10 1936	
 		FRA_begin_rearmament
-		FRA_defensive_focus #December 20 1936	
+		# #December 20 1936	
 		FRA_fortification_focus #February 30 1937	
 		FRA_infantry_focus #May 10 1937	
 		FRA_artillery_focus #July 20 1937	
@@ -51,7 +51,7 @@ FRA_alternate_plan_1 = {
 		FRA_extra_research_slot_2					#November 20 1939	
 		FRA_air_focus 								#January 30 1940
 		FRA_fighter_focus 							#April 10 1940
-		FRA_cas_focus 								#June 20 1940	
+		# 							#June 20 1940	
 		FRA_heavy_fighter_focus 					#August 30 1940
 		FRA_air_doctrine 							#November 10 1940
 							#March 30 1941	
@@ -124,7 +124,7 @@ FRA_alternate_plan_2 = {
 		FRA_industrial_expansion 					#December 20 1936	
 		FRA_naval_rearmament 								#May 10 1937	
 		FRA_capital_ship_focus 						#July 20 1937	
-		FRA_defensive_focus							#September 30 1937	
+		#							#September 30 1937	
 		FRA_fortification_focus 					#December 10 1937
 		FRA_infantry_focus 							#February 20 1938	
 		FRA_artillery_focus 						#April 30 1938	
@@ -133,7 +133,7 @@ FRA_alternate_plan_2 = {
 		FRA_improved_screen_ships 					#November 30 1938
 		FRA_invest_in_the_colonies
 		FRA_invest_in_syria
-		FRA_invest_in_indochina
+		#
 		FRA_invest_in_west_africa
 		FRA_colonial_industry
 		FRA_military_factories 						#June 30 1939
@@ -143,7 +143,7 @@ FRA_alternate_plan_2 = {
 		FRA_army_reform								#June 20 1940	
 		FRA_air_focus 								#August 30 1940
 		FRA_fighter_focus 							#November 10 1940
-		FRA_cas_focus 								#January 20 1941	
+		# 								#January 20 1941	
 		FRA_heavy_fighter_focus 					#March 30 1941	
 		FRA_air_doctrine 							#June 10 1941	
 		 #October 30 1941	
@@ -207,7 +207,7 @@ FRA_alternate_plan_3_regular = {
 		#FRA_initiate_government_reform 				#July 20 1937	
 		FRA_naval_rearmament 								#September 30 1937	
 		FRA_capital_ship_focus 						#December 10 1937
-		FRA_defensive_focus 						#February 20 1938	
+		# 						#February 20 1938	
 		FRA_fortification_focus 					#April 30 1938	
 		FRA_infantry_focus 							#July 10 1938	
 		FRA_artillery_focus 						#September 20 1938
@@ -223,7 +223,7 @@ FRA_alternate_plan_3_regular = {
 		FRA_army_reform								#November 10 1940
 		FRA_air_focus 								#January 20 1941	
 		FRA_fighter_focus 							#March 30 1941	
-		FRA_cas_focus 								#June 10 1941	
+		# 								#June 10 1941	
 		FRA_heavy_fighter_focus 					#August 20 1941
 		FRA_air_doctrine 							#October 30 1941	
  		 #March 20 1942
@@ -292,14 +292,14 @@ FRA_alternate_plan_3_lar = {
 		FRA_constitutional_convention
 		FRA_loyalty_to_moscow
 		FRA_capital_ship_focus 						#December 10 1937
-		FRA_defensive_focus 						#February 20 1938	
+		# 						#February 20 1938	
 		FRA_fortification_focus 					#April 30 1938	
 		FRA_infantry_focus 							#July 10 1938	
 		FRA_artillery_focus 						#September 20 1938
 		FRA_heavy_armor_focus 						#November 30 1938
 		FRA_invest_in_the_colonies
 		FRA_invest_in_syria
-		FRA_invest_in_indochina
+		#
 		FRA_colonial_industry 						#September 10 1939	
 		FRA_military_factories 						#February 10 1939	
 		FRA_extra_research_slot 					#January 30 1940
@@ -309,7 +309,7 @@ FRA_alternate_plan_3_lar = {
 		FRA_army_reform								#November 10 1940
 		FRA_air_focus 								#January 20 1941	
 		FRA_fighter_focus 							#March 30 1941	
-		FRA_cas_focus 								#June 10 1941	
+		# 								#June 10 1941	
 		FRA_heavy_fighter_focus 					#August 20 1941
 		FRA_air_doctrine 							#October 30 1941	
  		 #March 20 1942
@@ -427,14 +427,14 @@ FRA_alternate_plan_4_lar = {
 		FRA_constitutional_convention
 		FRA_loyalty_to_moscow
 		FRA_capital_ship_focus 						#December 10 1937
-		FRA_defensive_focus 						#February 20 1938	
+		# 						#February 20 1938	
 		FRA_fortification_focus 					#April 30 1938	
 		FRA_infantry_focus 							#July 10 1938	
 		FRA_artillery_focus 						#September 20 1938
 		FRA_heavy_armor_focus 						#November 30 1938
 		FRA_invest_in_the_colonies
 		FRA_invest_in_syria
-		FRA_invest_in_indochina
+		#
 		FRA_colonial_industry 						#September 10 1939	
 		FRA_military_factories 						#February 10 1939	
 		FRA_extra_research_slot 					#January 30 1940
@@ -444,7 +444,7 @@ FRA_alternate_plan_4_lar = {
 		FRA_army_reform								#November 10 1940
 		FRA_air_focus 								#January 20 1941	
 		FRA_fighter_focus 							#March 30 1941	
-		FRA_cas_focus 								#June 10 1941	
+		# 								#June 10 1941	
 		FRA_heavy_fighter_focus 					#August 20 1941
 		FRA_air_doctrine 							#October 30 1941	
  		 #March 20 1942
@@ -530,7 +530,7 @@ FRA_alternate_plan_little_entente = {
 		FRA_extra_research_slot
 		#1938
 		FRA_defensive_strategems
-		FRA_defensive_focus
+		#
 		FRA_invite_yugoslavia
 		FRA_invite_romania
 		#1939
@@ -616,7 +616,7 @@ FRA_alternate_plan_fascist_regular = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -710,7 +710,7 @@ FRA_alternate_plan_fascist_lar = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -774,7 +774,7 @@ FRA_alternate_plan_communist_regular = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -824,7 +824,7 @@ FRA_alternate_plan_communist_lar = {
 		#1937
 		FRA_invest_in_the_colonies
 		FRA_begin_rearmament
-		FRA_defensive_focus
+		#
 		FRA_metropolitan_france
 		FRA_algerie_france
 		#1938
@@ -842,7 +842,7 @@ FRA_alternate_plan_communist_lar = {
 		#1940
 		FRA_general_work_council
 		FRA_celebrate_the_commune
-		FRA_invest_in_indochina
+		#
 		FRA_invest_in_syria
 		FRA_invest_in_west_africa
 		#1941
@@ -857,7 +857,7 @@ FRA_alternate_plan_communist_lar = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -907,7 +907,7 @@ FRA_alternate_plan_monarchist_orleans = {
 		#1937
 		FRA_invest_in_the_colonies
 		FRA_begin_rearmament
-		FRA_defensive_focus
+		#
 		FRA_metropolitan_france
 		FRA_algerie_france
 		#1938
@@ -925,7 +925,7 @@ FRA_alternate_plan_monarchist_orleans = {
 		#1940
 		FRA_army_reform
 		FRA_repeal_the_law_of_exile
-		FRA_invest_in_indochina
+		#
 		FRA_orleanist_restoration
 		FRA_invest_in_syria
 		FRA_invest_in_west_africa
@@ -941,7 +941,7 @@ FRA_alternate_plan_monarchist_orleans = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -991,7 +991,7 @@ FRA_alternate_plan_monarchist_legitimate = {
 		#1937
 		FRA_invest_in_the_colonies
 		FRA_begin_rearmament
-		FRA_defensive_focus
+		#
 		FRA_metropolitan_france
 		FRA_algerie_france
 		#1938
@@ -1009,7 +1009,7 @@ FRA_alternate_plan_monarchist_legitimate = {
 		#1940
 		FRA_army_reform
 		FRA_repeal_the_law_of_exile
-		FRA_invest_in_indochina
+		#
 		FRA_the_legitimate_heir
 		FRA_invest_in_syria
 		FRA_invest_in_west_africa
@@ -1023,7 +1023,7 @@ FRA_alternate_plan_monarchist_legitimate = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 	}			
 	research = {
 
@@ -1092,7 +1092,7 @@ FRA_alternate_plan_monarchist_bonaparte = {
 		FRA_light_medium_armor
 		#1940
 		FRA_army_reform
-		FRA_invest_in_indochina
+		#
 		FRA_avenge_waterloo
 		FRA_invest_in_syria
 		FRA_invest_in_west_africa
@@ -1106,7 +1106,7 @@ FRA_alternate_plan_monarchist_bonaparte = {
 		FRA_naval_rearmament
 		FRA_capital_ship_focus
 		FRA_fighter_focus
-		FRA_cas_focus
+		#
 		FRA_return_to_borodino
 		FRA_je_suis_la_deluge
 	}			

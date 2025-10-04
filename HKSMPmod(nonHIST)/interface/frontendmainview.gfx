@@ -29,6 +29,16 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_placeholder11"
+		textureFile = "gfx/opt/placeholder11.dds"
+	}
+
+	spriteType = {
+		name = "GFX_placeholder42"
+		textureFile = "gfx/decisions/placeholder1.dds"
+	}
+
+	spriteType = {
 		name = "GFX_main_lobby_divider"
 		textureFile = "gfx/interface/main_lobby_divider.dds"
 	}

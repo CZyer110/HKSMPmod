@@ -1,0 +1,9 @@
+optimization = {
+	picture = GFX_placeholder42
+	visible = { 
+	tag = NIC
+	}
+	allowed = {
+	}
+	priority = 101
+}

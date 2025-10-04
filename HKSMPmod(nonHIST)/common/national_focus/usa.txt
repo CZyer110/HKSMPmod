@@ -3007,7 +3007,7 @@ focus_tree = {
 				has_completed_focus = USA_limited_intervention
 			}
 		}
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3045,6 +3045,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY FOCUS_FILTER_USA_CONGRESS}
 		completion_reward = {
 			add_ideas = USA_gold_standard
+			add_political_power = 150
 			USA_congress_small_opposition = yes
 			hidden_effect = {
 				if = {
@@ -3066,7 +3067,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_reestablish_the_gold_standard }
 		relative_position_id = USA_reestablish_the_gold_standard
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3085,7 +3086,7 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_USA_CONGRESS}
 		completion_reward = {
-			add_timed_idea = { idea = USA_adjusted_compensation_payment days = 180 }
+			add_timed_idea = { idea = USA_adjusted_compensation_payment days = 140 }
 			USA_great_depression_level_down = yes
 			if = {
 				limit = {
@@ -3443,6 +3444,7 @@ focus_tree = {
 		completion_reward = {
 			USA_congress_medium_support = yes
 			unlock_decision_tooltip = { decision = USA_beat_up_opposition show_effect_tooltip = yes }
+			add_research_slot = 1
 			if = {
 				limit = {
 					has_country_flag = mtg_usa_civil_war_democrats_1
