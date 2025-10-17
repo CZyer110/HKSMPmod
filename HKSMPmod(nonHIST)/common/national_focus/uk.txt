@@ -1506,7 +1506,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			add_timed_idea = { idea = british_fighter_discount days = 420 }
+			add_ideas = { british_fighter_discount }		
 		}
 	}
 	focus = {

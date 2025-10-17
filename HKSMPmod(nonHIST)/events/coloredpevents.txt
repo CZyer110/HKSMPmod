@@ -1,0 +1,30 @@
+﻿add_namespace = coloredp
+
+#Options
+country_event = {
+	id = coloredp.1
+	title = coloredp.1.t
+	desc = coloredp.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+	hidden = yes
+
+	fire_only_once = yes
+	
+	trigger = {
+		is_ai = no
+	}
+
+	immediate = {
+		hidden_effect = { set_global_flag = coloredp_start }
+	}
+	
+	option = {
+		name = coloredp.1.a
+
+	}
+	
+}
+
+
+	
+	
