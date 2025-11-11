@@ -1784,19 +1784,24 @@ country_event = {
 
 	option = {
 		name = wtt_japan.131.a
+		MAL = {
+			overlord = {
+				add_timed_idea = { 
+					idea = JAP_treade_teretori
+					days = 730
+				}
+			}
+		}
+		give_resource_rights = {
+        	receiver = ENG
+        	state = 336
+        } 
 		JAP = { puppet = MAL }
 		JAP = {
 			transfer_state = 326
 		}
 		MAL = { country_event = { id = wtt_japan.136 days = 3 } }
-		MAL = {
-			overlord = {
-				add_timed_idea = { 
-				idea = JAP_treade_teretori
-				days = 730
-				}
-			}
-		} 
+
 		ai_chance = {
 			factor = 90
 		}
@@ -1827,14 +1832,14 @@ country_event = {
 
 	option = {
 		name = wtt_japan.132.a
-		JAP = { puppet = INS }
-		INS = { country_event = { id = wtt_japan.137 days = 3 } }
 		INS = { 
 			overlord = {
-				add_timed_idea = { idea = JAP_treade_teretori days = 730 }
-				 
+				add_timed_idea = { idea = JAP_treade_teretori days = 730 }	 
 			}
 		}
+		JAP = { puppet = INS }
+		INS = { country_event = { id = wtt_japan.137 } }
+
 		ai_chance = {
 			factor = 90
 		}
@@ -1872,7 +1877,7 @@ country_event = {
 			transfer_state = 286
 			transfer_state = 728
 		}
-		JAP = { country_event = { id = wtt_japan.138 days = 3 } }
+		country_event = { id = wtt_japan.138 days = 3 }
 		add_ideas = JAP_treade_teretori
 		ai_chance = {
 			factor = 90
@@ -1938,11 +1943,15 @@ country_event = {
 
 	option = {
 		name = wtt_japan.135.a
+		PHI = { 
+			overlord = {
+				add_timed_idea = { idea = JAP_treade_teretori days = 730 }	 
+			}
+		}
 		JAP = {
 			transfer_state = 638
 		}
 		JAP = { puppet = PHI }
-		add_ideas = JAP_treade_teretori
 		ai_chance = {
 			factor = 90
 		}
@@ -2019,12 +2028,80 @@ country_event = {
 	picture = GFX_report_event_japanese_chinese_surrender
 
 	option = {
-		name = wtt_japan.138.a
-		JAP = {
-			give_resource_rights = {
-            	receiver = FRA
-            	state = 671
-        	}
+		name = wtt_japan.138.a		
+		give_resource_rights = {
+        	receiver = FRA
+        	state = 671        	
+		}
+	}
+}
+
+country_event = {
+	id = wtt_japan.140
+	title = wtt_japan.140.t
+	desc = wtt_japan.140.d
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+	    name = wtt_japan.140.a
+		ai_chance = {
+    		base = 100
+	    }
+        annex_country = { target = MAN transfer_troops = yes }
+	}
+	option = {
+        name = wtt_japan.140.b
+    	ai_chance = {
+       		base = 0
+        }
+    }
+}
+
+country_event = {
+	id = wtt_japan.144
+	title = wtt_japan.144.t
+	desc = wtt_japan.144.d
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = wtt_japan.144.a
+		ai_chance = {
+			base = 100
+		}
+		annex_country = { target = MEN transfer_troops = yes }
+	}
+
+	option = {
+		name = wtt_japan.144.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+country_event = {
+	id = wtt_japan.145
+	title = wtt_japan.145.a
+	desc = wtt_japan.145.b
+	picture = GFX_report_event_soldiers_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = wtt_japan.145.c
+		ai_chance = {
+			base = 100
+		}
+		puppet = PHI
+	}
+	option = {
+		name = wtt_japan.145.d
+		ai_chance = {
+			base = 1
 		}
 	}
 }
