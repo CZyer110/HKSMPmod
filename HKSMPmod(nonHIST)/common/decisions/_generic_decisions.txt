@@ -1,5 +1,37 @@
 political_actions = {
-
+	
+	Mafia_decision = {
+		icon = generic_army_support
+		cost = 25
+			available = {
+				any_state = {
+					is_core_of = ROOT
+					has_dynamic_modifier = {  modifier = custom_mafia_modifier }
+				}
+			}
+			
+			visible = {
+				any_state = {
+					is_core_of = ROOT
+					has_dynamic_modifier = {  modifier = custom_mafia_modifier }
+				}
+			}
+			fire_only_once = no
+			
+			modifier = {
+				political_power_gain = -0.1
+			}
+			days_remove = 360
+		
+		remove_effect = {
+			every_core_state = {
+				limit = {
+					has_dynamic_modifier = {  modifier = custom_mafia_modifier }
+				}
+				remove_dynamic_modifier = {  modifier = custom_mafia_modifier }
+			}
+		}
+	}
 	
 	targeted_race_for_the_bomb = {
 
