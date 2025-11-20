@@ -909,6 +909,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 
 		available = {
@@ -920,6 +924,9 @@ focus_tree = {
 				event_target:WTT_communist_china = {
 					is_faction_leader = yes
 				}
+			}
+			event_target:WTT_communist_china = {
+				has_rule = can_join_factions
 			}
 		}
 		
@@ -1087,8 +1094,7 @@ focus_tree = {
 							has_completed_focus = ITA_new_colonial_policies
 						}
 					}
-					any_state = {
-						is_controlled_by = ITA
+					any_controlled_state = {
 						NOT = { is_core_of = ITA }
 					}
 				}
@@ -1096,8 +1102,7 @@ focus_tree = {
 					exists = yes
 					NOT = { has_war_with = ROOT }
 					NOT = { is_in_faction_with = ROOT }
-					any_state = {
-						is_controlled_by = FRA
+					any_controlled_state = {
 						NOT = { is_core_of = FRA }
 					}
 				}
@@ -1105,8 +1110,7 @@ focus_tree = {
 					exists = yes
 					NOT = { has_war_with = ROOT }
 					NOT = { is_in_faction_with = ROOT }
-					any_state = {
-						is_controlled_by = GER
+					any_controlled_state = {
 						NOT = { is_core_of = GER }
 					}
 				}
@@ -1153,8 +1157,7 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 						NOT = { is_in_faction_with = ROOT }
-						any_state = {
-							is_controlled_by = ITA
+						any_controlled_state = {
 							NOT = { is_core_of = ITA }
 						}
 						OR = {
@@ -1188,8 +1191,7 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 						NOT = { is_in_faction_with = ROOT }
-						any_state = {
-							is_controlled_by = FRA
+						any_controlled_state = {
 							NOT = { is_core_of = FRA }
 						}
 					}
@@ -1216,8 +1218,7 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 						NOT = { is_in_faction_with = ROOT }
-						any_state = {
-							is_controlled_by = GER
+						any_controlled_state = {
 							NOT = { is_core_of = GER }
 						}
 					}
@@ -4572,6 +4573,7 @@ focus_tree = {
 							controls_state = 670
 							controls_state = 286
 							controls_state = 741
+							controls_state = 1017
 							not = { has_war_with = ROOT }
 						} 
 					}
@@ -4968,7 +4970,10 @@ focus_tree = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = USA_hemisphere_defense_faction
+				create_faction_from_template = {
+					template = faction_template_pan_american
+					name = USA_hemisphere_defense_faction
+				}
 			}
 			if = {
 				limit = {
@@ -5677,6 +5682,10 @@ focus_tree = {
 				uses = 1
 				category = land_doctrine
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_george_s_patton = {
+				add_skill_level = 1
+			}	
 		}
 	}
 	focus = {
@@ -5747,6 +5756,13 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = USA_army_of_the_united_states
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_omar_bradley = {
+				add_skill_level = 1
+			}
+			USA_mark_clark = {
+				add_skill_level = 1
+			}
 		}
 	}
 	focus = {
@@ -6397,6 +6413,10 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_ernest_king = {
+				add_skill_level = 1
+			}
 		}
 	}
 	focus = {
@@ -6468,6 +6488,13 @@ focus_tree = {
 				limit = { has_idea = bureau_of_ordnance_spirit }
 				remove_ideas = bureau_of_ordnance_spirit
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_chester_w_nimitz = {
+				add_skill_level = 1
+			}
+			USA_william_halsey_jr = {
+				add_skill_level = 1
+			}
 		}
 	}
 	
@@ -6517,11 +6544,12 @@ focus_tree = {
 
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = USA_advanced_mahanian_doctrine
-				cost_reduction = 0.5
-				uses = 1
-				category = cat_base_strike
+				bonus = 0.1
+				days = 180
+				grand_doctrine = new_base_strike
 			}
 		}
 	}
@@ -6720,11 +6748,15 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			navy_experience = 25
-			add_doctrine_cost_reduction = {
+			add_mastery = {
+				amount = 50
+				track = screens
+			}
+			add_mastery_bonus = {
 				name = USA_convoy_tactics
-				cost_reduction = 0.35
-				uses = 2
-				category = convoy_defense_tree
+				bonus = 0.1
+				days = 180
+				track = screens
 			}
 		}
 	}
