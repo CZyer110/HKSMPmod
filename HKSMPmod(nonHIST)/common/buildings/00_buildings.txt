@@ -1,4 +1,36 @@
 buildings = {
+
+	# show_on_map:
+	#    if it is provincial building, then show_on_map = X is amount per each province
+	#    if it is state building, then show_on_map = X is amount per state
+	#
+	# province_max:
+	# if province_max is set, then building is provincial
+	#
+	## Modifiers:
+	## country_modifiers - accept only country modifiers
+	## state_modifiers - accept only state modifiers
+	## enable_for_controllers - Country modifiers will apply only if the controller of province/state is in the list, or if the list is empty
+	## Example:
+	#
+	# building = {
+	# 	country_modifiers = {
+	#      enable_for_controllers { GER ENG } # Here you can list countries which can accept the country modifiers of this building
+	# 		modifiers = {
+	#           #Here you can add country modifiers
+	#			political_power_factor = 2.0
+	#       }
+	#   }
+	#   
+	#   state_modifiers = {
+	#       #Here you can add state modifiers
+	#   	local_building_slots_factor = 2
+	#   }
+	# 
+	#   disable_grow_animation = yes # Disables the grow animation for the building, default = no
+	#   missing_tech_loc = <bindable localization> # See script concept bindable localization
+	#   repair_speed_factor = 0.5 # Optional. Factor for how fast the building is repaired (default = 1.0)
+
 	infrastructure = {
 		base_cost = 6000
 		icon_frame = 3
@@ -76,6 +108,7 @@ buildings = {
 		level_cap = {
 			province_max = 1
 		}
+		tags = { supply_building }
 	}	
 	
 	rail_way = {
@@ -93,7 +126,7 @@ buildings = {
 		show_on_map = 1
 		base_cost = 12000
 		per_controlled_building_extra_cost = 5000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 18
 		value = 1
 		spawn_point = naval_base_spawn 
@@ -125,6 +158,7 @@ buildings = {
 		is_port = yes
 		icon_frame = 6
 		value = 1
+		tags = { naval_buildings_tag }
 		allied_build = yes
 		infrastructure_construction_effect = yes
 		level_cap = {
@@ -197,6 +231,7 @@ buildings = {
 		icon_frame = 4
 		only_costal = yes
 		value = 5
+		tags = { naval_buildings_tag } 
 		infrastructure_construction_effect = yes
 		level_cap = {
 			shares_slots = yes
@@ -224,7 +259,8 @@ buildings = {
 		show_on_map = 1
 		base_cost = 14500
 		icon_frame = 10
-		local_resources_rubber = 1
+		#local_resources_oil = 1 # May use local_resources_ + any resource name
+		local_resources_rubber = 1 # May use local_resources_ + any resource name
 		refinery = yes
 		value = 5
 		infrastructure_construction_effect = yes
@@ -233,7 +269,7 @@ buildings = {
 
 		country_modifiers = {
 			modifiers = {
-			fuel_gain_from_states = 2.0
+			fuel_gain_from_states = 2.0 #per hour
 			}
 		}
 
@@ -254,7 +290,7 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = {
-				max_fuel_building = 100.0
+				max_fuel_building = 100.0 #k
 			}
 		}
 		
@@ -274,7 +310,7 @@ buildings = {
 		allied_build = yes
 		infrastructure_construction_effect = yes
 		level_cap = {
-			state_max = 6
+			state_max = 6 # This is the max unlock level
 		}
 	}
 
@@ -283,7 +319,7 @@ buildings = {
 		hide_if_missing_tech = no
 		show_on_map = 1
 		base_cost = 20000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 24
 		value = 1
 		disabled_in_dmz = yes
@@ -295,6 +331,7 @@ buildings = {
 			shares_slots = yes
 			exclusive_with = rocket_site
 		}
+		#Building utilizes equipment "explosive_ammo_equipment" as ammunition for the air mission barrage
 	}
 
 
@@ -313,6 +350,52 @@ buildings = {
 			state_max = 3
 			shares_slots = yes
 			exclusive_with = mega_gun_emplacement
+		}
+	}
+	
+	naval_supply_hub = {
+		show_on_map = 1
+		base_cost = 12500
+		icon_frame = 28
+		disabled_in_dmz = yes
+		naval_supply_hub = yes
+		infrastructure_construction_effect = yes
+		only_costal = yes
+		tags = { naval_buildings_tag }
+		building_prerequisite = {
+			building_dependency = {
+				building = naval_base
+				level = 8
+			}
+		}
+		level_cap = {
+			province_max = 1
+		}
+	}
+	
+	naval_headquarters = {
+		dlc_allowed = { has_dlc = "No Compromise, No Surrender" }
+		show_on_map = 1
+		base_cost = 10000
+		per_controlled_building_extra_cost = 5000
+		icon_frame = 29
+		value = 1
+		naval_headquarter = yes
+		disabled_in_dmz = yes
+		infrastructure_construction_effect = yes
+		only_costal = yes
+		tags = { naval_buildings_tag }
+		building_prerequisite = {
+			building_dependency = {
+				building = naval_base
+				level = 8
+			}
+		}
+		level_cap = {
+			province_max = 1
+		}
+		modules = {
+			naval_leader_module
 		}
 	}
 	
@@ -396,13 +479,15 @@ buildings = {
 			modifiers = {
 				nuclear_production_factor = 3
 				thermonuclear_production_factor = 2
+				#consumer_goods_factor = -0.05
 			}
 		}
 
 		state_modifiers = {
 			state_production_speed_buildings_factor = 0.15
 			local_building_slots_factor = 0.15
-			state_resources_factor = 0.1			
+			state_resources_factor = 0.1
+			local_factory_energy_consumption = -0.25			
 		}
 
 		level_cap = {
@@ -416,7 +501,7 @@ buildings = {
 		show_on_map = 1
 		base_cost = 15000
 		per_controlled_building_extra_cost = 5000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 20
 		value = 1
 		spawn_point = special_project_facility_spawn
@@ -427,7 +512,17 @@ buildings = {
 		disabled_in_dmz = yes
 		only_display_if_exists = yes
 		special_icon = GFX_specialization_nuclear
-		infrastructure_construction_effect = yes
+		#state_damage_modifier = { conscription_exemptions_granted }
+		#construction_speed_factor = {
+		#	trigger = {
+		#		OR = {
+		#			state = 56
+		#			state = 59
+		#			state = 64
+		#		}
+		#	}
+		#	factor = 10
+		#}
 		level_cap = {
 			province_max = 1
 			state_max = 1
@@ -439,7 +534,7 @@ buildings = {
 		show_on_map = 1
 		base_cost = 12000
 		per_controlled_building_extra_cost = 5000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 17
 		value = 1
 		spawn_point = special_project_facility_spawn 
@@ -451,7 +546,6 @@ buildings = {
 		disabled_in_dmz = yes
 		only_display_if_exists = yes
 		special_icon = GFX_specialization_air
-		infrastructure_construction_effect = yes
 		level_cap = {
 			province_max = 1
 			state_max = 1
@@ -463,7 +557,7 @@ buildings = {
 		show_on_map = 1
 		base_cost = 12000
 		per_controlled_building_extra_cost = 5000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 19
 		value = 1
 		spawn_point = special_project_facility_spawn 
@@ -475,7 +569,6 @@ buildings = {
 		detecting_intel_type = army
 		only_display_if_exists = yes
 		special_icon = GFX_specialization_land
-		infrastructure_construction_effect = yes
 		level_cap = {
 			province_max = 1
 			state_max = 1
@@ -486,7 +579,7 @@ buildings = {
 	dam = {
 		show_on_map = 1
 		base_cost = 20000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 26
 		value = 5
 		tags = { dam_building }
@@ -496,6 +589,7 @@ buildings = {
 		need_detection = yes
 		detecting_intel_type = civilian 
 		province_damage_modifiers = { flooded }
+		#state_damage_modifier = { kurdish_agitation }
 		only_display_if_exists = yes
 		special_icon = GFX_dam_icon_small
 		level_cap = {
@@ -506,12 +600,13 @@ buildings = {
 			state_production_speed_buildings_factor = 0.15
 			local_building_slots_factor = 0.15
 			state_resources_factor = 0.1
+			local_factory_energy_consumption = -0.65
 		}
 	}
 	dam_mountain = {
 		show_on_map = 1
 		base_cost = 20000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 26
 		value = 5
 		tags = { dam_building }
@@ -531,13 +626,14 @@ buildings = {
 			state_production_speed_buildings_factor = 0.15
 			local_building_slots_factor = 0.15
 			state_resources_factor = 0.1
+			local_factory_energy_consumption = -0.65
 		}
 	}
 
 	canal_kiel = {
 		show_on_map = 1
 		base_cost = 20000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 25
 		value = 5
 		tags = { locks_building }
@@ -560,7 +656,7 @@ buildings = {
 	canal_panama = {
 		show_on_map = 1
 		base_cost = 20000
-		damage_factor = 0
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 1
 		value = 5
 		tags = { locks_building }
