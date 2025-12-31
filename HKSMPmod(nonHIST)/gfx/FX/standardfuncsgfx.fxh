@@ -358,7 +358,7 @@ PixelShader =
 	float DayNightFactor( float3 vGlobeNormal, float vMin, float vMax )
 	{
 		float vDot = dot( vGlobeNormal, DayNight_Hour_SunDir.yzw );
-		return saturate( ( vDot - vMin ) / ( vMax - vMin ) ) * vFoWOpacity_FoWTime_SnowMudFade_MaxGameSpeed.w;
+		return saturate ( 1 );
 	}
 
 
