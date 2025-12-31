@@ -313,7 +313,7 @@ PixelShader =
 		{
 			float vIsSnow = GetSnow( vFoWColor );
 			//float vSnowFade = saturate( saturate( vNormal.y - saturate( 1.0f - vIsSnow ) )*vIsSnow*5.5f*saturate( ( vNormal.y - 0.8f ) * 1000.0f ) );
-			float vSnowFade = saturate( vIsSnow * 1.5f );
+			float vSnowFade = saturate( vIsSnow * 0.2f );
 			
 			float vOpacity = cam_distance( SNOW_CAM_MIN, SNOW_CAM_MAX );
 			vOpacity = SNOW_OPACITY_MIN + vOpacity * ( SNOW_OPACITY_MAX - SNOW_OPACITY_MIN );
