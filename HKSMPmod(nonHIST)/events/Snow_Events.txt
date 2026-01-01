@@ -1,0 +1,15 @@
+add_namespace = darknight
+
+news_event = {   
+	id = darknight.1
+	title = darknigh.1.t
+	desc = darknigh.1.d
+
+	picture = GFX_news_event_dark_night
+
+	is_triggered_only = yes
+
+    option = {
+		name =  darknigh.1.a	
+	}
+}
