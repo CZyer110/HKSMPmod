@@ -1,0 +1,47 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_portrait_SOV_santa_claus"
+		texturefile = "gfx/leaders/SOV/portrait_SOV_santa_claus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_joseph_brevie"
+		texturefile = "gfx/leaders/VIN/portrait_VIN_joseph_brevie.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_ho_chi_minh"
+		texturefile = "gfx/leaders/VIN/portrait_VIN_ho_chi_minh.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_ngo_dinh_diem"
+		texturefile = "gfx/leaders/VIN/portrait_VIN_ngo_dinh_diem.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_jean_decoux"
+		texturefile = "gfx/leaders/VIN/portrait_VIN_jean_decoux.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_bao_dai"
+		texturefile = "gfx/leaders/VIN/portrait_VIN_bao_dai.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_SOV_mikhail_tomsky"
+		texturefile = "gfx/leaders/SOV/portrait_SOV_mikhail_tomsky.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_SOV_aleksandr_kerensky"
+		texturefile = "gfx/leaders/SOV/portrait_SOV_aleksandr_kerensky.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_portrait_SOV_nikolay_nikolayevich_voronov"
+		texturefile = "gfx/leaders/SOV/Portrait_Soviet_Andrei_Antonovich_Grechko.dds"
+	}	
+}

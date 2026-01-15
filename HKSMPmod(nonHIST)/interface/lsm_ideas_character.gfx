@@ -1,0 +1,10 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_portrait_ITA_benito_mussolini_small"
+		texturefile = "gfx/interface/ideas/idea_ITA_benito_mussolini.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_nikolay_nikolayevich_voronov"
+		texturefile = "gfx/interface/ideas/idea_SOV_gordey_levchenko.dds"
+	}
+}
