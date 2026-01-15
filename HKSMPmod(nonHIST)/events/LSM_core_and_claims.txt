@@ -1,0 +1,2140 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_core_and_claim
+
+country_event = {
+	id = LSM_core_and_claim.1
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		is_nordic_formable_countries = yes
+		NOT = { has_country_flag = has_formed_nordic }
+		all_state = {
+			OR = {
+				AND = {
+					NOT = { is_core_of = DEN }
+					NOT = { is_core_of = SWE }
+					NOT = { is_core_of = NOR }
+					NOT = { is_core_of = FIN }
+					NOT = { is_core_of = ICE }
+				}
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_in_faction_with = ROOT
+							is_nordic_formable_countries = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = first_country_to_form_nordic
+		set_cosmetic_tag = SCA_UNIFIED
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = DEN
+					is_core_of = SWE
+					is_core_of = NOR
+					is_core_of = FIN
+					is_core_of = ICE
+				}
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+						OR = {
+							PREV = { is_core_of = PREV }
+						}
+					}
+				}
+			}
+			add_core_of = ROOT
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_core_and_claim.2
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_cena }
+		is_subject = no
+		is_historical_focus_on = no
+		OR = {
+			original_tag = GUA
+			original_tag = NIC
+			original_tag = ELS
+			original_tag = COS
+			original_tag = HON
+			original_tag = PAN
+		}
+		all_state = {
+			OR = {
+				AND = {
+					NOT = { is_core_of = GUA }
+					NOT = { is_core_of = NIC }
+					NOT = { is_core_of = ELS }
+					NOT = { is_core_of = COS }
+					NOT = { is_core_of = HON }
+					NOT = { is_core_of = PAN }
+				}
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_in_faction_with = ROOT
+							NOT = {
+								OR = {
+									original_tag = GUA
+									original_tag = NIC
+									original_tag = ELS
+									original_tag = COS
+									original_tag = HON
+									original_tag = PAN
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_cena
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = GUA
+					is_core_of = NIC
+					is_core_of = ELS
+					is_core_of = COS
+					is_core_of = HON
+					is_core_of = PAN
+				}
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+						OR = {
+							PREV = { is_core_of = PREV }
+						}
+					}
+				}
+			}
+			add_core_of = ROOT
+		}
+	}
+}
+
+country_event = {
+	id = LSM_core_and_claim.3
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_baltic }
+		is_subject = no
+		is_historical_focus_on = no
+		is_baltic_formable_countries = yes
+		all_state = {
+			OR = {
+				AND = {
+					NOT = { is_core_of = LIT }
+					NOT = { is_core_of = LAT }
+					NOT = { is_core_of = EST }		
+				}
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_in_faction_with = ROOT
+							is_baltic_formable_countries = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_baltic
+		set_cosmetic_tag = BAL_UNIFIED
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+				}
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+						OR = {
+							PREV = { is_core_of = PREV }
+						}
+					}
+				}
+			}
+			add_core_of = ROOT
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.4
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_auh }
+		is_subject = no
+		is_historical_focus_on = no
+		is_auh_formable_countries = yes
+		155 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		154 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		43 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		4 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		152 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		153 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		848 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		73 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		664 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		71 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		70 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		75 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		74 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		9 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		69 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		972 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		976 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		975 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		973 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+		974 = {
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_in_faction_with = ROOT
+					is_auh_formable_countries = no
+					NOT = { tag = GER }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		
+		set_country_flag = has_formed_auh
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { GER = { has_completed_focus = GER_anschluss } }
+						NOT = { has_global_flag = GER_democratic_referendum_austria_flag }
+					}
+					NOT = { is_in_faction_with = GER }
+					GER = { is_subject = yes }
+					ROOT = { NOT = { original_tag = HUN } }
+				}
+			}
+			set_cosmetic_tag = HUN_EMPIRE
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = HUN
+						is_core_of = CZE
+						is_core_of = AUS
+						is_claimed_by = HUN
+						is_claimed_by = CZE
+						is_claimed_by = AUS
+					}
+					NOT = { is_core_of = ROOT }
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = ROOT
+							OR = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				add_core_of = ROOT
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 39
+						state = 850
+						state = 736
+						state = 852
+						state = 103
+						state = 163
+						state = 104
+						state = 804
+						state = 107
+						state = 764
+						state = 45
+						state = 82
+						state = 83
+						state = 84
+						state = 76
+						state = 89
+						state = 88
+						state = 91
+						state = 80
+					}
+					NOT = { is_core_of = ROOT }
+					NOT = { is_claimed_by = ROOT }
+				}
+				add_claim_by = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				is_in_faction_with = GER
+				OR = {
+					GER = { has_completed_focus = GER_anschluss }
+					has_global_flag = GER_democratic_referendum_austria_flag
+				}
+				GER = { is_subject = no }
+				ROOT = { original_tag = HUN }
+			}
+			every_state = {
+				limit = {
+					NOT = { 
+						OR = {
+							state = 69
+							state = 9
+							state = 74
+							state = 75
+							state = 72
+							state = 972	
+						}
+					}
+					OR = {
+						is_core_of = HUN
+						is_core_of = CZE
+						is_core_of = AUS
+						is_claimed_by = HUN
+						is_claimed_by = CZE
+						is_claimed_by = AUS
+					}
+					NOT = { is_core_of = ROOT }
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = ROOT
+							OR = {
+								PREV = { is_core_of = PREV }
+							}
+						}
+					}
+				}
+				add_core_of = ROOT
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 69
+						state = 9
+						state = 74
+						state = 75
+						state = 72
+						state = 972
+					}
+					NOT = { is_core_of = GER }
+				}
+				add_core_of = GER
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_core_and_claim.5
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		is_benelux_formable_countries = yes
+		all_state = {
+			OR = {
+				AND = {
+					NOT = { is_core_of = BEL }
+					NOT = { is_core_of = HOL }
+					NOT = { is_core_of = LUX }
+				}
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_in_faction_with = ROOT
+							is_benelux_formable_countries = no
+						}
+					}
+				}
+			}
+		}
+		NOT = { has_country_flag = has_formed_benelux }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_benelux
+		set_cosmetic_tag = UNL_UNIFIED
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = BEL
+					is_core_of = HOL
+					is_core_of = LUX
+				}
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+						OR = {
+							PREV = { is_core_of = PREV }
+						}
+					}
+				}
+			}
+			add_core_of = ROOT
+		}
+		if = {
+			limit = {
+				has_completed_focus = BEL_support_the_vnv
+			}
+			complete_national_focus = BEL_dietsland
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.6
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				has_government = democratic
+				is_eu_formable_countries = yes
+			}
+			AND = {
+				has_government = neutrality
+				tag = FRA
+			}
+			AND = {
+				has_government = fascism
+				tag = ENG
+				has_completed_focus = ENG_the_british_path_to_fascism
+			}
+		}
+		all_state = {
+			OR = {
+				AND = {
+					NOT = { is_core_of = BEL }
+					NOT = { is_core_of = HOL }
+					NOT = { is_core_of = LUX }
+					NOT = { is_core_of = FRA }
+					NOT = { is_core_of = ITA }
+					NOT = { is_core_of = GER }
+				}
+				controller = {
+					OR = {
+						tag = ROOT
+						AND = {
+							is_in_faction_with = ROOT
+							is_eu_formable_countries = no
+						}
+					}
+				}
+			}
+		}
+		NOT = { has_country_flag = has_formed_eu }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_eu
+		if = {
+			limit = { has_government = democratic }
+			set_cosmetic_tag = EUR_UNIFIED
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = BEL
+					is_core_of = HOL
+					is_core_of = LUX
+					is_core_of = GER
+					is_core_of = ITA
+					is_core_of = FRA
+				}
+				NOT = { is_core_of = ROOT }
+				NOT = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+						OR = {
+							PREV = { is_core_of = PREV }
+						}
+					}
+				}
+				is_on_continent = europe
+			}
+			add_core_of = ROOT
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.7
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_iberia }
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				original_tag = SPR
+				has_war_with = POR
+				POR = { has_civil_war = no }
+				POR = { surrender_progress > 0.8 }
+				any_state = {
+					is_core_of = POR
+					controller = { 
+						OR = {
+							original_tag = SPR
+							is_in_faction_with = SPR
+						}
+					}
+				}
+			}
+			AND = {
+				original_tag = POR
+				has_war_with = SPR
+				SPR = { has_civil_war = no }
+				SPR = { surrender_progress > 0.8 }
+				any_state = {
+					is_core_of = SPR
+					controller = { 
+						OR = {
+							original_tag = POR
+							is_in_faction_with = POR
+						}
+					}
+				}
+			}
+		}		
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_iberia
+		if = {
+			limit = {
+				original_tag = SPR
+			}
+			every_state = {
+				limit = {
+					is_core_of = POR
+					NOT = { is_core_of = SPR }
+					NOT = { is_claimed_by = SPR }
+				}
+				add_core_of = SPR
+			}
+		}
+		if = {
+			limit = {
+				original_tag = POR
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = SPR
+						has_state_flag = spanish_core_to_be_acquired
+					}	
+					NOT = { is_core_of = POR }
+					NOT = { is_claimed_by = POR }
+				}
+				add_core_of = POR
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.8
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_bohemia }
+		is_historical_focus_on = no
+		original_tag = GER
+		69 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}	
+		74 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}
+		9 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}
+		75 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}
+		72 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}
+		972 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				OR = {
+					any_owned_state = {
+						NOT = { 
+							OR = {
+								state = 69 
+								state = 74
+								state = 9
+								state = 75
+								state = 72
+								state = 972
+							}
+						}
+					}
+					tag = RKH
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_bohemia
+		every_state = {
+			limit = {
+				OR = {
+					state = 72
+					state = 75
+					state = 9
+					state = 972
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			if = {
+				limit = { 
+					owner = {
+						NOT = { tag = CZE }
+					}
+				}
+				GER = { transfer_state = PREV }
+			}
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 69
+					state = 74
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.9
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_austria }
+		is_historical_focus_on = no
+		original_tag = GER
+		848 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}	
+		153 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}
+		152 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}
+		4 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}
+		976 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}
+		975 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 848 
+							state = 153
+							state = 152
+							state = 4
+							state = 976
+							state = 975
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_austria
+		if = {
+			limit = {
+				AUS = { is_subject_of = GER }
+			}
+			GER = { annex_country = { target = AUS transfer_troops = yes } }
+		}	
+		every_state = {
+			limit = {
+				OR = {
+					state = 848
+					state = 153
+					state = 152
+					state = 4
+					state = 975
+					state = 976
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.10
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_poland }
+		is_historical_focus_on = no
+		original_tag = GER
+		85 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}	
+		807 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			} 
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}
+		86 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}
+		762 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}
+		87 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+					is_in_faction_with = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}
+		98 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+					is_in_faction_with = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 85 
+							state = 807
+							state = 86
+							state = 762
+							state = 87
+							state = 98
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_poland
+		every_state = {
+			limit = {
+				OR = {
+					state = 85
+					state = 807
+					state = 86
+					state = 762
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 87
+					state = 98
+				}
+				NOT = { is_claimed_by = GER }
+				NOT = { is_core_of = GER }
+			}
+			add_claim_by = GER
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.11
+	
+	trigger = {
+		has_country_flag = has_formed_greater_germany_in_austria
+		NOT = { has_country_flag = has_formed_greater_germany_in_yugoslavia }
+		is_historical_focus_on = no
+		original_tag = GER
+		102 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 853
+							state = 102
+						}
+					}
+				}
+			}
+		}	
+		853 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 853
+							state = 102
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_yugoslavia
+		every_state = {
+			limit = {
+				OR = {
+					state = 102
+					state = 853
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.12
+	
+	trigger = {
+		has_country_flag = has_formed_greater_germany_in_austria
+		NOT = { has_country_flag = has_formed_greater_germany_in_italy }
+		is_historical_focus_on = no
+		original_tag = GER
+		39 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 39
+							state = 850
+							state = 852
+							state = 736
+						}
+					}
+				}
+			}
+		}	
+		850 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 39
+							state = 850
+							state = 852
+							state = 736
+						}
+					}
+				}
+			}
+		}	
+		736 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 39
+							state = 850
+							state = 852
+							state = 736
+						}
+					}
+				}
+			}
+		}	
+		852 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 39
+							state = 850
+							state = 852
+							state = 736
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_italy
+		every_state = {
+			limit = {
+				OR = {
+					state = 39
+					state = 850
+					state = 736
+					state = 852
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.13
+	
+	trigger = {
+		is_historical_focus_on = no
+		original_tag = GER
+		NOT = { has_government = communism }
+		count_triggers = {
+			amount = 7
+			has_country_flag = has_formed_greater_germany_in_austria
+			has_country_flag = has_formed_greater_germany_in_poland
+			has_country_flag = has_formed_greater_germany_in_yugoslavia
+			has_country_flag = has_formed_greater_germany_in_bohemia
+			has_country_flag = has_formed_greater_germany_in_memel
+			has_country_flag = has_formed_greater_germany_in_switzerland
+			has_country_flag = has_formed_greater_germany_in_denmark
+			has_country_flag = has_formed_greater_germany_in_benelux
+			has_country_flag = has_formed_greater_germany_in_italy
+			has_country_flag = has_formed_greater_germany_in_alsace
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_cosmetic_tag = GER_greater_german_reich
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.14
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_bolivia_paraguay }
+		is_historical_focus_on = no
+		OR = {
+			original_tag = BOL
+			original_tag = PAR
+		}
+		302 = {
+			owner = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}	
+		301 = {
+			owner = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}	
+		688 = {
+			owner = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}	
+		487 = {
+			owner = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_bolivia_paraguay
+		every_state = {
+			limit = {
+				OR = {
+					state = 302
+					state = 301
+					state = 688
+					state = 487
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = ROOT
+			ROOT = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.15
+	
+	trigger = {
+		has_country_flag = has_formed_greater_germany_in_austria
+		NOT = { has_country_flag = has_formed_greater_germany_in_switzerland }
+		is_historical_focus_on = no
+		original_tag = GER
+		845 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 845
+							state = 3
+							state = 847
+							state = 151
+						}
+					}
+				}
+			}
+		}	
+		3 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 845
+							state = 3
+							state = 847
+							state = 151
+						}
+					}
+				}
+			}
+		}	
+		847 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 845
+							state = 3
+							state = 847
+							state = 151
+						}
+					}
+				}
+			}
+		}	
+		151 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 845
+							state = 3
+							state = 847
+							state = 151
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_switzerland
+		every_state = {
+			limit = {
+				OR = {
+					state = 845
+					state = 3
+					state = 847
+					state = 151
+				}
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.16
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_memel }
+		is_historical_focus_on = no
+		original_tag = GER
+		188 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						state = 188
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_memel
+		every_state = {
+			limit = {
+				state = 188
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.17
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_alsace }
+		is_historical_focus_on = no
+		original_tag = GER
+		8 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+		}
+		28 = {
+			controller = {
+				OR = {
+					tag = GER
+					is_subject_of = GER
+				}
+			}
+			owner = {
+				any_owned_state = {
+					NOT = { 
+						OR = {
+							state = 8
+							state = 28
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_alsace
+		every_state = {
+			limit = {
+				state = 28
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+			GER = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = { 
+				state = 8
+				NOT = { is_core_of = GER }
+			}
+			add_core_of = GER
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.18
+	
+	trigger = {
+		NOT = { has_country_flag = canada_and_new_england_formed }
+		is_historical_focus_on = no
+		original_tag = CAN
+		controls_state = 357
+		controls_state = 358
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = canada_and_new_england_formed
+		every_state = {
+			limit = { 
+				OR = {
+					state = 357
+					state = 358
+				}
+				NOT = { is_claimed_by = CAN }
+			}
+			add_claim_by = CAN
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.19
+	
+	trigger = {
+		has_country_flag = canada_and_new_england_formed
+		NOT = { has_country_flag = canada_and_new_england_cored }
+		is_historical_focus_on = no
+		original_tag = CAN
+		controls_state = 357
+		controls_state = 358
+		OR = {
+			AND = {
+				CAN = { 
+					has_government = communism 
+				}
+				USA = {
+					OR = {
+						has_government = neutrality
+						has_government = fascism
+					}
+				}
+			}
+			AND = {
+				CAN = { 
+					has_government = democratic
+				}
+				USA = {
+					NOT = { has_government = democratic }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = canada_and_new_england_cored
+		every_state = {
+			limit = { 
+				OR = {
+					state = 357
+					state = 358
+				}
+				NOT = { is_core_of = CAN }
+			}
+			add_core_of = CAN
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.20
+	
+	trigger = {
+		NOT = { has_country_flag = has_formed_greater_germany_in_austria }
+		is_historical_focus_on = no
+		original_tag = GER
+		AUS = {
+			is_subject_of = GER
+		}
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_formed_greater_germany_in_austria
+		if = {
+			limit = {
+				AUS = { is_subject_of = GER }
+			}
+			GER = { annex_country = { target = AUS transfer_troops = yes } }
+		}	
+		every_state = {
+			limit = {
+				is_core_of = AUS
+			}
+			add_core_of = GER
+			if = {
+				limit = {
+					controller = {
+						is_subject_of = GER
+					}
+				}
+				GER = { transfer_state = PREV }
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.21
+	
+	trigger = {
+		NOT = { has_country_flag = UK_claimed_libya }
+		is_historical_focus_on = yes
+		original_tag = ENG
+		has_war_with = LBA
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = UK_claimed_libya	
+		every_state = {
+			limit = {
+				is_core_of = LBA
+			}
+			add_claim_by = ENG
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.22
+	
+	trigger = {
+		NOT = { has_country_flag = UK_claimed_aoi }
+		is_historical_focus_on = yes
+		original_tag = ENG
+		has_war_with = AOI
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = UK_claimed_aoi	
+		every_state = {
+			limit = {
+				is_owned_by = AOI
+			}
+			add_claim_by = ENG
+		}
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.23
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		tag = FRA
+		NOT = { has_country_flag = FRA_has_claimed_wallonia }		
+		controls_state = 34		
+		controls_state = 980		
+		controls_state = 8
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = FRA_has_claimed_wallonia
+		FRA = { add_state_claim = 8 }
+		FRA = { add_state_claim = 980 }
+		FRA = { add_state_claim = 34 }
+	}
+}
+
+country_event = {
+	id = LSM_core_and_claim.24
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		tag = FRA
+		has_country_flag = FRA_has_claimed_wallonia	
+		NOT = { has_country_flag = FRA_has_claimed_belgium }			
+		controls_state = 34		
+		controls_state = 980		
+		controls_state = 8	
+		controls_state = 977		
+		controls_state = 6
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = FRA_has_claimed_belgium
+		FRA = { add_state_claim = 6 }
+		FRA = { add_state_claim = 977 }
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.25
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		tag = FRA
+		has_country_flag = FRA_has_claimed_wallonia	
+		has_country_flag = FRA_has_claimed_belgium	
+		NOT = { has_country_flag = FRA_has_claimed_brabant }			
+		controls_state = 34		
+		controls_state = 980		
+		controls_state = 8	
+		controls_state = 977		
+		controls_state = 6		
+		controls_state = 35
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = FRA_has_claimed_brabant
+		FRA = { add_state_claim = 35 }
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.26
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		tag = FRA
+		has_country_flag = FRA_has_claimed_wallonia	
+		has_country_flag = FRA_has_claimed_belgium		
+		has_country_flag = FRA_has_claimed_brabant
+		NOT = { has_country_flag = FRA_has_claimed_rhineland }			
+		controls_state = 34		
+		controls_state = 980		
+		controls_state = 8	
+		controls_state = 977		
+		controls_state = 6		
+		controls_state = 35		
+		controls_state = 42		
+		controls_state = 51
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = FRA_has_claimed_rhineland
+		FRA = { add_state_claim = 42 }
+		FRA = { add_state_claim = 51 }
+	}
+}
+country_event = {
+	id = LSM_core_and_claim.27
+	
+	trigger = {
+		is_subject = no
+		is_historical_focus_on = no
+		tag = GRE
+		NOT = { has_country_flag = GRE_has_claimed_greater_greece }			
+		339 = {
+			controller = {
+				OR = { 
+					tag = GRE	
+					AND = {
+						is_in_faction_with = GRE
+						PREV = { NOT = { is_core_of = PREV } }
+					}
+				}
+			}
+		}			
+		340 = {
+			controller = {
+				OR = { 
+					tag = GRE	
+					AND = {
+						is_in_faction_with = GRE
+						PREV = { NOT = { is_core_of = PREV } }
+					}
+				}
+			}
+		}			
+		341 = {
+			controller = {
+				OR = { 
+					tag = GRE	
+					AND = {
+						is_in_faction_with = GRE
+						PREV = { NOT = { is_core_of = PREV } }
+					}
+				}
+			}
+		}			
+		347 = {
+			controller = {
+				OR = { 
+					tag = GRE	
+					AND = {
+						is_in_faction_with = GRE
+						PREV = { NOT = { is_core_of = PREV } }
+					}
+				}
+			}
+		}			
+		797 = {
+			controller = {
+				OR = { 
+					tag = GRE	
+					AND = {
+						is_in_faction_with = GRE
+						PREV = { NOT = { is_core_of = PREV } }
+					}
+				}
+			}
+		}	}
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = GRE_has_claimed_greater_greece
+		GRE = { 
+			add_state_claim = 339 
+			add_state_claim = 340 
+			add_state_claim = 341 
+			add_state_claim = 347 
+			add_state_claim = 797
+		}
+	}
+}

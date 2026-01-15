@@ -1,8 +1,4 @@
-﻿###########################
-# ENG Events
-###########################
-
-add_namespace = mtg_britain 
+﻿add_namespace = mtg_britain 
 
 # Abdication Crisis Edward VIII
 country_event = {
@@ -117,7 +113,6 @@ country_event = {
 			AST = { country_event = { id = mtg_britain.15 } }
 			NZL = { country_event = { id = mtg_britain.15 } }
 			BRM = { country_event = { id = mtg_britain.15 } }
-
 		}
 	}
 
@@ -495,6 +490,48 @@ country_event = {
 						type = alliance
 						id = ENG
 						value = -200
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						original_tag = RAJ
+						is_subject_of = ENG
+					}
+					RAJ = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				every_country = {
+					limit = {
+						original_tag = RAJ
+						is_subject_of = ENG
+					}
+					ENG = {
+						set_autonomy = {
+							autonomy_state = autonomy_free
+							target = PREV
+						}
+					}
+					RAJ = {
+						annex_country = { target = PREV transfer_troops = yes }
+					}
+				}
+				if = {
+					limit = {
+						ENG = { has_war_with = RAJ }
+					}
+					every_country = {
+						limit = {
+							original_tag = RAJ
+							has_war_with = RAJ
+						}
+						transfer_units_fraction= {
+							target = RAJ
+							size = 0.8 #just defect sarr, the raj has collapsed
+						}
 					}
 				}
 			}
@@ -1108,6 +1145,18 @@ country_event = {
 		name = mtg_britain.16.a
 		if = {
 			limit = {
+				has_war = yes
+				NOT = { surrender_progress > 0 }
+			}
+			every_country = {
+				limit = {
+					has_war_with = ROOT
+				}
+				white_peace = ROOT
+			}
+		}
+		if = {
+			limit = {
 				tag = CAN
 			}
 			FROM = { set_autonomy = { target = CAN autonomy_state = autonomy_free } }
@@ -1152,7 +1201,6 @@ country_event = {
 				}
 			}
 		}
-
 		if = {
 			limit = {
 				tag = SAF
@@ -1232,7 +1280,6 @@ country_event = {
 		if = {
 			limit = {
 				tag = RAJ
-				
 			}
 			if = {
 				limit = {
@@ -1253,6 +1300,8 @@ country_event = {
 					country_event = {
 						id = GOE_RAJ.30 hours = 2
 					}
+					add_war_support = 0.50
+					add_stability = 0.20
 				}
 				custom_effect_tooltip = GOE_RAJ.30_we_are_leaving_tt
 			}
@@ -1511,22 +1560,13 @@ country_event = {
 				limit = {
 					tag = RAJ
 					NOT = { is_subject = no }
+					NOT = { has_autonomy_state = autonomy_dominion }
 					has_dlc = "Together for Victory"
 				}
 				ENG = {
-					if = {
-						limit = {
-							NOT = {
-								has_government = fascism
-							}
-						}
-						set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
-					}
-					else = {
-						set_autonomy = { target = RAJ autonomy_state = autonomy_satellite }
-					}
+					set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
 				}
-			}	
+			}
 			if = {
 				limit = {
 					tag = PAK
@@ -1602,6 +1642,7 @@ country_event = {
 	immediate = { 
 		hidden_effect = { set_country_flag = winston_achievement }
 	}
+	
 	# Ok
 	option = {
 		name = mtg_britain.22.a
@@ -1976,7 +2017,556 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
+			if = {
+				limit = {
+					RAJ = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = RAJ
+						autonomy_state = autonomy_free
+					}
+				}
+				RAJ = { 
+					leave_faction = yes 
+					add_war_support = 0.20
+					add_stability = 0.20
+				}
+				if = {
+					limit = {
+						RAJ = { has_completed_focus = RAJ_red_in_the_shadows }
+					}
+					RAJ = {
+						add_popularity = {
+							ideology = communism
+							popularity = 0.25
+						}	
+					}
+				}	
+				else_if = {
+					limit = {
+						RAJ = { 
+							has_completed_focus = RAJ_forward_bloc 
+							NOT = { has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom }
+						}
+					}
+					RAJ = {
+						every_owned_state = {
+							limit = {
+								resistance < 85
+							}
+							set_resistance = 86
+						}
+						complete_national_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom	
+					}
+				}	
+				else_if = {
+					limit = {
+						RAJ = { 
+							NOT = { has_completed_focus = RAJ_forward_bloc }
+							NOT = { has_completed_focus = RAJ_red_in_the_shadows }
+							NOT = { has_completed_focus = RAJ_great_depression_price_controls }
+							NOT = { has_completed_focus = RAJ_league_against_gandhism }
+						}
+					}
+					RAJ = {
+						drop_cosmetic_tag = yes
+						hidden_effect = {
+							set_politics = {
+								ruling_party = democratic
+								elections_allowed = yes
+								last_election = "1939.1.1"
+								election_frequency = 48
+							}
+							set_rule = { can_declare_war_on_same_ideology = yes }
+							set_rule = {  can_only_justify_war_on_threat_country = no }
+							set_rule = { can_join_factions = no }
+						}	
+					}
+				}
+			}
+			if = {
+				limit = {
+					BRM = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = BRM
+						autonomy_state = autonomy_free
+					}
+				}
+				if = {
+					limit = { BRM = { is_ai = yes } }
+					RAJ = { annex_country = { target = BRM transfer_troops = yes } }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { RAJ = { is_subject_of = ENG } }
+					RAJ = { is_in_faction_with = ENG }
+				}
+				every_country = {
+					limit = {
+						original_tag = RAJ
+						NOT = { is_subject_of = ENG }
+						is_in_faction_with = ENG
+					}
+					ENG = {
+						remove_from_faction = PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { RAJ = { is_subject_of = ENG } }
+					any_country = { 
+						original_tag = RAJ 		
+						is_subject_of = ENG
+					}
+				}
+				every_country = {
+					limit = {
+						original_tag = RAJ
+						is_subject_of = ENG
+					}
+					ENG = { 
+						set_autonomy = {
+							target = PREV
+								autonomy_state = autonomy_free
+						}
+						remove_from_faction = PREV
+					}
+				}
+				if = {
+					limit = { RAJ = { has_civil_war = yes } }
+					RAJ = {
+						every_other_country = {
+							limit = {
+								original_tag = RAJ
+								has_war_with = RAJ
+							}
+							transfer_units_fraction = {
+								target = RAJ
+								size = 0.3
+								stockpile_ratio = 0.1
+								army_ratio = 0.3
+								navy_ratio = 0
+								air_ratio = 0
+							}
+						}
+					}	
+				}
+			}
+			if = {
+				limit = {
+					EGY = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = EGY
+						autonomy_state = autonomy_free
+					}
+				}
+				EGY = { 
+					create_faction = "Cairo Accord"
+					drop_cosmetic_tag = yes 
+				}
+				if = {
+					limit = {
+						any_state = { 
+							is_core_of = SUD
+							controller = { original_tag = ENG }
+						}
+						SUD = { exists = no }
+					}
+					every_state = {
+						limit = { is_core_of = SUD }
+						EGY = { transfer_state = PREV }
+						add_claim_by = EGY
+						set_compliance = 50
+					}
+				}
+				if = {
+					limit = { 446 = { controller = { original_tag = ENG } } }
+					EGY = { 
+						country_event = { id = LSM_new_world_diplomacy.44 days = 3 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					JOR = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = JOR
+						autonomy_state = autonomy_free
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = JOR }
+					JOR = {
+						drop_cosmetic_tag = yes 
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					KUW = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = KUW
+						autonomy_state = autonomy_free
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = KUW }
+					KUW = {
+						drop_cosmetic_tag = yes 
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OMA = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = OMA
+						autonomy_state = autonomy_free
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = OMA }
+					OMA = {
+						drop_cosmetic_tag = yes 
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					PAL = { is_subject_of = ENG }
+				}
+				ENG = { 
+					set_autonomy = {
+						target = PAL
+						autonomy_state = autonomy_free
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = PAL }
+					PAL = {
+						drop_cosmetic_tag = yes 
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						kill_country_leader = yes
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 4 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					659 = { controller = { original_tag = ENG } }
+				}
+				YEM = { transfer_state = 659 }
+				659 = { add_claim_by = ENG }
+			}
+			if = {
+				limit = {
+					992 = { controller = { original_tag = ENG } }
+				}
+				YEM = { transfer_state = 992 }
+				992 = { add_claim_by = ENG }
+			}
+			if = {
+				limit = {
+					OR = {
+						UAE = { is_subject_of = ENG }
+						658 = { controller = { original_tag = ENG } }
+					}
+				}
+				ENG = { 
+					if = {
+						limit = { UAE = { exists = no } }
+						release = UAE 
+					}
+					if = {
+						limit = { UAE = { is_subject_of = ENG } }
+						set_autonomy = {
+							target = UAE
+							autonomy_state = autonomy_free
+						}
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = UAE }
+					UAE = {
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						QAT = { is_subject_of = ENG }
+						765 = { controller = { original_tag = ENG } }
+					}
+				}
+				ENG = { 
+					if = {
+						limit = { QAT = { exists = no } }
+						release = QAT
+					}
+					if = {
+						limit = { QAT = { is_subject_of = ENG } }
+						set_autonomy = {
+							target = QAT
+							autonomy_state = autonomy_free
+						}
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = QAT }
+					QAT = {
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						BHR = { is_subject_of = ENG }
+						1014 = { controller = { original_tag = ENG } }
+					}
+				}
+				ENG = { 
+					if = {
+						limit = { BHR = { exists = no } }
+						release = BHR
+					}
+					if = {
+						limit = { BHR = { is_subject_of = ENG } }
+						set_autonomy = {
+							target = BHR
+							autonomy_state = autonomy_free
+						}
+					}
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { add_to_faction = BHR }
+					BHR = {
+						add_ai_strategy = {
+							type = alliance
+							id = EGY
+							value = 500
+						}
+						division_template = {
+							name = "Colonial Brigade"
+							priority = 1
+							division_names_group = ENG_DEM_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+							}
+						}
+						capital_scope = {
+							create_unit = {
+								division = "name = \"Garrison\" division_template = \"Colonial Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.5"  
+								owner = PREV 
+								count = 2 
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ENG = { has_guaranteed = IRQ }
+				}
+				diplomatic_relation = {
+					country = IRQ
+					relation = guarantee
+					active = no
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { give_guarantee = IRQ }
+				}
+			}
+			if = {
+				limit = {
+					EGY = { has_government = SAU }
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { give_guarantee = SAU }
+					EGY = { SAU = { country_event = { id = generic.5 } } }
+				}
+			}
+			if = {
+				limit = {
+					EGY = { has_government = YEM }
+				}
+				if = {
+					limit = { EGY = { is_faction_leader = yes } }
+					EGY = { YEM = { country_event = { id = generic.5 } } }
+				}
+			}
+		}
+		hidden_effect = {
 			was_raj_a_subject = yes  
+			every_country = {
+				limit = {
+					has_country_flag = is_starting_puppet_of_uk
+					is_subject = yes
+					is_ai = yes
+				}
+				every_owned_state = {
+					limit = {
+						NOT = { is_core_of = ENG }
+						NOT = { is_claimed_by = ENG }
+					}
+					add_claim_by = ENG
+				}
+			}
+		}
+		hidden_effect = {
 			add_stability = 30
 			every_state = {
 				limit = {
@@ -2153,30 +2743,55 @@ country_event = {
 				}
 				RAJ = { retire_country_leader = yes }
 			}
+			
 		}
 		hidden_effect = { news_event = { id = mtg_news.41 days = 1 } }
 		division_template = {
 			name = "Blackshirt Brigade"
 			priority = 1
 			division_names_group = ENG_FAS_01
-			is_locked = yes
 			regiments = {
 				infantry = { x = 0 y = 0 }
 				infantry = { x = 0 y = 1 }
 				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			support = {		
+				artillery = { x = 0 y = 0 }
+			}
+		}	
+		hidden_effect = {
+			if = {
+				limit = { is_ai = yes }
+				random_country = {
+					limit = {
+						original_tag = ENG
+						NOT = { has_government = fascism }
+					}
+					transfer_units_fraction = {
+							target = ENG
+							size = 0.2
+							army_ratio = 0.3
+							air_ratio = 0.3
+					}
+				}
 			}
 		}
-		every_owned_state = {
-			limit = {
-				is_on_continent = europe
-			}
-			create_unit = {
-				division = "division_template = \"Blackshirt Brigade\" start_experience_factor = 0 start_equipment_factor = 1"
-				owner = ROOT
-			}
-			create_unit = {
-				division = "division_template = \"Blackshirt Brigade\" start_experience_factor = 0 start_equipment_factor = 1"
-				owner = ROOT
+		ENG = {
+			every_owned_state = {
+				limit = {
+					is_on_continent = europe
+				}
+				create_unit = {
+					division = "division_template = \"Blackshirt Brigade\" start_experience_factor = 0.2 start_equipment_factor = 1"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "division_template = \"Blackshirt Brigade\" start_experience_factor = 0 start_equipment_factor = 1"
+					owner = ROOT
+				}
 			}
 		}
 	}
@@ -2195,6 +2810,17 @@ country_event = {
 	option = {
 		name = mtg_britain.34.a
 		add_ideas = ENG_george_vi
+		if = {
+			limit = { 
+				is_in_faction = no 
+				is_historical_focus_on = no
+			}
+			create_faction = "The Empire"
+		}
+		if = {
+			limit = { NOT = { has_completed_focus = uk_empire_focus } }
+			complete_national_focus = uk_empire_focus
+		}
 		hidden_effect = {
 			if = {	
 				limit = {
@@ -2215,7 +2841,6 @@ country_event = {
 					retire_country_leader = yes
 				}
 			}
-			
 			MAL = {
 				drop_cosmetic_tag = yes
 				retire_country_leader = yes
@@ -2225,7 +2850,7 @@ country_event = {
 					limit = {
 						has_completed_focus = CAN_strengthen_the_commonwealth_ties
 					}
-					set_faction_name = ENG_commonwealth_of_nations
+					set_faction_name = "ENG_commonwealth_of_nations"
 					every_other_country = {
 						limit = {
 							NOT = { tag = SAF }
@@ -2245,7 +2870,50 @@ country_event = {
 		}
 		custom_effect_tooltip = mtg_britain.34_tt
 		hidden_effect = { news_event = { id = mtg_news.42 days = 1 } }
-		delete_unit_template_and_units = { division_template = "Blackshirt Brigade" }
+		if = {
+			limit = { is_ai = no }
+			delete_unit_template_and_units = { division_template = "Blackshirt Brigade" }	
+		}
+		else_if = {
+			limit = { is_ai = yes }
+			ENG = {
+				division_template = {
+					name = "Infantry template 1"			# Rifle Division
+					division_names_group = ENG_INF_01
+					is_locked = no
+					priority = 1
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+					}
+					support = {		
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+					}
+				}
+				every_country_division = {
+					limit = { 
+						OR = {
+							division_has_majority_template = infantry 
+							division_has_majority_template = cavalry  
+							division_has_majority_template = motorized   
+							division_has_majority_template = mountaineers
+						}
+					}
+					change_division_template = {
+						division_template = "Infantry template 1" 
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -2282,7 +2950,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 			modifier = {
-				add = 2
+				add = 1
 				OR = {
 					ITA_is_historical_ai = yes #Historical ITA has 50%-50% chances of accepting
 					ITA_is_alt_fascist_balbo_ai = yes
@@ -2293,7 +2961,7 @@ country_event = {
 		}
 
 		FROM = {
-			IF = {
+			if = {
 				limit = {
 					is_in_faction = no
 				}
@@ -2711,6 +3379,11 @@ country_event = {
 					tag = ENG
 					ratio > 1.6
 				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = yes
+				NOT = { is_in_faction_with = ENG }
 			}
 		}
 		if = {
@@ -3668,6 +4341,11 @@ country_event = {
 					ratio > 1.4
 				}
 			}
+			modifier = {
+				factor = 10
+				is_in_faction = yes
+				NOT = { is_in_faction_with = ENG }
+			}
 		}
 		FROM = { country_event = { id = mtg_britain.48 hours = 6 } }
 		effect_tooltip = {
@@ -3848,6 +4526,7 @@ country_event = {
 	# Ok
 	option = {
 		name = excellent
+		dismantle_faction = yes
 		FROM = { add_to_faction = ENG }
 	}
 }
@@ -4810,12 +5489,23 @@ country_event = {
 			}
 			ENG = {
 				set_autonomy = {
-			    	target = ROOT
-			    	autonomy_state = autonomy_free
+			    		target = ROOT
+			    		autonomy_state = autonomy_free
 				}
 			}
 		}
-
+		if = {
+			limit = {
+				has_war = yes
+				NOT = { surrender_progress > 0 }
+			}
+			every_country = {
+				limit = {
+					has_war_with = ROOT
+				}
+				white_peace = ROOT
+			}
+		}
 		if = {
 			limit = {
 				has_idea = ENG_guided_by_britain_1
@@ -4859,7 +5549,6 @@ country_event = {
 			}
 			country_event = { id = GOE_RAJ.30 hours = 2 }
 		}
-
 		remove_from_tech_sharing_group = commonwealth_research
 		set_country_flag = ENG_already_left_faction_flag
 		
@@ -4872,8 +5561,6 @@ country_event = {
 			}
 			ENG = { country_event = { id = mtg_britain.67 } }
 		}
-		
-		
 		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
 	}
 }
@@ -6303,7 +6990,7 @@ country_event = {
 	option = {
 		name = mtg_britain.84.b
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0.8
 				has_opinion = { target = ENG value > 0 }
@@ -6560,7 +7247,7 @@ country_event = {
 	option = {
 		name = mtg_britain.88.b
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0.8
 				has_opinion = { target = ENG value > 0 }
@@ -6837,7 +7524,7 @@ country_event = {
 	option = {
 		name = mtg_britain.92.b
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0.8
 				has_opinion = { target = ENG value > 0 }
@@ -7095,7 +7782,7 @@ country_event = {
 	option = {
 		name = mtg_britain.96.b
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0.8
 				has_opinion = { target = ENG value > 0 }
@@ -7329,17 +8016,17 @@ country_event = {
 	option = {
 		name = mtg_britain.100.a
 		ai_chance = {
-			factor = 50
+			factor = 100
 			modifier = {
-				factor = 4
+				factor = 2
 				FROM = { has_country_flag = ENG_diplomatic_pressure_flag }
 			}
 			modifier = {
-				factor = 8
+				factor = 3
 				FROM = { has_country_flag = ENG_extensive_diplomatic_pressure_flag }
 			}
 			modifier = {
-				factor = 2
+				factor = 0.5
 				tag = RAJ
 				ENG = {
 					AND = {
@@ -7359,7 +8046,7 @@ country_event = {
 	option = {
 		name = mtg_britain.100.b
 		ai_chance = {
-			factor = 50
+			factor = 0
 			modifier = {
 				factor = 0.8
 				has_opinion = { target = ENG value > 0 }

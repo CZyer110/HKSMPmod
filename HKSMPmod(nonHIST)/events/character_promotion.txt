@@ -1,0 +1,126 @@
+﻿###########################
+###########################
+
+add_namespace = character_promotion
+
+country_event = {
+	id = character_promotion.1
+	title = character_promotion.1.t
+	desc = character_promotion.1.d
+	picture = GFX_report_event_bul_artillery
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = character_promotion.1.a
+		GER_ferdinand_schorner = {
+			remove_trait = {
+				trait = army_infantry_2
+				slot = high_command 
+			}
+			add_trait = {
+				trait = ruthless_commander_trait
+				slot = high_command 
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = {
+		name = character_promotion.1.b
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = {
+	id = character_promotion.2
+	title = character_promotion.2.t
+	desc = character_promotion.2.d
+	picture = GFX_report_event_danzig_joins_nazis
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = character_promotion.2.a
+		hidden_effect = {
+			retire_character = GER_ferdinand_schorner
+		}
+		add_manpower = -1
+	}
+}
+
+country_event = {
+	id = character_promotion.3
+	title = character_promotion.3.t
+	desc = character_promotion.3.d
+	picture = GFX_report_event_german_politician_speech
+	
+	trigger = {
+		original_tag = USA
+		OR = {
+			AND = {
+				has_government = communism
+				has_idea = earl_browder
+			}
+			AND = {
+				OR = {
+					has_government = neutrality	
+					has_government = fascism
+				}
+				has_idea = charles_coughlin
+			}
+		}
+		OR = {
+			has_civil_war = no
+			any_enemy_country = {
+				is_major = yes
+				NOT = { original_tag = USA }
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+	
+	option = {
+		name = character_promotion.3.a
+		if = {
+			limit = { 
+				has_idea = charles_coughlin
+			}
+			USA_charles_coughlin = {
+				remove_trait = {
+					trait = fascist_demagogue
+					slot = political_advisor
+				}
+				add_trait = {
+					trait = USA_fascist_revolutionary
+					slot = political_advisor
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_idea = earl_browder
+			}
+			USA_earl_browder = {
+				remove_trait = {
+					trait = communist_revolutionary
+					slot = political_advisor 
+				}
+				add_trait = {
+					trait = USA_syndicalist_vanguard
+					slot = political_advisor 
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}

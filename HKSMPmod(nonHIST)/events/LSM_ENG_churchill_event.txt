@@ -1,0 +1,2241 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_ENG_churchill
+
+country_event = {
+	id = LSM_ENG_churchill.1
+	title = LSM_ENG_churchill.1.t
+	desc = LSM_ENG_churchill.1.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.1.a
+
+		ai_chance = { factor = 50 }
+
+		trigger = { NOT = { has_global_flag = churchill_is_dead } }
+
+		set_global_flag = ENG_churchill_flee
+
+		set_global_flag = ENG_churchill_alcoholism
+		
+		#ENG = { activate_mission = ENG_churchill_alcoholism_mission }
+
+		if = {
+			limit = { 
+				CAN = { 
+					is_in_faction_with = ENG
+					has_capitulated = no 
+				}
+			}
+			CAN = {
+				country_event = {
+					id = LSM_ENG_churchill.10
+					hours = 2
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				SAF = { 
+					is_in_faction_with = ENG
+					has_capitulated = no  
+				}
+			}
+			SAF = {
+				country_event = {
+					id = LSM_ENG_churchill.20
+					days = 2 #so they can get FRA states too
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				NZL = { 
+					is_in_faction_with = ENG 
+					has_capitulated = no 
+				}
+			}
+			NZL = {
+				country_event = {
+					id = LSM_ENG_churchill.30
+					hours = 1
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				RAJ = { 
+					is_in_faction_with = ENG 
+					has_capitulated = no 
+				}
+			}
+			RAJ = {
+				country_event = {
+					id = LSM_ENG_churchill.40
+					hours = 1
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				AST = { 
+					is_in_faction_with = ENG 
+					has_capitulated = no 
+				}
+			}
+			AST = {
+				country_event = {
+					id = LSM_ENG_churchill.50
+					hours = 1
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				FRA = { 
+					is_in_faction_with = ENG 
+					has_capitulated = yes 
+					NOT = { 
+						any_country = {
+							is_subject_of = FRA
+						}
+					}
+				}
+				has_global_flag = is_active
+			}
+			FRA = {
+				country_event = {
+					id = LSM_ENG_churchill.60
+					days = 14
+				}
+			}
+		}
+
+		if = { 
+			limit = { 
+				has_global_flag = churchill_ass_done
+				any_country = {
+					has_war_with = ENG
+					controls_state = 126
+					is_faction_leader = no
+				}
+			} 
+			every_country = {
+				limit = {
+					has_war_with = ENG
+					controls_state = 126
+					is_faction_leader = no
+				}
+				country_event = { id = LSM_ENG_churchill.1000 hours = 3 }
+				FROM = { save_event_target_as = main_spy_contributor }
+			} 
+			every_country = {
+				limit = {
+					has_war_with = ENG
+					is_in_faction_with = main_spy_contributor
+					is_faction_leader = yes
+				}
+				country_event = { id = LSM_ENG_churchill.1001 hours = 9 }
+			}
+		}
+
+		if = { 
+			limit = {  
+				has_global_flag = churchill_ass_done
+				any_country = {
+					has_war_with = ENG
+					controls_state = 126
+					is_faction_leader = yes
+				}
+			} 
+			every_country = {
+				limit = {
+					has_war_with = ENG
+					controls_state = 126
+					is_faction_leader = yes
+				}
+				country_event = { id = LSM_ENG_churchill.1000 hours = 3 }
+				FROM = { save_event_target_as = main_spy_contributor }
+			} 
+			random_country = {
+				limit = {
+					has_war_with = ENG
+					is_in_faction_with = main_spy_contributor
+					is_faction_leader = no
+				}
+				country_event = { id = LSM_ENG_churchill.1001 hours = 9 }
+			}
+		}
+			
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1 }  
+			if = {
+				limit = {
+					has_global_flag = churchill_ass_done
+				}
+				country_event = { id = LSM_ENG_churchill.1002 days = 1 }
+			}
+
+			add_timed_idea = { idea = ENG_homeland_resistance_unorganised_1 days = 360 }
+	
+			set_technology = { ENG_militia_resistance = 1 }
+		}
+
+		if = {
+			limit = { 
+				GER = { 
+					has_war_with = ENG
+					NOT = { has_war_with = USA }
+					is_faction_leader = yes
+					any_war_score > 49
+					NOT = { is_in_faction_with = SOV }
+					NOT = { has_war_with = SOV }
+				}
+				country_exists = SOV
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.101
+					days = 14
+				}
+			}
+		}
+
+		if = {
+			limit = { 
+				GER = { 
+					has_war_with = ENG
+					has_war_with = USA
+					is_faction_leader = yes
+					any_war_score > 49
+					NOT = { is_in_faction_with = SOV }
+					NOT = { has_war_with = SOV }
+				}
+				country_exists = SOV
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.1
+					days = 14
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { 
+					has_country_leader = {
+						character = ENG_winston_churchill
+						ruling_only = yes
+					}
+				}
+			}
+			create_country_leader = {
+				name = "Winston Churchill"
+				picture = GFX_portrait_ENG_winston_churchill
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+					british_bulldog
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.1.b
+
+		ai_chance = { factor = 50 }
+
+		trigger = {
+			AND = {
+				NOT = { 
+					has_country_leader = {
+						character = ENG_winston_churchill
+						ruling_only = yes
+					}
+				}
+				NOT = { has_global_flag = LSM_ENG_approached_enemies }
+				any_other_country = {
+					AND = {
+						is_in_faction_with = ENG
+						is_major = yes
+						is_subject = no
+					}
+				}
+				any_country = {
+					AND = {
+						has_war_with = ENG
+						any_war_score > 49
+					}
+				}
+				NOT = { is_in_faction_with = USA } #the new world rallies with us
+			}
+		}			
+
+		random_country = {
+			limit = {
+				has_war_with = ENG
+				is_faction_leader = yes
+				any_war_score > 49
+			}
+			country_event = {
+				id = LSM_ENG_churchill.100
+				days = 3
+			}
+		}
+
+		set_global_flag = LSM_ENG_approached_enemies
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.200
+	title = LSM_ENG_churchill.200.t
+	desc = LSM_ENG_churchill.200.d
+
+	is_triggered_only = yes
+
+	option = { 
+
+		ai_chance = { factor = 50 } #continue anyway
+
+		name = LSM_ENG_churchill.200.a #yes
+
+		hidden_effect = {
+			news_event = { hours = 6 id = lsm_news.10 }
+		}
+
+		ENG = {
+			create_country_leader = {
+				name = "Elizabeth II"
+				desc = "POLITICS_ELIZABETH_II_DESC"
+				picture = GFX_portrait_eng_elizabeth_ii
+				expire = "1965.1.1"
+				ideology = conservatism
+				female = yes
+				traits = {
+					headstrong popular_queen
+				}
+			}
+		}
+
+		if = { 
+			limit = {
+				CAN = { is_in_faction_with = ENG }
+			}
+			CAN = {
+				create_country_leader = {
+					name = "Elizabeth II"
+					desc = "POLITICS_ELIZABETH_II_DESC"
+					picture = GFX_portrait_eng_elizabeth_ii
+					expire = "1965.1.1"
+					ideology = conservatism
+					female = yes
+					traits = {
+						headstrong popular_queen 
+					}
+				}
+			}
+		}
+
+		if = { 
+			limit = {
+				AST = { is_in_faction_with = ENG }
+			}
+			AST = {
+				create_country_leader = {
+					name = "Elizabeth II"
+					desc = "POLITICS_ELIZABETH_II_DESC"
+					picture = GFX_portrait_eng_elizabeth_ii
+					expire = "1965.1.1"
+					ideology = conservatism
+					female = yes
+					traits = {
+						headstrong popular_queen 
+					}
+				}
+			}
+		}
+
+		if = { 
+			limit = {
+				NZL = { is_in_faction_with = ENG }
+			}
+			NZL = {
+				create_country_leader = {
+					name = "Elizabeth II"
+					desc = "POLITICS_ELIZABETH_II_DESC"
+					picture = GFX_portrait_eng_elizabeth_ii
+					expire = "1965.1.1"
+					ideology = conservatism
+					female = yes
+					traits = {
+						headstrong popular_queen 
+					}
+				}
+			}
+		}
+
+		if = { 
+			limit = {
+				RAJ = { is_in_faction_with = ENG }
+			}
+			RAJ = {
+				create_country_leader = {
+					name = "Elizabeth II"
+					desc = "POLITICS_ELIZABETH_II_DESC"
+					picture = GFX_portrait_eng_elizabeth_ii
+					expire = "1965.1.1"
+					ideology = conservatism
+					female = yes
+					traits = {
+						headstrong popular_queen
+					}
+				}
+			}
+		}
+
+		if = { 
+			limit = {
+				SAF = { is_in_faction_with = ENG }
+			}
+			SAF = {
+				create_country_leader = {
+					name = "Elizabeth II"
+					desc = "POLITICS_ELIZABETH_II_DESC"
+					picture = GFX_portrait_eng_elizabeth_ii
+					expire = "1965.1.1"
+					ideology = conservatism
+					female = yes
+					traits = {
+						headstrong popular_queen 
+					}
+				}
+			}
+		}
+	}
+
+	option = { 
+
+		ai_chance = { factor = 50 } #surrender
+
+		name = LSM_ENG_churchill.200.b #no
+
+		trigger = {
+			NOT = { is_in_faction_with = USA }
+		}
+				
+
+		hidden_effect = {
+			news_event = { hours = 6 id = lsm_news.11 }
+		}
+
+		ENG = {
+			if = { 
+				limit = { is_in_faction_with = CAN }
+				annex_country = { target = CAN transfer_troops = yes }
+			}
+			if = { 
+				limit = { is_in_faction_with = AST }
+				annex_country = { target = AST transfer_troops = yes }
+			}
+			if = { 
+				limit = { is_in_faction_with = SAF }
+				annex_country = { target = SAF transfer_troops = yes }
+			}
+			if = { 
+				limit = { is_in_faction_with = MAL }
+				annex_country = { target = MAL transfer_troops = yes }
+			}
+			if = { 
+				limit = { is_in_faction_with = NZL }
+				annex_country = { target = NZL transfer_troops = yes }
+			}
+			if = { 
+				limit = { is_in_faction_with = RAJ }
+				annex_country = { target = RAJ transfer_troops = yes }
+			}
+		}
+
+		if = { 
+			limit = { 
+				any_country = { 
+					is_in_faction_with = ENG
+					is_major = yes
+					has_capitulated = no
+					NOT = { tag = USA }
+				}
+			}
+			ENG = { create_faction = "Treaty of London" }
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.201
+	title = LSM_ENG_churchill.201.t
+	desc = LSM_ENG_churchill.201.d
+
+	is_triggered_only = yes
+
+	option = { 
+
+		name = LSM_ENG_churchill.201.a 
+
+		ENG = { 
+			add_country_leader_trait = assassination_survivor
+			add_country_leader_trait = lucky
+		}
+
+		
+		if = { 
+			limit = {
+				CAN = { is_in_faction_with = ENG }
+			}
+			CAN = { 
+				add_country_leader_trait = assassination_survivor
+				add_country_leader_trait = lucky
+			}
+		}
+
+		
+		if = { 
+			limit = {
+				AST = { is_in_faction_with = ENG }
+			}
+			AST = { 
+				add_country_leader_trait = assassination_survivor
+				add_country_leader_trait = lucky
+			}
+		}
+
+		
+		if = { 
+			limit = {
+				SAF = { is_in_faction_with = ENG }
+			}
+			SAF = { 
+				add_country_leader_trait = assassination_survivor
+				add_country_leader_trait = lucky
+			}
+		}
+
+		
+		if = { 
+			limit = {
+				RAJ = { is_in_faction_with = ENG }
+			}
+			RAJ = { 
+				add_country_leader_trait = assassination_survivor
+				add_country_leader_trait = lucky
+			}
+		}
+
+		
+		if = { 
+			limit = {
+				NZL = { is_in_faction_with = ENG }
+			}
+			NZL = { 
+				add_country_leader_trait = assassination_survivor
+				add_country_leader_trait = lucky
+			}
+		}
+	}
+
+}
+country_event = {
+	id = LSM_ENG_churchill.100
+	title = LSM_ENG_churchill.100.t
+	desc = LSM_ENG_churchill.100.d
+
+	is_triggered_only = yes
+
+	option = { 
+
+		ai_chance = { factor = 75 }
+
+		name = LSM_ENG_churchill.100.a #yes
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.2 }
+		}
+
+		ENG = { 
+			add_ideas = ENG_defeat_in_world_war_ii
+		}
+		
+		add_ideas = ENG_victor_of_world_war_ii
+
+		every_country = {
+			ENG = {
+				diplomatic_relation = {
+					country = PREV
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+
+		random_country = {
+			limit = { 
+				is_in_faction_with = ENG
+				is_major = yes
+				is_subject = no
+			}
+			set_faction_leader = yes
+			set_country_flag = new_allied_leader
+		}
+
+		every_country = {
+			limit = { has_country_flag = new_allied_leader }
+			remove_from_faction = ENG
+			remove_from_faction = CAN
+			remove_from_faction = SAF
+			remove_from_faction = AST
+			remove_from_faction = RAJ
+			remove_from_faction = NZL
+		}
+
+		every_country = {
+			limit = { 
+				has_war_with = ENG
+			}
+			white_peace = ENG
+			white_peace = CAN
+			white_peace = SAF
+			white_peace = AST
+			white_peace = RAJ
+			white_peace = NZL
+			set_truce = {
+				target = ROOT
+				days = 3650 #don't touch us please
+			}
+		}
+
+		every_country = {
+			add_ai_strategy = {
+				type = alliance
+				id = ENG
+				value = -3000
+			}
+			ENG = {
+				add_ai_strategy = {
+					type = alliance
+					id = PREV
+					value = -3000
+				}
+			}
+		}
+		if = { 
+			limit = { has_war_with = IRE } 
+			every_state = { 
+				limit = { 
+					is_core_of = IRE 
+					is_owned_by = ENG
+				} 
+				IRE = { transfer_state = PREV }
+			}
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = CAN #we go to the US now
+				autonomy_state = autonomy_free
+			}
+		}
+
+		every_state = { 
+			limit = {
+				OR = {
+					AND = {
+						is_owned_by = ENG
+						NOT = { is_core_of = ENG }
+					}
+					AND = {
+						is_owned_by = CAN
+						NOT = { is_core_of = CAN }
+					}
+					AND = {
+						is_owned_by = AST
+						NOT = { is_core_of = AST }
+					}
+					AND = {
+						is_owned_by = SAF
+						NOT = { is_core_of = SAF }
+					}
+					AND = {
+						is_owned_by = NZL
+						NOT = { is_core_of = NZL }
+					}
+					AND = {
+						is_owned_by = MAL
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = new_allied_leader
+				}
+				transfer_state = PREV
+			}
+		}
+	}
+
+	option = { 
+
+		ai_chance = { factor = 25 }
+
+		name = LSM_ENG_churchill.100.b #no
+				
+
+		ENG = {
+			country_event = {
+				id = LSM_ENG_churchill.1
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.10
+	title = LSM_ENG_churchill.10.t
+	desc = LSM_ENG_churchill.10.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.10.a #yes
+
+		trigger = {
+			has_completed_focus = CAN_strengthen_the_commonwealth_ties
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = CAN
+				autonomy_state = autonomy_free
+			}
+		}
+		
+		every_state = {
+			limit = { 
+				is_owned_by = ENG
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+			CAN = { 
+				transfer_state = PREV  
+				add_state_claim = PREV
+			}
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		every_owned_state = {
+			limit = { is_core_of = CAN }
+			ETH_upgrade_state_category = yes
+			ETH_upgrade_state_category = yes
+		}
+
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.10.b #yes
+
+		trigger = {
+			NOT = { has_completed_focus = CAN_strengthen_the_commonwealth_ties }
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = CAN
+				autonomy_state = autonomy_free
+			}
+		}
+
+		every_owned_state = { 
+			add_core_of = CAN 
+			ETH_upgrade_state_category = yes
+			ETH_upgrade_state_category = yes
+		}
+
+		complete_national_focus = CAN_strengthen_the_commonwealth_ties
+
+		set_country_flag = britain_enforced_our_loyalty
+		
+		remove_ideas = CAN_communist_ideals
+		remove_ideas = CAN_communist_ideals_2		
+		remove_ideas = CAN_communist_ideals_4		
+		remove_ideas = CAN_unified_communist_party
+		remove_ideas = CAN_swastika_clubs		
+		remove_ideas = CAN_patriation		
+		remove_ideas = CAN_swastika_clubs_2
+		remove_ideas = CAN_swastika_clubs_skewer
+
+		every_state = {
+			limit = { 
+				is_owned_by = ENG
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+			CAN = { 
+				transfer_state = PREV 
+				add_state_core = PREV
+			}
+		}
+
+		ai_chance = {
+			factor = 20
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		every_owned_state = { 
+			limit = { is_core_of = CAN }
+			ETH_upgrade_state_category = yes
+			ETH_upgrade_state_category = yes
+		}
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.10.c #no
+
+		trigger = {
+			has_completed_focus = CAN_patriation
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = CAN
+				autonomy_state = autonomy_free
+			}
+		}
+
+		CAN = { leave_faction = yes }
+
+		every_country = {
+			limit = { has_war_with = CAN }
+			white_peace = CAN
+		}
+
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.20
+	title = LSM_ENG_churchill.20.t
+	desc = LSM_ENG_churchill.20.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.20.a #yes
+
+		trigger = {
+			has_completed_focus = SAF_support_the_policy_of_appeasement
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = SAF
+				autonomy_state = autonomy_free
+			}
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		every_owned_state = {
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.20.b #yes
+
+		trigger = {
+			NOT = { has_completed_focus = SAF_support_the_policy_of_appeasement }
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = SAF
+				autonomy_state = autonomy_free
+			}
+		}
+
+		complete_national_focus = SAF_support_the_policy_of_appeasement
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		set_country_flag = britain_enforced_our_loyalty
+		
+		remove_ideas = SAF_abandon_westminster_fascism
+		remove_ideas = SAF_ossewabrandwag_fascism	
+		remove_ideas = SAF_voortrekker_monument
+		remove_ideas = SAF_voortrekker_monument_2
+		remove_ideas = SAF_abandon_westminster_communism	
+		remove_ideas = SAF_black_volunteers
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		ai_chance = {
+			factor = 20
+		}
+
+		set_politics = { 
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+
+		set_popularities = {
+			fascism = 0
+			neutrality = 0
+			communism = 0
+			democratic = 100
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.20.c #no
+
+		trigger = {
+			has_completed_focus = SAF_abandon_westminster
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = SAF
+				autonomy_state = autonomy_free
+			}
+		}
+
+		SAF = { leave_faction = yes }
+
+		every_country = {
+			limit = { has_war_with = SAF }
+			white_peace = SAF
+		}
+	
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.30
+	title = LSM_ENG_churchill.30.t
+	desc = LSM_ENG_churchill.30.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.30.a #yes
+
+		trigger = {
+			has_completed_focus = NZL_strengthen_the_commonwealth
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = NZL
+				autonomy_state = autonomy_free
+			}
+		}
+
+		every_owned_state = { 
+			add_core_of = NZL  
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		activate_decision = form_polynesia
+
+		set_politics = { 
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+
+		set_popularities = {
+			fascism = 0
+			neutrality = 0
+			communism = 0
+			democratic = 100
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.30.b #yes
+
+		trigger = {
+			NOT = { has_completed_focus = NZL_strengthen_the_commonwealth }
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = NZL
+				autonomy_state = autonomy_free
+			}
+		}
+
+		complete_national_focus = NZL_strengthen_the_commonwealth
+
+		set_country_flag = britain_enforced_our_loyalty
+
+		every_owned_state = { 
+			add_core_of = NZL  
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+
+		activate_decision = form_polynesia
+		
+		remove_ideas = NZL_the_workers_party_1
+		remove_ideas = NZL_the_workers_party_2	
+		remove_ideas = NZL_in_the_darkness
+
+		ai_chance = {
+			factor = 20
+		}
+
+		set_politics = { 
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+
+		set_popularities = {
+			fascism = 0
+			neutrality = 0
+			communism = 0
+			democratic = 100
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.30.c #no
+
+		trigger = {
+			has_completed_focus = NZL_statute_of_westminster
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = NZL
+				autonomy_state = autonomy_free
+			}
+		}
+
+		NZL = { leave_faction = yes }
+
+		every_country = {
+			limit = { has_war_with = SAF }
+			white_peace = NZL
+		}
+	
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.40
+	title = LSM_ENG_churchill.40.t
+	desc = LSM_ENG_churchill.40.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.40.a #yes
+
+		trigger = {
+			OR = {
+				has_completed_focus = RAJ_indian_national_congress
+				AND = {
+					has_completed_focus = RAJ_provincial_autonomy
+					OR = {
+						is_historical_focus_on = yes
+						NOT = { has_completed_focus = RAJ_league_against_gandhism }
+					}
+				}
+				has_completed_focus = RAJ_his_majestys_loyal_government
+			}
+		}
+
+		ai_chance = { factor = 100 }
+
+		set_country_flag = RAJ_civil_war
+
+		add_timed_idea = { idea = LSM_british_migration days = 3650 }
+
+		every_owned_state = { 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.40.b #yes
+
+		trigger = {
+			NOT = { 
+				OR = {
+					has_completed_focus = RAJ_indian_national_congress
+					AND = {
+						has_completed_focus = RAJ_provincial_autonomy
+						OR = {
+							is_historical_focus_on = yes
+							NOT = { has_completed_focus = RAJ_league_against_gandhism }
+						}
+					}
+					has_completed_focus = RAJ_his_majestys_loyal_government
+				}
+			}
+		}
+
+		every_owned_state = { 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+
+		add_timed_idea = { idea = LSM_british_migration days = 3650 }
+
+		set_country_flag = britain_enforced_our_loyalty
+		
+		if = {
+			limit = { has_idea = RAJ_all_india_forward_bloc }
+			remove_ideas = RAJ_all_india_forward_bloc
+		}
+		
+		if = {
+			limit = { has_idea = RAJ_all_india_forward_bloc_communism }
+			remove_ideas = RAJ_all_india_forward_bloc_communism
+		}
+		
+		if = {
+			limit = { has_idea = RAJ_all_india_forward_bloc_fascism }
+			remove_ideas = RAJ_all_india_forward_bloc_fascism
+		}
+
+		ai_chance = {
+			factor = 25
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.40.c #no
+
+		trigger = {
+			NOT = { has_completed_focus = RAJ_his_majestys_loyal_government }
+		}
+	
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.25
+				ENG = { surrender_progress < 0.8 } #they are still not there yet
+			}
+			modifier = {
+				factor = 0.25
+				ENG = { surrender_progress < 0.7 } #they are still not there yet
+			}
+			modifier = {
+				factor = 0.25
+				ENG = { surrender_progress < 0.6 } #they are still not there yet
+			}
+		} 
+
+		ENG = { 
+			set_autonomy = {
+				target = RAJ
+				autonomy_state = autonomy_free
+			}
+			remove_from_faction = RAJ
+		}
+
+		every_country = { 
+			limit = { has_war_with = RAJ } 
+			white_peace = RAJ 
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.50
+	title = LSM_ENG_churchill.50.t
+	desc = LSM_ENG_churchill.50.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.50.a #yes
+
+		trigger = {
+			has_completed_focus = AST_support_the_policy_of_appeasement
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = AST
+				autonomy_state = autonomy_free
+			}
+		}
+
+		every_owned_state = { 
+			add_core_of = AST  
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.50.b #yes
+
+		trigger = {
+			NOT = { has_completed_focus = AST_support_the_policy_of_appeasement }
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = AST
+				autonomy_state = autonomy_free
+			}
+		}
+
+		every_owned_state = { 
+			add_core_of = AST  
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes 
+			ETH_upgrade_state_category = yes
+		}
+
+		complete_national_focus = AST_support_the_policy_of_appeasement
+
+		set_country_flag = britain_enforced_our_loyalty
+
+		add_timed_idea = { idea = LSM_british_exodus days = 1825 }
+		
+		remove_ideas = AST_abandon_the_westminster_system
+		remove_ideas = AST_abandon_the_westminster_system_communism			
+		remove_ideas = AST_abandon_the_westminster_system_fascism
+
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			set_politics = { 
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+
+			set_popularities = {
+				fascism = 0
+				neutrality = 0
+				communism = 0
+				democratic = 100
+			}
+		}
+
+		create_country_leader = {
+			name = "Winston Churchill"
+			picture = GFX_portrait_ENG_winston_churchill
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				british_bulldog
+			}
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.50.c #no
+
+		trigger = {
+			has_completed_focus = AST_never_another_gallipoli
+		}
+
+		ENG = { 
+			set_autonomy = {
+				target = AST
+				autonomy_state = autonomy_free
+			}
+			remove_from_faction = AST
+		}
+
+		every_country = { 
+			limit = { has_war_with = AST } 
+			white_peace = AST 
+		}
+	
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.60
+	title = LSM_ENG_churchill.60.t
+	desc = LSM_ENG_churchill.60.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.60.a #yes
+
+		trigger = { NOT = { has_global_flag = FRA_decolonisation_historical } }
+
+		ENG = { 
+			annex_country = { target = FRA transfer_troops = yes }
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = FRA
+			}
+			add_core_of = ENG
+			if = {
+				limit = { has_resistance = yes }
+				force_enable_resistance = { 
+					clear = no
+					occupier = PREV.controller
+					occupied = ENG
+				}
+				start_resistance = ENG
+				add_resistance = 10
+				add_compliance = -10
+			}
+		}
+
+		FRA = {
+			every_character = {
+				set_nationality = ENG
+			}
+		}
+		
+		ENG = { set_cosmetic_tag = FRA_UK }
+
+		ai_chance = {
+			factor = 50
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.60.b #no
+
+		trigger = {
+			OR = {
+				AND = {
+					ENG = { has_completed_focus = ENG_concessions_to_the_trade_unions }
+					FRA = { has_completed_focus = FRA_review_foreign_policy }
+				}
+				AND = {
+					ENG = { has_completed_focus = ENG_no_further_appeasement }
+					FRA = { has_completed_focus = FRA_national_regeneration }
+				}
+				has_global_flag = FRA_decolonisation_historical
+				is_ai = no
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.665
+	title = LSM_ENG_churchill.665.t
+	desc = LSM_ENG_churchill.665.d
+	picture = GFX_report_event_yugoslavia_partisans
+
+	is_triggered_only = yes
+
+	option = {
+
+		ai_chance = { factor = 50 }
+
+		name = LSM_ENG_churchill.665.a #yes
+
+		custom_effect_tooltip = "Britons will soon launch a massive uprising over the entire regions. Trust nobody, even your collaborators in France!"
+	}
+
+	option = {
+		name = LSM_ENG_churchill.665.b
+
+		ai_chance = { factor = 50 }
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.666
+	title = LSM_ENG_churchill.666.t
+	desc = LSM_ENG_churchill.666.d
+	picture = GFX_report_event_yugoslavia_partisans
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.666.a #yes
+
+		hidden_effect = {
+        		ENG = {
+				if = { 
+					limit = { 
+						NOT = { has_country_flag = template_given_lsm }
+					}
+					set_country_flag = template_given_lsm
+					division_template = {
+						name = "Militia Cope Division"
+						division_names_group = SWI_INF_01
+						priority = 0
+						regiments = {
+							militia = { x = 0 y = 0 }
+							militia = { x = 0 y = 1 }
+							militia = { x = 0 y = 2 }
+							militia = { x = 1 y = 0 }
+							militia = { x = 1 y = 1 }
+							militia = { x = 1 y = 2 }
+						}
+						support = {
+					
+						}
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = ENG
+						NOT = { is_core_of = FRA }
+						controller = { has_war_with = ENG }
+						OR = {
+							has_dynamic_modifier = { modifier = ENG_clash_with_militia }
+							has_state_category = metropolis
+							has_state_category = megalopolis
+						}
+					}
+					add_manpower = -54000
+					create_unit = {
+						division = "name = \"British Militia\" division_template = \"Militia Cope Division\" start_experience_factor = 0 start_equipment_factor = 0.2"  
+						owner = ENG
+						allow_spawning_on_enemy_provs = yes  
+						count = 9  
+					}
+				
+				}
+				if = {
+					limit = { 
+						FRA = { is_in_faction_with = ENG } 
+						country_exists = FRA 
+					} 
+					every_state = {
+						limit = {
+							is_core_of = FRA
+							controller = { has_war_with = ENG }
+							OR = {
+								has_dynamic_modifier = { modifier = ENG_clash_with_militia }
+								has_state_category = metropolis
+								has_state_category = megalopolis
+							}
+						}
+						add_manpower = -108000
+						create_unit = {
+							division = "name = \"French Militia\" division_template = \"Militia Cope Division\" start_experience_factor = 0 start_equipment_factor = 0.2"  
+							owner = FRA
+							allow_spawning_on_enemy_provs = yes  
+							count = 18 
+						}
+				
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							NOT = { country_exists = FRA }
+							NOT = { FRA = { is_in_faction_with = ENG } }
+						}
+					} 
+					every_state = {
+						limit = {
+							is_core_of = FRA
+							is_core_of = ENG
+							controller = { has_war_with = ENG }
+							OR = {
+								has_dynamic_modifier = { modifier = ENG_clash_with_militia }
+								has_state_category = metropolis
+								has_state_category = megalopolis
+							}
+						}
+						add_manpower = -36000
+						create_unit = {
+							division = "name = \"French Militia\" division_template = \"Militia Cope Division\" start_experience_factor = 0 start_equipment_factor = 0.2"  
+							owner = ENG
+							allow_spawning_on_enemy_provs = yes  
+							count = 6 
+						}
+				
+					}
+				}
+				clr_global_flag = british_homeland_resistance_organised_flag
+				set_global_flag = british_kinda_want_revenge
+				ENG = { set_country_flag = london_uprising }
+				FRA = { set_country_flag = london_uprising }
+	  		}
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.667
+	title = LSM_ENG_churchill.667.t
+	desc = LSM_ENG_churchill.667.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.667.a
+
+		hidden_effect = {
+			set_country_flag = ENG_target_of_vengeance
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_ENG_churchill.668
+	title = LSM_ENG_churchill.668.t
+	desc = LSM_ENG_churchill.668.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.668.a
+
+		hidden_effect = {
+			set_global_flag = ENG_vengeance_flag
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.700
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.701
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.702
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.703
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.704
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.705
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.706
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.707
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.708
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.709
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.710
+	title = LSM_ENG_churchill.700.t
+	desc = LSM_ENG_churchill.700.d
+	picture = GFX_report_event_DEN_german_tanks
+
+	is_triggered_only = yes
+
+	option = {
+
+		name = LSM_ENG_churchill.700.a
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.800
+	title = LSM_ENG_churchill.800.t
+	desc = LSM_ENG_churchill.800.d
+	picture = GFX_report_event_ast_transfer_singapore
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.800.a
+		NZL = {
+			country_event = { id = LSM_ENG_churchill.801 days = 1 }
+		}
+		ai_chance = {
+			factor = 100 
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.800.b
+		AST = {
+			country_event = { id = LSM_ENG_churchill.803 days = 3 }
+		}
+		ai_chance = {
+			factor = 0 
+		}
+	}
+}
+country_event = {
+	id = LSM_ENG_churchill.801
+	title = LSM_ENG_churchill.800.t
+	desc = LSM_ENG_churchill.801.d
+	picture = GFX_report_event_ast_transfer_singapore
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.800.e
+		ENG = {
+			country_event = { id = LSM_ENG_churchill.802 days = 3 }
+		}
+		AST = {
+			country_event = { id = LSM_ENG_churchill.802 days = 3 }
+		}
+		ai_chance = {
+			factor = 100 
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.800.c
+		ENG = {
+			country_event = { id = LSM_ENG_churchill.803 days = 3 }
+		}
+		AST = {
+			country_event = { id = LSM_ENG_churchill.803 days = 3 }
+		}
+		ai_chance = {
+			factor = 0 
+		}
+	}
+}
+country_event = {
+	id = LSM_ENG_churchill.802
+	title = LSM_ENG_churchill.802.t
+	desc = LSM_ENG_churchill.802.d
+	picture = GFX_report_event_ast_troops_landing
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { tag = ENG }
+		name = LSM_ENG_churchill.802.a
+		ai_chance = {
+			factor = 100 
+		}
+	}
+
+	option = {
+		trigger = { tag = AST }
+		name = LSM_ENG_churchill.802.a
+		every_state = {
+			limit = {
+				OR = {
+					state = 737
+					state = 634
+					state = 523
+					state = 726
+					state = 284
+					state = 723
+				}
+			}
+			add_core_of = AST
+		}
+		annex_country = { target = NZL transfer_troops = yes }
+		hidden_effect = {
+			set_cosmetic_tag = AST_australasian
+			set_country_flag = AST_australasian_formed
+			news_event = { id = LSM_news.1113 }
+		}
+		ai_chance = {
+			factor = 100 
+		}
+	}
+}
+country_event = {
+	id = LSM_ENG_churchill.803
+	title = LSM_ENG_churchill.803.t
+	desc = LSM_ENG_churchill.803.d
+	picture = GFX_report_event_baltic_entente_one
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.803.a
+		ai_chance = {
+			factor = 100 
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.803.b
+		complete_national_focus = AST_never_another_gallipoli
+		ai_chance = {
+			factor = 0 
+		}
+	}
+}
+country_event = {
+	id = LSM_ENG_churchill.804
+	title = LSM_ENG_churchill.804.t
+	desc = LSM_ENG_churchill.804.d
+	picture = GFX_report_event_ast_transfer_singapore
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.804.a
+		ai_chance = {
+			base = 100
+		}
+		effect_tooltip = {
+			if = {
+				limit = {
+					controls_state = 635
+				}
+				FROM = { transfer_state = 635 }
+			}
+			if = {
+				limit = {
+					controls_state = 734
+				}
+				FROM = { transfer_state = 734 }
+			}
+			if = {
+				limit = {
+					controls_state = 636
+				}
+				FROM = { transfer_state = 636 }
+			}
+			if = {
+				limit = {
+					controls_state = 726
+				}
+				FROM = { transfer_state = 726 }
+			}
+			if = {
+				limit = {
+					controls_state = 641
+				}
+				FROM = { transfer_state = 641 }
+			}
+			if = {
+				limit = {
+					controls_state = 643
+				}
+				FROM = { transfer_state = 643 }
+			}
+			if = {
+				limit = {
+					controls_state = 642
+				}
+				FROM = { transfer_state = 642 }
+			}
+			if = {
+				limit = {
+					controls_state = 639
+				}
+				FROM = { transfer_state = 639 }
+			}
+			if = {
+				limit = {
+					controls_state = 725
+				}
+				FROM = { transfer_state = 725 }
+			}
+			if = {
+				limit = {
+					controls_state = 711
+				}
+				FROM = { transfer_state = 711 }
+			}
+			if = {
+				limit = {
+					controls_state = 712
+				}
+				FROM = { transfer_state = 712 }
+			}
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = { country_event = { id = LSM_ENG_churchill.805 } }
+		}
+	}
+
+	option = {
+		name = LSM_ENG_churchill.804.b
+		ai_chance = {
+			base = 0
+		}
+		FROM = {
+			country_event = {
+				id = LSM_ENG_churchill.806
+				days = 2
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = small_decrease
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_ENG_churchill.805
+	title = LSM_ENG_churchill.805.t
+	desc = LSM_ENG_churchill.805.d
+	picture = GFX_report_event_ast_transfer_singapore
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_ENG_churchill.805.a
+		ai_chance = {
+			base = 100
+		}
+		FROM = {
+			if = {
+				limit = {
+					controls_state = 635
+				}
+				FROM = { transfer_state = 635 }
+				635 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 734
+				}
+				FROM = { transfer_state = 734 }
+				734 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 636
+				}
+				FROM = { transfer_state = 636 }
+				636 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 726
+				}
+				FROM = { transfer_state = 726 }
+				726 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 641
+				}
+				FROM = { transfer_state = 641 }
+				641 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 643
+				}
+				FROM = { transfer_state = 643 }
+				643 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 642
+				}
+				FROM = { transfer_state = 642 }
+				642 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 639
+				}
+				FROM = { transfer_state = 639 }
+				639 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 725
+				}
+				FROM = { transfer_state = 725 }
+				725 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 711
+				}
+				FROM = { transfer_state = 711 }
+				711 = {
+					add_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 712
+				}
+				FROM = { transfer_state = 712 }
+				712 = {
+					add_core_of = FROM
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ENG_churchill.806
+	title = LSM_ENG_churchill.806.t
+	desc = LSM_ENG_churchill.806.desc
+	picture = GFX_report_event_ast_transfer_singapore
+
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ENG_churchill.806.a
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			clr_country_flag = is_demanding_flag
+		}
+	}
+}

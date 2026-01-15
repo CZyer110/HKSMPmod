@@ -1,0 +1,2862 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_new_world_diplomacy
+
+country_event = {
+	id = LSM_new_world_diplomacy.1
+	title = LSM_new_world_diplomacy.1.t
+	desc = LSM_new_world_diplomacy.1.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_new_world_diplomacy.1.a #surrender
+		trigger = {
+			any_country = {
+				AND = {
+					has_war_with = ROOT
+					capital_scope = {
+						AND = {
+							NOT = { is_on_continent = south_america }
+							NOT = { is_on_continent = north_america }
+						}
+					}
+				}
+			}
+			NOT = { surrender_progress > 0 }
+		}
+		every_other_country = {
+			if = { 
+				limit = { 
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+				}
+				remove_from_faction = ROOT
+			}
+			if = { 
+				limit = { 
+					has_war_with = ROOT
+					capital_scope = {
+						AND = {
+							NOT = { is_on_continent = south_america }
+							NOT = { is_on_continent = north_america }
+						}
+					}
+				}
+				white_peace = ROOT
+			}		
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 20
+				is_major = no
+			}
+		}
+	}
+	
+	option = {
+		name = LSM_new_world_diplomacy.2.a #don't get involved
+		trigger = {
+			OR = {
+				has_war = no
+				NOT = {
+					any_country = {
+						AND = {
+							has_war_with = ROOT
+							capital_scope = {
+								AND = {
+									NOT = { is_on_continent = south_america }
+									NOT = { is_on_continent = north_america }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		set_country_flag = american_neutrality
+		every_other_country = {
+			set_truce = {
+				target = ROOT
+				days = 3650 #don't touch us please
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 2
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 2
+				has_government = neutrality
+			}
+		}
+	}
+	
+	option = {
+		name = LSM_new_world_diplomacy.3.a #summit
+		set_country_flag = american_summit
+			
+		trigger = {
+			NOT = { has_war_with = USA }
+		}
+
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.3 }
+		}
+
+		every_other_country = {
+			limit = {
+				capital_scope = { 
+					OR = { 
+						is_on_continent = south_america
+						is_on_continent = north_america
+					}
+				}
+			}
+			ROOT = {
+				add_ai_strategy = {
+					type = alliance
+					id = PREV
+					value = 3000
+				}
+			}
+		}
+		every_other_country = {
+			limit = {
+				capital_scope = {
+					AND = {
+						NOT = { is_on_continent = south_america }
+						NOT = { is_on_continent = north_america }
+					}
+				}
+				NOT = { is_in_faction_with = ROOT }
+			}
+			ROOT = {
+				add_ai_strategy = {
+					type = alliance
+					id = PREV
+					value = -3000
+				}
+			}
+		}
+		if = { 
+			limit = {
+				NOT = { tag = USA }
+				NOT = { tag = CAN }
+				is_subject = no
+				is_in_faction = yes
+				any_country = {
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+					capital_scope = { 
+						AND = {
+							NOT = { is_on_continent = south_america }
+							NOT = { is_on_continent = north_america }
+						}
+					}
+				}				
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+					capital_scope = { 
+						AND = {
+							NOT = { is_on_continent = south_america }
+							NOT = { is_on_continent = north_america }
+						}
+					}
+				}
+				remove_from_faction = ROOT
+				add_ai_strategy = {
+					type = alliance
+					id = ROOT
+					value = -1000
+				}	
+			}
+		}
+		if = { 
+			limit = {
+				NOT = { tag = CAN }
+				NOT = { tag = USA }
+				is_faction_leader = yes
+				NOT = {
+					any_country = {
+						is_in_faction_with = ROOT
+						capital_scope = { 
+							AND = {
+								NOT = { is_on_continent = south_america }
+								NOT = { is_on_continent = north_america }
+							}
+						}
+					}
+				}		
+			}
+			dismantle_faction = yes	#america-only faction must be disbanded to join together
+		}
+		if = { 
+			limit = {
+				tag = USA
+				is_faction_leader = no
+				is_in_faction = yes
+				CAN = { is_faction_leader = no }
+				ENG = { is_faction_leader = no }
+			}
+			USA = { 
+				set_faction_leader = yes 
+				if = {
+					limit = {
+						is_in_faction_with = ENG
+						is_in_faction_with = CAN
+						NOT = { is_in_faction_with = JAP }
+					}
+					set_faction_name = "North Atlantic Treaty Organisation"
+				} 
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = JAP
+							is_in_faction_with = CHI
+							is_in_faction_with = PRC
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "Trans-Pacific Treaty Organisation"
+				}
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = CAN
+							is_in_faction_with = MEX
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "American Treaty Organisation"
+				}
+			}
+		}
+		else_if = { 
+			limit = {
+				tag = USA
+				is_faction_leader = no
+				is_in_faction = no
+				CAN = { is_faction_leader = no }
+			}
+			create_faction_from_template = {
+				template = faction_template_defensive_democratic 
+				name = "American Treaty Organisation"		
+			}
+		}
+		else_if = { 
+			limit = {
+				tag = USA
+				is_faction_leader = no
+				CAN = { is_faction_leader = yes }
+			}
+			CAN = { add_to_faction = USA }
+			USA = { 
+				set_faction_leader = yes  
+				if = {
+					limit = {
+						is_in_faction_with = ENG
+						is_in_faction_with = CAN
+						NOT = { is_in_faction_with = JAP }
+					}
+					set_faction_name = "North Atlantic Treaty Organisation"
+				} 
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = JAP
+							is_in_faction_with = CHI
+							is_in_faction_with = PRC
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "Trans-Pacific Treaty Organisation"
+				}
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = CAN
+							is_in_faction_with = MEX
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "American Treaty Organisation"
+				}
+			}
+		}
+		else_if = { 
+			limit = {
+				tag = USA
+				is_faction_leader = yes
+				CAN = { is_faction_leader = yes }
+			}
+			every_country = {
+				limit = {
+					is_subject = no	
+					is_faction_leader = no
+					is_in_faction_with = USA
+				}
+				CAN = { add_to_faction = PREV }
+			}
+			USA = { dismantle_faction = yes }
+			CAN = { add_to_faction = USA }
+			USA = { 
+				set_faction_leader = yes  
+				if = {
+					limit = {
+						is_in_faction_with = ENG
+						is_in_faction_with = CAN
+						NOT = { is_in_faction_with = JAP }
+					}
+					set_faction_name = "North Atlantic Treaty Organisation"
+				} 
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = JAP
+							is_in_faction_with = CHI
+							is_in_faction_with = PRC
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "Trans-Pacific Treaty Organisation"
+				}
+				if = {
+					limit = {
+						OR = {
+							is_in_faction_with = CAN
+							is_in_faction_with = MEX
+						}
+						NOT = { is_in_faction_with = ENG }
+						NOT = { is_in_faction_with = GER }
+						NOT = { is_in_faction_with = FRA }
+					}
+					set_faction_name = "American Treaty Organisation"
+				}
+			}
+		}
+		else_if = { 
+			limit = {
+				tag = USA
+				is_faction_leader = yes
+				CAN = { is_faction_leader = no }
+			}
+			every_country = {
+				limit = { is_in_faction_with = CAN }
+				USA = { 
+					add_to_faction = PREV  
+					if = {
+						limit = {
+							is_in_faction_with = ENG
+							is_in_faction_with = CAN
+							NOT = { is_in_faction_with = JAP }
+						}
+						set_faction_name = "North Atlantic Treaty Organisation"
+					} 
+					if = {
+						limit = {
+							OR = {
+								is_in_faction_with = JAP
+								is_in_faction_with = CHI
+								is_in_faction_with = PRC
+							}
+							NOT = { is_in_faction_with = ENG }
+							NOT = { is_in_faction_with = GER }
+							NOT = { is_in_faction_with = FRA }
+						}
+						set_faction_name = "Trans-Pacific Treaty Organisation"
+					}
+					if = {
+						limit = {
+							OR = {
+								is_in_faction_with = CAN
+								is_in_faction_with = MEX
+							}
+							NOT = { is_in_faction_with = ENG }
+							NOT = { is_in_faction_with = GER }
+							NOT = { is_in_faction_with = FRA }
+						}
+						set_faction_name = "American Treaty Organisation"
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 10
+				is_major = yes
+			}
+			modifier = {
+				factor = 10
+				is_in_faction_with = USA
+			}
+			modifier = {
+				factor = 10
+				has_government = democratic
+			}
+		}
+	}
+	
+	option = {
+		name = LSM_new_world_diplomacy.4.a #switch team
+		trigger = {
+			is_major = no
+			any_country = {
+				AND = {
+					has_war_with = ROOT
+					capital_scope = {
+						AND = {
+							NOT = { is_on_continent = south_america }
+							NOT = { is_on_continent = north_america }
+						}
+					}
+				}
+			}
+		}
+		every_other_country = {
+			if = { 
+				limit = { 
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+				}
+				remove_from_faction = ROOT
+			}
+			if = { 
+				limit = { 
+					has_war_with = ROOT
+				}
+				white_peace = ROOT
+			}		
+		}
+		every_other_country = {
+			limit = {
+				capital_scope = { 
+					OR = { 
+						is_on_continent = south_america
+						is_on_continent = north_america
+					}
+				}
+			}
+			ROOT = {
+				add_ai_strategy = {
+					type = antagonize
+					id = PREV
+					value = 300
+				}
+			}
+		}
+		every_other_country = {
+			limit = {
+				AND = {
+					NOT = { capital_scope = { is_on_continent = south_america } }
+					NOT = { capital_scope = { is_on_continent = north_america } }
+					OR = { 
+						has_idea = crossing_the_atlantic_idea 
+						has_idea = crossing_the_pacific_idea
+					}
+				}
+			}
+			ROOT = {
+				add_ai_strategy = {
+					type = alliance
+					id = PREV
+					value = 3000
+				}
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = 3000
+			}
+		}
+		every_other_country = {
+			limit = {
+				AND = {
+					NOT = { capital_scope = { is_on_continent = south_america } }
+					NOT = { capital_scope = { is_on_continent = north_america } }
+					is_faction_leader = yes
+					NOT = { has_idea = crossing_the_atlantic_idea }
+					NOT = { has_idea = crossing_the_pacific_idea }
+				}
+			}
+			ROOT = {
+				add_ai_strategy = {
+					type = alliance
+					id = PREV
+					value = -3000
+				}
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = ROOT
+				value = -3000
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				has_government = fascism
+			}
+			modifier = {
+				factor = 10
+				has_government = communism
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.5
+	title = LSM_new_world_diplomacy.5.t
+	desc = LSM_new_world_diplomacy.5.d
+	picture = GFX_report_event_japanese_reply
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_new_world_diplomacy.5.a
+
+		ai_chance = { factor = 90 }
+	
+		trigger = { NOT = { has_global_flag = korean_war } }
+
+		every_other_country = {
+			limit = {
+				original_tag = KOR
+				has_government = democratic
+			}
+			ROOT = { create_wargoal = { target = PREV type = annex_everything } }
+		}
+
+		custom_effect_tooltip = "Korean War will begin in about 30-45 days"
+
+		hidden_effect = {
+			set_global_flag = korean_war
+		}
+
+		every_country = {
+			limit = {
+				original_tag = KOR
+			}
+			add_timed_idea = { idea = korean_civil_war_idea days = 1095 }
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.5.a
+
+		ai_chance = { factor = 90 }
+	
+		trigger = { has_global_flag = korean_war }
+
+		every_other_country = {
+			limit = {
+				original_tag = KOR
+				has_government = democratic
+			}
+			ROOT = { declare_war_on = { target = PREV type = annex_everything } }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.6
+	title = LSM_new_world_diplomacy.6.t
+	desc = LSM_new_world_diplomacy.6.d
+	picture = GFX_report_event_japanese_reply
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_new_world_diplomacy.6.a
+
+		ai_chance = { #split China with Manchukuo
+			base = 0 
+		} 
+		
+
+		trigger = { 
+			MAN = { is_ai = yes } 
+			MAN = { has_completed_focus = MAN_obedience }
+			MAN = { is_in_faction_with = JAP }
+		}
+
+		if = { 
+			limit = {
+				MAN = { is_in_faction_with = JAP }
+				MAN = { has_completed_focus = MAN_obedience }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					OR = {
+						is_coastal = no
+						state = 609
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+					}
+					NOT = { is_core_of = YUN }
+					NOT = { is_core_of = GXC }
+					NOT = { is_core_of = MEN }
+					NOT = { state = 605 }
+					NOT = { state = 751 }
+					NOT = { state = 748 }
+					NOT = { state = 603 }
+					NOT = { state = 750 }
+					NOT = { state = 602 }
+					NOT = { state = 600 }
+					NOT = { state = 749 }
+					NOT = { state = 620 }
+					NOT = { state = 607 }
+					NOT = { state = 606 }
+					controller = { is_in_faction_with = JAP }
+				}
+				add_core_of = MAN
+				MAN = { transfer_state = PREV }
+			}
+			MAN = {
+				annex_country = {
+					target = MEN
+					transfer_troops = yes
+				}
+			}
+			MAN = {
+				add_war_support = 0.50
+				add_stability = 0.50
+				add_political_power = 200
+				complete_national_focus = MAN_the_two_emperors
+				every_owned_state = { add_core_of = MAN }
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_coastal = yes
+						is_controlled_by = JAP
+						compliance < 60
+					}
+					set_compliance = 60
+				}
+			}
+			JAP = { add_timed_idea = { idea = manchurian_lease days = 3650 } }
+			MAN = { add_timed_idea = { idea = manchurian_lease_not_hidden days = 3650 } }
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.6.b
+
+		ai_chance = { base = 100 } #reward Manchukuo for their service
+
+		trigger = { 
+			MAN = { is_ai = no } 
+			MAN = { has_completed_focus = MAN_obedience }
+			MAN = { is_in_faction_with = JAP }
+		}
+
+		if = { 
+			limit = {
+				MAN = { is_in_faction_with = JAP }
+				MAN = { has_completed_focus = MAN_obedience }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					OR = {
+						is_coastal = no
+						state = 609
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+					}
+					NOT = { is_core_of = YUN }
+					NOT = { is_core_of = GXC }
+					NOT = { is_core_of = MEN }
+					NOT = { state = 605 }
+					NOT = { state = 751 }
+					NOT = { state = 748 }
+					NOT = { state = 603 }
+					NOT = { state = 750 }
+					NOT = { state = 602 }
+					NOT = { state = 600 }
+					NOT = { state = 749 }
+					NOT = { state = 620 }
+					NOT = { state = 607 }
+					NOT = { state = 606 }
+					controller = { is_in_faction_with = JAP }
+				}
+				add_core_of = MAN
+				MAN = { transfer_state = PREV }
+			}
+			MAN = {
+				annex_country = {
+					target = MEN
+					transfer_troops = yes
+				}
+			}
+			MAN = {
+				add_war_support = 0.50
+				add_stability = 0.50
+				add_political_power = 200
+				complete_national_focus = MAN_the_two_emperors
+				every_owned_state = { add_core_of = MAN }
+			}
+			every_state = {
+				limit = {
+					is_coastal = yes
+					is_core_of = MAN
+					is_controlled_by = JAP
+				}
+				add_dynamic_modifier = { modifier = JAP_imperial_territory }
+			}
+			JAP = { add_timed_idea = { idea = manchurian_lease days = 1825 } }
+			MAN = { add_timed_idea = { idea = manchurian_lease_not_hidden days = 1825 } }
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					is_coastal = yes
+					is_controlled_by = JAP
+					compliance < 50
+				}
+				set_compliance = 50
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					is_coastal = no
+					is_controlled_by = JAP
+					compliance < 25
+				}
+				set_compliance = 25
+			}
+			if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 3
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 100
+					}
+					add_compliance = 40
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 2
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 90
+					}
+					add_compliance = 30
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 1
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 60
+					}
+					add_compliance = 20
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 0
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 30
+					}
+					add_compliance = 10
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.6.f
+
+		ai_chance = { #wang jingwei
+			base = 100 
+			modifier = {
+				factor = 0 
+				MAN = { is_ai = no } 
+				MAN = { has_completed_focus = MAN_obedience }
+				MAN = { is_in_faction_with = JAP }
+			} 
+			modifier = {
+				factor = 200
+				MAN = { is_ai = no }
+				NOT = { MAN = { has_completed_focus = MAN_obedience } }
+				MAN = { is_in_faction_with = JAP }
+			}
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = CHI
+				is_coastal = no
+				NOT = { is_core_of = YUN }
+				NOT = { is_core_of = GXC }
+				NOT = { is_core_of = MAN }	
+				NOT = { is_core_of = MEN }
+				NOT = { state = 605 }
+				NOT = { state = 751 }
+				NOT = { state = 748 }
+				NOT = { state = 603 }
+				NOT = { state = 750 }
+				NOT = { state = 602 }
+				NOT = { state = 600 }
+				NOT = { state = 749 }
+				NOT = { state = 620 }
+				NOT = { state = 607 }
+				NOT = { state = 606 }
+				controller = { is_in_faction_with = JAP }
+			}
+			CHI = { transfer_state = PREV }
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = MEN
+				controller = { is_in_faction_with = JAP }
+			}
+			MEN = { transfer_state = PREV }
+		}
+		JAP = { set_autonomy = { target = CHI autonomy_state = autonomy_wtt_imperial_protectorate } }
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					is_coastal = yes
+					is_controlled_by = JAP
+					compliance < 50
+				}
+				set_compliance = 50
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					is_coastal = no
+					is_controlled_by = JAP
+					compliance < 25
+				}
+				set_compliance = 25
+			}
+			if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 3
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 100
+					}
+					add_compliance = 40
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 2
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 90
+					}
+					add_compliance = 30
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 1
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 60
+					}
+					add_compliance = 20
+				}
+			}
+			else_if = {
+				limit = {
+					num_finished_operations = {
+						operation = operation_collaboration_government
+						target = CHI
+						value > 0
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+						is_controlled_by = JAP
+						compliance < 30
+					}
+					add_compliance = 10
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.6.g
+
+		ai_chance = { base = 0 }
+
+		trigger = { 
+			MAN = { is_ai = yes }
+			MEN = { is_ai = yes }
+			MAN = { is_in_faction_with = JAP }
+			MEN = { is_in_faction_with = JAP }
+		}
+
+		if = { 
+			limit = {
+				MAN = { is_in_faction_with = JAP }
+			}
+			JAP = { annex_country = { target = MAN transfer_troops = yes } }
+			every_state = {
+				limit = {
+					NOT = { is_core_of = MEN }
+					OR = {
+						is_core_of = MAN
+						state = 609
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+						state = 612
+						state = 611
+						state = 524
+					}
+				}
+				add_core_of = JAP
+			}
+			every_state = {
+				limit = {
+					is_core_of = MEN
+					controller = { is_in_faction_with = JAP }
+				}
+				MEN = { transfer_state = PREV }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					NOT = { is_core_of = JAP }
+					NOT = { is_core_of = MEN }
+					controller = { is_in_faction_with = JAP }
+				}
+				CHI = { transfer_state = PREV }
+			}
+			JAP = { set_autonomy = { target = CHI autonomy_state = autonomy_wtt_imperial_protectorate } }
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.6.e
+
+		ai_chance = { base = 0 } #nothing happens
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.7
+	title = LSM_new_world_diplomacy.7.t
+	desc = LSM_new_world_diplomacy.7.d
+	picture = GFX_report_event_generic_construction_site
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_new_world_diplomacy.7.a
+
+		ai_chance = { factor = 100 }
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.7.b
+
+		ai_chance = { factor = 0 }
+
+		create_wargoal = { target = SWE type = annex_everything }
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.11
+	title = LSM_new_world_diplomacy.11.t
+	desc = LSM_new_world_diplomacy.11.d
+	picture = GFX_report_event_generic_construction_site
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_new_world_diplomacy.11.a
+
+		ai_chance = { factor = 100 }
+
+		add_timed_idea = { idea = marshall_plan days = 365 }
+
+		every_country = {
+			limit = { 
+				is_in_faction_with = USA 
+				capital_scope = { is_on_continent = europe }
+			}
+			add_timed_idea = { idea = marshall_plan_allies days = 365 }
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.11.b
+
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.12
+	title = LSM_new_world_diplomacy.12.t
+	desc = LSM_new_world_diplomacy.12.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { has_war_with = JAP }
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.12.a
+
+		ai_chance = { factor = 100 }
+
+		hidden_effect = {
+			set_global_flag = USA_intervene_in_the_pacific
+			country_event = { id = LSM_new_world_diplomacy.13 days = 30 }
+		}
+		trigger=  {
+			NOT = { has_war_with = JAP }
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.12.b
+
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.13
+	title = LSM_new_world_diplomacy.13.t
+	desc = LSM_new_world_diplomacy.13.d
+	picture = GFX_report_event_usa_macarthur_speech
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { has_war_with = JAP }
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_war_with = JAP }
+		}
+		name = LSM_new_world_diplomacy.13.a
+
+		ai_chance = { factor = 100 }
+
+		declare_war_on = { target = JAP type = topple_government }
+
+		if = {
+			limit = { has_completed_focus = USA_war_plan_orange }
+			add_timed_idea = { idea = USA_tora_tora_tora_idea days = 240 }
+		}
+
+		if = {
+			limit = { NOT = { has_completed_focus = USA_war_plan_orange } }
+			add_timed_idea = { idea = USA_tora_tora_tora_idea days = 150 }
+		}
+
+		add_war_support = -0.20
+		add_stability = -0.20
+
+		hidden_effect = {
+			news_event = { id = lsm_news.1115 }
+		}
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_war_with = JAP }
+		}
+		name = LSM_new_world_diplomacy.13.c
+
+		ai_chance = { factor = 0 }
+	}
+
+	option = {
+		trigger = {
+			has_war_with = JAP
+		}
+		name = LSM_new_world_diplomacy.13.b
+
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.14
+	title = LSM_new_world_diplomacy.14.t
+	desc = LSM_new_world_diplomacy.14.d
+	picture = GFX_report_event_generic_rifles
+	
+	trigger = {
+		tag = SOV
+		SOV_is_careless = yes
+		NOT = { SOV = { has_country_flag = warning_issued_to_the_soviet_union } }
+		NOT = { has_war_with = JAP }
+		NOT = { JAP = { has_wargoal_against = SOV } }
+		NOT = { JAP = { is_justifying_wargoal_against = SOV } }
+		JAP = { has_government = fascism }
+		SOV = { has_government = communism }
+		JAP = { NOT = { has_country_flag = LSM_eligibility_nation } }
+		JAP = { NOT = { is_in_faction_with = SOV } }
+		JAP = { has_opinion = { target = SOV value < 0 } }
+		NOT = { has_country_flag = warning_ignored_flag }
+		NOT = { has_non_aggression_pact_with = JAP }
+		JAP = { has_war = no }
+	}
+
+	mean_time_to_happen = { days = 30 }
+
+	option = {
+		name = LSM_new_world_diplomacy.14.a
+		custom_effect_tooltip = LSM_new_world_diplomacy_14_a_tt
+		add_manpower = -10
+		JAP = { add_manpower = -10 }
+		hidden_effect = {
+			if = {
+				limit = { 
+					NOT = { SOV = { has_country_flag = warning_issued_to_the_soviet_union } } 
+				}
+				set_country_flag = {
+					flag = warning_issued_to_the_soviet_union
+					value = 1
+					days = 90
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.14.b
+		custom_effect_tooltip = LSM_new_world_diplomacy_14_a_tt
+		add_manpower = -1
+		set_country_flag = warning_ignored_flag
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.15
+	title = LSM_new_world_diplomacy.15.t
+	desc = LSM_new_world_diplomacy.15.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	trigger = {
+		tag = SOV
+		has_government = democratic
+		NOT = { has_global_flag = SOV_democratic_election }
+		is_subject = no
+	}
+
+	mean_time_to_happen = {
+		days = 60
+	}
+
+	immediate = {
+		set_global_flag = SOV_democratic_election
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = LSM_new_world_diplomacy.15.a
+		set_country_flag = denikin_leader
+		create_country_leader = {
+			name = "Anton Denikin"
+			picture = GFX_portrait_SOV_anton_denikin
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				SOV_undemocratic_figure
+				SOV_white_russia	
+				SOV_leader_by_pure_luck
+				SOV_white_terror
+			}
+		}
+		hidden_effect = {
+			SOV_anton_denikin = {
+				remove_trait = {
+					trait = army_chief_drill_1
+					slot = army_chief
+				}
+				add_trait = {
+					trait = army_chief_drill_3
+					slot = army_chief 
+				}
+			}
+			activate_advisor = SOV_anton_denikin
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_1
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_DEMOCRATIC_1
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.15.b
+		set_country_flag = kerensky_leader
+		create_country_leader = {
+			name = "Aleksandr Kerensky"
+			picture = GFX_portrait_SOV_aleksandr_kerensky
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {
+				SOV_controversial_leader
+				SOV_permanently_interim
+				SOV_desire_to_be_good
+				SOV_lack_of_military_backing
+			}
+		}
+		hidden_effect = {
+			SOV_anton_denikin = {
+				remove_trait = {
+					trait = army_chief_drill_1
+					slot = army_chief
+				}
+				add_trait = {
+					trait = army_chief_drill_2
+					slot = army_chief 
+				}
+			}
+			activate_advisor = SOV_anton_denikin
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_2
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_DEMOCRATIC_2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.15.c
+		set_country_flag = tsar_leader
+		create_country_leader = {
+			name = "Ivan VII"
+			picture = "GFX_portrait_SOV_vsevolod_ivanovich"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				SOV_unpopular_monarchist
+				SOV_inexperienced_leader
+				SOV_legacy_of_the_tsar
+				SOV_democratic_tsar
+			}
+		}
+		hidden_effect = {
+			SOV_anton_denikin = {
+				remove_trait = {
+					trait = army_chief_drill_1
+					slot = army_chief
+				}
+				add_trait = {
+					trait = army_chief_drill_2
+					slot = army_chief 
+				}
+			}
+			activate_advisor = SOV_anton_denikin
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_2
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_DEMOCRATIC_2
+					}
+				}
+			}
+		}
+	}
+
+
+	option = {
+		name = LSM_new_world_diplomacy.15.e
+		set_country_flag = tomsky_leader
+		create_country_leader = {
+			name = "Mikhail Tomsky"
+			picture = "GFX_portrait_SOV_mikhail_tomsky"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+				SOV_trade_unionist_champion
+				SOV_socialist_background
+				SOV_popular_amongst_workers
+				SOV_disliked_by_the_military
+			}
+		}
+		hidden_effect = {
+			SOV_vasily_chuykov = {
+				remove_trait = {
+					trait = army_chief_offensive_2
+					slot = army_chief
+				}
+				add_trait = {
+					trait = army_chief_offensive_3
+					slot = army_chief 
+				}
+			}
+			activate_advisor = SOV_vasily_chuykov
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_1
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_DEMOCRATIC_1
+					}
+				}
+			}
+		}
+	}
+
+}
+country_event = {
+	id = LSM_new_world_diplomacy.16
+	title = LSM_new_world_diplomacy.16.t
+	desc = LSM_new_world_diplomacy.16.d
+	picture = GFX_report_event_hitler_handshake
+
+	hidden = yes
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 120
+		modifier = {
+			factor = 0.5
+			has_government = fascism
+		}
+		modifier = {
+			factor = 0.5
+			is_in_faction_with = GER
+		}
+		modifier = {
+			factor = 0.5
+			tag = GER
+		}
+		modifier = {
+			factor = 2
+			NOT = { is_in_faction_with = GER }
+		}
+		modifier = {
+			factor = 0.5
+			is_major = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { has_war_with = SOV }
+		}
+		modifier = {
+			factor = 0.5
+			has_war_with = SOV
+		}
+		modifier = {
+			factor = 0.5
+			is_neighbor_of = SOV
+		}
+		modifier = {
+			factor = 0.5
+			is_neighbor_of = GER
+		}
+	}
+
+	
+	trigger = {
+		NOT = { has_country_flag = anti_soviet_exposed }
+		has_idea = anti_soviet_pact
+		NOT = { has_idea = anti_soviet_pact_2 }
+		OR = {
+			SOV = {
+				intel_level_over = {
+					target = ROOT
+					civilian_intel > 0.39
+					army_intel > 0.19
+				}
+			}
+			SOV = {
+				intel_level_over = {
+					target = ROOT
+					civilian_intel > 0.79
+				}
+			}
+			has_government = fascism
+		}
+		OR = {
+			is_major = yes
+			is_in_faction = no
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = anti_soviet_exposed
+			if = {
+				limit = {
+					NOT = { tag = GER }
+				}
+				SOV = { country_event = { id = LSM_new_world_diplomacy.17 } }
+			}
+			if = {
+				limit = { tag = GER }
+				add_ideas = anti_soviet_pact_2 
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.17
+	title = LSM_new_world_diplomacy.17.t
+	desc = {
+		text = LSM_new_world_diplomacy.17.d
+		trigger = {
+			NOT = { FROM = { has_war_with = SOV } }
+		}
+	}
+
+	desc = {
+		text = LSM_new_world_diplomacy.17.f
+		trigger = {
+			FROM = { has_war_with = SOV }
+		}
+
+	}
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		trigger = { 
+			FROM = { NOT = { has_war_with = SOV } }
+		}
+		name = LSM_new_world_diplomacy.17.a
+		add_political_power = 25
+		SOV = {
+			send_embargo = FROM
+		}
+		FROM = { 
+			add_ideas = anti_soviet_pact_2 
+			hidden_effect = {
+				send_embargo = SOV
+			}
+		}
+	}
+
+	option = {
+		trigger = { 
+			FROM = { NOT = { has_war_with = SOV } }
+		}
+		name = LSM_new_world_diplomacy.17.b
+		add_political_power = -50
+		FROM = { 
+			add_ideas = anti_soviet_pact_2 
+			add_political_power = -100
+		}
+	}
+
+	option = {
+		trigger = { 
+			FROM = { NOT = { has_war_with = SOV } }
+		}
+		name = LSM_new_world_diplomacy.17.c
+	}
+
+	option = {
+		trigger = { 
+			FROM = { has_war_with = SOV }
+		}
+		name = LSM_new_world_diplomacy.17.e
+	}
+
+}
+country_event = {
+	id = LSM_new_world_diplomacy.18
+	
+	trigger = {
+		tag = VIN
+		NOT = { is_subject_of = FRA }
+		NOT = { is_subject_of = VIC }
+		NOT = { country_exists = LAO }
+		NOT = { country_exists = CAM }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 2 }
+
+	hidden = yes
+
+	immediate = {
+		set_cosmetic_tag = VIN_INC
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.19
+	
+	trigger = {
+		tag = VIN
+		NOT = { is_subject_of = FRA }
+		NOT = { is_subject_of = VIC }
+		country_exists = LAO
+		country_exists = CAM
+	}
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 2 }
+
+	hidden = yes
+
+	immediate = {
+		drop_cosmetic_tag = yes
+	}
+}
+
+country_event = {
+	id = LSM_new_world_diplomacy.20
+	
+	trigger = {
+		tag = VIN
+		670 = { owner = { NOT = { original_tag = VIN } } }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	hidden = yes
+
+	immediate = {
+		670 = { remove_core_of = VIN }
+	}
+}
+
+country_event = {
+	id = LSM_new_world_diplomacy.21
+	
+	trigger = {
+		tag = VIN
+		741 = { owner = { NOT = { original_tag = VIN } } }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	hidden = yes
+
+	immediate = {
+		741 = { remove_core_of = VIN }
+	}
+}
+
+country_event = {
+	id = LSM_new_world_diplomacy.22
+	
+	trigger = {
+		tag = VIN
+		728 = { owner = { NOT = { original_tag = VIN } } }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	hidden = yes
+
+	immediate = {
+		728 = { remove_core_of = VIN }
+	}
+}
+
+
+country_event = {
+	id = LSM_new_world_diplomacy.23
+	
+	trigger = {
+		tag = VIN
+		is_subject = no
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		set_appropriate_ruler = yes
+		swap_indochinese_army_france_to_independent = yes
+		swap_indochinese_army_japan_to_independent = yes
+		add_ideas = VIN_independent_indochina
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.25
+	
+	trigger = {
+		tag = VIN
+		is_subject_of = JAP
+		JAP = { has_government = fascism }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1095 }
+
+	hidden = yes
+
+	immediate = {
+		add_timed_idea = { idea = VIN_famine days = 365 }
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.26
+	
+	trigger = {
+		tag = VIN
+		has_war = yes
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		activate_mission = VIN_update_apathetic_people_cd
+	}
+}
+
+country_event = {
+	id = LSM_new_world_diplomacy.27
+	
+	trigger = {
+		tag = VIN
+		has_war_with = FRA
+		OR = {
+			surrender_progress > 0.15
+			NOT = {
+				any_country = {
+					capital_scope = { is_on_continent = europe }
+					is_major = yes
+					has_war_with = FRA
+				}
+			}
+			FRA = { has_idea = LSM_victory_in_europe }
+		}
+		is_subject_of = JAP
+		NOT = { has_global_flag = japan_demand_indochina_flag }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				has_war_with = VIN
+			}
+			white_peace = VIN
+		}
+		FRA = {
+			set_autonomy = {
+				autonomy_state = autonomy_dominion
+				target = VIN
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = VIN
+				is_owned_by = VIN
+			}
+			add_manpower = -25000
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Indochinese Militia\" start_experience_factor = 0 start_equipment_factor = 0.5"  
+				owner = VIN
+				allow_spawning_on_enemy_provs = yes  
+				count = 5 
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.28
+	
+	trigger = {
+		tag = VIN
+		has_war = no
+		communism > 0.5
+		is_subject = yes
+		NOT = { 
+			OR = {
+				has_idea = VIN_apathetic_people_1
+				has_idea = VIN_apathetic_people_2
+				has_idea = VIN_apathetic_people_3
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				is_subject = yes
+			}	
+			every_country = {
+				limit = {
+					original_tag = VIN
+				}
+				OVERLORD = {
+					set_autonomy = {
+						autonomy_state = autonomy_free
+						target = PREV
+				    		end_wars = no
+				    		end_civil_wars = no
+					}
+					set_country_flag = former_overlord_of_vietnam
+				}
+			}
+			if = {
+				limit = {
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+		}
+		add_manpower = 500000
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.281
+	
+	trigger = {
+		tag = VIN
+		has_war = no
+		communism > 0.5
+		is_subject = no
+		NOT = { 
+			OR = {
+				has_idea = VIN_apathetic_people_1
+				has_idea = VIN_apathetic_people_2
+				has_idea = VIN_apathetic_people_3
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		every_state = {
+			limit = {
+				is_core_of = VIN
+				is_owned_by = VIN
+			}
+			add_manpower = -25000
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Indochinese Militia\" start_experience_factor = 0 start_equipment_factor = 0.5"  
+				owner = VIN
+				allow_spawning_on_enemy_provs = yes  
+				count = 5
+			}
+		}
+		if = {
+			limit = {
+				has_civil_war = no
+			}
+			set_politics = { ruling_party = communism elections_allowed = no }
+			set_temp_variable = { VIN_communist_cw_opposition = party_popularity@democratic }
+			add_to_temp_variable = { VIN_communist_cw_opposition = party_popularity@neutrality }
+			add_to_temp_variable = { VIN_communist_cw_opposition = party_popularity@fascism }
+			if = {
+				limit = {
+					check_variable = { VIN_communist_cw_opposition < 0.2 }
+				}
+				add_to_temp_variable = { VIN_communist_cw_opposition = 0.1 }
+			}
+			hidden_effect = {
+				start_civil_war = {	
+					ideology = democratic
+					size = VIN_communist_cw_opposition
+					capital = 286
+					states = { 286 }
+				}
+			}				
+		}
+			
+		random_country = {
+			limit = {
+				original_tag = VIN
+				has_government = democratic
+			}
+			random_other_country = {
+				limit = {
+					has_country_flag = former_overlord_of_vietnam
+				}
+				set_autonomy = {
+					autonomy_state = autonomy_colony
+					target = PREV
+				    	end_wars = no
+				    	end_civil_wars = no
+				}
+				add_to_war = { 
+					targeted_alliance = PREV
+					enemy = VIN
+					hostility_reason = asked_to_join 
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					has_war_with = VIN
+					any_country = {
+						is_subject_of = PREV
+						original_tag = VIN
+					}
+				}
+			}
+			add_timed_idea = { idea = first_indochina_war days = 180 }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.282
+	
+	trigger = {
+		tag = VIN
+	}
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		every_state = {
+			limit = {
+				is_core_of = VIN
+				is_owned_by = VIN
+			}
+			add_manpower = -25000
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Indochinese Militia\" start_experience_factor = 0 start_equipment_factor = 0.5"  
+				owner = VIN
+				allow_spawning_on_enemy_provs = yes  
+				count = 2
+			}
+		}
+			
+		random_country = {
+			limit = {
+				original_tag = VIN
+				has_government = communism
+			}
+			remove_ideas = VIN_mutiny
+			random_other_country = {
+				limit = {
+					tag = FRA
+				}
+				set_autonomy = {
+					autonomy_state = autonomy_free
+					target = PREV
+				}
+			}
+			if = {
+				limit = { is_in_faction_with = FRA }
+				leave_faction = yes
+			}
+		}
+		if = {
+			limit = {
+				has_civil_war = no
+			}
+			set_politics = { ruling_party = communism elections_allowed = no }
+			set_temp_variable = { VIN_communist_cw_opposition = party_popularity@fascism }
+			add_to_temp_variable = { VIN_communist_cw_opposition = party_popularity@neutrality }
+			if = {
+				limit = {
+					check_variable = { VIN_communist_cw_opposition < 0.2 }
+				}
+				add_to_temp_variable = { VIN_communist_cw_opposition = 0.1 }
+			}
+			hidden_effect = {
+				start_civil_war = {	
+					ideology = fascism
+					size = VIN_communist_cw_opposition
+					capital = 286
+					states = { 286 }
+				}
+			}				
+		}
+			
+		random_country = {
+			limit = {
+				original_tag = VIN
+				has_government = fascism
+			}
+			random_other_country = {
+				limit = {
+					tag = FRA
+				}
+				set_autonomy = {
+					autonomy_state = autonomy_reichsprotectorate
+					target = PREV
+				    	end_wars = no
+				    	end_civil_wars = no
+				}
+				add_to_war = { 
+					targeted_alliance = PREV
+					enemy = VIN
+					hostility_reason = asked_to_join 
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					has_war_with = VIN
+					any_country = {
+						is_subject_of = PREV
+						original_tag = VIN
+					}
+				}
+			}
+			add_timed_idea = { idea = first_indochina_war days = 180 }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.29
+	
+	trigger = {
+		tag = VIN
+		is_subject_of = JAP
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		set_appropriate_ruler = yes
+		swap_indochinese_army_france_to_japan = yes
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.31
+	
+	trigger = {
+		tag = VIN
+		NOT = { is_subject_of = FRA }
+		NOT = { has_country_flag = has_previously_left_france }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		set_country_flag = has_previously_left_france
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.30
+	
+	trigger = {
+		tag = VIN
+		is_subject_of = FRA
+		has_country_flag = has_previously_left_france
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		set_appropriate_ruler = yes
+		swap_indochinese_army_japan_to_france = yes
+		clr_country_flag = has_previously_left_france
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.32
+	
+	trigger = {
+		tag = VIN
+		has_civil_war = yes
+		any_country = {
+			original_tag = VIN
+			has_war_with = VIN
+			has_capitulated = yes
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				original_tag = VIN
+				has_capitulated = yes
+			}
+			VIN = { annex_country = { target = PREV transfer_troops = no } }
+			if = {
+				limit = { controls_state = 728 }
+				FRA = { transfer_state = 728 }
+			}
+		}
+		every_country = {
+			limit = {
+				has_war_with = VIN
+				has_idea = first_indochina_war
+			}
+			white_peace = VIN
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_new_world_diplomacy.33
+	
+	trigger = {
+		tag = JAP
+		is_in_faction_with = PRC
+		is_faction_leader = no
+		PRC = { is_faction_leader = yes }
+		is_subject = no
+		NOT = { surrender_progress > 0 }
+		PRC = { is_ai = yes }
+		JAP = { is_ai = yes }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		JAP = { set_faction_leader = yes }
+	}
+}
+
+country_event = {
+	id = LSM_new_world_diplomacy.34
+	
+	trigger = {
+		tag = FIN
+		is_in_faction_with = SWE
+		OR = {
+			FIN = { 
+				is_subject = no 
+				is_major = no 
+			}
+			SWE = { 
+				is_subject = no 
+				is_major = no 
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				SWE = { is_major = no }
+			}
+			SWE = { set_major = yes }
+		}
+		if = {
+			limit = {
+				FIN = { is_major = no }
+			}
+			FIN = { set_major = yes }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.35
+	title = LSM_new_world_diplomacy.35.t
+	desc = LSM_new_world_diplomacy.35.d
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = GER }
+		NOT = { has_war_with = GER }
+	}
+
+	immediate = {
+		set_global_flag = league_of_nation_intervention_against_germany
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.35.a
+		add_stability = -0.15
+		add_war_support = 0.3
+		declare_war_on = {
+			target = GER
+			type = topple_government
+		}
+		if = {
+			limit = {
+				tag = POL
+			}
+			add_state_claim = 5
+			add_state_claim = 63
+			add_state_claim = 68
+			add_state_claim = 66
+			add_state_claim = 67
+		}
+		if = {
+			limit = {
+				tag = FRA
+			}
+			add_state_claim = 51
+			add_state_claim = 42
+		}
+		if = {
+			limit = {
+				tag = LIT
+			}
+			add_state_claim = 763
+		}
+		if = {
+			limit = {
+				tag = ENG
+				is_faction_leader = yes
+			}
+			set_faction_name = "The League of Nations"
+		}
+		if = {
+			limit = {
+				tag = FRA
+				ENG = { is_in_faction = no }
+			}
+			create_faction_from_template = {
+				template = faction_template_defensive_democratic 
+				name = "League of Nations"		
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					is_major = yes
+				}
+				GER = {
+					add_to_variable = { 
+						GER_hitlers_blunders_variable = 1
+					}
+				}
+			}
+			GER = {
+				add_to_variable = { 
+					GER_hitlers_military_disgrunt = 1
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_government = GER
+				NOT = { tag = ENG }
+				NOT = { tag = FRA }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_axis_ai = yes
+					tag = SOV
+					AND = {
+						tag = NOR
+						NOT = { has_completed_focus = NOR_vote_of_no_confidence }
+					}
+					AND = {
+						tag = DEN
+						has_idea = DEN_declaration_of_neutrality
+					}
+					tag = FIN
+					tag = SPR
+					tag = TUR
+					tag = CHI
+					has_civil_war = yes
+					AND = {
+						has_war = yes
+						surrender_progress > 0
+						NOT = { has_war_with = GER }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				capital_scope = { NOT = { is_on_continent = europe } }
+			}
+			modifier = {
+				factor = 0.5
+				is_major = no
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_government = ENG }
+				NOT = { has_government = FRA }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_country_flag = died_fighting_against_germany_in_ww1 }
+			}
+			modifier = {
+				factor = 2
+				has_country_flag = died_fighting_against_germany_in_ww1
+			}
+			modifier = {
+				factor = 2
+				has_country_flag = has_some_interest_in_german_soil
+			}
+			modifier = {
+				factor = 2
+				tag = POL #we just hate the Germans
+			}
+			modifier = {
+				factor = 2
+				ENG = { has_war_with = GER }
+			}
+			modifier = {
+				factor = 2
+				FRA = { has_war_with = GER }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_idea = neutrality_idea
+					has_idea = LSM_neutrality_idea
+				}	
+				NOT = { tag = BEL }
+			}
+		}
+	}
+
+	option = {
+		name = LSM_new_world_diplomacy.35.b
+		add_political_power = 50
+		add_stability = 0.1
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 5
+				OR = {
+					has_government = GER
+					has_war_support < 0.1
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { has_government = ENG }
+				NOT = { has_government = FRA }
+			}
+			modifier = {
+				factor = 5
+				NOT = { ENG = { has_war_with = GER } }
+				is_major = no
+			}
+			modifier = {
+				factor = 5
+				NOT = { FRA = { has_war_with = GER } }
+				is_major = no
+			}
+			modifier = {
+				factor = 5
+				difficulty < 1
+			}
+			modifier = {
+				factor = 2.5
+				difficulty < 2
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.36
+	
+	trigger = {
+		original_tag = GER
+		has_civil_war = yes
+		is_faction_leader = yes
+		is_ai = yes
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		dismantle_faction = yes
+		set_country_flag = GER_removed_faction_35
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.37
+	
+	trigger = {
+		original_tag = GER
+		has_civil_war = no
+		is_ai = yes
+		has_country_flag = GER_removed_faction_35
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_government = fascism
+			}
+			create_faction_from_template = {
+				template = faction_template_axis	
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.38
+	
+	trigger = {
+		original_tag = GER
+		has_civil_war = no
+		is_ai = yes
+		ENG = { has_government = fascism }
+		FRA = { has_government = fascism }
+		ITA = { has_government = fascism }
+		ENG = {
+			is_in_faction_with = FRA
+			is_in_faction_with = ITA
+			NOT = { is_in_faction_with = GER }
+		}
+		is_in_faction = no
+		NOT = { has_government = fascism }
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			create_faction_from_template = { template = faction_template_GER_mitteleuropa_alliance }
+		}
+		if = {
+			limit = {
+				has_government = neutrality
+			}
+			create_faction_from_template = { template = faction_template_GER_mitteleuropa_alliance }
+		}
+		if = {
+			limit = {
+				has_government = communism
+				SOV = { has_government = communism }
+			}
+			SOV = {
+				country_event = { 
+					id = generic.2
+					hours = 12
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_government = communism
+				NOT = { SOV = { has_government = communism } }
+			}
+			create_faction_from_template = { template = faction_template_anti_fascist }
+		}
+		every_country = {
+			limit = {
+				has_government = GER 	
+				is_subject = no
+				OR = {
+					original_tag = DEN
+					original_tag = SWE
+					original_tag = NOR
+					original_tag = ICE
+					original_tag = FIN
+				}
+				NOT = {
+					any_allied_country = {
+						is_ai = no
+					}
+				}
+			}
+			country_event = { 
+				id = wuw_GER_realpolitik.1 
+				hours = 12
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.39
+	
+	trigger = {
+		original_tag = GER
+		GER = { has_war_with = SOV }
+		has_global_flag = sov_yes_pact
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		clr_global_flag = sov_yes_pact
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.40
+	
+	trigger = {
+		original_tag = HUN
+		num_of_factories > 100
+		is_major = no
+		is_in_faction = yes
+		is_historical_focus_on = yes
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 1 }
+
+	hidden = yes
+
+	immediate = {
+		set_major = yes
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.41
+	title = LSM_new_world_diplomacy.41.t
+	desc = LSM_new_world_diplomacy.41.d
+
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.41.a
+		if = {
+			limit = {
+				controls_state = 510
+			}
+			add_political_power = 25
+			ROOT = { add_offsite_building = { type = industrial_complex level = 3 } }
+			URG = { transfer_state = 510 }
+			510 = { 
+				add_core_of = URG 
+				add_dynamic_modifier = { modifier = idea_URG_ruralism_good }
+			}
+		}
+		if = {
+			limit = {
+				controls_state = 502
+			}
+			add_political_power = 50
+			ROOT = { add_offsite_building = { type = industrial_complex level = 6 } }
+			URG = { transfer_state = 502 }
+			502 = { 
+				add_core_of = URG 
+				add_dynamic_modifier = { modifier = idea_URG_ruralism_bad }
+			}
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = LSM_new_world_diplomacy.41.b
+	}
+
+}
+country_event = {
+	id = LSM_new_world_diplomacy.42
+	title = LSM_new_world_diplomacy.42.t
+	desc = LSM_new_world_diplomacy.42.d
+
+	picture = GFX_report_event_spr_civil_war_faction_defeated
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	trigger = {
+		tag = ITA
+		AOI = { 
+			is_subject_of = ITA
+			271 = { controller = { has_war_with = AOI } }
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.42.a
+		AOI = {
+			every_unit_leader = { set_nationality = ITA }
+		}
+		ITA = {
+			annex_country = {
+				target = AOI
+				transfer_troops = yes
+			}
+		}
+	}
+
+}
+country_event = {
+	id = LSM_new_world_diplomacy.43
+	title = LSM_new_world_diplomacy.43.t
+	desc = LSM_new_world_diplomacy.43.d
+
+	picture = GFX_report_event_spr_civil_war_faction_defeated
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	trigger = {
+		tag = ITA
+		LBA = { 
+			is_subject_of = ITA 
+			surrender_progress > 0.70
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.43.a
+		LBA = {
+			every_unit_leader = { set_nationality = ITA }
+		}
+		ITA = {
+			annex_country = {
+				target = LBA
+				transfer_troops = yes
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { 
+					EGY = { is_ai = yes } 
+					ENG = { is_ai = yes }
+				}
+				ENG = { transfer_state = 452 }
+				ENG = { transfer_state = 552 }
+			}
+		}
+	}
+
+}
+country_event = {
+	id = LSM_new_world_diplomacy.44
+	title = LSM_new_world_diplomacy.44.t
+	desc = LSM_new_world_diplomacy.44.d
+
+	picture = GFX_report_event_spr_civil_war_faction_defeated
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.44.a
+		transfer_state = 446
+		remove_ideas = idea_EGY_army_of_egypt
+		every_country = {
+			limit = { original_tag = ENG }
+			country_event = { id = LSM_new_world_diplomacy.45 days = 7 }
+		}
+		446 = {
+			create_unit = {
+				division = "name = \"Suez Garrison\" division_template = \"British Garrison\" start_experience_factor = 0 start_equipment_factor = 0.5"  
+				owner = EGY 
+				count = 2 
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.45
+	title = LSM_new_world_diplomacy.45.t
+	desc = LSM_new_world_diplomacy.45.d
+
+	picture = GFX_report_event_spr_civil_war_faction_defeated
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.45.a
+		effect_tooltip = {
+			EGY = { transfer_state = 446 }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.46
+	title = LSM_new_world_diplomacy.46.t
+	desc = LSM_new_world_diplomacy.46.d
+
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				ENG = { has_war = yes }
+			}
+			modifier = {
+				factor = 0.5
+				has_war_support > 0.8
+			}
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+			modifier = {
+				factor = 10
+				ENG = { is_ai = no }
+			}
+		}
+		name = LSM_new_world_diplomacy.46.a
+		effect_tooltip = {
+			ENG = { 
+				transfer_state = 446 
+				give_guarantee = EGY
+			}
+		}
+		hidden_effect = {
+			ENG = { country_event = { id = LSM_new_world_diplomacy.47 days = 1 } }
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_in_faction_with = ENG 
+			}
+			modifier = {
+				factor = 0
+				is_in_faction = no 
+			}
+			modifier = {
+				factor = 0.25
+				is_guaranteed_by = ENG
+			}
+		}
+		name = LSM_new_world_diplomacy.46.b
+		effect_tooltip = {
+			ENG = { create_wargoal = { target = EGY type = take_state generator = 446 } }
+		}
+		hidden_effect = {
+			ENG = { country_event = { id = LSM_new_world_diplomacy.48 days = 1 } }
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.47
+	title = LSM_new_world_diplomacy.47.t
+	desc = LSM_new_world_diplomacy.47.d
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.47.a
+		ENG = { 
+			transfer_state = 446 
+			give_guarantee = EGY
+		}
+	}
+}
+country_event = {
+	id = LSM_new_world_diplomacy.48
+	title = LSM_new_world_diplomacy.48.t
+	desc = LSM_new_world_diplomacy.48.d
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = LSM_new_world_diplomacy.48.a
+		ENG = { create_wargoal = { target = EGY type = take_state generator = 446 } }
+	}
+}

@@ -1,0 +1,121 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_santa
+
+country_event = {
+	id = LSM_santa.1
+	title = LSM_santa.1.t
+	desc = LSM_santa.1.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_santa.1.a #for the children
+		add_timed_idea = { idea = SOV_reward_the_children days = 365 }
+		SOV_add_core_santa = yes
+	}
+	
+	option = {
+		name = LSM_santa.1.b
+		add_timed_idea = { idea = SOV_reward_the_administration days = 365 }
+		SOV_add_core_santa = yes
+	}
+	
+	option = {
+		name = LSM_santa.1.c
+		add_timed_idea = { idea = SOV_reward_the_working_class days = 365 }
+		SOV_add_core_santa = yes
+	}
+	
+	option = {
+		name = LSM_santa.1.e
+		add_timed_idea = { idea = SOV_reward_the_military days = 365 }
+		SOV_add_core_santa = yes
+	}
+}
+
+country_event = {
+	id = LSM_santa.2
+	title = LSM_santa.2.t
+	desc = LSM_santa.2.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_santa.2.a #for the children
+		ai_chance = {
+			factor = 100
+		}
+		SOV = {
+			annex_country = { target = FIN transfer_troops = yes }
+		}
+		every_state = { 
+			limit = {
+				is_core_of = FIN
+			}
+			add_core_of = SOV
+		}
+	}
+	
+	option = {
+		name = LSM_santa.2.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = LSM_santa.3
+	title = LSM_santa.3.t
+	desc = LSM_santa.3.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_santa.3.a
+		ai_chance = {
+			factor = 100
+		}
+		SOV = {
+			annex_country = { target = ROOT transfer_troops = yes }
+		}
+	}
+	
+	option = {
+		name = LSM_santa.3.b
+		effect_tooltip = {
+			SOV = { create_wargoal = { target = ROOT type = annex_everything } }
+		}
+		hidden_effect = {
+			SOV = { country_event = { id = LSM_santa.4 } }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = LSM_santa.4
+	title = LSM_santa.4.t
+	desc = LSM_santa.4.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_santa.4.a
+		create_wargoal = { target = FROM type = annex_everything }
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = LSM_santa.4.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
