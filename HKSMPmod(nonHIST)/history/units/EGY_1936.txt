@@ -1,0 +1,108 @@
+﻿start_equipment_factor = 0.4
+
+division_template = {
+	name = "British Garrison"
+	division_names_group = ENG_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+
+}
+division_template = {
+	name = "Egyptian Militia"
+	division_names_group = ENG_INF_01
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 0 }
+	}
+}
+
+units = {
+
+	division = {
+		name = "Cairo Garrison"
+		location = 12049
+		division_template = "British Garrison"
+		start_experience_factor = 0.15
+	}
+	division = {
+		name = "Cairo Garrison"
+		location = 12049
+		division_template = "British Garrison"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Alexandria Garrison"
+		location = 4076
+		division_template = "British Garrison"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Suez Garrison"
+		location = 4161
+		division_template = "British Garrison"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "Alexandria Garrison"
+		location = 4076
+		division_template = "British Garrison"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "Alexandria Local Police"
+		location = 4076
+		division_template = "Egyptian Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "Alexandria Local Police"
+		location = 4076
+		division_template = "Egyptian Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "Suez Local Guard"
+		location = 4161
+		division_template = "Egyptian Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "Cairo Local Police"
+		location = 12049
+		division_template = "Egyptian Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "Cairo Local Police"
+		location = 12049
+		division_template = "Egyptian Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "EGY"
+		}
+		requested_factories = 1
+		progress = 0.47
+		efficiency = 100
+	}
+}

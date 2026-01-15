@@ -1,0 +1,137 @@
+﻿start_equipment_factor = 0.2
+
+division_template = {
+	name = "French Legion"
+	division_names_group = FRA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+
+}
+division_template = {
+	name = "Foreign Legion"
+	division_names_group = GER_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+	}
+
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Indochinese Militia"
+	division_names_group = FRA_INF_01
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 0 }
+	}
+}
+
+units = {
+
+	division = {
+		name = "Quang Tri Garrison"
+		location = 1302
+		division_template = "French Legion"
+		start_experience_factor = 0.15
+	}
+	division = {
+		name = "Ha Noi Garrison"
+		location = 4075
+		division_template = "French Legion"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Saigon Garrison"
+		location = 4401
+		division_template = "French Legion"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Lang Son Garrison"
+		location = 9948
+		division_template = "Foreign Legion"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "Hai Phong Garrison"
+		location = 1185
+		division_template = "Foreign Legion"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "1 Cochinchina Local Police"
+		location = 12075
+		division_template = "Indochinese Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "2 Tonkin Local Police"
+		location = 4075
+		division_template = "Indochinese Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "3 Hue Local Guard"
+		location = 4379
+		division_template = "Indochinese Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "4 Vientiane Local Police"
+		location = 1464
+		division_template = "Indochinese Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+	division = {
+		name = "5 Phnom Penh Local Police"
+		location = 7376
+		division_template = "Indochinese Militia"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.2
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "VIN"
+		}
+		requested_factories = 2
+		progress = 0.47
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "VIN"
+		}
+		requested_factories = 1
+		progress = 0.47
+		efficiency = 100
+	}
+}
