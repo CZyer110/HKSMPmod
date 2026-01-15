@@ -53,6 +53,49 @@ technologies = {
 				factor = 3
 				date > "1937.1.1"
 			}
+			
+			
+			modifier = {
+				factor = 300
+				OR = {
+					tag = USA
+					tag = AST
+				}
+			}
+			
+			
+			modifier = {
+				is_literally_china = yes
+				factor = 300
+				date > 1936.11.1
+			}
+			
+			
+			modifier = {
+				factor = 300
+				date > 1936.6.1
+				is_ai_tech_slave = yes
+			}
+			
+			
+			modifier = {
+				factor = 0
+				amount_research_slots < 3
+				date < "1937.5.1"
+				has_war = no
+				is_ai_tech_slave = no
+				is_literally_china = no
+				NOT = { tag = AST }
+				NOT = { tag = SOV }
+			}
+			
+			modifier = {
+				factor = 10
+				has_war = yes
+				any_enemy_country = {
+					is_major = yes
+				}
+			}
 		}
 		
 		categories = {
@@ -100,19 +143,49 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 3
+			factor = 1.5
+			modifier = {
+				factor = 500
+				date > 1938.1.1
+				OR = {
+					tag = GER
+					tag = USA
+				}
+			}
 			
 			modifier = {
-				factor = 6
+				factor = 10
 				has_war = yes
+				date > 1937.1.1
 			}
 			modifier = {
-				is_major = yes
-				factor = 2
+				factor = 10
+				date > 1938.8.1
 			}
 			modifier = {
-				factor = 5
+				factor = 10
 				date > "1939.8.1"
+			}
+			
+			modifier = {
+				factor = 2000
+				has_war = yes
+				any_enemy_country = {
+					is_major = yes
+				}
+			}	
+			
+			
+			modifier = {
+				is_literally_china = yes
+				factor = 300
+				date > 1936.11.1
+			}
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
 			}
 		}
 		
@@ -146,21 +219,51 @@ technologies = {
 			tank_radio_2
 			lc_radio_2 #Module for Land Cruiser
 		}
-
+		
 		ai_will_do = {
-			factor = 3
+			factor = 1.5
 			
 			modifier = {
-				factor = 6
+				factor = 25
 				has_war = yes
+				date > 1938.1.1
 			}
 			modifier = {
-				is_major = yes
-				factor = 2
+				factor = 25
+				date > 1939.8.1
 			}
 			modifier = {
-				factor = 5
-				date > "1939.8.1"
+				factor = 25
+				date > "1940.8.1"
+			}	
+			
+			
+			modifier = {
+				is_literally_china = yes
+				factor = 300
+				date > 1938.11.1
+			}
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 100
+				has_war = yes
+				any_enemy_country = {
+					is_major = yes
+				}
+			}
+			modifier = {
+				factor = 500
+				date > 1939.1.1
+				OR = {
+					tag = GER
+					tag = USA
+				}
 			}
 		}
 		
@@ -206,6 +309,14 @@ technologies = {
 				factor = 5
 				date > "1939.8.1"
 			}
+			modifier = {
+				factor = 500
+				date > 1941.1.1
+				OR = {
+					tag = GER
+					tag = USA
+				}
+			}
 		}
 		
 		categories = {
@@ -243,7 +354,18 @@ technologies = {
 		#}
 		
 		ai_will_do = {
-			factor = 0
+			factor = 2
+			modifier = {
+				factor = 50
+				OR = {
+					tag = USA
+					tag = ENG
+				}
+				OR = {
+					GER = { is_ai = no }
+					ITA = { is_ai = no }
+				}
+			}
 		}
 		
 		categories = {
@@ -291,7 +413,7 @@ technologies = {
 					tag = ENG
 					tag = USA
 				}
-				factor = 5
+				factor = 2000
 			}
 			modifier = {
 				date < "1938.1.1"
@@ -404,6 +526,15 @@ technologies = {
 				factor = 0.5
 				date < "1940.1.1"
 			}
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+				}
+				factor = 10
+				date > 1939.7.1
+				has_war = yes
+			}
 		}
 		
 		categories = {
@@ -460,6 +591,26 @@ technologies = {
 				date < "1941.1.1"
 				factor = 0.5
 			}
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+				}
+				factor = 10
+				date > 1940.7.1
+				has_war = yes
+			}
+			modifier = {
+				factor = 50
+				OR = {
+					tag = USA
+					tag = ENG
+				}
+				OR = {
+					GER = { is_ai = no }
+					ITA = { is_ai = no }
+				}
+			}
 		}
 		
 		categories = {
@@ -507,6 +658,26 @@ technologies = {
 				}
 				factor = 5
 			}
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+				}
+				factor = 10
+				date > 1941.7.1
+				has_war = yes
+			}
+			modifier = {
+				factor = 50
+				OR = {
+					tag = USA
+					tag = ENG
+				}
+				OR = {
+					GER = { is_ai = no }
+					ITA = { is_ai = no }
+				}
+			}
 		}
 		
 		categories = {
@@ -542,6 +713,14 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 10
+			modifier = {
+				factor = 0
+				amount_research_slots < 5
+			}
+			modifier = {
+				factor = 100
+				amount_research_slots > 5
+			}
 		}
 		
 		categories = {
@@ -592,6 +771,11 @@ technologies = {
 			modifier = {
 				factor = 3
 				date > "1939.1.1"
+			}
+			modifier = {
+				factor = 100
+				amount_research_slots > 5
+				date > 1938.1.1
 			}
 		}
 		
@@ -655,6 +839,11 @@ technologies = {
 				factor = 2
 				tag = GER
 			}
+			modifier = {
+				factor = 100
+				amount_research_slots > 5
+				date > 1940.1.1
+			}
 		}
 		
 		categories = {
@@ -699,6 +888,11 @@ technologies = {
 			modifier = {
 				factor = 3
 				date > "1943.1.1"
+			}
+			modifier = {
+				factor = 100
+				amount_research_slots > 5
+				date > 1942.1.1
 			}
 		}
 		
@@ -1067,6 +1261,10 @@ technologies = {
 				}
 				factor = 3
 			}
+			modifier = {
+				factor = 100
+				tag = USA
+			}
 			
 		}
 		
@@ -1118,7 +1316,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 0
 		}
 		
 		categories = {
@@ -1678,8 +1876,9 @@ technologies = {
 			}
 
 			modifier = {
-				factor = 4
+				factor = 400
 				tag = USA
+				date > 1939.5.1
 			}
 
 			modifier = {

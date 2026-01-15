@@ -335,14 +335,15 @@ technologies = {
 			factor = 4
 			
 			modifier = {
-				factor = 4
+				factor = 400
+				date > 1938.1.1
+				OR = {
+					tag = GER
+					tag = USA
+					tag = ENG
+					tag = SOV
+				}
 				is_major = yes
-			}
-
-			modifier = {
-				factor = 0
-				original_tag = GER
-				date < "1941.1.1"
 			}
 
 			modifier = {

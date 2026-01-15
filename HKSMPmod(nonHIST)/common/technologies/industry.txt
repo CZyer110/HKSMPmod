@@ -4,6 +4,7 @@ technologies = {
 	
 		production_factory_max_efficiency_factor = 0.1
 		equipment_conversion_speed = 0.2
+
 		
 		path = {
 			leads_to_tech = improved_machine_tools 
@@ -33,7 +34,50 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 50
+			factor = 1500
+			modifier = {
+				factor = 5
+				tag = GER
+			}
+			modifier = {
+				factor = 0
+				is_ai_tech_slave = yes
+				OR = {
+					date < 1939.1.1
+					amount_research_slots < 3
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = MON
+				OR = {
+					NOT = { has_tech = advanced_infantry_weapons }
+					is_researching_technology = advanced_infantry_weapons
+				}
+			}
+			modifier = {
+				factor = 0.5
+				tag = LUX
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				tag = AST
+				OR = {
+					AND = {
+						NOT = { has_tech = iw_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+					AND = {
+						NOT = { has_tech = interwar_antitank }
+						NOT = { is_researching_technology = interwar_antitank }
+					}
+					AND = {
+						NOT = { has_tech = improved_small_airframe }
+						NOT = { is_researching_technology = improved_small_airframe }
+					}
+				}
+			}
 		}
 		
 		categories = {
@@ -67,12 +111,26 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 40
-						
+			factor = 75000
 			modifier = {
-				factor = 10
-				date > "1937.1.1"
+				factor = 0
+				tag = AST
+				OR = {
+					AND = {
+						NOT = { has_tech = iw_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+					AND = {
+						NOT = { has_tech = interwar_antitank }
+						NOT = { is_researching_technology = interwar_antitank }
+					}
+					AND = {
+						NOT = { has_tech = improved_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+				}
 			}
+
 		}
 		
 		categories = {
@@ -100,11 +158,48 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
 						
 			modifier = {
-				factor = 10
-				date > "1939.1.1"
+				factor = 20
+				OR = {
+					tag = POL
+					tag = BEL
+					tag = FIN
+				}
+				date > "1937.4.1"
+			}
+						
+			modifier = {
+				factor = 50
+				date > 1937.1.1
+				OR = {
+					has_tech_bonus = {
+				    		category = industry
+					}
+					has_tech_bonus = {
+				    		category = cat_production
+					}
+				}
+			}
+						
+			modifier = {
+				factor = 500
+				date > 1938.1.1
+				NOT = { tag = SOV }
+				NOT = { tag = USA }
+			}
+						
+			modifier = {
+				factor = 500
+				date > 1938.6.1
+				tag = USA
+			}
+						
+			modifier = {
+				factor = 5000
+				date > 1938.1.1
+				tag = SOV
 			}
 		}
 		
@@ -118,6 +213,11 @@ technologies = {
 	
 		production_factory_max_efficiency_factor = 0.1
 		equipment_conversion_speed = 0.2
+		
+		#path = {
+		#	leads_to_tech = improved_machine_tools 
+		#	research_cost_coeff = 1
+		#}
 		
 		path = {
 			leads_to_tech = flexible_line
@@ -139,12 +239,40 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
 			
 			modifier = {
+				factor = 500
+				date > "1940.5.1"
+			}
+			
+			modifier = {
+				factor = 200
+				date > "1939.5.1"
+				tag = SOV
+			}
+						
+			modifier = {
+				factor = 50
+				date > 1939.1.1
+				OR = {
+					has_tech_bonus = {
+				    		category = industry
+					}
+					has_tech_bonus = {
+				    		category = cat_production
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 100
+				has_completed_focus = SOV_industrial_modernization
+			}	
+			modifier = {
 				factor = 10
-				date > "1941.1.1"
-			}			
+				has_completed_focus = SOV_reorganize_the_pc_of_heavy_industry
+			}	
 		}
 		
 		categories = {
@@ -171,12 +299,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
-						
-			modifier = {
-				factor = 10
-				date > "1943.1.1"
-			}
+			factor = 0
 		}
 		
 		categories = {
@@ -203,12 +326,39 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
+						
+			modifier = {
+				factor = 1500
+				date > "1942.5.1"
+			}
+						
+			modifier = {
+				factor = 5
+				date > 1941.1.1
+				OR = {
+					has_tech_bonus = {
+				    		category = industry
+					}
+					has_tech_bonus = {
+				    		category = cat_production
+					}
+				}
+			}
 			
 			modifier = {
-				factor = 10
-				date > "1943.1.1"
-			}
+				factor = 500
+				has_completed_focus = SOV_industrial_modernization
+				OR = {
+					has_tech_bonus = {
+				    		category = industry
+					}
+					has_tech_bonus = {
+				    		category = cat_production
+					}
+				}
+				date < 1942.5.1
+			}	
 			
 		}
 		
@@ -218,8 +368,9 @@ technologies = {
 		}
 	}
 
-	#Conversion branch - Enabled in DoD - Repurposed for Coal Energy Gain in NCNS - To be replaced in future
+	#Conversion branch - Enabled in DoD
 	improved_equipment_conversion = {
+	
 		energy_gain_factor = 0.15
 		#equipment_conversion_speed = 0.40
 
@@ -237,7 +388,7 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 0
 
 			modifier = {
 				factor = 2
@@ -245,12 +396,8 @@ technologies = {
 			}
 
 			modifier = {
-				factor = 2
-				coal > 0
-			}
-			modifier = {
-				factor = 2
-				coal > 8
+				factor = 0
+				NOT = { has_government = fascism }
 			}
 		}
 		
@@ -258,11 +405,13 @@ technologies = {
 			industry
 			cat_production
 			construction_tech
-			excavation_tech		
+			excavation_tech	
 		}
 	}
 	
 	advanced_equipment_conversion = {
+		
+		
 		energy_gain_factor = 0.15
 		#equipment_conversion_speed = 0.40
 
@@ -275,20 +424,16 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 0
 
 			modifier = {
 				factor = 2
-				date > "1939.1.1"
+				date > "1937.1.1"
 			}
 
 			modifier = {
-				factor = 2
-				coal > 0
-			}
-			modifier = {
-				factor = 2
-				coal > 8
+				factor = 0
+				NOT = { has_government = fascism }
 			}
 		}
 		
@@ -305,8 +450,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.075 
-		#industrial_capacity_dockyard_powered = 0.05 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -326,41 +469,35 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 25
-
+			factor = 100
 			modifier = {
-				factor = 2
-				NOT = { tag = GER }
-			}
-			
-			modifier = {
-				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
-			}
-			
-			modifier = {
-				factor = 2
-				tag = JAP
+				factor = 0
+				tag = AST
+				OR = {
+					AND = {
+						NOT = { has_tech = iw_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+					AND = {
+						NOT = { has_tech = interwar_antitank }
+						NOT = { is_researching_technology = interwar_antitank }
+					}
+					AND = {
+						NOT = { has_tech = improved_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+				}
 			}
 
 			modifier = {
 				factor = 0
-				has_tech = dispersed_industry
-			}
-			
-			modifier = {
-				factor = 0
-				is_researching_technology = dispersed_industry
+				is_ai_tech_slave = yes
+				date < 1939.1.1
 			}
 						
 			modifier = {
 				factor = 5
-				date > "1937.1.1"
+				date > "1936.5.1"
 			}
 		}
 		
@@ -378,8 +515,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.1 
-		#industrial_capacity_dockyard_powered = 0.075 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -400,7 +535,7 @@ technologies = {
 						
 			modifier = {
 				factor = 10
-				date > "1937.1.1"
+				date > "1936.5.1"
 			}
 			
 		}
@@ -419,8 +554,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.125 
-		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -437,12 +570,36 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
 			
 			modifier = {
-				factor = 10
-				date > "1939.1.1"
-			}			
+				factor = 40
+				date > "1938.1.1"
+			}	
+			
+			modifier = {
+				factor = 20
+				date > "1938.6.1"
+			}	
+						
+			modifier = {
+				factor = 20
+				tag = SOV
+			}		
+						
+			modifier = {
+				factor = 20
+				OR = {
+					tag = POL
+					tag = RAJ
+					tag = BEL
+					tag = HUN
+					tag = BUL
+					tag = YUG
+					tag = FIN
+				}
+				date > "1937.1.1"
+			}
 		}
 		
 		categories = {
@@ -459,8 +616,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.15 
-		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -477,11 +632,20 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 10
 						
 			modifier = {
+				factor = 500
+				date > "1940.1.1"
+			}
+			
+			modifier = {
+				factor = 100
+				has_completed_focus = SOV_industrial_modernization
+			}	
+			modifier = {
 				factor = 10
-				date > "1941.1.1"
+				has_completed_focus = SOV_reorganize_the_pc_of_heavy_industry
 			}
 		}
 		
@@ -499,8 +663,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.15
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.15 
-		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		research_cost = 2
@@ -512,16 +674,11 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 15
 			
 			modifier = {
-				factor = 5
-				date > "1942.1.9"
-			}
-			
-			modifier = {
-				factor = 20
-				date > "1943.1.1"
+				factor = 500
+				date > "1942.1.1"
 			}			
 		}
 		
@@ -539,8 +696,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.05 
-		#industrial_capacity_dockyard_powered = 0.05 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.15
@@ -563,41 +718,35 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 25
-
-			modifier = {
-				factor = 2
-				tag = GER
-			}
-			
-			modifier = {
-				factor = 0.25
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 0.25
-				tag = ENG
-			}
-			
-			modifier = {
-				factor = 0.25
-				tag = JAP
-			}
-
-			modifier = {
-				factor = 0
-				has_tech = concentrated_industry
-			}
+			factor = 250
 			
 			modifier = {
 				factor = 0
-				is_researching_technology = concentrated_industry
+				tag = AST
+				OR = {
+					AND = {
+						NOT = { has_tech = iw_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+					AND = {
+						NOT = { has_tech = interwar_antitank }
+						NOT = { is_researching_technology = interwar_antitank }
+					}
+					AND = {
+						NOT = { has_tech = improved_small_airframe }
+						NOT = { is_researching_technology = iw_small_airframe }
+					}
+				}
 			}
 
 			modifier = {
-				factor = 5
-				date > "1937.1.1"
+				factor = 500
+				date > "1936.5.1"
+			}
+			modifier = {
+				factor = 0
+				is_ai_tech_slave = yes
+				date < 1939.1.1
 			}
 		}
 		
@@ -615,8 +764,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.075 
-		#industrial_capacity_dockyard_powered = 0.075 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -636,11 +783,11 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 20
+			factor = 50
 						
 			modifier = {
-				factor = 10
-				date > "1937.1.1"
+				factor = 2000
+				date > "1936.5.1"
 			}
 		}
 		
@@ -658,8 +805,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.075 #TODO SEA set value
-		#industrial_capacity_dockyard_powered = 0.075 #TODO SEA set value
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -679,12 +824,24 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
+			
+			modifier = {
+				factor = 500
+				date > 1938.3.1
+			}
+
+			modifier = {
+				factor = 50
+				date > 1937.1.1
+				tag = USA
+			}
 						
 			modifier = {
-				factor = 10
-				date > "1939.1.1"
-			}			
+				factor = 20
+				tag = SOV
+				date > 1938.1.1
+			}		
 		}
 		
 		categories = {
@@ -701,8 +858,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.1 
-		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -722,11 +877,26 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
-						
+			factor = 50
+			
+			modifier = {
+				factor = 5000
+				date > 1940.5.1
+			}
+
+			modifier = {
+				factor = 20
+				date > 1939.1.1
+				tag = USA
+			}
+			
 			modifier = {
 				factor = 10
-				date > "1941.1.1"
+				has_completed_focus = SOV_industrial_modernization
+			}	
+			modifier = {
+				factor = 10
+				has_completed_focus = SOV_reorganize_the_pc_of_heavy_industry
 			}
 		}
 		
@@ -744,8 +914,6 @@ technologies = {
 
 		industrial_capacity_factory = 0.1
 		industrial_capacity_dockyard = 0.1
-		#industrial_capacity_factory_powered = 0.1 
-		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -761,12 +929,18 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 15
+			factor = 50
 			
 			
 			modifier = {
-				factor = 10
-				date > "1943.1.1"
+				factor = 5000
+				date > 1942.5.1
+			}
+
+			modifier = {
+				factor = 20
+				date > 1941.1.1
+				tag = USA
 			}
 		}
 		
@@ -810,6 +984,16 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				tag = LUX
+				has_war = no
+			}
+			modifier = {
+				factor = 0
+				is_ai_tech_slave = yes
+				date < 1939.1.1
+			}
 			modifier = {
 				factor = 2
 				oil > 10
@@ -873,6 +1057,14 @@ technologies = {
 				factor = 0.4
 				date < "1938.1.1"
 			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
+			}
 		}
 	}
 
@@ -901,8 +1093,20 @@ technologies = {
 		ai_will_do = {
 			factor = 5
 			modifier = {
+				tag = ROM
+				has_tech = improved_small_airframe
+				factor = 50
+			}
+			modifier = {
 				tag = USA
 				factor = 0.5
+			}
+			modifier = {
+				tag = GER
+				date > 1939.1.1
+				factor = 20
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = USA }
 			}
 			modifier = {
 				has_war = yes
@@ -911,6 +1115,11 @@ technologies = {
 			modifier = {
 				is_major = no
 				factor = 0.25
+			}
+			modifier = {
+				is_ai_mass_mob = yes
+				has_war = no
+				factor = 0
 			}
 			modifier = {
 				factor = 1.5
@@ -936,6 +1145,36 @@ technologies = {
 			modifier = {
 				factor = 1.5
 				num_of_naval_factories > 30
+			}			
+			modifier = {
+				tag = SOV
+				date < "1943.1.1" #we don't use enough fuel yet
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
 			}
 		}
 		
@@ -964,7 +1203,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 5
+			factor = 5	
+			modifier = {
+				factor = 0.1
+				date < 1938.1.1
+				has_war = no
+			}
 			modifier = {
 				tag = USA
 				factor = 0.5
@@ -991,9 +1235,52 @@ technologies = {
 				num_of_naval_factories > 20
 			}	
 			modifier = {
+				tag = ROM
+				has_tech = improved_small_airframe
+				factor = 50
+			}
+			modifier = {
 				factor = 1.5
 				num_of_naval_factories > 30
-			}			
+			}				
+			modifier = {
+				tag = SOV
+				date < "1943.1.1" #we don't use enough fuel yet
+				factor = 0
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			modifier = {
+				tag = GER
+				date > 1939.1.1
+				has_war = yes
+				factor = 500
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = USA }
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
+			}
 		}
 		
 	}
@@ -1026,6 +1313,11 @@ technologies = {
 				factor = 0.5
 			}	
 			modifier = {
+				tag = ROM
+				has_tech = improved_small_airframe
+				factor = 50
+			}
+			modifier = {
 				has_war = yes
 				factor = 2
 			}
@@ -1041,7 +1333,32 @@ technologies = {
 			modifier = {
 				factor = 1.5
 				num_of_naval_factories > 30
-			}				
+			}			
+			modifier = {
+				tag = SOV
+				date < "1943.1.1" #we don't use enough fuel yet
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			modifier = {
+				tag = GER
+				date > 1939.1.1
+				has_war = yes
+				factor = 500
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = USA }
+			}			
 		}		
 	}
 
@@ -1073,6 +1390,11 @@ technologies = {
 				factor = 0.5
 			}	
 			modifier = {
+				tag = GER
+				factor = 500
+				date > 1940.1.1
+			}
+			modifier = {
 				has_war = yes
 				factor = 2
 			}
@@ -1088,7 +1410,18 @@ technologies = {
 			modifier = {
 				factor = 1.5
 				num_of_naval_factories > 30
-			}				
+			}	
+			
+			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = GER
+				}
+				has_war = yes
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = USA }
+			}			
 		}		
 	}
 
@@ -1122,6 +1455,17 @@ technologies = {
 			modifier = {
 				is_major = no
 				factor = 0.25
+			}	
+			
+			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = GER
+				}
+				has_war = yes
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = USA }
 			}
 			modifier = {
 				factor = 1.5
@@ -1131,6 +1475,18 @@ technologies = {
 			modifier = {
 				factor = 1.5
 				num_of_naval_factories > 40
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
 			}				
 		}		
 	}
@@ -1168,6 +1524,7 @@ technologies = {
 			# FIN effect from focus Tire Factory at Nokia
 			if = {
 				limit = {
+					has_dlc = "Arms Against Tyranny"
 					tag = FIN
 					has_completed_focus = FIN_tire_factory_at_nokia
 					controls_state = 927
@@ -1188,6 +1545,16 @@ technologies = {
 				factor = 5
 			}
 			modifier = {
+				is_ai_mass_mob = yes
+				has_war = no
+				factor = 0
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}
+			modifier = {
 				factor = 0.5
 				oil > 10
 			}
@@ -1198,6 +1565,25 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				oil > 30
+			}	
+			modifier = {
+				factor = 0
+				is_allied_ai = yes
+				date < 1940.1.1
+				NOT = { tag = USA }
+			}	
+			modifier = {
+				factor = 200
+				has_war = yes
+				tag = USA
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
 			}			
 		}
 		
@@ -1233,6 +1619,10 @@ technologies = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
+				factor = 0
+				world_war_is_active = no
+			}
+			modifier = {
 				OR = {
 					tag = GER
 					tag = ITA
@@ -1240,10 +1630,16 @@ technologies = {
 				}
 				has_war = yes
 				factor = 25
+				world_war_is_active = yes
 			}
 			modifier = {
 				factor = 0.5
 				oil > 10
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
 			}
 			modifier = {
 				factor = 0.5
@@ -1252,12 +1648,24 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				oil > 30
-			}			
+			}	
 			modifier = {
-				factor = 25
-				original_tag = GER	
-				date > "1937.1.1"	
-			}
+				tag = SOV
+				date < "1943.1.1" #bro we don't even use tanks
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}		
 		}
 		
 		ai_research_weights = {
@@ -1293,6 +1701,10 @@ technologies = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
+				factor = 0
+				world_war_is_active = no
+			}
+			modifier = {
 				OR = {
 					tag = GER
 					tag = ITA
@@ -1317,7 +1729,19 @@ technologies = {
 				original_tag = GER			
 				has_war = yes
 				factor = 3
-			}		
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
 		}
 		
 		ai_research_weights = {
@@ -1413,7 +1837,19 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				oil > 30
-			}			
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}		
 		}
 		
 		ai_research_weights = {
@@ -1456,11 +1892,23 @@ technologies = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
+				factor = 2000
+				tag = GER
+				OR = {
+					has_completed_focus = GER_the_four_year_plan
+					AND = {
+						has_war = yes
+						date > 1939.1.1
+					}
+				}
+			}
+			modifier = {
 				OR = {
 					tag = GER
 					tag = ITA
 				}
 				has_war = yes
+				world_war_is_active = yes
 				factor = 15
 			}
 			modifier = {
@@ -1474,11 +1922,45 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				rubber > 30
+			}
+			modifier = {
+				has_built = { 
+  					type = synthetic_refinery
+  					value = 20 
+				}
+				factor = resource_imported@rubber
+			}		
+			modifier = {
+				tag = SOV
+				date < "1943.1.1" #we haven't built refineries yet so don't bother
+				factor = 0
 			}			
 			modifier = {
-				factor = 25
-				original_tag = GER	
-				date > "1938.1.1"	
+				tag = SOV
+				date > "1943.1.1" #we have built refineries 
+				factor = 10
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}	
+			modifier = {
+				factor = 50
+				has_war = yes
+				tag = USA
 			}
 		}
 		
@@ -1521,12 +2003,10 @@ technologies = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				OR = {
-					tag = GER
-					tag = ITA
-				}
+				tag = GER
 				has_war = yes
-				factor = 15
+				factor = 50
+				date > 1940.1.1
 			}
 			modifier = {
 				factor = 0.5
@@ -1539,7 +2019,39 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				rubber > 30
+			}
+			modifier = {
+				has_built = { 
+  					type = synthetic_refinery
+  					value = 20 
+				}
+				factor = resource_imported@rubber
 			}			
+			modifier = {
+				tag = SOV
+				date > "1943.1.1" #we have built refineries 
+				factor = 10
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}	
+			modifier = {
+				factor = 50
+				has_war = yes
+				OR = {
+					tag = USA
+					tag = GER
+				}
+			}
 		}
 		
 		ai_research_weights = {
@@ -1579,7 +2091,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 3
 			modifier = {
 				OR = {
 					tag = GER
@@ -1588,6 +2100,18 @@ technologies = {
 				has_war = yes
 				factor = 15
 			}
+			modifier = {
+				has_built = { 
+  					type = synthetic_refinery
+  					value = 20 
+				}
+				factor = resource_imported@rubber
+			}	
+			modifier = {
+				tag = GER
+				date > 1940.8.1
+				factor = 100
+			}	
 			modifier = {
 				factor = 0.5
 				rubber > 10
@@ -1600,6 +2124,28 @@ technologies = {
 				factor = 0.5
 				rubber > 30
 			}			
+			modifier = {
+				tag = SOV
+				date > "1943.1.1" #we have built refineries 
+				factor = 10
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}	
+			modifier = {
+				factor = 50
+				has_war = yes
+				tag = USA
+			}
 		}
 		
 		ai_research_weights = {
@@ -1634,10 +2180,17 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 0.5
+			factor = 5
 			modifier = {
 				factor = 0.5
 				rubber > 10
+			}
+			modifier = {
+				has_built = { 
+  					type = synthetic_refinery
+  					value = 20 
+				}
+				factor = resource_imported@rubber
 			}
 			modifier = {
 				factor = 0.5
@@ -1646,7 +2199,29 @@ technologies = {
 			modifier = {
 				factor = 0.5
 				rubber > 30
-			}			
+			}	
+			modifier = {
+				tag = GER
+				date > 1943.1.1
+				factor = 20
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}	
+			modifier = {
+				factor = 50
+				has_war = yes
+				tag = USA
+			}		
 		}
 		
 		ai_research_weights = {
@@ -1659,8 +2234,7 @@ technologies = {
 	
 	construction1 = {
 		
-		production_speed_buildings_factor = 0.1
-		#production_speed_buildings_powered_factor = 0.05 
+		production_speed_buildings_factor = 0.10
 		industry_repair_factor = 0.10
 
 		path = {
@@ -1686,10 +2260,65 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 50
+			modifier = {
+				factor = 0
+				tag = LUX
+				has_war = no
+			}
 			
 			modifier = {
 				factor = 5
 				date > "1937.1.1"
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				tag = SOV
+				factor = 5
+			}
+			
+			modifier = {
+				tag = GER
+				factor = 5
+			}
+			modifier = {
+				factor = 0
+				is_ai_tech_slave = yes
+				date < 1939.1.1
+			}
+			modifier = {
+				factor = 0.01
+				amount_research_slots < 3
+			}
+			modifier = {
+				factor = 0.01
+				num_of_civilian_factories_available_for_projects < 5
+				has_war = no
+				date < 1940.1.1
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
 			}
 		}
 	}
@@ -1743,14 +2372,82 @@ technologies = {
 					chromium > 8
 					coal > 8
 				}
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 0
+				date < 1938.1.1 #we are rich
+				is_resource_rich = no
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1940.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1941.1.1 #we are rich
+			}
+						
+			modifier = {
+				factor = 50
+				date > "1936.5.1"
+				is_resource_rich = yes
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
 			}
 		}
 	}
 	
 	construction2 = {
 
-		production_speed_buildings_factor = 0.1
-		#production_speed_buildings_powered_factor = 0.075 
+		production_speed_buildings_factor = 0.10
 		industry_repair_factor = 0.10
 		
 		path = {
@@ -1779,9 +2476,80 @@ technologies = {
 			factor = 4
 			
 			modifier = {
+				factor = 200
+				tag = USA
+			}
+			
+			modifier = {
 				factor = 10
 				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 10
+				num_of_civilian_factories > 30
+				date > "1938.1.1"
+			}
+			
+			modifier = {
+				factor = 10
+				num_of_civilian_factories > 30
+				date > "1939.1.1"
+			}
+			
+			modifier = {
+				tag = SOV
+				factor = 15
+			}
+			
+			modifier = {
+				OR = { 
+					has_idea = partial_economic_mobilisation
+					has_idea = war_economy
+				}
+				factor = 10
+			}	
+			modifier = {
+				factor = 0.01
+				num_of_civilian_factories_available_for_projects < 5
+			}
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}	
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
 			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
+			}
 		}
 	}
 
@@ -1789,7 +2557,7 @@ technologies = {
 		
 		local_resources_factor = 0.10
 		local_resources_coal_factor = 0.05
-
+		
 		path = {
 			research_cost_coeff = 1
 		}
@@ -1802,7 +2570,6 @@ technologies = {
 			construction_tech
 			excavation_tech
 		}
-
 		
 		folder = {
 			name = industry_folder
@@ -1836,15 +2603,90 @@ technologies = {
 					chromium > 8
 					coal > 8
 				}
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 0
+				date < 1939.1.1 #we are rich
+				is_resource_rich = no
+			}
+			
+			modifier = {
+				factor = 20
+				tag = GER
+				has_war = yes
+				date > 1940.1.1
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1940.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1941.1.1 #we are rich
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 500
+				tag = USA
+				date > 1940.1.1 #running out of juice
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = industry
+				}
+				date < 1937.5.1
 			}
 		}
 	}	
 	
 	construction3 = {
 
-		production_speed_buildings_factor = 0.1
-		#production_speed_buildings_powered_factor = 0.075
+		production_speed_buildings_factor = 0.10
 		industry_repair_factor = 0.10
+		
 		path = {
 			leads_to_tech = construction4 
 			research_cost_coeff = 1
@@ -1869,21 +2711,85 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 10
-			
+			factor = 20
+						
 			modifier = {
-				factor = 1.5
-				has_war = yes
+				factor = 50
+				date > 1938.1.1
+				has_tech_bonus = {
+				    category = construction_tech
+				}
+			}
+						
+			modifier = {
+				factor = 500
+				date > 1938.1.1
+				has_completed_focus = GER_prioritize_economic_growth
+				tag = GER
 			}
 			
 			modifier = {
-				factor = 0.5
-				has_war = no
+				OR = { 
+					has_idea = partial_economic_mobilisation
+					has_idea = war_economy
+				}
+				factor = 10
+				date > 1938.8.1
 			}
 			
 			modifier = {
 				factor = 3
 				date > "1940.1.1"
+			}
+			
+			modifier = {
+				factor = 10
+				date > "1938.4.1"
+				has_war = no
+			}
+			modifier = {
+				factor = 500
+				date > "1937.6.1"
+				tag = USA
+			}
+						
+			modifier = {
+				factor = 20
+				tag = SOV
+				date > 1938.1.1
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_laissez_faire
+				date < 1938.1.1
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			modifier = {
+				factor = 0.01
+				num_of_civilian_factories_available_for_projects < 10
 			}
 		}
 	}
@@ -1893,7 +2799,7 @@ technologies = {
 		
 		local_resources_factor = 0.10
 		local_resources_coal_factor = 0.05
-
+		
 		path = {
 			research_cost_coeff = 1
 		}
@@ -1913,7 +2819,24 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 5
+						
+			modifier = {
+				factor = 50
+				date > 1938.1.1
+				OR = {
+					has_tech_bonus = {
+					    	category = excavation_tech
+					}
+				}
+			}
+						
+			modifier = {
+				factor = 2500
+				date > 1938.1.1
+				has_completed_focus = GER_prioritize_economic_growth
+				tag = GER
+			}
 			
 			modifier = {
 				factor = 5.0
@@ -1939,14 +2862,79 @@ technologies = {
 					chromium > 8
 					coal > 8
 				}
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}			
+			modifier = {
+				factor = 5
+				is_resource_rich = yes
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 20
+				tag = GER
+				has_war = yes
+				date > 1940.9.1
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1940.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1941.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				tag = SOV
+				date > 1940.1.1 #we are rich
+			}
+			modifier = {
+				factor = 5000
+				tag = USA
+				date > 1940.1.1 #running out of juice
 			}
 		}
 	}		
 	
 	construction4 = {
 
-		production_speed_buildings_factor = 0.1
-		#production_speed_buildings_powered_factor = 0.1 
+		production_speed_buildings_factor = 0.10
 		industry_repair_factor = 0.10
 
 		on_research_complete = {
@@ -1979,11 +2967,59 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 6
 			
 			modifier = {
 				factor = 10
-				date > "1941.1.1"
+				date > "1940.4.1"
+				has_war = no
+			}
+			
+			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = HUN
+				}
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 500
+				tag = USA
+				date > 1939.8.1
+				has_war = no
+				amount_research_slots > 5
+			}
+			
+			modifier = {
+				factor = 10
+				has_completed_focus = SOV_third_five_year_plan
+				NOT = { has_completed_focus = SOV_reorganize_the_pc_of_heavy_industry }
+			}		
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
 			}
 		}
 	}
@@ -1992,7 +3028,7 @@ technologies = {
 		
 		local_resources_factor = 0.10
 		local_resources_coal_factor = 0.05
-
+		
 		path = {
 			research_cost_coeff = 1
 		}
@@ -2015,6 +3051,15 @@ technologies = {
 			factor = 1
 			
 			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = HUN
+				}
+				has_war = yes
+			}
+			
+			modifier = {
 				factor = 5.0
 				OR = {
 					oil > 0
@@ -2039,13 +3084,72 @@ technologies = {
 					coal > 8
 				}
 			}
+
+			modifier = {
+				factor = 500
+				tag = USA
+				date > 1940.1.1
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1940.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1941.1.1 #we are rich
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1942.1.1 #we are rich
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
 		}
 	}			
 	
 	construction5 = {
 
-		production_speed_buildings_factor = 0.1
-		#production_speed_buildings_powered_factor = 0.1
+		production_speed_buildings_factor = 0.10
 		industry_repair_factor = 0.10
 		
 		path = {
@@ -2068,11 +3172,50 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 6
+			
+			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = HUN
+				}
+				has_war = yes
+			}
 			
 			modifier = {
 				factor = 10
 				date > "1943.1.1"
+			}
+
+			modifier = {
+				factor = 5000
+				tag = USA
+				date > 1942.1.1
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}			
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
 			}
 		}
 	}
@@ -2082,7 +3225,7 @@ technologies = {
 		
 		local_resources_factor = 0.10
 		local_resources_coal_factor = 0.05
-
+		
 		path = {
 			research_cost_coeff = 1
 		}
@@ -2103,6 +3246,15 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 2
+			
+			modifier = {
+				factor = 10
+				OR = {
+					tag = ROM
+					tag = HUN
+				}
+				has_war = yes
+			}
 			
 			modifier = {
 				factor = 5.0
@@ -2128,7 +3280,65 @@ technologies = {
 					chromium > 8
 					coal > 8
 				}
+			}	
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_5_tech = yes
+				factor = 0
+			}	
+
+			modifier = {
+				factor = 50
+				tag = USA
+				date > 1942.1.1
+			}
+			
+			modifier = {
+				tag = SOV
+				not_ready_for_tier_4_tech = yes
+				factor = 0
+			}
+			
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1941.1.1 #we are rich
+			}
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1942.1.1 #we are rich
+			}	
+			modifier = {
+				factor = 5
+				OR = {
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+				date > 1943.1.1 #we are rich
+			}		
+			modifier = {
+				factor = 250
+				has_idea = LSM_neutrality_idea
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
 			}
 		}
-	}	
+	}			
 }

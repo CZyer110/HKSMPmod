@@ -114,7 +114,7 @@ technologies = {
 
 		folder = {
 			name = mtgnavalsupportfolder
-			position = { x = -3 y = 5 }
+			position = { x = -6 y = 5 }
 		}
 
 		ai_will_do = {
@@ -628,7 +628,7 @@ technologies = {
 
 		folder = {
 			name = mtgnavalsupportfolder
-			position = { x = 3 y = 7 }
+			position = { x = 6 y = 7 }
 		}
 
 		ai_will_do = {
@@ -697,7 +697,7 @@ technologies = {
 
 		folder = {
 			name = mtgnavalsupportfolder
-			position = { x = 3 y = 16 }
+			position = { x = 6 y = 16 }
 		}
 
 		ai_will_do = {
@@ -1031,7 +1031,7 @@ technologies = {
 
 		folder = {
 			name = mtgnavalsupportfolder
-			position = { x = 0 y = 7 }
+			position = { x = 2 y = 7 }
 		}
 
 		ai_will_do = {

@@ -4,6 +4,10 @@ technologies = {
 	@rocket_artillery = 3
 
 	gw_artillery = {
+		
+		enable_subunits = {
+			artillery
+		}
 
 		enable_equipments = {
 			artillery_equipment_1
@@ -59,13 +63,19 @@ technologies = {
 			mio_cat_artillery #Only Artillery
 		}
 		special_project_specialization = { specialization_land }
-
 		ai_will_do = {
-			factor = 2
+			factor = 500 #if you do not have it, have it
 
 			modifier = {
 				factor = 2
 				date > "1937.1.1"
+			}
+
+			modifier = {
+				factor = 0
+				is_literally_china = yes
+				has_global_flag = china_giga
+				date < 1940.1.1
 			}
 
 			modifier = {
@@ -76,6 +86,13 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1939.1.1"
+			}
+			modifier = {
+				factor = 0
+				has_tech_bonus = {
+				    	category = artillery
+				}
+				date < 1939.1.1
 			}
 		}
 	}
@@ -123,21 +140,12 @@ technologies = {
 		special_project_specialization = { specialization_land }
 
 		ai_will_do = {
-			factor = 2
-
-			modifier = { #This is needed for a lot of tank designs
-				factor = 2.0
-				is_major = yes
-			}
+			factor = 1
 
 			modifier = {
-				factor = 2
-				date > "1937.1.1"
-			}
-
-			modifier = {
-				factor = 2
-				date > "1938.1.1"
+				factor = 0.5
+				date < "1939.1.1"
+				has_war = no
 			}
 
 			modifier = {
@@ -145,10 +153,63 @@ technologies = {
 				date > "1939.1.1"
 			}
 
-			# It is imperative to prepare military tech for the war with China
+			modifier = {
+				factor = 500
+				date > 1939.1.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				tag = SOV
+				has_war = no
+				OR = {
+					has_country_flag = pure_infantry
+					has_country_flag = mech_brick
+					has_country_flag = mass_infantry_flag
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				is_historical_focus_on = yes
+				OR = {
+					is_literally_china = yes
+					has_focus_tree = generic_focus
+				}
+			}
+
+			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1937.1.1
+				NOT = { tag = SOV }
+			}
+
 			modifier = {
 				factor = 5
-				original_tag = JAP
+				amount_research_slots > 4
+				date > 1938.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 500
+				is_spg_country = yes
+			}
+			modifier = {
+				factor = 0.1
+				has_tech_bonus = {
+				    	category = artillery
+				}
+				date < 1939.1.1
 			}
 		}
 	}
@@ -201,22 +262,78 @@ technologies = {
 		}
 		special_project_specialization = { specialization_land }
 
+		on_research_complete = {
+			IF = {
+				limit = {
+					original_tag = HUN
+				}
+				give_the_proper_spg_tech = yes
+			}
+		}
 		ai_will_do = {
 			factor = 2
 
 			modifier = {
-				factor = 2
-				date > "1938.1.9"
+				factor = 0
+				OR = {
+					is_allied_ai = no
+					tag = SOV
+					tag = FRA
+				}
+				amount_research_slots < 5
+				is_spg_country = no
+				has_dlc = "No Step Back"
+				date < 1939.1.1
+				NOT = { has_doctrine = superior_firepower }
+				is_historical_focus_on = yes
 			}
 
 			modifier = {
-				factor = 2
-				date > "1939.1.1"
+				factor = 0
+				is_historical_focus_on = yes
+				NOT = { has_doctrine = superior_firepower }
+				is_spg_country = no
+				has_dlc = "No Step Back"
+				date < 1939.1.1
+			}
+
+			modifier = {
+				factor = 500
+				date > 1939.1.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+				}
+			}
+
+			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1938.1.1
+				NOT = { tag = SOV }
 			}
 
 			modifier = {
 				factor = 5
-				date > "1939.1.6"
+				amount_research_slots > 4
+				date > 1938.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 500
+				is_spg_country = yes
+				date > 1937.1.1
+			}
+			modifier = {
+				factor = 0.1
+				has_tech_bonus = {
+				    	category = artillery
+				}
+				date < 1939.1.1
 			}
 		}
 	}
@@ -266,6 +383,16 @@ technologies = {
 			factor = 2
 
 			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1939.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
 				factor = 2
 				date > "1940.1.6"
 			}
@@ -278,6 +405,29 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1942.1.1"
+			}
+
+			modifier = {
+				factor = 5
+				amount_research_slots > 4
+				date > 1939.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 500
+				is_spg_country = yes
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 500
+				date > 1939.1.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+					is_historical_focus_on = no
+				}
 			}
 		}
 	}
@@ -313,6 +463,14 @@ technologies = {
 			name = artillery_folder
 			position = { x = 0 y = 8 }
 		}
+		on_research_complete = {
+			IF = {
+				limit = {
+					original_tag = HUN
+				}
+				give_the_proper_spg_tech = yes
+			}
+		}
 
 		categories = {
 			artillery
@@ -325,6 +483,16 @@ technologies = {
 			factor = 2
 
 			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1940.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
 				factor = 2
 				date > "1941.1.6"
 			}
@@ -332,6 +500,29 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1942.1.1"
+			}
+
+			modifier = {
+				factor = 5
+				amount_research_slots > 4
+				date > 1940.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 500
+				is_spg_country = yes
+				date > 1937.1.1
+			}
+
+			modifier = {
+				factor = 500
+				date > 1940.5.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+					is_historical_focus_on = no
+				}
 			}
 		}
 	}
@@ -345,7 +536,6 @@ technologies = {
 		armored_car = {
 			soft_attack = 0.1
 		}
-
 		enable_equipment_modules = {
 			tank_medium_cannon_2
 		}
@@ -370,6 +560,9 @@ technologies = {
 			mio_cat_artillery #Only Artillery
 		}
 		special_project_specialization = { specialization_land }
+		on_research_complete = {
+			add_ideas = artillery_equipment_production_3
+		}
 
 		ai_will_do = {
 			factor = 2
@@ -387,6 +580,39 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1942.1.6"
+			}
+
+			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1941.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 5
+				amount_research_slots > 4
+				date > 1941.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 5
+				is_spg_country = yes
+				date > 1940.1.1
+			}
+
+			modifier = {
+				factor = 500
+				date > 1941.4.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+					is_historical_focus_on = no
+				}
 			}
 		}
 	}
@@ -444,6 +670,39 @@ technologies = {
 				factor = 5
 				date > "1945.1.1"
 			}
+
+			modifier = {
+				factor = 10
+				OR = {
+					has_doctrine = superior_firepower
+					is_historical_focus_on = no
+				}
+				date > 1942.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 5
+				amount_research_slots > 4
+				date > 1942.1.1
+				NOT = { tag = SOV }
+			}
+
+			modifier = {
+				factor = 5
+				is_spg_country = yes
+				date > 1941.1.1
+			}
+
+			modifier = {
+				factor = 500
+				date > 1942.1.1
+				OR = {
+					has_country_flag = spacemarine
+					has_country_flag = mass_infantry_flag
+					is_historical_focus_on = no
+				}
+			}
 		}
 	}
 
@@ -459,14 +718,14 @@ technologies = {
 		artillery_brigade = {
 			mountain = {
 				attack = 0.08
-				movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+				movement = 0.15 #If you change this - Change the custom tooltip too: RAJ_revive_the_screw_guns_effect ROM_modern_at_guns_tech_tt
 			}
 		}
 
 		anti_tank_brigade = {
 			mountain = {
 				attack = 0.08
-				movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+				movement = 0.15 #If you change this - Change the custom tooltip too: RAJ_revive_the_screw_guns_effect ROM_modern_at_guns_tech_tt
 			}
 		}
 	}
@@ -508,6 +767,11 @@ technologies = {
 				factor = 2
 				tag = SOV
 			}
+
+			modifier = {
+				factor = 200
+				has_country_flag = era_of_transition
+			}
 		}
 
 		categories = {
@@ -544,6 +808,11 @@ technologies = {
 				factor = 2
 				tag = SOV
 			}
+
+			modifier = {
+				factor = 200
+				has_country_flag = era_of_transition
+			}
 		}
 
 		categories = {
@@ -558,7 +827,6 @@ technologies = {
 		category_rocket_artillery = {
 			soft_attack = 0.15
 		}
-
 
 		path = {
 			leads_to_tech = rocket_artillery4
@@ -580,6 +848,11 @@ technologies = {
 			modifier = {
 				factor = 2
 				tag = SOV
+			}
+
+			modifier = {
+				factor = 200
+				has_country_flag = era_of_transition
 			}
 		}
 
@@ -616,6 +889,11 @@ technologies = {
 			modifier = {
 				factor = 2
 				tag = SOV
+			}
+
+			modifier = {
+				factor = 200
+				has_country_flag = era_of_transition
 			}
 		}
 
@@ -664,19 +942,15 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 15
 
 			modifier = {
-				factor = 0.5
-
+				factor = 0.1
+				date < 1937.8.1
 				OR = {
-					tag = CHI
-					tag = PRC
-					tag = XSM
-					tag = SIK
-					tag = GXC
-					tag = SHX
-					tag = YUN
+					tag = JAP
+					tag = MAN
+					tag = MEN
 				}
 			}
 			modifier = {
@@ -692,6 +966,14 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1939.1.1"
+			}
+
+			modifier = {
+				factor = 0
+				has_focus_tree = generic_focus
+				has_tech = improved_infantry_weapons
+				NOT = { is_researching_technology = advanced_infantry_weapons }
+				NOT = { has_tech = advanced_infantry_weapons }
 			}
 		}
 
@@ -717,6 +999,7 @@ technologies = {
 		category_self_propelled_anti_air = {
 			air_attack = 0.15
 		}
+
 		tech_air_damage_factor = -0.02
 
 		path = {
@@ -748,6 +1031,34 @@ technologies = {
 				}
 				factor = 5
 			}
+
+			modifier = {
+				factor = 0
+				has_focus_tree = generic_focus
+				NOT = { is_researching_technology = advanced_infantry_weapons }
+				NOT = { has_tech = advanced_infantry_weapons }
+			}
+			modifier = {
+				NOT = { has_tech = antitank2 }
+				has_completed_focus = equipment_effort_3
+				factor = 0
+			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1938.6.1
+			}
+			modifier = { 
+				factor = 25.0
+				is_ai_mass_mob = yes
+				date > 1938.1.1
+			}
+			modifier = { 
+				factor = 0
+				is_literally_china = yes
+				has_global_flag = china_giga
+				date < 1939.1.1
+			}
 		}
 
 		categories = {
@@ -766,6 +1077,7 @@ technologies = {
 		armored_car = {
 			hard_attack = 0.1
 		}
+
 		static_anti_air_damage_factor = 0.1
 
 		enable_equipment_modules = {
@@ -795,7 +1107,7 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 2
+			factor = 5
 			modifier = {
 				OR = {
 					tag = JAP
@@ -807,7 +1119,17 @@ technologies = {
 					has_war_with = USA
 					has_war_with = ENG
 				}
-				factor = 5
+				factor = 50
+			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1938.6.1
+			}
+			modifier = { 
+				factor = 25.0
+				is_ai_mass_mob = yes
+				date > 1939.1.1
 			}
 		}
 
@@ -833,6 +1155,7 @@ technologies = {
 		category_self_propelled_anti_air = {
 			air_attack = 0.1
 		}
+
 		enable_equipment_modules = {
 			tank_heavy_cannon_2
 		}
@@ -942,6 +1265,7 @@ technologies = {
 		armored_car = {
 			hard_attack = 0.1
 		}
+
 		static_anti_air_damage_factor = 0.1
 
 		enable_equipment_modules = {
@@ -977,6 +1301,9 @@ technologies = {
 				factor = 5
 			}
 		}
+		on_research_complete = {
+			add_ideas = anti_air_equipment_production_3
+		}
 
 		categories = {
 			artillery
@@ -993,7 +1320,8 @@ technologies = {
 		}
 		armored_car = {
 			ap_attack = 0.1
-		}		
+		}	
+		
 		enable_equipment_modules = {
 			tank_high_velocity_cannon
 			tank_heavy_cannon
@@ -1016,20 +1344,40 @@ technologies = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 25
+			modifier = { 
+				factor = 0
+				is_literally_china = yes
+				date < 1939.1.1
+			}
 
 			modifier = {
-				factor = 0.2
+				factor = 0
+				date < 1939.1.1
+				tag = JAP
+			}
 
-				OR = {
-					tag = CHI
-					tag = PRC
-					tag = XSM
-					tag = SIK
-					tag = GXC
-					tag = SHX
-					tag = YUN
+			modifier = {
+				NOT = { 
+					OR = {
+						has_tech = engines_3
+						is_researching_technology = engines_3
+					}
 				}
+				is_historical_focus_on = yes
+				tag = ITA
+				factor = 0
+			}
+		
+			modifier = {
+				factor = 0.1
+				is_literally_china = yes
+				date < 1941.1.1
+			}
+
+			modifier = {
+				factor = 100
+				is_ai_tank_minor = yes
 			}
 			modifier = {
 				tag = JAP
@@ -1045,6 +1393,29 @@ technologies = {
 				factor = 4.0
 				is_major = yes
 			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 100.0
+				tag = FRA
+				date > 1937.1.1
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 50.0
+				OR = {
+					amount_research_slots > 3
+					tag = FRA
+				}
+				OR = {
+					tag = GER
+					tag = FRA
+					tag = USA
+					tag = ENG
+				}
+			}
+			modifier = {
+				tag = USA
+				date < 1937.1.1
+				factor = 0.1
+			}
 			modifier = {
 				factor = 2
 				date > "1937.1.1"
@@ -1059,6 +1430,11 @@ technologies = {
 				factor = 5
 				date > "1939.1.1"
 			}
+			modifier = { 
+				factor = 10.0
+				tag = SOV
+				date > 1939.1.1
+			}
 			modifier = {
 				factor = 10
 				any_enemy_country = {
@@ -1069,6 +1445,16 @@ technologies = {
 						}
 					}
 				}
+			}
+			
+			modifier = {
+				factor = 500
+				has_focus_tree = generic_focus
+			}
+			
+			modifier = {
+				factor = 100
+				is_ai_mass_mob = yes
 			}
 		}
 
@@ -1111,7 +1497,7 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 1.5
 			modifier = {
 				factor = 10
 				any_enemy_country = {
@@ -1122,6 +1508,63 @@ technologies = {
 						}
 					}
 				}
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 50.0
+				OR = {
+					tag = GER
+					tag = FRA
+					tag = USA
+					tag = ENG
+				}
+				date > 1937.5.1
+			}
+
+			modifier = {
+				NOT = { 
+					OR = {
+						has_tech = engines_3
+						is_researching_technology = engines_3
+					}
+				}
+				is_historical_focus_on = yes
+				tag = ITA
+				factor = 0
+			}
+			modifier = {
+				factor = 100.0
+				OR = {
+					has_tech = basic_medium_tank_chassis
+					is_researching_technology = basic_medium_tank_chassis
+				}
+			}
+			modifier = { 
+				factor = 25.0
+				OR = {
+					tag = SOV
+					is_ai_mech_mob = yes
+				}
+				date > 1938.6.1
+			}
+
+			modifier = {
+				factor = 100
+				is_ai_tank_minor = yes
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 25.0
+				tag = GER
+				date > 1937.5.1
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 50.0
+				tag = FRA
+				date > 1936.4.1
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 50.0
+				tag = FRA
+				date > 1937.6.1
 			}
 			modifier = {
 				tag = JAP
@@ -1142,6 +1585,37 @@ technologies = {
 				factor = 5
 				date > "1940.1.1"
 			}
+
+			modifier = {
+				factor = 5
+				tag = GER
+				date > "1939.1.1"
+			}
+			
+			modifier = {
+				factor = 100
+				has_focus_tree = generic_focus
+				has_completed_focus = equipment_effort
+			}
+			
+			modifier = {
+				factor = 100
+				has_focus_tree = generic_focus
+				has_completed_focus = equipment_effort_2
+			}
+			
+			modifier = {
+				factor = 1000
+				has_focus_tree = generic_focus
+				is_ai_tech_slave = yes
+				has_completed_focus = equipment_effort
+			}
+			
+			modifier = {
+				factor = 50
+				has_focus_tree = generic_focus
+				is_ai_mass_mob = yes
+			}
 		}
 
 		categories = {
@@ -1161,6 +1635,7 @@ technologies = {
 		armored_car = {
 			ap_attack = 0.1
 		}	
+
 		enable_equipments = {
 			anti_tank_equipment_2
 		}
@@ -1183,11 +1658,42 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 200
 
 			modifier = {
 				factor = 2
 				date > "1939.1.9"
+			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1939.1.1
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 25.0
+				OR = {
+					tag = GER
+					tag = USA
+				}
+				date > 1937.5.1
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 25.0
+				OR = {
+					tag = GER
+					tag = USA
+				}
+				has_tech = basic_medium_tank_chassis
+			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1938.6.1
+			}
+
+			modifier = {
+				factor = 100
+				is_ai_tank_minor = yes
 			}
 			modifier = {
 				tag = JAP
@@ -1204,11 +1710,6 @@ technologies = {
 				date > "1940.1.1"
 			}
 			modifier = {
-				tag = USA
-				has_War = no
-				factor = 0.5 #this tank nonsense will never catch on
-			}
-			modifier = {
 				factor = 5
 				date > "1940.1.6"
 			}
@@ -1222,6 +1723,43 @@ technologies = {
 						}
 					}
 				}
+			}
+
+			modifier = {
+				factor = 5
+				tag = GER
+				date > "1939.1.1"
+			}
+			
+			modifier = {
+				OR = {
+					is_ai_mass_mob = yes
+					has_focus_tree = generic_focus
+				}
+				factor = 50
+			}
+			
+			modifier = {
+				factor = 100
+				has_focus_tree = generic_focus
+				has_completed_focus = equipment_effort_2
+			}
+			
+			modifier = {
+				factor = 100
+				has_focus_tree = generic_focus
+				has_completed_focus = equipment_effort_3
+			}
+			modifier = { #This is needed for a lot of tank designs
+				factor = 20.0
+				OR = {
+					tag = GER
+					tag = FRA
+					tag = USA
+					tag = ENG
+					is_ai_mech_mob = yes
+				}
+				date > 1938.5.1
 			}
 		}
 
@@ -1242,7 +1780,6 @@ technologies = {
 			hard_attack = 0.1
 			ap_attack = 0.1
 		}
-
 		category_tank_destroyers = {
 			hard_attack = 0.1
 			ap_attack = 0.05
@@ -1272,10 +1809,36 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
+			
+			modifier = {
+				factor = 0
+				has_war = no
+				is_major = no
+				date < 1941.1.1
+			}
 
 			modifier = {
 				factor = 2
 				date > "1941.1.6"
+			}
+			modifier = { 
+				factor = 500.0
+				OR = {
+					tag = SOV
+					tag = GER
+					tag = ENG
+					tag = USA
+					is_ai_mech_mob = yes
+				}
+				date > 1940.1.1
+			}
+			modifier = { 
+				factor = 500.0
+				OR = {
+					tag = GER
+					tag = USA
+				}
+				date > 1939.1.1
 			}
 			modifier = {
 				tag = JAP
@@ -1287,6 +1850,11 @@ technologies = {
 				}
 				factor = 0.5
 			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1940.1.1
+			}
 			modifier = {
 				factor = 2
 				date > "1942.1.1"
@@ -1295,6 +1863,19 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1943.1.1"
+			}
+
+			modifier = {
+				factor = 100
+				is_ai_tank_minor = yes
+			}
+
+			modifier = {
+				factor = 100
+				OR = {
+					has_completed_focus = SOV_pc_of_mortar_armament
+					has_completed_focus = SOV_soviet_artillery
+				}
 			}
 			modifier = {
 				factor = 10
@@ -1314,12 +1895,10 @@ technologies = {
 		enable_equipment_modules = {
 			tank_high_velocity_cannon_2
 		}
-		
 		category_anti_tank = {
 			hard_attack = 0.1
 			ap_attack = 0.1
 		}
-
 		category_tank_destroyers = {
 			hard_attack = 0.05
 			ap_attack = 0.05
@@ -1346,6 +1925,15 @@ technologies = {
 				factor = 2
 				date > "1942.1.6"
 			}
+			modifier = { 
+				factor = 25.0
+				OR = {	
+					tag = SOV
+					tag = USA
+					is_ai_mech_mob = yes
+				}
+				date > 1940.6.1
+			}
 			modifier = {
 				tag = JAP
 				not = {
@@ -1355,6 +1943,16 @@ technologies = {
 					}
 				}
 				factor = 0.5
+			}
+
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+				OR = {
+					is_ai_tank_minor = yes
+					is_ai_mech_mob = yes
+					tag = USA
+				}
 			}
 			modifier = {
 				factor = 5
@@ -1371,8 +1969,48 @@ technologies = {
 					}
 				}
 			}
-		}
 
+			modifier = {
+				factor = 100
+				OR = {
+					has_completed_focus = SOV_pc_of_mortar_armament
+					has_completed_focus = SOV_soviet_artillery
+				}
+			}
+		}
+		
+		on_research_complete_limit = {
+			tag = SOV
+			NOT = { has_country_flag = light_tank_destroyer_4 }
+			is_ai = yes
+			has_dlc = "No Step Back"
+		}
+		on_research_complete = {
+			hidden_effect = {
+				create_equipment_variant = { 
+					name = "SU-41"
+					type = light_tank_destroyer_chassis_2
+					parent_version = 0
+					allow_without_tech = yes # Tooltip purposes, tech is required anyways
+					modules = {
+						main_armament_slot = tank_high_velocity_cannon_2
+						turret_type_slot = tank_light_fixed_superstructure_turret
+						suspension_type_slot = tank_wheeled_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_diesel_engine
+						special_type_slot_1 = easy_maintenance
+						special_type_slot_2 = extra_ammo_storage
+						special_type_slot_3 = secondary_turret_small_cannon
+						special_type_slot_4 = dozer_blade
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
+					}
+					design_team = mio:SOV_mytishchy_machine_building_plant_organization
+				}
+			}
+		}
 		categories = {
 			artillery
 			cat_anti_tank
@@ -1389,6 +2027,7 @@ technologies = {
 		armored_car = {
 			ap_attack = 0.1
 		}	
+
 		enable_equipment_modules = {
 			tank_high_velocity_cannon_3
 			tank_heavy_cannon_3
@@ -1423,6 +2062,11 @@ technologies = {
 				factor = 0.5
 			}
 			modifier = {
+				factor = 50
+				date > 1941.8.1
+				tag = USA
+			}
+			modifier = {
 				factor = 2
 				date > "1943.1.1"
 			}
@@ -1430,6 +2074,19 @@ technologies = {
 			modifier = {
 				factor = 5
 				date > "1943.1.6"
+			}
+			modifier = { 
+				factor = 25.0
+				tag = SOV
+				date > 1941.1.1
+			}
+
+			modifier = {
+				factor = 100
+				OR = {
+					is_ai_tank_minor = yes
+					is_ai_mech_mob = yes
+				}
 			}
 			modifier = {
 				factor = 10
@@ -1442,8 +2099,19 @@ technologies = {
 					}
 				}
 			}
+
+			modifier = {
+				factor = 100
+				OR = {
+					has_completed_focus = SOV_pc_of_mortar_armament
+					has_completed_focus = SOV_soviet_artillery
+				}
+			}
 		}
 
+		on_research_complete = {
+			add_ideas = anti_tank_equipment_production_3
+		}
 		categories = {
 			artillery
 			cat_anti_tank
@@ -1529,7 +2197,7 @@ technologies = {
 
 		research_cost = 1.5
 
-		start_year = 1940
+		start_year = 1940 #TODO_Manu: Adjust if necessary
 
 		folder = {
 			name = artillery_folder
@@ -1583,7 +2251,7 @@ technologies = {
 
 		research_cost = 1.5
 
-		start_year = 1940
+		start_year = 1940 #TODO_Manu: Adjust if necessary
 
 		folder = {
 			name = artillery_folder
@@ -1622,7 +2290,7 @@ technologies = {
 			}
 		}
 
-		static_anti_air_damage_factor = 0.15
+		static_anti_air_damage_factor = 0.15 #Remember to adjust sp_naval_proximity_fuze_custom_tt when changing value
 		static_anti_air_hit_chance_factor = 0.3 
 
 		path = {
