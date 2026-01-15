@@ -65,7 +65,7 @@ leader_traits = {
 		trait_type = personality_trait
 		
 		modifier = {
-			max_dig_in = 1
+			max_dig_in = 3
 		}
 		
 		non_shared_modifier = {
@@ -383,7 +383,7 @@ leader_traits = {
 		trait_type = personality_trait
 		
 		modifier = {
-			army_artillery_attack_factor = 0.15
+			army_artillery_attack_factor = 0.50
 		}
 		
 		new_commander_weight = {
@@ -697,7 +697,16 @@ leader_traits = {
 				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
 					OR = {
 						original_tag = ITA
+					}
+				}
+			}
+			modifier = {
+				add = 1.5
+				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
+					OR = {
 						original_tag = ETH
+						original_tag = AOI
+						original_tag = AFA
 					}
 				}
 			}
@@ -847,7 +856,9 @@ leader_traits = {
 			modifier = { #ITALY
 				factor = 2
 				FROM = {
-					has_completed_focus = ITA_strengthen_the_blackshirts
+					OR = {
+						has_completed_focus = ITA_strengthen_the_blackshirts
+					}
 				}
 			}
 			modifier = { #ITALY
@@ -920,6 +931,51 @@ leader_traits = {
 		any_parent = {organizer}
 	}
 
+	defensive_doctrine = { 
+		type = field_marshal
+		gain_xp = {
+			always = no # not gainable
+		}
+		cost = 1000
+		field_marshal_modifier = {
+			max_dig_in_factor = 0.30
+		}
+		slot = army_chief
+		specialist_advisor_trait = army_chief_entrenchment_1
+		expert_advisor_trait = army_chief_entrenchment_2
+		genius_advisor_trait = army_chief_entrenchment_3
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				FROM = { 
+					OR = {
+						has_country_flag = mech_brick
+						has_country_flag = mech_god
+						is_ai_mech_mob = yes
+						is_ai_mass_mob = yes
+					}
+				}
+				factor = 1000
+			}
+			modifier = {
+				FROM = { 
+					NOT = {
+						OR = {
+							has_country_flag = mech_brick
+							has_country_flag = mech_god
+							is_ai_mech_mob = yes
+							is_ai_mass_mob = yes
+						}
+					}
+				}
+				factor = 0
+			}
+		}
+		trait_type = assignable_trait
+		mutually_exclusive = offensive_doctrine
+		gui_row = 6
+	}
+
 	offensive_doctrine = { 
 		type = field_marshal
 		gain_xp = {
@@ -938,57 +994,23 @@ leader_traits = {
 		genius_advisor_trait = army_chief_offensive_3
 		
 		ai_will_do = {
-			factor = 1
+			factor = 10
+			modifier = {
+				FROM = { 
+					OR = {
+						has_country_flag = mech_brick
+						has_country_flag = mech_god
+						is_ai_mech_mob = yes
+						is_ai_mass_mob = yes
+					}
+				}
+				factor = 0
+			}
 		}
 		trait_type = assignable_trait
 		mutually_exclusive = defensive_doctrine
 		gui_row = 5
 
-	}
-
-	defensive_doctrine = { 
-		type = field_marshal
-		gain_xp = {
-			always = no # not gainable
-		}
-		cost = 1000
-		field_marshal_modifier = {
-			max_dig_in_factor = 0.30
-		}
-		slot = army_chief
-		specialist_advisor_trait = army_chief_entrenchment_1
-		expert_advisor_trait = army_chief_entrenchment_2
-		genius_advisor_trait = army_chief_entrenchment_3
-		ai_will_do = {
-			factor = 1
-		}
-		trait_type = assignable_trait
-		mutually_exclusive = offensive_doctrine
-		gui_row = 6
-	}
-	
-	fast_planner = { 
-		type = field_marshal
-		gain_xp = {
-			always = no # not gainable
-		}
-		cost = 1000
-		field_marshal_modifier = {
-			planning_speed = 0.25
-		}
-		
-		slot = army_chief
-		specialist_advisor_trait = army_chief_reform_1
-		expert_advisor_trait = army_chief_reform_2
-		genius_advisor_trait = army_chief_reform_3
-		
-		ai_will_do = {
-			factor = 1
-		}
-		gui_row = 1
-		any_parent = { organizer }
-		mutually_exclusive = thorough_planner
-		trait_type = assignable_trait
 	}
 
 
@@ -1009,10 +1031,38 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				FROM = { has_doctrine = grand_battleplan }
+				factor = 100
+			}
 		}
 		gui_row = 2
 		any_parent = { organizer }
 		mutually_exclusive = fast_planner
+		trait_type = assignable_trait
+	}
+	
+	fast_planner = { 
+		type = field_marshal
+		gain_xp = {
+			always = no # not gainable
+		}
+		cost = 1000
+		field_marshal_modifier = {
+			planning_speed = 0.25
+		}
+		
+		slot = army_chief
+		specialist_advisor_trait = army_chief_reform_1
+		expert_advisor_trait = army_chief_reform_2
+		genius_advisor_trait = army_chief_reform_3
+		
+		ai_will_do = {
+			factor = -500
+		}
+		gui_row = 1
+		any_parent = { organizer }
+		mutually_exclusive = thorough_planner
 		trait_type = assignable_trait
 	}
 
@@ -1092,7 +1142,7 @@ leader_traits = {
 		genius_advisor_trait = army_chief_organizational_3
 		
 		ai_will_do = {
-			factor = 1
+			factor = -500
 		}
 		trait_type = assignable_trait
 
@@ -1115,7 +1165,7 @@ leader_traits = {
 		genius_advisor_trait = army_chief_morale_3
 		
 		ai_will_do = {
-			factor = 1
+			factor = -600
 		}
 		trait_type = assignable_trait
 		gui_row = 8
@@ -1186,7 +1236,7 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = cavalary_ratio_over_40
 		
-		cost = 1000
+		cost = 500
 		modifier = {
 			cavalry_attack_factor = 0.12
 			motorized_attack_factor = 0.12
@@ -1214,7 +1264,7 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = infantry_ratio_over_80
 		
-		cost = 1000
+		cost = 700
 		modifier = {
 			army_infantry_defence_factor = 0.13
 		}
@@ -1426,7 +1476,7 @@ leader_traits = {
 				has_combat_modifier = amphibious_attack
 			}
 		}
-		cost = 700
+		cost = 500
 		modifier = {
 			out_of_supply_factor = -0.25
 		}
@@ -1638,7 +1688,7 @@ leader_traits = {
 		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
 		
 		ai_will_do = {
-			factor = 1
+			factor = 15
 		}
 		
 		trait_type = assignable_trait
@@ -1669,7 +1719,7 @@ leader_traits = {
 		genius_advisor_trait = army_CombinedArms_3
 		
 		ai_will_do = {
-			factor = 1
+			factor = 2000
 		}
 		
 		trait_type = assignable_trait
@@ -1694,7 +1744,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = -500
 		}
 		
 		trait_type = assignable_trait
@@ -1729,6 +1779,10 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				FROM = { tag = GER }
+				factor = 50
+			}
 		}
 		
 		gui_row = 4
@@ -1749,7 +1803,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor =  -500
 		}
 		
 		trait_type = assignable_trait
@@ -1757,27 +1811,6 @@ leader_traits = {
 		gui_row = 5
 		any_parent = { trait_engineer }
 		mutually_exclusive = fortress_buster
-	}
-	
-	infantry_expert = { 
-		type = corps_commander
-		gain_xp = {
-			always = no # not gainable
-		}
-		cost = 500
-		modifier = {
-			army_infantry_attack_factor = 0.10
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-
-		mutually_exclusive = ambusher
-		
-		trait_type = assignable_trait
-		any_parent = { infantry_leader }
-		gui_row = 6
 	}
 	
 	ambusher = { 
@@ -1793,6 +1826,43 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				FROM = { 
+					OR = {
+						has_country_flag = mech_brick
+						has_country_flag = mech_god
+						is_ai_mech_mob = yes
+						is_ai_mass_mob = yes
+					}
+				}
+				factor = 1000
+			}
+			modifier = {
+				OR = {
+					FROM = { is_historical_focus_on = no }
+					FROM = { has_offensive_war = yes }
+				}
+				factor = 0
+			}
+			modifier = {
+				NOT = {
+					FROM = {
+						OR = {
+							AND = {
+								OR = {
+									is_ai_mass_mob = yes
+									is_ai_mech_mob = yes
+									has_country_flag = mech_brick
+									has_country_flag = mech_god
+								}
+								has_offensive_war = no
+								is_historical_focus_on = yes
+							}
+						}
+					}
+				}
+				factor = -50
+			}
 		}
 		
 		mutually_exclusive = infantry_expert
@@ -1801,6 +1871,40 @@ leader_traits = {
 		any_parent = { infantry_leader }
 		
 		gui_row = 7
+	}
+	
+	infantry_expert = { 
+		type = corps_commander
+		gain_xp = {
+			always = no # not gainable
+		}
+		cost = 500
+		modifier = {
+			army_infantry_attack_factor = 0.10
+		}
+		
+		ai_will_do = {
+			factor = 5000
+			modifier = {
+				FROM = {
+					OR = {
+						is_ai_mass_mob = yes
+						is_ai_mech_mob = yes
+						has_country_flag = mech_brick
+						has_country_flag = mech_god
+					}
+					has_offensive_war = no
+					is_historical_focus_on = yes
+				}
+				factor = -1
+			}
+		}
+
+		mutually_exclusive = ambusher
+		
+		trait_type = assignable_trait
+		any_parent = { infantry_leader }
+		gui_row = 6
 	}
 	invader_ii = { 
 		type = corps_commander
@@ -1815,7 +1919,7 @@ leader_traits = {
 		enable_ability = faster_naval_invasion_planning
 		
 		ai_will_do = {
-			factor = 1
+			factor = -500
 		}
 		
 		trait_type = assignable_trait
@@ -1834,7 +1938,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = -500
 		}
 		
 		trait_type = assignable_trait
@@ -1853,7 +1957,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = -600
 		}
 		
 		enable_ability = probing_attack
@@ -1877,7 +1981,7 @@ leader_traits = {
 		enable_ability = glider_planes
 		
 		ai_will_do = {
-			factor = 1
+			factor = -600
 		}
 		
 		trait_type = assignable_trait
@@ -1900,6 +2004,10 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				FROM = { is_ai_mass_mob = yes }
+				factor = 501
+			}
 		}
 		
 		slot = high_command
@@ -1975,7 +2083,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = -500
 		}
 		
 		trait_type = assignable_trait
@@ -2155,7 +2263,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = 500
 		}
 		
 		slot = navy_chief
@@ -2179,7 +2287,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = -700
 		}
 		
 		trait_type = assignable_trait
@@ -2217,7 +2325,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		any_parent = { seawolf spotter fleet_protector superior_tactician } 
+		any_parent = { seawolf spotter fleet_protector superior_tactician }
 		mutually_exclusive = silent_hunter
 		
 		gui_row = 3
@@ -2231,7 +2339,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = -700
 		}
 		
 		trait_type = assignable_trait
@@ -2305,7 +2413,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = -900
 		}
 		
 		trait_type = assignable_trait
@@ -2344,7 +2452,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = -900
 		}
 		
 		trait_type = assignable_trait
@@ -2405,7 +2513,7 @@ leader_traits = {
 		}
 		
 		ai_will_do = {
-			factor = 0
+			factor = -900
 		}
 		
 		trait_type = assignable_trait
@@ -2466,7 +2574,7 @@ leader_traits = {
 		}
 				
 		ai_will_do = {
-			factor = 0
+			factor = -900
 		}
 		
 		trait_type = assignable_trait
@@ -3934,7 +4042,5 @@ leader_traits = {
 		}
 		
 	}
-
-
 
 }
