@@ -3,6 +3,13 @@ equipments = {
 	railway_gun_equipment = {
 		year = 1934
 
+		can_be_produced = {
+			OR = {
+				NOT = { is_special_project_completed = sp:sp_land_super_heavy_railway_gun }
+				is_ai = no
+			}
+		}
+
 		is_archetype = yes
 		picture = archetype_artillery_equipment		
 		type = railway_gun

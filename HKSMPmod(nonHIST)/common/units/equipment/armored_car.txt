@@ -4,6 +4,13 @@ equipments = {
 
 	armored_car_equipment = {
 		year = 1939
+
+		can_be_produced = {
+			OR = {
+				original_tag = SWE
+				is_ai = no
+			}
+		}
 	
 		is_archetype = yes
 		is_buildable = no
