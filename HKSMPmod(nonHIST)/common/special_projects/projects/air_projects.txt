@@ -36,6 +36,9 @@ sp_air_bouncing_bomb = {
 				FROM = { has_tech = strategic_bomber2 }
 			}
 		}
+		hidden_trigger = {
+			FROM = { is_ai = no }
+		}
 	}
 
 	breakthrough_cost = {
@@ -211,6 +214,9 @@ sp_air_earthshaker_bomb = {
 			FROM = {
 				has_tech = strategic_bomber2
 			}
+		}
+		hidden_trigger = {
+			FROM = { is_ai = no }
 		}
 	}
 

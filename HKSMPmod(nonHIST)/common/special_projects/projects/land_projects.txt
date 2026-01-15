@@ -1,4 +1,91 @@
-                                                                                                                                          
+ 
+  #####                                                                       #                                                         #     #                                                    
+ #     #  #####   ######   ####   #    ##    #       #   ####   #####        # #    #####   #    #   ####   #####   ######  #####       #     #  ######  #    #  #   ####   #       ######   ####  
+ #        #    #  #       #    #  #   #  #   #       #  #         #         #   #   #    #  ##  ##  #    #  #    #  #       #    #      #     #  #       #    #  #  #    #  #       #       #      
+  #####   #    #  #####   #       #  #    #  #       #   ####     #        #     #  #    #  # ## #  #    #  #    #  #####   #    #      #     #  #####   ######  #  #       #       #####    ####  
+       #  #####   #       #       #  ######  #       #       #    #        #######  #####   #    #  #    #  #####   #       #    #       #   #   #       #    #  #  #       #       #            # 
+ #     #  #       #       #    #  #  #    #  #       #  #    #    #        #     #  #   #   #    #  #    #  #   #   #       #    #        # #    #       #    #  #  #    #  #       #       #    # 
+  #####   #       ######   ####   #  #    #  ######  #   ####     #        #     #  #    #  #    #   ####   #    #  ######  #####          #     ######  #    #  #   ####   ######  ######   ####  
+                                                                                                                                                                                                
+
+sp_land_military_engineering_vehicles = {
+	specialization = specialization_land
+
+	project_tags = sp_tag_tank
+	
+	available = {
+		FROM = {
+			has_tech = tech_engineers
+		}
+	}
+	
+	prototype_time = sp_time.prototype.short
+
+	complexity = sp_complexity.small
+
+	breakthrough_cost = {
+		specialization_land = 1
+	}
+	
+	project_output = {
+		enable_equipments = {
+			armored_support_vehicle_1
+		}
+
+		enable_subunits = {
+			assault_engineer
+		}
+
+		country_effects = {
+			if = {
+				limit = {
+					has_dlc = "Gotterdammerung"
+				}
+				SP_create_variant_based_on_country_assault_engineer_S = yes
+			}
+
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_TECH
+				TECH = sp_armored_engineer_tech
+			}
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_TECH
+				TECH = sp_armored_maintenance_tech
+			}
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_TECH
+				TECH = sp_armored_signal_tech
+			}
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_TECH
+				TECH = sp_armored_motorized_military_police_tech
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_land_generic_reward_scientist_xp_1
+		sp_land_generic_reward_scientist_xp_2
+		sp_land_generic_reward_scientist_xp_3
+		sp_land_generic_reward_army_xp_1
+		sp_land_generic_reward_army_xp_2
+		sp_land_generic_reward_army_xp_3
+		sp_land_generic_reward_major_progress_1
+		sp_land_generic_reward_major_progress_2
+		sp_land_generic_reward_major_progress_3
+		sp_land_generic_reward_test_failure_1
+		sp_land_generic_reward_test_failure_2
+		sp_land_generic_reward_test_failure_3
+		sp_land_generic_reward_armor_tech_1
+		sp_land_generic_reward_armor_tech_2
+		sp_land_generic_reward_armor_tech_3
+		sp_land_generic_reward_engine_bonus_1
+		sp_land_generic_reward_engine_bonus_2
+		sp_land_generic_reward_engine_bonus_3
+		sp_land_generic_reward_resource_scarcity
+	}
+}
+                                                                                                                                         
  ######  #         ##    #    #  ######  #####  #    #  #####    ####   #    #  ######  #####       #####    ##    #    #  #    #   ####  
  #       #        #  #   ##  ##  #         #    #    #  #    #  #    #  #    #  #       #    #        #     #  #   ##   #  #   #   #      
  #####   #       #    #  # ## #  #####     #    ######  #    #  #    #  #    #  #####   #    #        #    #    #  # #  #  ####     ####  
@@ -15,7 +102,7 @@ sp_land_flamethrower_tank = {
 	project_tags = sp_tag_tank
 
 	ai_will_do = {
-		base = 1
+		base = 5
 	}
 
 	allowed = {
@@ -104,94 +191,6 @@ sp_land_flamethrower_tank = {
 		sp_land_generic_reward_test_failure_1
 		sp_land_generic_reward_test_failure_2
 		sp_land_generic_reward_test_failure_3
-		sp_land_generic_reward_resource_scarcity
-	}
-}
-
-
-  #####                                                                       #                                                         #     #                                                    
- #     #  #####   ######   ####   #    ##    #       #   ####   #####        # #    #####   #    #   ####   #####   ######  #####       #     #  ######  #    #  #   ####   #       ######   ####  
- #        #    #  #       #    #  #   #  #   #       #  #         #         #   #   #    #  ##  ##  #    #  #    #  #       #    #      #     #  #       #    #  #  #    #  #       #       #      
-  #####   #    #  #####   #       #  #    #  #       #   ####     #        #     #  #    #  # ## #  #    #  #    #  #####   #    #      #     #  #####   ######  #  #       #       #####    ####  
-       #  #####   #       #       #  ######  #       #       #    #        #######  #####   #    #  #    #  #####   #       #    #       #   #   #       #    #  #  #       #       #            # 
- #     #  #       #       #    #  #  #    #  #       #  #    #    #        #     #  #   #   #    #  #    #  #   #   #       #    #        # #    #       #    #  #  #    #  #       #       #    # 
-  #####   #       ######   ####   #  #    #  ######  #   ####     #        #     #  #    #  #    #   ####   #    #  ######  #####          #     ######  #    #  #   ####   ######  ######   ####  
-                                                                                                                                                                                                
-
-sp_land_military_engineering_vehicles = {
-	specialization = specialization_land
-
-	project_tags = sp_tag_tank
-	
-	available = {
-		FROM = {
-			has_tech = tech_engineers
-		}
-	}
-	
-	prototype_time = sp_time.prototype.short
-
-	complexity = sp_complexity.small
-
-	breakthrough_cost = {
-		specialization_land = 1
-	}
-	
-	project_output = {
-		enable_equipments = {
-			armored_support_vehicle_1
-		}
-
-		enable_subunits = {
-			assault_engineer
-		}
-
-		country_effects = {
-			if = {
-				limit = {
-					has_dlc = "Gotterdammerung"
-				}
-				SP_create_variant_based_on_country_assault_engineer = yes
-			}
-
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_engineer_tech
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_maintenance_tech
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_signal_tech
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_motorized_military_police_tech
-			}
-		}
-	}
-
-	generic_prototype_rewards = {
-		sp_land_generic_reward_scientist_xp_1
-		sp_land_generic_reward_scientist_xp_2
-		sp_land_generic_reward_scientist_xp_3
-		sp_land_generic_reward_army_xp_1
-		sp_land_generic_reward_army_xp_2
-		sp_land_generic_reward_army_xp_3
-		sp_land_generic_reward_major_progress_1
-		sp_land_generic_reward_major_progress_2
-		sp_land_generic_reward_major_progress_3
-		sp_land_generic_reward_test_failure_1
-		sp_land_generic_reward_test_failure_2
-		sp_land_generic_reward_test_failure_3
-		sp_land_generic_reward_armor_tech_1
-		sp_land_generic_reward_armor_tech_2
-		sp_land_generic_reward_armor_tech_3
-		sp_land_generic_reward_engine_bonus_1
-		sp_land_generic_reward_engine_bonus_2
-		sp_land_generic_reward_engine_bonus_3
 		sp_land_generic_reward_resource_scarcity
 	}
 }
@@ -953,6 +952,14 @@ sp_land_super_heavy_howitzer = {
 		FROM = {
 			has_tech = gw_artillery
 		}
+		hidden_trigger = {
+			FROM = { 
+				OR = {
+					is_ai = no 
+					has_doctrine = superior_firepower
+				}
+			}
+		}
 	}
 	
 	prototype_time = sp_time.prototype.short
@@ -1331,7 +1338,7 @@ sp_land_multi_charge_large_caliber_gun = {
 					BUILDING_DESCRIPTION = mega_gun_emplacement_desc
 					ICON_FRAME = 24
 				}
-				#hidden_effect = { #MM: Uncomment this if we get code support for implementing small scale of V-3
+				#hidden_effect = { #TODO_Manu: Uncomment this if we get code support for implementing small scale of V-3
 				#	if = {
 				#		limit = {
 				#			FROM = { has_project_flag = multi_charge_large_caliber_gun_small_size_flag }
