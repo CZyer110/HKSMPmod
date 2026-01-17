@@ -2604,7 +2604,7 @@
 				hidden_trigger = { is_ai = yes }
 			}
 			hidden_trigger = {  
-				NOT = { has_global_flag = mp_difficulty }
+				is_ai = no
 				NOT = { has_global_flag = swiss_gold_banned }
 				OR = {
 					NOT = { has_global_flag = disabled_equipment_funnelling }
@@ -3334,7 +3334,7 @@
 		available = {
 			democratic > 0.50
 			hidden_trigger = {  
-				NOT = { has_global_flag = mp_difficulty }
+				is_ai = no
 				NOT = { has_global_flag = swiss_gold_banned }
 				if = {
 					limit = {
