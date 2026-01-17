@@ -11,6 +11,14 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
+		trigger = {
+			NOT = { has_global_flag = mp_difficulty }
+		}
+		name = LSM_startup.76.a
+		custom_effect_tooltip = startup_76_tt_b
+	}
+	
+	option = {
 		name = LSM_startup.76.b
 		trigger = {
 			tag = GER

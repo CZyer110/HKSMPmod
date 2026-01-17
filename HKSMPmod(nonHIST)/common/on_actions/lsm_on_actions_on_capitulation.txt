@@ -805,8 +805,8 @@ on_actions = {
 						days > 1
 					}
 					OR = {
-						difficulty < 3
-						difficulty > 3
+						difficulty < 2
+						difficulty > 2
 					}
 				}
 				hidden_effect = {
@@ -843,8 +843,8 @@ on_actions = {
 					date < 1939.3.1
 					is_historical_focus_on = yes
 					OR = {
-						difficulty < 3
-						difficulty > 3
+						difficulty < 2
+						difficulty > 2
 					}
 					has_global_flag = {
 						flag = SOV_has_early_war_2

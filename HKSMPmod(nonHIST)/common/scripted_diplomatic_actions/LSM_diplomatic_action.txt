@@ -104,8 +104,8 @@ scripted_diplomatic_actions = {
 			}
 			if = {
 				limit = { 
-					difficulty > 2 
-					difficulty < 4
+					difficulty > 1 
+					difficulty < 3
 				}
 				is_faction_leader = yes
 			}
@@ -148,8 +148,8 @@ scripted_diplomatic_actions = {
 			}
 			if = {
 				limit = { 
-					difficulty > 2 
-					difficulty < 4 
+					difficulty > 1 
+					difficulty < 3 
 				}
 				is_faction_leader = yes
 			}
@@ -186,8 +186,8 @@ scripted_diplomatic_actions = {
 		visible = {
 			if = {
 				limit = {  
-					difficulty > 2 
-					difficulty < 4 
+					difficulty > 1 
+					difficulty < 3 
 				}
 				is_faction_leader = yes
 			}
@@ -230,8 +230,8 @@ scripted_diplomatic_actions = {
 		visible = {
 			if = {
 				limit = {  
-					difficulty > 2 
-					difficulty < 4
+					difficulty > 1 
+					difficulty < 3
 				}
 				is_faction_leader = yes
 			}

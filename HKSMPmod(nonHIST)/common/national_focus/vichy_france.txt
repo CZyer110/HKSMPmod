@@ -469,8 +469,8 @@
 					any_enemy_country = { is_ai = no }
 				}
 				OR = {
-					difficulty < 3
-					difficulty > 3
+					difficulty < 2
+					difficulty > 2
 				}
 			}
 		}

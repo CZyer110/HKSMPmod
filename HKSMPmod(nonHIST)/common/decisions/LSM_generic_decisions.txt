@@ -22231,8 +22231,8 @@ the_more_flavour_stuffs_decision = {
 			is_ai = no
 			NOT = { has_global_flag = flavour_enabled_flag }
 			OR = {
-				difficulty < 3
-				difficulty > 3
+				difficulty < 2
+				difficulty > 2
 			}
 		}
 

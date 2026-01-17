@@ -1,4 +1,4 @@
-﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_POLITICAL}
 ### search_filters = {FOCUS_FILTER_RESEARCH}
 ### search_filters = {FOCUS_FILTER_INDUSTRY}
 ### search_filters = {FOCUS_FILTER_STABILITY}
@@ -5485,7 +5485,15 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
-				limit = { difficulty < 3 }
+				limit = { 
+					OR = {
+						difficulty < 2 
+						AND = {
+							difficulty < 4
+							difficulty > 2
+						}
+					}
+				}
 				add_tech_bonus = {
 					name = ITA_citta_dell_aria
 					bonus = 0.50
