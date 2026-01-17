@@ -1,0 +1,68 @@
+#action_type = {
+#	available = {
+#		#trigger to check if action available
+#	}
+#	
+#	weight = {
+#		base = 1
+#		modifier = {
+#			add = 10
+#		}
+#	}
+#	
+#	max_amount = 3
+#	duration = 10
+#	
+#	effect = {
+#	
+#	}
+#
+#	state_modifier = {
+#	
+#	}
+#
+#	#if defined, the game will show up an alert text on map when resistance activity trigerred
+#	alert_text = loc
+#}
+
+militia_clash_resistance = {
+	available = {
+		is_core_of = ENG
+		has_dynamic_modifier = { modifier = ENG_clash_with_militia }
+	}
+
+	weight = {
+		base = 50
+		modifier = {
+			occupation_law = ENG_brutally_oppressive_occupation
+			add = 950
+		}
+	}
+
+	effect = {
+		add_manpower = -12000
+		if = {
+			limit = {
+				check_variable = { british_resistance_brutalised_flag < 1 }
+			}
+			set_variable = { british_resistance_brutalised_flag = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { british_resistance_brutalised_flag > 0 }
+			}
+			add_to_variable = { british_resistance_brutalised_flag = 1 }
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = { british_resistance_brutalised_flag > 99 } #1,200,000 Britons dead already
+					state_population_k < 100 #not worth our concern any longer
+				}
+			}
+			remove_dynamic_modifier = { modifier = ENG_clash_with_militia }
+		}
+	}
+
+	alert_text = clash_with_british_militia
+}

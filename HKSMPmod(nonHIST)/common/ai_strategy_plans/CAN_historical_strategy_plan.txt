@@ -1,0 +1,257 @@
+CAN_historical = {
+	name = "Canadian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = CAN
+		has_dlc = "Together for Victory"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = CAN_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = CAN_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = CAN_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		NOT = { has_country_flag = britain_enforced_our_loyalty }
+		OR = {
+			ENG = { has_completed_focus = ENG_a_change_in_course }
+			NOT = { ENG = { has_government = democratic } }
+			AST = { is_ai = yes }
+		}
+	}
+
+	ai_national_focuses = {
+		CAN_halifax_shipyards
+		CAN_rowell_sirois_commission	
+		CAN_army_modernization
+		CAN_cmp_truck
+		CAN_rcaf_station_borden							#1930s
+		CAN_we_have_the_hurricane
+		CAN_shadow_factories
+		
+		CAN_the_plan
+		CAN_strengthen_the_commonwealth_ties
+		CAN_montreal_laboratory_collaboration		#1941
+		CAN_crown_corporations
+		CAN_national_housing_act
+
+		CAN_defence_of_canada_regulations
+		CAN_dollar_a_year_men
+		CAN_canada_pacific_railway
+		CAN_maritime_colonial_railway
+		CAN_national_resources_mobilization_act
+
+		CAN_fund_the_national_research_council
+		CAN_wartime_prices_and_trade_board
+		CAN_canada_wheat_board
+		CAN_mine_the_shield
+		CAN_alberta_coal_towns
+	
+		CAN_national_steel_car
+		CAN_war_bonds
+		CAN_department_of_munitions_and_supply
+		CAN_bits_and_pieces_program
+		CAN_retool_angus_shops
+		
+		CAN_john_inglis_and_company
+		CAN_victory_aircraft_limited
+		CAN_polymer_corporation
+		CAN_if_day
+		CAN_defense_research_grants
+		
+		CAN_war_fueled_economy
+		CAN_commit_to_the_war
+		CAN_send_in_the_zombies
+		CAN_long_branch_arsenal
+		CAN_forced_quebec_conscription
+		CAN_canadian_citizenship_act
+
+		CAN_imperial_oil
+		CAN_camp_x
+		CAN_supply_the_empire
+		CAN_aluminium_company_of_canada
+		CAN_turner_valley_oilfield
+
+		CAN_dominion_rifle_association
+
+		CAN_canadian_infantry_corps
+		CAN_royal_regiment_of_canadian_artillery
+		CAN_red_deer_training_camp
+		CAN_independent_command
+		CAN_destroyer_effort
+		CAN_light_cruiser_effort
+		CAN_escort_fleet
+		CAN_trade_fleet
+		CAN_united_shipyards
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+		army_commando_2 = 2
+		army_armor_2 = 2
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+CAN_historical_AST_AI = {
+	name = "Canadian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = CAN
+		has_dlc = "Together for Victory"
+	}
+	enable = {
+		AST = { is_ai = yes }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = CAN_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = CAN_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = CAN_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		NOT = { has_country_flag = britain_enforced_our_loyalty }
+		OR = {
+			ENG = { has_completed_focus = ENG_a_change_in_course }
+			NOT = { ENG = { has_government = democratic } }
+			AST = { is_ai = no }
+		}
+	}
+
+	ai_national_focuses = {
+		CAN_halifax_shipyards
+		CAN_rowell_sirois_commission	
+		CAN_army_modernization
+		CAN_cmp_truck
+		CAN_crown_corporations
+		CAN_national_housing_act
+		CAN_dollar_a_year_men
+		CAN_a_motorized_army
+		CAN_canada_pacific_railway
+		CAN_maritime_colonial_railway
+		CAN_strengthen_the_commonwealth_ties
+		CAN_montreal_laboratory_collaboration		#1941
+		CAN_shadow_factories
+		
+		CAN_defence_of_canada_regulations
+		CAN_wartime_prices_and_trade_board
+		CAN_canada_wheat_board
+		CAN_national_resources_mobilization_act
+		CAN_fund_the_national_research_council
+		CAN_mine_the_shield
+		CAN_alberta_coal_towns
+		CAN_national_steel_car
+
+		CAN_war_bonds
+		CAN_department_of_munitions_and_supply
+		CAN_bits_and_pieces_program
+		CAN_retool_angus_shops
+		
+		CAN_john_inglis_and_company
+		CAN_victory_aircraft_limited
+		CAN_polymer_corporation
+		CAN_if_day
+		CAN_defense_research_grants
+		
+		CAN_war_fueled_economy
+		CAN_commit_to_the_war
+		CAN_send_in_the_zombies
+		CAN_long_branch_arsenal
+		CAN_forced_quebec_conscription
+		CAN_canadian_citizenship_act
+
+		CAN_imperial_oil
+		CAN_camp_x
+		CAN_supply_the_empire
+		CAN_aluminium_company_of_canada
+		CAN_turner_valley_oilfield
+
+		CAN_dominion_rifle_association
+
+		CAN_canadian_infantry_corps
+		CAN_royal_regiment_of_canadian_artillery
+		CAN_red_deer_training_camp
+		CAN_independent_command
+		CAN_destroyer_effort
+		CAN_light_cruiser_effort
+		CAN_escort_fleet
+		CAN_trade_fleet
+		CAN_united_shipyards
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+SIA_we_are_friends_of_the_japanese = {
+	reversed = yes
+	allowed = {
+		original_tag = SIA
+	}
+	enable = {
+		is_historical_focus_on = yes
+		JAP = { 
+			has_government = fascism 
+			is_faction_leader = yes
+		}
+		SIA = {
+			is_in_faction = no
+		}
+		capital_scope = { NOT = { is_on_continent = asia } }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = "SIA"
+		value = -9999
+	}
+}

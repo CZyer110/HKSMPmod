@@ -1,0 +1,385 @@
+SWE_historical_plan = {
+	name = "Swedish Historical Plan"
+	desc = ""
+
+	allowed = {
+		SWE_AAT = yes
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = SWE_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = SWE_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = SWE_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+			has_global_flag = SOV_has_early_war
+			AND = {
+				GER_is_oppose_hitler = yes
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = SWE_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		SWE_the_aland_question
+		
+		#1936
+		SWE_defense_act
+		SWE_urbanization
+		SWE_hygenic_housing
+		SWE_work_projects_for_the_unemployed
+		SWE_radiojanst
+	
+		SWE_defense_above_all
+		SWE_deep_mining_complexes
+		SWE_privately_managed_holidays
+		SWE_saltsjobaden_agreement
+		SWE_research_slot_1
+		
+		SWE_infrastructure
+		SWE_license_skf_ball_bearings
+		SWE_continue_the_second_industrial_revolution
+		SWE_coalition_war_cabinet
+		SWE_winter_drill
+
+		SWE_varnplikt
+		SWE_form_rfsu
+		SWE_totalforsvar
+		SWE_government_weapons_contract
+		SWE_standardize_equipment
+
+		SWE_husqvarna_vapenfabrik
+		SWE_bofors_fly_swatter
+		SWE_allow_landsverk_to_operate
+		SWE_volvo
+		SWE_form_saab
+
+		SWE_norma_projektilfabrik
+		SWE_as_the_barometer_falls
+		SWE_defense_in_depth
+		SWE_hedgehog_defense
+		SWE_beneath_sticks_and_stones
+		SWE_end_the_fubkrieg
+		SWE_research_slot_2
+		SWE_mobilization_of_society
+		
+		SWE_bofors_anti_tank_gun
+		SWE_gotaverken
+		SWE_lindholmens_varv
+		SWE_kockums
+		SWE_retool_dockyards
+		SWE_train_the_sheltered
+		SWE_per_albin_bus
+		SWE_rationing
+		SWE_jagartrupper
+		SWE_lottakaren
+		SWE_hemvarnet
+		SWE_swedish_shooting_movement
+	
+		SWE_the_cross_we_bear
+		SWE_the_threat_of_the_iron_curtain
+		
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		SWE_ivar_holmquist = 5.0
+		SWE_ernst_linder = 3.0
+		SWE_archibald_douglas = 3.0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+SWE_historical_plan_2 = {
+	name = "Swedish Historical Plan"
+	desc = "The Soviet Union is a big threat to us"
+
+	allowed = {
+		SWE_AAT = yes
+	}
+	enable = {
+		has_global_flag = SOV_has_early_war
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = SWE_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = SWE_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = SWE_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+			AND = {
+				GER_is_oppose_hitler = yes
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = SWE_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		SWE_defense_act
+		SWE_urbanization
+		SWE_hygenic_housing
+		SWE_work_projects_for_the_unemployed
+		SWE_radiojanst
+	
+		SWE_defense_above_all
+		SWE_the_old_enemy_stirs 							#As soon as possible
+		SWE_prevent_a_red_dictatorship 						#As soon as possible
+		SWE_revoke_anti_militia_laws 						#As soon as possible
+		SWE_appeal_for_support 								#As soon as possible
+		SWE_unify_the_national_socialist_movement 			#As soon as possible
+		SWE_organize_a_putsch 								#As soon as possible
+		SWE_restoring_order 								#As soon as possible
+		SWE_mythologize_swedish_history 					#As soon as possible
+		SWE_join_the_anti_soviet_pact 						#As soon as possible
+
+		SWE_deep_mining_complexes
+		SWE_paid_holidays
+		SWE_reject_saltsjobaden
+		SWE_research_slot_1
+		
+		SWE_infrastructure
+		SWE_license_skf_ball_bearings
+
+		SWE_narvik_crisis 									#As soon as possible
+		SWE_united_kingdoms_of_sweden_and_norway 			#As soon as possible
+		SWE_bornholm_crisis 								#As soon as possible
+		SWE_demand_atlantic_resource_rights 				#As soon as possible
+		SWE_danish_alignment 								#As soon as possible
+		SWE_the_aland_issue 								#As soon as possible
+		SWE_demand_demilitarization_of_finnish_border 		#As soon as possible
+		SWE_finnish_integration 							#As soon as possible
+		SWE_greater_nordic_reich
+
+		SWE_coalition_war_cabinet
+		SWE_winter_drill
+
+		SWE_varnplikt
+		SWE_form_rfsu
+		SWE_totalforsvar
+		SWE_government_weapons_contract
+		SWE_standardize_equipment
+
+		SWE_husqvarna_vapenfabrik
+		SWE_bofors_fly_swatter
+		SWE_allow_landsverk_to_operate
+		SWE_volvo
+		SWE_form_saab
+		SWE_continue_the_second_industrial_revolution
+
+		SWE_norma_projektilfabrik
+		SWE_as_the_barometer_falls
+		SWE_defense_in_depth
+		SWE_hedgehog_defense
+		SWE_beneath_sticks_and_stones
+		SWE_end_the_fubkrieg
+		SWE_research_slot_2
+		SWE_mobilization_of_society
+		
+		SWE_bofors_anti_tank_gun
+		SWE_gotaverken
+		SWE_lindholmens_varv
+		SWE_kockums
+		SWE_retool_dockyards
+		SWE_train_the_sheltered
+		SWE_per_albin_bus
+		SWE_rationing
+		SWE_jagartrupper
+		SWE_lottakaren
+		SWE_hemvarnet
+		SWE_swedish_shooting_movement
+	
+		SWE_the_cross_we_bear
+		SWE_the_threat_of_the_iron_curtain
+		
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		SWE_ivar_holmquist = 5.0
+		SWE_ernst_linder = 3.0
+		SWE_archibald_douglas = 3.0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+SWE_historical_plan_3 = {
+	name = "Swedish Historical Plan"
+	desc = "The Soviet Union is a big threat to us"
+
+	allowed = {
+		SWE_AAT = yes
+	}
+	enable = {
+		AND = {
+			GER_is_oppose_hitler = yes
+			is_historical_focus_on = yes 
+			has_game_rule = {
+				rule = SWE_AI_BEHAVIOR
+				option = DEFAULT
+			}
+		}
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		
+		SWE_the_old_enemy_stirs #As soon as possible
+		SWE_the_nordic_defense_council 
+		SWE_central_nordic_army_command
+		SWE_standardize_equipment #As soon as possible
+		SWE_nordic_defense_fleet
+		SWE_nordic_centralized_air_command
+		SWE_decentralized_nordic_volunteer_group
+		SWE_cement_control_of_the_baltic
+		SWE_neither_death_nor_dishonor
+		SWE_centralized_military_aid
+		SWE_merge_army_complexes
+		SWE_nordic_protection_complex
+		SWE_the_cross_we_bear
+
+		SWE_the_threat_of_the_iron_curtain
+		SWE_extend_the_time_of_preparedness
+		SWE_karnvapenprogram
+		SWE_war_games
+		SWE_the_lion_of_the_north_rises
+
+		SWE_as_the_barometer_falls #As soon as possible
+		SWE_defense_in_depth #As soon as possible
+		SWE_hedgehog_defense #As soon as possible
+		SWE_beneath_sticks_and_stones #As soon as possible
+		SWE_end_the_fubkrieg #As soon as possible
+
+		SWE_defense_act
+		SWE_urbanization
+		SWE_hygenic_housing
+		SWE_radiojanst
+		SWE_work_projects_for_the_unemployed
+		 
+		#1937
+		SWE_defense_above_all
+		SWE_privately_managed_holidays
+		SWE_reject_saltsjobaden
+		SWE_research_slot_1
+		SWE_license_skf_ball_bearings
+		SWE_government_weapons_contract
+		SWE_sieze_landsverk
+
+		SWE_gotaverken
+		SWE_norma_projektilfabrik
+		SWE_husqvarna_vapenfabrik
+		SWE_bofors_fly_swatter
+		SWE_form_saab
+		SWE_bofors_anti_tank_gun
+		SWE_merge_army_complexes
+		SWE_nordljus
+
+		#1939
+		SWE_deep_mining_complexes
+		SWE_per_albin_line
+		#1941
+
+		
+	}
+
+	focus_factors = {
+		SWE_preemptive_strike = 0.0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		SWE_ivar_holmquist = 5.0
+		SWE_ernst_linder = 3.0
+		SWE_archibald_douglas = 3.0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

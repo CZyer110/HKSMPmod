@@ -1,0 +1,208 @@
+#France Maginot Extension
+
+FRA_alpine_fort_9909 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 9909
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 9909
+		value = 2
+	}
+}
+
+FRA_alpine_fort_3959 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 3959
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 3959
+		value = 2
+	}
+}
+
+FRA_alpine_fort_6975 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 6975
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 6975
+		value = 2
+	}
+}
+
+FRA_alpine_fort_3764 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 3764
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 3764
+		value = 2
+	}
+}
+
+FRA_alpine_fort_764 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 764
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 764
+		value = 2
+	}
+}
+
+FRA_alpine_fort_9745 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 9745
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 9745
+		value = 2
+	}
+}
+
+FRA_alpine_fort_778 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		735 = {
+			any_province_building_level = {
+				province = {
+					id = 778
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 778
+		value = 2
+	}
+}
+FRA_belgian_fort_11483 = {
+	allowed = { always = yes }
+	enable = {
+		tag = FRA
+		has_war_with = GER
+		surrender_progress < 0.02
+		29 = {
+			any_province_building_level = {
+				province = {
+					id = 11483
+				}
+				building = bunker
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11483
+		value = 2
+	}
+}

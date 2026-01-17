@@ -1,0 +1,1115 @@
+
+German_alternate_fascist_hess = {
+	name = "Hess ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_HESS
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_heed_von_neuraths_concerns
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_befriend_czechoslovakia
+		GER_integrate_czechoslovakia
+		GER_first_vienna_award
+		GER_demand_sudetenland
+		GER_fate_of_czechoslovakia
+		GER_anti_comintern_pact
+		GER_anti_soviet_pact
+		GER_fate_of_czechoslovakia
+		GER_form_rome_berlin_axis
+		GER_danzig_for_slovakia
+		GER_befriend_poland
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_reassert_eastern_claims
+
+		GER_influence_the_baltics
+		GER_utilize_the_nordliche_gesellschaft
+		GER_expand_the_truppenschulen		
+		GER_influence_the_benelux
+		GER_war_with_france
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+		GER_secure_finland
+
+		GER_invest_in_vereinigte_stahlwerke
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+		
+		GER_demand_slovenia
+
+		GER_war_production
+		GER_first_ljubljana_award
+		GER_fate_of_yugoslavia
+		GER_second_ljubljana_award
+		GER_fate_of_greece
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+	
+		GER_war_with_the_ussr
+		GER_befriend_turkey
+		GER_influence_the_middle_east
+		GER_befriend_china	
+		GER_befriend_japan
+		GER_claim_old_colonies_in_the_east
+		GER_re_establish_german_control_over_qingdao
+		GER_ally_chiang_kai_shek
+		GER_negotiate_old_colonies_in_the_east
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_goring = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+
+German_alternate_fascist_todt = {
+	name = "Todt ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_TODT
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_todt
+
+		GER_prioritize_economic_growth
+		GER_heed_von_neuraths_concerns
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_party_chancellor_hess
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_befriend_czechoslovakia
+		GER_integrate_czechoslovakia
+		GER_first_vienna_award
+		GER_demand_sudetenland
+		GER_fate_of_czechoslovakia
+		GER_anti_comintern_pact
+		GER_anti_soviet_pact
+		GER_fate_of_czechoslovakia
+		GER_form_rome_berlin_axis
+		GER_danzig_for_slovakia
+		GER_befriend_poland
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_reassert_eastern_claims
+
+		GER_influence_the_baltics
+		GER_utilize_the_nordliche_gesellschaft
+		GER_expand_the_truppenschulen		
+		GER_influence_the_benelux
+		GER_war_with_france
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+		GER_secure_finland
+
+		GER_invest_in_vereinigte_stahlwerke
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+		
+		GER_demand_slovenia
+
+		GER_war_production
+		GER_first_ljubljana_award
+		GER_fate_of_yugoslavia
+		GER_second_ljubljana_award
+		GER_fate_of_greece
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+	
+		GER_war_with_the_ussr
+		GER_befriend_turkey
+		GER_influence_the_middle_east
+		GER_befriend_china	
+		GER_befriend_japan
+		GER_claim_old_colonies_in_the_east
+		GER_re_establish_german_control_over_qingdao
+		GER_ally_chiang_kai_shek
+		GER_negotiate_old_colonies_in_the_east
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_goring = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+
+
+German_alternate_fascist_speer = {
+	name = "Speer ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_SPEER
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_speer
+
+		GER_prioritize_economic_growth
+		GER_heed_von_neuraths_concerns
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_party_chancellor_hess
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_befriend_czechoslovakia
+		GER_integrate_czechoslovakia
+		GER_first_vienna_award
+		GER_demand_sudetenland
+		GER_fate_of_czechoslovakia
+		GER_anti_comintern_pact
+		GER_anti_soviet_pact
+		GER_fate_of_czechoslovakia
+		GER_form_rome_berlin_axis
+		GER_danzig_for_slovakia
+		GER_befriend_poland
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_reassert_eastern_claims
+
+		GER_influence_the_baltics
+		GER_utilize_the_nordliche_gesellschaft
+		GER_expand_the_truppenschulen		
+		GER_influence_the_benelux
+		GER_war_with_france
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+		GER_secure_finland
+
+		GER_invest_in_vereinigte_stahlwerke
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+		
+		GER_demand_slovenia
+
+		GER_war_production
+		GER_first_ljubljana_award
+		GER_fate_of_yugoslavia
+		GER_second_ljubljana_award
+		GER_fate_of_greece
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+	
+		GER_war_with_the_ussr
+		GER_befriend_turkey
+		GER_influence_the_middle_east
+		GER_befriend_china	
+		GER_befriend_japan
+		GER_claim_old_colonies_in_the_east
+		GER_re_establish_german_control_over_qingdao
+		GER_ally_chiang_kai_shek
+		GER_negotiate_old_colonies_in_the_east
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_goring = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+
+German_alternate_fascist_goring = {
+	name = "Goring ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_GORING
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+		GER_autarky_achieved
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_goring
+		GER_reorganize_the_wehrmacht
+
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_accelerate_the_rearmament_program
+		GER_party_chancellor_hess
+
+		GER_establish_production_targets
+		GER_coal_liquefaction
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_ascension_of_goebbels
+		GER_anschluss
+
+		GER_build_the_rur_dam
+		GER_develop_heraeus_facilities
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+
+		GER_concentrated_armament_program
+		GER_establish_buna_werke
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+		GER_establish_the_reichswerke
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_expand_the_truppenschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+
+
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries		
+		GER_around_maginot
+		GER_war_with_france
+		GER_operation_weserubung
+		GER_uplift_the_rosenberg_office
+		GER_zentrale_planung
+		GER_create_rustungsstab
+		GER_form_the_jagdwaffe
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+		GER_armament_rationalization
+		GER_totaler_krieg
+
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_improve_the_logistics_system
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_the_swiss_gold
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+
+
+German_alternate_fascist_himmler = {
+	name = "Himmler ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_HIMMLER
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+		GER_autarky_achieved
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_himmler
+		GER_reorganize_the_wehrmacht
+
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_accelerate_the_rearmament_program
+		GER_party_chancellor_hess
+
+		GER_establish_production_targets
+		GER_coal_liquefaction
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_ascension_of_goring
+		GER_anschluss
+
+		GER_build_the_rur_dam
+		GER_develop_heraeus_facilities
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+
+		GER_concentrated_armament_program
+		GER_establish_buna_werke
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+		GER_establish_the_reichswerke
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_expand_the_truppenschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+
+
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries		
+		GER_around_maginot
+		GER_war_with_france
+		GER_operation_weserubung
+		GER_uplift_the_rosenberg_office
+		GER_zentrale_planung
+		GER_create_rustungsstab
+		GER_form_the_jagdwaffe
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+		GER_armament_rationalization
+		GER_totaler_krieg
+
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_improve_the_logistics_system
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_the_swiss_gold
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_goebbels = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+
+
+German_alternate_fascist_goebbels = {
+	name = "Goebbels ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_GOEBBELS
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+		GER_autarky_achieved
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_ascension_of_goebbels
+		GER_reorganize_the_wehrmacht
+
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_accelerate_the_rearmament_program
+		GER_party_chancellor_hess
+
+		GER_establish_production_targets
+		GER_coal_liquefaction
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_ascension_of_goring
+		GER_anschluss
+
+		GER_build_the_rur_dam
+		GER_develop_heraeus_facilities
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+
+		GER_concentrated_armament_program
+		GER_establish_buna_werke
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+		GER_establish_the_reichswerke
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_expand_the_truppenschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+
+
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries		
+		GER_around_maginot
+		GER_war_with_france
+		GER_operation_weserubung
+		GER_uplift_the_rosenberg_office
+		GER_zentrale_planung
+		GER_create_rustungsstab
+		GER_form_the_jagdwaffe
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+		GER_armament_rationalization
+		GER_totaler_krieg
+
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_improve_the_logistics_system
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_the_swiss_gold
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}
+German_alternate_fascist_bormann = {
+	name = "Bormann ascend to become the new Fuhrer"
+	desc = "Javohl? Faschismus?"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_ALT_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_ALT_FASCIST
+			}
+		}
+		has_country_flag = GER_AI_RANDOM_ALT_FASCIST_BORMANN
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	ai_national_focuses = {
+
+		GER_a_strong_successor
+		GER_autarky_achieved
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_bormann
+		GER_reorganize_the_wehrmacht
+
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_accelerate_the_rearmament_program
+		GER_ascension_of_goring
+
+		GER_establish_production_targets
+		GER_coal_liquefaction
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_ascension_of_himmler
+		GER_anschluss
+
+		GER_build_the_rur_dam
+		GER_develop_heraeus_facilities
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+
+		GER_concentrated_armament_program
+		GER_establish_buna_werke
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+		GER_establish_the_reichswerke
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_expand_the_truppenschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+
+
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries		
+		GER_around_maginot
+		GER_war_with_france
+		GER_operation_weserubung
+		GER_uplift_the_rosenberg_office
+		GER_zentrale_planung
+		GER_create_rustungsstab
+		GER_form_the_jagdwaffe
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+		GER_armament_rationalization
+		GER_totaler_krieg
+
+		GER_demands_to_sweden
+		GER_advanced_panzer_research
+		GER_improve_the_logistics_system
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_the_swiss_gold
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_reinhard_heydrich = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+		GER_reich_security_main_office_director_lar = 5
+		GER_reich_security_main_office_director_no_lar = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+		#
+		GER_the_prussian_legacy = 0
+		#
+		GER_oppose_hitler_ww = 0
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+		GER_loyalty_to_the_fuhrer = 0
+	}
+
+}

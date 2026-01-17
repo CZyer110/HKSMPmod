@@ -102,7 +102,7 @@ weather_extreme_cold = { # on Province
 	local_org_regain = -0.05
 	supply_factor = -0.15
 	truck_attrition_factor = 1.0
-	winter_attrition = 0.25
+	winter_attrition = 0.4
 }
 weather_very_cold = { # on Province
 	army_attack_factor = -0.1
@@ -124,8 +124,8 @@ weather_extreme_hot = { # on Province
 }
 weather_ground_snow_medium = { # on Province
 	army_attack_factor = -0.2
-	army_speed_factor = -0.2
-	army_attack_speed_factor = -0.25
+	army_speed_factor = -0.3
+	army_attack_speed_factor = -0.35
 	breakthrough_factor = -0.15
 	org_loss_when_moving = 0.1
 	supply_factor = -0.20
@@ -134,9 +134,9 @@ weather_ground_snow_medium = { # on Province
 }
 weather_ground_snow_high = { # on Province
 	army_attack_factor = -0.4
-	army_speed_factor = -0.5
-	army_attack_speed_factor = -0.5
-	breakthrough_factor = -0.3
+	army_speed_factor = -0.7
+	army_attack_speed_factor = -0.75
+	breakthrough_factor = -0.4
 	local_org_regain = -0.05
 	org_loss_when_moving = 0.25
 	supply_factor = -0.40
@@ -365,27 +365,15 @@ attache_sent = {
 # Difficulty modifiers
 
 diff_very_easy_player = {
-	production_factory_max_efficiency_factor = 0.3
-	research_speed_factor = 0.15
-	political_power_factor = 0.5
-	production_lack_of_resource_penalty_factor = -0.8
-	army_fuel_consumption_factor = -0.5
-	air_fuel_consumption_factor = -0.5
- 	navy_fuel_consumption_factor = -0.5
-	supply_consumption_factor = -0.1
+	production_factory_max_efficiency_factor = 0.2
+	army_fuel_consumption_factor = -0.25
+	air_fuel_consumption_factor = -0.25
+ 	navy_fuel_consumption_factor = -0.25
 	no_supply_grace = 72
 }
 
 diff_easy_player = {
-	production_factory_max_efficiency_factor = 0.2
-	research_speed_factor = 0.07
-	political_power_factor = 0.25
-	production_lack_of_resource_penalty_factor = -0.3
-	army_fuel_consumption_factor = -0.25
-	air_fuel_consumption_factor = -0.25
- 	navy_fuel_consumption_factor = -0.25
-	supply_consumption_factor = -0.05
-	no_supply_grace = 48
+	no_supply_grace = 36
 }
 
 diff_normal_player = {
@@ -393,18 +381,11 @@ diff_normal_player = {
 }
 
 diff_hard_player = {
-	production_factory_max_efficiency_factor = -0.2
-	research_speed_factor = -0.15
-	political_power_factor = -0.1
-	supply_consumption_factor = 0.05
-	no_supply_grace = 24
+	no_supply_grace = 36
 }
 
 diff_very_hard_player = {
-	production_factory_max_efficiency_factor = -0.3
-	research_speed_factor = -0.30
-	political_power_factor = -0.15
-	supply_consumption_factor = 0.1
+	no_supply_grace = 36
 }
 
 
@@ -413,8 +394,7 @@ diff_very_easy_ai = {
 }
 
 diff_easy_ai = {
-	no_supply_grace = 24
-	peace_score_ratio_transferred_to_players = 0.1
+	no_supply_grace = 36
 }
 
 diff_normal_ai = {
@@ -422,54 +402,46 @@ diff_normal_ai = {
 }
 
 diff_hard_ai = {
-	army_fuel_consumption_factor = -0.25
-	air_fuel_consumption_factor = -0.25
- 	navy_fuel_consumption_factor = -0.25
-	no_supply_grace = 48
+	supply_consumption_factor = -0.15
+	no_supply_grace = 36
 }
 
 diff_very_hard_ai = {
-	army_fuel_consumption_factor = -0.5
-	air_fuel_consumption_factor = -0.5
- 	navy_fuel_consumption_factor = -0.5
-	no_supply_grace = 72
+	no_supply_grace = 36
 }
 
 
 diff_strong_ai_generic = {
 	# fightyness
-	dig_in_speed_factor = 0
-	planning_speed = 0
-	supply_consumption_factor = 0
-	army_morale_factor = 0
-	land_reinforce_rate = 0
+	training_time_factor = -0.125
+	dig_in_speed_factor = 0.25
+	planning_speed = 0.25
+	supply_consumption_factor = -0.25
+	land_reinforce_rate = 0.025
+	conscription_factor = 0.25
 
 	# defensivness
-	army_core_attack_factor = 0
-	army_core_defence_factor = 0
+	army_attack_factor = 0.125
+	army_defence_factor = 0.125
 
-	attrition = 0
+	attrition = -0.125
 
 	# production/research
-	production_factory_max_efficiency_factor = 0
-	production_factory_efficiency_gain_factor = 0
-	industrial_capacity_dockyard = 0
-	political_power_factor = 0
-	research_speed_factor = 0
-	production_lack_of_resource_penalty_factor = 0
+	production_factory_max_efficiency_factor = 0.125
+	production_factory_efficiency_gain_factor = 0.25
+	industrial_capacity_dockyard = 0.25
+	research_speed_factor = 0.1
+	production_lack_of_resource_penalty_factor = -0.25
 
 	# fuel
-	army_fuel_consumption_factor = 0
-	air_fuel_consumption_factor = 0
- 	navy_fuel_consumption_factor = 0
+	army_fuel_consumption_factor = -0.25
+	air_fuel_consumption_factor = -0.25
+ 	navy_fuel_consumption_factor = -0.25
 
 	# xp gain
-	experience_gain_air_factor = 0
-	experience_gain_army_factor = 0
-	experience_gain_navy_factor = 0
-	air_mission_xp_gain_factor = 0
-	experience_gain_army_unit_factor = 0
-	experience_gain_navy_unit_factor = 0
+	air_mission_xp_gain_factor = 0.25
+	experience_gain_army_unit_factor = 0.25
+	experience_gain_navy_unit_factor = 0.25
 }
 
 naval_mines_effect = {
@@ -584,7 +556,7 @@ intel_network_state_level_bonus = {
 
 # modifiers applied to enemy divisions in an intel network
 intel_network_state_level_penalty = {
-	max_planning_factor = -1
+	max_planning_factor = -0.8
 	max_dig_in = -5
 }
 
@@ -729,4 +701,31 @@ CHL_from_support_chile_static_modifier = {
 	send_volunteers_tension = -0.6
 	send_volunteer_divisions_required = -0.9
 	send_volunteer_factor = 0.6
+}
+
+# This is scaled based on support ratio
+naval_general_support = {
+	max_organisation = 0.2
+	navy_max_range_factor = 0.2
+	naval_morale_factor = 0.2
+}
+
+# This is scaled based on support ratio
+naval_repair_support = {
+	naval_critical_effect_factor = -0.25
+	naval_ship_recovery_chance = 0.1
+	naval_attrition = -0.075
+}
+
+### SEA 
+
+JAP_support_ethiopia_static_modifier = {
+	send_volunteers_tension = -0.5
+	send_volunteer_divisions_required = -0.25
+	send_volunteer_factor = 0.25
+}
+
+the_great_wall = {
+	dig_in_speed_factor = 0.15
+	max_dig_in_factor = 0.1
 }

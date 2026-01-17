@@ -1,0 +1,286 @@
+HUN_ww_historical = {
+	name = "Hungarian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = HUN
+		has_dlc = "Gotterdammerung"
+	}
+
+	enable = {
+		OR = {
+			has_global_flag = vanilla_history
+			AND = {
+				GER_is_oppose_hitler = yes
+				NOT = { has_completed_focus = wuw_HUN_undermine_the_admiral }
+			}
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HUN_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HUN_AI_RANDOM_FASCIST_HISTORICAL
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = FASCIST_HISTORICAL
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			is_subject = yes
+			has_completed_focus = wuw_HUN_undermine_the_admiral
+		}
+	}
+
+	# On average = five 70 days focuses per year
+
+	ai_national_focuses = {
+		wuw_HUN_continue_the_regency
+		wuw_HUN_strengthen_horthys_reign
+		wuw_HUN_pass_statute_xix
+		wuw_HUN_outlaw_the_party_of_national_will
+		wuw_HUN_spur_on_the_trianon_trauma
+		wuw_HUN_renounce_the_treaty_of_trianon
+		wuw_HUN_restrict_voting_rights
+		wuw_HUN_absolute_rule_of_the_national_unity_party
+		wuw_HUN_the_hungarian_life_and_renewal_party
+		wuw_HUN_act_of_defense
+	
+		wuw_HUN_avoid_interventionalist_destablilization
+		wuw_HUN_reintigrate_the_imperial_railroads
+		wuw_HUN_expand_the_ganz_muvek
+		wuw_HUN_announce_the_gyor_program
+
+		wuw_HUN_seek_german_contracts
+		wuw_HUN_invite_german_investors
+		wuw_HUN_joint_aluminum_mining_company
+		wuw_HUN_join_the_axis
+
+		wuw_HUN_wherever_the_cross_points
+		wuw_HUN_promote_hungarianism
+		wuw_HUN_reaffirm_territorial_claims
+		wuw_HUN_demand_southern_slovakia
+		wuw_HUN_demand_carpathian_ruthenia
+		wuw_HUN_demand_transylvania
+		wuw_HUN_demand_the_return_of_slovakia
+		wuw_HUN_proclaim_greater_hungary
+
+		wuw_HUN_hold_war_games
+		wuw_HUN_initiate_army_maneuvers
+		wuw_HUN_form_the_gyorshadtest
+		wuw_HUN_demand_the_vojvodina
+
+		wuw_HUN_make_the_magyar_legiero_known
+		wuw_HUN_establish_the_mavag_aircraft_factory
+
+		wuw_HUN_establish_the_mavag_army_division
+		wuw_HUN_assault_gun_focus
+		wuw_HUN_sway_the_count
+
+		wuw_HUN_expand_the_hungarian_academy_of_sciences
+		wuw_HUN_expand_the_lignite_industry
+		wuw_HUN_tap_newfound_oil_deposits
+		wuw_HUN_expand_the_aluminum_industry
+		wuw_HUN_budapest_university_of_technology_and_economics
+
+		wuw_HUN_joint_air_development
+
+		wuw_HUN_manred_weiss_steel_and_metal_works
+		wuw_HUN_expand_the_diosgyor_machinery_factory
+		wuw_HUN_invest_in_ludovica_academy
+		wuw_HUN_doctrinal_studies
+		wuw_HUN_expand_the_army
+		wuw_HUN_magyar_kiralyi_csendorseg
+		wuw_HUN_a_roman_catholic_state
+		wuw_HUN_the_turul_association
+		wuw_HUN_carrying_on_arpads_legacy
+		wuw_HUN_allied_manufacturing_programs
+		
+
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 200
+	}
+	traits = {
+		
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	# Focuses never to take
+	focus_factors = {
+		wuw_HUN_demand_burgenland = 0
+
+	}
+
+}
+HUN_ww_historical_2 = {
+	name = "Hungarian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = HUN
+		has_dlc = "Gotterdammerung"
+	}
+
+	enable = {
+		NOT = { has_global_flag = vanilla_history }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HUN_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HUN_AI_RANDOM_FASCIST_HISTORICAL
+			has_game_rule = {
+				rule = HUN_ai_behavior
+				option = FASCIST_HISTORICAL
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			is_subject = yes
+			has_global_flag = vanilla_history
+			AND = {
+				GER_is_oppose_hitler = yes
+				NOT = { has_completed_focus = wuw_HUN_undermine_the_admiral }
+			}
+		}
+	}
+
+	# On average = five 70 days focuses per year
+
+	ai_national_focuses = {
+		wuw_HUN_continue_the_regency
+		wuw_HUN_strengthen_horthys_reign
+		wuw_HUN_pass_statute_xix
+		wuw_HUN_outlaw_the_party_of_national_will
+		wuw_HUN_spur_on_the_trianon_trauma
+		wuw_HUN_renounce_the_treaty_of_trianon
+		wuw_HUN_restrict_voting_rights
+		wuw_HUN_absolute_rule_of_the_national_unity_party
+		wuw_HUN_the_hungarian_life_and_renewal_party
+
+		wuw_HUN_avoid_interventionalist_destablilization
+		wuw_HUN_reintigrate_the_imperial_railroads
+		wuw_HUN_expand_the_ganz_muvek
+		wuw_HUN_announce_the_gyor_program
+		wuw_HUN_secret_rearmament
+		wuw_HUN_hold_war_games
+		wuw_HUN_make_the_magyar_legiero_known
+		wuw_HUN_joint_air_development
+		wuw_HUN_establish_the_mavag_aircraft_factory
+
+
+		wuw_HUN_act_of_defense
+		wuw_HUN_seek_german_contracts
+		wuw_HUN_invite_german_investors
+		wuw_HUN_joint_aluminum_mining_company
+		wuw_HUN_join_the_axis
+		wuw_HUN_initiate_army_maneuvers
+		wuw_HUN_form_the_gyorshadtest
+		wuw_HUN_promote_hungarianism
+		wuw_HUN_reaffirm_territorial_claims
+		wuw_HUN_demand_southern_slovakia
+		wuw_HUN_demand_carpathian_ruthenia
+		wuw_HUN_demand_transylvania
+		wuw_HUN_demand_the_return_of_slovakia
+		wuw_HUN_proclaim_greater_hungary
+		wuw_HUN_demand_the_vojvodina
+
+
+		wuw_HUN_establish_the_mavag_army_division
+		wuw_HUN_assault_gun_focus
+		wuw_HUN_sway_the_count
+
+		wuw_HUN_expand_the_hungarian_academy_of_sciences
+		wuw_HUN_expand_the_lignite_industry
+		wuw_HUN_tap_newfound_oil_deposits
+		wuw_HUN_expand_the_aluminum_industry
+		wuw_HUN_budapest_university_of_technology_and_economics
+
+
+		wuw_HUN_manred_weiss_steel_and_metal_works
+		wuw_HUN_expand_the_diosgyor_machinery_factory
+		wuw_HUN_invest_in_ludovica_academy
+		wuw_HUN_doctrinal_studies
+		wuw_HUN_expand_the_army
+		wuw_HUN_magyar_kiralyi_csendorseg
+		wuw_HUN_a_roman_catholic_state
+		wuw_HUN_the_turul_association
+		wuw_HUN_carrying_on_arpads_legacy
+		wuw_HUN_allied_manufacturing_programs
+	}
+
+	research = {
+		industry = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		HUN_pal_teleki = 50.0
+		HUN_kalman_daranyi = 25.0
+		HUN_ferenc_fischer = 10.0
+		HUN_istvan_horthy = 20.0 #if completed first, take him
+		HUN_jusztinian_seredi = 10.0
+		HUN_vilmos_nagy = 25.0
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 200
+	}
+	traits = {
+		
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	# Focuses never to take
+	focus_factors = {
+		wuw_HUN_demand_burgenland = 0
+
+	}
+
+}
+
+

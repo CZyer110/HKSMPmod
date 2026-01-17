@@ -1,0 +1,7466 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_game_rule = {
+							rule = NONHIST_ai_behavior
+							option = NO_GAME_BALANCE
+						}
+					}
+				}
+				GER = {
+					if = {
+						limit = {
+							NOT = {
+								has_dlc = "Gotterdammerung"
+							}
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = GER_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = GER_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							60 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_FASCIST
+									set_add_fascist_game_weight_large = yes
+								}
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_KAISER
+									set_add_unaligned_game_weight_large = yes
+								}
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_DEMOCRATIC
+									set_add_democratic_game_weight_large = yes
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							has_game_rule = {
+								rule = GER_ai_behavior
+								option = GER_ALT_FASCIST
+							}
+						}
+						random_list = {
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_HESS
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_TODT
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_SPEER
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_GORING
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_HIMMLER
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_GOEBBELS
+								}
+							}
+							10 = {
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST_BORMANN
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							has_game_rule = {
+								rule = GER_ai_behavior
+								option = FASCIST_MR_PACT
+							}
+						}
+						GER = {
+							set_global_flag = GER_aim_for_mr
+							set_add_fascist_game_weight_large = yes
+							set_add_communist_weight_large = yes
+						}
+					}
+					if = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = GER_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = GER_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_FASCIST
+									set_add_fascist_game_weight_large = yes
+								}
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT
+									set_add_communist_weight_large = yes
+									set_add_fascist_game_weight_large = yes
+								}
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_KAISER
+									set_add_unaligned_game_weight_large = yes
+								}
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_KAISERREICH
+									set_add_unaligned_game_weight_large = yes
+								}
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_DEMOCRATIC
+									set_add_democratic_game_weight_large = yes
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_ALT_FASCIST
+									set_add_fascist_game_weight_large = yes
+									random_list = {
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_HESS
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_TODT
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_SPEER
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_GORING
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_HIMMLER
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_GOEBBELS
+											}
+										}
+										10 = {
+											GER = {
+												set_country_flag = GER_AI_RANDOM_ALT_FASCIST_BORMANN
+											}
+										}
+									}
+								}
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_COMMUNIST_STALINIST
+									set_add_communist_weight_large = yes
+								}
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+									}
+								}
+								GER = {
+									set_country_flag = GER_AI_RANDOM_COMMUNIST_SPARTACUS
+									set_add_communist_weight_large = yes
+								}
+							}
+						}
+					}
+				}
+				SOV = {
+					if = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							OR = {
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = HISTORICAL
+								}
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = RIGHT_OPPOSITION_COOPERATIVE
+								}
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = LEFT_OPPOSITION_COOPERATIVE
+								}
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = RIGHT_OPPOSITION
+								}
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = LEFT_OPPOSITION
+								}
+							}
+						}
+						SOV = {
+							set_add_communist_weight_large = yes
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = SOV_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = SOV_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							50 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+									NOT = { has_global_flag = GER_aim_for_mr }
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+								set_add_communist_weight_small = yes
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							50 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+									NOT = { has_global_flag = GER_aim_for_mr }
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}
+										has_global_flag = GER_aim_for_mr			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL_ALTERNATIVE }
+								set_add_communist_weight_small = yes
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							65 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+									NOT = { has_global_flag = GER_aim_for_mr }
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION }
+								set_add_communist_weight_small = yes
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+									NOT = { has_global_flag = GER_aim_for_mr }
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE }
+								set_add_communist_weight_small = yes
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							65 = {
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION }
+								set_add_communist_weight_small = yes
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+									NOT = { has_global_flag = GER_aim_for_mr }
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							35 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE }
+								set_add_communist_weight_small = yes
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+									set_add_communist_weight_small = yes
+								}
+							}
+							50 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_EXILES_TSARIST }
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.50
+									game_weight_can_add_unaligned = no
+								}
+							}
+							50 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_EXILES_FASCIST }
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.50
+									game_weight_can_add_fascist = no
+								}
+								if = {
+									limit = { 
+										GER = { has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT }
+									}
+									set_add_fascist_game_weight_large = yes
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.20
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 1.2
+									ENG = {
+										OR = {
+											has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+											has_game_rule = {
+												rule = ENG_ai_behavior 
+												option = DEMOCRATIC_ALTERNATE
+											}
+										}
+									}
+									FRA = {
+										OR = {
+											has_country_flag = FRA_AI_DEMOCRATIC_ALTERNATE
+											has_game_rule = {
+												rule = FRA_ai_behavior
+												option = DEMOCRATIC_ALTERNATE
+											}
+										}
+									}
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_1 }
+								set_add_democratic_game_weight_large = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.20
+									game_weight_can_add_democratic = no
+								}
+								SOV = { set_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_2 }
+								set_add_democratic_game_weight_large = yes
+							}
+						}
+					}
+				}
+				ITA = {
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ITA_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ITA_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								modifier = {
+									factor = 2
+									unholy_alliance_may_exist = yes
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_FASCIST_HISTORICAL
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_FASCIST_BALBO
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_FASCIST_GRANDI
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_MONARCHIST
+								}
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_CHRISTIAN_DEMOCRACY
+								}
+							}
+							20 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_COMMUNIST_PLAN
+								}
+							}
+							20 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+								ITA = {
+									set_country_flag = ITA_AI_RANDOM_DEMOCRATIC_PLAN
+								}
+							}
+						}
+					}
+				}
+				CHI = { #No game weighting here
+					if = {
+						limit = {
+							NOT = { has_dlc = "No Compromise, No Surrender" }
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = CHI_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = CHI_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							50 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								CHI = { set_country_flag = CHI_AI_RANDOM_HISTORICAL } 
+							}
+							50 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								CHI = { set_country_flag = CHI_AI_RANDOM_ALTERNATE } 
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_dlc = "No Compromise, No Surrender" 
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = CHI_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = CHI_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							40 = { 
+								CHI = { set_country_flag = CHI_AI_RANDOM_HISTORICAL_SEA } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+							}
+							20 = { 
+								CHI = { set_country_flag = CHI_AI_RANDOM_WANG_JINGWEI }  
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+							20 = { 
+								CHI = { set_country_flag = CHI_AI_RANDOM_FASCIST } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								} 
+							}
+							20 = { 
+								CHI = { set_country_flag = CHI_AI_RANDOM_DEMOCRATIC_SEA }  
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+						}
+					}
+				}
+				MAN = {
+					if = {
+						limit = {
+							NOT = { has_dlc = "No Compromise, No Surrender" }
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = MAN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = MAN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							40 = { MAN = { set_country_flag = MAN_AI_RANDOM_OBEDIENCE } }
+							60 = { MAN = { set_country_flag = MAN_AI_RANDOM_INDEPENDENCE } }
+						}
+					}
+					else_if = {
+						limit = {
+							has_dlc = "No Compromise, No Surrender" 
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = MAN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = MAN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							40 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_OBEDIENCE_CHINA } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+							}
+							30 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_OBEDIENCE }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+							45 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_INDEPENDENCE_FAS } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+							35 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_INDEPENDENCE_NEU } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+							30 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_INDEPENDENCE_DEM } 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+							20 = { 
+								MAN = { set_country_flag = MAN_AI_RANDOM_INDEPENDENCE_COM }   
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}		
+									}
+								}
+							}
+						}
+					}
+				}
+				PRC = {
+					if = {
+						limit = {
+							NOT = { has_dlc = "No Compromise, No Surrender" }
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = PRC_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = PRC_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							34 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								PRC = { set_country_flag = PRC_AI_RANDOM_HISTORICAL } 
+							}
+							33 = {  
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								PRC = { set_country_flag = PRC_AI_RANDOM_ALTERNATE_1 } 
+							}
+							33 = {  
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								PRC = { set_country_flag = PRC_AI_RANDOM_ALTERNATE_2 } 
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_dlc = "No Compromise, No Surrender"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = PRC_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = PRC_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							34 = { PRC = { set_country_flag = PRC_AI_RANDOM_HISTORICAL } }
+							33 = { PRC = { set_country_flag = PRC_AI_RANDOM_ALTERNATE_1 } }
+							33 = { PRC = { set_country_flag = PRC_AI_RANDOM_ALTERNATE_2 } }
+						}
+					}
+				}
+				FRA = {
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = FRA_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = FRA_ai_behavior
+									option = RANDOM
+								}
+							}
+							NOT = { has_dlc = "La Resistance" }
+						}
+						random_list = {
+							18 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							7 = {
+								modifier = {
+									factor = 0
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_COMMUNIST_2
+								set_add_communist_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									GER = {
+										OR = {
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC 
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_RANDOM_DEMOCRATIC_ALTERNATE
+								set_add_democratic_game_weight_large = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								set_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+								set_add_democratic_game_weight_large = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_FASCIST
+								set_add_fascist_weight_small = yes
+							}
+						}
+					}
+				}
+				FRA = {
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = FRA_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = FRA_ai_behavior
+									option = RANDOM
+								}
+							}
+							has_dlc = "La Resistance"
+						}
+						random_list = {
+							18 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 1.5
+									OR = {
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION }
+									}
+									game_weight_can_add_communist = no
+									GER = { is_ai = no }
+								}
+								set_country_flag = FRA_AI_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							7 = {
+								modifier = {
+									factor = 0
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_COMMUNIST_2
+								set_add_communist_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_DEMOCRATIC_ALTERNATE
+								set_add_democratic_game_weight_large = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}	
+									}
+								}
+								set_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+								set_add_democratic_game_weight_large = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = FRA_AI_FASCIST
+								set_add_fascist_game_weight_large = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								random_list = {
+									30 = { set_country_flag = FRA_AI_ORLEANIST }
+									35 = { set_country_flag = FRA_AI_LEGITIMIST }
+									35 = { set_country_flag = FRA_AI_BONAPARTIST }
+								}
+								set_add_unaligned_game_weight_large = yes
+							}
+						}
+					}
+				}
+				JAP = {
+					IF = {
+						limit = {
+							NOT = {
+								has_dlc = "No Compromise, No Surrender"
+							}
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = JAP_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = JAP_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_FASCIST }
+								set_add_fascist_game_weight_large = yes
+							}
+							30 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0.25
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_NEUTRALITY }
+								set_add_unaligned_game_weight_large = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_DEMOCRATIC }
+								set_add_democratic_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.25
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_COMMUNIST }
+								set_add_communist_weight_small = yes
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = {
+							has_dlc = "No Compromise, No Surrender"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = JAP_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = JAP_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							40 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_FASCIST }
+								set_add_fascist_game_weight_large = yes
+							}
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_NEUTRALITY }
+								set_add_unaligned_game_weight_large = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_DEMOCRATIC }
+								set_add_democratic_game_weight_large = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_COMMUNIST }
+								set_add_communist_weight_small = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								JAP = { set_country_flag = JAP_AI_RANDOM_COMMUNIST_2 }
+								set_add_communist_weight_small = yes
+							}
+						}
+					}
+				}
+				ROM = {
+					if = {
+						limit = {
+							has_dlc = "Death or Dishonor"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ROM_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ROM_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = ROM_AI_RANDOM_BALKAN_DOMINANCE
+								set_add_unaligned_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ROM_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								set_country_flag = ROM_AI_RANDOM_FASCIST_HISTORICAL
+								set_add_fascist_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ROM_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+						}
+					}
+				}
+				HUN = {
+					IF = {
+						limit = {
+							has_dlc = "Death or Dishonor"
+							NOT = {
+								has_dlc = "Gotterdammerung"
+							}
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = HUN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = HUN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_AUSTRIA_HUNGARY
+								set_add_unaligned_weight_small = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_country_flag = HUN_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							40 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_FASCIST_HISTORICAL
+								set_add_fascist_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_FASCIST_ALTERNATE
+								set_add_fascist_weight_small = yes
+							}
+						}
+					}
+					ELSE_IF = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = HUN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = HUN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+
+						random_list = {
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_RESTORE_THE_SOCIALIST_REPUBLIC
+								set_add_communist_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_AUSTRIA_HUNGARY
+								set_add_unaligned_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_FASCIST_KING
+								set_add_fascist_weight_small = yes
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_HORTHYIST_KING_HUNGARY
+								set_add_fascist_weight_small = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_HABSBURG_HUNGARY
+								set_add_fascist_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_country_flag = HUN_AI_RANDOM_ARROW_CROSS_MOVEMENT
+								set_add_fascist_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_country_flag = HUN_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							35 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_FASCIST_HISTORICAL
+								set_add_fascist_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_country_flag = HUN_AI_RANDOM_FASCIST_ALTERNATE
+								set_add_fascist_weight_small = yes
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_country_flag = HUN_AI_RANDOM_REPUBLICAN_DEMOCRACY_EXPANSIONIST
+								set_add_democratic_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_country_flag = HUN_AI_RANDOM_REPUBLICAN_DEMOCRACY
+								set_add_democratic_weight_small = yes
+							}
+						}
+					}
+				}
+				CZE = {
+					if = {
+						limit = {
+							has_dlc = "Death or Dishonor"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = CZE_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = CZE_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.5
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 1.2
+									OR = {
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE }
+									}
+								}
+								set_country_flag = CZE_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 1.2
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_KAISER
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISER
+											}				
+											has_country_flag = GER_AI_RANDOM_KAISERREICH
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISERREICH
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								set_country_flag = CZE_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.50
+									ROM = { has_country_flag = ROM_AI_RANDOM_COMMUNIST }
+									OR = {
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE }
+									}
+								}
+								modifier = {
+									factor = 0.50
+									YUG = { has_country_flag = ROM_AI_RANDOM_COMMUNIST }
+									OR = {
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE }
+									}
+								}
+								modifier = {
+									factor = 0
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								set_country_flag = CZE_AI_RANDOM_DEMOCRATIC_ALTERNATE
+								set_add_democratic_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.5
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 1.5
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								modifier = {
+									factor = 1.1
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_KAISER
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISER
+											}				
+											has_country_flag = GER_AI_RANDOM_KAISERREICH
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISERREICH
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								set_country_flag = CZE_AI_RANDOM_HISTORICAL
+								set_add_democratic_weight_small = yes
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0.8
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 2.5
+									GER = { has_country_flag = GER_AI_RANDOM_FASCIST }
+								}
+								set_country_flag = CZE_AI_RANDOM_FASCIST
+								set_add_fascist_weight_small = yes
+							}
+						}
+					}
+				}
+				YUG = {
+					if = {
+						limit = {
+							has_dlc = "Death or Dishonor"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = YUG_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = YUG_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = YUG_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = YUG_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							40 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								set_country_flag = YUG_AI_RANDOM_HISTORICAL
+								set_add_unaligned_weight_small = yes
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = YUG_AI_RANDOM_FASCIST
+								set_add_fascist_weight_small = yes
+							}
+						}
+					}
+				}
+				AST = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = AST_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = AST_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = AST_AI_RANDOM_COMMUNIST 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = AST_AI_RANDOM_DEMOCRATIC_ALTERNATE 
+							}
+							45 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_country_flag = AST_AI_DEMOCRATIC_HISTORICAL 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = AST_AI_RANDOM_FASCIST 
+							}
+						}
+					}
+				}
+				CAN = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = CAN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = CAN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = CAN_AI_RANDOM_COMMUNIST 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = CAN_AI_RANDOM_DEMOCRATIC_ALTERNATE 
+							}
+							45 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								set_country_flag = CAN_AI_DEMOCRATIC_HISTORICAL 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = CAN_AI_RANDOM_FASCIST 
+							}
+						}
+					}
+				}
+				SAF = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = SAF_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = SAF_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SAF_AI_RANDOM_COMMUNIST 
+							}
+							35 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SAF_AI_RANDOM_DEMOCRATIC_ALTERNATE 
+							}
+							35 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}
+									}
+								}
+								set_country_flag = SAF_AI_DEMOCRATIC_HISTORICAL 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SAF_AI_RANDOM_FASCIST 
+							}
+						}
+					}
+				}
+				NZL = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = NZL_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = NZL_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							5 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = NZL_AI_RANDOM_COMMUNIST 
+							}
+							5 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = NZL_AI_RANDOM_DEMOCRATIC_ALTERNATE 
+							}
+							85 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_country_flag = NZL_AI_DEMOCRATIC_HISTORICAL 
+							}
+							5 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = NZL_AI_RANDOM_FASCIST 
+							}
+						}
+					}
+				}
+				RAJ = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+							NOT = { has_dlc = "Graveyard of Empires" }
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = RAJ_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = RAJ_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							5 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_COMMUNIST 
+							}
+							90 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_DEMOCRATIC_HISTORICAL 
+							}
+							5 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}		
+								set_country_flag = RAJ_AI_RANDOM_FASCIST
+							}
+						}
+					}
+
+			  
+					if = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = RAJ_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = RAJ_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+
+						random_list = {
+							40 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_UNITED
+								set_add_democratic_weight_small = yes
+							}
+							
+							30 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								modifier = {
+									factor = 0
+									ENG = {
+										OR = {	
+											has_country_flag = ENG_AI_RANDOM_COMMUNIST
+											has_game_rule = {
+												rule = ENG_ai_behavior 
+												option = COMMUNIST
+											}	
+										}	
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_LOYALTY
+								set_add_democratic_weight_small = yes
+							}
+
+							10 = {
+								modifier = {
+									factor = 0.1
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_BOSE
+								set_add_fascist_weight_small = yes
+							}
+
+							10 = {
+								modifier = {
+									factor = 0.10
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_HINDUTVA
+								set_add_fascist_weight_small = yes
+							}
+
+							15 = {
+								modifier = {
+									factor = 0.15
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_EAST_INDIA_COMPANY
+								set_add_unaligned_weight_small = yes
+							}
+
+							10 = {
+								modifier = {
+									factor = 0.10
+									game_weight_can_add_unaligned = no
+							  
+										
+									  
+				
+			 
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_MUGHAL
+								set_add_unaligned_weight_small = yes
+							}
+
+							15 = {
+								modifier = {
+									factor = 0.15
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM
+								set_add_communist_weight_small = yes
+							}
+
+							15 = {
+								modifier = {
+									factor = 0.15
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}	
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS  
+										}		
+									}
+								}
+								set_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM_SOVIET
+								set_add_communist_weight_small = yes
+							}
+
+						}
+					}
+				}
+				POL = {
+					if = {
+						limit = {
+							OR = {
+								has_dlc = "Poland: United and Ready"
+								has_dlc = "No Step Back"
+							}
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = POL_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = POL_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = POL_AI_RANDOM_COMMUNIST
+								set_add_communist_weight_small = yes
+							}
+							40 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_country_flag = POL_AI_RANDOM_HISTORICAL
+								set_add_unaligned_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = POL_AI_RANDOM_DEMOCRATIC
+								set_add_democratic_weight_small = yes
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = POL_AI_RANDOM_FASCIST
+								set_add_fascist_weight_small = yes
+							}
+							20 = {
+								set_country_flag = POL_AI_RANDOM_FASCIST_INDEPENDENT
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.75
+									game_weight_can_add_fascist = no
+								}
+							}
+							20 = {
+								set_country_flag = POL_AI_RANDOM_COMMONWEALTH
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.75
+									game_weight_can_add_unaligned = no
+								}
+								set_add_unaligned_weight_small = yes
+							}
+							25 = {
+								set_country_flag = POL_AI_RANDOM_ROMANIA
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.75
+									game_weight_can_add_unaligned = no
+								}
+								set_add_unaligned_weight_small = yes
+							}
+							20 = {
+								set_country_flag = POL_AI_RANDOM_HABSBURG
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.75
+									game_weight_can_add_unaligned = no
+								}
+								set_add_unaligned_weight_small = yes
+							}
+							25 = {
+								set_country_flag = POL_AI_RANDOM_BERMONDT
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+								modifier = {
+									factor = 0.5
+									game_weight_can_add_fascist = no
+								}
+								set_add_fascist_weight_small = yes
+							}
+							20 = {
+								set_country_flag = POL_AI_RANDOM_ROMANOV
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0
+									NOT = { has_dlc = "No Step Back" }
+								}
+							}
+						}
+					}
+				}
+				ENG = {
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ENG_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ENG_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 1.5
+									OR = {
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL }
+										SOV = { has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION }
+									}
+									game_weight_can_add_communist = no
+									GER = { is_ai = no }
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = ENG_AI_RANDOM_COMMUNIST
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_game_weight_large = yes
+								set_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+							}
+							20 = {
+								modifier = {
+									factor = 0.5
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									GER = {
+										OR = {
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC 
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+										}			
+									}
+								}
+								set_add_democratic_game_weight_large = yes
+								set_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+							}
+							25 = {
+								modifier = {
+									factor = 1.2
+									game_weight_can_add_unaligned = yes
+									OR = {
+										has_game_rule = {
+											rule = GER_ai_behavior
+											option = KAISER
+										}
+										GER = {
+											has_country_flag = GER_AI_RANDOM_KAISER
+										}
+									}
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.85
+									game_weight_can_add_unaligned = no
+									OR = {
+										has_game_rule = {
+											rule = GER_ai_behavior
+											option = KAISER
+										}
+										GER = {
+											has_country_flag = GER_AI_RANDOM_KAISER
+										}
+									}
+								}
+								modifier = {
+									factor = 0.1
+									unholy_alliance_may_exist = yes
+								}
+								set_add_unaligned_game_weight_large = yes
+								set_country_flag = ENG_AI_RANDOM_NEUTRALITY
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_game_weight_large = yes
+								set_country_flag = ENG_AI_RANDOM_FASCIST
+							}
+						}
+					}
+				}
+				USA = {
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = USA_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = USA_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0.4
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = USA_AI_RANDOM_COMMUNIST
+							}
+							25 = {
+								modifier = {
+									factor = 0.15
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									OR = {
+										CHL = {
+											is_ai = no
+										}
+										BRA = {
+											is_ai = no
+										}
+										ARG = {
+											is_ai = no
+										}			
+										PAR = {
+											is_ai = no
+										}									
+										URG = {
+											is_ai = no
+										}									
+									}
+									factor = 1.25
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_game_weight_large = yes
+								set_country_flag = USA_AI_RANDOM_DEMOCRATIC_ALTERNATE
+							}
+							25 = {
+								modifier = {
+									factor = 0.10
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								set_add_democratic_game_weight_large = yes
+								set_country_flag = USA_AI_DEMOCRATIC_HISTORICAL
+							}
+							25 = {
+								modifier = {
+									factor = 0.4
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0.2
+									unholy_alliance_may_exist = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MINORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_game_weight_large = yes
+								set_country_flag = USA_AI_RANDOM_FASCIST
+							}
+						}
+					}
+				}
+				HOL = {
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = HOL_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = HOL_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 2
+									FRA_is_communist = yes
+									SOV = { is_ai = yes }
+								}
+								modifier = {
+									factor = 4
+									FRA_is_communist = yes
+									SOV_is_communist = no
+									SOV = { is_ai = yes }
+								}
+								modifier = {
+									factor = 0.25
+									SOV = { is_ai = no }
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_COMMUNIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 1.2
+									FRA_is_democratic = yes
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_DEMOCRATIC_ALTERNATE_1
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 1.2
+									FRA_is_democratic = yes
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_DEMOCRATIC_ALTERNATE_2
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										ENG_is_democratic = yes
+										FRA_is_democratic = yes
+										GER_is_democratic = yes
+									}
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_DEMOCRATIC_ALTERNATE_3
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_DEMOCRATIC_HISTORICAL
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_NEUTRALITY
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = HOL_AI_RANDOM_FASCIST
+							}
+						}
+					}
+				}
+				MEX = {
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = MEX_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = MEX_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = MEX_AI_SECULAR_REPUBLIC
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = MEX_AI_SOCIAL_CATHOLICISM
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = MEX_AI_FASCIST_DICTATORSHIP
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = MEX_AI_THEOCRATIC_ORDER
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = MEX_AI_SOVIET_REPUBLIC
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = MEX_AI_CARDENISMO
+							}
+						}
+					}
+				}
+				SPR = {
+					if = {
+						limit = {
+							has_dlc = "La Resistance"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = SPR_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = SPR_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							40 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0.5
+									GER = { is_ai = no }
+									FRA_is_democratic_alternative = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_NATIONALIST_HISTORICAL
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 4
+									GER = { is_ai = no }
+									FRA_is_democratic_alternative = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_SECOND_REPUBLIC
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0.5
+									GER = { is_ai = no }
+									FRA_is_democratic_alternative = yes
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_FALANGIST
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_CARLIST
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SPR_AI_RANDOM_ANARCHIST 
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_INDEPENDENT_COMMUNIST
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = SPR_AI_RANDOM_STALINIST
+							}
+						}
+					}
+				}
+				POR = {
+					if = {
+						limit = {
+							has_dlc = "La Resistance"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = POR_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = POR_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_NEUTRALITY_HISTORICAL
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_FASCIST_AXIS
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_FASCIST_FIFTH_EMPIRE
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_NEUTRALITY_MONARCHIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_DEMOCRATIC
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_COMMUNIST_COMINTERN
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = POR_AI_RANDOM_COMMUNIST_INDEPENDENT
+							}
+						}
+					}
+				}
+				BUL = {
+					if = {
+						limit = {
+							has_dlc = "Battle for the Bosporus"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = BUL_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = BUL_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { #What ideology even is this diplomatically
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_country_flag = BUL_AI_RANDOM_HISTORICAL
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_COMMUNIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_COMMUNIST_BALKAN_FEDERATION
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_FASCIST_AXIS
+							}
+							15 = {
+								modifier = {
+									factor = 0.40
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_THE_RETURN_OF_FERDINAND
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_DEMOCRATIC_LIBERAL
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = BUL_AI_RANDOM_DEMOCRATIC_SOCIALIST
+							}
+						}
+					}
+				}
+				GRE = {
+					if = {
+						limit = {
+							has_dlc = "Battle for the Bosporus"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = GRE_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = GRE_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								set_country_flag = GRE_AI_RANDOM_NEUTRALITY_HISTORICAL
+								set_add_unaligned_weight_small = yes
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_MONARCHIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_MONARCHIST_ALTERNATE
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_COMMUNIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_COMMUNIST_ALTERNATE
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_DEMOCRATIC
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_FASCISM
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = GRE_AI_RANDOM_FASCISM_ALTERNATE
+							}
+						}
+					}
+				}
+				TUR = {
+					if = {
+						limit = {
+							has_dlc = "Battle for the Bosporus"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = TUR_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = TUR_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_NEUTRALITY_HISTORICAL
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_ALT_KEMALIST
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_COMMUNISM
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_COMMUNISM_ALTERNATE
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_DEMOCRATIC
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_DEMOCRATIC_ALTERNATE
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_FASCISM
+							}
+							5 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_FASCISM_ALTERNATE
+							}
+							10 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_BALKAN_ENTENTE
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = TUR_AI_RANDOM_OTTOMAN
+							}
+						}
+					}
+				}
+				LIT = {
+					if = {
+						limit = {
+							has_dlc = "No Step Back"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = LIT_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = LIT_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								set_country_flag = LIT_AI_RANDOM_HISTORICAL 
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0.25
+									OR = {
+										has_game_rule = {
+											rule = ENG_ai_behavior
+											option = NEUTRALITY
+										}	
+										ENG = {
+											has_country_flag = ENG_AI_RANDOM_NEUTRALITY
+										}
+									}
+									OR = {
+										has_game_rule = {
+											rule = GER_ai_behavior
+											option = KAISER
+										}	
+										ENG = {
+											has_country_flag = GER_AI_RANDOM_KAISER
+										}
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = LIT_AI_RANDOM_COMMUNIST
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = LIT_AI_RANDOM_FASCIST
+							}
+							20 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = LIT_AI_RANDOM_MONARCHY
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = LIT_AI_RANDOM_DEMOCRATIC
+							}
+						}
+					}
+				}
+				LAT = {
+					if = {
+						limit = {
+							has_dlc = "No Step Back"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = LAT_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = LAT_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								set_country_flag = LAT_AI_RANDOM_HISTORICAL 
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = LAT_AI_RANDOM_COMMUNIST
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = LAT_AI_RANDOM_FASCIST
+							}
+							25 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = LAT_AI_RANDOM_DEMOCRATIC
+							}
+						}
+					}
+				}
+				EST = {
+					if = {
+						limit = {
+							has_dlc = "No Step Back"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = EST_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = EST_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							15 = {
+								
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_country_flag = EST_AI_RANDOM_HISTORICAL
+							}
+							15 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = EST_AI_RANDOM_COMMUNIST
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								set_add_fascist_weight_small = yes
+								set_country_flag = EST_AI_RANDOM_FASCIST
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_add_democratic_weight_small = yes
+								set_country_flag = EST_AI_RANDOM_DEMOCRATIC
+							}
+						}
+					}
+				}
+				ETH = {
+					if = {
+						limit = {
+							has_dlc = "By Blood Alone"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ETH_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ETH_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_HISTORICAL 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_IMPERIAL 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_STALINIST
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_ANARCHIST
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_COLLABORATIONIST
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ETH_AI_RANDOM_INDEPENDENT_FASCIST
+							}
+						}
+					}
+				}
+				SWI = {
+					if = {
+						limit = {
+							has_dlc = "By Blood Alone"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = SWI_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = SWI_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								set_country_flag = SWI_AI_RANDOM_HISTORICAL 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SWI_AI_RANDOM_ALLIED_DEMOCRATIC 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SWI_AI_RANDOM_EXPANSIONIST_DEMOCRATIC 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SWI_AI_RANDOM_IMPERIAL 
+							}
+							25 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = SWI_AI_RANDOM_FASCIST 
+							}
+						}
+					}
+				}
+				SWE = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = SWE_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = SWE_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							20 = { #Go fascist
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_fascist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_fascist_weight_small = yes
+								random_list = { #Which type of fascist
+									33 = {
+										modifier = {
+											factor = 0
+											GER = {
+												OR = { #Dont go fascist puppet unless Germany is going fascist 
+													has_game_rule = {
+														rule = GER_ai_behavior
+														option = DEFAULT
+													}
+													has_country_flag = GER_AI_RANDOM_FASCIST
+													has_game_rule = {
+														rule = GER_ai_behavior
+														option = FASCIST
+													}
+												}
+											}
+										}
+
+										modifier = {
+											factor = 0.1 #unlikely to become backstabber if GER is Player
+											GER = { is_ai = no }
+										}
+										set_country_flag = SWE_AI_RANDOM_PUPPET_BACKSTABBER
+									}
+
+									33 = {
+										modifier = { #Dont go fascist puppet unless Germany is going fascist 
+											factor = 0
+											GER = {
+												OR = {
+													has_game_rule = {
+														rule = GER_ai_behavior
+														option = DEFAULT
+													}
+													has_country_flag = GER_AI_RANDOM_FASCIST
+													has_game_rule = {
+														rule = GER_ai_behavior
+														option = FASCIST
+													}
+												}
+											}
+										}
+										set_country_flag = SWE_AI_RANDOM_FASCIST_PUPPET
+									}
+
+									33 = {
+										set_country_flag = SWE_AI_RANDOM_FASCIST_INDEPENDENT
+									}
+								}
+							}
+
+							40 = { 
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_democratic = no
+								}
+								set_add_democratic_weight_small = yes
+
+								random_list = {
+									33 = {
+										modifier = {
+											factor = 0
+											OR = {
+												has_game_rule = {
+													rule = NONHIST_ai_behavior
+													option = ANTI_HISTORICAL
+												}			
+											}
+										}
+										set_country_flag = SWE_AI_RANDOM_HISTORICAL
+									}
+
+									33 = {
+										modifier = {
+											factor = 0
+											OR = {
+												has_game_rule = {
+													rule = NONHIST_ai_behavior
+													option = HISTORICAL_PATHS 
+												}
+												has_game_rule = {
+													rule = NONHIST_ai_behavior
+													option = MAJORS_ONLY
+												}			
+											}
+										}
+										set_country_flag = SWE_AI_RANDOM_DEMOCRATIC_ALT
+									}
+
+									33 = {
+										modifier = {
+											factor = 0
+											OR = {
+												has_game_rule = {
+													rule = NONHIST_ai_behavior
+													option = HISTORICAL_PATHS 
+												}
+												has_game_rule = {
+													rule = NONHIST_ai_behavior
+													option = MAJORS_ONLY
+												}			
+											}
+										}
+										set_country_flag = SWE_AI_RANDOM_DEMOCRATIC_NORDIC_DEFENCE_COUNCIL
+									}
+								}
+
+							}
+
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_communist = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_communist_weight_small = yes
+								set_country_flag = SWE_AI_RANDOM_COMMUNISM
+								
+							}
+							20 = {
+								modifier = {
+									factor = 0.25
+									game_weight_can_add_unaligned = no
+								}
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_add_unaligned_weight_small = yes
+								set_country_flag = SWE_AI_RANDOM_UNALIGNED
+							}
+						}
+					}
+				}
+				FIN = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = FIN_AI_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = FIN_AI_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								FIN = {
+									set_country_flag = FIN_AI_RANDOM_HISTORICAL
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								FIN = {
+									set_country_flag = FIN_AI_RANDOM_FASCIST_PLAN
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								FIN = {
+									set_country_flag = FIN_AI_RANDOM_COMMUNIST_PLAN
+								}
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								FIN = {
+									set_country_flag = FIN_AI_RANDOM_DEMOCRATIC_PLAN
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								FIN = {
+									set_country_flag = FIN_AI_RANDOM_MONARCHIST_PLAN
+								}
+							}
+						}
+					}
+				}
+				NOR = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = NOR_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = NOR_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							18 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_ALTERNATE_HISTORICAL
+								}
+							}
+							12 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_HISTORICAL
+								}
+							}
+							28 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_FASCIST
+								}
+							}
+							14 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_STALINIST
+								}
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_TROSTSKYIST
+								}
+							}
+							18 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								NOR = {
+									set_country_flag = NOR_AI_RANDOM_MONARCHIST
+								}
+							}
+						}
+					}
+				}
+				DEN = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = DEN_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = DEN_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							30 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								set_country_flag = DEN_AI_RANDOM_HISTORICAL 
+							}
+							25 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = DEN_AI_RANDOM_ALLIANCE_PLAN 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = DEN_AI_RANDOM_MONARCHIST_PLAN 
+							}
+							15 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = DEN_AI_RANDOM_FASCIST_PLAN 
+							}
+							#10 = { set_country_flag = COMMUNIST }
+						}
+					}
+				}
+				ICE = {
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ICE_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ICE_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							60 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								set_country_flag = ICE_AI_RANDOM_HISTORICAL 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}		
+									}
+								}
+								modifier = {
+									factor = 5
+									DEN = {
+										OR = {
+											has_country_flag = DEN_AI_RANDOM_ALLIANCE_PLAN
+											has_game_rule = {
+												rule = DEN_ai_behavior
+												option = DEN_rearmament_plan
+											}
+										}
+									}
+								}
+								set_country_flag = ICE_AI_RANDOM_ALT_DEMOCRATIC_PLAN 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ICE_AI_RANDOM_FASCIST_PLAN 
+							}
+							20 = { 
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								set_country_flag = ICE_AI_RANDOM_COMMUNIST_PLAN 
+							}
+						
+							#10 = { set_country_flag = COMMUNIST }
+						}
+					}
+				}
+				CHL = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = CHL_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = CHL_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_HISTORICAL }
+							}
+							8 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 2
+									SOV = {
+										OR = {
+											has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL
+											has_game_rule = {
+												rule = SOV_ai_behavior
+												option = HISTORICAL
+											}
+										}
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_COMMUNIST }
+							}
+							8 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 2
+									GER = {
+										OR = {
+											has_country_flag = GER_AI_RANDOM_FASCIST
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = FASCIST
+											}
+										}
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_OPERATION_BOLIVAR }
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_PAN_HISPANISM }
+							}
+							8 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_ANTI_IMPERIALISM }
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								modifier = {
+									factor = 2
+									FRA = {
+										OR = {
+											has_country_flag = FRA_AI_ORLEANIST
+											has_country_flag = FRA_AI_LEGITIMIST
+											has_country_flag = FRA_AI_BONAPARTIST
+											has_game_rule = {
+												rule = FRA_ai_behavior
+												option = ORLEANIST
+											}
+											has_game_rule = {
+												rule = FRA_ai_behavior
+												option = LEGITIMIST
+											}
+											has_game_rule = {
+												rule = FRA_ai_behavior
+												option = BONAPARTIST
+											}
+										}
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_LE_DELUGE }
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								CHL = { set_country_flag = CHL_AI_RANDOM_LE_DELUGE_2 }
+							}
+						}
+					}
+				}
+				BRA = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = BRA_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = BRA_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							30 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_HISTORICAL }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_FASCISM }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_DEMOCRATIC }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_MONARCHIST_HENRIQUE }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_MONARCHIST_ALCANTARA }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_STALINIST }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								BRA = { set_country_flag = BRA_AI_RANDOM_INDEPENDENT_COMMUNIST }
+							}
+						}
+					}
+				}
+
+				PAR = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = PAR_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = PAR_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							70 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}			
+									}
+								}
+								PAR = { set_country_flag = PAR_AI_RANDOM_HISTORICAL }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								PAR = { set_country_flag = PAR_AI_RANDOM_COMMUNIST }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								PAR = { set_country_flag = PAR_AI_RANDOM_DEMOCRATIC }
+							}
+						}
+					}
+				}
+
+				URG = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = URG_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = URG_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							60 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								URG = { set_country_flag = URG_AI_RANDOM_DEMOCRATIC_ALT }
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								URG = { set_country_flag = URG_AI_RANDOM_FASCIST }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}		
+									}
+								}
+								URG = { set_country_flag = URG_AI_RANDOM_HISTORICAL }
+							}
+						}
+					}
+				}
+
+
+
+
+				ARG = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = ARG_ai_behavior
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = ARG_ai_behavior
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								ARG = { set_country_flag = ARG_AI_RANDOM_FASCISM }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								ARG = { set_country_flag = ARG_AI_RANDOM_COMMUNIST }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}			
+									}
+								}
+								ARG = { set_country_flag = ARG_AI_RANDOM_DEMOCRATIC }
+							}
+
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+								ARG = { set_country_flag = ARG_AI_RANDOM_HISTORICAL }
+							}
+						}
+					}
+				}
+
+				AUS = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = AUS_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = AUS_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							50 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}
+									}
+								}
+								modifier = {
+									factor = 2
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_KAISER
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISER
+											}				
+											has_country_flag = GER_AI_RANDOM_KAISERREICH
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISERREICH
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_HISTORICAL }
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 2
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_KAISER
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISER
+											}				
+											has_country_flag = GER_AI_RANDOM_KAISERREICH
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISERREICH
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_PUPPET }
+							}
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 2
+									GER = {
+										OR = {				
+											has_country_flag = GER_AI_RANDOM_KAISER
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISER
+											}				
+											has_country_flag = GER_AI_RANDOM_KAISERREICH
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = KAISERREICH
+											}
+											has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+											has_game_rule = {
+												rule = GER_ai_behavior
+												option = DEMOCRATIC
+											}
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_ANNEX }
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_NEUTRALITY_FEDERATIVE }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 0
+									SOV = {
+										OR = {				
+											has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_2
+											has_game_rule = {
+												rule = SOV_ai_behavior
+												option = EXILES_DEMOCRATIC_2
+											}				
+											has_country_flag = SOV_AI_RANDOM_EXILES_DEMOCRATIC_1
+											has_game_rule = {
+												rule = SOV_ai_behavior
+												option = EXILES_DEMOCRATIC_1
+											}				
+											has_country_flag = SOV_AI_RANDOM_EXILES_FASCIST
+											has_game_rule = {
+												rule = SOV_ai_behavior
+												option = EXILES_TSARIST
+											}			
+											has_country_flag = SOV_AI_RANDOM_EXILES_FASCIST
+											has_game_rule = {
+												rule = SOV_ai_behavior
+												option = EXILES_TSARIST
+											}
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_COMMUNIST_SOV_ALIGNED }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_COMMUNIST }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALLIES }
+							}
+							15 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+										FRA_is_democratic_alternative = yes
+									}
+								}
+								modifier = {
+									factor = 2
+									FRA = { 
+										OR = {
+											has_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+											has_country_flag = FRA_AI_ORLEANIST
+											has_country_flag = FRA_AI_LEGITIMIST
+											has_country_flag = FRA_AI_BONAPARTIST
+										}
+									}
+									ITA = { 
+										OR = {
+											has_country_flag = ITA_AI_RANDOM_MONARCHIST
+											has_country_flag = ITA_AI_RANDOM_CHRISTIAN_DEMOCRACY
+											has_country_flag = ITA_AI_RANDOM_DEMOCRATIC_PLAN
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALPINE_FEDERATION }
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_FEDERATIVE }
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								AUS = { set_country_flag = AUS_AI_RANDOM_ANTI_ANSCLUSS_STRESS}
+							}
+						}
+					}
+				}
+
+				BEL = {
+					IF = {
+						limit = {
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = BEL_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = BEL_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							45 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}
+									}
+								}
+								BEL = { set_country_flag = BEL_AI_RANDOM_HISTORICAL }
+							}
+							20 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 0.50
+									FRA = { 
+										is_ai = yes
+										FRA_is_democratic_alternative = yes 
+									}
+									GER = { is_ai = no }
+								}
+								BEL = { set_country_flag = BEL_AI_RANDOM_NATIONALIST_FASCIST }
+							}
+							10 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 0.50
+									FRA = { 
+										is_ai = yes
+										FRA_is_democratic_alternative = yes 
+									}
+									GER = { is_ai = no }
+								}
+								BEL = { set_country_flag = BEL_AI_RANDOM_EXPANSIONIST_FASCIST }
+							}
+							20 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								BEL = { set_country_flag = BEL_AI_RANDOM_DEFENSIVE_DEMOCRAT }
+							}
+							05 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								modifier = {
+									factor = 0.25
+									FRA = { 
+										is_ai = yes
+										FRA_is_democratic = yes
+									}
+								}
+								BEL = { set_country_flag = BEL_AI_RANDOM_COMMUNIST }
+							}
+						}
+					}
+				}
+
+				COG = {
+					IF = {
+						limit = {
+							has_dlc = "Gotterdammerung"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = COG_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = COG_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL
+										}
+									}
+								}
+								set_country_flag = COG_AI_RANDOM_HISTORICAL
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								set_country_flag = COG_AI_RANDOM_DEM_INDEPENDENCE
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								set_country_flag = COG_AI_RANDOM_COM_INDEPENDENCE
+							}
+							1 = {
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY
+										}
+									}
+								}
+								set_country_flag = COG_AI_RANDOM_COM_REVOLUTION
+							}
+						}
+					}
+				}
+				AFG = {
+					IF = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = AFG_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = AFG_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							35 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_HISTORICAL }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+							}
+							20 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_FASCISM }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							15 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_DEMOCRATIC }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							15 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_COMMUNIST }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							5 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_ISLAMIC }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_CALIPHATE }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_EMPIRE }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								AFG = { set_country_flag = AFG_AI_RANDOM_MUGHAL }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+						}
+					}
+				}
+				IRQ = {
+					IF = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = IRQ_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = IRQ_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							50 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_HISTORICAL }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+							}
+							15 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_FASCISM }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							15 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_HASHEMITE }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_KURDISTAN }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_SIDQI }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								IRQ = { set_country_flag = IRQ_AI_RANDOM_ISLAMIC }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+						}
+					}
+				}
+				PER = {
+					IF = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							OR = {
+								AND = {
+									is_historical_focus_on = no
+									has_game_rule = {
+										rule = PER_AI_BEHAVIOR
+										option = DEFAULT
+									}
+								}
+								has_game_rule = {
+									rule = PER_AI_BEHAVIOR
+									option = RANDOM
+								}
+							}
+						}
+						random_list = {
+							50 = {
+								PER = { set_country_flag = PER_AI_RANDOM_HISTORICAL }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = ANTI_HISTORICAL 
+										}			
+									}
+								}
+							}
+							15 = {
+								PER = { set_country_flag = PER_AI_RANDOM_IMPERIAL }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							15 = {
+								PER = { set_country_flag = PER_AI_RANDOM_DEMOCRATIC }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								PER = { set_country_flag = PER_AI_RANDOM_ISLAMIC }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								PER = { set_country_flag = PER_AI_RANDOM_COMMUNISM }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								PER = { set_country_flag = PER_AI_RANDOM_COMMUNISM_SOVIET }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+							10 = {
+								PER = { set_country_flag = PER_AI_RANDOM_FASCISM }
+								modifier = {
+									factor = 0
+									OR = {
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = HISTORICAL_PATHS 
+										}
+										has_game_rule = {
+											rule = NONHIST_ai_behavior
+											option = MAJORS_ONLY 
+										}			
+									}
+								}
+							}
+						}
+					}
+				}	
+			}
+
+			PHI = {
+				IF = {
+					limit = {
+						OR = {
+							AND = {
+								is_historical_focus_on = no
+								has_game_rule = {
+									rule = PHI_AI_BEHAVIOR
+									option = DEFAULT
+								}
+							}
+							has_game_rule = {
+								rule = PHI_AI_BEHAVIOR
+								option = RANDOM
+							}
+						}
+					}
+					random_list = {
+						40 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_HISTORICAL }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = ANTI_HISTORICAL
+									}
+								}
+							}
+						}
+						15 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_FASCIST }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = HISTORICAL_PATHS 
+									}
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = MAJORS_ONLY 
+									}			
+								}
+							}
+						}
+						10 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_MONARCHIST }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = HISTORICAL_PATHS 
+									}
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = MAJORS_ONLY 
+									}			
+								}
+							}
+						}
+						25 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_COMMUNIST }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = HISTORICAL_PATHS 
+									}
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = MAJORS_ONLY 
+									}			
+								}
+							}
+						}
+						15 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_FLEXIBLE }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = HISTORICAL_PATHS 
+									}
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = MAJORS_ONLY 
+									}			
+								}
+							}
+						}
+						05 = {
+							PHI = { set_country_flag = PHI_AI_RANDOM_MACARTHUR }
+							modifier = {
+								factor = 0
+								OR = {
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = HISTORICAL_PATHS 
+									}
+									has_game_rule = {
+										rule = NONHIST_ai_behavior
+										option = MAJORS_ONLY 
+									}			
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

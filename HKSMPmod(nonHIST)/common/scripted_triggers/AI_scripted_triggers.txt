@@ -1,0 +1,3433 @@
+
+PRC_should_cooperate = {
+	is_historical_focus_on = yes
+	OR = {
+		is_in_faction_with = CHI
+		date < 1938.1.1
+	}
+	JAP = { 
+		is_ai = no 
+		has_government = fascism
+		NOT = { surrender_progress > 0 }
+	}
+}
+CHI_has_army_corruption = {
+	OR = {
+		has_idea = CHI_army_corruption_1
+		has_idea = CHI_army_corruption_2
+		has_idea = CHI_army_corruption_3
+	}
+}
+foreign_countries_have_surrender_progress = {
+	NOT = { capital_scope = { is_on_continent = europe } }
+	has_capitulated = no
+	OR = {
+		surrender_progress > 0.1
+		any_neighbor_country = {
+			NOT = { capital_scope = { is_on_continent = europe } }
+			is_in_faction_with = ROOT
+			surrender_progress > 0.2
+		}
+	}
+}
+usa_have_surrender_progress = {
+	is_in_faction_with = USA
+	OR = {
+		629 = { 
+			controller = { 
+				has_war_with = USA 
+				is_ai = no
+			} 
+		}
+		USA = { surrender_progress > 0.1 }
+		AND = {
+			MEX = { surrender_progress > 0.02 }
+			USA = { is_in_faction_with = MEX }
+		}
+		AND = {
+			CAN = { surrender_progress > 0.02 }
+			USA = { is_in_faction_with = CAN }
+		}
+		AND = {
+			USA = { has_war_with = CAN }
+			any_state = {
+				is_core_of = CAN
+				controller = { has_war_with = USA }
+			}
+		}
+		AND = {
+			USA = { has_war_with = MEX }
+			any_state = {
+				is_core_of = MEX
+				controller = { has_war_with = USA }
+			}
+		}
+		USA = {
+			any_owned_state = {
+				is_in_home_area = yes
+				NOT = { is_controlled_by = USA }
+			}
+		}
+	}
+}
+SOV_no_imminent_threat = {
+	AND = {
+		GER = { is_ai = yes }
+		ITA = { is_ai = yes }
+		ROM = { is_ai = yes }
+		FIN = { is_ai = yes }
+		POL = { is_ai = yes }
+		JAP = { is_ai = yes }
+		LIT = { is_ai = yes }
+		EST = { is_ai = yes }
+		LAT = { is_ai = yes }
+	}
+}
+
+GER_ongoing_offensive = {
+	OR = {
+		has_idea = GER_barbarossa_offensive_1 
+		has_idea = GER_barbarossa_offensive_2 
+		has_idea = GER_barbarossa_offensive_3 
+		has_idea = GER_barbarossa_offensive_4 
+		has_idea = GER_barbarossa_offensive_5
+	}
+}
+GER_is_spacemarine = {
+	OR = {
+		has_country_flag = spacemarine
+		has_country_flag = spacemarine_gbp
+	}
+}
+is_mass_assault_not_human_wave = {
+	has_doctrine = mass_assault
+	NOT = { has_doctrine = last_stand }
+}
+is_mass_assault_has_human_wave = {
+	has_doctrine = mass_assault 
+	has_doctrine = last_stand
+}
+SOV_has_ongoing_offensive = {
+	OR = {
+		has_idea = SOV_patriotic_offensive_1
+		has_idea = SOV_patriotic_offensive_2
+		has_idea = SOV_patriotic_offensive_3
+		has_idea = SOV_patriotic_offensive_4
+		has_idea = SOV_patriotic_offensive_5
+	}
+}
+has_ranger_pioneer = {
+	has_tech = special_forces_mountaineers
+	has_tech = special_forces_marines
+}
+
+has_ranger = {
+	has_tech = special_forces_mountaineers
+}
+has_pioneer = {
+	has_tech = special_forces_marines
+}
+can_equip_militia = {
+	OR = {
+		has_tech = militia_tech
+		has_completed_focus = AUS_heimwehr_support
+		has_completed_focus = AUS_sturmscharen_support
+		has_completed_focus = AUS_schutzbund_support
+		any_country_division = {
+			division_has_majority_template = militia
+		}
+	}
+}
+can_equip_irregular = {
+	OR = {
+		has_tech = militia_tech
+		has_completed_focus = AUS_heimwehr_support
+		has_completed_focus = AUS_sturmscharen_support
+		has_completed_focus = AUS_schutzbund_support
+		any_country_division = {
+			division_has_majority_template = militia
+		}
+	}
+}
+can_equip_amphib = {
+	OR = {
+		has_tech = enable_amtrac
+		has_tech = amphibious_mechanized_infantry
+	}
+}
+has_flame_tank = {
+	OR = {
+		has_tech = tech_engineers2
+		is_special_project_completed = sp:sp_land_flamethrower_tank
+	}
+}
+has_field_hospital = {
+	has_tech = tech_field_hospital
+}
+has_logistics = {
+	has_tech = tech_logistics_company
+}
+has_assault_engineer = {
+	is_special_project_completed = sp:sp_land_military_engineering_vehicles
+}
+has_all_the_fancy_stuffs = {
+	has_tech = tech_field_hospital
+	has_tech = tech_logistics_company
+	has_tech = special_forces_mountaineers
+	OR = {
+		has_tech = tech_engineers2
+		is_special_project_completed = sp:sp_land_flamethrower_tank
+	}
+	is_special_project_completed = sp:sp_land_military_engineering_vehicles
+}
+	
+is_resource_rich = {
+	OR = {
+		is_major = no
+		has_war = yes
+	}			
+	OR = {
+		AND = {
+			oil > 200
+			OR = {
+				check_variable = { resource_imported@oil > resource_exported@oil } #we are spending more than we have
+				check_variable = { num_of_civilian_factories_available_for_projects > num_of_owned_factories } #we have trade
+				check_variable = { fuel_ratio < 0.5 }
+			}
+		}
+		AND = {
+			aluminium > 150
+			OR = {
+				check_variable = { resource_imported@aluminium > resource_exported@aluminium } #we are spending more than we have
+				check_variable = { num_of_civilian_factories_available_for_projects > num_of_owned_factories } #we have trade
+			}
+		}
+		AND = {
+			rubber > 100
+			OR = {
+				check_variable = { resource_imported@rubber > resource_exported@rubber } #we are spending more than we have
+				check_variable = { num_of_civilian_factories_available_for_projects > num_of_owned_factories } #we have trade
+			}
+		}
+		AND = {
+			tungsten > 100
+			OR = {
+				check_variable = { resource_imported@tungsten > resource_exported@tungsten } #we are spending more than we have
+				check_variable = { num_of_civilian_factories_available_for_projects > num_of_owned_factories } #we have trade
+			}
+		}
+		AND = {
+			steel > 150
+			OR = {
+				check_variable = { resource_imported@steel > resource_exported@steel } #we are spending more than we have
+				check_variable = { num_of_civilian_factories_available_for_projects > num_of_owned_factories } #we have trade
+			}
+		}
+	}
+}
+
+
+has_DLC_for_tank = {
+	has_dlc = "Arms Against Tyranny"
+	has_dlc = "No Step Back"
+}
+
+can_equip_mech = {
+	OR = {
+		has_tech = enable_mech
+		has_tech = mechanised_infantry
+	}
+}
+SOV_can_swap_to_mech_tank = {
+	OR = {
+		num_of_military_factories > 250
+		has_equipment = { mechanized_equipment > 3000 }
+		has_country_flag = has_broken_the_mech_barrier
+	}
+}
+GER_is_going_to_fight_SOV = { 
+	OR = {
+		has_war_with = SOV 
+		is_justifying_wargoal_against = SOV
+		has_wargoal_against = SOV
+		focus_progress = {
+			focus = GER_war_with_the_ussr
+			progress > 0.01
+		}
+	}
+}
+need_low_stability = {
+	OR = {
+		AND = {
+			original_tag = ENG
+			OR = {
+				has_completed_focus = ENG_organize_the_blackshirts
+				has_country_flag = ENG_AI_RANDOM_FASCIST
+				has_game_rule = {
+					rule = ENG_ai_behavior 
+					option = FASCIST
+				}
+			}
+			NOT = { has_government = fascism }
+		}
+	}
+}
+SOV_is_tank_build = {
+	SOV = {
+		OR = {
+			has_country_flag = grand_battleplan_15w
+			has_country_flag = mech_brick
+			has_country_flag = superior_firepower_low
+			AND = {
+				has_country_flag = mass_assault_standard
+				num_of_military_factories > 100
+			}
+			has_country_flag = mass_assault_meatwall
+			num_of_military_factories > 300
+		}
+	}
+}
+SOV_is_light_tank_build = {
+	date < 1941.1.1
+	SOV = {
+		has_country_flag = light_tank_focus_flag
+	}
+}
+SOV_is_infantry_based = {
+	SOV = {
+		OR = {
+			has_country_flag = pure_infantry
+		}
+		OR = {
+			has_country_flag = pure_infantry
+			GER = { is_ai = no }
+			LIB = { is_ai = no }
+		}
+	}
+}
+GER_player_is_infantry_based = {
+	GER = {
+		has_army_size = {
+			size > 200
+			type = infantry
+		}
+		has_army_size = {
+			size < 12
+			type = armor
+		}
+	}
+}
+SOV_need_one_step_forward = {
+	OR = {
+		has_global_flag = SOV_one_step_forward
+		AND = {
+			SOV_is_infantry_based = yes
+			has_equipment = { infantry_equipment > 100000 }
+			OR = {
+				has_war_with = GER
+				GER = { is_justifying_wargoal_against = SOV }
+				GER = {
+					focus_progress = {
+						focus = GER_war_with_the_ussr
+						progress > 0.01
+					}
+				}
+			}
+		}
+	}
+	NOT = { has_completed_focus = SOV_eradicate_western_fascism }
+}
+GER_europe_is_ours = {
+	tag = GER
+	OR = {
+		SOV = { exists = no }
+		SOV = { has_capitulated = yes }
+		SOV = { is_subject_of = GER }
+		SOV = { is_in_faction_with = GER }
+	}
+	OR = {
+		FRA = { exists = no }
+		FRA = { has_capitulated = yes }
+		FRA = { is_subject_of = GER }
+		FRA = { is_in_faction_with = GER }
+	}
+	OR = {
+		ITA = { exists = no }
+		ITA = { has_capitulated = yes }
+		ITA = { is_subject_of = GER }
+		ITA = { is_in_faction_with = GER }
+	}
+}
+
+GER_is_vulnerable_to_d_day = {	
+	OR = {
+		GER = { 
+			OR = {
+				surrender_progress > 0 
+				has_equipment = { infantry_equipment < 10000 }
+				has_manpower < 200000
+			}
+			has_war_with = SOV
+			SOV = { surrender_progress < 0.20 }
+		}
+		GER = {
+			casualties_k > 3000
+			has_war_with = SOV
+			SOV = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1
+					has_idea = SOV_patriotic_offensive_2
+					has_idea = SOV_patriotic_offensive_3
+					has_idea = SOV_patriotic_offensive_4
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}		
+		}
+	} 
+	has_country_flag = {
+		flag = d_day_prep_flag
+		days > 180
+	}
+}
+
+entire_condition_of_blitzkrieg_africa = {
+	AND = {
+		has_war_with = ITA
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = FRA
+		}
+		NOT = { is_in_faction_with = ITA }
+		is_major = yes
+		NOT = { has_global_flag = vanilla_history } #italy will join war later so dont do it
+		OR = {
+			NOT = { surrender_progress > 0 }
+			AND = {
+				tag = FRA
+				NOT = { surrender_progress > 0.35 }
+			}
+		}
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		OR = {
+			has_war_with = VIC
+			date < 1942.1.1
+			FRA = { has_capitulated = no }
+		}
+		is_historical_focus_on = yes
+		any_state = {
+			is_core_of = LBA
+			controller = {
+				OR = {
+					original_tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		NOT = {
+			any_state = {
+				is_core_of = EGY
+				controller = { has_war_with = ENG }
+				NOT = { state = 452 }
+			}
+		}
+		OR = {
+			AND = {
+				is_in_faction_with = ENG 
+				ENG = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+			AND = {
+				is_in_faction_with = USA 
+				USA = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+		}
+		d_day_secured = no
+		OR = {
+			threat > 0.50
+			date > 1939.1.1
+			has_war_with = ITA
+			has_war_with = GER
+		}
+		has_war_with = ITA
+	}
+}
+entire_condition_of_blitzkrieg_africa_dupe = {
+	AND = {
+		has_war_with = ITA
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = FRA
+		}
+		NOT = { is_in_faction_with = ITA }
+		NOT = { has_global_flag = vanilla_history } #italy will join war later so dont do it
+		OR = {
+			NOT = { surrender_progress > 0 }
+			AND = {
+				tag = FRA
+				NOT = { surrender_progress > 0.35 }
+			}
+		}
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		OR = {
+			has_war_with = VIC
+			date < 1942.1.1
+			FRA = { has_capitulated = no }
+		}
+		is_historical_focus_on = yes
+		any_state = {
+			is_core_of = LBA
+			controller = {
+				OR = {
+					original_tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		NOT = {
+			any_state = {
+				is_core_of = EGY
+				controller = { has_war_with = ENG }
+				NOT = { state = 452 }
+			}
+		}
+		OR = {
+			AND = {
+				is_in_faction_with = ENG 
+				ENG = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+			AND = {
+				is_in_faction_with = USA 
+				USA = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+		}
+		d_day_secured = no
+		OR = {
+			threat > 0.50
+			date > 1939.1.1
+			has_war_with = ITA
+			has_war_with = GER
+		}
+		has_war_with = ITA
+	}
+}
+should_rush_invasion = {
+	OR = {
+		AND = {
+			2 = { controller = { is_in_faction_with = ROOT } }
+			OR = {
+				2 = { owner = { surrender_progress > 0.4 } }
+				date > 1942.12.1
+			}
+		}
+		OR = {
+			any_other_country = { has_idea = d_day_preparation_2 }
+			any_other_country = { has_idea = d_day_preparation_3 }
+		}
+		AND = {
+			GER = {
+				casualties_k > 3000
+				has_war_with = SOV
+				SOV = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1
+						has_idea = SOV_patriotic_offensive_2
+						has_idea = SOV_patriotic_offensive_3
+						has_idea = SOV_patriotic_offensive_4
+						has_idea = SOV_patriotic_offensive_5
+					}
+				}
+			} 
+			has_country_flag = {
+				flag = d_day_prep_flag
+				days > 180
+			}		
+		}
+		count_triggers = {
+			amount = 3
+			OR = {
+				controls_state = 36
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 36
+				}
+			}
+			OR = {
+				controls_state = 35
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 35
+				}
+			}
+			OR = {
+				controls_state = 7
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 7
+				}
+			}
+			OR = {
+				controls_state = 977
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 977
+				}
+			}
+			OR = {
+				controls_state = 6
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 6
+				}
+			}
+			OR = {
+				controls_state = 34
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 34
+				}
+			}
+			OR = {
+				controls_state = 29
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 29
+				}
+			}
+			OR = {
+				controls_state = 785
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 785
+				}
+			}
+			OR = {
+				controls_state = 15
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 15
+				}
+			}
+		}
+	}
+}
+
+is_japanese_endsieg = {
+	any_enemy_country = {
+		has_navy_size = { size > 300 }
+	}
+	OR = {
+		has_navy_size = { size < 200 } #only if our navy is in actual trouble
+		has_equipment = { convoy < 200 } #we might need to evacuate before our convoys disappear completely 
+	}
+	OR = {
+		AND = {
+			is_historical_focus_on = yes
+			GER = { has_country_flag = LSM_eligibility_nation }
+			has_global_flag = kwantung_intervention
+			SOV = { has_idea = LSM_victory_in_europe }
+			ENG = { has_idea = LSM_victory_in_europe }
+			USA = { has_idea = LSM_victory_in_europe }
+			RAJ = { has_capitulated = no } #we haven't yet killed India
+			NOT = { SOV = { surrender_progress > 0.05 } }
+			NOT = { ENG = { surrender_progress > 0.05 } }
+			NOT = { USA = { surrender_progress > 0.05 } }
+			NOT = { has_country_flag = LSM_eligibility_nation }
+			has_war = yes
+		}
+		AND = {
+			JAP = { has_war_with = USA }
+			USA = {
+				NOT = { 
+					any_enemy_country = { 
+						capital_scope = { 
+							OR = {
+								is_on_continent = europe 
+								is_on_continent = south_america 
+								is_on_continent = north_america
+							} 
+						}
+						is_major = yes
+					}
+				}
+			}
+			NOT = {
+				any_state = {
+					is_core_of = CHI
+					is_coastal = no
+					controller = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		AND = {
+			any_country = { 
+				original_tag = GER
+				has_war_with = JAP
+				NOT = {
+					any_enemy_country = {
+						is_major = yes
+						NOT = { tag = JAP }
+					}
+				}
+			}
+			any_country = { 
+				original_tag = ENG
+				has_war_with = JAP
+				NOT = {
+					any_enemy_country = {
+						is_major = yes
+						NOT = { tag = JAP }
+					}
+				}
+			}
+			any_country = { 
+				original_tag = USA
+				has_war_with = JAP
+				NOT = {
+					any_enemy_country = {
+						is_major = yes
+						NOT = { tag = JAP }
+					}
+				}
+			}
+		}
+	}
+}
+
+ITA_this_target_is_good = {
+	NOT = {
+		AND = {
+			any_country = { 
+				NOT = { is_in_faction_with = ITA }
+				has_guaranteed = FROM
+			}
+			FROM = { is_subject = no }
+		}
+	}
+	is_in_faction = yes
+	threat < 0.25 # not too much risk
+	has_war = no
+	NOT = {
+		any_country = {
+			is_in_faction_with = ITA
+			any_enemy_country = { is_faction_leader = yes }
+		}
+	}
+}
+d_day_secured = {
+		count_triggers = {
+			amount = 6
+			OR = {
+				controls_state = 36
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 36
+				}
+			}
+			OR = {
+				controls_state = 35
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 35
+				}
+			}
+			OR = {
+				controls_state = 7
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 7
+				}
+			}
+			OR = {
+				controls_state = 977
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 977
+				}
+			}
+			OR = {
+				controls_state = 6
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 6
+				}
+			}
+			OR = {
+				controls_state = 34
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 34
+				}
+			}
+			OR = {
+				controls_state = 29
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 29
+				}
+			}
+			OR = {
+				controls_state = 785
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 785
+				}
+			}
+			OR = {
+				controls_state = 15
+				any_country = {
+					is_in_faction_with = ENG
+					controls_state = 15
+				}
+			}
+		}
+
+}
+
+SOV_has_early_war_trigger = {
+	has_global_flag = SOV_has_early_war
+}
+
+
+GER_AI_is_mass_mob = {
+	tag = GER
+	OR = {
+		has_country_flag = mass_mob_flag
+		has_country_flag = mobile_warfare_flag
+		has_country_flag = mass_infantry_flag
+	}
+}
+GER_AI_is_infantry_based = {
+	tag = GER
+	OR = {
+		has_country_flag = mass_mob_flag
+		has_country_flag = spacemarine
+		has_country_flag = spacemarine_gbp
+		has_country_flag = mass_infantry_flag
+	}
+}
+USA_economic_decision_cost_trigger = {
+	original_tag = USA
+	OR = {
+		political_power_daily < 1
+		num_of_civilian_factories_available_for_projects < 60
+		has_idea = free_trade
+	}
+}
+
+game_is_on_historical_course = { #dont care about other countries
+	GER = { has_government = fascism }
+	ENG = { has_government = democratic }
+	FRA = { has_government = democratic }
+}
+unholy_alliance_may_exist = {
+	NOT = {
+		has_game_rule = {
+			rule = NONHIST_ai_behavior
+			option = NO_GAME_BALANCE 
+		}
+	}
+	GER = {
+		OR = {
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST_MR_PACT
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT
+		}
+	}
+	SOV = {
+		OR = {
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = HISTORICAL
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = RIGHT_OPPOSITION_COOPERATIVE
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = LEFT_OPPOSITION_COOPERATIVE
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = RIGHT_OPPOSITION
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = LEFT_OPPOSITION
+			}
+			has_country_flag = SOV_AI_RANDOM_HISTORICAL
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE
+		}
+	}
+}
+democratic_power_is_too_threatening = {
+	OR = {
+		AND = {
+			ENG = { has_completed_focus = ENG_steady_as_she_goes }
+			FRA = { has_completed_focus = FRA_confirm_eastern_commitments }
+		}
+		AND = {
+			ENG = { has_government = democratic }
+			FRA = { has_government = democratic }
+			CZE = { has_completed_focus = CZE_an_entente_of_our_own }
+		}
+		AND = {
+			ENG = { has_government = democratic }
+			FRA = { has_government = democratic }
+			AUS = { is_guaranteed_by = ITA }
+		}
+	}
+}
+GER_is_oppose_hitler = {
+	OR = {
+		GER = { has_completed_focus = GER_oppose_hitler }
+		GER = { has_completed_focus = GER_oppose_hitler_ww }
+		GER = {
+			focus_progress = {
+				focus = GER_oppose_hitler
+				progress > 0.5
+			}	
+		}
+		GER = {
+			focus_progress = {
+				focus = GER_oppose_hitler_ww
+				progress > 0.5
+			}
+		}
+	}
+}
+middle_east_is_friendly = {
+	OR = {
+		AND = {
+			PER = {
+				OR = {
+					has_country_flag = PER_AI_RANDOM_HISTORICAL
+					has_country_flag = PER_AI_RANDOM_DEMOCRATIC
+				}
+			}
+			AFG = {
+				OR = {
+					has_country_flag = AFG_AI_RANDOM_HISTORICAL
+					has_country_flag = AFG_AI_RANDOM_DEMOCRATIC
+				}
+			}
+			IRQ = {
+				OR = {
+					has_country_flag = IRQ_AI_RANDOM_HISTORICAL
+					has_country_flag = IRQ_AI_RANDOM_HASHEMITE
+				}
+			}
+			TUR = {
+				OR = {
+					has_country_flag = TUR_AI_RANDOM_HISTORICAL
+					has_country_flag = TUR_AI_RANDOM_DEMOCRATIC
+					has_country_flag = TUR_AI_RANDOM_DEMOCRATIC_ALTERNATE
+					has_country_flag = TUR_AI_RANDOM_BALKAN_ENTENTE
+				}
+			}
+		}
+		AND = {
+			PER = {
+				OR = {
+					has_country_flag = PER_AI_RANDOM_IMPERIAL
+					has_country_flag = PER_AI_RANDOM_FASCISM
+				}
+			}
+			AFG = {
+				OR = {
+					has_country_flag = AFG_AI_RANDOM_FASCISM
+					has_country_flag = IRQ_AI_RANDOM_HASHEMITE
+				}
+			}
+			IRQ = {
+				OR = {
+					has_country_flag = IRQ_AI_RANDOM_FASCISM
+					has_country_flag = IRQ_AI_RANDOM_SIDQI
+				}
+			}
+			TUR = {
+				OR = {
+					has_country_flag = TUR_AI_RANDOM_FASCISM
+					has_country_flag = TUR_AI_RANDOM_FASCISM_ALTERNATE
+				}
+			}
+		}
+		AND = {
+			PER = {
+				OR = {
+					has_country_flag = PER_AI_RANDOM_COMMUNISM
+					has_country_flag = PER_AI_RANDOM_DEMOCRATIC
+				}
+			}
+			AFG = {
+				OR = {
+					has_country_flag = AFG_AI_RANDOM_COMMUNISM
+					has_country_flag = AFG_AI_RANDOM_DEMOCRATIC
+				}
+			}
+			IRQ = {
+				OR = {
+					has_country_flag = IRQ_AI_RANDOM_KURDISTAN
+				}
+			}
+			TUR = {
+				OR = {
+					has_country_flag = TUR_AI_RANDOM_COMMUNISM
+					has_country_flag = TUR_AI_RANDOM_COMMUNISM_ALTERNATE
+					has_country_flag = TUR_AI_RANDOM_DEMOCRATIC
+					has_country_flag = TUR_AI_RANDOM_DEMOCRATIC_ALTERNATE
+					has_country_flag = TUR_AI_RANDOM_BALKAN_ENTENTE
+				}
+			}
+		}
+		AND = {
+			PER = {
+				OR = {
+					has_country_flag = PER_AI_RANDOM_ISLAMIC
+				}
+			}
+			AFG = {
+				OR = {
+					has_country_flag = AFG_AI_RANDOM_ISLAMIC
+				}
+			}
+			IRQ = {
+				OR = {
+					has_country_flag = IRQ_AI_RANDOM_ISLAMIC
+				}
+			}
+		}
+		OR = {
+			PER = {
+				OR = {
+					is_in_faction_with = IRQ
+					IRQ = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = AFG
+					AFG = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = TUR
+					TUR = { exists = no }
+				}
+			}
+			IRQ = {
+				OR = {
+					is_in_faction_with = PER
+					PER = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = AFG
+					AFG = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = TUR
+					TUR = { exists = no }
+				}
+			}
+			TUR = {
+				OR = {
+					is_in_faction_with = IRQ
+					IRQ = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = AFG
+					AFG = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = PER
+					PER = { exists = no }
+				}
+			}
+			AFG = {
+				OR = {
+					is_in_faction_with = IRQ
+					IRQ = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = PER
+					PER = { exists = no }
+				}
+				OR = {
+					is_in_faction_with = TUR
+					TUR = { exists = no }
+				}
+			}
+		}
+		OR = {
+			PER = {
+				OR = {
+					is_in_faction_with = IRQ
+					is_in_faction_with = TUR
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = TUR
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = IRQ
+				}
+			}
+			IRQ = {
+				OR = {
+					is_in_faction_with = PER
+					is_in_faction_with = TUR
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = TUR
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = PER
+				}
+			}
+			TUR = {
+				OR = {
+					is_in_faction_with = IRQ
+					is_in_faction_with = PER
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = PER
+				}
+				OR = {
+					is_in_faction_with = AFG
+					is_in_faction_with = IRQ
+				}
+			}
+			AFG = {
+				OR = {
+					is_in_faction_with = PER
+					is_in_faction_with = TUR
+				}
+				OR = {
+					is_in_faction_with = PER
+					is_in_faction_with = IRQ
+				}
+				OR = {
+					is_in_faction_with = TUR
+					is_in_faction_with = IRQ
+				}
+			}
+		}
+	}
+}
+
+
+GER_is_ai_democratic = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+}
+GER_is_ai_monarchist = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_KAISER
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = KAISER
+			}
+			has_country_flag = GER_AI_RANDOM_KAISERREICH
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = KAISERREICH
+			}
+		}
+}
+GER_is_ai_communist = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_COMMUNIST_STALINIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_COMMUNIST_STALINIST
+			}
+			has_country_flag = GER_AI_RANDOM_COMMUNIST_SPARTACUS
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_COMMUNIST_SPARTACUS
+			}
+		}
+}
+GER_is_ai_strasser = {
+}
+
+FIN_NORDIC_is_not_friendly = {
+	OR = {
+		AND = {
+			NOR = { 
+				OR = {
+					has_completed_focus = NOR_lurk_in_the_shadows
+					has_completed_focus = NOR_a_resurgent_labor_movement
+				}
+			}
+			SWE = { 
+				OR = {
+					has_completed_focus = SWE_prevent_a_red_dictatorship
+				}
+			}
+		}
+		AND = {
+			SWE = { 
+				OR = {
+					has_completed_focus = SWE_prevent_a_red_dictatorship
+				}
+			}
+			DEN = { 
+				OR = {
+					has_completed_focus = DEN_march_on_the_capital
+				}
+			}
+		}
+		AND = {
+			NOR = { 
+				OR = {
+					has_completed_focus = NOR_lurk_in_the_shadows
+					has_completed_focus = NOR_a_resurgent_labor_movement
+				}
+			}
+			DEN = { 
+				OR = {
+					has_completed_focus = DEN_march_on_the_capital
+				}
+			}
+		}
+	}
+}
+
+FIN_NORDIC_is_friendly = {
+	OR = {
+		AND = {
+			SWE = { 
+				OR = {
+					has_completed_focus = SWE_continue_the_second_industrial_revolution
+					has_completed_focus = SWE_the_nordic_defense_council
+				}
+			}
+			NOR = { 
+				OR = {
+					has_completed_focus = NOR_vote_of_no_confidence
+					has_completed_focus = NOR_continue_nygaardsvold_government
+					has_completed_focus = NOR_the_chamberlains_overture				
+				}
+			}
+		}
+		AND = {
+			SWE = { 
+				OR = {
+					has_completed_focus = SWE_continue_the_second_industrial_revolution
+					has_completed_focus = SWE_the_nordic_defense_council
+				}
+			}
+			DEN = { 
+				OR = {
+					has_completed_focus = DEN_king_assumes_power
+					has_completed_focus = DEN_political_unity
+				}
+			}
+		}
+		AND = {
+			NOR = { 
+				OR = {
+					has_completed_focus = NOR_vote_of_no_confidence
+					has_completed_focus = NOR_continue_nygaardsvold_government
+					has_completed_focus = NOR_the_chamberlains_overture				
+				}
+			}
+			DEN = { 
+				OR = {
+					has_completed_focus = DEN_king_assumes_power
+					has_completed_focus = DEN_political_unity
+				}
+			}
+		}
+	}
+}
+
+
+can_rely_on_allies = {
+	country_exists = ENG
+	date < 1940.1.1
+	ENG = { is_ai = yes }
+	is_historical_focus_on = yes
+	ENG = {
+		has_government = democratic
+		OR = {
+			has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = DEFAULT
+			}
+		}
+	} 
+}
+
+
+
+ENG_is_monarchist = {
+	ENG = {	
+		is_ai = yes
+		OR = {
+			has_country_flag = ENG_abdication_crisis_morganatic_marriage
+			has_country_flag = ENG_abdication_crisis_normal_marriage
+			has_country_flag = ENG_AI_RANDOM_NEUTRALITY
+			has_game_rule = {
+				rule = ENG_ai_behavior
+				option = NEUTRALITY
+			}
+		}
+	}
+}
+
+
+
+SOV_is_not_historical = {
+			SOV = {
+				OR = {
+					has_completed_focus = SOV_beaten_but_not_defeated
+					has_completed_focus = SOV_the_right_opposition
+					has_completed_focus = SOV_the_left_opposition
+					has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = LEFT_OPPOSITION
+					}
+					has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = LEFT_OPPOSITION_COOPERATIVE
+					}
+					has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = RIGHT_OPPOSITION
+					}
+					has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = RIGHT_OPPOSITION_COOPERATIVE
+					}
+					has_country_flag = SOV_AI_RANDOM_EXILES_TSARIST
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_TSARIST
+					}
+					has_country_flag = SOV_AI_RANDOM_EXILES_FASCIST
+					has_game_rule = {
+						rule = SOV_ai_behavior
+						option = EXILES_FASCIST
+					}
+				}
+			}
+}
+
+is_ai_generic_need_to_war_as_allied_member = {
+	OR = {
+		original_tag = NEP
+	}
+}
+
+
+AI_need_pure_meat = {
+	OR = {
+		original_tag = MON
+		original_tag = TAN
+	}
+}
+epic_winter_month = {
+	has_tech = ski_troops
+	any_enemy_country = {
+		is_major = yes
+		capital_scope = {
+			OR = {
+				is_on_continent = europe
+				is_on_continent = north_america
+			}
+		}
+	}
+	OR = {
+		AND = {
+			date > 1940.1.1
+			date < 1940.4.1
+		}
+		AND = {
+			date > 1941.1.1
+			date < 1941.4.1
+		}
+		AND = {
+			date > 1941.12.1
+			date < 1942.4.12
+		}
+		AND = {
+			date > 1942.12.1
+			date < 1943.4.12
+		}
+		AND = {
+			date > 1943.12.1
+			date < 1944.4.12
+		}
+		AND = {
+			date > 1944.12.1
+			date < 1945.4.12
+		}
+		AND = {
+			date > 1945.12.1
+			date < 1946.4.12
+		}
+		AND = {
+			date > 1946.12.1
+			date < 1947.4.12
+		}
+		AND = {
+			date > 1947.12.1
+			date < 1948.4.12
+		}
+		AND = {
+			date > 1948.12.1
+			date < 1949.4.12
+		}
+	}
+}
+winter_months_are_so_peak = {
+	OR = {
+		AND = {
+			date > 1940.1.1
+			date < 1940.4.1
+		}
+		AND = {
+			date > 1941.1.1
+			date < 1941.4.1
+		}
+		AND = {
+			date > 1941.12.10
+			date < 1942.4.12
+		}
+		AND = {
+			date > 1943.2.1
+			date < 1943.4.12
+		}
+		AND = {
+			date > 1944.2.1
+			date < 1944.4.12
+		}
+		AND = {
+			date > 1945.2.1
+			date < 1945.4.12
+		}
+	}
+}
+transition_no_europe_war = {
+	OR = {
+		has_global_flag = era_of_transition
+		NOT = { 
+			any_country = {
+				capital_scope = { is_on_continent = europe }
+				OR = {
+					has_war_with = ROOT
+					AND = {
+						is_ai = no
+						NOT = { has_government = democratic }
+						OR = {
+							is_neighbor_of = ROOT
+							AND = {
+								is_neighbor_of = ENG
+								ROOT = { is_in_faction_with = ENG }
+							}
+							AND = {
+								is_neighbor_of = FRA
+								ROOT = { is_in_faction_with = FRA }
+							}
+						}
+					}
+				}
+				is_major = yes
+				has_capitulated = no
+			}
+		}
+	}
+}
+
+ITA_is_doing_it_for_us = {
+	date < 1939.8.1
+	is_historical_focus_on = yes
+	ITA = {
+		OR = {
+			is_ai = yes
+			AND = {
+				OR = {
+					has_tech = aa_hmg
+					is_researching_technology = aa_hmg
+				}
+				OR = {
+					has_tech = survivability_studies
+					is_researching_technology = survivability_studies
+				}
+			}
+		}			
+		OR = {
+			AND = {
+				has_war = no
+				is_in_faction_with = ROOT
+			}
+			is_historical_focus_on = yes
+		}
+		OR = {
+			has_tech = engines_3
+			is_researching_technology = engines_3
+		}
+		is_subject = no
+	}
+}
+ENG_is_doing_it_for_us = {
+	date < 1939.1.1
+	is_historical_focus_on = yes
+	ENG = {
+		OR = {
+			is_ai = yes
+			AND = {
+				OR = {
+					has_tech = aa_hmg
+					is_researching_technology = aa_hmg
+				}
+				OR = {
+					has_tech = survivability_studies
+					is_researching_technology = survivability_studies
+				}
+			}
+		}	
+		OR = {
+			AND = {
+				has_war = no
+				is_in_faction_with = ROOT
+			}
+			is_historical_focus_on = yes
+		}
+		OR = {
+			has_tech = engines_3
+			is_researching_technology = engines_3
+		}
+		is_subject = no
+	}
+}
+is_d_day_preparation_state = {
+	is_coastal = yes
+	OR = {
+		is_core_of = MOR
+		is_core_of = EGY
+		is_core_of = ALG
+		is_core_of = TUN
+		is_core_of = LBA
+		state = 123
+		state = 338
+		state = 127
+		state = 126
+		state = 129
+		state = 116
+		state = 114
+		state = 1
+	}
+}
+
+
+can_upgrade_d_day_state_modifier = {
+	is_d_day_preparation_state = yes
+	NOT = {
+		check_variable = { d_day_preparation_production_speed < -0.4 }
+		check_variable = { d_day_preparation_non_core_manpower < -0.4 }
+		check_variable = { d_day_preparation_local_supplies > 0.4 }
+		check_variable = { d_day_preparation_supply_factor > 0.4 }
+		check_variable = { d_day_preparation_attrition < -0.4 }
+	}
+}
+
+
+SOV_is_careless = {
+	NOT = { has_global_flag =  disabled_equipment_funnelling }
+	date > 1940.1.1
+	NOT = { has_war_with = SOV }
+	SOV = { is_ai = no }
+	NOT = { SOV = { has_non_aggression_pact_with = JAP } }
+	NOT = { SOV = { has_completed_focus = SOV_reconcile_japan } }
+	OR = {
+		NOT = { country_exists = CHI }
+		CHI = { is_in_faction_with = JAP }
+		CHI = { is_subject_of = JAP }
+		CHI = { has_country_flag = LSM_eligibility_nation }
+		613 = { owner = { is_in_faction_with = JAP } }
+	}
+	OR = {
+		NOT = {
+			any_state = {
+				is_core_of = SOV
+				any_neighbor_state = {
+					is_core_of = MAN
+				}
+				SOV = { divisions_in_state = { state = PREV size > 3 } }
+			}
+		}
+		AND = {
+			SOV = { 
+				divisions_in_state = { state = 408 size < 3 } 
+				divisions_in_state = { state = 409 size < 3 } 
+				divisions_in_state = { state = 655 size < 3 } 
+				divisions_in_state = { state = 657 size < 3 }  
+				divisions_in_state = { state = 563 size < 3 } 
+				divisions_in_state = { state = 819 size < 3 } 
+				divisions_in_state = { state = 817 size < 3 }
+			}
+		}
+		AND = {
+			SOV = { 
+				is_ai = no
+				divisions_in_state = { state = 408 size < 8 }
+			}
+		}
+	}
+}
+
+JAP_against_SOV = {
+	has_country_flag = JAP_strike_north
+}
+
+
+SOV_is_ahistorical = {
+	OR = {
+		has_completed_focus = SOV_the_right_opposition
+		has_completed_focus = SOV_the_left_opposition
+		has_completed_focus = SOV_beaten_but_not_defeated
+	}
+}
+
+generic_gun_3 = {
+	NOT = { has_country_flag = gun_2_ai }
+	NOT = { tag = VEN }
+	NOT = { tag = TAN }
+	NOT = { tag = MAL }
+	NOT = { tag = MEN }
+	NOT = { tag = BEL }
+	NOT = { tag = LBA }
+}
+
+generic_gun_2 = {
+	OR = {
+		has_country_flag = gun_2_ai
+		tag = MEN
+		tag = TAN
+		tag = VEN
+		tag = MAL
+		tag = BEL
+		tag = LBA
+	}
+}
+
+is_ai_fascist_generic = {
+	has_focus_tree = generic_focus
+	OR = {
+		has_country_flag = fascist_generic_flag
+		AND = {
+			is_historical_focus_on = yes
+			OR = {
+				tag = SIA
+				tag = POR
+				tag = SPR
+				tag = BUL
+			}
+		}
+	}
+}
+
+is_ai_communist_generic = {
+	has_focus_tree = generic_focus
+	has_country_flag = communist_generic_flag
+}
+
+maybe_england_is_eligible_target = {
+	capital_scope = { 
+		OR = {
+			is_on_continent = europe
+			is_on_continent = north_america
+		}
+	}
+	NOT = {
+		any_state = {
+			is_core_of = ENG
+			is_in_home_area = yes
+			ENG = { divisions_in_state = { state = PREV size > 4 } }
+		}
+	}
+}
+
+not_ready_for_tier_5_tech = {
+	original_tag = SOV
+	date < 1942.1.1
+	has_completed_focus = SOV_industrial_modernization
+	NOT = { has_tech = flexible_line }
+	NOT = { has_tech = streamlined_line }
+	NOT = { has_tech = dispersed_industry5 }
+	NOT = { has_tech = concentrated_industry5 }
+	NOT = { is_researching_technology = dispersed_industry5 }
+	NOT = { is_researching_technology = concentrated_industry5 }
+	NOT = { is_researching_technology = flexible_line }
+}
+not_ready_for_tier_4_tech = {
+	original_tag = SOV
+	date < 1942.1.1
+	has_completed_focus = SOV_reorganize_the_pc_of_heavy_industry
+	OR = {
+		NOT = { has_tech = advanced_machine_tools } 
+		NOT = { has_tech = assembly_line_production }
+		AND = {
+			NOT = { has_tech = dispersed_industry3 } 
+			NOT = { has_tech = concentrated_industry3 }  
+		}
+		AND = {
+			NOT = { has_tech = dispersed_industry4 } 
+			NOT = { has_tech = concentrated_industry4 }
+		}
+	}
+}
+can_do_molotov_ribbentrop = {
+	NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
+	NOT = { has_completed_focus = GER_the_great_red_menace }
+	NOT = { has_global_flag = beck_ribbentrop_signed }
+}
+intel_vs_allies_tier1 = { 
+	any_country = {
+		is_axis_ai = yes
+		is_in_faction_with = GER
+		intel_level_over = {
+			target = ENG
+			army_intel > 0.49
+			navy_intel > 0.49
+		}
+	}
+}
+ 
+intel_vs_allies_tier2 = { 
+	any_country = {
+		is_axis_ai = yes
+		is_in_faction_with = GER
+		intel_level_over = {
+			target = ENG
+			army_intel > 0.69
+			navy_intel > 0.69
+		}
+	}
+} 
+intel_vs_allies_tier3 = { 
+	any_country = {
+		is_axis_ai = yes
+		is_in_faction_with = GER
+		intel_level_over = {
+			target = ENG
+			army_intel > 0.79
+			navy_intel > 0.79
+		}
+	}
+} 
+intel_vs_allies_tier4 = { 
+	any_country = {
+		is_axis_ai = yes
+		is_in_faction_with = GER
+		intel_level_over = {
+			target = ENG
+			army_intel > 0.89
+			navy_intel > 0.89
+		}
+	}
+} 
+intel_vs_allies_tier5 = { 
+	any_country = {
+		is_axis_ai = yes
+		is_in_faction_with = GER
+		is_fully_decrypted = ENG
+	}
+}
+GER_is_human_yes_air = { #we ditch air completely if GER has 2/4 tech cuz only humans will do that
+	GER = { 
+		NOT = { has_country_flag = LSM_endsieg_has_begun }
+		is_ai = no 
+		date > 1938.1.1 
+		OR = {
+			AND = {
+				has_tech = range_improvements
+				OR = {
+					has_tech = aa_hmg
+					has_tech = improved_small_airframe
+					has_tech = survivability_studies
+				}
+			}
+			AND = {
+				has_tech = aa_hmg
+				OR = {
+					has_tech = range_improvements
+					has_tech = improved_small_airframe
+					has_tech = survivability_studies
+				}
+			}
+			AND = {
+				has_tech = improved_small_airframe
+				OR = {
+					has_tech = aa_hmg
+					has_tech = range_improvements
+					has_tech = survivability_studies
+				}
+			}
+			AND = {
+				has_tech = survivability_studies
+				OR = {
+					has_tech = aa_hmg
+					has_tech = improved_small_airframe
+					has_tech = range_improvements
+				}
+			}
+		}
+	}
+}
+ 
+GER_is_super_ai_yes_air = {
+	GER = { 
+		NOT = { has_country_flag = LSM_endsieg_has_begun }
+		is_ai = yes  
+		date > 1938.1.1
+		num_of_military_factories > 200
+		OR = {
+			NOT = { 
+				any_country = { 
+					has_war_with = GER
+					has_deployed_air_force_size = {
+						type = fighter
+						size > 1999 #deplaned
+					}
+				}
+			}
+			GER = { 
+				has_deployed_air_force_size = {
+					type = fighter
+					size > 4999 #it is a super Germany
+				}
+			}
+		}
+		OR = {
+			AND = {
+				has_tech = range_improvements
+				has_tech = aa_hmg
+				OR = {
+					has_tech = improved_small_airframe
+					has_tech = survivability_studies
+				}
+			}
+			AND = {
+				has_tech = aa_hmg
+				has_tech = improved_small_airframe
+				OR = {
+					has_tech = range_improvements
+					has_tech = survivability_studies
+				}
+			}
+			AND = {
+				has_tech = improved_small_airframe
+				has_tech = survivability_studies
+				OR = {
+					has_tech = aa_hmg
+					has_tech = range_improvements
+				}
+			}
+			AND = {
+				has_tech = survivability_studies
+				has_tech = range_improvements
+				OR = {
+					has_tech = aa_hmg
+					has_tech = improved_small_airframe
+				}
+			}
+		}
+	}
+}
+
+GER_is_super_ai_no_air = {
+
+	GER = { 
+		is_ai = yes 
+		date > 1938.1.1 
+		num_of_military_factories > 200
+		NOT = {
+			OR = {
+				AND = {
+					has_tech = range_improvements
+					OR = {
+						has_tech = aa_hmg
+						has_tech = improved_small_airframe
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = aa_hmg
+					OR = {
+						has_tech = range_improvements
+						has_tech = improved_small_airframe
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = improved_small_airframe
+					OR = {
+						has_tech = aa_hmg
+						has_tech = range_improvements
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = survivability_studies
+					OR = {
+						has_tech = aa_hmg
+						has_tech = improved_small_airframe
+						has_tech = range_improvements
+					}
+				}
+			}
+		}
+	}
+} 
+
+GER_is_human_no_air = {
+
+	GER = { 
+		is_ai = no 
+		date > 1938.1.1 
+		NOT = {
+			OR = {
+				AND = {
+					has_tech = range_improvements
+					OR = {
+						has_tech = aa_hmg
+						has_tech = improved_small_airframe
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = aa_hmg
+					OR = {
+						has_tech = range_improvements
+						has_tech = improved_small_airframe
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = improved_small_airframe
+					OR = {
+						has_tech = aa_hmg
+						has_tech = range_improvements
+						has_tech = survivability_studies
+					}
+				}
+				AND = {
+					has_tech = survivability_studies
+					OR = {
+						has_tech = aa_hmg
+						has_tech = improved_small_airframe
+						has_tech = range_improvements
+					}
+				}
+			}
+		}
+	}
+
+}
+
+any_major_is_human_has_tank = {
+	
+}
+
+any_minor_is_human_has_air = {
+
+}
+
+any_major_is_human = {
+	OR = { 
+		any_country = {
+			is_major = yes
+			is_ai = no
+		}
+		NEP = { is_ai = no }
+	}
+}
+
+SOV_is_deplaned = {
+	AND = {
+		num_of_military_factories < 300
+		surrender_progress > 0
+	}
+	OR = {
+		AND = {
+			SOV = {
+				has_war = yes
+				has_deployed_air_force_size = {
+					type = fighter
+					size < 500 #deplaned
+				}
+			}
+			any_country = {
+				AND = {
+					has_war_with = SOV
+					is_major = yes
+				}
+				has_deployed_air_force_size = {
+					type = fighter
+					size > 1999 #deplaned
+				}	
+			}
+		}
+		AND = {
+			SOV = {
+				has_war = yes
+				has_deployed_air_force_size = {
+					type = fighter
+					size < 1000 #deplaned
+				}
+			}
+			any_country = {
+				AND = {
+					has_war_with = SOV
+					is_major = yes
+				}
+				has_deployed_air_force_size = {
+					type = fighter
+					size > 3999 #deplaned
+				}	
+			}
+		}
+		has_global_flag = SOV_is_deplaned_forced_check
+		has_global_flag = SOV_no_air
+	}
+}
+
+GER_is_deplaned = {
+	AND = {
+		GER = {
+			has_war = yes
+			has_deployed_air_force_size = {
+				type = fighter
+				size < 2000 #deplaned
+			}
+		}
+		any_country = {
+			AND = {
+				has_war_with = GER
+				is_major = yes
+			}
+			has_deployed_air_force_size = {
+				type = fighter
+				size > 4999
+			}
+		}
+	}
+}
+
+GER_is_not_relevant_to_allies = {
+	OR = {
+		GER = { has_manpower < 50000 }
+		GER = { is_subject = yes }
+		GER = { has_capitulated = yes }
+		GER = { is_in_faction_with = ENG }
+		NOT = { country_exists = GER }
+		GER = { has_country_flag = lsm_eligibility_nation }
+		GER = { has_country_flag = LSM_endsieg_has_begun } 
+		AND = {
+			OR = {
+				AND = {
+					GER = { surrender_progress > 0 }
+					any_country = {
+						original_tag = FRA
+						tag = VIC
+						is_in_faction_with = GER
+						surrender_progress > 0.3
+					}
+					any_country = {
+						original_tag = ITA
+						is_in_faction_with = GER
+						surrender_progress > 0.3
+					}
+				}
+				any_country = {
+					original_tag = FRA
+					tag = VIC
+					is_in_faction_with = GER
+					surrender_progress > 0.6
+				}
+			}
+			has_global_flag = d_day_happened
+			has_global_flag = d_day_was_a_success
+		}
+	}
+}
+
+GER_is_not_relevant = {
+	OR = {
+		#GER_is_deplaned = yes
+		GER = { has_manpower < 100000 }
+		GER = { is_subject = yes }
+		GER = { has_capitulated = yes }
+		GER = { is_in_faction_with = SOV }
+		NOT = { country_exists = GER }
+		GER = { has_country_flag = lsm_eligibility_nation }
+		GER = { has_country_flag = LSM_endsieg_has_begun } #you are dying anyway
+		AND = {
+			OR = {
+				AND = {
+					GER = { surrender_progress > 0 }
+					any_country = {
+						original_tag = FRA
+						is_in_faction_with = GER
+						surrender_progress > 0.3
+					}
+					any_country = {
+						original_tag = ITA
+						is_in_faction_with = GER
+						surrender_progress > 0.3
+					}
+				}
+				any_country = {
+					original_tag = FRA
+					is_in_faction_with = GER
+					surrender_progress > 0.6
+				}
+			}
+			has_global_flag = d_day_happened
+			has_global_flag = d_day_was_a_success
+		}
+	}
+}
+
+barbarossa_has_stalled = {
+	SOV = {
+		has_country_flag = {
+			flag = days_since_last_change_on_the_map
+			days > 30
+		}
+	}
+}
+
+human_is_observer = { 
+	OR = {
+		NEP = { is_ai = no }
+		BHU = { is_ai = no }
+	}
+}
+
+is_ai_tech_slave = { #reserved for very high specific, high end techs, these nations are functionally useless so they only research
+	OR = {
+		original_tag = TAN
+		original_tag = MON
+		original_tag = MEN
+		original_tag = MAL
+		original_tag = PHI
+		original_tag = VEN
+		original_tag = ALB
+		original_tag = LUX
+	}
+}
+
+is_spg_country = {
+	OR = {
+		AND = {
+			has_dlc = "Gotterdammerung"
+			original_tag = HUN
+		}
+	}
+}
+
+is_light_tank_country = {
+	OR = {
+		AND = {
+			has_dlc = "Gotterdammerung"
+			original_tag = HUN
+		}
+		has_country_flag = light_tank_focus_flag
+	}
+}
+
+is_light_tank_nation = {
+	OR = {
+		AND = {
+			has_dlc = "Gotterdammerung"
+			original_tag = HUN
+		}
+		has_country_flag = light_tank_focus_flag
+	}
+}
+
+is_cavalry_nation = {
+	OR = {
+		AND = {
+			original_tag = POL
+			has_completed_focus = POL_cossack_king
+		}
+		original_tag = MON
+		original_tag = TAN
+		original_tag = XSM
+		original_tag = NXM
+		original_tag = GSM
+	}
+}
+
+any_allied_major_is_human = {
+	any_country = {
+		is_allied_ai = yes
+		is_ai = no
+	}
+}
+
+any_axis_major_is_human = {
+	any_country = {
+		is_axis_ai = yes
+		is_ai = no
+	}
+}
+
+any_allied_major_is_human2 = {
+	any_country = {
+		is_allied_ai = yes
+		is_ai = no
+		is_major = yes
+	}
+}
+
+any_axis_major_is_human2 = {
+	any_country = {
+		is_axis_ai = yes
+		is_ai = no
+		is_major = yes
+	}
+}
+is_ai_mountaineer = {
+	has_tech = tech_mountaineers
+	OR = {
+		original_tag = USA
+		original_tag = ENG
+		original_tag = ITA
+		original_tag = JAP
+		original_tag = NEP
+		original_tag = BHU
+		original_tag = TIB
+		original_tag = PER
+		original_tag = PRU
+		original_tag = ECU
+		original_tag = VEN
+		original_tag = COL
+		original_tag = BOL
+		original_tag = AFG
+		original_tag = CHL
+		original_tag = ARG
+		original_tag = MEX
+		original_tag = ROM
+		original_tag = YUG
+		original_tag = BUL
+		original_tag = TUR
+		original_tag = SPR
+		original_tag = SWI
+		original_tag = VIN
+		original_tag = GER
+	}
+}
+is_ai_tungsten_base = {
+	OR = {
+		original_tag = RAJ
+		original_tag = SPR
+		original_tag = POR
+		original_tag = CHL
+	}
+}
+is_ai_mobile_warfare_TD = {
+	OR = {
+		original_tag = POR
+	}
+}
+is_ai_mountaineer_only = {
+	has_tech = tech_mountaineers
+	OR = {
+		original_tag = NEP
+	}
+}
+is_ai_marine = {
+	OR = {
+		has_country_flag = mobile_marine
+		original_tag = USA
+		original_tag = URG
+		original_tag = ENG
+		original_tag = CAN
+		original_tag = AST
+		original_tag = POR
+		has_country_flag = spacemarine_gbp
+	}
+}
+
+is_ai_amtrac = {
+	OR = {
+		original_tag = USA
+		original_tag = ENG
+		original_tag = AST
+		original_tag = BRA
+		original_tag = CHL
+		original_tag = URG
+		original_tag = ARG
+		original_tag = CAN
+	}
+}
+is_ai_mobile_marine = {
+	has_country_flag = mobile_marine
+	OR = {
+		original_tag = CAN
+		original_tag = IRE
+		original_tag = ROM
+		original_tag = SWE
+		original_tag = AST
+	}
+}
+
+might_need_to_have_aggro = {
+	OR = {
+		original_tag = AOI
+		original_tag = LBA
+		AND = {
+			is_historical_focus_on = no
+			is_in_faction = yes
+			NOT = {
+				any_enemy_country = { is_ai = no }
+			}
+		}
+		AND = {
+			NOT = { surrender_progress > 0 }
+			is_in_faction = no
+		}
+		AND = {
+			is_historical_focus_on = yes
+			has_army_manpower = { size > 1000000 }
+			has_equipment = { infantry_equipment > 50000 }
+		}
+	}
+}
+is_ai_mass_mob_ex = { 
+	OR = {
+		original_tag = MON
+		original_tag = AFG
+		original_tag = TAN
+	}	
+}
+is_ai_mass_mob = {  
+	NOT = { has_country_flag = mobile_marine }
+	OR = {
+		has_country_flag = mass_mob_minor
+		difficulty > 1
+	}
+	OR = {
+		has_country_flag = mass_mob_minor
+		AND = {
+			is_major = no
+			has_doctrine = mass_assault
+			is_historical_focus_on = no
+		}
+		is_historical_focus_on = yes
+	}
+	OR = {
+		AND = {
+			is_major = no
+			has_doctrine = mass_assault
+			is_historical_focus_on = no
+		}
+		has_country_flag = mass_mob_minor
+		original_tag = LBA
+		original_tag = ALB
+		original_tag = AOI
+		AND = {
+			original_tag = HUN
+			NOT = { has_dlc = "Gotterdammerung" }
+		}
+		original_tag = IRE
+		original_tag = POL
+		original_tag = TUR
+		original_tag = SAF
+		original_tag = RAJ
+		original_tag = ROM
+		original_tag = VIN
+		original_tag = MEX
+		original_tag = YUG
+		original_tag = HOL
+		original_tag = BEL
+		original_tag = GRE
+		original_tag = SLO
+		original_tag = FIN
+		original_tag = MNT
+		original_tag = NOR
+		original_tag = DEN
+		original_tag = ALB
+		original_tag = BUL
+		original_tag = PHI
+		#original_tag = POR
+		original_tag = LIT
+		original_tag = LAT
+		original_tag = EST
+		original_tag = SWI
+		original_tag = MAN
+		original_tag = MEN
+		original_tag = SIA
+		original_tag = SPR
+		AND = {
+			is_subject_of = FRA
+			has_focus_tree = generic_focus
+		}
+		AND = {
+			is_subject_of = ENG
+			has_focus_tree = generic_focus
+		}
+		AND = {
+			original_tag = ARG
+			OR = {
+				is_historical_focus_on = no
+				NOT = { has_dlc = "Trial of Allegiance" }
+			}
+		}
+		AND = {
+			original_tag = BRA
+			OR = {
+				is_historical_focus_on = no
+				NOT = { has_dlc = "Trial of Allegiance" }
+			}
+		}
+		AND = {	
+			original_tag = ITA
+			surrender_progress > 0.1 #time to act like who we truly are 
+		}
+		AND = { 
+			original_tag = FRA
+			has_focus_tree = vichy_french_focus
+		}
+		AND = { 
+			OR = {
+				original_tag = AST
+				original_tag = MAL
+				original_tag = CAN
+			}
+			ENG = { is_ai = yes }
+		}
+		AND = { 
+			OR = {
+				original_tag = IRQ
+				original_tag = PER
+				original_tag = AFG
+			}
+			OR = {
+				ENG = { is_ai = no }
+				SOV = { is_ai = no }
+				GER = { is_ai = no }
+			}
+		}
+	}
+}
+is_ai_mass_mob_copy = { 
+	OR = {
+		has_country_flag = mass_mob_minor
+		AND = {
+			is_major = no
+			has_doctrine = mass_assault
+			is_historical_focus_on = no
+		}
+		is_historical_focus_on = yes
+	}
+	OR = {
+		AND = {
+			is_major = no
+			has_doctrine = mass_assault
+			is_historical_focus_on = no
+		}
+		has_country_flag = mass_mob_minor
+		original_tag = ROM
+		original_tag = LBA
+		original_tag = ALB
+		AND = {
+			original_tag = HUN
+			NOT = { has_dlc = "Gotterdammerung" }
+		}
+		original_tag = POL
+		original_tag = TUR
+		original_tag = SAF
+		original_tag = RAJ
+		original_tag = ROM
+		original_tag = MEX
+		original_tag = YUG
+		original_tag = HOL
+		original_tag = BEL
+		original_tag = IRE
+		original_tag = GRE
+		original_tag = SLO
+		original_tag = FIN
+		original_tag = MNT
+		original_tag = NOR
+		original_tag = DEN
+		original_tag = ALB
+		original_tag = BUL
+		original_tag = PHI
+		original_tag = LIT
+		original_tag = LAT
+		original_tag = EST
+		original_tag = SWI
+		original_tag = MAN
+		original_tag = MEN
+		original_tag = SIA
+		original_tag = SPR
+		AND = {
+			original_tag = ARG
+			OR = {
+				is_historical_focus_on = no
+				NOT = { has_dlc = "Trial of Allegiance" }
+			}
+		}
+		AND = {
+			original_tag = BRA
+			OR = {
+				is_historical_focus_on = no
+				NOT = { has_dlc = "Trial of Allegiance" }
+			}
+		}
+		AND = {	
+			original_tag = ITA
+			surrender_progress > 0.1 #time to act like who we truly are 
+		}
+		AND = { 
+			original_tag = FRA
+			has_focus_tree = vichy_french_focus
+		}
+		AND = { 
+			OR = {
+				original_tag = AST
+				original_tag = MAL
+				original_tag = CAN
+			}
+			ENG = { is_ai = yes }
+		}
+	}
+}
+
+
+is_ai_mech_mob = { 
+	OR = {
+		AND = {
+			original_tag = ARG
+			has_dlc = "Trial of Allegiance"
+			is_historical_focus_on = yes
+		}
+		AND = {
+			original_tag = BRA
+			has_dlc = "Trial of Allegiance"
+			is_historical_focus_on = yes
+		}
+		AND = {
+			original_tag = URG
+			has_dlc = "Trial of Allegiance"
+			is_historical_focus_on = yes
+		}
+		AND = {
+			original_tag = CHL
+			has_dlc = "Trial of Allegiance"
+			is_historical_focus_on = yes
+		}
+		AND = {
+			original_tag = PAR
+			has_dlc = "Trial of Allegiance"
+			is_historical_focus_on = yes
+		}
+	}
+}
+
+is_ai_tank_minor = { 
+	OR = {
+		original_tag = NZL
+	}
+}
+
+is_ai_navy = { 
+	OR = {
+		threat > 0.25
+		date > 1938.1.1
+	}
+	OR = {
+		AND = {
+			has_war = yes
+			original_tag = ITA
+		}
+		original_tag = JAP
+		original_tag = ENG
+		original_tag = USA
+		has_idea = crossing_the_atlantic_idea
+		has_idea = crossing_the_pacific_idea
+		num_of_naval_factories > 35
+		has_navy_size = { size > 100 }
+		AND = {
+			is_historical_focus_on = no 
+			NOT = {
+				any_country = {
+					is_neighbor_of = ROOT
+					has_capitulated = no
+					has_war_with = ROOT
+				}
+			}
+			any_owned_state = { is_coastal = yes }
+		}
+	}
+}
+
+is_ai_armored_car = { 
+	OR = {
+		original_tag = SWE
+	}
+}
+
+is_ai_airforce = { 
+	OR = {
+		original_tag = ITA
+		AND = {
+			original_tag = FRA
+			NOT = { has_global_flag = vanilla_history }
+		}
+		original_tag = JAP
+		original_tag = ENG
+		original_tag = USA
+		original_tag = GER
+		original_tag = BUL
+		original_tag = SOV
+		AND = {
+			original_tag = CAN
+			num_of_military_factories > 20
+		}
+		original_tag = BRA
+		original_tag = ARG
+		original_tag = CHL
+		original_tag = DEN
+		original_tag = ROM
+		AND = {
+			original_tag = HUN
+			has_dlc = "Gotterdammerung"
+			is_major = yes
+		}
+		AND = {
+			is_historical_focus_on = no
+			num_of_military_factories > 30
+			amount_research_slots > 3
+		}
+		AND = {
+			is_historical_focus_on = no
+			date > 1940.1.1
+		}
+	}
+}
+is_axis_ai = {
+	OR = {
+		original_tag = ROM
+		original_tag = HUN
+		original_tag = BUL
+		original_tag = ITA
+		original_tag = SIA
+		original_tag = GER
+		original_tag = FIN
+		original_tag = SLO
+		original_tag = JAP
+		original_tag = MAN
+		original_tag = MEN
+		AND = {
+			OR = {
+				original_tag = DEN #added for puppetry
+				original_tag = SWE #added for neutrality
+				original_tag = POR #added for neutrality
+				original_tag = SPR #added for neutrality
+				original_tag = NOR
+			}
+			OR = {
+				is_in_faction_with = GER
+				GER = { is_ai = yes }
+			}
+		}
+		original_tag = ALB
+		original_tag = MNT
+		original_tag = LBA
+		original_tag = AUS
+		original_tag = AOI
+		original_tag = LBA
+		original_tag = VEN
+		is_subject_of = GER
+		is_subject_of = ITA
+	}	
+	NOT = { has_war_with = GER }
+	OR = {
+		AND = {
+			NOT = { has_government = democratic }
+			NOT = { has_government = communism }
+		}
+		AND = {
+			has_war = no
+			is_subject = no
+		}
+	}
+	is_historical_focus_on = yes
+}
+
+is_allied_ai = { 
+	OR = {
+		original_tag = FRA
+		original_tag = POL
+		original_tag = ENG
+		original_tag = USA
+		original_tag = RAJ
+		original_tag = CAN
+		original_tag = SAF
+		original_tag = HOL
+		original_tag = BEL
+		original_tag = LUX
+		original_tag = AST
+		original_tag = MAL
+		original_tag = NZL
+		original_tag = SOV
+		original_tag = MON
+		original_tag = TAN
+		original_tag = BRA
+		original_tag = MEX
+		original_tag = YUG
+		original_tag = GRE
+		AND = {
+			original_tag = TUR
+			is_in_faction_with = ENG
+		}
+		AND = {
+			original_tag = CHI
+			is_in_faction_with = ENG
+		}
+		original_tag = CZE
+		original_tag = MAL
+		original_tag = ARG
+		original_tag = CHL
+		original_tag = URG
+		original_tag = PAR
+		AND = {
+			OR = {
+				is_subject_of = ENG
+				is_subject_of = FRA
+				is_subject_of = HOL
+				is_subject_of = BEL
+				is_subject_of = USA
+			}
+			capital_scope = { 
+				OR = {
+					is_on_continent = europe
+					is_on_continent = north_america
+					is_on_continent = africa
+				}
+			}
+		}
+		AND = {
+			original_tag = SWE
+			is_ai = yes
+			has_government = democratic 
+			GER = { is_ai = yes }
+		}
+	}
+	NOT = { has_government = fascism }	
+	NOT = { has_war_with = ENG }
+	is_historical_focus_on = yes
+}
+
+is_dominantly_land_combat_country = { 
+	OR = {
+		original_tag = FIN
+		original_tag = POL
+		original_tag = HUN
+		original_tag = ROM
+		original_tag = BUL
+		original_tag = YUG
+		original_tag = SWI
+		is_literally_china = yes
+		original_tag = TIB
+		original_tag = BHU
+		original_tag = NEP
+		original_tag = PER
+		original_tag = AFG
+		original_tag = LIT
+		original_tag = LAT
+		original_tag = EST
+		original_tag = RAJ
+		original_tag = COG	
+	}
+	NOT = {	has_tech = improved_small_airframe }
+	NOT = {	is_researching_technology = improved_small_airframe }
+	NOT = {	is_researching_technology = basic_small_airframe }
+}
+
+not_a_good_time_for_counterattack = {
+	SOV = {
+		OR = {
+			has_country_flag = {
+				flag = days_since_last_change_on_the_map
+				days < 6 #we are being pushed back
+			}
+			has_idea = last_offensive_was_not_good
+		}
+	}
+	NOT = {
+		OR = {
+			GER_is_not_relevant = yes
+			AND = {
+				has_global_flag = d_day_happened
+				OR = { 
+					GER = { check_variable = { GER_blitzkrieg < 10 } }
+					ITA = { has_civil_war = yes }
+					16 = { controller = { has_war_with = GER } }
+				}
+			}
+			SOV = { has_equipment = { infantry_equipment > 150000 } }
+		}
+	}
+}
+
+FRA_1936_election_criteria = {
+	OR = {
+		any_other_country = {
+			is_major = yes
+			is_ai = no
+			NOT = { has_government = democratic }
+		}
+	}
+}
+
+human_is_bombing_us_without_attacking = {
+	SOV = { 
+		OR = {
+			NOT = { has_country_flag = days_since_last_change_on_the_map } 
+			has_country_flag = {
+				flag = days_since_last_change_on_the_map
+				days > 90
+			}
+		}
+	}
+}
+is_prepping_d_day = {
+	OR = {
+		has_idea = d_day_preparation_1 
+		has_idea = d_day_preparation_2
+		has_idea = d_day_preparation_3
+	}
+	NOT = { ENG = { surrender_progress > 0.01 } }
+}
+asia_is_safe = {
+	NOT = { 
+		any_country = { 
+			capital_scope = { is_on_continent = asia } 
+			OR = {
+				is_justifying_wargoal_against = ENG
+				is_justifying_wargoal_against = ROOT
+				has_wargoal_against = ENG
+				has_wargoal_against = ROOT
+			}
+		}
+	}
+}
+home_island_capitulated_defense_condition = {
+	is_historical_focus_on = yes
+	game_is_on_historical_course = yes
+	AND = {	
+		ENG_at_war_with_players = yes
+		OR = {
+			has_country_flag = capital_scope_is_in_europe
+			capital_scope = { is_on_continent = north_america }
+			capital_scope = { is_on_continent = south_america }
+		}
+		has_capitulated = yes
+		OR = {
+			is_prepping_d_day = no
+			d_day_secured = no
+		}
+		asia_is_safe = yes
+		OR = {
+			NOT = { tag = ENG }
+			FRA = { has_capitulated = yes }
+			FRA = { surrender_progress > 0.3 }
+			NOT = { FRA = { is_in_faction_with = ENG } }
+		}
+		is_in_faction_with = ENG
+		OR = {
+			AND = {
+				NOT = { GER = { has_war_with = SOV } }
+				country_exists = SOV
+			}
+			NOT = { country_exists = SOV }
+		}
+		FRA = { is_ai = yes }
+	}
+}
+home_island_others_defense_condition = {
+	is_historical_focus_on = yes
+	game_is_on_historical_course = yes
+	AND = {
+		has_capitulated = no
+		ENG_at_war_with_players = yes
+		OR = {
+			is_prepping_d_day = no
+			d_day_secured = no
+		}
+		asia_is_safe = yes
+		NOT = { tag = ENG }
+		OR = {
+			FRA = { has_capitulated = yes }
+			FRA = { surrender_progress > 0.3 }
+			NOT = { FRA = { is_in_faction_with = ENG } }
+		}
+		is_in_faction_with = ENG
+		OR = {
+			AND = {
+				NOT = { GER = { has_war_with = SOV } }
+				country_exists = SOV
+			}
+			NOT = { country_exists = SOV }
+		}
+		FRA = { is_ai = yes }
+		if = {
+			limit = {
+				capital_scope = { NOT = { is_on_continent = europe } }
+			}
+			NOT = {
+				any_country = {
+					is_neighbor_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+}
+ENG_at_war_with_players = {
+	any_country = {
+		OR = {
+			has_war_with = ENG
+			is_axis_ai = yes
+		}
+		is_major = yes
+		is_ai = no
+	}
+}
+home_island_britain_defense_condition = {
+	is_historical_focus_on = yes
+	game_is_on_historical_course = yes
+	AND = {
+		ENG_at_war_with_players = yes
+		tag = ENG
+		OR = {
+			FRA = { has_capitulated = yes }
+			FRA = { surrender_progress > 0.3 }
+			NOT = { FRA = { is_in_faction_with = ENG } }
+		}
+		OR = {
+			AND = {
+				NOT = { GER = { has_war_with = SOV } }
+				country_exists = SOV
+			}
+			NOT = { country_exists = SOV }
+		}
+	}
+}
+ENG_always_worry_invasion_condition_1 = {
+	ROOT = {
+		OR = {
+			AND = {
+				NOT = { tag = FRA }
+				NOT = { tag = HOL }
+				NOT = { tag = BEL }
+				OR = {
+					NOT = { tag = ETH }
+					AND = {
+						NOT = { 
+							any_country = { 
+								capital_scope = { is_on_continent = asia } 
+								is_justifying_wargoal_against = ENG
+							}
+						}
+						date < 1941.1.1
+					}
+				}
+				OR = {
+					NOT = { tag = SAF }
+					AND = {
+						NOT = { 
+							any_country = { 
+								capital_scope = { is_on_continent = asia } 
+								is_justifying_wargoal_against = ENG
+							}
+						}
+						date < 1941.1.1
+					}
+				}
+				OR = {
+					NOT = { tag = AST }
+					AND = {
+						NOT = { 
+							any_country = { 
+								capital_scope = { is_on_continent = asia } 
+								is_justifying_wargoal_against = ENG
+							}
+						}
+						date < 1941.1.1
+					}
+				}
+				OR = {
+					NOT = { tag = RAJ }
+					AND = {
+						NOT = { 
+							any_country = { 
+								capital_scope = { is_on_continent = asia } 
+								is_justifying_wargoal_against = ENG
+							}
+						}
+						date < 1941.1.1
+					}
+				}
+				OR = {
+					NOT = { tag = MAL }
+					AND = {
+						NOT = { 
+							any_country = { 
+								capital_scope = { is_on_continent = asia } 
+								is_justifying_wargoal_against = ENG
+							}
+						}
+						date < 1941.1.1
+					}
+				}
+			}
+			has_capitulated = yes
+			has_global_flag = vanilla_history
+			AND = {
+				tag = FRA
+				surrender_progress > 0.3 #time to flee
+			}
+		}
+		OR = {
+			NOT = { tag = ENG }
+			FRA = { has_capitulated = yes }
+			FRA = { surrender_progress > 0.5 }
+			NOT = { FRA = { is_in_faction_with = ENG } }
+		}
+		is_in_faction_with = ENG
+		OR = {
+			AND = {
+				NOT = { GER = { has_war_with = SOV } }
+				country_exists = SOV
+			}
+			NOT = { country_exists = SOV }
+		}
+		OR = {
+			AND = {
+				GER = { is_ai = no }
+				NOT = { GER = { is_in_faction_with = ENG } }
+			}
+			AND = {
+				ITA = { is_ai = no }
+				NOT = { ITA = { is_in_faction_with = ENG } }
+			}
+			AND = {
+				JAP = { is_ai = no }
+				NOT = { JAP = { is_in_faction_with = ENG } }
+				any_state = {
+					is_on_continent = europe
+					JAP = { divisions_in_state = { state = PREV size > 0 } }
+				}
+			}
+			any_country = {
+				has_war_with = ENG
+				is_ai = no
+				OR = {
+					is_major = yes
+					has_tech = paratroopers
+				}
+			}
+			PAN = { is_ai = no }
+		}
+		ENG = { surrender_progress < 0.02 }
+		OR = {
+			FRA = { has_capitulated = yes }
+			FRA = { surrender_progress > 0.5 }
+			NOT = { FRA = { is_in_faction_with = ENG } }
+			has_war_with = FRA
+		}
+		GER_is_not_relevant_to_allies = no
+		FRA = { is_ai = yes }
+		NOT = {
+			OR = {
+				has_idea = d_day_preparation_1 
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		} 
+	}
+}
+ENG_always_worry_invasion_condition_2 = {
+		any_country = { 
+			OR = {
+				is_major = yes
+				AND = {
+					is_in_faction = yes
+					has_tech = paratroopers
+				}
+			}
+			OR = {
+				has_war_with = ENG
+				NOT = { has_government = democratic }
+			}
+			NOT = { is_in_faction_with = ENG }
+			OR = {
+				is_major = yes
+				is_in_faction = yes
+			}
+			is_ai = no
+		}
+		NOT = {
+			OR = {
+				has_idea = d_day_preparation_1 
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { GER = { has_war_with = SOV } }
+				country_exists = SOV
+			}
+			NOT = { country_exists = SOV }
+		}
+}
+world_war_is_active = {
+	OR = {
+		any_country = {
+			has_war = yes
+			num_of_military_factories > 200
+			any_enemy_country = {
+				num_of_military_factories > 200
+			}
+		}
+		count_triggers = {
+			amount = 2
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = ENG
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = FRA
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = GER
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = ITA
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = SOV
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = USA
+			}
+			any_country = {
+				is_major = yes
+				OR = {
+					any_other_country = {
+						is_in_faction_with = PREV
+						is_major = yes
+					}
+					num_of_military_factories > 200
+				}
+				has_war_with = JAP
+			}
+		}
+	}
+}
+
+JAP_maybe_we_should_hold = { #to fk Axis players maybe
+	NOT = { has_global_flag = mp_difficulty }
+	OR = {
+		GER = { is_ai = no }
+		ITA = { is_ai = no }
+	}
+	CHI = { surrender_progress < 0.8 }
+	date > 1940.6.1
+}
+
+check_if_is_allied_historical = {
+	AND = {
+		is_historical_focus_on = yes
+		game_is_on_historical_course = yes
+		is_in_faction_with = FRA
+		is_in_faction_with = ENG
+		NOT = { has_global_flag = vanilla_history }
+		OR = {
+			SOV = { is_ai = yes }
+			has_global_flag = mp_difficulty
+		}
+		NOT = {  }
+	}
+}
+is_self_propelled_support_country = {
+	OR = {
+		AND = { 
+			is_major = yes
+			num_of_civilian_factories > 75
+			num_of_military_factories > 75
+		}
+		tag = SOV
+		AND = {
+			tag = GER
+			NOT = { has_country_flag = mass_infantry_flag }
+		}
+		is_spg_country = yes
+		tag = FRA
+		tag = ENG
+		tag = USA
+		tag = CAN
+		tag = CHL
+		tag = URG
+	}
+}
+check_if_tag_needs_to_withdraw_from_europe = {
+	is_historical_focus_on = yes
+	has_global_flag = allies_mainland_withdrawal
+	capital_scope = { is_on_continent = europe }
+	is_allied_ai = yes
+	OR = {
+		tag = FRA
+		tag = HOL
+		tag = LUX
+		tag = BEL
+		tag = SPR
+		tag = POR
+		tag = SWI
+		tag = ITA
+		tag = POL
+	}
+}
+check_if_minor_tag_applies = {
+	AND = {
+		NOT = { 
+			OR = {
+				tag = SAF
+				tag = NZL
+			}
+		}
+		is_major = no
+		has_war_with = GER
+	}
+}
+check_if_all_tag_applies = {
+	AND = {
+		NOT = { 
+			OR = {
+				tag = SAF
+				tag = NZL
+				tag = ENG
+				tag = FRA
+			}
+		}
+		has_war_with = GER
+	}
+}
+check_if_fra_tag_applies = {
+	AND = {
+		tag = FRA
+		has_war_with = GER
+	}
+}
+check_if_minor_tag_applies_2 = {
+	AND = {
+		NOT = { 
+			OR = {
+				tag = SAF
+				tag = NZL
+			}
+		}
+		is_major = no
+		OR = {
+			has_war_with = GER
+			AND = {
+				OR = {
+					GER = { is_ai = no }
+					AND = {
+						has_global_flag = mp_selected
+						FRA = { is_ai = no }
+					}
+				}
+				GER = { has_government = fascism }
+			}
+		}
+		NOT = { 
+			any_country = {
+				original_tag = GER
+				has_war_with = BEL
+			}
+		}
+		NOT = { 
+			any_country = {
+				original_tag = GER
+				is_in_faction_with = ROOT 
+			}
+		}
+	}
+}
+date_check_benelux_1 = {
+	AND = {
+		date > 1941.6.1
+		NOT = { capital_scope = { is_on_continent = europe } }
+		NOT = { capital_scope = { is_on_continent = south_america } }
+		NOT = { capital_scope = { is_on_continent = north_america } }
+		NOT = { capital_scope = { is_on_continent = africa } }
+	}
+}
+date_check_benelux_2 = {
+	OR = {
+		AND = {
+			OR = {
+				AND = {
+					FRA = { surrender_progress > 0.30 }
+					is_ai_mech_mob = no
+					is_ai_mass_mob = no
+					is_major = yes
+				}
+				AND = {
+					FRA = { surrender_progress > 0.50 }
+					is_ai_mech_mob = no
+					is_ai_mass_mob = no
+					is_major = no
+				}
+				AND = {
+					FRA = { surrender_progress > 0.40 }
+					is_ai_mech_mob = yes
+				}
+				AND = {
+					FRA = { surrender_progress > 0.8 }
+					is_ai_mass_mob = yes
+				}
+			}
+			NOT = { FRA = { has_country_flag = paradrop_grace } }
+		}
+		AND = {
+			FRA = { surrender_progress < 0.05 }
+			ENG = { surrender_progress > 0.15 }
+		}
+		has_war_with = JAP
+		NOT = {
+			any_country = {
+				capital_scope = { is_on_continent = europe }
+				OR = {
+					has_war_with = ENG
+					AND = {
+						is_ai = no
+						NOT = { has_government = democratic }
+						OR = {
+							is_neighbor_of = ROOT
+							AND = {
+								is_neighbor_of = ENG
+								ROOT = { is_in_faction_with = ENG }
+							}
+							AND = {
+								is_neighbor_of = FRA
+								ROOT = { is_in_faction_with = FRA }
+							}
+						}
+					}
+				}
+				is_major = yes
+				has_capitulated = no
+			}
+		}
+	}
+}

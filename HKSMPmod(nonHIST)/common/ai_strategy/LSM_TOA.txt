@@ -1,0 +1,141 @@
+
+BRA_build_up_civ_first = {
+	allowed = {
+		OR = {
+			original_tag = BRA
+			original_tag = CHL
+		}
+	}
+	enable = {
+		has_war = no
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 20
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -5
+	}
+}
+
+BRA_dont_touch_factory_yet = {
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		has_war = no
+		has_idea = civilian_economy
+		date < 1938.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -999
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -999
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 501 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 936 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 943 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 500 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 935 
+		value = 2000
+	}
+}
+
+CHL_dont_touch_factory_yet = {
+	allowed = {
+		original_tag = CHL
+	}
+	enable = {
+		has_war = no
+		has_idea = civilian_economy
+		date < 1938.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -999
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -999
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 279 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 952 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 950 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 506 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 951 
+		value = 2000
+	}
+}

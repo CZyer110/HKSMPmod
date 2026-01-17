@@ -1,0 +1,5745 @@
+ideas = {
+
+	country = {
+		LSM_US_guarantee = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = {
+				ENG = { has_government = democratic }
+				USA = { has_government = democratic }
+			}
+
+			removal_cost = -1
+
+			picture = generic_usa_conflict
+		}
+
+		USA_tora_tora_tora_idea = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_coastal_defense_ships
+			
+			modifier = {
+				positioning = 0.25
+				spotting_chance = 0.25
+				naval_torpedo_hit_chance_factor = 0.25
+				naval_hit_chance = 0.25
+				navy_visibility = -0.25
+			}
+		}
+		GER_socialist_front_idea = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = GER_iron_front
+
+			modifier = {
+				war_support_factor = 0.10
+				conscription_factor = 0.05
+				communism_drift = 0.04
+			}
+		}
+		GER_socialist_front_idea_weakened = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = GER_iron_front
+
+			modifier = {
+				conscription_factor = 0.03
+				communism_drift = 0.03
+			}
+		}
+
+		BEL_CONGO_soldier = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = BEL_rexist_legion
+
+			modifier = {
+				weekly_manpower = 500
+			}
+		}
+		CONGO_BEL_soldier = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = BEL_rexist_legion
+
+			modifier = {
+				monthly_population = -0.30
+			}
+		}
+
+		CAN_mobilised_the_university = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = tfv_can_conscription_crisis
+
+			modifier = {
+				training_time_factor = -0.25
+				research_speed_factor = -0.15
+				weekly_manpower = 1000
+			}
+		}
+		SOV_bastion_of_eastern_democracy = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = YUG_orthodox_church_support
+
+			available = {
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				democratic_drift = 0.15
+				neutrality_drift = 0.10
+				conscription_factor = 0.20
+				industrial_capacity_factory = 0.20
+				army_defence_factor = 0.10
+			}
+		}
+		ahistorical_major_rule_1 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = FRA_matignon_agreements
+
+			available = {
+				date < 1938.6.1
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = aggression_rule_1tt
+			}
+		}
+		ahistorical_major_rule_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = FRA_matignon_agreements
+
+			available = {
+				date < 1939.6.1
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = aggression_rule_2tt
+			}
+		}
+		ahistorical_major_rule_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = FRA_matignon_agreements
+
+			available = {
+				threat < 1.00
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = aggression_rule_3tt
+			}
+		}
+		
+		FIN_desire_for_vengeance = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = anti_soviet_pact
+			
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = 0.30
+				conscription_factor = 0.10
+				surrender_limit = 0.05
+			}
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+			}
+
+		}
+		
+		FIN_desire_for_vengeance_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = anti_soviet_pact
+			
+			removal_cost = -1
+
+			on_add = {
+				if = {
+					limit = { 
+						FIN = { controls_state = 111 }
+					}
+					set_victory_points = { 
+						province = 11105
+						value = 40
+					}
+				}
+			}
+
+			on_remove = {
+				if = {
+					limit = { 
+						FIN = { controls_state = 111 }
+					}
+					set_victory_points = { 
+						province = 11105
+						value = 15
+					}
+				}
+			}
+				
+
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = 0.30
+				conscription_factor = 0.10
+				surrender_limit = 0.10
+			}
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			}
+
+		}
+		
+		FIN_war_recovery = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = ARG_civilian_economy_boost
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.20
+				monthly_population = 0.50
+			}
+
+		}
+		
+		FIN_mobilization_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = ARG_civilian_economy_boost
+			
+			removal_cost = -1
+
+			modifier = {
+				mobilization_speed = 0.25
+				weekly_manpower = 300
+			}
+
+		}
+
+		GER_communist_refugees_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				consumer_goods_factor = 0.25
+				industrial_capacity_factory = 0.25
+			}
+		}
+
+		GER_communist_refugees_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				communism_drift = 0.15
+				industrial_capacity_factory = 0.25
+				weekly_manpower = 1500
+			}
+		}
+
+
+		GER_HRE_reformation_frenzy = {
+			picture = generic_victors_of_ww1
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				justify_war_goal_time = -0.50
+			}
+		}
+
+		LSM_defeat_payment = {
+			picture = tur_disorganised_armed_forces
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = {
+				is_subject = yes
+				NOT = { has_idea = LSM_defeat_payment2 }
+			}
+			modifier = {
+				stability_factor = -0.05
+				cic_to_overlord_factor = 0.10
+				mic_to_overlord_factor = 0.10
+				extra_trade_to_overlord_factor = 0.25
+				hidden_modifier = {
+					autonomy_gain_global_factor = -0.75
+				}
+			}
+		}
+
+		LSM_defeat_payment2 = {
+			picture = tur_disorganised_armed_forces
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+		
+			available = {
+				is_subject = yes
+			}
+
+			on_remove = { 
+				if = {
+					limit = { is_subject = yes }
+					add_ideas = LSM_defeat_payment 
+				}
+				else_if = {
+					limit = { is_subject = no }
+					add_stability = 0.1
+					add_war_support = 0.1
+					add_political_power = 100
+				}
+			}
+
+			modifier = {
+				cic_to_overlord_factor = 0.25
+				mic_to_overlord_factor = 0.25
+				extra_trade_to_overlord_factor = 0.50
+				hidden_modifier = {
+					autonomy_gain_global_factor = -0.75
+				}
+			}
+		}
+
+
+		LSM_surrender_limit = {
+			picture = tur_disorganised_armed_forces
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			available = {
+				AND = {
+					has_war = yes
+					NOT = { has_country_flag = LSM_eligibility_nation }
+				}
+			}
+			modifier = {
+				war_support_weekly = -0.05
+				stability_weekly = -0.05
+				surrender_limit = -0.25
+				custom_modifier_tooltip = surrender_limit_tt
+			}
+		}
+		HOL_relocated_resource_to_technology = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_disjointed_gov
+
+			on_add = {
+				add_research_slot = 1
+			}
+		
+			on_remove = {
+				add_research_slot = -1
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = -0.50
+				research_speed_factor = 0.25
+			}		
+		}
+		HOL_relocated_resource_to_army = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_disjointed_gov
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = 0.25
+				research_speed_factor = -0.25
+			}		
+		}
+		GER_KR_enhanced = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				OR = {
+					is_subject_of = GER
+					is_in_faction_with = GER
+				}
+			}
+	
+			picture = generic_fascist_workers
+
+			removal_cost = -1
+
+			modifier = {
+				conscription = 0.025
+				conscription_factor = 0.25
+				army_attack_factor = 0.1
+			}		
+		}
+		GER_KR_limit = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_disjointed_gov
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.50
+				war_support_factor = -0.50
+				monthly_population = -0.50
+				conscription = -0.020
+			}		
+		}
+		GER_KR_limit_2 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_disjointed_gov
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.25
+				war_support_factor = -0.25
+				monthly_population = -0.25
+				conscription_factor = -0.50
+				conscription = -0.010
+			}		
+		}
+
+		ROM_GER_economic_development = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = generic_stockpile_fuel
+		
+			on_remove = {
+				ROM = { 
+					country_event = { id = LSM_equipment.27 days = 1 }
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				civilian_factory_use = 15
+			}		
+		}
+		ROM_ROM_economic_development = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = ARG_civilian_economy_boost
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.10
+			}	
+
+			research_bonus = {
+				synth_resources = 0.25
+			}	
+		}
+		every_man_a_soldier = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = SWE_neither_death_nor_dishonor
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = 0.25
+			}		
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}		
+		}
+		a_society_at_war = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = tur_coordinated_balkan_armed_forces
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.50
+				war_support_factor = -0.50
+				conscription_factor = 0.50
+				minimum_training_level = -0.10
+				supply_combat_penalties_on_core_factor = -0.25
+			}	
+
+			equipment_bonus = {
+				infantry_equipment_0 = {
+					instant = yes
+					build_cost_ic = -0.30
+				}
+			}			
+		}
+		SOV_into_the_summer = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war_with = FIN
+				has_defensive_war = no
+			}
+	
+			picture = SWE_neither_death_nor_dishonor
+			
+			removal_cost = -1
+		
+			on_add = {
+				add_stability = -0.05
+				army_experience = 50
+			}
+			on_remove = {
+				add_stability = 0.15
+				add_war_support = 0.15
+				army_experience = 50
+			}
+			modifier = {
+				experience_gain_army_factor = 0.50
+				experience_gain_air_factor = 0.25
+			}
+
+			targeted_modifier = {
+				tag = FIN
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			}
+		}
+
+			
+		dead_country = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = no
+			}
+	
+			picture = SWE_neither_death_nor_dishonor
+			
+			removal_cost = -1
+
+			on_add = {
+				add_ideas = free_trade
+				add_ideas = disarmed_nation
+			}
+
+			modifier = {
+				high_command_cost_factor = 10
+				political_advisor_cost_factor = 10
+				army_chief_cost_factor = 10
+				air_chief_cost_factor = 10
+				navy_chief_cost_factor = 10
+				industrial_capacity_factory = -2
+				industrial_capacity_dockyard = -2
+				consumer_goods_factor = -1
+				stability_factor = 1
+				conscription_factor = -1
+			}
+
+			rule = {
+				can_not_declare_war = yes
+				can_send_volunteers = no
+				can_guarantee_other_ideologies = no
+				can_join_factions = no
+				can_create_factions = no
+			}
+		}
+		
+		LSM_neutrality_idea = { 
+	
+			picture = free_trade
+
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				is_in_faction = no
+				has_war = no
+			}
+
+			on_remove = {
+				if = {
+					limit = {
+						is_in_faction = no
+						has_war = no
+					}
+					add_ideas = LSM_neutrality_idea_hidden
+				}
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				trade_laws_cost_factor = -0.75
+				embargo_threshold_factor = 10.0
+				embargo_cost_factor = 30.0
+				ai_get_ally_desire_factor = -300
+				ai_join_ally_desire_factor = -300
+			}
+		}
+
+		CAN_ENG_british_exodus = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				NOT = { ENG = { has_government = democratic } } 
+			}
+	
+			picture = eng_a_change_in_course
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = 500
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+			}
+		}
+
+		CHL_align_america_democratic = {
+
+			allowed = {
+				always = no
+				tag = CHL
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = CHL_anti_communist_action
+			modifier = {
+				democratic_drift = 0.30
+				communism_drift = -0.10
+				fascism_drift = -0.10
+				neutrality_drift = -0.10
+			}
+		}
+		CHL_align_america_fascism = {
+
+			allowed = {
+				always = no
+				tag = CHL
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = CHL_anti_communist_action
+			modifier = {
+				fascism_drift = 0.30
+				communism_drift = -0.10
+				democratic_drift = -0.10
+				neutrality_drift = -0.10
+			}
+		}
+		CHL_align_america_nonaligned = {
+
+			allowed = {
+				always = no
+				tag = CHL
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = CHL_anti_communist_action
+			modifier = {
+				neutrality_drift = 0.30
+				communism_drift = -0.10
+				democratic_drift = -0.10
+				fascism_drift = -0.10
+			}
+		}
+		CHL_align_america_communism = {
+
+			allowed = {
+				always = no
+				tag = CHL
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = socialist_science_focus
+			modifier = {
+				communism_drift = 0.30
+				neutrality_drift = -0.10
+				democratic_drift = -0.10
+				fascism_drift = -0.10
+			}
+		}
+		ITA_second_italo_ethiopian_war_army_bonus = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_global_flag = second_italo_ethiopian_war_flag
+			}
+	
+			picture = SWE_neither_death_nor_dishonor
+			
+			removal_cost = -1
+
+			modifier = {
+				experience_gain_army_factor = 0.50
+				experience_gain_air_factor = 0.25
+			}
+		}
+
+		SOV_recovery_from_the_shock = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = tur_coordinated_balkan_armed_forces
+			
+			removal_cost = -1
+		}
+
+		SOV_unprepared_offensive = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = CZE_planning_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				planning_speed = -0.50
+				max_planning = -0.10
+			}
+		}
+
+		
+		SOV_santa_can_into_space = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = generic_research_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_nuclear_reactor_factor = 0.5
+				production_speed_rocket_site_factor = 0.5
+				nuclear_production_factor = 0.5
+			}
+			
+			research_bonus = {
+				jet_technology = 0.30
+				rocketry = 0.30
+			}
+		}
+
+		SOV_north_poles_engineering = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = ARG_war_division
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				armor = {
+					instant = yes
+					reliability = 0.25
+					maximum_speed = 0.25
+				}
+				large_plane_airframe = {
+					instant = yes
+					reliability = 0.5
+					air_range = 0.5
+				}
+			}
+		}
+		
+		SOV_tourism = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				SOV_third_five_year_plan_available = yes
+			}
+	
+			picture = generic_goods_red_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.15
+				consumer_goods_factor = -0.15
+				monthly_population = 0.30
+			}
+		}
+		
+		SOV_santa_propaganda = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = ger_bulwark_against_bolshevism
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.001
+				communism_drift = 0.02
+			}
+		}
+		
+		SOV_neutrality_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = new_economic_policy
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.2
+				stability_factor = 0.2
+				compliance_gain = 0.10
+			}
+		}
+		
+		SOV_aggressive_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = POL_the_peasants_strike
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = 0.15
+				army_speed_factor = 0.15
+				justify_war_goal_time = -0.8
+			}
+		}
+		
+		SOV_universal_welfare = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = NOR_printing_money
+			
+			removal_cost = -1
+
+			modifier = {
+				resistance_target = -0.15
+				stability_factor = 0.1
+				custom_modifier_tooltip = SOV_universal_welfare_tooltip
+			}
+		}
+		
+		SOV_elves_in_the_industry_1 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			on_remove = {
+				add_timed_idea = { idea = SOV_elves_in_the_industry_2 days = 180 }
+			}
+		
+			picture = generic_political_support
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.005
+				consumer_goods_factor = -0.2
+			}
+		}
+		
+		SOV_elves_in_the_industry_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			on_remove = {
+				add_timed_idea = { idea = SOV_elves_in_the_industry_3 days = 180 }
+			}
+		
+			picture = generic_political_support
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.01
+				consumer_goods_factor = -0.2
+				industrial_capacity_factory = 0.1
+			}
+		}
+		
+		SOV_elves_in_the_industry_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			on_remove = {
+				add_ideas = SOV_elves_in_the_industry_4
+			}
+		
+			picture = generic_improved_industries
+			
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = 0.1
+				consumer_goods_factor = -0.2
+				industrial_capacity_factory = 0.2
+			}
+		}
+		
+		SOV_elves_in_the_industry_4 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+		
+			picture = generic_improved_industries
+			
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = 0.25
+				consumer_goods_factor = -0.25
+				industrial_capacity_factory = 0.25
+			}
+		}
+		
+		SOV_no_more_hunger = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = generic_agrarian_reform
+			
+			removal_cost = -1
+			
+			modifier = {
+				attrition = -0.10
+				monthly_population = 0.25
+				conscription_factor = 0.25
+			}
+		}
+		
+		SOV_population_growth = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = ARG_social_welfare_fund_ns
+			
+			removal_cost = -1
+			
+			modifier = {
+				attrition = -0.05
+				monthly_population = 2
+			}
+		}
+		
+		SOV_winter_sleigh = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = generic_supply_line
+			
+			removal_cost = -1
+			
+			modifier = {
+				supply_node_range = 0.2
+				out_of_supply_factor = -0.2
+			}
+		}
+		
+		SOV_finish_finland = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war_with = FIN
+			}
+
+			picture = SWE_neither_death_nor_dishonor
+			
+			removal_cost = -1
+			
+			modifier = {
+				supply_node_range = 0.5
+			}
+
+			targeted_modifier = {
+				tag = FIN
+				attack_bonus_against = 1
+				defense_bonus_against = 1
+			}
+		}
+
+		SOV_reward_the_children = {
+			picture = EST_exploit_the_banks
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			on_remove = {
+				country_event = { id = LSM_santa.1 }
+			}
+
+			picture = SWE_hungershield
+
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = 0.1
+				stability_factor = 0.1
+				conscription_factor = -0.1
+			}
+		}
+
+		SOV_reward_the_administration = {
+			picture = EST_exploit_the_banks
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			on_remove = {
+				country_event = { id = LSM_santa.1 }
+			}
+
+			picture = SOV_scientist_defect
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.33
+			}
+		}
+
+		SOV_reward_the_working_class = {
+			picture = EST_exploit_the_banks
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			on_remove = {
+				country_event = { id = LSM_santa.1 }
+			}
+
+			picture = SPR_seize_the_gold_reserves
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_dockyard = 0.1
+				industrial_capacity_factory = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		SOV_reward_the_military = {
+			picture = EST_exploit_the_banks
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			on_remove = {
+				country_event = { id = LSM_santa.1 }
+			}
+
+			picture = generic_manpower_bonus
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = 0.2
+				command_power_gain_mult = 0.2
+				mobilization_speed = 0.2
+				experience_gain_army_factor = 0.2
+				
+			}
+		}
+
+		ITA_exchange = {
+			picture = EST_exploit_the_banks
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.25
+			}
+		}
+
+		
+		LSM_technological_advance_idea = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = jap_supremacy_of_technology
+
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.20
+			}
+		}
+		
+		ITA_the_end_of_fiat = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+		
+			on_remove = {
+				add_to_variable = { ITA_military_industry_dm_production_lack_of_resource_penalty_factor = -0.1 }
+				add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.15 }
+				add_to_variable = { ITA_iri_production_speed_industrial_complex_factor = 0.05 }
+				country_event = {
+					id = LSM_ITA_defeat.1
+				}
+			}
+
+			picture = fiat
+			
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.25
+				production_factory_efficiency_gain_factor = -0.25
+			}
+
+		}
+		
+		ITA_a_new_ansaldo = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+		
+			on_remove = {
+				add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.10 }
+				add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.10 }
+				country_event = {
+					id = LSM_ITA_defeat.2
+				}
+			}
+
+			picture = ETH_customs_barrier_ITA
+			
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.25
+				industrial_capacity_factory = -0.25
+			}
+
+		}
+		
+		ITA_a_meeting_at_the_high_table = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+		
+			on_remove = {
+				add_timed_idea = { idea = ITA_a_meeting_at_the_high_table2 days = 90 }
+				country_event = {
+					id = LSM_ITA_defeat.3
+				}
+			}
+
+			picture = tur_disorganised_armed_forces
+			
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.15
+				consumer_goods_factor = 0.5
+			}
+
+		}
+		
+		ITA_a_meeting_at_the_high_table2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+		
+			on_remove = {
+				country_event = {
+					id = LSM_ITA_defeat.4
+				}
+			}
+
+			picture = tur_disorganised_armed_forces
+			
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = -0.25
+			}
+
+		}
+		
+		ITA_a_meeting_at_the_high_table3 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				OR = {
+					NOT = { has_completed_focus = ITA_end_fiat_ansaldo_duopoly_b }
+					NOT = { has_completed_focus = ITA_modernize_ansaldo_facilities_b }
+					NOT = { has_completed_focus = ITA_divisioni_alpine_b }
+					AND = {
+						has_completed_focus = ITA_modernize_ansaldo_facilities_b 
+						has_idea = ITA_a_new_ansaldo
+					}
+					AND = {
+						has_completed_focus = ITA_modernize_ansaldo_facilities_b 
+						has_idea = ITA_the_end_of_fiat
+					}
+				}
+			}
+
+			on_remove = {
+				add_ideas = ITA_a_meeting_at_the_high_table4
+				country_event = {
+					id = LSM_ITA_defeat.5
+				}
+			}
+
+			picture = generic_fascist_workers
+			
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.5
+			}
+
+		}
+		
+		ITA_a_meeting_at_the_high_table4 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_fascist_workers
+			
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+				global_building_slots_factor = 0.10
+			}
+
+		}
+		
+		ITA_purge_leadership  = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = DEN_occupation_laws
+
+			on_remove = {
+				add_to_variable = { ITA_re_army_leader_cost_factor = -0.5 }
+				add_to_variable = { ITA_re_experience_gain_factor = 0.5 }
+				add_to_variable = { ITA_re_promote_cost_factor = -0.5 }
+				ROOT = {
+					create_corps_commander = {
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 1
+						skill = 1
+						id = 1700
+						traits = { militias_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 1
+						skill = 1
+						id = 1701
+						traits = { militias_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 1
+						skill = 1
+						id = 1702
+						traits = { militias_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 3
+						defense_skill = 2
+						planning_skill = 1
+						logistics_skill = 4
+						skill = 3
+						id = 1703
+						traits = { engineer_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 4
+						defense_skill = 3
+						planning_skill = 4
+						logistics_skill = 2
+						skill = 4
+						id = 1704
+						traits = { engineer_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 2
+						defense_skill = 1
+						planning_skill = 3
+						logistics_skill = 1
+						skill = 2
+						id = 1705
+						traits = { militias_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 3
+						defense_skill = 2
+						planning_skill = 3
+						logistics_skill = 2
+						skill = 3
+						id = 1706
+						traits = { engineer_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 5
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 2
+						skill = 3
+						id = 1707
+						traits = { engineer_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 1
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 2
+						skill = 2
+						id = 1708
+						traits = { militias_officer engineer_officer }
+					}
+					create_corps_commander = {
+						attack_skill = 4
+						defense_skill = 3
+						planning_skill = 2
+						logistics_skill = 1
+						skill = 3
+						id = 1709
+						traits = { engineer_officer }
+					}
+				}
+				country_event = {
+					id = LSM_ITA_defeat.6
+				}
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				planning_speed = -0.50
+				army_org_factor = -0.25
+			}
+		}
+		
+		ITA_reforming_the_mountaineer = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = DEN_occupation_laws
+
+			on_remove = {
+				country_event = {
+					id = LSM_ITA_defeat.7
+				}
+				add_to_variable = { ITA_re_special_forces_cap = 0.1 }
+				add_to_variable = { ITA_re_special_forces_attack_factor = 0.1 }
+				add_to_variable = { ITA_re_special_forces_defence_factor = 0.1 }
+				add_to_variable = { ITA_re_modifier_army_sub_unit_mountaineers_max_org_factor = 0.1 }
+				every_army_leader = {
+					random_select_amount = 5
+					limit = {
+						NOT = {
+							has_trait = trait_mountaineer
+						}
+					}
+
+					add_trait = {
+						trait = trait_mountaineer
+					}
+				}
+				every_army_leader = {
+					random_select_amount = 4
+					limit = {
+						NOT = {
+							has_trait = hill_fighte
+						}
+					}
+
+					add_trait = {
+						trait = hill_fighter
+					}
+				}
+				every_army_leader = {
+					random_select_amount = 3
+					limit = {
+						NOT = {
+							has_trait = ranger
+						}
+					}
+
+					add_trait = {
+						trait = ranger
+					}
+				}
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				training_time_army_factor = 0.25
+			}
+		}
+		
+		ITA_better_stronger_gun = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = generic_artillery_regiments
+
+			on_remove = {
+				country_event = {
+					id = LSM_ITA_defeat.8
+				}
+			}
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.5
+				}
+				rocket_artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.5
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = 0.5
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = 0.5
+				}
+			}
+		}
+		
+		ITA_better_stronger_gun1a = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = generic_artillery_manufacturer_1
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+		}
+
+		
+		ITA_better_stronger_gun1 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = generic_artillery_manufacturer_1
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				anti_tank_equipment = {
+					instant = yes
+					hard_attack = 0.05
+					ap_attack = 0.10
+				}
+				armor = {
+					instant = yes
+					soft_attack = 0.05
+					hard_attack = 0.05
+					ap_attack = 0.10
+				}
+			}
+		}
+		
+		ITA_reforming_italy_armor = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+
+			on_remove = { 
+				add_ideas = ITA_reforming_italy_armor2
+				country_event = {
+					id = LSM_ITA_defeat.9
+				}
+			}
+	
+			picture = SOV_organize_wreckers
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				armor = {
+					instant = yes
+					build_cost_ic = 0.5
+				}
+			}
+		}
+		
+		ITA_reforming_italy_armor2 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = man_five_year_plan_tank
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				armor = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+		}
+		
+		pushing_the_general_staff = { 
+	
+			picture = general_staff
+
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				planning_speed = 0.10
+			}
+		}
+		
+		pushing_the_general_staff_2 = { 
+	
+			picture = general_staff
+
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				NOT = { has_global_flag = SOV_one_step_forward }
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			on_remove = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = operation_barbarossa }
+						NOT = { is_justifying_wargoal_against = SOV }
+						has_war_with = SOV
+					}
+					add_timed_idea = { idea = pushing_the_general_staff_3 days = 90 }
+				}
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				planning_speed = 0.20
+				max_planning = 0.05
+			}
+		}
+		
+		pushing_the_general_staff_3 = { 
+	
+			picture = general_staff
+
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				planning_speed = -0.20
+				max_planning = -0.20
+				land_reinforce_rate = -0.05
+				army_org_factor = -0.2
+				army_morale_factor = -0.3
+			}
+		}
+		
+		JAP_for_the_emperor_ns = { 
+	
+			picture = prc_low_popular_support
+
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				training_time_factor = -0.5
+				dig_in_speed_factor = 1
+				max_training = -0.50
+			}
+		}
+
+		
+		manchurian_lease = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				MAN = { is_in_faction_with = JAP }
+			}
+		
+			picture = chi_chinese_unity
+		
+			on_remove = {
+				if = { 
+					limit = { 
+						MAN = { 
+							is_in_faction_with = JAP 
+						}
+					}
+					every_state = {
+						limit = { 
+							is_core_of = CHI
+							OR = {
+								is_controlled_by = JAP
+								controller = { is_in_faction_with = JAP }
+							}
+							is_coastal = no
+						}
+						add_core_of = MAN
+						MAN = { transfer_state = PREV }
+					}
+				}
+			}
+			
+			removal_cost = -1
+
+			rule = {
+				can_create_collaboration_government = no
+			}
+		}
+		
+		manchurian_integration = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				MAN = { is_subject_of = JAP }
+			}
+		
+			picture = chi_chinese_unity
+		
+			on_remove = {
+				if = { 
+					limit = { 
+						MAN = { 
+							is_subject_of = JAP
+						}
+					}
+					JAP = { annex_country = { target = MAN transfer_troops = yes } }
+					every_country = {
+						limit = {
+							original_tag = CHI
+							is_subject_of = JAP
+						}
+						JAP = { annex_country = { target = PREV transfer_troops = yes } } 
+					}
+					every_state = {
+						limit = { 
+							is_core_of = CHI
+							OR = {
+								is_controlled_by = JAP
+								controller = { is_in_faction_with = JAP }
+							}
+							NOT = { is_claimed_by = JAP }
+						}
+						add_claim_by = JAP
+					}
+					JAP = { add_timed_idea = { idea = manchurian_integration_2 days = 1095 } }
+				}
+			}
+			
+			removal_cost = -1
+
+			rule = {
+				can_create_collaboration_government = no
+			}
+		}
+		
+		manchurian_integration_2 = { 
+			allowed = {
+				always = yes
+			}
+		
+			picture = chi_chinese_unity
+
+			available = {
+				NOT = { has_country_flag = LSM_eligibility_nation }
+			}
+		
+			on_remove = {
+				if = { 
+					limit = { 
+						NOT = { has_country_flag = LSM_eligibility_nation }
+						has_global_flag = enclave_enabled
+					}
+					every_state = {
+						limit = { 
+							is_core_of = CHI
+							is_claimed_by = JAP
+						}
+						add_core_of = JAP
+					}
+				}
+				if = { 
+					limit = { 
+						NOT = { has_country_flag = LSM_eligibility_nation }
+						NOT = { has_global_flag = enclave_enabled }
+					}
+					every_state = {
+						limit = { 
+							is_core_of = CHI
+							is_claimed_by = JAP
+						}
+						ETH_upgrade_state_category = yes
+						add_manpower = 3000000
+					}
+				}
+			}
+			
+			removal_cost = -1
+
+			rule = {
+				can_create_collaboration_government = no
+			}
+		}
+		
+		manchurian_lease_not_hidden = { 
+			allowed = {
+				always = yes
+			}
+		
+			picture = chi_chinese_unity
+
+			available = {
+				MAN = { is_in_faction_with = JAP }
+			}
+			
+			removal_cost = -1
+		}
+		
+		JAP_devastation = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 50
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+
+			on_add = {
+				set_temp_variable = { jap_devastation = 0 }
+				set_temp_variable = { jap_devastation2 = 0 }
+				set_temp_variable = { jap_devastation3 = 0 }
+				set_temp_variable = { jap_devastation4 = 0 }
+				set_temp_variable = { jap_devastation5 = 0 }
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_devastation = 30 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							industrial_complex > 0
+						}
+						damage_building = { type = industrial_complex damage = 0.25 }
+						remove_building = {
+							type = industrial_complex
+							level = 1
+						}
+					}
+					add_to_temp_variable = { jap_devastation = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_devastation3 = 20 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							industrial_complex > 0
+						}
+						damage_building = { type = industrial_complex damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_devastation3 = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_devastation4 = 10 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							industrial_complex > 0
+						}
+						damage_building = { type = industrial_complex damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_devastation4 = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_devastation5 = 5 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							industrial_complex > 0
+						}
+						damage_building = { type = industrial_complex damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_devastation5 = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_devastation2 = 30 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+					add_to_temp_variable = { jap_devastation2 = 0.8 }
+				}
+			}
+
+			on_remove = {
+				add_ideas = JAP_devastation_2
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = -0.5
+				production_speed_industrial_complex_factor = -0.5
+				consumer_goods_factor = 0.5
+				industrial_capacity_factory = -0.5
+				industrial_capacity_dockyard = -0.5
+			}
+		}
+		
+		JAP_devastation_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 75
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+
+			on_remove = {
+				add_ideas = JAP_devastation_3
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = -0.4
+				production_speed_industrial_complex_factor = -0.4
+				consumer_goods_factor = 0.4
+				industrial_capacity_factory = -0.4
+				industrial_capacity_dockyard = -0.4
+			}
+		}
+		
+		JAP_devastation_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 100
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+
+			on_remove = {
+				add_ideas = JAP_devastation_4
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = -0.3
+				production_speed_industrial_complex_factor = -0.3
+				consumer_goods_factor = 0.3
+				industrial_capacity_factory = -0.3
+				industrial_capacity_dockyard = -0.3
+			}
+		}
+		
+		JAP_devastation_4 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 125
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+
+			on_remove = {
+				add_ideas = JAP_devastation_5
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = -0.2
+				production_speed_industrial_complex_factor = -0.2
+				consumer_goods_factor = 0.2
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+			}
+		}
+		
+		JAP_devastation_5 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 150
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+
+			on_remove = {
+				add_ideas = JAP_economic_boom_1
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = -0.1
+				production_speed_industrial_complex_factor = -0.1
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+			}
+		}
+		
+		JAP_economic_boom_1 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 200
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+
+			on_remove = {
+				add_ideas = JAP_economic_boom_2
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.25
+				industrial_capacity_dockyard = 0.25
+				global_building_slots_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				production_factory_efficiency_gain_factor = 0.25
+			}
+		}
+		
+		JAP_economic_boom_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				num_of_controlled_factories < 300
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+
+			on_remove = {
+				add_ideas = JAP_economic_boom_3
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.5
+				industrial_capacity_dockyard = 0.5
+				global_building_slots_factor = 0.5
+				production_factory_max_efficiency_factor = 0.5
+				production_factory_efficiency_gain_factor = 0.5
+			}
+		}
+		
+		JAP_economic_boom_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 1
+				industrial_capacity_dockyard = 1
+				global_building_slots_factor = 1
+				production_factory_max_efficiency_factor = 1
+				production_factory_efficiency_gain_factor = 1
+			}
+		}
+		
+		JAP_demobilisation = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				OR = {
+					has_war = no
+					has_capitulated = yes
+				}
+			}
+	
+			picture = prc_low_popular_support
+
+			on_add = {
+				set_temp_variable = { jap_demobilisation = 0 }
+				set_temp_variable = { jap_demobilisation2 = 0 }
+				set_temp_variable = { jap_demobilisation3 = 0 }
+				set_temp_variable = { jap_demobilisation4 = 0 }
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_demobilisation = 40 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							arms_factory > 0
+						}
+						damage_building = { type = arms_factory damage = 0.25 }
+						remove_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+					add_to_temp_variable = { jap_demobilisation = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_demobilisation2 = 30 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							arms_factory > 0
+						}
+						damage_building = { type = arms_factory damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_demobilisation2 = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_demobilisation3 = 20 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							arms_factory > 0
+						}
+						damage_building = { type = arms_factory damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_demobilisation3 = 1 }
+				}
+				while_loop_effect = {
+					limit = {
+						check_variable = { jap_demobilisation4 = 10 compare = less_than }
+					}
+					random_state = {
+						limit = {
+							is_core_of = JAP
+							arms_factory > 0
+						}
+						damage_building = { type = arms_factory damage = 0.25 }
+					}
+					add_to_temp_variable = { jap_demobilisation4 = 1 }
+				}
+			}
+			
+			removal_cost = -1
+
+			on_add = {
+				add_ideas = disarmed_nation
+				add_ideas = free_trade
+				add_ideas = civilian_economy
+			}
+			
+			modifier = {
+				mobilization_laws_cost_factor = 10
+				war_support_factor = -0.5
+				army_morale_factor = -0.5
+				training_time_factor = 1
+			}
+		}
+		
+		JAP_instability = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = jap_the_unthinkable_option
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_weekly = -0.001
+				communism_drift = 0.01
+				democratic_drift = 0.02
+			}
+		}
+		
+		ITA_interventionism = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				JAP = { has_war = yes }
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+			
+			removal_cost = -1
+			
+			modifier = {
+				send_volunteer_size = 12
+			}
+		}
+		
+		LSM_chinese_civil_war_intervention = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				OR = {
+					PRC = { has_war_with = CHI }
+					PRC = { has_war_with = MAN }
+					MAN = { has_war_with = CHI }
+				}
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+			
+			removal_cost = -1
+			
+			modifier = {
+				send_volunteer_size = 12
+
+			}
+		}
+		
+		LSM_korean_civil_war_intervention = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				KOR = { has_idea = korean_civil_war_idea }
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+			
+			removal_cost = -1
+			
+			modifier = {
+				send_volunteer_size = 50
+
+			}
+		}
+
+		
+		LSM_chinese_civil_war = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				any_country = {
+					has_war_with = ROOT
+					is_literally_china = yes
+				}
+				NOT = {
+					any_country = {
+						has_war_with = ROOT
+						AND = {
+							is_literally_china = no
+							NOT = { tag = MAN }
+							NOT = { tag = MEN }
+							NOT = { is_in_faction_with = CHI }
+							NOT = { is_subject_of = CHI }
+						}
+					}
+				}
+				OR = {
+					tag = CHI
+					tag = MAN
+					surrender_progress < 0.25
+				}
+			}
+		
+			on_add = {
+				if = {
+					limit = {
+						has_idea = CHI_chinese_unity_1
+					}
+					remove_ideas = CHI_chinese_unity_1
+				}
+				if = {
+					limit = {
+						has_idea = CHI_chinese_unity_2
+					}
+					remove_ideas = CHI_chinese_unity_2
+				}
+				if = {
+					limit = {
+						has_idea = CHI_chinese_unity_3
+					}
+					remove_ideas = CHI_chinese_unity_3
+				}
+				if = {
+					limit = {
+						has_idea = CHI_war_of_resistance
+					}
+					remove_ideas = CHI_war_of_resistance
+				}
+				if = {
+					limit = {
+						has_idea = CHI_war_of_resistance_2
+					}
+					remove_ideas = CHI_war_of_resistance_2
+				}
+				if = {
+					limit = {
+						has_idea = CHI_war_of_national_liberation
+					}
+					remove_ideas = CHI_war_of_national_liberation
+				}
+				if = {
+					limit = {
+						has_idea = CHI_forced_conscription
+					}
+					remove_ideas = CHI_forced_conscription
+				}
+				if = {
+					limit = {	
+						tag = PRC
+						is_in_faction = no
+					}
+					create_faction = "Chinese Liberation Front"
+				}
+				if = {
+					limit = {	
+						tag = CHI
+						is_in_faction = no
+					}
+					create_faction = "Chinese United Front"
+				}
+				if = {
+					limit = {	
+						tag = MAN
+						is_in_faction = no
+					}
+					create_faction = "Qing Restoration Front"
+				}
+				if = {
+					limit = {	
+						tag = PRC
+					}
+					PRC = {
+						division_template = {
+							name = "Communist Volunteer"
+							priority = 1
+							division_names_group = CHI_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 0 y = 3 }
+								infantry = { x = 0 y = 4 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+							}
+						}
+						every_owned_state = {
+							limit = { is_core_of = PRC }
+							create_unit = {
+								division = "name = \"Communist Volunteer\" division_template = \"Communist Volunteer\" start_experience_factor = 0 start_equipment_factor = 0.20" 
+								owner = PRC 
+								allow_spawning_on_enemy_provs = yes  
+								count = 3  
+							}
+						}
+					}
+				}
+				if = {
+					limit = {	
+						tag = CHI
+					}
+					CHI = {
+						division_template = {
+							name = "Nationalist Volunteer"
+							priority = 1
+							division_names_group = CHI_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 0 y = 3 }
+								infantry = { x = 0 y = 4 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+								infantry = { x = 1 y = 2 }
+								infantry = { x = 1 y = 3 }
+								infantry = { x = 1 y = 4 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }
+							}
+						}
+						every_owned_state = {
+							limit = { is_core_of = CHI }
+							create_unit = {
+								division = "name = \"Nationalist Volunteer\" division_template = \"Nationalist Volunteer\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+								owner = CHI 
+								allow_spawning_on_enemy_provs = yes  
+								count = 1  
+							}
+						}
+					}
+				}
+				if = {
+					limit = {	
+						tag = MAN
+					}
+					MAN = {
+						division_template = {
+							name = "Loyalist Banner"
+							priority = 1
+							division_names_group = CHI_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+								infantry = { x = 0 y = 3 }
+								infantry = { x = 0 y = 4 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+								infantry = { x = 1 y = 2 }
+								infantry = { x = 1 y = 3 }
+								infantry = { x = 1 y = 4 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }
+							}
+						}
+						every_owned_state = {
+							limit = { is_core_of = MAN }
+							create_unit = {
+								division = "name = \"Loyalist Volunteer\" division_template = \"Loyalist Banner\" start_experience_factor = 0.2" 
+								owner = MAN 
+								allow_spawning_on_enemy_provs = yes  
+								count = 4  
+							}
+						}
+					}
+				}
+
+			}
+
+			on_remove = {
+				dismantle_faction = yes
+				every_country = {
+					limit = {
+						original_tag = KOR
+						controls_state = 527
+					}
+					country_event = { id = LSM_new_world_diplomacy.5 days = 180 }
+					country_event = { id = LSM_new_world_diplomacy.5 days = 215 }
+				}
+				if = {
+					limit = {
+						tag = PRC
+					}
+					add_ai_strategy = {
+						type = alliance
+						id = "SOV"
+						value = 9999
+					}
+					SOV = {
+						add_ai_strategy = {
+							type = alliance
+							id = "PRC"
+							value = 9999
+						}
+					}	
+				}
+				if = {
+					limit = {
+						tag = PRC
+						surrender_progress > 0.25
+					}
+					add_ideas = PRC_soviet_tribute_6	
+				}
+			}
+	
+			picture = FRA_scw_intervention_republicans_focus
+			
+			removal_cost = -1
+			
+			modifier = {
+				supply_factor = 1
+				supply_node_range = 1
+				attrition = -0.5
+				out_of_supply_factor = -1
+			}
+
+			rule = {
+				can_join_factions = no
+				can_create_factions = yes
+			}
+		}
+		
+		korean_civil_war_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				NOT = {
+					any_country = {
+						original_tag = KOR
+						has_capitulated = yes
+						has_country_flag = {
+							flag = LSM_eligibility_nation
+							days > 365
+						}
+					}
+				}
+			}
+
+			on_remove = {
+				if = {
+					limit = { 
+						has_war = no
+					}
+					add_named_threat = { threat = -30 name = "The End of Korean Civil War" }
+				}
+				every_other_country = { #we have enough with the wars
+					limit = { original_tag = KOR }
+					ROOT = {
+						remove_wargoal = {
+							type = all
+							target = PREV
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_war = yes
+						any_country = {
+							original_tag = KOR
+							has_capitulated = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { has_capitulated = yes }
+						}
+						every_country = {
+							limit = { 
+								is_in_faction_with = ROOT 
+								is_faction_leader = yes
+							}
+							remove_from_faction = ROOT
+						}
+						every_other_country = {
+							limit = { 
+								has_war_with = ROOT 
+								original_tag = KOR 
+							}
+							annex_country = { target = ROOT transfer_troops = no }
+							every_other_country = {
+								limit = { has_war_with = PREV }
+								white_peace = PREV
+							}
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { has_capitulated = no }
+						}
+						KOR = { news_event = { hours = 12 id = lsm_news.127 } }
+						add_named_threat = { threat = -20 name = "The End of Korean Civil War" } #totalling -20%
+					}
+				}
+				if = {
+					limit = {
+						has_war = yes
+						NOT = { 
+							any_country = {
+								original_tag = KOR
+								has_capitulated = yes
+							}
+						}
+					}
+					add_named_threat = { threat = -10 name = "The End of Korean Civil War" } #totalling -20%
+					every_country = {
+						limit = { has_war_with = ROOT }
+						white_peace = ROOT
+					}
+					every_other_country = {
+						limit = { original_tag = KOR }
+						set_truce = {
+							target = ROOT
+							days = 7300 #don't touch us please
+						}
+					}
+					KOR = { news_event = { hours = 12 id = lsm_news.126 } }
+				}
+				if = {
+					limit = { has_government = communism }
+					set_capital = { state = 527 }
+				}
+				if = {
+					limit = { NOT = { has_government = communism } }
+					set_capital = { state = 525 }
+				}
+				if = {
+					limit = {
+						is_faction_leader = yes
+					}
+					dismantle_faction = yes
+				}
+			}
+	
+			picture = chi_war_of_resistance3
+			
+			removal_cost = -1
+			
+			modifier = {
+				supply_factor = 0.5
+				supply_node_range = 0.5
+				attrition = -0.5
+				out_of_supply_factor = -0.5
+				production_factory_max_efficiency_factor = 1
+				industrial_capacity_factory = 1
+				conscription = 0.10
+				training_time_factor = -0.5
+				surrender_limit = 0.1
+			}
+		}
+		
+		paranoia_idea = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = {
+				NOT = { has_completed_focus = SOV_the_right_opposition }
+				NOT = { has_completed_focus = SOV_the_left_opposition }
+				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
+				has_country_flag = SOV_paranoia_system_active_flag
+			}
+
+			picture = SOV_factionalism_modifier
+
+			modifier = {
+				hidden_modifier = {
+					offensive_war_stability_factor = -0.20
+					defensive_war_stability_factor = 0.20
+				}
+			}
+
+			removal_cost = -1
+		}
+		
+		LSM_military_attache_to_spain_SPR = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				SOV = { has_idea = LSM_military_attache_to_spain_SOV }
+			}
+
+			picture = generic_volunteer_expedition_bonus
+
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = 0.02
+				planning_speed = 0.10
+			}
+		}
+		
+		FRA_research_boost = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = eng_a_change_in_course
+
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.30
+			}
+		}
+		
+		SOV_elite_difficulty = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				GER_is_not_relevant = no
+			}
+
+			picture = SOV_factionalism_modifier
+
+			removal_cost = -1
+			
+			modifier = {
+				production_factory_max_efficiency_factor = -0.3
+				research_speed_factor = -0.30
+				political_power_factor = -0.15
+				supply_consumption_factor = 0.1
+				hidden_modifier = {
+					ai_focus_aggressive_factor = -0.5
+					ai_focus_defense_factor = 0.5
+				}
+			}
+		}
+		
+		preparing_for_the_weltkrieg = { 
+			allowed = {
+				always = yes
+			}
+	
+			picture = ast_all_in
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					NOT = { GER = { has_war_with = FRA } }
+					NOT = { GER = { has_war_with = SOV } }
+					NOT = { GER = { has_war_with = ENG } }
+				}
+			}
+		
+			on_remove = {
+				add_ideas = the_second_weltkrieg
+				add_named_threat = { threat = 2.5 name = "Weltkrieg Strategy" }
+				add_war_support = 0.5
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.05
+				production_speed_buildings_factor = 0.3
+				consumer_goods_factor = -0.3
+				hidden_modifier = {
+					experience_gain_army = 0.5
+					experience_gain_navy = 0.5
+					experience_gain_air = 0.5
+					training_time_factor = -0.3
+				}
+			}
+		}
+		
+		the_second_weltkrieg = { 
+			allowed = {
+				always = yes
+			}
+	
+			picture = generic_fascist_workers
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				conscription = 0.2
+				conscription_factor = 0.2
+				resistance_damage_to_garrison = -0.5
+				resistance_target = -0.5
+				hidden_modifier = {
+					experience_gain_army = 0.5
+					experience_gain_navy = 0.5
+					experience_gain_air = 0.5
+					training_time_factor = -0.3
+					dig_in_speed_factor = 5 #deeper deeper deeper
+					supply_consumption_factor = -0.5
+					industrial_capacity_factory = 1.5
+					industrial_capacity_dockyard = 3
+					army_strength_factor = 0.3
+					army_morale_factor = 0.3
+					land_reinforce_rate = 0.3
+				}
+			}
+		}
+
+		GER_SOV_hitler_stalin_pact = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = generic_deal_with_the_devil
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_0 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = generic_communist_army
+			
+			removal_cost = -1
+		}
+		
+		doomed_by_hitler_stalin_pact = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_attack_soviet_union
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.1
+				army_morale_factor = -0.1
+				army_speed_factor = -0.1
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+			}
+		}
+		
+		doomed_by_hitler_stalin_pact_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_attack_soviet_union
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.2
+				army_morale_factor = -0.2
+				army_speed_factor = -0.2
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+			}
+		}
+		
+		SOV_barbarossa_retreat = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.02
+					casualties < 200000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_2 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.5
+				army_morale_factor = -0.5
+				army_speed_factor = 0.5 #we gotta run fast bro
+				army_attack_factor = -0.5
+				army_defence_factor = -0.5
+			}
+		}
+		
+		SOV_barbarossa_retreat_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.04
+					casualties < 400000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_3 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.45
+				army_morale_factor = -0.45
+				army_speed_factor = 0.45 #we gotta run fast bro
+				army_attack_factor = -0.45
+				army_defence_factor = -0.45
+			}
+		}
+		
+		SOV_barbarossa_retreat_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.06
+					casualties < 600000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_4 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.4
+				army_morale_factor = -0.4
+				army_speed_factor = 0.4 #we gotta run fast bro
+				army_attack_factor = -0.4
+				army_defence_factor = -0.4
+			}
+		}
+		
+		SOV_barbarossa_retreat_4 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.8
+					casualties < 800000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_5 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.35
+				army_morale_factor = -0.35
+				army_speed_factor = 0.35 #we gotta run fast bro
+				army_attack_factor = -0.35
+				army_defence_factor = -0.35
+			}
+		}
+		
+		SOV_barbarossa_retreat_5 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.1
+					casualties < 1000000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_6 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.3
+				army_morale_factor = -0.3
+				army_speed_factor = 0.3 #we gotta run fast bro
+				army_attack_factor = -0.3
+				army_defence_factor = -0.3
+			}
+		}
+		
+		SOV_barbarossa_retreat_6 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.12
+					casualties < 1200000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_7 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.25
+				army_morale_factor = -0.25
+				army_speed_factor = 0.25 #we gotta run fast bro
+				army_attack_factor = -0.25
+				army_defence_factor = -0.25
+			}
+		}
+		
+		SOV_barbarossa_retreat_7 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.14
+					casualties < 1400000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_8 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.2
+				army_morale_factor = -0.2
+				army_speed_factor = 0.2 #we gotta run fast bro
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+			}
+		}
+		
+		SOV_barbarossa_retreat_8 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.16
+					casualties < 1600000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_9 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.15
+				army_morale_factor = -0.15
+				army_speed_factor = 0.15 #we gotta run fast bro
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+			}
+		}
+		
+		SOV_barbarossa_retreat_9 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.18
+					casualties < 1800000
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+			}
+	
+			picture = SOV_factionalism_modifier
+		
+			on_remove = {
+				add_timed_idea = { idea = SOV_barbarossa_retreat_10 days = 14 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.1
+				army_morale_factor = -0.1
+				army_speed_factor = 0.1 #we gotta run fast bro
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+			}
+		}
+		
+		SOV_barbarossa_retreat_10 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					surrender_progress < 0.2
+					casualties < 2000000
+				}
+			}
+		
+			on_remove = {
+				complete_national_focus = SOV_lessons_of_war
+				add_timed_idea = { idea = SOV_barbarossa_no_retreat days = 30 }
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.05
+				army_morale_factor = -0.05
+				army_speed_factor = 0.05 #we gotta run fast bro
+				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+			}
+		}
+		
+		defeat_in_the_second_world_war_idea  = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = DEN_occupation_laws
+			
+			removal_cost = -1
+			
+			modifier = {
+				guarantee_cost = 10
+			}
+
+			rule = {
+				can_not_declare_war = yes
+				can_send_volunteers = no
+				can_guarantee_other_ideologies = no
+				can_join_factions = no
+				can_create_factions = no
+			}
+		}
+		
+		ENG_victor_of_world_war_ii  = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes	
+			}
+	
+			picture = generic_train_tracks
+			
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.25
+				industrial_capacity_factory = 0.25
+				industrial_capacity_dockyard = 0.25
+				production_speed_buildings_factor = 0.25
+			}
+		}
+		
+		ENG_defeat_in_world_war_ii  = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				NOT = {
+					any_country = {
+						has_war_with = ROOT
+						has_idea = ENG_victor_of_world_war_ii
+					}
+				}
+			}
+	
+			picture = DEN_occupation_laws
+			
+			removal_cost = -1
+			
+			modifier = {
+				guarantee_cost = 10
+				consumer_goods_factor = 0.5
+			}
+
+			rule = {
+				can_not_declare_war = yes
+				can_send_volunteers = no
+				can_guarantee_other_ideologies = no
+				can_join_factions = no
+			}
+		} 
+		
+		LSM_the_final_push = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+				GER = { has_capitulated = no }
+				has_war_with = GER
+			}
+		
+			on_remove = {
+				if = {
+					limit = { 
+						GER = { has_capitulated = no }
+						has_war_with = GER
+					}
+					add_war_support = -0.25
+					add_stability = -0.25
+					add_ideas = LSM_the_final_push_failure
+				}
+				if = {
+					limit = { 
+						GER = { has_capitulated = yes }
+						has_war_with = GER
+					}
+					add_war_support = 0.25
+					add_stability = 0.25
+					add_ideas = LSM_the_final_push_success
+				}
+				if = {
+					limit = { 
+						NOT = { has_war_with = GER }
+					}
+					add_stability = 0.25
+					add_timed_idea = { idea = LSM_victory_in_europe days = 1095 }
+				}
+			}
+	
+			picture = generic_victors_of_ww1
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = -0.5
+				industrial_capacity_factory = 0.25
+				supply_factor = 0.1
+				supply_node_range = 0.1
+			}
+					
+			research_bonus = {
+				air_equipment = 1 #our planes fly over Berlin
+				armor = 1
+			}
+		}
+		
+		LSM_the_final_push_failure = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+				has_war_with = GER
+			}
+	
+		
+			on_remove = {
+				if = {
+					limit = { 
+						NOT = { has_war_with = GER }
+						GER = { has_country_flag = LSM_eligibility_nation }
+					}
+					add_stability = 0.25
+					add_timed_idea = { idea = LSM_victory_in_europe days = 1095 }
+				}
+			}
+
+			picture = tur_disorganised_armed_forces
+			
+			removal_cost = -1
+
+		}
+		
+		LSM_the_final_push_success = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+				has_war_with = GER
+			}
+	
+		
+			on_remove = {
+				if = {
+					limit = { 
+						NOT = { has_war_with = GER }
+						GER = { has_country_flag = LSM_eligibility_nation }
+					}
+					add_stability = 0.25
+					add_timed_idea = { idea = LSM_victory_in_europe days = 1095 }
+				}
+			}
+	
+			picture = generic_victors_of_ww1
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_speed_factor = 0.05
+				army_morale_factor = 0.05
+			}
+
+		}
+		
+		LSM_victory_in_europe = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+		
+			on_add = {
+				every_other_country = { #we have enough with the wars
+					ROOT = {
+						remove_wargoal = {
+							type = all
+							target = PREV
+						}
+					}
+				}		
+				if = {
+					limit = {
+						tag = CAN
+					}
+					every_state = {
+						limit = { 
+							is_core_of = CAN
+							owner = { is_in_faction_with = CAN }
+						}
+						CAN = { transfer_state = PREV }
+					}
+				}
+				if = {
+					limit = {
+						tag = FRA
+					}
+					delete_units = {
+						division_template = "FFI Demi-Brigade"
+						disband = yes
+					}
+				}
+				every_country = {
+					limit = {
+						NOT = { has_country_flag = era_of_transition }
+						is_historical_focus_on = yes
+					}
+					set_country_flag = era_of_transition
+				}
+			}
+
+			on_remove = {
+				if =  {
+					limit = { is_ai = yes }
+					every_other_country = { #we have enough with the wars
+						ROOT = {
+							remove_wargoal = {
+								type = all
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+	
+			picture = generic_victors_of_ww1
+			
+			removal_cost = -1
+
+			modifier = {
+				industry_repair_factor = 0.25
+				consumer_goods_factor = 0.25
+				production_speed_industrial_complex_factor = 0.25
+				production_speed_infrastructure_factor = 0.25
+			}
+
+			rule = {
+				can_not_declare_war = yes
+				can_send_volunteers = yes
+			}
+
+		}
+		
+		marshall_plan = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.1
+			}
+		}
+		
+		marshall_plan_b = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.6
+			}
+		}
+		
+		marshall_plan_allies = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = -0.1
+				industry_repair_factor = 1
+				production_speed_infrastructure_factor = 1
+				monthly_population = 2
+			}
+		}
+		
+		marshall_plan_soviet = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+
+			modifier = {
+				industry_repair_factor = 0.5
+				production_speed_infrastructure_factor = 0.5
+				monthly_population = 2
+			}
+		}
+		
+		LSM_the_final_push_failure_GER = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SPR_anti_fascist_crusade
+			
+			modifier = {
+				democratic_drift = 0.03
+				communism_drift = 0.03
+			}
+
+			rule = {
+				can_not_declare_war = yes
+				can_send_volunteers = no
+				can_guarantee_other_ideologies = no
+				can_join_factions = no
+				can_create_factions = no
+			}
+
+			removal_cost = -1
+
+		}
+		
+		LSM_the_final_push_success_GER = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+				has_government = fascism
+				has_capitulated = no
+			}
+	
+			picture = triumphant_will
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.25
+				experience_loss_factor = 0.25
+				army_core_attack_factor = 0.25
+				army_core_defence_factor = 0.10
+			}
+
+		}
+		
+		endsieg_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				AND = {
+					has_capitulated = no
+					has_war = yes
+					has_government = fascism
+				}
+				NOT = { has_idea = LSM_the_final_push_success_GER }
+				NOT = { has_idea = LSM_the_final_push_failure_GER }
+			}
+
+			on_add = {
+				set_global_flag = endsieg_has_begun_flag
+			}
+		
+			on_remove = {
+				if = {
+					limit = { 
+						GER = { has_capitulated = no }
+					}
+					add_war_support = 0.25
+					add_stability = 0.25
+					add_ideas = LSM_the_final_push_success_GER
+					every_country = {
+						limit = { has_idea = endsieg_idea_member }
+						add_timed_idea = { idea = endsieg_idea_member_2 days = 730 }
+					}
+					if = { 
+						limit = {
+							has_dynamic_modifier = { modifier = GER_blitzkrieg_modifier_removed }
+							NOT = { check_variable = { GER_blitzkrieg = 0 } }
+						}
+						set_variable = { GER_blitzkrieg = 0 }
+						set_variable = { GER_blitzkrieg_resistance = 0 }
+						set_variable = { GER_blitzkrieg_factory  = 0 }
+						set_variable = { GER_blitzkrieg_dockyard = 0 }
+						set_variable = { GER_blitzkrieg_repair = 0 }
+						set_variable = { GER_blitzkrieg_manpower = 0 }
+						set_variable = { GER_blitzkrieg_speed = 0 }
+						set_variable = { GER_blitzkrieg_breakthrough = 0 }
+					}
+				}
+				if = {
+					limit = { 
+						GER = { has_capitulated = yes }
+					}
+					add_ideas = LSM_the_final_push_failure_GER
+					every_country = {
+						limit = {
+							is_in_faction_with = GER
+							is_ai = yes
+							NOT = { has_country_flag = LSM_elibiligity_nation }
+							has_capitulated = no
+						}
+						add_timed_idea = { idea = LSM_surrender_limit days = 30 }
+					}
+				}
+			}
+	
+			picture = chi_war_of_resistance3
+			
+			removal_cost = -1
+			
+			modifier = {
+				war_support_weekly = -0.02
+				stability_weekly = -0.02
+				land_reinforce_rate = 0.07
+				army_core_defence_factor = 0.10
+				army_core_attack_factor = 0.10
+			}
+		}
+		
+		endsieg_idea_member = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				NOT = { has_country_flag = LSM_eligbility_nation }
+				GER = { has_idea = endsieg_idea }
+			}
+	
+			picture = chi_war_of_resistance3
+			
+			removal_cost = -1
+			
+			modifier = {
+				war_support_weekly = -0.005
+				stability_weekly = -0.005
+				army_core_defence_factor = 0.20
+				army_core_attack_factor = 0.10
+			}
+		}
+		
+		endsieg_idea_member_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				GER = { has_idea = LSM_the_final_push_success_GER }
+			}
+	
+			picture = chi_war_of_resistance3
+			
+			removal_cost = -1
+			
+			modifier = {
+				war_support_weekly = 0.001
+				stability_weekly = 0.001
+				industrial_capacity_factory = 0.25
+				army_attack_factor = 0.10
+			}
+		}
+		
+		SOV_transitional_economy = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+
+			on_add = {
+				set_country_flag = switch_time
+			}
+
+			on_remove = {
+				add_stability = 0.1
+				add_to_variable = { SOV_fyp_line_change_production_efficiency_factor = 0.10 }
+				add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.10 }
+				add_to_variable = { SOV_fyp_production_factory_efficiency_gain_factor = 0.20 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = -0.5
+				industrial_capacity_dockyard = -0.5
+				production_factory_efficiency_gain_factor = 1
+				line_change_production_efficiency_factor = 1
+			}
+		}
+		
+		SOV_industrialization_boost = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_industrialization_boost_2 days = 365 }
+				add_stability = 0.1
+				add_war_support = 0.1
+				add_to_variable = { SOV_the_politburo_good_consumer_goods_factor = -0.1 }
+				add_to_variable = { SOV_the_politburo_production_speed_buildings_factor = 0.1 } 
+				add_to_variable = { SOV_the_politburo_global_building_slots_factor = 0.1 } 
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.15
+				industry_repair_factor = 0.15
+				weekly_manpower = -20000
+			}
+		}
+		
+		SOV_industrialization_boost_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+
+			on_remove = {
+				add_stability = 0.05
+				add_war_support = 0.05
+				add_timed_idea = { idea = SOV_industrialization_boost_3 days = 365 }
+				add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 }
+				add_to_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = 0.15 }
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industry_repair_factor = 0.50
+			}
+		}
+		
+		SOV_industrialization_boost_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+	
+			picture = SOV_third_five_year_plan_civilian
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = -0.25
+			}
+		}
+		
+		crossing_the_atlantic_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			picture = generic_sea_focused_navy
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.25
+				convoy_escort_efficiency = 0.25
+				naval_invasion_division_cap = 2 
+				conscription = -0.005
+				hidden_modifier = {
+					ai_focus_naval_factor = 2.5
+				}
+			}
+					
+			research_bonus = {
+				naval_equipment = 0.50
+			}
+		}
+		
+		crossing_the_pacific_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = generic_sea_focused_navy
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.25
+				naval_speed_factor = 0.10
+				naval_invasion_division_cap = 2 
+				hidden_modifier = {
+					ai_focus_naval_factor = 2.5
+				}
+			}
+					
+			research_bonus = {
+				naval_equipment = 0.50
+			}
+		}
+		
+		the_final_bastion_idea = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				OR = {
+					has_war = yes
+					any_country = {
+						OR = { 
+							has_idea = crossing_the_pacific_idea 
+							has_idea = crossing_the_atlantic_idea
+						}
+						has_war_with = ROOT
+					}
+				}
+			}
+	
+			picture = generic_coastal_defense_ships
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.5
+				conscription = 0.05
+				enemy_operative_detection_chance_factor = 0.5
+				enemy_operative_capture_chance_factor = 0.5
+			}
+					
+			research_bonus = {
+				naval_equipment = 0.50
+			}
+		}
+		
+		anti_collab_mechanic_1 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = 0.2
+			}
+		}
+		
+		anti_collab_mechanic_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = 0.1
+			}
+		}
+		
+		anti_collab_mechanic_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = 0
+			}
+		}
+		
+		anti_collab_mechanic_4 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = -0.1
+			}
+		}
+		
+		anti_collab_mechanic_5 = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+	
+			picture = SOV_factionalism_modifier
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = -0.2
+			}
+		}
+
+		GER_soviet_military_exercises_LSM = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			available = { 
+				NOT = { has_global_flag = sov_yes_pact }
+			}
+
+			removal_cost = -1
+
+			picture = generic_war_preparation
+
+			modifier = {
+				training_time_army_factor = -0.2
+				industrial_capacity_factory = 0.2
+			}
+		}
+
+		GER_soviet_protect_our_sphere_LSM = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			available = { 
+				NOT = { has_global_flag = sov_yes_pact }
+			}
+
+			removal_cost = -1
+
+			picture = generic_intel_bonus
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.2
+				industrial_capacity_factory = 0.2
+			}
+		}
+		
+		SOV_t34_mass_production_1 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_2 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.01 instant = yes
+					reliability = -0.4 instant = yes
+					armor_value = -0.4
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_2 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_3 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.05 instant = yes
+					reliability = -0.5 instant = yes
+					armor_value = -0.4
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_3 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_4 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.1 instant = yes
+					reliability = -0.4 instant = yes
+					armor_value = -0.4
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_4 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_5 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.35 instant = yes
+					armor_value = -0.3
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_5 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_6 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.25 instant = yes
+					reliability = -0.35 instant = yes
+					armor_value = -0.3
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_6 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_7 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.3 instant = yes
+					reliability = -0.3 instant = yes
+					armor_value = -0.25
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_7 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_8 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.4 instant = yes
+					reliability = -0.25 instant = yes
+					armor_value = -0.2
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_8 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_timed_idea = { idea = SOV_t34_mass_production_9 days = 60 }
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.4 instant = yes
+					reliability = -0.2 instant = yes
+					armor_value = -0.1
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_9 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			on_remove = {
+				add_ideas = SOV_t34_mass_production_10
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.5 instant = yes
+					reliability = -0.15 instant = yes
+					armor_value = 0.05
+				}
+			}
+		}
+		
+		SOV_t34_mass_production_10 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+
+			picture = morozov_design_bureau
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.5 instant = yes
+					reliability = -0.1 instant = yes
+					armor_value = 0.15
+				}
+			}
+		}
+		
+		GER_total_war_production_1 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.1
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 5 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = man_five_year_plan_tank
+
+			removal_cost = -1
+
+			modifier = {
+				mobilization_laws_cost_factor = -0.3
+			}
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+					reliability = -0.03
+					soft_attack = -0.03
+					hard_attack = -0.03
+					ap_attack = -0.03
+				}
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+					reliability = -0.03
+				}
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+					reliability = -0.03
+					soft_attack = -0.03
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+					reliability = -0.03
+					hard_attack = -0.05
+					ap_attack = -0.05
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+					reliability = -0.03
+					air_attack = -0.05
+				}
+				light_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.25
+					reliability = -0.1
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.3
+					armor_value = -0.15
+				}
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.3
+					armor_value = -0.15
+				}
+			}
+		}
+		
+		GER_total_war_production_2 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.2
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 10 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = man_five_year_plan_tank
+
+			removal_cost = -1
+
+			modifier = {
+				mobilization_laws_cost_factor = -0.4
+			}
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+					reliability = -0.07
+					soft_attack = -0.07
+					hard_attack = -0.07
+					ap_attack = -0.07
+				}
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.07
+				}
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.07
+					soft_attack = -0.07
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.05
+					hard_attack = -0.1
+					ap_attack = -0.1
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.05
+					air_attack = -0.1
+				}
+				light_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.15
+					reliability = -0.2
+					armor_value = -0.2
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.15
+					reliability = -0.3
+					armor_value = -0.1
+				}
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.15
+					reliability = -0.3
+					armor_value = -0.1
+				}
+			}
+		}
+		
+		GER_total_war_production_3 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.3
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 25 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = man_five_year_plan_tank
+
+			removal_cost = -1
+
+			modifier = {
+				mobilization_laws_cost_factor = -0.5
+			}
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.2
+					soft_attack = -0.12
+					hard_attack = -0.12
+					ap_attack = -0.12
+				}
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.25
+					reliability = -0.12
+				}
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.25
+					reliability = -0.2
+					soft_attack = -0.12
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.25
+					reliability = -0.2
+					hard_attack = -0.15
+					ap_attack = -0.15
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.25
+					reliability = -0.2
+					air_attack = -0.1
+				}
+				light_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.25
+					armor_value = -0.25
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.05
+					reliability = -0.4
+					armor_value = 0.3
+				}
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.05
+					reliability = -0.4
+					armor_value = 0.4
+				}
+			}
+		}
+		
+		GER_total_war_production_4 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			modifier = {
+				mobilization_laws_cost_factor = -0.6
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.4
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 50 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = man_five_year_plan_tank
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.4
+					reliability = -0.25
+					soft_attack = -0.15
+					hard_attack = -0.15
+					ap_attack = -0.15
+				}
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.25
+				}
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.3
+					soft_attack = -0.2
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.25
+					hard_attack = -0.25
+					ap_attack = -0.4
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.25
+					air_attack = -0.25
+				}
+				light_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.4
+					armor_value = -0.4
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.15
+					reliability = -0.5
+					armor_value = 0.4
+				}
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.15
+					reliability = -0.5
+					armor_value = 0.5
+				}
+			}
+		}
+		
+		GER_total_war_production_5 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+				check_variable = { GER_blitzkrieg < 200 }
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.5
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 100 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			modifier = {
+				mobilization_laws_cost_factor = -1
+			}
+
+			picture = man_five_year_plan_tank
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.5
+					reliability = -0.33
+					soft_attack = -0.33
+					hard_attack = -0.33
+					ap_attack = -0.33
+					defense = -0.33
+				}
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.5
+					reliability = -0.33
+				}
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.5
+					reliability = -0.5
+					soft_attack = -0.33
+					ap_attack = -0.33
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.5
+					reliability = -0.33
+					hard_attack = -0.33
+					ap_attack = -0.33
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.5
+					reliability = -0.33
+					air_attack = -0.25
+				}
+				light_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.5
+					reliability = -0.33
+					armor_value = -0.33
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.25
+					reliability = -0.6
+					armor_value = 0.6
+				}
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = 0.25
+					reliability = -0.6
+					armor_value = 0.6
+				}
+			}
+		}
+		
+		USA_total_war_production_1 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.1
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 5 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = generic_artillery_manufacturer_1
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+					reliability = 0.1
+					soft_attack = 0.25
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+					reliability = 0.1
+					air_attack = 0.25
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.2
+					reliability = -0.3
+					armor_value = -0.1
+				}
+				large_plane_airframe = {
+					instant = yes
+					air_range = 0.1
+					build_cost_ic = -0.1
+				}
+			}
+		}
+		
+		USA_total_war_production_2 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.2
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 10 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = generic_artillery_manufacturer_1
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.1
+					reliability = 0.1
+					soft_attack = 0.33
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = 0.1
+					reliability = 0.1
+					air_attack = 0.33
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = 0.1
+					reliability = 0.1
+					air_attack = 0.33
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = -0.1
+					armor_value = 0.1
+				}
+				large_plane_airframe = {
+					instant = yes
+					air_range = 0.2
+					build_cost_ic = -0.2
+				}
+			}
+		}
+		
+		USA_total_war_production_3 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.1
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 15 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = generic_artillery_manufacturer_1
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					soft_attack = 0.33
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					air_attack = 0.33
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					hard_attack = 0.33
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.3
+					reliability = 0.05
+					armor_value = 0.1
+				}
+				large_plane_airframe = {
+					instant = yes
+					air_range = 0.3
+					build_cost_ic = -0.3
+				}
+			}
+		}
+		
+		USA_total_war_production_4 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.1
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 20 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = generic_artillery_manufacturer_1
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					soft_attack = 0.4
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					air_attack = 0.4
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = 0.2
+					reliability = 0.2
+					hard_attack = 0.4
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.4
+					reliability = 0.15
+					armor_value = 0.15
+				}
+				large_plane_airframe = {
+					instant = yes
+					air_range = 0.3
+					build_cost_ic = -0.3
+				}
+			}
+		}
+		
+		USA_total_war_production_5 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+
+			on_remove = {
+				if = {
+					limit = { has_war = no }
+					add_war_support = -0.1
+					set_temp_variable = { tem_demobilisation = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { tem_demobilisation = 50 compare = less_than }
+						}
+						random_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								arms_factory > 0
+							}
+							remove_building = {
+								type = arms_factory
+								level = 1
+							}
+						}
+						add_to_temp_variable = { tem_demobilisation = 1 }
+					}
+				}
+			}
+
+			picture = generic_license_production
+
+			removal_cost = -1
+
+			modifier = {
+				land_night_attack = 0.15
+				coordination_bonus = 0.2
+			}
+
+			equipment_bonus = {
+				artillery_equipment = {
+					instant = yes
+					build_cost_ic = 0.25
+					reliability = 0.25
+					soft_attack = 0.5
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = 0.25
+					reliability = 0.25
+					air_attack = 0.5
+				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = 0.25
+					reliability = 0.25
+					hard_attack = 0.5
+				}
+				medium_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.4
+					reliability = 0.2
+					armor_value = 0.2
+				}
+				large_plane_airframe = {
+					instant = yes
+					air_range = 0.3
+					build_cost_ic = -0.3
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,149 @@
+has_nearby_hostile_state = {
+	any_neighbor_state = {
+		controller = { has_war_with = ROOT }
+	}
+}
+
+has_enough_airforce = {
+	OR = {
+		has_deployed_air_force_size = {
+			type = cas
+			size > 500
+		}
+		has_deployed_air_force_size = {
+			type = fighter
+			size > 5000
+		}
+	}
+}
+
+has_enough_airforce_2 = {
+	OR = {
+		has_deployed_air_force_size = {
+			type = cas
+			size > 3500
+		}
+		has_deployed_air_force_size = {
+			type = fighter
+			size > 9000
+		}
+	}
+}
+
+state_has_airbase_JAP = {
+	OR = {
+		free_building_slots = { building = air_base size < 8 }
+		check_variable = { building_level@air_base > 2 }
+	}
+}
+
+state_has_airbase = {
+	OR = {
+		free_building_slots = { building = air_base size < 9 }
+		check_variable = { building_level@air_base > 1 }
+	}
+}
+
+state_has_airbase_2 = {
+	OR = {
+		free_building_slots = { building = air_base size < 6 }
+		check_variable = { building_level@air_base > 4 }
+	}
+}
+
+state_lack_airbase = {
+	check_variable = {
+		building_level@air_base < 2
+	}
+	NOT = { 
+		any_neighbor_state = {
+			is_fully_controlled_by = ROOT
+			check_variable = { building_level@air_base > 1 }
+		}
+	}
+	NOT = { 
+		any_state = {
+			distance_to = {
+				target = PREV
+				value < 300
+			}
+			is_fully_controlled_by = ROOT
+			check_variable = { building_level@air_base > 3 }
+		}
+	}
+}
+
+state_lack_airbase_2 = {
+	check_variable = {
+		building_level@air_base < 5
+	}
+	NOT = { 
+		any_neighbor_state = {
+			is_fully_controlled_by = ROOT
+			check_variable = { building_level@air_base > 4 }
+		}
+	}
+	NOT = { 
+		any_state = {
+			distance_to = {
+				target = PREV
+				value < 300
+			}
+			is_fully_controlled_by = ROOT
+			check_variable = { building_level@air_base > 7 }
+		}
+	}
+}
+has_nearby_supply_hub = {
+	OR = {
+		any_province_building_level = {
+			province = {
+				all_provinces = yes
+				limit_to_coastal = yes
+			}
+			building = naval_base
+			level > 0
+		}
+		any_province_building_level = {
+			province = {
+				all_provinces = yes
+			}
+			building = supply_node
+			level > 0
+		}
+		any_neighbor_state = {
+			any_province_building_level = {
+				province = {
+					all_provinces = yes
+					limit_to_coastal = yes
+				}
+				building = naval_base
+				level > 0
+			}
+		}
+		any_neighbor_state = {
+			any_province_building_level = {
+				province = {
+					all_provinces = yes
+				}
+				building = supply_node
+				level > 0
+			}
+		}
+		any_state = {
+			is_controlled_by = ROOT	
+			distance_to = {
+				target = PREV
+				value < 200
+			}
+			any_province_building_level = {
+				province = {
+					all_provinces = yes
+				}
+				building = supply_node
+				level > 0
+			}
+		}
+	}
+}
+		

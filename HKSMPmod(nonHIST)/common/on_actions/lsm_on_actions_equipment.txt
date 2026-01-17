@@ -1,0 +1,363 @@
+on_actions = {	
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { 
+						OR = {
+							tag = CHI
+							is_in_faction_with = CHI
+						}
+					}
+					CHI = { has_country_flag = CHI_buff_level_2 }
+					ROOT = { has_war_with = CHI }
+					FROM.FROM = { 
+						is_core_of = CHI 
+						NOT = { has_state_flag = CHI_infantry_spawned_flag }
+					}
+				}
+				FROM.FROM = { set_state_flag = CHI_infantry_spawned_flag }
+				CHI = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = CHI
+							is_in_home_area = yes
+						}
+						create_unit = {
+							division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 1"  
+							owner = CHI 
+							count = 1
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0.2 start_equipment_factor = 1"  
+							owner = CHI 
+							count = 2
+						}
+					}
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { 
+						tag = CHI
+						has_war = no 
+						has_country_flag = CHI_buff_level_1 
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = 1500
+						producer = CHI
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { 
+						has_war = yes 
+						tag = CHI
+						has_country_flag = CHI_buff_level_1 
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = 3000
+						producer = CHI
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ROOT = { 
+						tag = CHI
+						has_war = no 
+						has_country_flag = CHI_buff_level_2
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = 2000
+						producer = ENG
+					}
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_1
+						amount = 1000
+						producer = ENG
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0.1 start_equipment_factor = 1"  
+							owner = CHI 
+							count = 1
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { 
+						has_war = yes 
+						has_country_flag = CHI_buff_level_2 
+						tag = CHI
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_1
+						amount = 3000
+						producer = ENG
+					}
+					if = {
+						limit = { 
+							has_tech = improved_infantry_weapons
+						}
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_2
+							amount = 1000
+							producer = CHI
+						}
+					}
+					if = {
+						limit = { 
+							ENG = { has_tech = improved_infantry_weapons }
+						}
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_2
+							amount = 1000
+							producer = ENG
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0.4 start_equipment_factor = 1"  
+							owner = CHI 
+							count = 2
+						}
+					}
+				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			TUR = {
+				if = {
+					limit = { 
+						is_ai = yes 
+						is_historical_focus_on = yes
+					}
+					load_oob = "baseline_loading" #very OP
+					division_template = {
+						name = "Infantry Delete"
+						division_names_group = TUR_INF_01
+						is_locked = no
+						priority = 1
+
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 2 y = 0 }
+						}
+					}
+					every_country_division = {
+						change_division_template = {
+							division_template = "Infantry Delete" 
+						}
+					}
+					delete_units = {
+						division_template = "Infantry Delete"
+						disband = yes
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = { is_ai = yes }
+				load_oob = "baseline_loading"
+			}
+		}
+		effect = {
+			every_country = {
+				limit = { 
+					tag = GER
+					is_ai = yes 
+				}
+				load_oob = "baseline_loading_GER"
+			}
+		}
+		effect = {
+			NOR = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 300
+					producer = SWE
+				}
+			}
+			FIN = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 300
+					producer = SWE
+				}
+			}
+		}
+		effect = {
+			CAN = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 820
+					producer = USA
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 210
+					producer = ENG
+				}
+			}
+		}
+		effect = {
+			MEX = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 300
+					producer = USA
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 300
+					producer = ENG
+				}
+			}
+		}
+		effect = {
+			#GXC = {
+			#	trigger_army_check_WRL = yes
+			#}
+			CHI = {
+				#if = {
+				#	limit = { 
+				#		is_ai = yes 
+				#		is_historical_focus_on = yes
+				#	}
+				#	add_ideas = counter_german_advisors
+				#}
+				#trigger_army_check_CHI = yes
+				#trigger_army_check_CHI = yes
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 2700
+					producer = CHI
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 250
+					producer = ENG
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 200
+					producer = USA
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 100
+					producer = ENG
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 100
+					producer = USA
+				}
+			}
+			if = {
+				limit = {
+					CHI = { is_ai = yes }
+					JAP = { is_ai = yes }
+					PRC = { is_ai = yes }
+					MAN = { is_ai = yes }
+					has_global_flag = is_active
+				}
+				CHI = {
+					add_equipment_to_stockpile = { 
+						type = infantry_equipment_0
+						amount = 40000
+						producer = CHI
+					}
+				}
+			}
+		}
+		effect = {
+			JAP = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 2200
+					producer = JAP
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 283
+					producer = JAP
+				}
+			}
+		}
+		effect = {
+			SOV = {
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_0
+					amount = 8000
+					producer = SOV
+				}
+				add_equipment_to_stockpile = { 
+					type = infantry_equipment_1
+					amount = 500
+					producer = SOV
+				}
+			}
+		}
+		effect = {
+			if = { 
+				limit = { 
+					has_dlc = "Man the Guns" 
+					date < 1937.1.1
+				}
+				every_country = {
+					limit = {
+						tag = USA
+					}
+					create_equipment_variant = {
+						name = "Mahan Class"
+						type = ship_hull_light_2
+						name_group = USA_DD_HISTORICAL
+						parent_version = 0
+						allow_without_tech = yes
+						modules = {
+							fixed_ship_battery_slot = dp_light_battery_1
+							fixed_ship_anti_air_slot = empty
+							fixed_ship_fire_control_system_slot = ship_sonar_1
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = light_ship_engine_2
+							fixed_ship_torpedo_slot = ship_torpedo_1
+							mid_1_custom_slot = empty
+							rear_1_custom_slot = empty
+						}
+					}
+				}
+			}
+		}
+	}
+}

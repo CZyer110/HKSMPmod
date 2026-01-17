@@ -1,0 +1,159 @@
+areas = {
+
+    	mainland_europe_excluding_italy = {
+   		strategic_regions = {
+			210 #southern iberia
+			41 #northeastern iberia
+			209 #northwestern iberia
+
+			20 #southern france
+			19 #northern france
+			208 #western france
+
+			5 #benelux
+
+			21 #northern italy
+			#23 so we invade this part of Italy
+
+			25 #greece
+			24 #western balkan
+			26 #eastern balkan
+
+			130 #ukraine
+			
+			6 #NW Germany
+			8 #E Germany
+			38 #western poland
+			37 #baltic region
+
+			275 #jutland
+			11 #S Norway
+			191 #N Norway
+			10 #S Sweden
+        	}
+    	}
+    	all_mainland_europe = {
+   		strategic_regions = {
+			210 #southern iberia
+			41 #northeastern iberia
+			209 #northwestern iberia
+
+			20 #southern france
+			19 #northern france
+			208 #western france
+
+			5 #benelux
+
+			21 #northern italy
+			23 #southern italy
+
+			25 #greece
+			24 #western balkan
+			26 #eastern balkan
+
+			130 #ukraine
+			
+			6 #NW Germany
+			8 #E Germany
+			38 #western poland
+			37 #baltic region
+
+			275 #jutland
+			11 #S Norway
+			191 #N Norway
+			10 #S Sweden
+        	}
+    	}
+
+    	very_bad_area_to_naval_invade = { #areas where AI will lose to AI
+   		strategic_regions = {
+			20 #southern france
+			21 #northern italy
+			24 #western balkan
+			11 #S Norway
+			191 #N Norway
+			275 #Jutland peninsula
+			25 #Greece
+        	}
+    	}
+
+	western_front = {
+       		strategic_regions = {
+			6
+			7
+			5
+			19
+			208
+			23
+			20
+       	 	}
+    	}
+
+	JAP_home_islands = {
+       		strategic_regions = {
+			154
+       	 	}
+    	}
+
+	LSM_africa = {
+       		strategic_regions = {
+			17
+			48
+			226
+			65
+			184
+			183
+			182
+			223
+			126
+			102
+			140
+			185
+			128
+			225
+       	 	}
+    	}
+
+	belarus_region = {
+       		strategic_regions = {
+			131
+       	 	}
+    	}
+
+	baltic_region = {
+       		strategic_regions = {
+			37
+			39
+       	 	}
+    	}
+
+	balkan_dead_spot = {
+       		strategic_regions = {
+			25
+			24
+			27
+			26
+       	 	}
+    	}
+
+	jutland_war_region = {
+       		strategic_regions = {
+			173
+       	 	}
+    	}
+
+	d_day_landing_region = {
+       		strategic_regions = {
+			173
+			18
+       	 	}
+    	}
+
+	northern_china_landing_zone = {
+       		strategic_regions = {
+			143
+			247
+			164
+       	 	}
+    	}
+}

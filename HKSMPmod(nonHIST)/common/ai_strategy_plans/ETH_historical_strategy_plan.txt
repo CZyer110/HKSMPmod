@@ -1,0 +1,191 @@
+ETH_historical_plan = {
+	name = "Ehiopian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ETH
+		has_dlc = "By Blood Alone"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = ETH_ai_behavior
+					option = DEFAULT
+				}
+			}
+				has_country_flag = ETH_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ETH_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = ETH_ai_behavior
+					option = DEFAULT
+				}
+				GER_is_oppose_hitler = yes
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		ETH_the_second_italo-ethiopian_war
+		ETH_renewed_offensive
+		ETH_northern_thrust
+		ETH_mercenaries
+		ETH_the_lessons_of_war
+		ETH_rally_around_the_emperor
+		ETH_boarding_the_train
+		
+		ETH_addressing_the_league_of_nations
+		ETH_a_last_stand
+		ETH_international_brigades 
+		ETH_arms_purchases
+		ETH_international_mediation #we do this later
+		ETH_request_embargo
+		ETH_ecole_militaire_haile_selassie_1er
+		# GiE focuses
+		ETH_the_ferengi
+		ETH_secure_arms
+		ETH_the_american_radio_address
+		ETH_unification_of_the_habesha
+
+		# Getting back 
+		ETH_anti-italian_propaganda
+		ETH_reclaiming_ethiopia
+		ETH_rebuilding_the_country
+
+
+		# prio of other stuff to do
+		ETH_university_of_capital
+		ETH_improve_the_administration
+		ETH_capital_school_of_technology
+		ETH_develop_the_capital_region 
+		ETH_the_state_bank_of_ethiopia
+		ETH_encourage_local_development
+		ETH_increased_factory_output
+		ETH_pan-africanism
+	}
+	focus_factors = {
+		ETH_support_anti-colonialist_resistance = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ETH_historical_plan_2 = {
+	name = "Ehiopian Historical Plan but we yield to Italy"
+	desc = ""
+
+	allowed = {
+		original_tag = ETH
+		has_dlc = "By Blood Alone"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = ETH_ai_behavior
+					option = DEFAULT
+				}
+				GER_is_oppose_hitler = yes
+			}
+			has_country_flag = ETH_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ETH_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		ETH_reach_out_to_the_italians
+		ETH_sway_the_warlords
+		ETH_declare_for_italy
+		ETH_develop_the_capital_region
+		ETH_encourage_local_development
+
+
+		ETH_restore_the_country
+		ETH_invite_italian_settlers
+		ETH_amedeos_feast_of_maskal
+		ETH_invite_italian_investors
+		ETH_adopt_the_lira
+		ETH_cooperation
+		ETH_recruit_mercenaries	
+		ETH_italian_general_staff
+		ETH_request_italian_equipment
+		ETH_outsourced_production
+		ETH_the_italian_language
+		ETH_compensation
+		ETH_the_italo-ethiopian_empire
+
+		ETH_ecole_militaire_haile_selassie_1er
+		ETH_university_of_capital
+		ETH_improve_the_administration
+		ETH_capital_school_of_technology
+		
+		ETH_expand_the_mehal_sefari
+		ETH_tactical_training
+		ETH_camouflage
+		ETH_the_junior_officer_corps
+		ETH_old_reliable
+		ETH_the_common_soldier
+
+		ETH_keep_the_chitet
+		ETH_regional_training_centers
+		ETH_mounted_levies
+		ETH_expand_the_levy
+		ETH_expand_the_kebur_zabagna
+		ETH_regional_supply_depots
+		ETH_promote_the_war_heroes
+	}
+	focus_factors = {
+		ETH_support_anti-colonialist_resistance = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

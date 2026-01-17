@@ -1,0 +1,127 @@
+ENG_build_port_in_burma = {
+	enable = {
+		is_in_faction_with = ENG
+		is_major = yes
+		num_of_civilian_factories_available_for_projects > 30
+		has_war_with = JAP
+		995 = {
+			any_province_building_level = {
+				province = {
+					id = 1330
+				}
+				# building = supply_node
+				building = naval_base
+				level < 6
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 1330
+		value = 6
+	}
+}
+ENG_build_port_in_burma_2 = {
+	enable = {
+		is_in_faction_with = ENG
+		is_major = yes
+		num_of_civilian_factories_available_for_projects > 30
+		has_war_with = JAP
+		997 = {
+			any_province_building_level = {
+				province = {
+					id = 3651
+				}
+				# building = supply_node
+				building = naval_base
+				level < 6
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 3651
+		value = 6
+	}
+}
+JAP_build_port_in_siam = {
+	enable = {
+		tag = JAP
+		num_of_civilian_factories_available_for_projects > 30
+		has_war_with = ENG
+		724 = {
+			any_province_building_level = {
+				province = {
+					id = 4388
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 4388
+		value = 2
+	}
+}
+JAP_build_port_in_siam_2 = {
+	enable = {
+		tag = JAP
+		num_of_civilian_factories_available_for_projects > 30
+		has_war_with = ENG
+		994 = {
+			any_province_building_level = {
+				province = {
+					id = 7295
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7295
+		value = 2
+	}
+}
+JAP_build_port_in_siam_3 = {
+	enable = {
+		tag = JAP
+		num_of_civilian_factories_available_for_projects > 30
+		has_war_with = ENG
+		994 = {
+			any_province_building_level = {
+				province = {
+					id = 1403
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 1403
+		value = 2
+	}
+}

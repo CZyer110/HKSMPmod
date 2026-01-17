@@ -1,0 +1,59 @@
+make_sure_poland_is_ganked_before_we_move = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_war_with = POL
+		POL = { has_capitulated = no }
+		date < 1940.2.1
+	}
+	abort = {
+		OR = {
+			POL = { has_capitulated = yes }
+			POL = { is_in_faction_with = GER }
+			POL = { is_subject_of = GER }
+			date > 1940.2.1
+		}
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "HOL"
+		value = -2000
+	}
+	ai_strategy = {
+		type = conquer
+		id = "BEL"
+		value = -2000
+	}
+	ai_strategy = {
+		type = conquer
+		id = "LUX"
+		value = -2000
+	}
+}
+GER_play_safe_play_healthy_hist = {
+	reversed = yes
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		is_historical_focus_on = yes
+		GER = { surrender_progress > 0.2 }
+		NOT = { surrender_progress > 0.6 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "GER"
+		value = -2000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "GER"
+		value = -9999 
+	}
+}
+

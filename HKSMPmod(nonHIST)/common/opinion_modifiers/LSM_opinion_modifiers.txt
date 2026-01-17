@@ -1,0 +1,71 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+
+opinion_modifiers = {
+
+	trade_preference_to_germany = {
+		trade = yes
+		value = -50
+	}
+
+	trade_preference_to_soviet = {
+		trade = yes
+		value = -50
+	}
+
+	trade_relation_bonus_high = {
+		trade = yes
+		value = 50
+	}
+
+	trade_relation_bonus_high_1 = {
+		trade = yes
+		value = 50
+	}
+
+	trade_relation_bonus_high_2 = {
+		trade = yes
+		value = 75
+	}
+
+	trade_relation_bonus_high_3 = {
+		trade = yes
+		value = 200
+	}
+
+	trade_relation_bonus_high_4 = {
+		trade = yes
+		value = 200
+	}
+
+	trade_relation_bonus_high_5 = {
+		trade = yes
+		value = 200
+	}
+
+	trade_relation_non_faction = {
+		trade = yes
+		value = 100
+	}
+
+	santa_propaganda = {
+		value = -100
+	}
+
+	diplomatic_disapproval = {
+		value = -25
+	}
+
+	resource_diplomatic_disapproval = {
+		trade = yes
+		value = -50
+	}
+	
+}

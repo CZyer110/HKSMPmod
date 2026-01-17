@@ -1,0 +1,2 @@
+check_if_this_state_is_suitable = {
+}

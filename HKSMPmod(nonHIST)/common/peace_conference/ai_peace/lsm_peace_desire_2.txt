@@ -1,0 +1,528 @@
+peace_ai_desires = {
+
+    	give_this_state_to_the_suitable_potential_keeper = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { 
+				is_in_faction_with = ROOT
+			}
+            		NOT = {
+				any_country = {
+					is_in_faction_with = ROOT
+              			  	pc_is_on_same_side_as = ROOT
+              			  	pc_is_liberated = no
+              			  	pc_is_puppeted = no
+					OR = {
+						FROM.FROM.FROM = { is_core_of = PREV }
+						FROM.FROM.FROM = { is_claimed_by = PREV }
+					}
+				}
+			}
+			check_if_this_state_is_suitable = yes
+       		}
+        	ai_desire = 500
+    	}
+    	german_allies_should_give_austria_to_germany = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			GER = { is_subject = no }
+			ROOT = { 
+				is_in_faction_with = GER
+				NOT = { tag = GER }
+				tag = ROOT.FROM
+				NOT = {
+					OR = {
+						AND = {
+							tag = HUN
+							OR = {
+								NOT = {
+									any_state = {
+										is_core_of = CZE
+										NOT = { is_owned_by = HUN }
+									}
+								}
+								CZE = { is_subject_of = HUN }
+							}
+						}
+						AND = {
+							tag = CZE
+							NOT = {
+								any_state = {
+									is_core_of = HUN
+									NOT = { is_owned_by = HUN }
+								}
+							}
+						}
+					}
+				}
+			}
+			ROOT.FROM.FROM = { has_war_with = GER }
+			ROOT.FROM.FROM.FROM = { 
+				is_core_of = AUS 
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+
+    	german_allies_should_give_czech_to_germany = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			GER = { is_subject = no }
+			ROOT = { 
+				is_in_faction_with = GER
+				NOT = { tag = GER }
+				tag = ROOT.FROM
+				NOT = {
+					OR = {
+						AND = {
+							tag = HUN
+							OR = {
+								NOT = {
+									any_state = {
+										is_core_of = AUS
+										NOT = { is_owned_by = HUN }
+									}
+								}
+								AUS = { is_subject_of = HUN }
+							}
+						}
+						AND = {
+							tag = AUS
+							OR = {
+								NOT = {
+									any_state = {
+										is_core_of = HUN
+										NOT = { is_owned_by = AUS }
+									}
+								}
+								HUN = { is_subject_of = AUS }
+							}
+						}
+					}
+				}
+			}
+			ROOT.FROM.FROM = { has_war_with = GER }
+			ROOT.FROM.FROM.FROM = {
+				is_core_of = CZE 
+				NOT = { is_core_of = ROOT } 
+				NOT = { is_core_of = SLO }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	ungarn_allies_should_give_slovakia_to_ungarn = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			HUN = { is_subject = no }
+			ROOT = { 
+				is_in_faction_with = HUN
+				NOT = { tag = HUN }
+				tag = ROOT.FROM
+			}
+			ROOT.FROM.FROM = { has_war_with = HUN }
+			ROOT.FROM.FROM.FROM = {
+				is_core_of = SLO 
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	ungarn_allies_should_give_slovakia_to_ungarn_2 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			HUN = { is_subject = no }
+			ROOT = { 
+				is_in_faction_with = HUN
+				NOT = { tag = HUN }
+			}
+			ROOT.FROM = { tag = HUN }
+			ROOT.FROM.FROM = { has_war_with = HUN }
+			ROOT.FROM.FROM.FROM = {
+				is_core_of = SLO 
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = 5000
+	}
+    	let_benelux_be_whole_1 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = HOL }
+						is_in_faction_with = HOL
+						HOL = { is_subject = no }
+						has_war_with = BEL
+						has_war_with = LUX
+					}
+					AND = {
+						NOT = { tag = BEL }
+						is_in_faction_with = BEL
+						BEL = { is_subject = no }
+						has_war_with = HOL
+						has_war_with = LUX
+					}
+					AND = {
+						NOT = { tag = LUX }
+						is_in_faction_with = LUX
+						LUX = { is_subject = no }
+						has_war_with = BEL
+						has_war_with = HOL
+					}
+				}
+				tag = ROOT.FROM
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = BEL
+					is_core_of = HOL
+					is_core_of = LUX
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	let_benelux_be_whole_2 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = HOL }
+						is_in_faction_with = HOL
+						HOL = { is_subject = no }
+						has_war_with = BEL
+						has_war_with = LUX
+					}
+					AND = {
+						NOT = { tag = BEL }
+						is_in_faction_with = BEL
+						BEL = { is_subject = no }
+						has_war_with = HOL
+						has_war_with = LUX
+					}
+					AND = {
+						NOT = { tag = LUX }
+						is_in_faction_with = LUX
+						LUX = { is_subject = no }
+						has_war_with = BEL
+						has_war_with = HOL
+					}
+				}
+			}
+			ROOT.FROM = {
+				OR = {
+					tag = LUX
+					tag = BEL
+					tag = HOL
+				}
+				is_in_faction_with = ROOT
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = BEL
+					is_core_of = HOL
+					is_core_of = LUX
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = 5000
+	}
+    	let_scandi_be_whole_1 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = NOR }
+						is_in_faction_with = NOR
+						NOR = { is_subject = no }
+						has_war_with = DEN
+						has_war_with = SWE
+					}
+					AND = {
+						NOT = { tag = SWE }
+						is_in_faction_with = SWE
+						SWE = { is_subject = no }
+						has_war_with = DEN
+						has_war_with = NOR
+					}
+					AND = {
+						NOT = { tag = DEN }
+						is_in_faction_with = DEN
+						DEN = { is_subject = no }
+						has_war_with = SWE
+						has_war_with = NOR
+					}
+				}
+				tag = ROOT.FROM
+				is_subject = no
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = DEN
+					is_core_of = SWE
+					is_core_of = NOR
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	let_scandi_be_whole_2 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = NOR }
+						is_in_faction_with = NOR
+						NOR = { is_subject = no }
+						has_war_with = DEN
+						has_war_with = SWE
+					}
+					AND = {
+						NOT = { tag = SWE }
+						is_in_faction_with = SWE
+						SWE = { is_subject = no }
+						has_war_with = DEN
+						has_war_with = NOR
+					}
+					AND = {
+						NOT = { tag = DEN }
+						is_in_faction_with = DEN
+						DEN = { is_subject = no }
+						has_war_with = SWE
+						has_war_with = NOR
+					}
+				}
+			}
+			ROOT.FROM = {
+				OR = {
+					tag = DEN
+					tag = SWE
+					tag = NOR
+				}
+				is_in_faction_with = ROOT
+				is_subject = no
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = DEN
+					is_core_of = SWE
+					is_core_of = NOR
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = 5000
+	}
+    	let_baltic_be_whole_1 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = LIT }
+						is_in_faction_with = LIT
+						LIT = { is_subject = no }
+						has_war_with = LAT
+						has_war_with = EST
+					}
+					AND = {
+						NOT = { tag = LAT }
+						is_in_faction_with = LAT
+						LAT = { is_subject = no }
+						has_war_with = EST
+						has_war_with = LIT
+					}
+					AND = {
+						NOT = { tag = EST }
+						is_in_faction_with = EST
+						EST = { is_subject = no }
+						has_war_with = LAT
+						has_war_with = LIT
+					}
+				}
+				tag = ROOT.FROM
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = EST
+					is_core_of = LIT
+					is_core_of = LAT
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	let_baltic_be_whole_2 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = LIT }
+						is_in_faction_with = LIT
+						LIT = { is_subject = no }
+						has_war_with = LAT
+						has_war_with = EST
+					}
+					AND = {
+						NOT = { tag = LAT }
+						is_in_faction_with = LAT
+						LAT = { is_subject = no }
+						has_war_with = EST
+						has_war_with = LIT
+					}
+					AND = {
+						NOT = { tag = EST }
+						is_in_faction_with = EST
+						EST = { is_subject = no }
+						has_war_with = LAT
+						has_war_with = LIT
+					}
+				}
+			}
+			ROOT.FROM = {
+				OR = {
+					tag = EST
+					tag = LIT
+					tag = LAT
+				}
+				is_in_faction_with = ROOT
+				is_subject = no
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = EST
+					is_core_of = LIT
+					is_core_of = LAT
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = 5000
+	}
+    	let_auh_be_whole_1 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			NOT = { is_in_faction_with = GER }
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = AUS }
+						is_in_faction_with = AUS
+						AUS = { is_subject = no }
+						has_war_with = HUN
+						has_war_with = CZE
+					}
+					AND = {
+						NOT = { tag = HUN }
+						is_in_faction_with = HUN
+						HUN = { is_subject = no }
+						has_war_with = AUS
+						has_war_with = CZE
+					}
+					AND = {
+						NOT = { tag = CZE }
+						is_in_faction_with = CZE
+						CZE = { is_subject = no }
+						has_war_with = HUN
+						has_war_with = AUS
+					}
+				}
+				tag = ROOT.FROM
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = AUS
+					is_core_of = CZE
+					is_core_of = HUN
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = -25000
+	}
+    	let_auh_be_whole_2 = {
+       		peace_action_type = { take_states }
+
+        	enable = {		
+			is_historical_focus_on = no
+			NOT = { is_in_faction_with = GER }
+			ROOT = { 
+				OR = {
+					AND = {
+						NOT = { tag = AUS }
+						is_in_faction_with = AUS
+						AUS = { is_subject = no }
+						has_war_with = HUN
+						has_war_with = CZE
+					}
+					AND = {
+						NOT = { tag = HUN }
+						is_in_faction_with = HUN
+						HUN = { is_subject = no }
+						has_war_with = AUS
+						has_war_with = CZE
+					}
+					AND = {
+						NOT = { tag = CZE }
+						is_in_faction_with = CZE
+						CZE = { is_subject = no }
+						has_war_with = HUN
+						has_war_with = AUS
+					}
+				}
+			}
+			ROOT.FROM = {
+				OR = {
+					tag = AUS
+					tag = CZE
+					tag = HUN
+				}
+				is_in_faction_with = ROOT
+				is_subject = no
+			}
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = AUS
+					is_core_of = CZE
+					is_core_of = HUN
+				}
+				NOT = { is_core_of = ROOT }
+			}
+		}
+       	 	ai_desire = 5000
+	}
+}

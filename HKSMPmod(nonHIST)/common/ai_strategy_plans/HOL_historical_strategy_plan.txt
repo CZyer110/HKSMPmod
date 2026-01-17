@@ -1,0 +1,460 @@
+HOL_historical_plan = {
+	name = "Netherlands historical plan"
+	desc = "Historical behavior for Netherlands"
+
+	allowed = {
+		original_tag = HOL
+	}
+	enable = {
+		OR = {
+			AND = {	
+				HOL_is_pro_germany = no	
+				HOL_is_pro_neutral = no
+			}
+			HOL_is_pro_british = yes
+		}
+		NOT = { has_global_flag = allies_mainland_withdrawal }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HOL_ai_behavior 
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HOL_AI_RANDOM_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = HOL_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			AND = {
+				OR = {
+					HOL_is_pro_germany = yes
+					HOL_is_pro_neutral = yes
+				}
+				HOL_is_pro_british = no
+			}
+			has_global_flag = allies_mainland_withdrawal
+		}
+	}
+
+	ai_national_focuses = {
+
+	HOL_form_new_government
+	HOL_gateway_to_europe
+	HOL_abandon_the_gold_standard
+	HOL_cave_to_the_british #give britain a big big chunk of your political power
+	HOL_overturn_military_budget_cuts
+	HOL_prepare_the_inundation_lines
+	HOL_germany_is_the_greater_threat
+	HOL_war_on_pacifism
+
+
+
+	HOL_continue_the_public_works						
+	HOL_finish_the_noordoostpolder	
+					
+	HOL_the_maastunnel					
+	HOL_expand_the_artillerieinrichtingen	
+	HOL_philips_focus
+	HOL_expand_RD_facilities
+
+	HOL_appoint_new_supreme_commander
+	HOL_modernize_our_infantry_equipment
+
+	HOL_obtain_foreign_colonial_investments
+	HOL_the_crown_jewel_colony
+	HOL_java
+	HOL_borneo_and_the_grote_oost
+	HOL_sumatra
+
+	HOL_curtail_colonial_autonomy
+	HOL_continue_the_war_in_batavia
+	HOL_expand_the_colonial_army
+	HOL_unity_through_democracy
+	HOL_replace_the_defeatist_government
+	HOL_de_vaarplicht
+
+	HOL_the_singapore_conferences
+	HOL_allied_technological_developments
+	HOL_ship_a_day_sinking_quotas
+	HOL_request_allied_favors
+	HOL_a_western_capital
+	HOL_the_east_indies_war_machine
+	HOL_the_foundations_of_defense
+	HOL_colonial_shipbuilding
+	HOL_prepare_for_our_return
+
+	HOL_anti_tank_guns_for_the_continent
+	HOL_lessons_from_the_last_war
+
+	HOL_liberation
+	HOL_american_west_indies_protectorate
+	HOL_combined_chiefs_of_staff_representation
+	HOL_the_fourth_ally
+	HOL_the_zuiderzee_works
+	HOL_develop_the_randstad
+	HOL_develop_the_zandstad
+	HOL_expand_the_ijmuiden_steel_mill
+	HOL_fokker
+	HOL_domestic_jet_engine_designs
+	HOL_friesland_agricultural_impetus
+	HOL_daf
+	HOL_domestic_vehicle_designs
+	HOL_domestic_innovation
+	HOL_make_use_of_our_riches
+	HOL_prepare_naval_expansion	
+	HOL_go_with_britain
+
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+HOL_historical_withdrawal = {
+	name = "Netherlands historical plan"
+	desc = "Historical behavior for Netherlands"
+
+	allowed = {
+		original_tag = HOL
+	}
+	enable = {
+		OR = {
+			AND = {	
+				HOL_is_pro_germany = no	
+				HOL_is_pro_neutral = no
+			}
+			HOL_is_pro_british = yes
+		}
+		has_global_flag = allies_mainland_withdrawal
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HOL_ai_behavior 
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HOL_AI_RANDOM_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = HOL_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			AND = {
+				OR = {
+					HOL_is_pro_germany = yes
+					HOL_is_pro_neutral = yes
+				}
+				HOL_is_pro_british = no
+			}
+		}
+	}
+
+	ai_national_focuses = {
+
+	HOL_form_new_government
+	HOL_gateway_to_europe
+	HOL_cave_to_the_british
+	HOL_obtain_foreign_colonial_investments
+	HOL_the_crown_jewel_colony
+	HOL_java
+	HOL_borneo_and_the_grote_oost
+	HOL_sumatra
+	HOL_the_western_possessions
+	HOL_expand_curacao_oil_refineries
+	HOL_open_second_paranam_bauxite_mine
+
+	HOL_appoint_new_supreme_commander
+	HOL_prepare_the_inundation_lines
+	HOL_germany_is_the_greater_threat
+	HOL_war_on_pacifism
+	HOL_modernize_our_infantry_equipment
+
+	HOL_curtail_colonial_autonomy
+	HOL_continue_the_war_in_batavia
+	HOL_expand_the_colonial_army
+	HOL_unity_through_democracy
+	HOL_replace_the_defeatist_government
+	HOL_de_vaarplicht
+
+	HOL_the_singapore_conferences
+	HOL_allied_technological_developments
+	HOL_ship_a_day_sinking_quotas
+	HOL_request_allied_favors
+	HOL_a_western_capital
+	HOL_the_east_indies_war_machine
+	HOL_the_foundations_of_defense
+	HOL_colonial_shipbuilding
+	HOL_prepare_for_our_return
+
+	HOL_anti_tank_guns_for_the_continent
+	HOL_lessons_from_the_last_war
+
+	HOL_abandon_the_gold_standard
+	HOL_liberation
+	HOL_american_west_indies_protectorate
+	HOL_combined_chiefs_of_staff_representation
+	HOL_the_fourth_ally
+
+
+
+	HOL_the_zuiderzee_works
+	HOL_continue_the_public_works						
+	HOL_finish_the_noordoostpolder	
+					
+	HOL_the_maastunnel					
+	HOL_expand_the_artillerieinrichtingen	
+	HOL_philips_focus
+	HOL_expand_RD_facilities
+	HOL_overturn_military_budget_cuts
+
+
+	HOL_develop_the_randstad
+	HOL_develop_the_zandstad
+	HOL_expand_the_ijmuiden_steel_mill
+	HOL_fokker
+	HOL_domestic_jet_engine_designs
+	HOL_friesland_agricultural_impetus
+	HOL_daf
+	HOL_domestic_vehicle_designs
+	HOL_domestic_innovation
+	HOL_make_use_of_our_riches
+	HOL_prepare_naval_expansion	
+	HOL_go_with_britain
+
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+HOL_historical_plan_pro_germany = {
+	name = "Netherlands historical plan but we like Germany now"
+	desc = "Historical behavior for Netherlands"
+
+	allowed = {
+		original_tag = HOL
+	}
+	enable = {
+		HOL_is_pro_germany = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HOL_ai_behavior 
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HOL_AI_RANDOM_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = HOL_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			HOL_is_pro_british = yes
+			HOL_is_pro_neutral = yes
+		}
+		HOL_is_pro_germany = no
+	}
+
+	ai_national_focuses = {
+
+	HOL_form_new_government
+	HOL_gateway_to_europe
+	HOL_cave_to_the_germans
+	HOL_volk_en_vaderland
+	HOL_strength_over_blood
+	HOL_join_germany
+	HOL_placate_the_japanese
+
+	HOL_abandon_the_gold_standard
+	HOL_overturn_military_budget_cuts
+	HOL_prepare_the_inundation_lines
+	HOL_protect_against_britain
+	HOL_war_on_pacifism
+
+
+	HOL_continue_the_public_works						
+	HOL_finish_the_noordoostpolder	
+					
+	HOL_the_maastunnel					
+	HOL_expand_the_artillerieinrichtingen	
+	HOL_philips_focus
+	HOL_expand_RD_facilities
+
+	HOL_appoint_new_supreme_commander
+	HOL_modernize_our_infantry_equipment
+
+	HOL_obtain_foreign_colonial_investments
+	HOL_the_fourth_ally
+	HOL_the_zuiderzee_works
+	HOL_develop_the_randstad
+	HOL_develop_the_zandstad
+	HOL_expand_the_ijmuiden_steel_mill
+	HOL_fokker
+	HOL_domestic_jet_engine_designs
+	HOL_friesland_agricultural_impetus
+	HOL_daf
+	HOL_domestic_vehicle_designs
+	HOL_domestic_innovation
+	HOL_make_use_of_our_riches
+	HOL_prepare_naval_expansion	
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		HOL_meinout_rost_van_tonningen = 25
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+
+HOL_historical_plan_pro_neutral = {
+	name = "Netherlands historical plan but we like Germany now"
+	desc = "Historical behavior for Netherlands"
+
+	allowed = {
+		original_tag = HOL
+	}
+	enable = {
+		HOL_is_pro_germany = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = HOL_ai_behavior 
+					option = DEFAULT
+				}
+			}
+			has_country_flag = HOL_AI_RANDOM_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = HOL_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			HOL_is_pro_british = yes
+			HOL_is_pro_germany = yes
+		}
+		HOL_is_pro_neutral = no
+	}
+
+	ai_national_focuses = {
+
+	HOL_form_new_government
+	HOL_gateway_to_europe
+	HOL_maintain_trade_neutrality
+	HOL_oranje_boven
+	HOL_replace_the_defeatist_government
+	HOL_symbol_of_resistance
+	HOL_the_only_man_in_the_dutch_government
+	HOL_abandon_the_gold_standard
+	HOL_continue_the_public_works						
+	HOL_finish_the_noordoostpolder	
+					
+	HOL_the_maastunnel					
+	HOL_expand_the_artillerieinrichtingen	
+	HOL_philips_focus
+	HOL_expand_RD_facilities
+	HOL_overturn_military_budget_cuts
+
+	HOL_appoint_new_supreme_commander
+	HOL_prepare_the_inundation_lines
+	HOL_germany_is_the_greater_threat
+	HOL_war_on_pacifism
+	HOL_modernize_our_infantry_equipment
+	HOL_unity_through_democracy
+
+	HOL_go_with_britain
+	HOL_replace_the_defeatist_government
+	HOL_de_vaarplicht
+	HOL_the_zuiderzee_works
+	HOL_develop_the_randstad
+	HOL_develop_the_zandstad
+	HOL_expand_the_ijmuiden_steel_mill
+	HOL_fokker
+	HOL_domestic_jet_engine_designs
+	HOL_friesland_agricultural_impetus
+	HOL_daf
+	HOL_domestic_vehicle_designs
+	HOL_domestic_innovation
+	HOL_make_use_of_our_riches
+	HOL_prepare_naval_expansion	
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,1948 @@
+
+endsieg_combat_appropriation = {
+	enable = {
+		GER = { 
+			is_faction_leader = yes
+			has_idea = endsieg_idea
+			capital_scope = {
+				NOT = { is_fully_controlled_by = GER }
+			}
+			surrender_progress > 0.35
+		}
+		OR = {
+			tag = GER 
+			is_in_faction_with = GER
+		}
+		is_historical_focus_on = yes
+	}
+	abort = {
+		OR = {
+			NOT = {
+				any_state = {
+					is_core_of = GER
+					any_neighbor_state = { controller = { has_war_with = GER } }
+				}
+			}
+			GER = { has_country_flag = LSM_eligbility_nation }
+		}
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			NOT = { is_core_of = GER }
+		}
+		value = -40
+	}
+}
+ditch_eastern_front = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = GER
+		NOT = { 
+			any_state = { 
+				is_core_of = POL
+				SOV = { divisions_in_state = { state = PREV size > 1 } }
+			}
+		}
+		NOT = { 
+			any_state = { 
+				is_core_of = BLR
+				SOV = { divisions_in_state = { state = PREV size > 3 } }
+			}
+		}
+		NOT = { 64 = { is_fully_controlled_by = GER } }
+		64 = { any_neighbor_state = { controller = { has_war_with = GER } } }
+		GER = { is_faction_leader = yes }
+	}
+	abort = {
+		any_state = {
+			is_core_of = GER	
+			any_neighbor_state = { controller = { is_in_faction_with = SOV } }
+		}
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -3
+	}
+}
+ditch_eastern_front_2 = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = GER
+		NOT = { 
+			any_state = { 
+				is_core_of = POL
+				SOV = { divisions_in_state = { state = PREV size > 1 } }
+			}
+		}
+		NOT = { 
+			any_state = { 
+				is_core_of = BLR
+				SOV = { divisions_in_state = { state = PREV size > 3 } }
+			}
+		}
+		64 = { controller = { has_war_with = GER } }
+		64 = { any_neighbor_state = { controller = { has_war_with = GER } } }
+		GER = { is_faction_leader = yes }
+		NOT = {
+			any_state = {
+				is_core_of = GER	
+				any_neighbor_state = { controller = { is_in_faction_with = SOV } }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -10 #ditch it completely
+	}
+
+	ai_strategy = {
+	 	type = front_armor_score
+		id = "SOV"
+		value = -10
+	}
+}
+
+axis_d_day_demand_extra2 = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_global_flag = d_day_crisis
+		OR = {
+			SOV = { surrender_progress > 0.5 }
+			GER = { surrender_progress > 0.2 }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -5 #leave it to our allies
+	}
+
+	ai_strategy = {
+	 	type = front_armor_score
+		id = "SOV"
+		value = -15
+	}
+}
+
+
+axis_d_day_demand_1 = {
+	enable = {
+		NOT = { tag = ROM }
+		NOT = { tag = BUL }
+		NOT = { tag = HUN }
+		NOT = { tag = SLO }
+		OR = {
+			tag = GER 
+			is_in_faction_with = GER
+		}
+		is_historical_focus_on = yes
+		OR = {
+			GER = { surrender_progress > 0 }
+			any_country = {
+				is_in_faction_with = GER
+				has_government = fascism
+				original_tag = FRA
+				surrender_progress > 0.6
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -3
+	}
+}
+
+axis_d_day_demand_2 = {
+	enable = {
+		NOT = { tag = ROM }
+		NOT = { tag = BUL }
+		NOT = { tag = HUN }
+		NOT = { tag = SLO }
+		OR = {
+			tag = GER 
+			is_in_faction_with = GER
+		}
+		is_historical_focus_on = yes
+		OR = {
+			GER = { surrender_progress > 0.05 }
+			any_country = {
+				is_in_faction_with = GER
+				has_government = fascism
+				original_tag = FRA
+				surrender_progress > 0.7
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -3
+	}
+}
+axis_d_day_demand_3 = {
+	enable = {
+		NOT = { tag = ROM }
+		NOT = { tag = BUL }
+		NOT = { tag = HUN }
+		NOT = { tag = SLO }
+		OR = {
+			tag = GER 
+			is_in_faction_with = GER
+		}
+		is_historical_focus_on = yes
+		OR = {
+			GER = { surrender_progress > 0.1 }
+			any_country = {
+				is_in_faction_with = GER
+				has_government = fascism
+				original_tag = FRA
+				surrender_progress > 0.75
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -3
+	}
+}
+axis_d_day_demand_4 = {
+	enable = {
+		NOT = { tag = ROM }
+		NOT = { tag = BUL }
+		NOT = { tag = HUN }
+		NOT = { tag = SLO }
+		is_in_faction_with = GER
+		is_historical_focus_on = yes
+		OR = {
+			GER = { surrender_progress > 0.15 }
+			any_country = {
+				is_in_faction_with = GER
+				has_government = fascism
+				original_tag = FRA
+				surrender_progress > 0.8
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -3
+	}
+}
+axis_panic5 = {
+	enable = {
+		is_in_faction_with = GER
+		is_historical_focus_on = yes
+		NOT = { GER = { surrender_progress > 0.10 } }
+		has_war_with = SOV
+		OR = {
+			SOV = {
+				has_country_flag = {
+					flag = last_map_change_allies_purpose
+					days < 30
+				}
+			}
+			any_state = {
+				is_core_of = BLR
+				controller = { is_in_faction_with = SOV }
+			}
+			any_state = {
+				is_core_of = POL
+				controller = { is_in_faction_with = SOV }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = 10
+	}
+}
+ITA_VIC_dooms_are_always_there = {
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+		}
+		is_in_faction_with = GER
+		has_war_with = ENG
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			any_country = { 
+				OR = {
+					is_in_faction_with = ENG
+					is_in_faction_with = USA
+				}
+				has_war_with = GER
+				is_ai = no
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = 70
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -15
+	}
+}
+ITA_VIC_dooms_are_coming = {
+	enable = {
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+			original_tag = NOR
+			original_tag = DEN
+		}
+		is_in_faction_with = GER
+		has_war_with = ENG
+		is_historical_focus_on = yes
+		has_global_flag = allied_victory_in_africa
+		surrender_progress < 0.2 #they have already landed otherwise
+		OR = {
+			has_global_flag = {
+				flag = allied_victory_in_africa
+				days > 200 
+			}
+			date > 1943.2.14
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = 50
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -15
+	}
+}
+everyone_ignores_border_with_germany = {
+	enable = {
+		has_global_flag = GER_ally_ignore
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = dont_defend_ally_borders
+		id = "GER"
+		value = 9999
+	}
+}
+ITA_VIC_dooms_are_here = {
+	enable = {
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+			original_tag = NOR
+			original_tag = DEN
+		}
+		is_in_faction_with = GER
+		has_war_with = ENG
+		has_global_flag = allied_victory_in_africa
+		surrender_progress > 0.2 #they have already landed otherwise
+		is_historical_focus_on = yes
+	}
+	abort = { 
+		OR = {
+			surrender_progress < 0.05
+			GER = { surrender_progress > 0.05 }
+		}
+	}
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = -15
+	}
+}
+BUL_garrison_is_necessary = {
+	allowed = {
+		original_tag = BUL
+	}
+	enable = {
+		has_war_with = ENG
+		has_global_flag = allied_victory_in_africa
+		surrender_progress < 0.2 #they have already landed otherwise
+		OR = {
+			ENG = { is_ai = no }
+			USA = { is_ai = no }
+			PAN = { is_ai = no }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = 60
+	}
+}
+
+BUL_garrison_is_necessary_vs_ai = {
+	allowed = {
+		original_tag = BUL
+	}
+	enable = {
+		has_war_with = ENG
+		has_global_flag = allied_victory_in_africa
+		surrender_progress < 0.2 #they have already landed otherwise
+		AND = {
+			ENG = { is_ai = yes }
+			USA = { is_ai = yes }
+			PAN = { is_ai = yes }
+			has_global_flag = mp_difficulty 
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = 20
+	}
+}
+SOV_counter_attack_SOV_one_step_forward = {
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = GER
+		OR = {
+			has_global_flag = {
+				flag = SOV_one_step_forward
+				days < 90
+			}
+			AND = {
+				has_global_flag = SOV_one_step_forward
+				has_country_flag = {
+					flag = last_map_change_allies_purpose
+					days < 30
+				}
+			}
+		}		
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = GER
+		}
+		ratio = 0.0
+
+		priority = 2000
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+
+}
+
+SOV_counter_attack_GER  = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = GER
+		OR = {
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+			GER = { surrender_progress > 0.05 }
+			d_day_secured = yes
+			has_global_flag = {
+				flag = d_day_happened
+				days < 60
+			}
+		}
+		OR = {
+			has_equipment = { infantry_equipment > 30000 }
+			AND = {
+				GER = { surrender_progress > 0.05 }
+				OR = {
+					SOV = { surrender_progress < 0.20 }
+					GER_is_not_relevant = yes
+					d_day_secured = yes
+				}
+				OR = {
+					has_equipment = { infantry_equipment > -10000 }
+					GER = { has_manpower < 200000 }
+					GER = { has_equipment = { infantry_equipment < 0 } }
+				}
+				has_equipment = { infantry_equipment > 10000 }
+			}
+			has_global_flag = {
+				flag = d_day_was_a_success
+				days < 90
+			}
+			has_global_flag = {
+				flag = d_day_happened
+				days < 60
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER 
+			}
+			has_war_with = SOV
+		}
+		ratio = 0.0
+
+		priority = 500
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+
+}
+
+SOV_counter_attack_TUR  = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = TUR
+		TUR = {
+			OR = { 
+				is_in_faction_with = GER
+				is_in_faction_with = ENG
+			}
+		}
+		OR = { 
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+		}
+		has_equipment = { infantry_equipment > 30000 }
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		tag = TUR
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+
+SOV_counter_attack_USA  = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = USA
+		OR = { 
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+		}
+		has_equipment = { infantry_equipment > 30000 }
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = USA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+SOV_counter_attack_ENG  = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = ENG
+		OR = {
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+		}
+		has_equipment = { infantry_equipment > 30000 }
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = ENG
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+SOV_counter_attack_POL = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = POL
+		OR = {  
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+			has_global_flag = {
+				flag = molotov_ribbentrop_fulfillment_grace
+				days < 30
+			}
+			AND = {
+				has_global_flag = {
+					flag = molotov_ribbentrop_fulfillment_grace
+					days < 365
+				}		
+				is_in_faction_with = GER
+			}
+			has_global_flag = {
+				flag = war_against_solo_nation
+				days < 90
+			}
+		}
+		OR = {
+			has_equipment = { infantry_equipment > 30000 }
+			has_global_flag = {
+				flag = molotov_ribbentrop_fulfillment_grace
+				days < 30
+			}
+			AND = {
+				has_global_flag = {
+					flag = molotov_ribbentrop_fulfillment_grace
+					days < 365
+				}		
+				is_in_faction_with = GER
+			}
+			has_global_flag = {
+				flag = war_against_solo_nation
+				days < 90
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		tag = POL
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+SOV_counter_attack_JAP = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				has_war_with = JAP
+				OR = {  
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+				has_equipment = { infantry_equipment > 30000 }
+			}
+			has_global_flag = kwantung_intervention
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = JAP
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+SOV_counter_attack_ITA = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = ITA
+		OR = { 
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+		}
+		has_equipment = { infantry_equipment > 30000 }
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = ITA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+
+SOV_counter_attack_FRA = { #lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = FRA
+		OR = {
+			has_idea = SOV_patriotic_offensive_1 
+			has_idea = SOV_patriotic_offensive_2 
+			has_idea = SOV_patriotic_offensive_3 
+			has_idea = SOV_patriotic_offensive_4 
+			has_idea = SOV_patriotic_offensive_5
+		}
+		has_equipment = { infantry_equipment > 30000 }
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = FRA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+	}
+
+}
+axis_avoid_joining_war_but_park_in_rhineland = { #let the majors do it first
+	enable = {
+		OR = {
+			has_global_flag = GER_ally_support
+			GER = { surrender_progress > 0 }
+			GER = { is_ai = yes }
+			has_global_flag = mp_difficulty 
+		}
+		NOT = { tag = ITA }
+		NOT = { tag = GER }
+		is_in_faction_with = GER
+		NOT = { has_war_with = SOV }
+		NOT = { FRA = { has_country_flag = LSM_eligibility_nation } }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 1000
+		id = "GER"
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 1000
+		id = "ITA"
+	}
+
+}
+axis_minor_help_italy = { #let the majors do it first
+	enable = {
+		is_in_faction_with = GER
+		is_in_faction_with = ITA
+		NOT = { has_war_with = SOV }
+		FRA = { has_capitulated = no }
+		ITA = { surrender_progress > 0.1 }
+	}
+
+	abort = {
+		OR = { 
+			has_war_with = SOV
+			NOT = { is_in_faction_with = ITA }
+			ITA = { surrender_progress < 0.05 }
+		}
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "ITA"
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 200
+	}
+
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 29 
+		value = 600 # avoid doing missions as well
+	}
+
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 68 
+		value = 600 # avoid doing missions as well
+	}
+
+}
+axis_help_germany_barbarossa = {
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { tag = GER }
+		NOT = { tag = ROM } #handle their own frontline
+		NOT = { original_tag = ITA }
+		NOT = { original_tag = FRA }
+		NOT = { original_tag = NOR }
+		NOT = { original_tag = HOL }
+		is_in_faction_with = GER
+		OR = { 
+			has_global_flag = mp_difficulty 
+			SOV = { is_ai = no }
+			GER = { is_ai = yes }
+			AND = {
+				GER = { is_ai = no }
+				OR = {
+					GER = { has_army_manpower = { size < 1699999 } }
+					has_country_flag = help_player
+				}
+			}
+			has_global_flag = GER_ally_support
+			GER = { surrender_progress > 0 }
+		}
+		OR = {
+			GER = { has_war_with = SOV }
+			GER = { is_justifying_wargoal_against = SOV }
+		}
+		OR = {
+			AND = {
+				NOT = { tag = ITA }
+				NOT = { tag = FRA }
+				NOT = { tag = DEN }
+			}
+			AND = {
+				date < 1943.6.1
+				SOV = { is_ai = yes }
+			}
+			AND = {
+				date < 1943.1.1
+				OR = {
+					ENG = { is_ai = no }
+					USA = { is_ai = no }
+				}
+			}
+		}
+		OR = {
+			has_global_flag = GER_ally_support
+			GER = { surrender_progress > 0 }
+			GER = { is_ai = yes }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "GER"
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "ROM"
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = -15 #we need to help Barb first
+	}
+	ai_strategy = {
+		type = front_unit_request
+		id = "SOV"
+		value = 15
+	}
+
+}
+germany_help_at_barbarossa = {
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			tag = GER
+			tag = HUN
+		}
+		has_war_with = SOV
+		NOT = { surrender_progress > 0.01 }
+		NOT = { has_global_flag = d_day_crisis }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "HUN"
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "ROM"
+	}
+
+}
+axis_help_axis_d_day = {
+	enable = {
+		NOT = { tag = GER }
+		NOT = { tag = ITA }
+		NOT = { tag = VIC }
+		NOT = { tag = ROM }
+		NOT = { tag = HUN }
+		is_in_faction_with = GER
+		is_in_faction_with = ITA
+		has_war_with = SOV
+		GER = { is_ai = yes }
+		ITA = { surrender_progress > 0.15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 2
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 2
+	}
+
+}
+
+GER_d_day_is_here  = {
+	enable = {
+		is_historical_focus_on = yes
+		NOT = {
+			OR = {
+				original_tag = ROM
+				original_tag = HUN 
+				original_tag = SLO 
+				original_tag = BUL 
+			}
+		}
+		is_in_faction_with = GER
+		OR = {
+			has_global_flag = d_day_happened
+			has_global_flag = allied_victory_in_africa
+		}
+		any_enemy_country = {
+			OR = { 
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		SOV = { has_army_manpower = { size < 4000000 } }
+	}
+
+	abort = {
+		OR = {
+			AND = {
+				ITA = { surrender_progress < 0.15 }
+				VIC = { surrender_progress < 0.05 }
+				surrender_progress < 0.1
+			}
+			SOV = { has_army_manpower = { size > 4999999 } }
+		}
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = ENG
+		value = 3
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = FRA
+		value = 3
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = USA
+		value = 3
+	}
+
+	ai_strategy = {
+		type = front_armor_score
+		id = "FRA"
+		value = 15
+	}
+
+}
+ROM_HUN_vs_SOV = {
+	enable = {
+		OR = {
+			original_tag = ROM
+			original_tag = HUN 
+			original_tag = SLO 
+		}
+		is_in_faction_with = GER
+		has_war_with = SOV
+		GER = { is_ai = yes }
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "GER"
+	}
+
+	ai_strategy = {
+	 	type = dont_defend_ally_borders
+		id = "VIC"
+		value = 9999
+	}
+
+	ai_strategy = {
+	 	type = dont_defend_ally_borders
+		id = "FRA"
+		value = 9999
+	}
+
+	ai_strategy = {
+	 	type = dont_defend_ally_borders
+		id = "ITA"
+		value = 9999
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		country_trigger = {
+			is_in_faction_with = SOV
+			has_war_with = ROOT
+		}
+		value = 25
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		country_trigger = {
+			is_in_faction_with = ENG
+			has_war_with = ROOT
+		}
+		value = -25
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = western_front
+		value = -500
+	}
+
+}
+BUL_vs_SOV = {
+	allowed = {
+		original_tag = BUL
+	}
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = GER
+		has_war_with = SOV
+		GER = { is_ai = yes }
+		any_country = { 
+			original_tag = FRA 
+			is_in_faction_with = GER 
+			has_capitulated = no 
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "GER"
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 9999
+		id = "VIC"
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 9999
+		id = "FRA"
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = 50
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = western_front
+		value = -50
+	}
+
+}
+
+BUL_vs_all = {
+	allowed = {
+		original_tag = BUL
+	}
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = GER
+		has_war_with = SOV
+		GER = { is_ai = yes }
+		any_country = { 
+			original_tag = FRA 
+			is_in_faction_with = GER 
+			has_capitulated = yes 
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "GER"
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = SOV
+		value = 15
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = ENG
+		value = 5
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = FRA
+		value = 5
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = USA
+		value = 15
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		tag = YUG
+		value = 15
+	}
+
+}
+
+
+axis_help_axis2 = {
+	enable = {
+		NOT = { tag = GER }
+		NOT = { tag = ITA }
+		NOT = { tag = VIC }
+		NOT = { tag = ROM }
+		NOT = { tag = HUN }
+		is_in_faction_with = GER
+		is_in_faction_with = ITA
+		has_war_with = SOV
+		OR = {
+			GER = { is_ai = yes }
+			has_global_flag = mp_difficulty 
+		}
+		ITA = { surrender_progress > 0.35 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 3
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 3
+	}
+
+}
+axis_help_vichy = {
+	enable = {
+		NOT = { tag = GER }
+		NOT = { tag = ITA }
+		NOT = { tag = VIC }
+		NOT = { tag = ROM }
+		NOT = { tag = HUN }
+		is_in_faction_with = GER
+		is_in_faction_with = ITA
+		has_war_with = SOV
+		OR = {
+			has_global_flag = mp_difficulty 
+			GER = { is_ai = yes }
+		}
+		VIC = { surrender_progress > 0.15 }
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+	 	type = front_unit_request
+		country_trigger = {
+			OR = {
+				tag = FRA
+				tag = BEL
+				tag = HOL
+				tag = LUX
+			}
+		}
+		value = 4
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 3
+	}
+
+}
+axis_help_axis_2 = {
+	enable = {
+		NOT = { tag = GER }
+		NOT = { tag = ITA }
+		NOT = { tag = VIC }
+		NOT = { tag = ROM }
+		NOT = { tag = HUN }
+		is_in_faction_with = GER
+		is_in_faction_with = ITA
+		OR = {
+			has_global_flag = mp_difficulty 
+			GER = { is_ai = yes }
+		}
+		ITA = { surrender_progress > 0.6 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 3
+	}
+
+}
+ger_help_vichy = {
+	enable = {
+		NOT = { tag = ROM }
+		NOT = { tag = HUN }
+		NOT = { tag = SLO }
+		is_in_faction_with = GER
+		is_in_faction_with = VIC
+		has_war_with = SOV
+		OR = {	
+			has_global_flag = mp_difficulty 
+			GER = { is_ai = yes }
+		}
+		VIC = { surrender_progress > 0.35 }
+		is_historical_focus_on = yes
+	}
+	abort = {
+		VIC = { surrender_progress < 0.05 }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = western_front
+		value = 3
+	}
+
+	ai_strategy = {
+	 	type = front_armor_score
+		id = "FRA"
+		value = 15
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		country_trigger = {
+			OR = {
+				tag = FRA
+				tag = BEL
+				tag = HOL
+				tag = LUX
+			}
+		}
+		value = 3
+	}
+
+}
+ger_help_vichy2 = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		has_war_with = SOV
+		GER = { is_ai = yes }
+		VIC = { surrender_progress > 0.6 }
+		is_historical_focus_on = yes
+	}
+	abort = {
+		VIC = { surrender_progress < 0.05 }
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = western_front
+		value = 3
+	}
+
+	ai_strategy = {
+	 	type = front_unit_request
+		country_trigger = {
+			OR = {
+				tag = FRA
+				tag = BEL
+				tag = HOL
+				tag = LUX
+			}
+		}
+		value = 4
+	}
+
+	ai_strategy = {
+	 	type = front_armor_score
+		id = "FRA"
+		value = 20
+	}
+
+}
+germany_help_italy_not_during_barb = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		NOT = { has_war_with = SOV }
+		ITA = { surrender_progress > 0.15 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 200
+		id = "ITA"
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 30
+	}
+
+}
+
+SOV_prepare_for_barbarossa_is_more_important = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_war_with = GER }
+		GER_is_not_relevant = no
+	}
+
+	abort = {
+		has_war_with = GER
+	}	
+
+	ai_strategy = {
+
+	 	type = front_unit_request
+
+		tag = GER
+
+		value = 20
+	}
+
+}
+
+
+SOV_dont_counter_attack_GER  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = GER
+		NOT = {
+			AND = {
+				GER = { has_manpower < 300000 } #press for advantage
+				SOV = { has_manpower > 4000000 }
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					has_global_flag = {
+						flag = d_day_was_a_success
+						days < 90
+					}
+					has_global_flag = {
+						flag = d_day_happened
+						days < 60
+					}
+					GER = { surrender_progress > 0.35 }
+					AND = {
+						GER = { surrender_progress > 0.05 }
+						d_day_secured = yes
+					}	
+				}
+				has_equipment = { infantry_equipment > -30000 }				
+			}
+		}
+		OR = {
+			has_equipment = { infantry_equipment < -30000 }
+			NOT = {
+				AND = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1 
+						has_idea = SOV_patriotic_offensive_2 
+						has_idea = SOV_patriotic_offensive_3 
+						has_idea = SOV_patriotic_offensive_4 
+						has_idea = SOV_patriotic_offensive_5
+					}
+					has_equipment = { infantry_equipment > 10000 }
+				}
+			}
+			NOT = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+					GER = { surrender_progress > 0.05 }
+					d_day_secured = yes
+				}
+			}
+		}
+		NOT = {
+			OR = {
+				has_global_flag = {
+					flag = SOV_one_step_forward
+					days < 90
+				}
+				AND = {
+					has_global_flag = SOV_one_step_forward
+					has_country_flag = {
+						flag = last_map_change_allies_purpose
+						days < 30
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER
+			}
+			has_war_with = SOV
+		}
+
+		ratio = 0.3
+
+		priority = 1000
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_USA  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = USA
+		OR = {
+			has_equipment = { infantry_equipment < -30000 }
+			NOT = {
+				AND = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1 
+						has_idea = SOV_patriotic_offensive_2 
+						has_idea = SOV_patriotic_offensive_3 
+						has_idea = SOV_patriotic_offensive_4 
+						has_idea = SOV_patriotic_offensive_5
+					}
+					has_equipment = { infantry_equipment > 10000 }
+				}
+			}
+			NOT = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = USA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_TUR  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = TUR
+		TUR = {
+			OR = { 
+				is_in_faction_with = GER
+				is_in_faction_with = ENG
+			}
+		}
+		OR = {
+			has_equipment = { infantry_equipment < 10000 }
+			NOT ={
+				OR = {  
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		tag = TUR
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_ENG  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = ENG
+		OR = {
+			has_equipment = { infantry_equipment < -30000 }
+			NOT = {
+				AND = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1 
+						has_idea = SOV_patriotic_offensive_2 
+						has_idea = SOV_patriotic_offensive_3 
+						has_idea = SOV_patriotic_offensive_4 
+						has_idea = SOV_patriotic_offensive_5
+					}
+					has_equipment = { infantry_equipment > 10000 }
+				}
+			}
+			NOT = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = ENG
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_POL  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = POL
+		NOT = {
+			has_global_flag = {
+				flag = molotov_ribbentrop_fulfillment_grace
+				days < 30
+			}
+		}
+		NOT = {
+			AND = {
+				has_global_flag = {
+					flag = molotov_ribbentrop_fulfillment_grace
+					days < 365
+				}		
+				is_in_faction_with = GER
+			}
+		}
+		OR = {
+			has_equipment = { infantry_equipment < 10000 }
+			NOT ={
+				OR = {  
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		tag = POL
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_JAP  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			has_equipment = { infantry_equipment < 10000 }
+			NOT ={
+				OR = {  
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+		NOT = { has_global_flag = kwantung_intervention }
+		any_country = {
+			has_war_with = SOV
+			is_major = yes
+			is_neighbor_of = SOV
+			capital_scope = { is_on_continent = europe }
+			has_capitulated = no
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = JAP
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_counter_attack_ITA  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = ITA
+		OR = {
+			has_equipment = { infantry_equipment < -30000 }
+			NOT = {
+				AND = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1 
+						has_idea = SOV_patriotic_offensive_2 
+						has_idea = SOV_patriotic_offensive_3 
+						has_idea = SOV_patriotic_offensive_4 
+						has_idea = SOV_patriotic_offensive_5
+					}
+					has_equipment = { infantry_equipment > 10000 }
+				}
+			}
+			NOT = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = ITA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+
+SOV_dont_dont_counter_attack_FRA  = {#lets try
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = FRA
+		OR = {
+			has_equipment = { infantry_equipment < -30000 }
+			NOT = {
+				AND = {
+					OR = {
+						has_idea = SOV_patriotic_offensive_1 
+						has_idea = SOV_patriotic_offensive_2 
+						has_idea = SOV_patriotic_offensive_3 
+						has_idea = SOV_patriotic_offensive_4 
+						has_idea = SOV_patriotic_offensive_5
+					}
+					has_equipment = { infantry_equipment > 10000 }
+				}
+			}
+			NOT = {
+				OR = {
+					has_idea = SOV_patriotic_offensive_1 
+					has_idea = SOV_patriotic_offensive_2 
+					has_idea = SOV_patriotic_offensive_3 
+					has_idea = SOV_patriotic_offensive_4 
+					has_idea = SOV_patriotic_offensive_5
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			tag = FRA
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}

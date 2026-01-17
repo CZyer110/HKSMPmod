@@ -1,0 +1,246 @@
+
+monarchist_that_dislikes_soviet_communism = {
+	enable = {
+		is_historical_focus_on = no
+		is_country_monarchist = yes
+		SOV = { 
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -200
+	}
+}
+
+neville_longbottom_let_europe_die_because_he_prefers_seeing_a_dead_soviet = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_global_flag = SOV_has_early_war
+		is_historical_focus_on = yes
+		ENG = {
+			is_faction_leader = yes
+		}
+		capital_scope = { is_on_continent = europe }
+		is_in_faction = no
+		NOT = { has_global_flag = mp_difficulty }
+		NOT = { is_neighbor_of = SOV }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -5000
+	}
+	ai_strategy = {
+		type = protect
+		id = "ENG"
+		value = -5000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "ENG"
+		target = guarantee
+		value = -5000
+	}
+}
+lets_die_yay = {
+	reversed = yes
+	enable = {
+		has_global_flag = SOV_has_early_war
+		is_historical_focus_on = yes
+		capital_scope = { is_on_continent = europe }
+		is_in_faction = no
+		NOT = { has_global_flag = mp_difficulty }
+		NOT = { is_neighbor_of = SOV }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -5000
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -5000
+	}
+}
+all_asia_coprosperity_spheres_are_for_asia_alone = {
+	reversed = yes
+	allowed = {
+		original_tag = CZE
+	}
+	enable = {
+		is_historical_focus_on = no
+		NOT = {
+			OR = {
+				capital_scope = { is_on_continent = asia }
+				capital_scope = { is_on_continent = oceania }
+				capital_scope = { is_on_continent = middle_east }
+			}
+		}
+		JAP = { 
+			is_faction_leader = yes
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -1000
+	}
+}
+
+west_pacific_treaty_is_truly_westpac = {
+	reversed = yes
+	allowed = {
+		original_tag = CZE
+	}
+	enable = {
+		is_historical_focus_on = no
+		capital_scope = {
+			OR = {
+				is_on_continent = middle_east
+				is_on_continent = africa
+				is_on_continent = europe
+			}
+		}
+		JAP = { 
+			is_faction_leader = yes
+			has_government = democratic
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -200
+	}
+}
+
+czech_ententes_have_EU_membership_requirement = {
+	reversed = yes
+	allowed = {
+		original_tag = CZE
+	}
+	enable = {
+		is_historical_focus_on = no
+		capital_scope = {
+			NOT = {
+				is_on_continent = europe
+			}
+		}
+		CZE = { 
+			is_faction_leader = yes
+			has_country_flag = formed_czech_entente_flag
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "CZE"
+		value = -500
+	}
+}
+
+benelux_only_accept_benelux = {
+	reversed = yes
+	allowed = {
+		tag = HOL
+	}
+	enable = {
+		is_historical_focus_on = no
+		HOL = {
+			is_faction_leader = yes
+			OR = {
+				is_in_faction_with = BEL
+				NOT = { country_exists = BEL }
+			}
+			OR = {
+				is_in_faction_with = LUX
+				NOT = { country_exists = LUX }
+			}
+			any_other_country = {
+				is_in_faction_with = HOL
+				NOT = { 
+					OR = {
+						tag = BEL
+						tag = LUX
+						is_subject_of = BEL
+						is_subject_of = LUX
+					}
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "HOL"
+		value = -200
+	}
+}
+
+GER_civil_war_nobody_befriend = {
+	enable = {
+		any_country = {
+			original_tag = GER
+			has_civil_war = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -2000
+	}
+}
+ENG_civil_war_nobody_befriend = {
+	enable = {
+		any_country = {
+			original_tag = ENG
+			has_civil_war = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -2000
+	}
+}
+SOV_civil_war_nobody_befriend = {
+	enable = {
+		any_country = {
+			original_tag = SOV
+			has_civil_war = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -2000
+	}
+}

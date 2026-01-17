@@ -1,0 +1,179 @@
+on_actions = {	
+	on_startup = {
+		effect = {
+			if = {
+				limit = { 
+					date < 1937.1.1
+					has_dlc = "Arms Against Tyranny"
+				}
+				random_country = {
+					limit = { tag = JAP is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:JAP_kokura_arsenal_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = SOV is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:SOV_tula_arms_plant_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = ITA is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:ITA_beretta_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = BEL is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = anti_tank_equipment_1
+						design_team = mio:BEL_fonderie_royale_de_canons_liege_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = USA is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = motorized_equipment_1
+						design_team = mio:USA_ford_motor_company_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = GER is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:GER_mauser_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = ENG is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:ENG_rsaf_enfield_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = BEL is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:BEL_fn_herstal_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+				random_country = {
+					limit = { tag = FIN is_ai = yes }
+					create_equipment_variant = {
+				   	 	type = infantry_equipment_1
+						design_team = mio:FIN_valtion_kivaaritehdas_organization
+						mark_older_equipment_obsolete = yes
+					}
+				}
+			}
+		}
+	}
+	on_mio_size_increased = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							is_military_industrial_organization = ENG_supermarine_organization
+							has_mio_size < 15
+						}
+						AND = {
+							is_military_industrial_organization = GER_focke_wulf_organization
+							has_mio_size < 18
+						}
+						AND = {
+							is_military_industrial_organization = USA_north_american_aviation_organization
+							has_mio_size < 16
+						}
+						AND = {
+							is_military_industrial_organization = SOV_mig_design_bureau_organization
+							has_mio_size < 12
+						}
+						AND = {
+							is_military_industrial_organization = FRA_morane_saulnier_organization
+							has_mio_size < 12
+						}
+						AND = {
+							is_military_industrial_organization = ITA_macchi_organization
+							has_mio_size < 16
+						}
+
+					}
+					FROM = { is_ai = yes }
+				}
+				FROM = { country_event = { id = LSM_equipment.33 days = 2 } }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_military_industrial_organization = GER_henschel_organization
+					has_mio_size < 20
+					FROM = { 
+						is_ai = yes 
+						has_tech = basic_heavy_tank_chassis
+						NOT = { has_tech = improved_heavy_tank_chassis }
+					}
+				}
+				FROM = { country_event = { id = LSM_equipment.36 days = 2 } }
+			}
+			if = {
+				limit = {
+					is_military_industrial_organization = GER_henschel_organization
+					has_mio_size < 20
+					FROM = { 
+						is_ai = yes
+						has_tech = improved_heavy_tank_chassis
+						has_tech = tech_maintenance_company2
+					}
+				}
+				FROM = { country_event = { id = LSM_equipment.37 days = 2 } }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_military_industrial_organization = BEL_fonderie_royale_de_canons_liege_organization
+					has_mio_size < 10
+					FROM = { is_ai = yes }
+				}
+				FROM = { country_event = { id = LSM_equipment.34 days = 2 } }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						is_military_industrial_organization = JAP_kokura_arsenal_organization
+						is_military_industrial_organization = SOV_tula_arms_plant_organization
+						is_military_industrial_organization = ITA_beretta_organization
+						is_military_industrial_organization = GER_mauser_organization
+						is_military_industrial_organization = USA_springfield_armory_organization
+						is_military_industrial_organization = FRA_mas_organization
+						is_military_industrial_organization = ENG_rsaf_enfield_organization
+						is_military_industrial_organization = BEL_fn_herstal_organization
+						is_military_industrial_organization = MEX_fabrica_nacional_armas_organization
+						is_military_industrial_organization = FIN_valtion_kivaaritehdas_organization
+						is_military_industrial_organization = RAJ_ammunition_factory_khadki_organization
+					}
+					has_mio_size < 11
+					FROM = { is_ai = yes }
+				}
+				FROM = { country_event = { id = LSM_equipment.35 days = 2 } }
+			}
+		}
+	}
+}

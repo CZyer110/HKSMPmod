@@ -1,0 +1,1688 @@
+
+USA_democracy_neutrality_prefer_friendship_with_democracy = {	
+	reversed = yes
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		is_historical_focus_on = no
+		USA = { has_completed_focus = USA_neutrality_act }
+		OR = {
+			AND = {
+				tag = GER
+				has_completed_focus = GER_reestablish_free_elections
+			}
+			AND = {
+				tag = FRA
+				has_completed_focus = FRA_review_foreign_policy
+			}
+			AND = {
+				tag = ENG
+				has_completed_focus = ENG_steady_as_she_goes
+			}
+			AND = {
+				tag = JAP
+				has_completed_focus = JAP_west_pacific_treaty_organization
+			}
+			AND = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+		}
+		NOT = { surrender_progress > 0.1 }
+		NOT = {
+			any_enemy_country = {
+				is_major = yes
+				has_government = democratic
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = -200
+	}
+
+	ai_strategy = {
+		type = support
+		id = "USA"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "USA"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "USA"
+		value = 500
+	}
+}
+
+USA_democracy_neutrality_prefer_alliance_with_democracy = {	
+	reversed = yes
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		date > 1942.1.1
+		threat > 0.90
+		is_historical_focus_on = no
+		USA = { 
+			has_completed_focus = USA_neutrality_act 
+			count_triggers = {
+				amount = 3
+				NOT = { GER = { has_government = democratic } }
+				NOT = { ENG = { has_government = democratic } }
+				NOT = { FRA = { has_government = democratic } }
+				NOT = { SOV = { has_government = democratic } }
+				NOT = { JAP = { has_government = democratic } }
+			}
+		}
+		OR = {
+			AND = {
+				tag = GER
+				has_completed_focus = GER_reestablish_free_elections
+			}
+			AND = {
+				tag = FRA
+				has_completed_focus = FRA_review_foreign_policy
+			}
+			AND = {
+				tag = ENG
+				has_completed_focus = ENG_steady_as_she_goes
+			}
+			AND = {
+				tag = JAP
+				has_completed_focus = JAP_west_pacific_treaty_organization
+			}
+			AND = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+		}
+		surrender_progress > 0.1
+		NOT = {
+			any_enemy_country = {
+				is_major = yes
+				has_government = democratic
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 5000
+	}
+}
+democratic_pacific_befriend_democratic_japan = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = australia }
+			original_tag = NZL
+			original_tag = AST
+			original_tag = INS
+			original_tag = MAL
+			original_tag = KOR
+			is_literally_china = yes
+			original_tag = SIA
+			original_tag = RAJ
+			original_tag = PAK
+			original_tag = BRM
+			original_tag = VIN
+			original_tag = CAM
+			original_tag = LAO
+			original_tag = MON
+		}
+		JAP = { 
+			is_faction_leader = yes
+			has_government = democratic 
+		}
+		NOT = {
+			USA = { 
+				is_faction_leader = yes
+				has_government = democratic 
+			}
+		}
+		is_in_faction = no
+		has_war = no
+		has_government = democratic
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = 200
+	}
+}
+communist_pacific_befriend_communist_japan = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = australia }
+			original_tag = NZL
+			original_tag = AST
+			original_tag = INS
+			original_tag = MAL
+			original_tag = KOR
+			is_literally_china = yes
+			original_tag = SIA
+			original_tag = RAJ
+			original_tag = PAK
+			original_tag = BRM
+			original_tag = VIN
+			original_tag = CAM
+			original_tag = LAO
+			original_tag = MON
+		}
+		JAP = { 
+			is_faction_leader = yes
+			has_government = communism 
+		}
+		NOT = {
+			USA = { 
+				is_faction_leader = yes
+				has_government = communism 
+			}
+		}
+		NOT = {
+			SOV = { 
+				is_faction_leader = yes
+				has_government = communism 
+			}
+		}
+		is_in_faction = no
+		has_war = no
+		has_government = communism
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = 200
+	}
+}
+fascist_pacific_befriend_fascist_japan = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = australia }
+			original_tag = NZL
+			original_tag = AST
+			original_tag = INS
+			original_tag = MAL
+			original_tag = KOR
+			is_literally_china = yes
+			original_tag = SIA
+			original_tag = RAJ
+			original_tag = PAK
+			original_tag = BRM
+			original_tag = VIN
+			original_tag = CAM
+			original_tag = LAO
+			original_tag = MON
+		}
+		JAP = { 
+			is_faction_leader = yes
+			has_government = fascism 
+		}
+		NOT = {
+			USA = { 
+				is_faction_leader = yes
+				has_government = fascism 
+			}
+		}
+		NOT = {
+			SOV = { 
+				is_faction_leader = yes
+				has_government = fascism 
+			}
+		}
+		is_in_faction = no
+		has_war = no
+		has_government = fascism
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = 200
+	}
+}
+democratic_pacific_befriend_democratic_america = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = australia }
+			original_tag = NZL
+			original_tag = AST
+			original_tag = INS
+			original_tag = MAL
+			original_tag = KOR
+			original_tag = VIN
+			is_literally_china = yes
+		}
+		USA = { 
+			is_faction_leader = yes
+			has_government = democratic
+		}
+		is_in_faction = no
+		has_war = no
+		has_government = democratic
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 200
+	}
+}
+communist_pacific_befriend_communist_america = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = australia }
+			original_tag = NZL
+			original_tag = AST
+			original_tag = INS
+			original_tag = MAL
+			original_tag = KOR
+			original_tag = VIN
+		}
+		USA = { 
+			is_faction_leader = yes
+			has_government = communism
+		}
+		NOT = {
+			SOV = { 
+				is_faction_leader = yes
+				has_government = communism 
+			}
+		}
+		is_in_faction = no
+		has_war = no
+		has_government = communism
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 200
+	}
+}
+finland_and_russia_can_be_friend_dem = {
+	allowed = {
+		original_tag = FIN
+	}
+	enable = {
+		has_government = democratic
+		SOV = { has_government = democratic }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 200
+	}
+}
+finland_and_russia_can_be_friend_com = {
+	allowed = {
+		original_tag = FIN
+	}
+	enable = {
+		has_government = communism
+		SOV = { has_government = communism }
+		has_completed_focus = FIN_finno_soviet_pact
+		has_completed_focus = FIN_join_the_comintern
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 200
+	}
+}
+
+democratic_russia_in_germany_faction = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_country_flag = kerensky_leader
+		GER = {
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			is_faction_leader = yes
+		}
+		NOT = { has_war_with = GER }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 500
+	}
+}
+democratic_russia_in_germany_faction_GER = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		SOV = { 
+			has_country_flag = kerensky_leader
+			NOT = { has_war_with = GER }
+		}
+		GER = {
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			is_faction_leader = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+}
+
+kaiserin_and_the_qween_ENG = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			has_government = democratic
+			has_government = neutrality
+		}
+		GER = {
+			has_government = neutrality
+			has_completed_focus = GER_expatriate_the_communists
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 2000
+	}
+}
+
+kaiserin_and_the_qween_GER = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_government = neutrality
+		has_completed_focus = GER_expatriate_the_communists
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 2000
+	}
+}
+
+
+imperialist_UK_FRA_together_always = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+		}
+		FRA = {
+			has_government = fascism
+			has_government = neutrality
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 2000
+	}
+}
+
+imperialist_UK_FRA_together_always_FRA = {
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+		}
+		ENG = {
+			has_government = fascism
+			has_government = neutrality
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 2000
+	}
+}
+
+you_are_no_friend_of_the_kaiser = {
+	reversed = yes
+	allowed = {
+		OR = {
+			original_tag = GER
+			original_tag = ENG
+		}
+	}
+	enable = {
+		NOT = { original_tag = GER }
+		NOT = { original_tag = ENG }
+		GER = {
+			has_government = neutrality
+			has_completed_focus = GER_expatriate_the_communists
+		}
+		has_global_flag = GER_HRE_is_inevitable
+		any_controlled_state = {
+			OR = {
+				is_core_of = GER
+				is_claimed_by = GER
+			}
+		}
+		NOT = { is_in_faction_with = ENG }
+		NOT = { is_in_faction_with = GER }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -2000
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -2000
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "ENG"
+		value = -2000
+	}
+	ai_strategy = {
+		type = befriend
+		id = "GER"
+		value = -2000
+	}
+}
+
+you_are_no_friend_of_the_kaiser_n = {
+	enable = {
+		NOT = { original_tag = GER }
+		NOT = { original_tag = ENG }
+		GER = {
+			has_government = neutrality
+			has_completed_focus = GER_expatriate_the_communists
+		}
+		has_global_flag = GER_HRE_is_inevitable
+		any_controlled_state = {
+			OR = {
+				is_core_of = GER
+				is_claimed_by = GER
+			}
+		}
+		NOT = { is_in_faction_with = ENG }
+		NOT = { is_in_faction_with = GER }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -2000
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -2000
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "ENG"
+		value = -2000
+	}
+	ai_strategy = {
+		type = befriend
+		id = "GER"
+		value = -2000
+	}
+}
+GER_befriends_non_nonaligned_ENG = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_country_flag = modernized_succession_laws
+		NOT = { has_country_flag = GER_improve_relation_no_longer_needed }
+		has_completed_focus = GER_ally_the_shade
+		ENG = {
+			has_opinion = {
+				target = ROOT
+				value < 100
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = ENG
+		target = improve_relation
+		value = 9999
+	}
+}
+
+axis_minor_allies_doomsday = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = europe }
+			capital_scope = { is_on_continent = middle_east }
+			capital_scope = { is_on_continent = africa }
+		}
+		OR = {
+			has_government = fascism
+			fascism > 0.5
+		}
+		is_in_faction = no
+		GER = {
+			has_government = fascism
+			has_completed_focus = GER_alliance_with_the_ussr
+		}
+		has_civil_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 500
+	}
+}
+allied_minor_allies_doomsday = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = europe }
+			is_major = yes
+			original_tag = MEX
+			original_tag = USA
+			original_tag = JAP
+		}
+		OR = {
+			ENG = { is_faction_leader = yes }
+			FRA = { is_faction_leader = yes }
+		}
+		OR = {
+			AND = {
+				has_government = democratic
+				fascism < 0.35
+				democratic > 0.30
+			}
+			AND = {
+				has_government = neutrality
+				fascism < 0.50
+				democratic > 0.30
+			}
+		}
+		is_in_faction = no
+		GER = {
+			has_government = fascism
+			has_completed_focus = GER_alliance_with_the_ussr
+		}
+		has_civil_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 500
+	}
+}
+soviet_minors = {
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = asia }
+			capital_scope = { is_on_continent = europe }
+		}
+		has_government = communism
+		is_neighbor_of = SOV
+		SOV = { 
+			has_government = communism
+			has_civil_war = no
+			is_faction_leader = yes
+			OR = {
+				has_completed_focus = SOV_the_centre
+				has_completed_focus = SOV_long_live_the_workers_government
+				has_completed_focus = SOV_coup_detat
+			}
+		}
+		is_in_faction = no
+		is_literally_china = no
+		has_civil_war = no
+		OR = {
+			threat > 0.90
+			has_war = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+}
+soviet_minors_SOV = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR = {
+			capital_scope = { is_on_continent = asia }
+			capital_scope = { is_on_continent = europe }
+		}
+		has_government = communism
+		is_neighbor_of = SOV
+		SOV = { 
+			has_government = communism
+			has_civil_war = no
+			is_faction_leader = yes
+			OR = {
+				has_completed_focus = SOV_the_centre
+				has_completed_focus = SOV_long_live_the_workers_government
+				has_completed_focus = SOV_coup_detat
+			}
+		}
+		is_in_faction = no
+		OR = {
+			is_literally_china = no
+			AND = {
+				CHI = { has_war_with = JAP }
+				NOT = { has_war_with = CHI }
+			}
+		}
+		has_civil_war = no
+		OR = {
+			threat > 0.90
+			has_war = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+}
+worker_of_the_world_united = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		ENG = { is_faction_leader = yes }
+		FRA = { has_government = communism }
+		has_government = communism
+		SOV = { 
+			NOT = { has_government = communism }
+		}
+		is_in_faction = no
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+}
+
+worker_of_the_world_united_rev = {
+	enable = {
+		ENG = { is_faction_leader = yes }
+		FRA = { has_government = communism }
+		ENG = { has_government = communism }
+		SOV = { 
+			NOT = { has_government = communism }
+		}
+		is_in_faction = no
+		has_war = no
+		OR = {
+			communism > 0.3
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+}
+
+worker_of_the_world_united_ultimate = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		SOV = { is_faction_leader = yes }
+		ENG = { has_government = communism }
+		FRA = { has_government = communism }
+		SOV = { has_government = communism }
+		is_in_faction = no
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 2500
+	}
+}
+
+worker_of_the_world_united_ultimate_rev = {
+	enable = {
+		SOV = { is_faction_leader = yes }
+		ENG = { has_government = communism }
+		FRA = { has_government = communism }
+		SOV = { has_government = communism }
+		is_in_faction = no
+		has_war = no
+		has_government = communism
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 2500
+	}
+}
+
+formation_of_the_reichspakt = {
+	enable = {
+		FRA = { has_government = communism }
+		ENG = { has_government = communism }
+		SOV = { has_government = communism }
+		OR = {
+			ENG = { is_in_faction_with = FRA }
+			ENG = { is_in_faction_with = SOV }
+			SOV = { is_in_faction_with = FRA }
+		}
+		GER = { 
+			OR = {
+				has_government = neutrality
+				has_government = democratic 
+			}
+			is_faction_leader = yes
+		} 
+		OR = {
+			has_government = neutrality
+			has_government = democratic 
+		}
+		capital_scope = { is_on_continent = europe }
+		communism < 0.15
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 500
+	}
+}
+formation_of_the_reichspakt_rev = {
+	reversed = yes
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		FRA = { has_government = communism }
+		ENG = { has_government = communism }
+		SOV = { has_government = communism }
+		OR = {
+			ENG = { is_in_faction_with = FRA }
+			ENG = { is_in_faction_with = SOV }
+			SOV = { is_in_faction_with = FRA }
+		}
+		GER = { 
+			OR = {
+				has_government = neutrality
+				has_government = democratic 
+			}
+			is_faction_leader = yes
+		}
+		OR = {
+			has_government = neutrality
+			has_government = democratic 
+		}
+		communism < 0.15
+		capital_scope = { is_on_continent = europe }
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 500
+	}
+}
+anglo_pact_vs_US = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			has_government = fascism
+			fascism > 0.3
+		}
+		ENG = {
+			is_faction_leader = yes
+			has_government = fascism
+		}
+		capital_scope = { is_on_continent = north_america }
+		has_war = no
+		is_in_faction = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+}
+anglo_pact_vs_US2 = {
+	enable = {
+		OR = {
+			has_government = fascism
+			fascism > 0.3
+		}
+		ENG = {
+			is_faction_leader = yes
+			has_government = fascism
+		}
+		capital_scope = { is_on_continent = north_america }
+		has_war = no
+		is_in_faction = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+}
+czech_communist_entente = {
+	allowed = {
+		OR = {
+			original_tag = BUL
+			original_tag = ROM
+			original_tag = YUG
+			original_tag = HUN
+			original_tag = GRE
+			original_tag = TUR
+			original_tag = ALB
+		}
+	}
+	enable = {
+		CZE = { is_faction_leader = yes }
+		OR = {
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+				}
+				CZE = { has_government = communism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = fascism
+				}
+				CZE = { has_government = fascism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = democratic
+				}
+				CZE = { has_government = democratic }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "CZE"
+		value = 500
+	}
+}
+czech_communist_entente = {
+	reversed = yes
+	enable = {
+		CZE = { is_faction_leader = yes }
+		OR = {
+			original_tag = BUL
+			original_tag = ROM
+			original_tag = YUG
+			original_tag = HUN
+			original_tag = GRE
+			original_tag = TUR
+			original_tag = ALB
+		}
+		OR = {
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+				}
+				CZE = { has_government = communism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = fascism
+				}
+				CZE = { has_government = fascism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = democratic
+				}
+				CZE = { has_government = democratic }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "CZE"
+		value = 500
+	}
+}
+yug_communist_entente = {
+	allowed = {
+		OR = {
+			original_tag = BUL
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = GRE
+			original_tag = TUR
+			original_tag = ALB
+		}
+	}
+	enable = {
+		YUG = { is_faction_leader = yes }
+		OR = {
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+				}
+				YUG = { has_government = communism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = fascism
+				}
+				YUG = { has_government = fascism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = democratic
+				}
+				YUG = { has_government = democratic }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "YUG"
+		value = 500
+	}
+}
+yug_communist_entente = {
+	reversed = yes
+	enable = {
+		YUG = { is_faction_leader = yes }
+		OR = {
+			original_tag = BUL
+			original_tag = ROM
+			original_tag = CZE
+			original_tag = HUN
+			original_tag = GRE
+			original_tag = TUR
+			original_tag = ALB
+		}
+		OR = {
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+				}
+				CZE = { has_government = communism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = fascism
+				}
+				CZE = { has_government = fascism }
+			}
+			AND = {
+				OR = {
+					communism > 0.4
+					has_government = democratic
+				}
+				CZE = { has_government = democratic }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "YUG"
+		value = 500
+	}
+}
+
+democratic_russia_likes_democratic_western = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		SOV = { has_government = democratic }
+		has_government = democratic
+		is_faction_leader = yes
+		OR = {
+			original_tag = GER
+			original_tag = ENG
+			original_tag = FRA
+			original_tag = POL
+			original_tag = USA
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "SOV"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = non_aggression_pact
+		value = 9999
+	}
+}
+
+democratic_western_likes_democratic_russia = {
+	enable = {
+		SOV = { has_government = democratic }
+		has_government = democratic
+		is_faction_leader = yes
+		OR = {
+			original_tag = GER
+			original_tag = ENG
+			original_tag = FRA
+			original_tag = POL
+			original_tag = USA
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "SOV"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = non_aggression_pact
+		value = 9999
+	}
+}
+
+stresa_front_fascism = {
+	allowed = {
+		OR = {
+			original_tag = ENG
+			original_tag = FRA
+			original_tag = ITA
+		}
+	}
+	enable = {
+		ENG = { has_government = fascism }
+		ITA = { has_government = fascism }
+		FRA = { has_government = fascism }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "ITA"
+		value = 500
+	}
+}
+
+livonia_and_poland_are_friend = {
+	allowed = {
+		OR = {
+			original_tag = POL
+			original_tag = LIT
+		}
+	}
+	enable = {
+		LIT = { has_completed_focus = LIT_claim_livonia_monarchy }
+		POL = { has_completed_focus = POL_assemble_the_regency_council }
+		OR = {
+			LIT = { is_faction_leader = yes }
+			POL = { is_faction_leader = yes }
+		}
+		NOT = { country_exists = LAT }
+		NOT = { country_exists = EST }
+		LIT = { is_subject = no }
+		POL = { is_subject = no }
+		OR = {
+			AND = {
+				POL = {
+					is_faction_leader = yes
+				}
+				LIT = { 
+					OR = {
+						has_war = no
+						NOT = {
+							any_enemy_country = {
+								NOT = { has_war_with = POL }
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				LIT = {
+					is_faction_leader = yes
+				}
+				POL = { 
+					OR = {
+						has_war = no
+						NOT = {
+							any_enemy_country = {
+								NOT = { has_war_with = LIT }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "POL"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "LIT"
+		value = 500
+	}
+}
+
+GER_SOV_soviet_faction = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {	
+		has_completed_focus = GER_proletarian_dictatorship
+		SOV = { 
+			has_government = communism
+			is_faction_leader = yes
+			OR = {
+				has_completed_focus = SOV_the_centre
+				has_completed_focus = SOV_long_live_the_workers_government
+				has_completed_focus = SOV_coup_detat
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = 500
+	}
+}
+
+GER_SOV_avoid_war_GER = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_government = communism
+		NOT = { has_war_with = SOV }
+		NOT = { has_wargoal_against = SOV }
+		SOV = { 
+			has_government = communism
+			NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = "SOV"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = non_aggression_pact
+		value = 2500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = guarantee
+		value = 200
+	}
+}
+GER_SOV_avoid_war_SOV = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_government = communism
+		NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
+		NOT = { has_war_with = GER }
+		NOT = { has_wargoal_against = GER }
+		GER = { 
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = "GER"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "GER"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "GER"
+		target = non_aggression_pact
+		value = 2500
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "GER"
+		target = guarantee
+		value = 200
+	}
+}
+
+potential_communist_friends_of_commie_germany_dont_ally_soviet = {
+	enable = {
+		OR = {
+			is_neighbor_of = GER
+			AND = {
+				NOT = { is_neighbor_of = SOV }
+				capital_scope = { is_on_continent = europe }
+			}
+		}
+		has_government = communism
+		SOV = { 
+			has_government = communism
+		}
+		is_in_faction = no
+		GER = {
+			has_completed_focus = GER_legacy_of_the_spartacus_league
+			OR = {
+				is_faction_leader = yes
+				is_in_faction = no
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -2000
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 2000
+	}
+}
+
+SOV_RAJ_communist_central_asia_scare = {
+	allowed = {
+		OR = {
+			original_tag = RAJ
+			original_tag = SOV
+		}
+	}
+	enable = {
+		RAJ = { is_in_faction_with = SOV }
+		RAJ = { has_government = communism }
+		SOV = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "AFG"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SIK"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "PER"
+		target = military_access
+		value = 1000
+	}
+}
+SOV_RAJ_communist_central_asia_scare_reverse = {
+	allowed = {
+		OR = {
+			original_tag = PER
+			original_tag = AFG
+			original_tag = SIK
+			original_tag = CHI
+		}
+	}
+	enable = {
+		RAJ = { is_in_faction_with = SOV }
+		RAJ = { has_government = communism }
+		SOV = { has_government = communism }
+		NOT = { has_war_with = SOV }
+		NOT = { is_in_faction_with = SOV }
+		OR = {
+			AND = {
+				has_government = neutrality
+				OR = {
+					is_in_faction = no
+					AND = {
+						is_in_faction = yes
+						has_war = yes
+						NOT = { has_war_with = SOV }
+					}
+				}
+			}
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = "SOV"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = "RAJ"
+		target = military_access
+		value = 1000
+	}
+}
+
+join_germany_SOV_has_early_war = {
+	enable = {
+		OR = {
+			original_tag = JAP
+			original_tag = SWE
+		}
+		has_government = fascism
+		has_global_flag = SOV_has_early_war
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 2500
+	}
+}
+
+MEX_join_allies_dem_dem = {
+	allowed = {
+		original_tag = MEX
+	}
+	enable = {
+		ENG = { 
+			has_war = yes
+			has_government = democratic
+		}
+		has_government = democratic
+		is_historical_focus_on = yes
+		date > 1941.1.1
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 2500
+	}
+}
+BEL_ahist_join_french_faction_asap = {
+	allowed = {
+		OR = {
+			original_tag = BEL
+			original_tag = LUX
+		}
+	}
+	enable = {
+		FRA = {
+			has_government = democratic
+			is_faction_leader = yes
+		}
+		has_government = democratic
+		has_war = no
+		is_historical_focus_on = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = 500
+	}
+}
+ENG_dont_protect_til_we_flip = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		ENG = { 
+			OR = {
+				AND = {
+					has_completed_focus = ENG_concessions_to_the_trade_unions 
+					NOT = { has_government = communism }
+				}
+				AND = {
+					has_completed_focus = ENG_the_kings_party
+					NOT = { has_government = neutrality }
+				}
+				AND = {
+					has_completed_focus = ENG_organize_the_blackshirts
+					NOT = { has_government = fascism }
+				}
+			}
+			has_war = no
+		}
+		is_subject = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "ENG"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = protect
+		id = "ENG"
+		value = -500
+	}
+}
+FRA_dont_protect_til_we_flip = {
+	reversed = yes
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		FRA = { 
+			OR = {
+				AND = {
+					has_completed_focus = FRA_invite_communist_ministers 
+					NOT = { has_government = communism }
+				}
+				AND = {
+					has_completed_focus = FRA_utilize_the_leagues
+					NOT = { has_government = neutrality }
+				}
+				AND = {
+					has_completed_focus = FRA_utilize_the_leagues
+					NOT = { has_government = fascism }
+				}
+			}
+			has_war = no
+		}
+		is_subject = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "FRA"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = protect
+		id = "FRA"
+		value = -500
+	}
+}

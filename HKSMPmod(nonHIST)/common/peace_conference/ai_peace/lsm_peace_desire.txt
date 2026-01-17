@@ -1,0 +1,528 @@
+# Scripted AI desire for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+peace_ai_desires = {
+
+    	one_v_one_annex_everything = {
+        	category = events_or_focuses
+       		peace_action_type = { take_states }
+
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = { is_owned_by = FROM.FROM }
+			NOT = {
+				any_country = {
+					NOT = { original_tag = FROM.FROM }
+					NOT = { original_tag = ROOT.FROM }
+					has_war_with = ROOT.FROM
+				}
+			}
+		}
+       	 	ai_desire = 30000
+	}
+
+    	generic_the_last_few_states_desire = {
+        	category = events_or_focuses
+       		peace_action_type = { take_states }
+
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { 
+				is_faction_leader = yes
+				tag = ROOT.FROM 
+				any_owned_state = { is_coastal = yes }
+			}
+			FROM.FROM.FROM = {
+				OR = {
+					is_island_state = yes
+					NOT = {
+						any_neighbor_state = {
+							controller = { tag = FROM.FROM }
+						}
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT.FROM }
+					pc_is_on_same_side_as = ROOT
+					pc_is_liberated = no
+					pc_is_puppeted = no
+					FROM.FROM.FROM = {
+						OR = {
+							is_claimed_by = PREV
+							is_core_of = PREV
+							is_controlled_by = PREV
+						}
+					}
+				}
+			}
+		}
+       	 	ai_desire = 150
+	}
+
+    	puppet_is_for_the_weak = {
+        	peace_action_type = { puppet force_government liberate }
+        	enable = {
+			is_historical_focus_on = no
+       		}
+        	ai_desire = -9999
+    	}
+
+	clean_up_the_defeated = {
+        	peace_action_type = { take_states }
+        	enable = {
+            		FROM.FROM = { has_country_flag = LSM_eligibility_nation }
+			is_historical_focus_on = no
+       		}
+        	ai_desire = 35
+    	}
+
+	give_state_non_his_to_neighbor_of_defeated = {
+        	peace_action_type = { take_states }
+        	enable = {
+            		FROM.FROM = { has_country_flag = LSM_eligibility_nation }
+			is_historical_focus_on = no
+			NOT = { ROOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { is_in_faction_with = ROOT }
+			OR = {
+				FROM.FROM.FROM = { is_controlled_by = ROOT.FROM }
+				FROM.FROM.FROM = { any_neighbor_state = { is_controlled_by = ROOT.FROM } }
+			}
+			NOT = { FROM.FROM.FROM = { any_neighbor_state = { is_controlled_by = ROOT } } }
+			NOT = { FROM.FROM.FROM = { is_controlled_by = ROOT } }
+       		}
+        	ai_desire = 30
+    	}
+
+	#give_state_non_his_to_neighbor_of_defeated2 = {
+       # 	peace_action_type = { take_states }
+       # 	enable = {
+       #     		FROM.FROM = { has_country_flag = LSM_eligibility_nation }
+	#		is_historical_focus_on = no
+	#		ROOT = { tag = ROOT.FROM }
+	#		NOT = { FROM.FROM.FROM = { any_neighbor_state = { is_controlled_by = ROOT } } }
+	#		NOT = { FROM.FROM.FROM = { is_controlled_by = ROOT } }
+	#		any_country = {
+	#			is_in_faction_with = ROOT.FROM
+	#			FROM.FROM.FROM = { is_controlled_by = PREV }
+	#		}
+       	#	}
+        #	ai_desire = -30
+    	#}
+
+
+    	lsm_take_our_cores = {
+        	peace_action_type = { take_states }
+        	enable = {
+            		ROOT = { tag = ROOT.FROM } #We are negotiating for ourselves
+            		OR = {
+				FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+				FROM.FROM.FROM = { is_claimed_by = ROOT.FROM } #It is ours
+			}
+       		}
+        	ai_desire = 9999
+    	}
+
+    	lsm_major_give_friend_cores = {
+        	peace_action_type = { take_states }
+        	enable = {
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { 
+				is_in_faction_with = ROOT 
+				is_subject = no
+			}
+            		OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+				ROOT.FROM.FROM.FROM = { is_claimed_by = ROOT.FROM } #It is ours
+			}
+       		}
+        	ai_desire = 15000
+    	}
+
+    	lsm_major_give_friend_claims = {
+        	peace_action_type = { take_states }
+        	enable = {
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { 
+				is_in_faction_with = ROOT 
+				is_subject = no
+			}
+            		OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+				ROOT.FROM.FROM.FROM = { is_claimed_by = ROOT.FROM } #It is ours
+			}
+       		}
+        	ai_desire = 5000
+    	}
+
+
+    	lsm_give_friend_cores = {
+        	peace_action_type = { take_states }
+        	enable = {
+
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { is_in_faction_with = ROOT }
+            		OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+				ROOT.FROM.FROM.FROM = { is_claimed_by = ROOT.FROM } #It is ours
+			}
+       		}
+        	ai_desire = 10000
+    	}
+
+    	lsm_give_friend_claims = {
+        	peace_action_type = { take_states }
+        	enable = {
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			ROOT.FROM = { is_in_faction_with = ROOT }
+            		OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+				ROOT.FROM.FROM.FROM = { is_claimed_by = ROOT.FROM } #It is ours
+			}
+       		}
+        	ai_desire = 2000
+    	}
+
+    	cant_say_we_like_this_state = {
+        	peace_action_type = { take_states }
+        	enable = {
+			ROOT = { tag = ROOT.FROM }
+			is_historical_focus_on = yes
+            		FROM.FROM.FROM = { 
+				NOT = { 
+					any_neighbor_state = {
+						owner = { 
+							OR = {
+								tag = ROOT.FROM 
+							}
+						}
+					}
+				}
+				is_coastal = no
+			}
+       		}
+        	ai_desire = -50
+    	}
+
+    	cant_say_we_like_this_state_ahist = {
+        	peace_action_type = { take_states }
+        	enable = {
+			ROOT = { tag = ROOT.FROM }
+			is_historical_focus_on = no
+            		FROM.FROM.FROM = { 
+				NOT = { 
+					any_neighbor_state = {
+						controller = { 
+							OR = {
+								tag = ROOT.FROM 
+								is_in_faction_with = ROOT.FROM
+							}
+						}
+					}
+				}
+				is_coastal = no
+			}
+       		}
+        	ai_desire = -50
+    	}
+
+   	liberate_vin = {
+        	peace_action_type = { liberate }
+        	enable = {
+			ROOT = { has_government = democratic }
+            		ROOT.FROM = { tag = VIN }
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = VIN }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+			is_historical_focus_on = yes
+       		}
+        	ai_desire = 99999
+    	}
+   	liberate_lao = {
+        	peace_action_type = { liberate }
+        	enable = {
+			ROOT = { has_government = democratic }
+            		ROOT.FROM = { tag = LAO }
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = LAO }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+			is_historical_focus_on = yes
+       		}
+        	ai_desire = 99999
+    	}
+   	liberate_cam = {
+        	peace_action_type = { liberate }
+        	enable = {
+			ROOT = { has_government = democratic }
+            		ROOT.FROM = { tag = CAM }
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = CAM }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+			is_historical_focus_on = yes
+       		}
+        	ai_desire = 99999
+    	}
+   	liberate_china = {
+        	peace_action_type = { liberate }
+        	enable = {
+			ROOT = { has_government = democratic }
+            		ROOT.FROM = { tag = CHI }
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = CHI }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+			is_historical_focus_on = yes
+       		}
+        	ai_desire = 99999
+    	}
+   	liberate_prc = {
+        	peace_action_type = { liberate }
+        	enable = {
+			ROOT = { has_government = communism }
+            		ROOT.FROM = { tag = PRC }
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = PRC }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+			is_historical_focus_on = yes
+       		}
+        	ai_desire = 99999
+    	}
+    	avoid_touching_china_except_releasing = {
+        	peace_action_type = { force_government }
+        	enable = {
+			is_historical_focus_on = yes
+			has_global_flag = kwantung_intervention
+            		ROOT.FROM = { 
+				OR = {
+					tag = PRC 
+					tag = CHI
+				}
+			}
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = PRC }
+				ROOT.FROM.FROM.FROM = { is_core_of = CHI }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } }
+			NOT = { has_war_with = ROOT.FROM }
+       		}
+        	ai_desire = -9999
+    	}
+    	clean_up_the_aisle = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { is_faction_leader = yes }
+			FROM.FROM.FROM = {
+				OR = {
+					is_island_state = yes
+					NOT = {
+						any_neighbor_state = {
+							controller = { tag = FROM.FROM }
+						}
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT.FROM }
+					pc_is_on_same_side_as = ROOT
+					pc_is_liberated = no
+					pc_is_puppeted = no
+					FROM.FROM.FROM = {
+						OR = {
+							is_claimed_by = PREV
+							is_core_of = PREV
+						}
+					}
+				}
+			}
+        	}
+        	ai_desire = 9999
+    	}
+    	doesnt_control_no_claim_3 = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no #fun time bro
+            		ROOT.FROM.FROM.FROM = {
+                		NOT = { is_core_of = ROOT.FROM }
+                		NOT = { is_claimed_by = ROOT.FROM }
+            		}
+			NOT = {
+				any_country = {
+					pc_is_on_same_side_as = ROOT
+					ROOT.FROM.FROM.FROM = { 
+						OR = {
+							is_core_of = PREV
+							is_claimed_by = PREV
+						}
+					}
+				}
+			}
+            		NOT = {
+				ROOT.FROM.FROM.FROM = {
+               		 		any_country_with_core = {
+                    				exists = yes
+                    				pc_is_on_same_side_as = ROOT
+                			}
+            			}
+			}
+        	}
+        	ai_desire = 5000
+    	}
+    	doesnt_control_no_claim_5 = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no #fun time bro
+            		ROOT.FROM = {
+                	 	OR = {
+                    			is_subject_of = ROOT
+                   			is_in_faction_with = ROOT
+                	 	 }
+            	 	 }
+            	 	 ROOT.FROM.FROM.FROM = {
+                 	 	OR = {
+					is_core_of = ROOT.FROM
+					is_claimed_by = ROOT.FROM
+				}
+                 	 	NOT = { is_core_of = ROOT }
+             	 	}
+        	}
+        	ai_desire = 5000
+    	}
+    	doesnt_control_no_claim_4 = {
+        	peace_action_type = { puppet }
+        	enable = {
+			is_historical_focus_on = no #fun time bro
+            		FROM.FROM.FROM = {
+                		NOT = { is_core_of = ROOT.FROM }
+                		NOT = { is_claimed_by = ROOT.FROM }
+                		NOT = { is_controlled_by = ROOT.FROM }
+            		}
+        	}
+        	ai_desire = -9999
+    	}
+
+   	very_unlikely_countries = {
+   		peace_action_type = { liberate puppet force_government }
+        	enable = {
+            		ROOT.FROM = {
+               			OR = {
+					is_unlikely_country_tag = yes
+					tag = BYA
+					tag = KAZ
+					tag = UZB
+					tag = KYR
+					tag = TAJ
+					tag = TMS
+					tag = DAG
+					tag = AZR
+					tag = CIN
+					tag = NOA
+					tag = KBK
+					tag = ABK
+					tag = GEO
+					tag = ARM
+					tag = BLR
+					tag = UKR
+					tag = CRI
+					tag = MOL
+					tag = GXC
+					tag = SHX
+					tag = YUN
+					tag = XSM
+					tag = SIK
+					tag = MAN
+					tag = MEN
+				}
+            		}
+        	}
+        	ai_desire = -9999
+    	}
+   	release_SOV_actually = {
+        	peace_action_type = { liberate force_government }
+        	enable = {
+			ROOT = {
+				OR = {
+					has_government = democratic
+					any_country = {
+						is_in_faction_with = ROOT
+						is_faction_leader = yes
+						has_government = democratic
+					}
+				}
+			}
+            		ROOT.FROM = {
+                		OR = {
+					tag = SOV
+					tag = MON
+				}
+            		}
+			OR = {
+				ROOT.FROM.FROM.FROM = { is_core_of = SOV }
+				ROOT.FROM.FROM.FROM = { is_core_of = MON }
+			}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT } }
+       		}
+        	ai_desire = 99999
+    	}
+   	eastern_europe_is_nice = {
+        	peace_action_type = liberate
+        	enable = {
+			ROOT = {
+				OR = {
+					has_government = democratic
+					any_country = {
+						is_in_faction_with = ROOT
+						is_faction_leader = yes
+						has_government = democratic
+					}
+				}
+			}
+            		ROOT.FROM = {
+                		OR = {
+					tag = LIT
+					tag = LAT
+					tag = EST
+					tag = FIN
+				}
+            		}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT } }
+       		}
+        	ai_desire = 9999
+    	}
+   	no_liberation_if_in_faction_with_poland = {
+        	peace_action_type = liberate
+        	enable = {
+			ROOT = {
+				is_in_faction_with = POL
+				OR = {
+					has_government = democratic
+					any_country = {
+						is_in_faction_with = ROOT
+						is_faction_leader = yes
+						has_government = democratic
+					}
+				}
+			}	
+            		ROOT.FROM = {
+                		OR = {
+					tag = UKR
+					tag = BLR
+				}
+            		}
+			NOT = { ROOT.FROM.FROM.FROM = { is_core_of = ROOT } }
+       		}
+        	ai_desire = -9999
+    	}
+}

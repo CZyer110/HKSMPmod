@@ -45,7 +45,7 @@ equipments = {
 			rubber = 1
 		}
 		
-		fuel_consumption = 4.0
+		fuel_consumption = 2.8 #more similar to normal mech now
 	}
 
 	# ~1941

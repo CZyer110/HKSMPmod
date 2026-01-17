@@ -1,0 +1,12 @@
+
+LSM_great_patriotic_war_decision = {
+	icon = generic_propaganda
+
+	visible = {
+		always = yes
+		OR = { 
+			original_tag = SOV 
+			original_tag = GER
+		}
+	}
+}

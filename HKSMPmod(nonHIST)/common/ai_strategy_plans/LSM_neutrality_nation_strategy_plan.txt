@@ -1,0 +1,28 @@
+LSM_neutrality_historical = {
+	name = "MA"
+	desc = "TA"
+
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_idea = LSM_neutrality_idea
+	}
+	abort = {
+		OR = {
+			has_war = yes
+			is_subject = yes
+			NOT = { has_idea = LSM_neutrality_idea }
+			threat > 0.50
+		}
+	}
+
+	research = {
+		infantry_weapons = -999.0
+		infantry_tech = -999.0
+		air_equipment = -999.0
+		naval_equipment = -999.0
+		naval = -999.0
+		artillery = -999.0
+	}
+}

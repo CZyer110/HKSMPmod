@@ -1,0 +1,473 @@
+
+scripted_diplomatic_actions = {
+
+	recall_volunteer_diplomatic_action = {
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			PREV = {
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count > 0
+				}
+			}
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			ROOT = { recall_volunteers_from = PREV }
+			hidden_effect = {
+				ROOT = {
+					if = {
+						limit = { is_ai = no }
+						set_country_flag = {
+							flag = recall_volunteer_flag
+							value = 1
+							days = 365
+						}
+					}
+					else_if = {
+						limit = { is_ai = yes }
+						set_country_flag = {
+							flag = recall_volunteer_flag
+							value = 1
+							days = 90
+						}
+					}
+				}	
+				PREV = {
+					set_country_flag = recall_volunteer_from_flag
+				}
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+		ai_desire = {
+			base = -1
+			modifier = {
+				add = 100
+				any_country = {
+					NOT = { is_in_faction_with = ROOT }
+					OR = {
+						is_justifying_wargoal_against = ROOT
+						has_wargoal_against = ROOT
+					}
+				}
+			}
+			modifier = {
+				add = 100
+				any_other_country = {
+					ROOT = {
+						OR = {
+							is_justifying_wargoal_against = PREV
+							has_wargoal_against = PREV
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 9999
+				ROOT = { 
+					OR = {
+						is_justifying_wargoal_against = PREV
+						has_wargoal_against = PREV
+					}
+				}
+			}
+		}
+	}
+
+	frontline_coordination_avoidance = {
+	
+		allowed = {
+			ROOT = { is_ai = no }
+		}
+		visible = {
+			OR = {
+				ROOT = { is_in_faction_with = PREV }
+				ROOT = { is_subject_of = PREV }
+				PREV = { is_subject_of = ROOT }
+			}
+			if = {
+				limit = { 
+					difficulty > 2 
+					difficulty < 4
+				}
+				is_faction_leader = yes
+			}
+			PREV = { NOT = { has_country_flag = avoid_player_like_a_plague } }
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			PREV = { 
+				set_country_flag = avoid_player_like_a_plague
+				clr_country_flag = help_player
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+	}
+
+	frontline_coordination_assistance = {
+	
+		allowed = {
+			ROOT = { is_ai = no }
+		}
+		visible = {
+			OR = {
+				ROOT = { is_in_faction_with = PREV }
+				ROOT = { is_subject_of = PREV }
+				PREV = { is_subject_of = ROOT }
+			}
+			if = {
+				limit = { 
+					difficulty > 2 
+					difficulty < 4 
+				}
+				is_faction_leader = yes
+			}
+			PREV = { has_country_flag = avoid_player_like_a_plague }
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			PREV = { 
+				clr_country_flag = avoid_player_like_a_plague
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+	}
+
+	frontline_coordination_focus = {
+	
+		allowed = {
+			ROOT = { is_ai = no }
+		}
+		visible = {
+			if = {
+				limit = {  
+					difficulty > 2 
+					difficulty < 4 
+				}
+				is_faction_leader = yes
+			}
+			OR = {
+				ROOT = { is_in_faction_with = PREV }
+				ROOT = { is_subject_of = PREV }
+				PREV = { is_subject_of = ROOT }
+			}
+			PREV = { NOT = { has_country_flag = help_player } }
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			PREV = { 
+				clr_country_flag = avoid_player_like_a_plague 
+				set_country_flag = help_player
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+	}
+
+	frontline_coordination_focus_removal = {
+	
+		allowed = {
+			ROOT = { is_ai = no }
+		}
+		visible = {
+			if = {
+				limit = {  
+					difficulty > 2 
+					difficulty < 4
+				}
+				is_faction_leader = yes
+			}
+			OR = {
+				ROOT = { is_in_faction_with = PREV }
+				ROOT = { is_subject_of = PREV }
+				PREV = { is_subject_of = ROOT }
+			}
+			PREV = { has_country_flag = help_player }
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			PREV = {
+				clr_country_flag = help_player
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+	}
+
+	fake_send_attache_diplomatic_action = {
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_global_flag = inactive_flag
+			has_political_power > 100
+			ROOT = { is_ai = yes }
+			PREV = { is_ai = yes }
+			NOT = {
+				PREV = {
+					has_attache_from = ROOT
+				}
+			}
+			PREV = {
+				has_war = yes
+			}
+			NOT = {
+				ROOT = { has_war_with = PREV }
+			}
+			NOT = {
+				any_country = {
+					has_war_with = ROOT
+					is_in_faction_with = PREV
+				}
+			}
+			NOT = {
+				any_country = {
+					has_war_with = PREV
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		selectable = {
+			OR = {
+				ROOT = { is_in_faction_with = PREV }
+				PREV = { has_government = neutrality }
+				AND = {
+					PREV = { has_government = communism }
+					ROOT = { 
+						OR = {
+							has_government = communism
+							has_government = democratic
+						}
+					}
+				}
+				AND = {
+					PREV = { has_government = fascism }
+					ROOT = { 
+						OR = {
+							has_government = fascism
+							has_government = neutrality
+						}
+					}
+				}
+				AND = {
+					PREV = { has_government = democratic }
+					ROOT = { 
+						OR = {
+							has_government = communism
+							has_government = democratic
+						}
+					}
+				}
+			}
+		}
+
+		cost = 0
+		command_power = 0
+
+		requires_acceptance = yes
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			ROOT = { 
+				add_political_power = -100
+				diplomatic_relation = {
+					country = PREV
+					relation = send_attache
+					active = yes
+				} 
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+		ai_desire = {
+			base = -1
+			modifier = {
+				has_war = no
+				has_war_support < 0.15
+				add = -9999
+			}
+			modifier = {
+				has_army_experience > 400
+				add = -9999
+			}
+			modifier = {	
+				has_war = yes
+				command_power < 75
+				add = -9999
+			}
+			modifier = {
+				tag = FRA
+				has_idea = FRA_disjointed_government
+				add = -9999
+			}
+			modifier = {
+				OR = {
+					is_major = yes
+					is_ai_mass_mob = yes
+					political_power_daily > 1.25
+				}
+				OR = {
+					AND = {
+						ROOT = { 
+							OR = {
+								tag = ENG 
+								tag = SOV
+							}
+						}
+						PREV = { 
+							has_government = democratic
+							original_tag = SPR 
+						}
+					}
+					AND = {
+						ROOT = { 
+							OR = {
+								tag = GER 
+								tag = ITA
+							}
+						}
+						PREV = { 
+							OR = {
+								has_government = fascism
+								has_government = neutrality
+							}
+							original_tag = SPR 
+						}
+					}
+					PREV = {
+						is_in_faction_with = ROOT
+						is_faction_leader = yes
+						any_enemy_country = { is_major = yes }
+					}
+					PREV = {
+						tag = CHI
+						is_faction_leader = yes
+						has_war_with = JAP
+						NOT = { surrender_progress > 0.1 }
+					}
+				}
+				add = 9999
+			}
+		}
+	}
+
+	fake_recall_attache_diplomatic_action = {
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			ROOT = { is_ai = yes }
+			PREV = {
+				has_attache_from = ROOT
+			}
+		}
+		selectable = {
+		}
+
+		cost = 0
+		command_power = 0
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		icon = 1
+
+		complete_effect = {
+			ROOT = { 
+				recall_attache = PREV
+			}
+		}
+
+		ai_acceptance = {
+			condition = {
+				base = 1000
+			}
+		}
+		ai_desire = {
+			base = -1000
+			modifier = {	
+				has_army_experience > 400
+				add = 3000
+			}
+		}
+	}
+}

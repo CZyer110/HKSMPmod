@@ -1,0 +1,83 @@
+can_increase_displacement = {
+	ROOT = { 
+		OR = {
+			AND = { 
+				has_war = yes
+				surrender_progress > 0
+				check_variable = { ROOT.var_displacement < 0.01 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.2
+				check_variable = { ROOT.var_displacement < 0.02 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.4
+				check_variable = { ROOT.var_displacement < 0.04 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.6
+				check_variable = { ROOT.var_displacement < 0.06 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.8
+				check_variable = { ROOT.var_displacement < 0.08 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+				check_variable = { ROOT.var_displacement < 0.02 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.2
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+				check_variable = { ROOT.var_displacement < 0.04 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.4
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+				check_variable = { ROOT.var_displacement < 0.06 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.6
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+				check_variable = { ROOT.var_displacement < 0.08 }
+			}
+			AND = { 
+				has_war = yes
+				surrender_progress > 0.8
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+				check_variable = { ROOT.var_displacement < 0.1 }
+			}
+		}
+	}
+} 
+
+can_decrease_displacement = {
+	ROOT = { 
+		has_war = no
+		check_variable = { ROOT.var_displacement > 0 }
+	}
+}

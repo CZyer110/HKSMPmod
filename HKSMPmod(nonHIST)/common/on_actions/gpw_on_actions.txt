@@ -1,0 +1,543 @@
+on_actions = {
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { has_idea = GER_SOV_hitler_stalin_pact }
+					has_idea = GER_SOV_hitler_stalin_pact
+				}
+				FROM = { add_timed_idea = { idea = doomed_by_hitler_stalin_pact days = 45 } }
+				add_timed_idea = { idea = doomed_by_hitler_stalin_pact_2 days = 60 }
+				FROM = { remove_ideas = GER_SOV_hitler_stalin_pact }
+				remove_ideas = GER_SOV_hitler_stalin_pact
+				hidden_effect = {
+					news_event = { hours = 12 id = lsm_news.1110 }
+				}
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = GER_SOV_hitler_stalin_pact }
+					NOT = { has_idea = GER_SOV_hitler_stalin_pact }
+				}
+				FROM = { add_timed_idea = { idea = doomed_by_hitler_stalin_pact days = 60 } }
+				FROM = { remove_ideas = GER_SOV_hitler_stalin_pact }
+				hidden_effect = {
+					news_event = { hours = 12 id = lsm_news.1110 }
+				}
+			}
+			if = {
+				limit = {
+					FROM = { 
+						OR = { 
+							tag = GER
+							tag = SOV
+						}
+						NOT = { has_idea = GER_SOV_hitler_stalin_pact } 
+					}
+					has_idea = GER_SOV_hitler_stalin_pact
+				}
+				add_timed_idea = { idea = doomed_by_hitler_stalin_pact_2 days = 90 }
+				remove_ideas = GER_SOV_hitler_stalin_pact
+				hidden_effect = {
+					news_event = { hours = 12 id = lsm_news.1110 }
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			every_state = {
+				limit = { 
+					has_resistance = yes
+					has_state_flag = separatist_state	
+					NOT = { has_dynamic_modifier = { modifier = anti_soviet_separatism_0 } }
+				}
+				force_disable_resistance = yes
+				if = {
+					limit = { 
+						NOT = { is_core_of = SOV }
+						is_claimed_by = SOV 
+					}
+					add_core_of = SOV
+				}
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					FROM.FROM = {
+						OR = {
+							has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+							has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }  
+							has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+							has_dynamic_modifier = { modifier = anti_soviet_separatism_1 }
+						}
+					}
+				}
+				FROM.FROM = { 
+					if = {
+						limit = { has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } }
+						remove_dynamic_modifier = { modifier = anti_soviet_separatism_3 }
+					} 
+					if = {
+						limit = { has_dynamic_modifier = { modifier = anti_soviet_separatism_2 } }
+						remove_dynamic_modifier = { modifier = anti_soviet_separatism_2 }
+					} 
+					if = {
+						limit = { has_dynamic_modifier = { modifier = anti_soviet_separatism_2a } }
+						remove_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+					} 
+					if = {
+						limit = { has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } }
+						remove_dynamic_modifier = { modifier = anti_soviet_separatism_1 }
+					}
+					add_dynamic_modifier = { modifier = anti_soviet_separatism_0 days = 730 }
+					set_state_flag = separatist_state
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = UKR }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = UKR
+						}
+						start_resistance = UKR
+						set_resistance = 30
+						set_compliance = 0
+					}
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = BLR }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = BLR
+						}
+						start_resistance = BLR
+						set_resistance = 15
+						set_compliance = 0
+					}	
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = LIT }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = LIT
+						}
+						start_resistance = LIT
+						set_resistance = 25
+						set_compliance = 0
+					}
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = LAT }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = LAT
+						}
+						start_resistance = LAT
+						set_resistance = 25
+						set_compliance = 0
+					}
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = EST }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = EST
+						}
+						start_resistance = EST
+						set_resistance = 25
+						set_compliance = 0
+					}
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = POL }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = POL
+						}
+						start_resistance = POL
+						set_resistance = 50
+						set_compliance = 0
+					}
+					if = {
+						limit = {
+							FROM.FROM = { is_core_of = FIN }
+							FROM.FROM = { is_core_of = SOV }
+						}
+						force_enable_resistance = {
+							occupier = SOV
+							occupied = FIN
+						}
+						start_resistance = FIN
+						set_resistance = 40
+						set_compliance = 0
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					FROM = { tag = SOV }
+					FROM.FROM = { 
+						OR = {
+							is_core_of = SOV 
+							owner = { tag = SOV }
+						}
+						NOT = { is_core_of = ROOT }
+					}
+					OR = {
+						FROM.FROM = { is_core_of = LIT }
+						FROM.FROM = { is_core_of = LAT }
+						FROM.FROM = { is_core_of = UKR }
+						FROM.FROM = { is_core_of = BLR }
+						FROM.FROM = { is_core_of = EST }
+						FROM.FROM = { is_core_of = POL }
+						FROM.FROM = { is_core_of = FIN }
+						FROM.FROM = { is_core_of = ROM }
+						FROM.FROM = { is_core_of = TUR }
+						FROM.FROM = { is_core_of = HUN }
+					}
+					ROOT = { has_war_with = SOV }
+					NOT = { 
+						FROM.FROM = {
+							OR = {
+								has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+								has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }  
+								has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+								has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+								has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							SOV = {
+								has_country_flag = {
+									flag = days_since_last_change_on_the_map
+									days > 28
+								}
+							}
+						}
+						FROM.FROM = {  
+							NOT = { 
+								OR = {
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }   
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+									has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+								}
+							}
+							NOT = { has_state_flag = pro_soviet_state }
+							OR = {
+								has_state_flag = separatist_state
+								SOV = {
+									divisions_in_state = { state = FROM.FROM size < 2 }
+								}
+								SOV = {
+									has_country_flag = {
+										flag = days_since_last_change_on_the_map
+										days < 1
+									}
+								}
+								NOT = {
+									any_neighbor_state = { 
+										SOV = {
+											divisions_in_state = { state = FROM.FROM size > 2 }
+										}
+									}
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						if = {
+							limit = { has_dynamic_modifier = { modifier = anti_soviet_separatism_0 } }
+							remove_dynamic_modifier = { modifier = anti_soviet_separatism_0 }
+							set_resistance = 0
+						}
+						add_dynamic_modifier = { modifier = anti_soviet_separatism_3 }
+						set_compliance = 65
+						SOV = { 
+							add_stability = -0.01
+							add_war_support = -0.01
+						}
+						if = {
+							limit = {
+								NOT = {
+									SOV = { has_idea = SOV_recovery_from_the_shock }
+								}
+							}
+							SOV = { add_timed_idea = { idea = SOV_recovery_from_the_shock days = 14 } }
+						}
+						if = {
+							limit = {
+								SOV = { has_idea = SOV_recovery_from_the_shock }
+							}
+							SOV = { modify_timed_idea = { idea = SOV_recovery_from_the_shock days = 14 } }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							SOV = {
+								has_country_flag = {
+									flag = days_since_last_change_on_the_map
+									days > 28
+								}
+							}
+						}
+						FROM.FROM = {  
+							NOT = { 
+								OR = {
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }   
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+									has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+								}
+							}
+							NOT = { has_state_flag = pro_soviet_state }
+							OR = {
+								SOV = {
+									divisions_in_state = { state = FROM.FROM size > 1 }
+									divisions_in_state = { state = FROM.FROM size < 4 }
+								}
+								SOV = {
+									has_country_flag = {
+										flag = days_since_last_change_on_the_map
+										days < 1
+									}
+								}
+								NOT = {
+									any_neighbor_state = { 
+										SOV = {
+											divisions_in_state = { state = FROM.FROM size > 3 }
+										}
+									}
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						add_dynamic_modifier = { modifier = anti_soviet_separatism_2 }
+						set_compliance = 50
+						SOV = { 
+							add_stability = -0.01
+							add_war_support = -0.01
+						}
+						if = {
+							limit = {
+								NOT = {
+									SOV = { has_idea = SOV_recovery_from_the_shock }
+								}
+							}
+							SOV = { add_timed_idea = { idea = SOV_recovery_from_the_shock days = 31 } }
+						}
+						if = {
+							limit = {
+								SOV = { has_idea = SOV_recovery_from_the_shock }
+							}
+							SOV = { modify_timed_idea = { idea = SOV_recovery_from_the_shock days = 31 } }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							SOV = {
+								has_country_flag = {
+									flag = days_since_last_change_on_the_map
+									days > 28
+								}
+							}
+						}
+						FROM.FROM = {  
+							NOT = { 
+								OR = {
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }   
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+									has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+								}
+							}  
+							NOT = { has_state_flag = pro_soviet_state }
+							OR = {
+								SOV = {
+									divisions_in_state = { state = FROM.FROM size > 3 }
+									divisions_in_state = { state = FROM.FROM size < 8 }
+								}
+								NOT = {
+									any_neighbor_state = { 
+										SOV = {
+											divisions_in_state = { state = FROM.FROM size > 11 }
+										}
+									}
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						add_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+						set_compliance = 35
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							SOV = {
+								has_country_flag = {
+									flag = days_since_last_change_on_the_map
+									days > 28
+								}
+							}
+						}
+						FROM.FROM = {   
+							NOT = { 
+								OR = {
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }   
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+									has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+								}
+							}
+							NOT = { has_state_flag = pro_soviet_state }
+							OR = {
+								SOV = {
+									divisions_in_state = { state = FROM.FROM size > 7 }
+									divisions_in_state = { state = FROM.FROM size < 12 }
+								}
+								NOT = {
+									any_neighbor_state = { 
+										SOV = {
+											divisions_in_state = { state = FROM.FROM size > 17 }
+										}
+									}
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						add_dynamic_modifier = { modifier = anti_soviet_separatism_1 }
+						set_compliance = 20
+					}
+				}
+				if = {
+					limit = {
+						FROM.FROM = { 
+							NOT = { has_state_flag = separatist_state }  
+							NOT = { 
+								OR = {
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_3 } 
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2 }   
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_2a }
+									has_dynamic_modifier = { modifier = anti_soviet_separatism_1 } 
+									has_dynamic_modifier = { modifier = pro_soviet_sentiment_1 } 
+								}
+							}
+							OR = {
+								SOV = {
+									divisions_in_state = { state = FROM.FROM size > 11 }
+								}
+								any_neighbor_state = { 
+									SOV = {
+										divisions_in_state = { state = FROM.FROM size > 17 }
+									}
+								}
+								SOV = {
+									has_country_flag = {
+										flag = days_since_last_change_on_the_map
+										days > 28
+									}
+								}
+								has_state_flag = pro_soviet_state
+							}
+						}
+					}
+					FROM.FROM = {
+						add_dynamic_modifier = { modifier = pro_soviet_sentiment_1 }
+						SOV = { 
+							add_war_support = 0.01
+						}
+						set_resistance = 35
+						set_state_flag = pro_soviet_state
+						if = { 
+							limit = {
+								FROM.FROM = {
+									NOT = { is_core_of = SOV }
+									is_claimed_by = SOV
+								}
+							}
+							FROM.FROM = { add_core_of = SOV }
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = SOV }
+					FROM = { has_war_with = SOV }
+					SOV = { has_country_flag = SOV_patriotic_counterattack_enabled }
+				}
+				if = { 
+					limit = {
+						SOV = { has_idea = SOV_patriotic_offensive_5 }
+					}
+					SOV = { remove_ideas = SOV_patriotic_offensive_5 }
+					SOV = { add_timed_idea = { idea = SOV_patriotic_offensive_5 days = 30 } }
+				}
+				if = { 
+					limit = {
+						SOV = { has_idea = SOV_patriotic_offensive_4 }
+					}
+					SOV = { remove_ideas = SOV_patriotic_offensive_4 }
+					SOV = { add_timed_idea = { idea = SOV_patriotic_offensive_5 days = 30 } }
+				}
+				if = { 
+					limit = {
+						SOV = { has_idea = SOV_patriotic_offensive_3 }
+					}
+					SOV = { remove_ideas = SOV_patriotic_offensive_3 }
+					SOV = { add_timed_idea = { idea = SOV_patriotic_offensive_4 days = 16 } }
+				}
+				if = { 
+					limit = {
+						SOV = { has_idea = SOV_patriotic_offensive_2 }
+					}
+					SOV = { remove_ideas = SOV_patriotic_offensive_2 }
+					SOV = { add_timed_idea = { idea = SOV_patriotic_offensive_3 days = 16 } }
+				}
+				if = { 
+					limit = {
+						SOV = { has_idea = SOV_patriotic_offensive_1 }
+					}
+					SOV = { remove_ideas = SOV_patriotic_offensive_1 }
+					SOV = { add_timed_idea = { idea = SOV_patriotic_offensive_2 days = 34 } }
+				}
+			}
+		}
+	}
+}

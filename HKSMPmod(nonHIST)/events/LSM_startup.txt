@@ -11,50 +11,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = LSM_startup.76.n
-		trigger = { 
-			tag = GER 
-			FRA = { is_ai = yes }
-			has_global_flag = mp_difficulty
-			is_historical_focus_on = yes
-		}
-		hidden_effect = {
-			set_global_flag = france_giga
-		}
-		custom_effect_tooltip = startup_76_tt_m
-	}
-	
-	option = {
-		name = LSM_startup.76.gg
-		trigger = { 
-			tag = JAP 
-			CHI = { is_ai = yes }
-			NOT = { has_global_flag = mp_difficulty }
-			is_historical_focus_on = yes
-		}
-		hidden_effect = {
-			set_global_flag = china_giga
-		}
-		custom_effect_tooltip = startup_76_tt_gg
-	}
-	
-	option = {
-		trigger = {
-			has_global_flag = mp_difficulty
-		}
-		name = LSM_startup.76.p
-		custom_effect_tooltip = startup_76_tt_p
-	}
-	
-	option = {
-		trigger = {
-			NOT = { has_global_flag = mp_difficulty }
-		}
-		name = LSM_startup.76.a
-		custom_effect_tooltip = startup_76_tt_b
-	}
-	
-	option = {
 		name = LSM_startup.76.b
 		trigger = {
 			tag = GER

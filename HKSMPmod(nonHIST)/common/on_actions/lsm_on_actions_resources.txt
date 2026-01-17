@@ -1,0 +1,269 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_state = {
+				limit = {
+					is_core_of = INS
+					NOT = {
+						OR = {
+							state = 668
+							state = 738
+							state = 669
+							state = 335
+						}
+					}
+				}
+				INS = { 
+					give_resource_rights = { receiver = HOL state = PREV }
+				}
+			}
+		}
+		effect = {
+			537 = { add_resource = { type = oil amount = 11 } }
+			714 = { add_resource = { type = oil amount = 5 } }
+			289 = { add_resource = { type = rubber amount = 19 } }
+			286 = { add_resource = { type = rubber amount = 52 } }
+			286 = { add_resource = { type = tungsten amount = 7 } }
+			286 = { add_resource = { type = steel amount = 12 } }
+		}
+		effect = {
+			if = {
+				limit = { has_global_flag = welfare_for_all }
+				599 = { add_resource = { type = tungsten amount = 36 } }
+				594 = { add_resource = { type = tungsten amount = 18 } }
+				592 = { add_resource = { type = tungsten amount = 21 } }
+				593 = { add_resource = { type = tungsten amount = 18 } }
+				599 = { add_resource = { type = steel amount = 23 } }
+				594 = { add_resource = { type = steel amount = 28 } }
+				592 = { add_resource = { type = steel amount = 80 } }
+				593 = { add_resource = { type = steel amount = 20 } }
+				602 = { add_resource = { type = tungsten amount = 20 } }
+				620 = { add_resource = { type = tungsten amount = 14 } }
+				527 = { add_resource = { type = tungsten amount = 14 } }
+				518 = { add_resource = { type = tungsten amount = 25 } }
+				520 = { add_resource = { type = tungsten amount = 12 } }
+				380 = { add_resource = { type = tungsten amount = 46 } }
+				525 = { add_resource = { type = steel amount = 42 } }
+				282 = { add_resource = { type = aluminium amount = 14 } }
+				8 = { add_resource = { type = steel amount = 5 } }
+			}
+		}
+		effect = {
+			build_railway = {
+				path = { 9943 3987 10082 7005 }
+			}
+			build_railway = {
+				path = { 3580 11526 3520 }
+			}
+			217 = {
+				add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
+				}
+			}
+			254 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			137 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			234 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			246 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			263 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			247 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			220 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			10 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+			88 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			763 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			11 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			808 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			812 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			260 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			16 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+			28 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+			7 = {
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+			338 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			47 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			42 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			51 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					date < 1936.6.1
+					is_ai = yes
+					195 = { is_fully_controlled_by = SOV }
+					195 = {
+						dockyard > 0
+					}
+				}
+				195 = {
+					remove_building = {
+						type = dockyard
+						level = 1
+					}
+				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			SOV = {
+				build_railway = {
+					path = { 11683 11546 6597 }
+				}
+				build_railway = {
+					path = { 3452 488 9491 9519 }
+				}
+				build_railway = {
+					path = { 11504 9413 11462 3520 }
+				}
+				build_railway = {
+					path = { 525 489 3568 546 9288 }
+				}
+				build_railway = {
+					path = { 6429 3457 6509 }
+				}
+				build_railway = {
+					path = { 721 737 }
+				}
+			}
+			POL = {
+				build_railway = {
+					path = { 572 6557 6509 }
+				}
+			}
+			ITA = {
+				build_railway = {
+					path = { 4159 9990 }
+				}
+			}
+		}
+	}
+}

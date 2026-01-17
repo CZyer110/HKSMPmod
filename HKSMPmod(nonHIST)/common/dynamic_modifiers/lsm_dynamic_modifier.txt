@@ -1,0 +1,730 @@
+ITA_expanded_corporatism_modifier_2 = {
+	enable = { always = yes  }
+	icon = GFX_modifiers_generic_fascist_corporatism
+	state_resources_factor = 0.35
+	local_factories = 0.35
+	local_supplies = 0.2
+	compliance_growth = 0.2
+}
+
+JAP_imperial_territory = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		OR = {
+			ROOT.controller = { NOT = { original_tag = JAP } }
+			ROOT.controller = { 
+				has_government = communism
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	state_resources_factor = 0.25
+	compliance_growth = 0.25
+	local_non_core_manpower = 0.25
+}
+JAP_imperial_territory_2 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		OR = {
+			ROOT.controller = { NOT = { original_tag = JAP } }
+			ROOT.controller = { 
+				has_government = communism
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	state_resources_factor = 0.5
+	compliance_growth = 0.5
+	local_non_core_manpower = 0.5	
+	local_building_slots_factor = 0.5
+}
+d_day_preparation_state_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_generic_supply
+
+	state_production_speed_buildings_factor = d_day_preparation_production_speed
+	local_non_core_manpower = d_day_preparation_non_core_manpower
+	local_supplies = d_day_preparation_local_supplies
+	supply_factor = d_day_preparation_supply_factor
+	attrition_for_controller = d_day_preparation_attrition
+}
+
+RAJ_dominion_state = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT.controller = { has_war_with = ROOT.owner }
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+	
+	local_factories = 0.10
+	state_resources_factor = 0.10
+	compliance_growth = 0.40
+	
+}
+RAJ_developing_state_1 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = { ROOT = { is_core_of = ROOT.controller } }
+		ROOT.controller = { has_war_with = ROOT.owner }
+	}
+
+	icon = GFX_modifiers_increased_metal_production
+	
+	local_building_slots_factor = 0.10
+	local_factories = 0.10
+	state_production_speed_buildings_factor = 0.10
+	state_resources_factor= 0.10
+	
+}
+RAJ_developing_state_2 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = { ROOT = { is_core_of = ROOT.controller } }
+		ROOT.controller = { has_war_with = ROOT.owner }
+	}
+
+	icon = GFX_modifiers_increased_metal_production
+	
+	local_building_slots_factor = 0.20
+	local_factories = 0.20
+	state_production_speed_buildings_factor = 0.20
+	state_resources_factor= 0.20
+	
+}
+RAJ_developing_state_3 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = { ROOT = { is_core_of = ROOT.controller } }
+		ROOT.controller = { has_war_with = ROOT.owner }
+	}
+
+	icon = GFX_modifiers_increased_metal_production
+	
+	local_building_slots_factor = 0.30
+	local_factories = 0.30
+	state_production_speed_buildings_factor = 0.30
+	state_resources_factor= 0.30
+	
+}
+anti_soviet_separatism_3 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { is_core_of = ROOT.controller }
+		OR = {
+			ROOT.controller = { has_war_with = SOV }
+			AND = {
+				ROOT.controller = { NOT = { has_war_with = SOV } }
+				ROOT.controller = { NOT = { tag = SOV } }
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	army_core_attack_factor = -0.10
+	local_non_core_supply_impact_factor = -0.25
+	resistance_target = -0.25
+	compliance_growth = 0.25
+	local_non_core_manpower = 0.25
+	
+}
+anti_soviet_separatism_2 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { is_core_of = ROOT.controller }
+		OR = {
+			ROOT.controller = { has_war_with = SOV }
+			AND = {
+				ROOT.controller = { NOT = { has_war_with = SOV } }
+				ROOT.controller = { NOT = { tag = SOV } }
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	army_core_attack_factor = -0.10
+	local_non_core_supply_impact_factor = -0.20
+	resistance_target = -0.20
+	compliance_growth = 0.20
+	local_non_core_manpower = 0.20
+}
+anti_soviet_separatism_2a = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { is_core_of = ROOT.controller }
+		OR = {
+			ROOT.controller = { has_war_with = SOV }
+			AND = {
+				ROOT.controller = { NOT = { has_war_with = SOV } }
+				ROOT.controller = { NOT = { tag = SOV } }
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	army_core_attack_factor = -0.10
+	local_non_core_supply_impact_factor = -0.15
+	resistance_target = -0.15
+	compliance_growth = 0.15
+	local_non_core_manpower = 0.15
+}
+anti_soviet_separatism_1 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { is_core_of = ROOT.controller }
+		OR = {
+			ROOT.controller = { has_war_with = SOV }
+			AND = {
+				ROOT.controller = { NOT = { has_war_with = SOV } }
+				ROOT.controller = { NOT = { tag = SOV } }
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	army_core_attack_factor = -0.10
+	local_non_core_supply_impact_factor = -0.10
+	resistance_target = -0.10
+	compliance_growth = 0.10
+	local_non_core_manpower = 0.10
+}
+anti_soviet_separatism_0 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		ROOT = { is_core_of = ROOT.controller }
+		OR = {
+			ROOT.controller = { has_war_with = SOV }
+			AND = {
+				ROOT.controller = { NOT = { has_war_with = SOV } }
+				ROOT.controller = { NOT = { tag = SOV } }
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_fascist_corporatism
+
+	army_core_attack_factor = -0.10
+	resistance_target = 0.15
+	compliance_growth = -0.30
+	attrition_for_controller = 0.03
+}
+pro_soviet_sentiment_1 = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		controller = { is_in_faction_with = SOV }
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+
+	local_supplies_for_controller = -0.05
+	resistance_target = 0.05
+	compliance_growth = -0.15
+	local_intel_to_enemies = 0.15
+}
+
+SOV_defend_moscow_a = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_defend_moscow
+	
+	recruitable_population_factor = 0.25
+	army_core_defence_factor = 0.2
+	supply_factor = 0.15
+}
+
+SOV_factory_worker_militias_raised_a = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_factory_worker_militias
+	
+	army_core_defence_factor = 0.1
+	local_org_regain = 0.1
+	state_resources_factor = -0.25
+}
+
+SOV_civilian_labor_in_defense_mod_a = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+	
+	army_core_defence_factor = 0.1
+	state_production_speed_bunker_factor = 0.6
+	state_production_speed_coastal_bunker_factor = 0.6
+	local_manpower = -0.25
+	state_resources_factor = -0.25
+}
+
+LSM_last_stand_modifier = { #State Modifier
+	enable = { always = yes }
+	remove_trigger = {
+			OR = { 
+				ROOT = { NOT = { is_core_of = ROOT.controller } }
+				ROOT = { NOT = { is_owned_by = ROOT.controller } }
+				ROOT = { has_dynamic_modifier = { modifier = LSM_endsieg_modifier } }
+				ROOT = { 
+					AND = { 
+						is_fully_controlled_by = ROOT.controller
+						ROOT = { is_island_state = no }
+						NOT = { any_neighbor_state = {
+							controller = { has_war_with = ROOT.controller } }
+						}
+						NOT = { is_core_of = JAP }
+						NOT = { is_core_of = ENG }
+						NOT = { is_core_of = USA }
+					}
+				}
+			}
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_core_defence_factor = 0.5
+	army_speed_factor_for_controller = 0.3 #gotta rush
+	equipment_capture_for_controller = 0.5 #everything is usable
+	enemy_army_speed_factor = -0.15
+}
+
+LSM_counterattack_modifier = {
+	enable = { always = yes }
+	remove_trigger = { ROOT.controller = { has_war = no } }
+	
+	icon = GFX_modifiers_generic_military_plans
+
+	army_speed_factor = 0.3
+}
+
+LSM_dont_starve_modifier = { #State Modifier
+	enable = { always = yes }
+	remove_trigger = {
+			OR = { 
+				ROOT = { NOT = { is_core_of = ROOT.controller } }
+				ROOT = { NOT = { is_owned_by = ROOT.controller } }
+				ROOT = { has_dynamic_modifier = { modifier = LSM_endsieg_modifier } }
+				ROOT = { 
+					AND = { 
+						is_fully_controlled_by = ROOT.controller
+						ROOT = { is_island_state = no }
+						NOT = { any_neighbor_state = {
+							controller = { has_war_with = ROOT.controller } }
+						}
+						NOT = { is_core_of = JAP }
+						NOT = { is_core_of = ENG }
+						NOT = { is_core_of = USA }
+					}
+				}
+			}
+	}
+
+	icon = GFX_modifiers_generic_supply
+	
+	pocket_penalty = -0.5
+	supply_combat_penalties_on_core_factor = -0.25
+	attrition_for_controller = -0.15
+	army_core_attack_factor = 0.25
+}
+
+LSM_enclave_last_stand_modifier = { #State Modifier
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = { 
+			FROM.controller = { has_war = no }
+			ROOT = {
+				AND = {
+					resistance < 30
+					compliance > 30
+				}
+			}
+			ROOT = {
+				AND = {
+					resistance < 10 #pacified
+					compliance > 20
+				}
+			}
+			ROOT = {
+				compliance > 50 #pacified
+			}
+		}
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_core_defence_factor = 0.5
+	army_speed_factor_for_controller = 0.3 #gotta rush
+	enemy_army_speed_factor = -0.3
+	equipment_capture_for_controller = 0.7 #everything is usable
+}
+
+LSM_enclave_dont_starve_modifier = { #State Modifier
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = { 
+			FROM.controller = { has_war = no }
+			ROOT = {
+				AND = {
+					resistance < 30
+					compliance > 30
+				}
+			}
+			ROOT = {
+				AND = {
+					resistance < 10 #pacified
+					compliance > 20
+				}
+			}
+			ROOT = {
+				compliance > 50 #pacified
+			}
+		}
+	}
+
+	icon = GFX_modifiers_generic_supply
+	
+	pocket_penalty = -1
+	supply_combat_penalties_on_core_factor = -0.25
+	attrition_for_controller = -0.15
+	army_core_attack_factor = 0.25
+}
+
+LSM_there_is_no_food_left_modifier = { #State Modifier
+	enable = { always = yes }
+	remove_trigger = {
+			OR = { 
+				AND = {
+					OR = { 
+						ROOT = { NOT = { is_core_of = ROOT.controller } }
+						ROOT = { NOT = { is_owned_by = ROOT.controller } }
+					}
+					ROOT.controller = { has_government = democratic } #we will let international aid flows in cuz democracy is good in 1936
+				}
+				ROOT = { 
+					AND = { 
+						is_fully_controlled_by = ROOT.controller
+						OR = {
+							is_island_state = no
+							AND = { 
+								is_island_state = yes
+								has_war = no
+							}
+						}
+						NOT = { any_neighbor_state = {
+							controller = { has_war_with = ROOT.controller } }
+						}
+						NOT = { is_core_of = JAP }
+						NOT = { is_core_of = ENG }
+						NOT = { is_core_of = USA }
+					}
+				}
+			}
+	}
+
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+	
+	attrition = 0.05
+	army_core_attack_factor = -0.25
+	army_core_defence_factor = -0.25
+	out_of_supply_factor = 0.25
+	monthly_population = -0.8 #not a good time to breed
+}
+
+LSM_recency_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+
+	local_manpower = -0.05
+	monthly_population = -0.05 #not a good time to breed
+
+}
+
+LSM_island_recency_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+
+	local_manpower = -0.10
+	monthly_population = -0.10 #not a good time to breed
+
+}
+
+LSM_enclave_recency_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+
+	local_manpower = -0.25
+	monthly_population = -0.25 #not a good time to breed
+
+}
+
+LSM_get_them_off_our_islands_modifier = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_core_attack_factor = 0.25
+}
+
+fallback_modifier = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_core_attack_factor = -0.9	
+	army_core_defence_factor = -0.9
+	army_speed_factor = 0.5
+	pocket_penalty = -1
+}
+
+defense_modifier = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_core_attack_factor = 0.5
+	army_core_defence_factor = 0.5
+	army_speed_factor = 0.5
+}
+
+LSM_banzai_modifier = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	army_speed_factor = 0.5
+}
+
+LSM_gunning_our_way_modifier = { #State Modifier
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = { 
+			ROOT = {
+				AND = {
+					resistance < 30
+					compliance > 30
+				}
+			}
+			ROOT = {
+				AND = {
+					resistance < 10 #pacified
+					compliance > 20
+				}
+			}
+			ROOT = {
+				compliance > 50 #pacified
+			}
+		}
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	starting_compliance = -0.25
+	resistance_target = 0.5
+	resistance_damage_to_garrison = 1
+	resistance_garrison_penetration_chance = 0.25
+	local_non_core_supply_impact_factor = 0.5
+}
+
+LSM_no_cheesing_modifier = { #State Modifier
+	enable = { always = yes }
+	
+	remove_trigger = {
+		OR = { 
+			ROOT = {
+				AND = {
+					resistance < 30
+					compliance > 30
+				}
+			}
+			ROOT = {
+				AND = {
+					resistance < 10 #pacified
+					compliance > 20
+				}
+			}
+			ROOT = {
+				compliance > 50 #pacified
+			}
+		}
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	starting_compliance = -0.25
+	resistance_target = 0.25
+	resistance_damage_to_garrison = 0.25
+	resistance_garrison_penetration_chance = 0.25
+	local_non_core_supply_impact_factor = 0.5
+}
+
+LSM_endsieg_modifier = {
+	enable = { always = yes }
+	
+	remove_trigger = {
+			OR = { 
+				ROOT = { NOT = { is_core_of = ROOT.controller } }
+				ROOT = { NOT = { is_owned_by = ROOT.controller } }
+				ROOT = { has_dynamic_modifier = { modifier = LSM_endsieg_modifier } }
+				ROOT = { 
+					AND = { 
+						is_fully_controlled_by = ROOT.controller
+						ROOT = { is_island_state = no }
+						NOT = { any_neighbor_state = {
+							controller = { has_war_with = ROOT.controller } }
+						}
+					}
+				}
+			}
+	}
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+	enemy_army_speed_factor = -0.25
+	army_speed_factor = 0.25
+	enemy_local_supplies = -0.25
+	local_supplies = 0.25
+	enemy_attrition = 0.25
+	attrition = -0.25
+	resistance_target = 0.5
+	resistance_damage_to_garrison = 0.5
+	resistance_garrison_penetration_chance = 0.5
+	equipment_capture_for_controller = 0.7
+	army_core_attack_factor = 0.25
+	army_core_defence_factor = 0.5
+	out_of_supply_factor = 0.25
+	local_non_core_supply_impact_factor = 0.25
+}
+
+LSM_displaced_population = { #State Modifier
+	enable = { always = yes } 
+
+	icon = GFX_modifiers_SWE_hygienic_housing
+	
+	state_production_speed_buildings_factor = displaced_production_speed_buildings_factor
+	local_building_slots_factor = displaced_local_building_slots_factor 
+	local_factories = displaced_local_factories
+	state_resources_factor = displaced_state_resources_factor
+	local_supplies = displaced_local_supplies
+	army_speed_factor = displaced_army_speed_factor
+}
+
+LSM_displaced_population_debug_gain = { #State Modifier
+	enable = { always = yes } 
+
+	icon = GFX_modifiers_SWE_hygienic_housing
+	
+	weekly_manpower = var_gained_population
+}
+
+LSM_displaced_population_debug_lost = { #State Modifier
+	enable = { always = yes } 
+
+	icon = GFX_modifiers_SWE_hygienic_housing
+	
+	weekly_manpower = var_lost_population
+}
+
+ENG_clash_with_militia = { 
+	enable = { always = yes } 
+	
+	remove_trigger = {
+		NOT = { has_global_flag = british_homeland_resistance_organised_flag }
+	}
+
+	icon = GFX_modifiers_conscription_exemptions_granted
+	
+	resistance_garrison_penetration_chance = 10.00
+	resistance_activity = 10.00
+}
+	
+
+ENG_unimaginable_destruction = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_conscription_exemptions_granted
+	
+	local_building_slots_factor = -0.5
+	local_factories = -0.5
+	local_factory_sabotage = 0.5
+	state_production_speed_buildings_factor = -0.5
+	state_resources_factor= -0.5
+	resistance_damage_to_garrison = -0.5
+	resistance_activity = -0.5
+	resistance_growth = -0.5
+	resistance_target = -0.5
+	compliance_growth = 0.5
+}
+
+ENG_unimaginable_destruction_vengeance = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_conscription_exemptions_granted
+	
+	local_building_slots_factor = -1
+	local_factories = -1
+	local_factory_sabotage = 1
+	state_production_speed_buildings_factor = -1
+	state_resources_factor= -1
+	resistance_damage_to_garrison = -1
+	resistance_activity = -1
+	resistance_growth = -1
+	resistance_target = -1
+	compliance_growth = 1
+}
+
+recovery_from_annihilation_modifier = { #State Modifier
+	enable = { always = yes }
+
+	icon = GFX_modifiers_conscription_exemptions_granted
+	
+	local_building_slots_factor = 0.25
+	local_factories = 0.25
+	local_factory_sabotage = -0.25
+	state_production_speed_buildings_factor = 0.25
+	state_resources_factor= 0.25
+	compliance_growth = 0.25
+}
+
+GER_blitzkrieg_modifier_removed = { #nat dynamic modifier
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_fascist_workers
+	
+	remove_trigger = {
+		OR = { 
+			has_idea = LSM_the_final_push_failure_GER
+			has_country_flag = LSM_eligibility_nation
+		}
+	}
+	
+	resistance_target = GER_blitzkrieg_resistance
+	compliance_growth = GER_blitzkrieg_compliance
+	industrial_capacity_factory = GER_blitzkrieg_factory
+	industrial_capacity_dockyard = GER_blitzkrieg_dockyard
+	industry_repair_factor = GER_blitzkrieg_repair
+	weekly_manpower = GER_blitzkrieg_manpower
+	breakthrough_factor = GER_blitzkrieg_breakthrough
+}

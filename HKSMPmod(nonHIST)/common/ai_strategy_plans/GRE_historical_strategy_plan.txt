@@ -1,0 +1,96 @@
+GRE_historical_plan = {
+	name = "Greece Historical Plan"
+	desc = "Greece will pursue neutrality while developing the ideas of Metaxism"
+
+	allowed = {
+		original_tag = GRE
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = GRE_ai_behavior
+					option = DEFAULT
+				}	
+			}
+			has_country_flag = GRE_AI_NEUTRALITY_HISTORICAL
+			has_game_rule = {
+				rule = GRE_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			has_war_with = ENG
+			is_in_faction_with = ITA
+			is_in_faction_with = GER
+			has_government = communism
+			has_government = democratic
+			has_government = fascism
+		}
+	}
+
+	ai_national_focuses = {
+		GRE_reevaluating_the_drachma #March 10 1936
+		GRE_utilize_our_strengths
+		GRE_open_foreign_subsidized_factories
+		GRE_connecting_our_prefectures
+		GRE_exporting_more_luxury_commodoties
+
+		GRE_increase_our_mining_operations
+		GRE_mobilise_our_economy
+		GRE_the_kings_government #May 20 1936
+		GRE_metaxism_focus
+		GRE_the_hellenic_spirit
+		GRE_the_national_youth_organisation
+
+		GRE_crack_down_on_the_republicans
+		GRE_use_the_military
+
+		GRE_rejuvenating_athens
+		GRE_sophistry_and_science
+		GRE_cooperate_with_foreign_monopolies
+		GRE_academy_of_athens
+
+		GRE_an_orthodox_state
+		GRE_third_hellenic_civilization
+		GRE_defending_our_kingdom
+
+		GRE_reviving_the_spartan_warrior_spirit
+		GRE_hellenic_armed_forces
+		GRE_the_hellenic_army
+		GRE_the_backbone_of_our_army
+		GRE_a_legacy_of_war
+		GRE_new_weapons_old_tricks
+		GRE_greek_mechanisation
+		GRE_a_land_of_mountains
+
+		GRE_lignite_liquefaction
+		GRE_extracting_more_from_our_soil
+		GRE_our_traditional_allies_in_the_aegean
+		GRE_the_greater_enosis
+
+		GRE_expansion_of_athens_university
+		GRE_protectors_of_the_mediterranean
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		GRE_alexandros_papagos = 10
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,384 @@
+on_actions = {	
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = no
+					ROOT = {
+						tag = ITA
+					}
+					FROM = {
+						tag = YUG
+					}
+				}
+				every_state = {
+					limit = { 
+						is_core_of = YUG 
+						controller = {
+							OR = {
+								tag = ITA
+								is_in_faction_with = ITA
+							}
+						}
+						NOT = { is_claimed_by = ITA }
+					}
+					add_claim_by = ITA
+				}
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+					}
+					FROM = {
+						OR = {
+							tag = YUG
+							is_in_faction_with = YUG
+						}
+					}
+					163 = {
+						OR = {
+							is_claimed_by = ITA
+							is_core_of = ITA
+						}
+					}
+				}
+				163 = { remove_claim_by = ITA }
+				163 = { remove_core_of = ITA }
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = no
+					ROOT = { 
+						tag = ITA
+					}
+					FROM.FROM = {
+						OR = {
+							state = 735
+							state = 32
+							state = 846
+							state = 21
+							state = 851
+							state = 103
+							state = 853
+							state = 102
+							state = 105
+							state = 804
+							state = 116
+							state = 114
+						}
+						NOT = { is_claimed_by = ITA }
+						NOT = { is_core_of = ITA }
+					}
+				}
+				FROM.FROM = { add_claim_by = ITA }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = no
+					ROOT = { 
+						OR = {
+							original_tag = NEP
+							original_tag = PAK
+							original_tag = BHU
+							original_tag = RAJ
+							original_tag = BRM
+						}
+					}
+					FROM.FROM = {
+						OR = {
+							is_core_of = PAK
+							is_core_of = BHU
+							is_core_of = RAJ
+							is_core_of = BRM
+							is_core_of = NEP
+						}
+						NOT = { is_claimed_by = ROOT }
+						NOT = { is_core_of = ROOT }
+						any_neighbor_state = {
+							OR = {
+								is_core_of = ROOT
+								is_claimed_by = ROOT
+							}	
+						}
+					}
+				}
+				FROM.FROM = { 
+					add_claim_by = ROOT
+					add_compliance = 30
+				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			every_state = {
+				limit = { 
+					OR = {
+						is_core_of = SPR
+						AND = {
+							is_owned_by = SPR
+							is_on_continent = europe
+						}
+					}
+				}
+				set_state_flag = spanish_core_to_be_acquired
+			}
+		}
+		effect = { 
+			set_victory_points = {
+				province = 9523
+				value = 5
+			}
+			set_province_name = { id = 9523 name = "Southern Paris" }
+			set_victory_points = {
+				province = 11333
+				value = 2
+			}
+			set_province_name = { id = 11333 name = "Southern London" }
+			set_victory_points = {
+				province = 13070
+				value = 3
+			}
+			set_province_name = { id = 13070 name = "Detling" }
+			set_victory_points = {
+				province = 11446
+				value = 2
+			}
+			set_province_name = { id = 11466 name = "Eastbourne" }
+		}
+		effect = { 
+			set_victory_points = {
+				province = 11586
+				value = 20
+			}
+			set_victory_points = {
+				province = 11583
+				value = 1
+			}
+			set_province_name = { id = 11583 name = "Kaluderica" }
+			set_victory_points = {
+				province = 11580
+				value = 2
+			}
+			set_province_name = { id = 11580 name = "Kula Gardos" }
+			set_victory_points = {
+				province = 797
+				value = 1
+			}
+			set_province_name = { id = 797 name = "Železnik" }
+			set_victory_points = {
+				province = 3609
+				value = 3
+			}
+			set_province_name = { id = 3609 name = "Banovo brdo" }
+			set_victory_points = {
+				province = 9599
+				value = 2
+			}
+			set_province_name = { id = 9599 name = "Banjica" }
+		}
+		effect = { 
+			set_victory_points = {
+				province = 11211
+				value = 2
+			}
+			set_victory_points = {
+				province = 9129
+				value = 2
+			}
+			set_province_name = { id = 9129 name = "Espoo" }
+			set_victory_points = {
+				province = 6144
+				value = 2
+			}
+			set_province_name = { id = 6144 name = "Vanta" }
+		}
+		effect = {
+			set_victory_points = {
+				province = 9427
+				value = 10
+			}
+			set_victory_points = {
+				province = 3544
+				value = 30
+			}
+			set_victory_points = {
+				province = 9508
+				value = 8
+			}
+		}
+		effect = {
+			set_victory_points = {
+				province = 1302
+				value = 1
+			}
+			set_victory_points = {
+				province = 4379
+				value = 1
+			}
+			set_victory_points = {
+				province = 9948
+				value = 1
+			}
+			set_victory_points = {
+				province = 4529
+				value = 2
+			}
+			set_victory_points = {
+				province = 1400
+				value = 1
+			}
+			set_victory_points = {
+				province = 1185
+				value = 2
+			}
+			set_victory_points = {
+				province = 7271
+				value = 1
+			}
+			set_victory_points = {
+				province = 10309
+				value = 1
+			}
+			set_province_name = { id = 1302 name = "Quang Tri" }
+			set_province_name = { id = 4379 name = "Hue" }
+			set_province_name = { id = 1185 name = "Hai Phong" }
+			set_province_name = { id = 9948 name = "Lang Son" }
+			set_province_name = { id = 4529 name = "Dien Bien Phu" }
+			set_province_name = { id = 1400 name = "Dak Lak" }
+			set_province_name = { id = 7271 name = "Da Lat" }
+			set_province_name = { id = 10309 name = "Tourane" }
+			671 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 10309
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 4379
+				}
+			}
+		}
+		effect = {
+			NOR = {
+				set_victory_points = {
+					province = 6151
+					value = 7
+				}
+			}
+			NOR = {
+				set_victory_points = {
+					province = 53
+					value = 10
+				}
+			}
+			NOR = {
+				set_victory_points = {
+					province = 122
+					value = 15
+				}
+			}
+			NOR = {
+				set_victory_points = {
+					province = 6115
+					value = 20
+				}
+			}
+		}
+		effect = {
+			524 = { add_dynamic_modifier = { modifier = JAP_imperial_territory_2 } }
+			745 = { add_dynamic_modifier = { modifier = JAP_imperial_territory_2 } }
+		}
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				163 = { add_core_of = ITA }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				SOV = { set_autonomy = { autonomy_state = autonomy_puppet target = MON } }
+				SOV = { set_autonomy = { autonomy_state = autonomy_puppet target = TAN } }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_historical_focus_on = no
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 524
+							is_core_of = KOR
+						}
+					}
+					add_claim_by = JAP
+				}
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = MON
+							is_core_of = TAN
+							is_core_of = MEN
+						}
+					}
+					add_claim_by = MEN
+				}
+				every_state = {
+					limit = {
+						is_core_of = TIB
+					}
+					add_claim_by = CHI
+					add_claim_by = PRC
+				}
+				HUN = {
+					add_state_claim = 76
+					add_state_claim = 83
+					add_state_claim = 84
+					add_state_claim = 82
+					add_state_claim = 664
+					add_state_claim = 73
+					add_state_claim = 45
+					add_state_claim = 82
+					add_state_claim = 764
+				}
+				ITA = {
+					add_state_claim = 163
+				}
+				GER = {
+					add_state_claim = 85
+					add_state_claim = 807
+					add_state_claim = 86
+					add_state_claim = 762
+				}
+				TUR = {
+					add_state_core = 353
+					add_state_core = 350
+					add_state_core = 352
+					add_state_core = 800
+				}
+			}
+		}
+	}
+}

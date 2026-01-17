@@ -1,0 +1,16 @@
+
+last_stand_decision = {
+	icon = generic_propaganda
+
+	visible = {
+		always = yes
+	}
+}
+
+frontline_decision = {
+	icon = generic_propaganda
+
+	visible = {
+		always = yes
+	}
+}

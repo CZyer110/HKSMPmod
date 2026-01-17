@@ -1,0 +1,125 @@
+frontline_ai_manual = {
+
+	manual_encirclement_assignment_test_version = {
+
+		icon = generic_prepare_civil_war
+		
+		state_target = yes
+		
+		on_map_mode = map_and_decisions_view
+
+		target_trigger = {
+			custom_trigger_tooltip = { 
+				tooltip = "[FROM.GetName] can be manually designated as a target for encirclement"
+				FROM = {
+					OR = {
+						AND = {
+							controller = { tag = SOV }
+							SOV = { divisions_in_state = { state = PREV size > 0 } }
+							any_neighbor_state = { controller = { is_in_faction_with = GER } }
+							OR = {
+								NOT = { any_neighbor_state = { controller = { has_war_with = GER } } }
+								any_neighbor_state = {
+									controller = { has_war_with = GER }
+									NOT = { 
+										any_neighbor_state = { 
+											controller = { has_war_with = GER } 
+											NOT = { state = PREV }
+										} 
+									}
+								}
+							}
+						}
+						AND = {
+							controller = { is_in_faction_with = GER }
+							SOV = { divisions_in_state = { state = PREV size > 0 } }
+							OR = {
+								NOT = { any_neighbor_state = { controller = { has_war_with = GER } } }
+								any_neighbor_state = {
+									controller = { has_war_with = GER }
+									NOT = { 
+										any_neighbor_state = { 
+											controller = { has_war_with = GER } 
+											NOT = { state = PREV }
+										} 
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = { 
+				tooltip = "[FROM.GetName] can be manually designated as a target for encirclement"
+				FROM = {
+					OR = {
+						AND = {
+							controller = { tag = SOV }
+							SOV = { divisions_in_state = { state = PREV size > 0 } }
+							any_neighbor_state = { controller = { is_in_faction_with = GER } }
+							OR = {
+								NOT = { any_neighbor_state = { controller = { has_war_with = GER } } }
+								any_neighbor_state = {
+									controller = { has_war_with = GER }
+									NOT = { 
+										any_neighbor_state = { 
+											controller = { has_war_with = GER } 
+											NOT = { state = PREV }
+										} 
+									}
+								}
+							}
+						}
+						AND = {
+							controller = { is_in_faction_with = GER }
+							SOV = { divisions_in_state = { state = PREV size > 0 } }
+							OR = {
+								NOT = { any_neighbor_state = { controller = { has_war_with = GER } } }
+								any_neighbor_state = {
+									controller = { has_war_with = GER }
+									NOT = { 
+										any_neighbor_state = { 
+											controller = { has_war_with = GER } 
+											NOT = { state = PREV }
+										} 
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_war = yes
+			is_ai = yes
+			tag = GER #test only
+			has_war_with = SOV
+		}
+
+		days_remove = 30
+
+		fire_only_once = no
+
+		complete_effect = {
+			FROM = {
+				set_state_flag = pocket_flag
+			}
+		}
+
+		remove_effect = {
+			FROM = {
+				clr_state_flag = pocket_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+}
+	

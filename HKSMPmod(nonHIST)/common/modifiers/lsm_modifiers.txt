@@ -1,0 +1,21 @@
+# All global modifiers are here. They are applied from certain game-features.
+# Effects are fully scriptable here.
+# These names can NOT be removed or changes, as the code uses them....
+
+LSM_coordinate_rearmament = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+		OR = {
+			AND = {
+				ROOT = { is_ai = yes }
+				FROM = { is_ai = yes }
+			}
+			NOT = { has_global_flag = sheep_selected }
+		}
+	}
+
+	license_purchase_cost = 0 #base cost reduction
+	ai_license_acceptance = 200 #more to AI acceptance value.
+}

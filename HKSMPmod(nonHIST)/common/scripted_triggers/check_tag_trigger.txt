@@ -1,0 +1,3 @@
+check_original_tag = {
+	has_country_flag = originally_existing_country
+}

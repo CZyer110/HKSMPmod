@@ -1,0 +1,175 @@
+displaced_population_decision = {
+
+	DPP_increase_displacement = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+
+		days_re_enable = 3
+		
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			custom_trigger_tooltip =  {
+				tooltip = "Can coordinate more effort on population displacement"
+				can_increase_displacement = yes
+			}
+		}
+
+		visible = {
+			can_increase_displacement = yes
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Increase displaced population ratio"
+			hidden_effect = {
+				increase_displacement = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	DPP_decrease_displacement = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+
+		days_re_enable = 3
+		
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			custom_trigger_tooltip =  {
+				tooltip = "Can lessen the policy on displaced population"
+				can_decrease_displacement = yes
+			}
+		}
+
+		visible = {
+			can_decrease_displacement = yes
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Lower the policies and lessen their impacts"
+			hidden_effect = {
+				decrease_displacement = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				has_war = no
+				add = 100
+			}
+		}
+	}
+
+	DPP_allow_refugee_and_immigrant = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+		
+		days_re_enable = 365
+		
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			NOT = { has_country_flag = open_border_policy }
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "We will welcome anybody from wartorn nations"
+			hidden_effect = {
+				set_country_flag = open_border_policy
+				clr_country_flag = closed_border_policy
+			}
+		}
+
+		ai_will_do = { #only dem and nonaligned will do it
+			factor = 0
+			modifier = {
+				has_government = democratic
+				tag = USA #land of the free
+				add = 200
+			}
+			modifier = {
+				has_government = democratic
+				date > 1939.1.1
+				add = 200
+			}
+			modifier = {
+				has_government = neutrality
+				any_other_country = {
+					is_major = yes
+					has_war = yes
+				}
+				date > 1941.1.1
+				add = 200
+			}
+		}
+	}
+
+	DPP_chase_refugee_and_immigrant = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+		
+		days_re_enable = 365
+		
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			NOT = { has_country_flag = closed_border_policy }
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "We will not welcome foreigners"
+			hidden_effect = {
+				set_country_flag = closed_border_policy
+				clr_country_flag = open_border_policy
+			}
+		}
+
+		ai_will_do = { #only evil countries will do it
+			factor = 0
+			modifier = {
+				has_government = communism
+				add = 200
+			}
+			modifier = {
+				has_government = fascism
+				add = 200
+			}
+			modifier = {
+				has_government = neutrality
+				date < 1940.1.1
+				add = 200
+			}
+		}
+	}
+}
+	

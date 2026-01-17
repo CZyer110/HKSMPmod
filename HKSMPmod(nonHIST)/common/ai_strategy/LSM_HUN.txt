@@ -1,0 +1,44 @@
+
+HUN_CAS_slave_of_the_Axis = {
+	allowed = {
+		original_tag = HUN
+	}
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = GER
+		NOT = {
+			has_country_flag = LSM_eligibility_nation
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = -50
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 200
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = 10
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -150
+	}
+}

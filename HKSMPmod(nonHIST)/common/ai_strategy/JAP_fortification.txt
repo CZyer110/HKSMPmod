@@ -1,0 +1,337 @@
+
+japan_the_greater_fortification = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP = {
+				naval_strength_ratio = {
+					tag = USA
+  					ratio < 0.25
+  				}
+  			}
+			AND = {
+				has_war_with = CHI
+				NOT = { 
+					any_state = { 
+						is_core_of = CHI
+						is_controlled_by = JAP
+					}
+				}
+			}
+			645 = { controller = { has_war_with = JAP } }
+		}
+		any_enemy_country = {
+			is_major = yes
+			is_ai = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = research_weight_factor
+		id = basic_fortification_tech
+		value = 100
+	}
+
+	ai_strategy = {
+		type = research_weight_factor
+		id = coastal_fort_tech_1 
+		value = 100
+	}
+
+	ai_strategy = {
+		type = research_weight_factor
+		id = land_fort_tech_1 
+		value = 100
+	}
+
+	ai_strategy = {
+		type = research_weight_factor
+		id = coastal_fort_tech_2 
+		value = 100
+	}
+
+	ai_strategy = {
+		type = research_weight_factor
+		id = land_fort_tech_2 
+		value = 100
+	}
+}
+
+japan_the_greater_fortification_step_1 = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		OR = {
+			JAP = {
+				naval_strength_ratio = {
+					tag = USA
+  					ratio < 0.25
+  				}
+  			}
+			AND = {
+				has_war_with = CHI
+				NOT = { 
+					any_state = { 
+						is_core_of = CHI
+						is_controlled_by = JAP
+					}
+				}
+			}
+			645 = { controller = { has_war_with = JAP } }
+		}
+		any_enemy_country = {
+			is_major = yes
+			is_ai = no
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 4102 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 12302 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 9950 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1158 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7110 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1205 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1092 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 10052 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 11946 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7212 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7072 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 12031 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7113 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 9985 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1136 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1067 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 9998 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 1182 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7157 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 7087 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 4188 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 9859 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 11847 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 6994 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 10125 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 10125 
+		value = 6
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 7072 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11960 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 9998 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 1182 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 9950 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 1092 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 1097 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 12072 
+		value = 10
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 7157 
+		value = 10
+	}
+}

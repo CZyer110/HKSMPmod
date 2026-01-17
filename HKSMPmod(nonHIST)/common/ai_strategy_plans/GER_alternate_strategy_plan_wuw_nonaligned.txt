@@ -1,0 +1,274 @@
+German_alternate_kaiser = {
+	name = "German Alternate plan to restore the Kaiser"
+	desc = "Wir wollen unsren Kaiser Wilhelm wiederhaben!"
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Gotterdammerung"
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_KAISER
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = KAISER
+			}
+			AND = {
+				has_game_rule = { 
+					rule = GER_ai_behavior
+					option = DEFAULT
+				}
+				has_completed_focus = GER_oppose_hitler_ww #historical mode off, Germany picked oppose Hitler
+				NOT = { has_country_flag = GER_AI_RANDOM_KAISER }
+				NOT = { has_country_flag = GER_AI_RANDOM_DEMOCRATIC }
+				NOT = { has_country_flag = GER_AI_RANDOM_COMMUNIST_STALINIST }
+				NOT = { has_country_flag = GER_AI_RANDOM_STRASSER }
+				NOT = { has_country_flag = GER_AI_RANDOM_KAISERREICH }
+				NOT = { has_country_flag = GER_AI_RANDOM_COMMUNIST_SPARTACUS }
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+
+		GER_tend_to_the_future_of_germany
+		GER_monarchist_sentiment
+		GER_revive_the_kaiserreich_ww
+		GER_return_of_the_kaiser_ww
+
+		GER_oppose_hitler_ww
+		GER_rally_the_nation
+		GER_denazification_campaigns
+		GER_expatriate_the_communists_ww
+	
+		GER_prioritize_economic_growth
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_abolish_price_controls
+		GER_construct_the_reichsautobahn
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+
+		GER_workers_rights
+		GER_realpolitik
+		GER_mitteleuropa
+		GER_brothers_in_arms
+		GER_rekindle_imperial_sentiment_ww
+		GER_align_czechoslovakia
+		GER_sway_the_balkans
+		GER_industrial_expansion
+		GER_invest_in_vereinigte_stahlwerke
+		GER_agricultural_reforms
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_war_production
+
+		GER_demand_the_return_of_southern_jutland
+	
+
+		GER_mitteleuropa_cooperation_sphere
+		GER_trade_agreements
+		GER_align_italy
+		GER_bring_turkey_into_the_fold
+
+		GER_see_to_the_eastern_front_ww
+		GER_danzig_for_guarantees_ww
+		GER_safeguard_the_baltic_ww
+		GER_establish_a_customs_union
+		GER_build_the_eastern_bulwark
+		GER_extend_mitteleuropas_bounderies
+		GER_reach_out_to_scandinavia
+		GER_fan_prussian_militarism
+		GER_re_establish_the_landwehr
+
+		GER_weltpolitik
+		GER_the_second_naval_race
+		GER_rebuild_the_high_seas_fleet_ww
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+	
+		GER_reject_the_locarno_treaty
+		GER_schlieffen_once_more_ww
+		GER_reinstate_imperial_possessions_ww
+		GER_integrate_western_german_speakers
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		GER_andreas_hermes = 5
+		GER_adolf_friedrich_von_mecklenburg = 5
+		GER_walter_ulbricht = 0
+		goering = 0
+	}
+
+	traits = {
+		GER_reich_marshal = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_the_monarchy_compromise_ww = 0
+		GER_remilitarize_the_rhineland = 0
+	}
+
+}
+
+German_alternate_kaiserreich = {
+	name = "German Alternate plan to restore the Kaiser"
+	desc = "Wir wollen unsren Kaiser Wilhelm wiederhaben!"
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Gotterdammerung"
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_KAISERREICH
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = KAISERREICH
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		#Things to do ASAP
+		GER_tend_to_the_future_of_germany # 35 AS SOON AS THE GCW IS OVER, THEN PUSH FOR CONSERVATIVE DEMOCRACY
+		GER_monarchist_sentiment # 14
+		GER_revive_the_kaiserreich_ww # 35
+		GER_military_dictatorship
+		# TODO_JA and TODO_Danne: This one wants the Kaiser back, but there could be a more agressive military controlled ai strat plan as well? 
+
+		GER_develop_heraeus_facilities # 70 DO it as soon as possible plz
+
+		# 1936  
+		GER_oppose_hitler_ww
+	
+		GER_prioritize_economic_growth
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_abolish_price_controls
+		GER_rally_the_nation
+		GER_denazification_campaigns
+		GER_housing_developments
+		GER_expatriate_the_communists_ww
+
+		GER_prepare_for_the_next_blockade
+		GER_construct_the_reichsautobahn
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+
+		GER_workers_rights
+
+		GER_demand_the_return_of_southern_jutland
+		GER_realpolitik
+		GER_mitteleuropa
+		GER_the_austrian_question
+		GER_industrial_expansion
+		GER_invest_in_vereinigte_stahlwerke
+		GER_agricultural_reforms
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_war_production
+
+		GER_carve_up_czechoslovakia
+		GER_align_czechoslovakia
+		GER_sway_the_balkans
+		GER_mitteleuropa_cooperation_sphere
+		GER_trade_agreements
+		GER_align_italy
+		GER_bring_turkey_into_the_fold
+
+
+		GER_develop_modern_maneuver_warfare
+		GER_the_prussian_legacy
+		GER_instill_auftragstaktik
+
+		GER_restore_the_brest_litovsk_borders
+		GER_memel_ultimatum
+		GER_restore_eastern_imperial_possessions
+		GER_demand_further_polish_concessions
+		GER_demand_lithuanian_integration
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries	
+
+		GER_the_first_berlin_award
+		GER_the_second_berlin_award
+
+		GER_establish_eastern_grand_duchies
+		GER_subduing_the_baltic_states
+		GER_fan_prussian_militarism
+		GER_re_establish_the_landwehr 
+
+
+		GER_conquer_italy
+	
+		GER_reject_the_locarno_treaty
+		GER_schlieffen_once_more_ww
+		GER_reinstate_imperial_possessions_ww
+		GER_integrate_western_german_speakers
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		GER_andreas_hermes = 5
+		GER_adolf_friedrich_von_mecklenburg = 5
+		GER_walter_ulbricht = 0
+		goering = 0
+	}
+
+	traits = {
+		GER_reich_marshal = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_the_monarchy_compromise_ww = 0
+		GER_remilitarize_the_rhineland = 0
+	}
+
+}

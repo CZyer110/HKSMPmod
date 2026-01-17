@@ -1,0 +1,254 @@
+DEN_historical_plan = {
+	name = "Denmark's Historical Plan"
+	desc = "Historical behavior for Denmark"
+
+	allowed = {
+		tag = DEN
+		has_dlc = "Arms Against Tyranny"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = DEN_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = DEN_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = { #Abort if DEN did NOT become a puppet through the 'Declaration of Neutrality' Idea
+		OR = {
+			AND = {
+				is_subject = yes
+				NOT = { has_country_flag = DEN_is_protectorate_flag }
+			}
+			AND = {
+				GER_is_oppose_hitler = yes
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = DEN_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+		}
+	}
+
+	ai_national_focuses = {
+
+		DEN_kanslergadeforliget
+		DEN_devalue_the_krone
+
+		DEN_declare_neutrality
+		DEN_political_unity
+		DEN_policy_of_disarmament
+		DEN_social_stability
+		DEN_sign_forsvarsforliget
+
+		DEN_build_motorveje
+		DEN_no_market_regulations
+		DEN_welcome_foreign_scientists
+		DEN_side_with_industry
+		DEN_import_machinery_and_material
+
+		DEN_modernize_agricultural_machinery
+		DEN_agricultural_reinvestments
+		DEN_increase_produce_production
+		DEN_full_employment
+		DEN_industrial_reinvestments
+
+		DEN_modernize_industrial_machinery
+		DEN_increase_industrial_production
+		DEN_research_and_development
+		DEN_north_sea_oil_drilling
+		DEN_trade_with_britain
+		DEN_trade_with_germany
+
+
+		DEN_industrial_investments
+		DEN_public_works
+		DEN_agricultural_subsidies
+		DEN_support_schleswigian_farmers
+		DEN_connect_the_islands
+		DEN_expand_institut_for_teoretisk_fysik
+		DEN_expand_the_industries
+		DEN_aalborg_portland_cement_plant
+		DEN_support_bornholms_industries
+		DEN_reorient_production_lines
+		DEN_danske_stalvalsevaerket
+		DEN_strengthen_military_industries
+		DEN_protect_bornholm
+		DEN_protect_the_faroe_islands
+		DEN_support_the_faroes_industries
+		DEN_develop_greenland
+		DEN_expand_the_ivittuut_mine
+		DEN_prospecting_new_sites
+		DEN_protect_greenland
+		
+		DEN_collaboration_government
+		DEN_align_with_overlord
+		DEN_seek_industrial_investments
+		DEN_seize_the_production
+		DEN_adjust_industrial_prioritize
+		DEN_increase_cooperation
+		DEN_pledge_allegiance
+		DEN_seek_military_investments
+		DEN_contribute_to_the_war
+	}
+
+	#Never takes these
+	focus_factors = {
+		DEN_unify_the_right = 0
+		DEN_start_the_rearmament = 0
+		DEN_sanction_sabotages = 0
+		DEN_claim_sweden = 0
+		DEN_safeguard_the_eastern_front = 0
+		DEN_secure_the_norwegian_coast = 0
+		DEN_petition_for_independence = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+DEN_historical_plan_GER_oppose_hitler = {
+	name = "Denmark's Historical Plan but Germany opposed Hitler"
+	desc = "Historical behavior for Denmark"
+
+	allowed = {
+		tag = DEN
+		has_dlc = "Arms Against Tyranny"
+	}
+	enable = {
+		GER_is_oppose_hitler = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = DEN_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes
+				NOT = { has_country_flag = DEN_is_protectorate_flag }
+			}
+		}
+	}
+
+	ai_national_focuses = {
+
+		DEN_kanslergadeforliget
+		DEN_devalue_the_krone
+
+		DEN_declare_neutrality
+		DEN_political_unity
+		DEN_start_the_rearmament
+		DEN_social_stability
+		DEN_sign_forsvarsforliget
+
+		DEN_build_motorveje
+		DEN_heavy_market_regulations
+		DEN_welcome_foreign_scientists
+		DEN_side_with_industry
+		DEN_trade_with_britain
+		DEN_trade_with_germany
+
+		DEN_national_unity
+		DEN_seek_protection
+		DEN_sign_non_aggression_deal
+		DEN_sign_a_trade_deal
+		DEN_science_pact
+		DEN_strength_in_numbers
+		DEN_industrial_preparations
+		DEN_military_preparations
+		DEN_civilian_preparations
+		DEN_full_social_mobilization
+		DEN_military_cooperation_program
+		DEN_joint_military_drills
+		DEN_nordic_security
+		
+
+		DEN_industrial_investments
+		DEN_public_works
+		DEN_agricultural_subsidies
+		DEN_support_schleswigian_farmers
+		DEN_connect_the_islands
+		DEN_expand_institut_for_teoretisk_fysik
+		DEN_expand_the_industries
+		DEN_aalborg_portland_cement_plant
+		DEN_support_bornholms_industries
+		DEN_reorient_production_lines
+		DEN_danske_stalvalsevaerket
+		DEN_strengthen_military_industries
+		DEN_protect_bornholm
+		DEN_protect_the_faroe_islands
+		DEN_support_the_faroes_industries
+		DEN_develop_greenland
+		DEN_expand_the_ivittuut_mine
+		DEN_prospecting_new_sites
+		DEN_protect_greenland
+		
+		DEN_collaboration_government
+		DEN_align_with_overlord
+		DEN_seek_industrial_investments
+		DEN_seize_the_production
+		DEN_adjust_industrial_prioritize
+		DEN_increase_cooperation
+		DEN_pledge_allegiance
+		DEN_seek_military_investments
+		DEN_contribute_to_the_war
+	}
+
+	#Never takes these
+	focus_factors = {
+		DEN_unify_the_right = 0
+		DEN_sanction_sabotages = 0
+		DEN_claim_sweden = 0
+		DEN_safeguard_the_eastern_front = 0
+		DEN_secure_the_norwegian_coast = 0
+		DEN_petition_for_independence = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

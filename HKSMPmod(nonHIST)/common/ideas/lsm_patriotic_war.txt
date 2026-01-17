@@ -1,0 +1,769 @@
+ideas = {
+
+	hidden_ideas = {
+
+		last_offensive_was_not_good = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				ai_focus_aggressive_factor = -1
+				ai_focus_defense_factor = 10
+			}
+
+		}
+
+		last_offensive_was_shit = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+		}
+
+		GER_dday_counteroffensive = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+		}
+
+		blitzkrieg_on_a_roll = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				OR = {
+					has_idea = GER_barbarossa_offensive_1
+					has_idea = GER_barbarossa_offensive_2
+					has_idea = GER_barbarossa_offensive_3
+					has_idea = GER_barbarossa_offensive_4
+					has_idea = GER_barbarossa_offensive_5
+				}
+				has_equipment = { infantry_equipment > -30000 } #go a bit deeper if we are on a streak
+			}
+			
+			removal_cost = -1
+
+		}
+
+		GER_barbarossa_offensive_1 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						NOT = { has_country_flag = GER_is_making_progress }
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_2 days = 7 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 28
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_2 days = 14 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 29 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 5 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_2 days = 21 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 6 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_2 days = 28 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_barbarossa_offensive_2 days = 15 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_barbarossa_offensive_2 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						NOT = { has_country_flag = GER_is_making_progress }
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_3 days = 7 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 21
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_3 days = 14 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 22 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 5 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_3 days = 21 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 6 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_3 days = 28 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_barbarossa_offensive_3 days = 10 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_barbarossa_offensive_3 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						NOT = { has_country_flag = GER_is_making_progress }
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_4 days = 7 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 14
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_4 days = 12 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 15 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_4 days = 17 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 4 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_4 days = 22 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_barbarossa_offensive_4 days = 10 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_barbarossa_offensive_4 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						NOT = { has_country_flag = GER_is_making_progress }
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_5 days = 5 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 10
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_5 days = 7 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 11 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_5 days = 10 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_barbarossa_offensive_5 days = 30 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_barbarossa_offensive_5 days = 7 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_barbarossa_offensive_5 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 75 
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 60 } #we will do an early winter offensive instead, or wait til next year
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 50
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 76
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 30 } #we will make a strong push during early winter and perhaps to spring
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 25
+						}
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days < 51
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 15 } #we will make a strong push during early winter and perhaps to spring
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_1 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = days_since_last_change_on_the_map
+							days < 3 #we are being pushed back
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_not_good days = 180 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_2 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = days_since_last_change_on_the_map
+							days < 3 #we are being pushed back
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_not_good days = 150 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_3 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = days_since_last_change_on_the_map
+							days < 3 #we are being pushed back
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_not_good days = 120 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_4 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = days_since_last_change_on_the_map
+							days < 3 #we are being pushed back
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_not_good days = 90 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		SOV_patriotic_offensive_5 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = days_since_last_change_on_the_map
+							days < 3 #we are being pushed back
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_not_good days = 90 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+		
+		SOV_barbarossa_no_retreat = { 
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = 0.2
+				army_morale_factor = 0.2
+				army_speed_factor = 0.2 
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+			}
+		}
+
+		GER_western_front_offensive_1 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = { NOT = { has_country_flag = GER_is_making_progressFRA } }
+					add_timed_idea = { idea = GER_western_front_offensive_2 days = 5 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 28
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_2 days = 14 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 29 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 5 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_2 days = 28 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 6 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_2 days = 42 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_western_front_offensive_2 days = 15 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_western_front_offensive_2 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = { NOT = { has_country_flag = GER_is_making_progressFRA } }
+					add_timed_idea = { idea = GER_western_front_offensive_3 days = 5 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 21
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_3 days = 14 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 22 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 5 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_3 days = 21 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 6 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_3 days = 28 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_western_front_offensive_3 days = 10 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_western_front_offensive_3 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = { NOT = { has_country_flag = GER_is_making_progressFRA } }
+					add_timed_idea = { idea = GER_western_front_offensive_4 days = 5 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progress
+							days > 14
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_4 days = 10 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 15 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_4 days = 14 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 4 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_4 days = 19 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_western_front_offensive_4 days = 10 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_western_front_offensive_4 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = { NOT = { has_country_flag = GER_is_making_progressFRA } }
+					add_timed_idea = { idea = GER_western_front_offensive_5 days = 5 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 10
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_5 days = 7 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 11 #still works like a charm
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_5 days = 10 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 3 #still works like a charm
+						}
+					}
+					add_timed_idea = { idea = GER_western_front_offensive_5 days = 30 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = spacemarine
+					}
+					modify_timed_idea = { idea = GER_western_front_offensive_5 days = 7 }
+				}
+			}
+			
+			removal_cost = -1
+		}
+
+		GER_western_front_offensive_5 = {
+			allowed = {
+				always = yes
+			}
+
+			available = {
+				always = yes
+			}
+			
+			on_remove = {
+				if = { 
+					limit = { NOT = { has_country_flag = GER_is_making_progressFRA } } 
+					add_timed_idea = { idea = last_offensive_was_shit days = 60 }
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 75 
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 60 } #we will do an early winter offensive instead, or wait til next year
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 50
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 76
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 30 } #we will make a strong push during early winter and perhaps to spring
+				}
+				if = { 
+					limit = {
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days > 25
+						}
+						has_country_flag = {
+							flag = GER_is_making_progressFRA
+							days < 51
+						}
+					}
+					add_timed_idea = { idea = last_offensive_was_shit days = 15 } #we will make a strong push during early winter and perhaps to spring
+				}
+			}
+			
+			removal_cost = -1
+		}
+	}
+}

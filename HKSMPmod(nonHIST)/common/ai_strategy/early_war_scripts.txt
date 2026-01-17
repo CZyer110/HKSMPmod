@@ -1,0 +1,132 @@
+punitive_action_early_war_attempt = {
+	enable = {
+		has_global_flag = is_active
+		OR = {
+			any_country = {
+				is_major = yes
+				is_ai = no
+				OR = {
+					is_justifying_wargoal_against = ROOT
+					has_wargoal_against = ROOT
+					has_war_with = ROOT
+				}
+			}
+			any_country = {
+				OR = {
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+					is_guaranteed_by = ROOT
+					AND = {
+						has_idea = league_of_nations_member_idea
+						league_of_nations_is_active = yes
+						ROOT = { has_idea = league_of_nations_member_idea }
+					}
+				}
+				any_other_country = {
+					is_ai = no
+					is_major = yes
+					OR = {
+						is_justifying_wargoal_against = PREV
+						has_wargoal_against = PREV
+						has_war_with = PREV
+					}
+				}
+			}
+		}
+		date < 1939.1.1
+		has_offensive_war = no
+		NOT = {
+			any_country = {
+				ROOT = { is_justifying_wargoal_against = PREV }
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 300
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 300
+	}
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = -300
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -50
+	}
+	
+	ai_strategy = {
+       		type = force_build_armies
+        	value = 300
+    	}
+}
+
+punitive_action_early_war_mil = {
+	enable = {
+		OR = {
+			any_country = {
+				is_major = yes
+				OR = {
+					is_justifying_wargoal_against = ROOT
+					has_wargoal_against = ROOT
+					has_war_with = ROOT
+				}
+			}
+			any_country = {
+				OR = {
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+					is_guaranteed_by = ROOT
+					AND = {
+						has_idea = league_of_nations_member_idea
+						league_of_nations_is_active = yes
+						ROOT = { has_idea = league_of_nations_member_idea }
+					}
+				}
+				any_other_country = {
+					is_major = yes
+					OR = {
+						is_justifying_wargoal_against = PREV
+						has_wargoal_against = PREV
+						has_war_with = PREV
+					}
+				}
+			}
+			AND = {
+				OR = {
+					is_axis_ai = yes
+					is_neighbor_of = SOV
+				}
+				SOV_has_early_war_trigger = yes
+			}
+		}
+		date < 1939.1.1
+		has_offensive_war = no
+		NOT = {
+			any_country = {
+				ROOT = { is_justifying_wargoal_against = PREV }
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 50
+	}
+}

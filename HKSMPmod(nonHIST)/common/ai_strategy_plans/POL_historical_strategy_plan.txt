@@ -1,0 +1,833 @@
+POL_historical_plan = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = yes
+		GER = { is_ai = no }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		
+		OR = {
+			is_subject = yes
+			AND = {
+				has_global_flag = SOV_has_early_war
+				NOT = { has_completed_focus = POL_complete_april_constitution }
+			}
+			has_global_flag = allies_mainland_withdrawal
+		}
+	}
+
+	ai_national_focuses = {
+		POL_prepare_for_the_inevitable
+		POL_resistance_industries
+		POL_exile_industries
+		POL_foreign_air_support
+		POL_foreign_army_support
+		POL_aces_in_exile
+
+
+
+		POL_the_four_year_plan
+		POL_additional_research_slot1
+		POL_central_region_strategy
+		POL_expansion_of_new_towns
+		POL_invest_in_the_old_polish_region
+		POL_modernize_congressional_factories
+		POL_fill_the_railways_gaps
+
+		#1937
+		POL_agrarian_reform
+		POL_invest_in_eastern_poland
+		POL_complete_april_constitution
+		POL_polish_militarism
+		
+		#1938
+		POL_consolidate_sanation_government
+		POL_the_sanation_right
+		POL_the_sanation_left
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_department_for_home_defence
+		POL_draft_a_new_constitution
+
+		#1939
+		POL_second_man_of_the_state
+		POL_ozon
+		POL_start_central_industrial_region
+		POL_expand_central_industrial_region
+		POL_prepare_for_the_next_war
+		POL_plan_west
+		POL_local_western_plans
+		POL_sudeten_mountaineers
+		POL_the_prusya_army
+		POL_complete_plan_west
+		POL_plan_east
+		POL_ruthenian_army
+		POL_belorussian_army
+		POL_expand_katowice_mines
+		POL_additional_research_slot2
+		POL_develop_polish_ship_building
+		POL_new_military_academy
+		POL_standardisation_of_equipment
+		POL_army_modernisation
+		
+		
+		
+		#1943
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 15
+		right_industrialist = 20
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_anti_mainland = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_global_flag = allies_mainland_withdrawal
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		
+		OR = {
+			is_subject = yes
+			AND = {
+				has_global_flag = SOV_has_early_war
+				NOT = { has_completed_focus = POL_complete_april_constitution }
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		POL_prepare_for_the_inevitable
+		POL_resistance_industries
+		POL_exile_industries
+		POL_foreign_air_support
+		POL_foreign_army_support
+		POL_aces_in_exile
+
+		POL_the_four_year_plan
+		POL_additional_research_slot1
+		POL_fill_the_railways_gaps
+		POL_agrarian_reform
+
+		POL_complete_april_constitution
+		POL_polish_militarism
+
+		POL_consolidate_sanation_government
+		POL_the_sanation_right
+		POL_the_sanation_left
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_department_for_home_defence
+		POL_draft_a_new_constitution
+
+		POL_eliminate_socialist_parties
+		POL_camp_of_national_unity
+
+		POL_prepare_for_the_next_war
+		POL_new_military_academy
+		POL_standardisation_of_equipment
+		POL_army_modernisation
+		POL_plan_west
+		POL_local_western_plans
+		POL_invest_anti_air
+		POL_complete_plan_west
+		POL_plan_east
+		POL_local_eastern_plans
+
+
+
+		POL_start_central_industrial_region
+		POL_expand_central_industrial_region
+		POL_sudeten_mountaineers
+		POL_the_prusya_army
+		POL_ruthenian_army
+		POL_belorussian_army
+		POL_expand_katowice_mines
+		POL_additional_research_slot2
+		POL_develop_polish_ship_building
+		
+		
+		
+		#1943
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 15
+		right_industrialist = 20
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_2 = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = yes
+		GER = { is_ai = yes }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		
+		OR = {
+			has_global_flag = allies_mainland_withdrawal
+			is_subject = yes
+			GER = { is_ai = no }
+			AND = {
+				has_global_flag = SOV_has_early_war
+				NOT = { has_completed_focus = POL_complete_april_constitution }
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		POL_the_four_year_plan
+		POL_central_region_strategy
+		POL_expansion_of_new_towns
+		POL_additional_research_slot1
+		POL_fill_the_railways_gaps
+		POL_agrarian_reform
+
+
+
+		POL_complete_april_constitution
+		POL_polish_militarism
+		POL_consolidate_sanation_government
+		POL_the_castle
+		POL_the_sanation_right
+		POL_the_sanation_left
+		POL_department_for_home_defence
+		POL_eliminate_socialist_parties
+		POL_support_right_paramilitaries
+		POL_legion_of_merit
+		POL_dissolve_the_sejm
+		
+		POL_camp_of_national_unity #Sidenote: This one was missing
+		POL_align_with_the_west
+		POL_lithuanian_ultimatum
+		POL_polish_revanchism
+		#1939
+		POL_develop_polish_ship_building
+		POL_attract_poles_to_gdynia
+		POL_study_foreign_built_ships
+		POL_expand_gdynia_seaport
+		#1940
+		POL_second_man_of_the_state
+		POL_invest_in_the_old_polish_region
+		POL_modernize_congressional_factories
+		POL_warsaw_main_railway_station
+		POL_central_defence_of_poland
+		
+		#1941
+		POL_join_allies
+		POL_plan_west
+		POL_the_prusya_line
+		POL_the_prusya_army
+		POL_hel_fortified_area
+		#1942
+		POL_expand_poznan_forts
+		POL_silesia_fortified_area
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 15
+		right_industrialist = 20
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_anti_soviet = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		AND = {
+			has_global_flag = SOV_has_early_war
+			NOT = { has_completed_focus = POL_complete_april_constitution }
+		}
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		OR = {
+			AND = {
+				has_global_flag = SOV_has_early_war
+				has_completed_focus = POL_complete_april_constitution
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		POL_prepare_for_the_inevitable
+		POL_resistance_industries
+		POL_exile_industries
+		POL_foreign_air_support
+		POL_foreign_army_support
+		POL_aces_in_exile
+
+
+
+		POL_the_four_year_plan
+		POL_additional_research_slot1
+		POL_central_region_strategy
+		POL_expansion_of_new_towns
+		POL_invest_in_the_old_polish_region
+		POL_modernize_congressional_factories
+		POL_fill_the_railways_gaps
+		POL_agrarian_reform
+		POL_invest_in_eastern_poland
+		POL_start_central_industrial_region
+		POL_expand_central_industrial_region
+		POL_expand_katowice_mines
+
+		#1937
+		POL_complete_april_constitution
+		POL_polish_militarism
+		
+		#1938
+		POL_consolidate_sanation_government
+		POL_the_sanation_right
+		POL_the_sanation_left
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_department_for_home_defence
+		POL_draft_a_new_constitution
+
+		#1939
+		POL_second_man_of_the_state
+		POL_ozon
+		POL_prepare_for_the_next_war
+		POL_plan_west
+		POL_local_western_plans
+		POL_sudeten_mountaineers
+		POL_the_prusya_army
+		POL_complete_plan_west
+		POL_plan_east
+		POL_ruthenian_army
+		POL_belorussian_army
+		POL_additional_research_slot2
+		POL_develop_polish_ship_building
+		POL_new_military_academy
+		POL_standardisation_of_equipment
+		POL_army_modernisation
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 15
+		right_industrialist = 20
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_all_sanationist = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		has_completed_focus = POL_consolidate_sanation_government
+	}
+
+	ai_national_focuses = {
+		POL_the_four_year_plan
+		POL_central_region_strategy
+		POL_expansion_of_new_towns
+		POL_additional_research_slot1
+		POL_fill_the_railways_gaps
+		POL_agrarian_reform
+		POL_complete_april_constitution
+		POL_polish_militarism
+		POL_consolidate_sanation_government
+
+	}
+	
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_left_sanationist = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = POL_consolidate_sanation_government
+		OR = {
+			AND = {
+				CZE = { 
+					is_in_faction = no
+					has_government = democratic
+				}
+				ROM = { 
+					is_in_faction = no
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+				LIT = { 
+					is_in_faction = no
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+				GER = { has_government = fascism }
+			}
+			has_completed_focus = POL_the_left_chairman
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		POL_the_sanation_left
+		POL_the_sanation_right
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_draft_a_new_constitution
+		POL_promote_chemical_industry
+		POL_department_for_home_defence
+		POL_the_left_chairman
+		POL_common_organization_of_society
+		POL_dissolve_the_bbwr
+		POL_baltic_security
+		POL_baltic_alliance_focus
+		POL_protect_czechozlovakia
+		POL_romanian_alliance
+		POL_the_between_the_seas_concept
+	}
+	
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 3.0
+		}
+	}
+
+}
+POL_historical_plan_right_sanationist = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = POL_consolidate_sanation_government
+		OR = {
+			AND = {
+				CZE = { is_in_faction = no }
+				NOT = { LIT = { has_government = communism } }
+				NOT = { GER = { has_government = fascism } }
+			}
+			has_completed_focus = POL_second_man_of_the_state
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		POL_the_sanation_left
+		POL_the_sanation_right
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_draft_a_new_constitution
+		POL_promote_chemical_industry
+		POL_department_for_home_defence
+
+		POL_second_man_of_the_state
+		POL_ozon
+		POL_polish_revanchism
+		POL_lithuanian_annexation
+		POL_baltic_ultimatums
+		POL_pan_slavic_revanchism
+		POL_annex_czech
+		POL_the_old_borders
+		POL_sea_to_sea
+		POL_the_between_the_seas_concept
+	}
+	
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+
+}
+POL_historical_plan_central_sanationist = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = POL_consolidate_sanation_government
+		OR = {
+			NOT = {
+				OR = {
+					has_completed_focus = POL_the_left_chairman
+					has_completed_focus = POL_second_man_of_the_state
+					AND = {
+						CZE = { is_in_faction = no }
+						NOT = { LIT = { has_government = communism } }
+						NOT = { GER = { has_government = fascism } }
+					}
+					AND = {
+						CZE = { 
+							is_in_faction = no
+							has_government = democratic
+						}
+						ROM = { 
+							is_in_faction = no
+							OR = {
+								has_government = neutrality
+								has_government = democratic
+							}
+						}
+						LIT = { 
+							is_in_faction = no
+							OR = {
+								has_government = neutrality
+								has_government = democratic
+							}
+						}
+						GER = { has_government = fascism }
+					}
+				}
+			}
+			has_completed_focus = POL_camp_of_national_unity
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		POL_the_sanation_left
+		POL_the_sanation_right
+		POL_the_castle
+		POL_legion_of_merit
+		POL_support_right_paramilitaries
+		POL_draft_a_new_constitution
+		POL_department_for_home_defence
+		POL_promote_chemical_industry
+		POL_second_man_of_the_state
+
+		POL_camp_of_national_unity
+		POL_align_with_the_west
+		POL_join_allies
+		POL_romanian_bridgehead_strategy
+		POL_lithuanian_ultimatum
+		POL_lithuanian_alliance
+		POL_the_between_the_seas_concept
+	}
+	
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+POL_historical_plan_sanationist_mobilization = {
+	name = "POL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = POL
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = POL_consolidate_sanation_government
+		OR = { 
+			has_completed_focus = POL_camp_of_national_unity 
+			has_completed_focus = POL_ozon
+			has_completed_focus = POL_dissolve_the_bbwr
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = POL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = POL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = POL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+	}
+
+	focus_factors = {
+		POL_national_defence_fund = 2.0	
+		POL_start_central_industrial_region = 5.0
+		POL_additional_research_slot2 = 10.0
+		POL_invest_in_the_old_polish_region = 5.0
+		POL_modernize_congressional_factories = 5.0
+		POL_invest_in_eastern_poland = 5.0
+		POL_expand_central_industrial_region = 5.0
+		POL_prepare_for_the_next_war = 10.0
+		POL_new_military_academy = 2.0
+		POL_standardisation_of_equipment = 1.5
+		POL_army_modernisation = 2.0	
+		POL_plan_east = 1.5
+		POL_plan_west = 1.5
+		POL_local_eastern_plans = 1.5
+		POL_local_western_plans = 1.5
+		POL_ruthenian_army = 2.0
+		POL_belorussian_army = 2.0
+		POL_complete_plan_east = 2.0
+		POL_invest_anti_air = 2.0
+		POL_sudeten_mountaineers = 2.0
+		POL_the_prusya_army = 2.0
+		POL_complete_plan_west = 2.0
+	}
+
+	
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

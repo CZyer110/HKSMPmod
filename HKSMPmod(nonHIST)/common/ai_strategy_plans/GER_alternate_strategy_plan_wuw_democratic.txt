@@ -1,0 +1,125 @@
+
+# German democratic plan (Playing with Götterdämerrung)
+German_alternate_democratic_ww = {
+	name = "German Alternate plan to restore democracy"
+	desc = "UNITY! JUSTICE! FREEDOM!"
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Gotterdammerung"
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+
+		GER_tend_to_the_future_of_germany
+		GER_monarchist_sentiment
+		GER_the_monarchy_compromise_ww
+		GER_re_establish_free_elections_ww
+
+		GER_oppose_hitler_ww
+		GER_rally_the_nation
+		GER_denazification_campaigns	
+		GER_ban_political_uniforms
+		GER_embrace_liberal_leanings
+	
+		GER_prioritize_economic_growth
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_abolish_price_controls
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+
+
+
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_invest_in_vereinigte_stahlwerke
+		GER_agricultural_reforms
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_war_production
+	
+		GER_realpolitik
+		GER_mitteleuropa
+		GER_the_austrian_question
+		GER_align_czechoslovakia
+		GER_sway_the_balkans
+
+		GER_mitteleuropa_cooperation_sphere
+		GER_trade_agreements
+		GER_align_italy
+		GER_bring_turkey_into_the_fold
+
+		GER_see_to_the_eastern_front_ww
+		GER_danzig_for_guarantees_ww
+		GER_safeguard_the_baltic_ww
+		GER_establish_a_customs_union
+		GER_build_the_eastern_bulwark
+		GER_extend_mitteleuropas_bounderies
+		GER_reach_out_to_scandinavia
+
+		GER_re_ratify_the_locarno_treaty
+		GER_franco_germanic_pact
+
+		GER_weltpolitik
+		GER_accept_british_naval_dominance_ww
+		GER_carve_up_congo
+		GER_anglo_germanic_defense_pact
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+	
+		GER_reverse_the_brain_drain_ww
+		GER_pool_technical_know_how_ww
+		GER_shared_rd_programs_ww
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		goering = 0
+		GER_hans_luther = 10
+	}
+
+	traits = {
+		GER_reich_marshal = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_revive_the_kaiserreich_ww = 0
+		GER_remilitarize_the_rhineland = 0
+	}
+
+}

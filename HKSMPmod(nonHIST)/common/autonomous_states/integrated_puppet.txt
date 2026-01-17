@@ -2,10 +2,9 @@ autonomy_state = {
 	id = autonomy_integrated_puppet
 	
 	is_puppet = yes
-
-	use_overlord_color = yes
 	
 	min_freedom_level = 0.2
+	use_overlord_color = yes
 	
 	manpower_influence = 1.0
 	
@@ -27,12 +26,18 @@ autonomy_state = {
 		overlord_trade_cost_factor = -0.9
 		cic_to_overlord_factor = 0.25
 		mic_to_overlord_factor = 0.75
+		peace_score_ratio_transferred_to_overlord = 0.2
+		lend_lease_tension_with_overlord = -0.40
 
 		research_sharing_per_country_bonus_factor = -0.5
 	}
 	
 	ai_subject_wants_higher = {
 		factor = 1.0
+		modifier = {
+			is_historical_focus_on = yes
+			factor = 0
+		}
 	}
 	
 	ai_overlord_wants_lower = {
@@ -48,21 +53,68 @@ autonomy_state = {
 
 		if = {
 			limit = { has_dlc = "Death or Dishonor" }
-			NOT = { has_government = fascism }
+			NOT = {
+				AND = {
+					OVERLORD = { has_government = fascism } 
+					ROOT = { has_government = fascism } 
+				}
+			}
+			
 		}
 		if = {
 			limit = {
 				has_dlc = "Waking the Tiger"
 			}
-			OVERLORD = { not = { tag = JAP } }
+
+			NOT = {
+				AND = {
+					OVERLORD = { has_government = fascism } 
+					OVERLORD = { tag = JAP } 
+				}
+				AND = {
+					OVERLORD = { has_government = neutrality } 
+					OVERLORD = { tag = JAP } 
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_dlc = "No Compromise, No Surrender"
+				OVERLORD = { tag = CHI }
+			}
+			is_chinese_warlord = no
 		}
 	}
 	
 	can_take_level = {
 		#trigger here
+		IF = {
+			limit = {
+				original_tag = COG
+				has_dlc = "Gotterdammerung"			
+			}
+			NOT = {
+				has_completed_focus = CONGO_overseas_department_of_belgium
+			}
+			NOT = {
+				AND = {
+					BEL = { is_ai = yes }
+					COG = { is_ai = yes }
+				}
+			}
+		}
 	}
 
 	can_lose_level = {
 		#trigger here
+		IF = {
+			limit = {
+				OVERLORD = { original_tag = BEL } 
+				original_tag = COG
+				has_dlc = "Gotterdammerung"			
+			}
+			has_completed_focus = CONGO_congo_free_state
+		}
 	}
 }

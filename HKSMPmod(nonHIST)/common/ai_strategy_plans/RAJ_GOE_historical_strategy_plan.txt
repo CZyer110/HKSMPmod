@@ -1,0 +1,566 @@
+RAJ_historical = {
+	name = "Indian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = RAJ
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			has_country_flag = ENG_rejected_eic
+			has_country_flag = RAJ_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		has_idea = idea_RAJ_the_long_goodbye
+	}
+
+	ai_national_focuses = {
+		RAJ_hedgemony_of_the_subcontinent
+
+		RAJ_india_united
+		RAJ_power_sharing_agreement
+		RAJ_cabinet_mission_plan
+		RAJ_a_permanent_muslim_governmental_seat
+		RAJ_inclusive_nationalism
+		RAJ_a_secular_state
+
+		RAJ_local_recruitment_offices
+		RAJ_provincial_autonomy
+		RAJ_trade_port
+		RAJ_fortify_aden
+		RAJ_princely_states_policy
+
+		RAJ_purna_swaraj
+		RAJ_uplifting_the_people_of_india
+		RAJ_form_a_federal_court
+		RAJ_litteracy_effort
+		RAJ_indo_centric_curriculum
+		RAJ_temple_entry_movements
+		RAJ_military_pensions
+		RAJ_indianize_the_army
+		RAJ_forming_an_indian_doctrine
+
+
+		RAJ_ammunition_factory_khadki
+		RAJ_rifle_factory_ishapore_west_bengal
+		RAJ_gun_and_shell_factory_cossipore
+		RAJ_ordnance_factory_medak
+		RAJ_ordnance_factory_kanpur_uttar_pradesh
+		RAJ_legacy_of_military_service
+
+
+		RAJ_tenancy_reforms
+		RAJ_agricultural_cooperatives
+		RAJ_tea_exports
+		RAJ_swadeshi_movement
+		RAJ_khadi_movement
+		
+		RAJ_model_after_soviet
+		RAJ_model_after_usa
+		RAJ_cordite_factory_aruvankadu_tamil_nadu
+		RAJ_ordnance_factory_khamaria_jabalpur
+		RAJ_engineering_revolution
+		RAJ_chariot_of_victory
+		RAJ_the_ordnance_factories_board
+		
+		RAJ_frontier_corps
+		RAJ_indian_territorial_force
+		RAJ_bombay_baroda_and_central_india_railway
+		RAJ_specialized_dietary_requirement
+		RAJ_indian_states_force
+		RAJ_relax_agrarian_society_criteria
+		RAJ_regimental_loyalty
+		RAJ_the_burma_rifles
+		RAJ_gurkhas
+		RAJ_lions_of_the_great_war_dlc
+		RAJ_royal_indian_artillery_dlc
+		RAJ_mountain_guns
+		RAJ_re_establish_the_khyber_rifles
+		RAJ_chindits_dlc
+
+		RAJ_mahatma
+		RAJ_a_congress_resurgent
+
+		RAJ_tryst_with_destiny
+		RAJ_pledge_for_the_allies
+		RAJ_kingmaker
+		RAJ_preamble_to_the_constitution_of_india
+		RAJ_india_indivisible
+		RAJ_an_economy_unbound
+		RAJ_suppress_paramilitary_organizations
+		RAJ_import_substitution_industrialisation
+		RAJ_land_reforms
+		RAJ_fight_malnutrition
+		RAJ_education_efforts
+		RAJ_to_shake_the_world	
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+RAJ_historical_b = {
+	name = "Indian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = RAJ
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			has_country_flag = ENG_rejected_eic
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = RAJ_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = RAJ_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		has_idea = idea_RAJ_the_long_goodbye
+	}
+
+	ai_national_focuses = {
+		RAJ_hedgemony_of_the_subcontinent
+		RAJ_the_ordnance_factories_board
+		RAJ_two_nation_theory_dlc
+		RAJ_the_pakistan_movement
+		RAJ_lahore_resolution
+		RAJ_united_bengal
+		RAJ_partition_preparation
+
+		RAJ_local_recruitment_offices
+		RAJ_provincial_autonomy
+		RAJ_trade_port
+		RAJ_fortify_aden
+		RAJ_princely_states_policy
+
+		RAJ_purna_swaraj
+		RAJ_uplifting_the_people_of_india
+		RAJ_form_a_federal_court
+		RAJ_litteracy_effort
+		RAJ_indo_centric_curriculum
+		RAJ_temple_entry_movements
+		RAJ_ammunition_factory_khadki
+		RAJ_rifle_factory_ishapore_west_bengal
+		RAJ_gun_and_shell_factory_cossipore
+		RAJ_ordnance_factory_medak
+		RAJ_ordnance_factory_kanpur_uttar_pradesh
+
+		RAJ_military_pensions
+		RAJ_legacy_of_military_service
+		RAJ_swadeshi_movement
+		RAJ_khadi_movement
+		RAJ_tenancy_reforms
+		RAJ_agricultural_cooperatives
+		RAJ_tea_exports
+		
+		RAJ_indianize_the_army
+		RAJ_forming_an_indian_doctrine
+		RAJ_model_after_soviet
+		RAJ_model_after_usa
+		RAJ_frontier_corps
+		RAJ_indian_territorial_force
+		RAJ_bombay_baroda_and_central_india_railway
+		RAJ_specialized_dietary_requirement
+		RAJ_indian_states_force
+		RAJ_relax_agrarian_society_criteria
+		RAJ_regimental_loyalty
+		RAJ_the_burma_rifles
+		RAJ_gurkhas
+		RAJ_lions_of_the_great_war_dlc
+		RAJ_royal_indian_artillery_dlc
+		RAJ_mountain_guns
+		RAJ_re_establish_the_khyber_rifles
+		RAJ_chindits_dlc
+
+		RAJ_mahatma
+		RAJ_a_congress_resurgent
+
+		RAJ_tryst_with_destiny
+		RAJ_pledge_for_the_allies
+		RAJ_kingmaker
+		RAJ_preamble_to_the_constitution_of_india
+		RAJ_india_indivisible
+		RAJ_an_economy_unbound
+		RAJ_suppress_paramilitary_organizations
+		RAJ_import_substitution_industrialisation
+		RAJ_land_reforms
+		RAJ_fight_malnutrition
+		RAJ_education_efforts
+		RAJ_to_shake_the_world	
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+RAJ_historical_c = {
+	name = "Indian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = RAJ
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		has_idea = idea_RAJ_the_long_goodbye
+		OR = {
+			has_country_flag = ENG_rejected_eic
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = RAJ_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = RAJ_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		RAJ_the_ordnance_factories_board
+		RAJ_local_recruitment_offices
+		RAJ_provincial_autonomy
+		RAJ_trade_port
+		RAJ_fortify_aden
+		RAJ_princely_states_policy
+		RAJ_mahatma
+		RAJ_a_congress_resurgent
+		RAJ_two_nation_theory_dlc
+		RAJ_the_pakistan_movement
+		RAJ_lahore_resolution
+		RAJ_united_bengal
+		RAJ_hedgemony_of_the_subcontinent
+		RAJ_partition_preparation
+		RAJ_tryst_with_destiny
+		RAJ_sideline_the_conflict
+		RAJ_kingmaker
+		RAJ_preamble_to_the_constitution_of_india
+		RAJ_india_indivisible
+		RAJ_an_economy_unbound
+		RAJ_suppress_paramilitary_organizations
+		RAJ_import_substitution_industrialisation
+		RAJ_land_reforms
+		RAJ_fight_malnutrition
+		RAJ_education_efforts
+		RAJ_to_shake_the_world	
+
+		RAJ_purna_swaraj
+		RAJ_uplifting_the_people_of_india
+		RAJ_form_a_federal_court
+		RAJ_litteracy_effort
+		RAJ_indo_centric_curriculum
+		RAJ_temple_entry_movements
+		RAJ_ammunition_factory_khadki
+		RAJ_rifle_factory_ishapore_west_bengal
+		RAJ_gun_and_shell_factory_cossipore
+		RAJ_ordnance_factory_medak
+		RAJ_ordnance_factory_kanpur_uttar_pradesh
+
+		RAJ_military_pensions
+		RAJ_legacy_of_military_service
+		RAJ_swadeshi_movement
+		RAJ_khadi_movement
+		RAJ_tenancy_reforms
+		RAJ_agricultural_cooperatives
+		RAJ_tea_exports
+		
+		RAJ_indianize_the_army
+		RAJ_forming_an_indian_doctrine
+		RAJ_model_after_soviet
+		RAJ_model_after_usa
+		RAJ_frontier_corps
+		RAJ_indian_territorial_force
+		RAJ_bombay_baroda_and_central_india_railway
+		RAJ_specialized_dietary_requirement
+		RAJ_indian_states_force
+		RAJ_relax_agrarian_society_criteria
+		RAJ_regimental_loyalty
+		RAJ_the_burma_rifles
+		RAJ_gurkhas
+		RAJ_lions_of_the_great_war_dlc
+		RAJ_royal_indian_artillery_dlc
+		RAJ_mountain_guns
+		RAJ_re_establish_the_khyber_rifles
+		RAJ_chindits_dlc
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+RAJ_loyalty_branch = { # 
+	name = "Loyalty Branch"
+	desc = ""
+
+	allowed = {
+		original_tag = RAJ
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = RAJ_AI_RANDOM_INDIA_LOYALTY
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_INDIA_LOYALTY
+			}
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = RAJ_ai_behavior
+					option = DEFAULT
+				}
+			}
+		}
+	}
+	abort = {
+		#is_subject = no
+	}
+
+	ai_national_focuses = {
+		RAJ_keep_calm_and_carry_on
+		RAJ_the_ordnance_factories_board
+		RAJ_his_majestys_loyal_government
+		RAJ_trade_port
+		RAJ_fortify_aden
+		RAJ_expand_the_zamindari_system
+		RAJ_crown_commodities
+		RAJ_concessions_to_the_industrialists
+		RAJ_strengthen_ties_with_british_investors_GOE
+		RAJ_the_government_of_india_act
+		RAJ_work_with_local_leaders
+		RAJ_the_empires_workshop
+		RAJ_east_india_railways_dlc
+		RAJ_the_burma_road
+		RAJ_local_recruitment_offices
+		RAJ_indian_gentleman_officers
+
+		RAJ_confer_with_the_congress
+		RAJ_favor_the_muslim_league
+		RAJ_the_indian_parliament
+
+		RAJ_the_jewel_becomes_the_crown
+		RAJ_the_dominion_of_india
+		RAJ_the_aden_protectorate
+
+		RAJ_institute_of_fundamental_research_GOE
+		RAJ_indian_air_force
+		RAJ_royal_indian_navy_dlc
+
+		RAJ_ammunition_factory_khadki
+		RAJ_gun_and_shell_factory_cossipore
+		RAJ_ordnance_factory_khamaria_jabalpur		
+		RAJ_engineering_revolution
+		RAJ_rifle_factory_ishapore_west_bengal
+		RAJ_ordnance_factory_medak
+		RAJ_ordnance_factory_kanpur_uttar_pradesh
+		RAJ_cordite_factory_aruvankadu_tamil_nadu
+		RAJ_chariot_of_victory
+
+		RAJ_linlithgows_declaration_of_war
+		RAJ_consult_with_congress_leaders
+		RAJ_mobilization_of_the_indian_army
+		RAJ_south_east_asia_command
+		RAJ_desert_training
+		RAJ_fortify_el_alamein
+		RAJ_hill_training
+		RAJ_free_abyssinia
+		RAJ_jungle_training_GOE
+		#RAJ_defense_of_malaya
+		RAJ_defense_of_burma
+		RAJ_holding_the_gates_of_india		
+		RAJ_urban_training
+
+		RAJ_indianize_the_army	
+		RAJ_forming_an_indian_doctrine
+		RAJ_model_after_soviet
+
+		RAJ_the_riches_of_the_raj
+		RAJ_bombay_baroda_and_central_india_railway
+		RAJ_great_indian_peninsula_railway_dlc
+		RAJ_south_indian_railway_company
+		RAJ_north_western_state_railway
+		RAJ_imperial_rail_renewal_act
+		RAJ_overlords_railway_investment
+
+		RAJ_the_punjab_accord
+
+		RAJ_exploit_the_frontier
+		RAJ_tata_steel_dlc
+		RAJ_assam_oil_dlc
+
+		RAJ_legacy_of_military_service
+		RAJ_relax_agrarian_society_criteria
+		RAJ_regimental_loyalty
+	
+		RAJ_military_pensions
+		RAJ_raise_import_duties
+		RAJ_reform_the_agricultural_sector
+		RAJ_rural_mechanization_program
+		RAJ_rural_development_plan
+		RAJ_imperial_industry_initiative
+		RAJ_the_great_recovery
+		RAJ_territorial_development_scheme
+
+		RAJ_royal_indian_artillery_dlc
+		RAJ_mountain_guns
+		RAJ_re_establish_the_khyber_rifles
+		RAJ_chindits_dlc
+	
+		RAJ_frontier_corps
+		RAJ_the_burma_rifles
+		RAJ_gurkhas
+		RAJ_lions_of_the_great_war_dlc
+		
+		RAJ_indian_states_force
+		RAJ_standardized_rations
+		
+		RAJ_expand_mazagon_dock_dlc
+		RAJ_found_scindia_shipyard_dlc
+		RAJ_dominate_the_bay_of_bengal
+		RAJ_increase_funding_for_the_GRSE
+		RAJ_womens_royal_indian_naval_service
+		RAJ_modernizing_navy_dlc
+		RAJ_eastern_shipyard_construction
+		
+		RAJ_armoured_corps_center_and_school
+		RAJ_mechanization_of_the_cavalry
+		RAJ_mountain_tanks
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}

@@ -1,0 +1,128 @@
+
+india_for_indians = {
+	allowed = {
+		OR = {
+			original_tag = RAJ
+			original_tag = BRM
+			original_tag = NEP
+		}
+	}
+	enable = { 
+		has_capitulated = no
+		OR = {
+			has_war_with = JAP
+			date > 1941.1.1
+		}
+		is_historical_focus_on = yes
+		NOT = { JAP = { surrender_progress > 0.02 } }
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		target = europe
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		target = africa
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		target = middle_east
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		target = south_america
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		target = north_america
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		id = INS
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		id = MAL
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 1000
+		id = PHI
+	}
+
+
+}
+RAJ_dont_touch_factory_yet = {
+	allowed = {
+		original_tag = RAJ
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_war = no
+		has_idea = civilian_economy
+		date < 1938.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -999
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -999
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 439 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 431 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 429 
+		value = 3
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 426 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 430 
+		value = 2000
+	}
+}

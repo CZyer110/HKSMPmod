@@ -1,0 +1,40 @@
+
+NOR_GER_same_ideologue_NOR = {
+	allowed = {
+		original_tag = NOR
+	}
+	enable = {
+		has_government = fascism
+		GER = {
+			has_government = fascism
+			is_faction_leader = yes
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 2000
+	}
+}
+
+NOR_GER_same_ideologue_GER = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_government = fascism
+		is_faction_leader = yes
+		NOR = {
+			has_government = fascism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "NOR"
+		value = 2000
+	}
+}

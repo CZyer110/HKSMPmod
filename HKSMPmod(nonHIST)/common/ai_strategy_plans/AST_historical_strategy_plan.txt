@@ -1,0 +1,231 @@
+AST_historical = {
+	name = "Australian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = AST
+		has_dlc = "Together for Victory"
+	}	
+	enable = {
+		has_dlc = "No Step Back"
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = AST_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = AST_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = AST_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		AST_expand_the_raaf
+		AST_cac_woomera
+		AST_naval_bombers
+		AST_support_the_policy_of_appeasement
+		AST_cockatoo_island_shipyards
+		AST_kangaroo_point_shipyards
+		AST_establish_advisory_war_council
+		AST_standard_gauge_railway
+
+		AST_industries_assistance_corporation
+		AST_western_australian_government_railways
+		AST_south_australian_housing_trust
+		AST_department_of_supply_and_development
+		AST_expand_lithgow_small_arms_factory
+
+		AST_expand_the_northern_railway
+		AST_national_security_act
+		AST_army_inventions_directorate
+		AST_civil_construction_corps
+		AST_allied_works_council
+		
+		AST_australian_arms_production
+		AST_volunteer_defence_corps
+		AST_citizen_military_forces
+		AST_classify_aliens
+		AST_invest_in_victory
+
+		AST_rationing_and_recycling
+		AST_fund_australian_defense_research
+		AST_squash_the_squanderbugs
+		AST_fight_work_or_perish
+		AST_research_collaboration
+
+		AST_strengthen_ties_with_uk
+		AST_rats_of_tobruk
+		AST_adopt_westminster
+		AST_CSIR
+		AST_empire_air_training_scheme
+
+		AST_commonwealth_aircraft_corporation
+		AST_additional_militia_training
+		AST_promote_reservists
+		AST_hmas_assault
+		AST_australian_womens_army_service
+		
+		AST_australian_army_catering_corps
+		AST_volunteer_air_observers_corps
+		AST_airborne_defence
+		
+		AST_introduce_unconventional_warfare
+		AST_central_bureau
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		dd_tech = 5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+AST_historical_2 = {
+	name = "Australian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = AST
+		has_dlc = "Together for Victory"
+	}	
+	enable = {
+		NOT = { has_dlc = "No Step Back" }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = AST_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = AST_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = AST_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		AST_expand_the_raaf
+		AST_cac_boomerang
+		AST_support_the_policy_of_appeasement
+		AST_cockatoo_island_shipyards
+		AST_kangaroo_point_shipyards
+		AST_establish_advisory_war_council
+		AST_standard_gauge_railway
+
+		AST_industries_assistance_corporation
+		AST_western_australian_government_railways
+		AST_south_australian_housing_trust
+		AST_department_of_supply_and_development
+		AST_expand_lithgow_small_arms_factory
+
+		AST_expand_the_northern_railway
+		AST_national_security_act
+		AST_army_inventions_directorate
+		AST_civil_construction_corps
+		AST_allied_works_council
+		
+		AST_australian_arms_production
+		AST_volunteer_defence_corps
+		AST_citizen_military_forces
+		AST_classify_aliens
+		AST_invest_in_victory
+
+		AST_rationing_and_recycling
+		AST_fund_australian_defense_research
+		AST_squash_the_squanderbugs
+		AST_fight_work_or_perish
+		AST_research_collaboration
+
+		AST_strengthen_ties_with_uk
+		AST_rats_of_tobruk
+		AST_adopt_westminster
+		AST_CSIR
+		AST_empire_air_training_scheme
+
+		AST_commonwealth_aircraft_corporation
+		AST_additional_militia_training
+		AST_promote_reservists
+		AST_hmas_assault
+		AST_australian_womens_army_service
+		
+		AST_australian_army_catering_corps
+		AST_volunteer_air_observers_corps
+		AST_airborne_defence
+		
+		AST_introduce_unconventional_warfare
+		AST_central_bureau
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+		dd_tech = 5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+

@@ -1,0 +1,46 @@
+
+AFG_armored_production_elephantry = {
+	allowed = {
+		original_tag = AFG
+	}
+	enable = {
+		has_completed_focus = AFG_reintroduce_war_elephants
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = role_ratio #even more tanks
+		id = armor
+		value = 100
+	}
+}
+
+AFG_demilitarization = {
+	allowed = {
+		original_tag = AFG
+	}
+	enable = {
+		has_war = no
+		is_historical_focus_on = yes
+		num_of_civilian_factories < 20
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -20
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 20
+	}
+
+	ai_strategy = {
+		type = research_tech
+		id = excavation1
+		value = 100
+	}
+}

@@ -172,7 +172,6 @@ ideas = {
 				consumer_goods_factor = -0.15
 			}
 		}
-
 		ENG_blitz_spirit_idea = {
 			
 			allowed = {
@@ -252,7 +251,7 @@ ideas = {
 			picture = generic_improved_industries
 			
 			modifier = {
-				industrial_capacity_dockyard = 0.05
+				industrial_capacity_dockyard = 0.25
 				industrial_capacity_factory = 0.05
 				conscription_factor = -0.05
 			}
@@ -688,10 +687,65 @@ ideas = {
 				always = yes
 			}
 
+			available = {
+				has_government = democratic
+			}
+
+			on_remove = {
+				if = {
+					limit = {
+						NOT = { has_government = democratic }
+					}
+					add_timed_idea = { idea = ENG_a_change_in_course_idea_2 days = 365 }
+				}
+			}
+
 			modifier = {
 				democratic_drift = -0.1
 				war_support_factor = 0.1
-				political_power_factor = 0.1
+				political_power_factor = 0.15
+				custom_modifier_tooltip = ENG_a_change_in_course_tt
+				hidden_modifier = {
+					trade_laws_cost_factor = 1
+					high_command_cost_factor = 1
+					political_advisor_cost_factor = 1
+					mobilization_laws_cost_factor = 1
+					economy_cost_factor = 1
+				}
+			}
+
+			picture = eng_a_change_in_course
+			
+			removal_cost = -1	
+
+		}
+
+		ENG_a_change_in_course_idea_2 = {
+
+			name = ENG_a_change_in_course
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				NOT = { has_government = democratic }
+			}
+
+			modifier = {
+				democratic_drift = -0.1
+				political_power_factor = 0.05
+				custom_modifier_tooltip = ENG_a_change_in_course_2_tt
+				hidden_modifier = {
+					trade_laws_cost_factor = -0.15
+					mobilization_laws_cost_factor = -0.15
+					economy_cost_factor = -0.15
+					political_advisor_cost_factor = -0.15
+				}
 			}
 
 			picture = eng_a_change_in_course
@@ -816,7 +870,7 @@ ideas = {
 			picture = eng_for_the_good_of_the_revolution
 			
 			modifier = {
-				consumer_goods_factor = -0.35
+				consumer_goods_factor = -0.15
 			}
 		}
 
@@ -1381,6 +1435,18 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
+
+			available = {
+				is_subject = yes
+			}
+			
+			on_add = {
+				add_research_slot = 1
+			}
+		
+			on_remove = {
+				add_research_slot = 1
+			}
 			
 			modifier = {
 				autonomy_gain = 0.5
@@ -1686,7 +1752,7 @@ ideas = {
 			}
 
 			modifier = {
-				autonomy_gain = -5
+				autonomy_gain = -3
 			}
 
 			picture = eng_guided_by_britain
@@ -2111,6 +2177,8 @@ ideas = {
 				original_TAG = ENG
 			}
 			
+
+			
 			research_bonus = {
 				industry = 0.15
 			}
@@ -2121,7 +2189,7 @@ ideas = {
 			}
 
 			ai_will_do = {
-				base = 2
+				factor = 2
 				modifier = {
 					has_idea_with_trait = silent_workhorse
 					factor = 10
@@ -2135,6 +2203,8 @@ ideas = {
 				original_TAG = ENG
 			}
 			
+
+			
 			research_bonus = {
 				electronics = 0.15
 			}
@@ -2142,10 +2212,6 @@ ideas = {
 			traits = { electronics_concern }
 			
 			modifier = {
-			}
-
-			ai_will_do  = {
-				base = 1
 			}
 		}
 		

@@ -1,0 +1,230 @@
+GER_anti_soviet_struggle_war_SOV = {
+	name = "German anti-Soviet plan"
+	desc = "Anti-Soviet behaviour for Nazi Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_global_flag = SOV_has_early_war
+		has_war_with = SOV
+		or = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					not = { has_dlc = "Gotterdammerung" }
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = DEFAULT
+					}
+				}	
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+		}
+	}
+	ai_national_focuses = {
+		GER_anti_comintern_pact
+		GER_anti_soviet_pact
+	}
+
+	research = {
+		naval_equipment = -50.0 #we don't need ships
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+	}
+
+	traits = {
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 25.0
+		}
+	}
+
+	focus_factors = {
+		GER_around_maginot = 0.1
+		GER_war_with_france = 0.1
+		GER_demand_slovenia = 0.1
+	}
+
+}
+
+GER_anti_soviet_struggle = {
+	name = "German historical plan"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_global_flag = SOV_has_early_war
+		or = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					not = { has_dlc = "Gotterdammerung" }
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = DEFAULT
+					}
+				}	
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+		}
+	}
+
+	ai_national_focuses = {
+		GER_anschluss
+		GER_anti_comintern_pact
+		GER_anti_soviet_pact
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_build_the_rur_dam
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_invest_in_vereinigte_stahlwerke
+		GER_operation_weserubung
+		GER_reassert_eastern_claims
+		GER_expand_claims_in_baltic
+		GER_operation_weserubung
+		GER_secure_finland
+		GER_danzig_or_war
+		GER_around_maginot
+		GER_war_with_france
+
+		GER_form_rome_berlin_axis
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+
+		GER_befriend_china
+		GER_re_establish_german_control_over_qingdao
+		GER_claim_old_colonies_in_the_east
+		GER_ally_chiang_kai_shek
+		GER_war_with_the_ussr
+		GER_befriend_turkey
+		GER_influence_the_middle_east
+
+
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_expand_the_truppenschulen
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+		GER_war_production
+		GER_demands_to_sweden
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+	}
+
+	research = {
+		naval_equipment = -50.0 #we don't need ships
+	}
+
+	ideas = {
+		hjalmar_schacht = 0
+		GER_ludwig_erhard = 50
+		economic_reformer = 50
+	}
+
+	traits = {
+		captain_of_industry = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_alliance_with_the_ussr = 0
+		GER_ascension_of_goring = 0
+		GER_ascension_of_himmler = 0
+	}
+
+}

@@ -1,0 +1,867 @@
+fastgame_all_warlord = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		NOT = { 
+			any_enemy_country = { 
+				AND = { 
+					is_major = yes
+					is_literally_china = no
+				}
+			}
+		}
+		any_country = {
+			is_literally_china = yes
+			has_war_with = CHI
+			has_capitulated = no
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			is_literally_china = yes
+			has_war_with = FROM
+		}
+
+		ratio = 0.0
+
+		priority = 1500
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			is_literally_china = no
+			has_war_with = FROM
+		}
+
+		ratio = 0.0
+
+		priority = 1500
+		ordertype = front
+		execution_type = careful
+	}
+
+	
+}
+pp_spending_amount_basic = {
+	allowed = {
+		is_literally_china = yes
+	}
+	enable = {
+		has_army_experience < 10
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = pp_spend_amount
+		id = idea
+		value = 200
+	}
+
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = -200
+	}
+}
+CHI_unit_production = {
+	allowed = { original_tag = CHI }
+	enable = {
+		always = yes
+	}
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 0
+	}
+
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -10
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	
+	#Air unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 75 # From 70 to 75
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = tactical_bomber
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = unit_ratio
+		id = naval_bomber
+		value = 0
+	}
+	
+	
+	# Naval unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 25 # from 15 to 25
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 40 #from 50 to 40
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 20
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = ignore_army_incompetence
+		value = 50
+	}
+}
+
+CHI_dont_waste_on_offensive_air_early = {
+	allowed = { original_tag = CHI }
+	enable = {
+		date < 1940.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = medium_plane_airframe
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = large_plane_airframe
+		value = -100
+	}
+}
+
+CHI_armored_production = {
+	allowed = { original_tag = CHI }
+	enable = {
+		has_equipment = { infantry_equipment > 100000 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 15
+	}
+}
+
+CHI_highered_armored_production = {
+	allowed = { original_tag = CHI }
+	enable = {
+		num_of_military_factories > 109
+	}
+	abort = {
+		num_of_military_factories < 110
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 15
+	}
+}
+
+CHI_prio_military_even_at_peace = {
+	allowed = { original_tag = CHI }
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 50
+	}
+	
+}
+	
+CHI_dont_mess_with_the_soviets = {
+
+	allowed = { original_tag = CHI }
+	enable = {	
+		NOT = { has_war_with = SOV }
+	}
+	
+	abort = {
+		has_war_with = SOV
+	}
+
+	ai_strategy = {
+		type = contain
+		id = "SOV"			
+		value = -200
+	}
+}
+
+CHI_some_safer_places_to_build = {
+	allowed = { original_tag = CHI }
+	enable = {
+		OR = {
+			controls_state = 602
+			controls_state = 605
+		}
+	}
+
+	abort = {
+		date > 1941.1.1
+	}
+
+	ai_strategy = {
+        type = factory_build_score_factor
+        target =  602
+        value = 300
+    }
+
+	ai_strategy = {
+        type = factory_build_score_factor
+        target =  605
+        value = 300
+    }
+}
+
+CHI_some_safer_places_to_build_2 = {
+	allowed = { original_tag = CHI }
+	enable = {
+		always = yes
+	}
+
+	abort = {
+		date > 1941.1.1
+	}
+
+	ai_strategy = {
+        type = factory_build_score_factor
+        target =  748
+        value = 300
+    }
+
+	ai_strategy = {
+        type = factory_build_score_factor
+        target =  603
+        value = 300
+    }
+
+	ai_strategy = {
+        type = factory_build_score_factor
+        target =  750
+        value = 300
+    }
+}
+CHI_you_should_be_prepared_for_war = {
+	allowed = { 
+		is_literally_china = yes
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+        	type = force_build_armies
+        	value = 300
+    	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 9999
+		id = "CHI"
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = { 
+			is_owned_by = CHI
+		}
+		value = 50
+	}
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = { 
+			has_war_with = CHI
+		}
+		value = 50
+	}
+}
+
+CHI_you_should_be_prepared_for_war2 = {
+	allowed = { 
+		OR = {
+			tag = CHI
+			tag = GXC
+		}
+	}
+	enable = {
+		date < 1943.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 25
+	}
+}
+
+CHI_dont_join_ENG_if_not_democratic = {
+	allowed = {
+		WTT_is_chinese_country = yes 
+					 
+					 
+	}
+
+	enable = {
+		WTT_is_chinese_country = yes 
+		NOT = { has_government = democratic }
+		ENG = { has_government = democratic }
+	}
+
+	abort_when_not_enabled = yes 
+
+	ai_strategy = {
+		type =  alliance
+		id = ENG
+		value = -200
+	}
+
+
+}
+
+CHI_you_should_be_prepared_for_war3 = {
+	allowed = { 
+		is_literally_china = yes
+		NOT = { tag = CHI }
+		NOT = { tag = GXC }
+	}
+	enable = {
+		date < 1943.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 10
+	}
+}
+
+
+CHI_always_defend_since_we_cant_win = {
+	allowed = {
+		is_literally_china = yes
+	}
+
+	enable = {
+		has_army_manpower = { size < 1000000 }
+		has_war_with = JAP
+		has_offensive_war = no
+	}
+
+	abort = {
+		OR = {
+			date > 1945.1.1 
+			JAP = { surrender_progress > 0 }
+			SOV = { has_war_with = JAP }
+			has_army_manpower = { size > 1399999 }
+		}
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			is_in_faction_with = JAP
+		}
+
+		ratio = 0.3
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+}
+CHI_dont_join_ENG_if_not_democratic = {
+	allowed = {
+		WTT_is_chinese_country = yes 
+	}
+
+	enable = {
+		WTT_is_chinese_country = yes 
+		NOT = { has_government = democratic }
+		ENG = { has_government = democratic }
+	}
+
+	abort_when_not_enabled = yes 
+
+	ai_strategy = {
+		type = alliance
+		id = ENG
+		value = -250
+	}
+
+}
+CHI_dont_join_USA_if_not_democratic = {
+									   
+	allowed = {
+		WTT_is_chinese_country = yes 
+	}
+
+	enable = {
+		WTT_is_chinese_country = yes 
+		NOT = { has_government = democratic }
+		USA = { has_government = democratic }
+	}
+
+	abort_when_not_enabled = yes 
+		
+				   
+								   
+							   
+										 
+   
+  
+
+	ai_strategy = {
+		type =  alliance
+		id = USA
+		value = -200
+	}
+
+					 
+						   
+}
+
+#### FORCE CONCENTRATION
+
+# We defend all our country, right
+CHI_aifc_incompetent_officers = {
+	allowed = { original_tag = CHI }
+	enable = {
+		OR = {
+			has_idea = CHI_incompetent_officers
+			NOT = { has_completed_focus = CHI_serve_the_country_with_utmost_loyalty }
+			NOT = { has_completed_focus = CHI_prepare_the_war_zones }
+		}
+	}
+	
+	abort_when_not_enabled = yes 
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = -30  # if we have enough doctrines, we can do a little.... 
+	}
+}
+
+CHI_lets_die_to_japan_quickly = {
+	allowed = {
+		is_literally_china = yes
+	}
+	enable = {
+		has_war_with = JAP
+		has_global_flag = SOV_has_early_war
+		NOT = {
+			AND = {
+				JAP = { has_war_with = SOV }
+				CHI = { surrender_progress < 0.5 }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = JAP
+		value = -250  
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = MEN
+		value = -250  
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = MAN
+		value = -250  
+	}
+}
+CHI_buffer_in_beijing = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = JAP
+		OR = {
+			controls_state = 614
+			controls_state = 608
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			614
+		}
+		ratio = 0.05
+		area = asia
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+CHI_buffer_in_shandong = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = JAP
+		OR = {
+			controls_state = 614
+			controls_state = 608
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			597
+			743
+		}
+		ratio = 0.08
+		area = asia
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+CHI_buffer_in_shanghai = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = JAP
+		OR = {
+			controls_state = 614
+			controls_state = 608
+			controls_state = 597
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			613
+			1014
+			596
+		}
+		ratio = 0.08
+		area = asia
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+CHI_bog_them_down_and_war_zones_concentrations = {
+	allowed = {
+		original_tag = CHI
+	}
+	enable = {
+		OR = {
+			has_completed_focus = CHI_bog_them_down_in_the_centre
+			has_completed_focus = CHI_prepare_the_war_zones
+		}
+		any_core_state = {
+			has_state_flag = CHI_holding_state_mission_flag
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			has_state_flag = CHI_holding_state_mission_flag
+		}
+		value = 50
+	}
+}
+SIK_push_khotan = {
+	allowed = {
+		original_tag = SIK
+	}
+	enable = {
+		#is_historical_focus_on = yes
+					
+		OR = {
+			focus_progress = {
+				focus = SIK_march_into_khotan
+				progress > 0.01
+			}
+			has_war_with = KHM
+		}
+	}
+	abort = {
+		KHM = {
+			OR = {
+				has_capitulated = yes
+				exists = no
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = KHM
+		value = 75
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = KHM
+		value = 200
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = KHM
+		value = 200
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		tag = KHM
+
+		ratio = 0.7
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+
+}
+CHI_southern_warlords_should_prioritize_southern_borders = {
+	allowed = {
+		has_dlc = "No Compromise, No Surrender"
+  
+		   
+							  
+					
+		OR = {
+			original_tag = YUN 
+			original_tag = GXC
+			original_tag = GDC
+		}
+	}
+	enable = {
+		date < 1942.1.1
+		is_in_faction_with = CHI
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = 100
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			1033
+			594
+			325
+		}
+		ratio = 0.5
+		area = asia
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+}
+
+PRC_military_factories_and_production = {
+	allowed = { 
+		original_tag = PRC 
+	}
+	enable = {
+		date < 1939.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { #All you need is guns - Guns is all you need
+		type = building_target
+		id = arms_factory
+		value = 50
+	}
+	ai_strategy = { #Skip infantry_equipment_1 and jump straight to infantry_equipment_2 - we need quantity!
+   		type = production_upgrade_desire_offset
+ 	 	id = infantry_equipment_1
+  	 	value = -100
+	}
+}
+
+PRC_focus_militias_early_game = {
+	allowed = { 
+		original_tag = PRC 
+	}
+	enable = {
+		date < 1944.1.1
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = { #All you need is militias in early game
+		type = role_ratio
+		id = militias
+		value = 300
+	}
+
+}
+warlords_help_pls  = {
+	allowed = {
+		is_chinese_warlord = yes
+	}
+
+	enable = {
+		has_war_with = JAP
+		is_historical_focus_on = yes
+		is_in_faction_with = CHI
+	}
+
+	abort_when_not_enabled = yes 
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = CHI
+		value = 100
+	}
+}
+CHI_stop_disbanding_your_army = {
+	allowed = { 
+		original_tag = CHI
+		has_dlc = "No Compromise, No Surrender"
+	}
+	enable = {
+		date < 1940.6.1
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 1000
+	}
+} 
+CHI_stop_disbanding_your_army = {
+	allowed = { 
+		original_tag = CHI
+		has_dlc = "No Compromise, No Surrender"
+	}
+	enable = {
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 100
+	}
+} 

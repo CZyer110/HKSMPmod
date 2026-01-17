@@ -1,0 +1,390 @@
+
+ENG_USA_sync_wave_on_japan = {
+
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		set_temp_variable = { days = global.num_days }
+		modulo_temp_variable = { days = 180 }
+		check_variable = { days < 60 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		area = JAP_home_islands
+		ordertype = invasion
+		execute_order = no
+	}
+}
+ENG_USA_sync_wave_on_japan_endsieg = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = home_islands
+		value = 100
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = -50
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = home_islands
+		value = 100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = 100
+	}
+
+	ai_strategy = {
+		type = invade
+		id = JAP
+		value = 300
+	}
+}
+ENG_USA_the_build_up_to_cap_japan_596 = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		num_of_civilian_factories_available_for_projects > 20
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		596 = { 
+			any_province_building_level = {
+				province = {
+					id = 9974
+					id = 7058
+					id = 10058
+					id = 7191
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 9974
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7058
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 10058
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7191
+		value = 500
+	}
+}
+ENG_USA_the_build_up_to_cap_japan_613 = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		num_of_civilian_factories_available_for_projects > 20
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		613 = { 
+			any_province_building_level = {
+				province = {
+					id = 7014
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7014
+		value = 500
+	}
+}
+ENG_USA_the_build_up_to_cap_japan_525 = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		num_of_civilian_factories_available_for_projects > 20
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		525 = { 
+			any_province_building_level = {
+				province = {
+					id = 4056
+					id = 12060
+					id = 7121
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 4056
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 12060
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7121
+		value = 500
+	}
+}
+ENG_USA_the_build_up_to_cap_japan_526 = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		num_of_civilian_factories_available_for_projects > 20
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		526 = { 
+			any_province_building_level = {
+				province = {
+					id = 11932
+					id = 10124
+					id = 7115
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 11932
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 10124
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7115
+		value = 500
+	}
+}
+ENG_USA_the_build_up_to_cap_japan_645 = {
+
+	enable = {	
+		is_in_faction_with = ENG
+		has_war_with = JAP
+		num_of_civilian_factories_available_for_projects > 20
+		OR = {
+			is_japanese_endsieg = yes
+			NOT = {
+				any_enemy_country = {
+					is_major = yes
+					NOT = { tag = JAP }
+					NOT = { is_in_faction_with = JAP }
+				}
+			}
+		}
+		645 = { 
+			any_province_building_level = {
+				province = {
+					id = 13025
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 13025
+		value = 500
+	}
+}
+
+ENG_USA_to_kill_japan = {
+	allowed = {
+		OR = {
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {	
+		has_idea = LSM_victory_in_europe
+		has_war_with = JAP
+		OR = {
+			JAP = {
+				has_navy_size = {
+					size > 150
+				}
+			}
+			has_navy_size = {
+				size < 300
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dockyard_to_military_factory_ratio
+		value = 100
+	}
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 150
+	}
+}
+SOV_let_allies_share_land_vs_japan = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+
+	enable = {
+		SOV = { has_war_with = JAP }
+		has_war_with = JAP
+		NOT = { has_war_with = SOV }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = "SOV"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = non_aggression_pact
+		value = 2500
+	}
+}
+allies_ask_sov_for_access = {
+	enable = {
+		SOV = { has_war_with = JAP }
+		has_war_with = JAP
+		NOT = { has_war_with = SOV }
+		is_in_faction = yes
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = military_access
+		value = 1000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = non_aggression_pact
+		value = 2500
+	}
+}
