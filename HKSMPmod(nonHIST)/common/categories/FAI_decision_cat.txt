@@ -1,9 +1,0 @@
-
-frontline_ai_manual = {
-	icon = generic_propaganda
-
-	visible = {
-		has_war = yes
-		is_ai = yes
-	}
-}

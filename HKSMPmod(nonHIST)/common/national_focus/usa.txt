@@ -3048,7 +3048,6 @@ focus_tree = {
 			add_ideas = USA_gold_standard
 			add_political_power = 150
 			USA_congress_small_opposition = yes
-			set_rule = { can_declare_war_on_same_ideology = yes }
 			hidden_effect = {
 				if = {
 					limit = {
