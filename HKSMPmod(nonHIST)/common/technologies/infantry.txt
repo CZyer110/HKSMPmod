@@ -72,10 +72,6 @@ technologies = {
 			infantry_weapons
 		}
 
-		on_research_complete = {
-			add_ideas = infantry_equipment_production_1
-		}
-		
 		ai_will_do = {
 			factor = 100
 			
@@ -247,19 +243,7 @@ technologies = {
 		enable_equipments = {
 			infantry_equipment_2
 		}
-		on_research_complete = {
-			hidden_effect = {	
-				if = {
-					limit = { date < 1938.1.1 }
-					set_country_flag = gun2_rush
-				}
-			}
-			swap_ideas = {
-				remove_idea = infantry_equipment_production_1
-				add_idea = infantry_equipment_production_2
-			}
-		}
-		
+
 		path = {
 			leads_to_tech = improved_infantry_weapons_2
 			research_cost_coeff = 1
@@ -594,13 +578,7 @@ technologies = {
 		categories = {
 			infantry_weapons
 		}
-		on_research_complete = {
-			swap_ideas = {
-				remove_idea = infantry_equipment_production_2
-				add_idea = infantry_equipment_production_3
-			}
-		}
-		
+
 		ai_will_do = {
 			factor = 2.5
 
@@ -1267,9 +1245,9 @@ technologies = {
 			acclimatization_hot_climate_gain_factor = 0.05
 			acclimatization_cold_climate_gain_factor = 0.05
 		}
-		
-		allow_branch = { not = { has_dlc = "Arms Against Tyranny" } }
-		
+
+		allow_branch = { NOT = { has_dlc = "Arms Against Tyranny" } }
+
 		#dependencies = {
 		#	OR = {
 		#		marines = 1
@@ -2477,18 +2455,6 @@ technologies = {
 			leads_to_tech = armored_car2
 			research_cost_coeff = 1
 		}
-		
-		on_research_complete_limit = {
-			NOT = {
-				has_template_containing_unit = armored_car
-			}
-		}
-		on_research_complete = {
-			hidden_effect = {
-				load_oob = "unlock_car"
-			}
-			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
-		}
 
 		research_cost = 2
 		start_year = 1914
@@ -2713,31 +2679,7 @@ technologies = {
 			name = infantry_folder
 			position = { x = 0 y = @1940 }
 		}
-		
-		on_research_complete_limit = {
-			OR = {
-				is_ai_mech_mob = yes
-				has_country_flag = mech_god
-				has_country_flag = mech_brick
-			}
-		}
 
-		on_research_complete = {
-			hidden_effect = {
-				if = {
-					limit = { NOT = { has_country_flag = mech_god } }
-					load_oob = "mech_mob"
-				}
-			}
-			hidden_effect = {
-				if = {
-					limit = { has_country_flag = mech_god }
-					load_oob = "mech_god"
-				}
-			}
-			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
-		}
-		
 		categories = {
 			motorized_equipment
 			mio_cat_tech_all_motorized_mechanized
@@ -2984,7 +2926,7 @@ technologies = {
 			hard_attack = 0.15
 		}
 
-		research_cost = 2
+		research_cost = 3
 		start_year = 1944
 		folder = {
 			name = infantry_folder
@@ -3136,24 +3078,17 @@ technologies = {
 
 		militia = {
 			hills = {
-				attack = 0.05 
+				attack = 0.05
 				movement = 0.1
 			}
 			mountain = {
-				attack = 0.05 
+				attack = 0.05
 				movement = 0.1
 			}
 		}
 	}
 
-	### Improved Irregular Infantry Organization 
-
- 	irregular_infantry_tech = {
- 		allow = { always = no }
-		enable_subunits = {
-			irregular_infantry
-		}
-	}
+	### Improved Irregular Infantry Organization
 
 	ETH_improved_irregular_infantry_tech = {
 		research_cost = 1

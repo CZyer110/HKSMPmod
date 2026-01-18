@@ -218,30 +218,31 @@ technologies = {
 				defence = 0.15
 			}
 		}
-		pioneer_support = {
-			fort = {
-				attack = 0.05
-			}
-			river = {
-				attack = 0.05
-			}
-		}
-		
-		on_research_complete_limit = {
-			NOT = {
-				is_special_project_completed = sp:sp_land_flamethrower_tank
-			}
-		}
-
-		on_research_complete = {
-			complete_special_project = {
-				project = sp:sp_land_flamethrower_tank
-			}
-		}
 
 		enable_equipment_modules = {
 			dozer_blade
+			#flamethrower #MM: Moved to Special Project sp_land_flamethrower_tank
 		}
+
+		#enable_subunits = { #MM: Moved to Special Project sp_land_flamethrower_tank
+		#	light_flame_tank
+		#	medium_flame_tank
+		#	heavy_flame_tank
+		#}
+
+		#on_research_complete = { #MM: Moved to Special Project sp_land_flamethrower_tank
+		#	hidden_effect = {
+		#		if = {
+		#			limit = {
+		#				has_dlc = "No Step Back"
+		#				original_tag = ITA
+		#				has_completed_focus = ITA_italian_tankettes
+		#			}
+		#			ITA_add_basic_light_flamethrower_template = yes
+		#		}
+		#	}
+		#}
+
 		path = {
 			leads_to_tech = tech_engineers3
 			research_cost_coeff = 1
@@ -322,7 +323,7 @@ technologies = {
 		engineer = {
 			entrenchment = 0.50
 			river = {
-				attack = 0.1	
+				attack = 0.1
 				defence = 0.10
 			}
 		}
@@ -337,15 +338,9 @@ technologies = {
 		armored_engineer = {
 			entrenchment = 1
 			river = {
-				attack = 0.05	
+				attack = 0.05
 				defence = 0.05
 				movement = 0.15
-			}
-		}
-
-		pioneer_support = {
-			river = {
-				attack = 0.10
 			}
 		}
 
@@ -356,9 +351,6 @@ technologies = {
 			fort = {
 				attack = 0.10
 			}
-			river = {
-				attack = 0.05
-			}
 		}
 		medium_flame_tank = {
 			urban = {
@@ -367,9 +359,6 @@ technologies = {
 			fort = {
 				attack = 0.10
 			}
-			river = {
-				attack = 0.05
-			}
 		}
 		heavy_flame_tank = {
 			urban = {
@@ -377,9 +366,6 @@ technologies = {
 			}
 			fort = {
 				attack = 0.10
-			}
-			river = {
-				attack = 0.05
 			}
 		}
 		path = {
@@ -452,15 +438,6 @@ technologies = {
 			urban = {
 				defence = 0.15
 				movement = 0.15
-			}
-		}
-
-		pioneer_support = {
-			urban = {
-				attack = 0.05
-			}
-			river = {
-				attack = 0.10
 			}
 		}
 
@@ -766,6 +743,35 @@ technologies = {
 		}
 	}
 	
+
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		on_research_complete = {
+			if = {
+				limit = {
+					original_tag = AFG
+					has_dlc = "Graveyard of Empires"
+					has_completed_focus = AFG_expand_quami_template
+				}
+				add_units_to_division_template = {
+					template_name = "Pashtun Levy" 
+					support = {
+						military_police = 0 
+					}
+				}
+			}
+		}
+	}
+
 	tech_military_police2 = {
 
 		military_police = {
@@ -779,8 +785,7 @@ technologies = {
 				default_morale = 0.05
 			}
 		}
-		
-		
+
 		path = {
 			leads_to_tech = tech_military_police3
 			research_cost_coeff = 1
@@ -2234,11 +2239,6 @@ technologies = {
 			position = { x = 4 y = 3 }
 		}
 
-		path = {
-			leads_to_tech = sp_cluster_shells
-			research_cost_coeff = 1
-		}
-		
 		categories = {
 			train_tech
 			artillery
@@ -2360,11 +2360,7 @@ technologies = {
 			leads_to_tech = railway_gun
 			research_cost_coeff = 1
 		}
-		
-		allow_branch = {
-			has_dlc = "No Step Back"
-		}
-		
+
 		research_cost = 1.5
 		start_year = 1936
 		folder = {
