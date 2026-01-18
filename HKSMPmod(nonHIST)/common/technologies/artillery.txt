@@ -4,6 +4,10 @@ technologies = {
 	@rocket_artillery = 3
 
 	gw_artillery = {
+		
+		enable_subunits = {
+			artillery
+		}
 
 		enable_equipments = {
 			artillery_equipment_1
@@ -258,6 +262,14 @@ technologies = {
 		}
 		special_project_specialization = { specialization_land }
 
+		on_research_complete = {
+			IF = {
+				limit = {
+					original_tag = HUN
+				}
+				give_the_proper_spg_tech = yes
+			}
+		}
 		ai_will_do = {
 			factor = 2
 
@@ -451,6 +463,14 @@ technologies = {
 			name = artillery_folder
 			position = { x = 0 y = 8 }
 		}
+		on_research_complete = {
+			IF = {
+				limit = {
+					original_tag = HUN
+				}
+				give_the_proper_spg_tech = yes
+			}
+		}
 
 		categories = {
 			artillery
@@ -540,6 +560,9 @@ technologies = {
 			mio_cat_artillery #Only Artillery
 		}
 		special_project_specialization = { specialization_land }
+		on_research_complete = {
+			add_ideas = artillery_equipment_production_3
+		}
 
 		ai_will_do = {
 			factor = 2
@@ -695,14 +718,14 @@ technologies = {
 		artillery_brigade = {
 			mountain = {
 				attack = 0.08
-				movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+				movement = 0.15 #If you change this - Change the custom tooltip too: RAJ_revive_the_screw_guns_effect ROM_modern_at_guns_tech_tt
 			}
 		}
 
 		anti_tank_brigade = {
 			mountain = {
 				attack = 0.08
-				movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+				movement = 0.15 #If you change this - Change the custom tooltip too: RAJ_revive_the_screw_guns_effect ROM_modern_at_guns_tech_tt
 			}
 		}
 	}
@@ -1277,6 +1300,9 @@ technologies = {
 				}
 				factor = 5
 			}
+		}
+		on_research_complete = {
+			add_ideas = anti_air_equipment_production_3
 		}
 
 		categories = {
@@ -1952,6 +1978,38 @@ technologies = {
 				}
 			}
 		}
+		
+		on_research_complete_limit = {
+			tag = SOV
+			NOT = { has_country_flag = light_tank_destroyer_4 }
+			is_ai = yes
+			has_dlc = "No Step Back"
+		}
+		on_research_complete = {
+			hidden_effect = {
+				create_equipment_variant = { 
+					name = "SU-41"
+					type = light_tank_destroyer_chassis_2
+					parent_version = 0
+					allow_without_tech = yes # Tooltip purposes, tech is required anyways
+					modules = {
+						main_armament_slot = tank_high_velocity_cannon_2
+						turret_type_slot = tank_light_fixed_superstructure_turret
+						suspension_type_slot = tank_wheeled_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_diesel_engine
+						special_type_slot_1 = easy_maintenance
+						special_type_slot_2 = extra_ammo_storage
+						special_type_slot_3 = secondary_turret_small_cannon
+						special_type_slot_4 = dozer_blade
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
+					}
+					design_team = mio:SOV_mytishchy_machine_building_plant_organization
+				}
+			}
 		}
 		categories = {
 			artillery
@@ -2051,6 +2109,9 @@ technologies = {
 			}
 		}
 
+		on_research_complete = {
+			add_ideas = anti_tank_equipment_production_3
+		}
 		categories = {
 			artillery
 			cat_anti_tank
