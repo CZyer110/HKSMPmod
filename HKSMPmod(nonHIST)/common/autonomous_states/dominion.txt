@@ -127,71 +127,28 @@ autonomy_state = {
 				has_completed_focus = CONGO_dominion_of_congo
 			}
 		}
-		IF = {
-			limit = {
-				original_tag = COG
-				has_dlc = "Gotterdammerung"	
-				is_historical_focus_on = yes		
-			}
-			NOT = {
-				AND = {
-					BEL = { is_ai = yes }
-					COG = { is_ai = yes }
-				}
-			}
-		}
 		if = {
 			limit = {
 				original_tag = RAJ
 				has_dlc = "Graveyard of Empires"
 				NOT = { has_completed_focus = RAJ_his_majestys_loyal_government }
 			}
-
 			OR = {
 				has_completed_focus = RAJ_a_secular_state
 				has_completed_focus = RAJ_united_bengal
 				has_completed_focus = RAJ_eastern_pakistan
-				has_completed_focus = RAJ_red_in_the_shadows
-				AND = {
-					has_idea = idea_RAJ_the_long_goodbye
-					has_completed_focus = RAJ_the_indian_parliament 
-				}
 			}
-					
-		}
-		if = {
-			limit = {
-				is_ai = yes
-				original_tag = RAJ
-				has_dlc = "Graveyard of Empires"
-				OR = {
-					has_completed_focus = RAJ_united_bengal
-					has_completed_focus = RAJ_eastern_pakistan
-				}
-			}
-			has_completed_focus = RAJ_partition_preparation
 		}
 		if = {
 			limit = {
 				original_tag = RAJ
 				has_dlc = "Graveyard of Empires"
 				has_completed_focus = RAJ_his_majestys_loyal_government
-				NOT = { has_idea = idea_RAJ_the_long_goodbye }
 			}
 			has_completed_focus = RAJ_the_dominion_of_india
 			has_completed_focus = RAJ_keep_calm_and_carry_on
 			has_completed_focus = RAJ_holding_the_gates_of_india
 		}
-		if = {
-			limit = {
-				original_tag = RAJ
-				has_dlc = "Graveyard of Empires"
-				has_completed_focus = RAJ_his_majestys_loyal_government
-				has_idea = idea_RAJ_the_long_goodbye
-			}
-			has_idea = idea_RAJ_the_long_goodbye
-		}
-				
 	}
 
 	can_lose_level = {

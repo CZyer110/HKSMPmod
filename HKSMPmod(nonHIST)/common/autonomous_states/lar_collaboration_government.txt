@@ -50,8 +50,4 @@ autonomy_state = {
 	
 		has_variable = collaboration_formed_by
 	}
-	
-	can_take_level = {
-		always = no
-	}
 }

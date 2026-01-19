@@ -6,7 +6,6 @@ autonomy_state = {
 	min_freedom_level = 0.7
 	
 	manpower_influence = 0.7
-	use_overlord_color = yes
 	
 	rule = {
 		desc = "RULE_DESC_IS_A_SUBJECT"
@@ -19,7 +18,7 @@ autonomy_state = {
 	}
 	
 	modifier = {
-		autonomy_manpower_share = 0.65
+		autonomy_manpower_share = 0.7
 		can_master_build_for_us = 1
 		extra_trade_to_overlord_factor = 0.6
 		overlord_trade_cost_factor = -0.6
@@ -45,7 +44,6 @@ autonomy_state = {
 		has_dlc = "Waking the Tiger"
 		OR = {
 			AND = {
-							
 				OR = {
 					has_government = fascism
 					has_government = neutrality
@@ -57,9 +55,6 @@ autonomy_state = {
 					has_government = fascism
 					has_government = neutrality
 				}
-		  
-									  
-	 
 				OVERLORD = { original_tag = MAN }
 			}			
 		}

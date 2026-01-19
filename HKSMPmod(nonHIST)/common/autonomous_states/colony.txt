@@ -27,6 +27,8 @@ autonomy_state = {
 		lend_lease_tension_with_overlord = -0.30
 
 		research_sharing_per_country_bonus_factor = -0.5
+
+		faction_subject_contribution_gain = -0.75
 	}
 	
 	ai_subject_wants_higher = {
@@ -88,23 +90,11 @@ autonomy_state = {
 		if = {
 			limit = {
 				original_tag = RAJ
-				NOT = { has_focus_tree = indian_focus_goe }			
+				NOT = { has_focus_tree = indian_focus_goe	}			
 			}
 			has_completed_focus = RAJ_cripps_mission
 		}
-		IF = {
-			limit = {
-				original_tag = COG
-				has_dlc = "Gotterdammerung"	
-				is_historical_focus_on = yes		
-			}
-			NOT = {
-				AND = {
-					BEL = { is_ai = yes }
-					COG = { is_ai = yes }
-				}
-			}
-		}
+		#trigger here
 	}
 
 	can_lose_level = {

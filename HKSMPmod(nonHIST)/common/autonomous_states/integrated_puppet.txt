@@ -97,12 +97,6 @@ autonomy_state = {
 			NOT = {
 				has_completed_focus = CONGO_overseas_department_of_belgium
 			}
-			NOT = {
-				AND = {
-					BEL = { is_ai = yes }
-					COG = { is_ai = yes }
-				}
-			}
 		}
 	}
 
