@@ -1,0 +1,638 @@
+BRA_fascism_plan = {
+	name = "Brazilian Fascist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_FASCISM
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = FASCISM
+			}	
+		}
+
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+		BRA_tribunal_de_seguranca_nacional
+		BRA_work_with_the_integralists
+
+		#1937
+		BRA_cohen_plan
+		BRA_desenvolvimentismo
+		BRA_estado_moderno
+		BRA_anaue
+		BRA_uruguay_ultimatum
+		BRA_corporatism
+		BRA_departamendo_de_propaganda
+		BRA_departamento_feminino
+		BRA_reject_cosmopolitanism
+		BRA_integrity_of_the_fatherland
+		BRA_brazil_integral
+		BRA_tech_slot_1
+		BRA_ethical_internationalism
+		BRA_domination_of_the_americas
+
+
+		BRA_berlin_accords
+		BRA_defense_of_the_fatherland
+		BRA_rome_accords
+		BRA_expand_operation_bolivar
+		BRA_german_tanks
+		BRA_italian_car_industry
+		BRA_italian_aircraft
+		BRA_italian_trucks
+		BRA_italian_cooperation
+		BRA_german_subs
+		BRA_german_cooperation
+
+		BRA_form_mercosul
+		BRA_unify_south_america
+		BRA_companhia_siderurgica_nacional
+		BRA_establish_caloi
+		BRA_invest_in_road_infrastructure
+		BRA_bonus_tech_slot
+		BRA_stimulate_the_civilian_economy
+		BRA_domestic_arms_industry
+		BRA_war_production
+		BRA_guyana_crisis
+		BRA_paraguay_intervention
+		BRA_attack_bolivia
+		BRA_attack_chile
+		BRA_provoke_argentina
+		BRA_panama_push
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_democratic_plan = {
+	name = "Brazilian Democratic Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = DEMOCRATIC
+			}	
+		}
+
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+
+		BRA_end_the_state_of_emergency
+		BRA_repeal_the_national_security_law
+		BRA_continue_centralization
+		BRA_court_the_military
+		BRA_establish_the_brazilian_investment_bank
+		BRA_church
+		BRA_tech_slot_2
+		BRA_ban_the_communist_party
+		BRA_posts_for_generals
+		BRA_third_republic
+		BRA_address_labor_disputes
+		BRA_invite_foreign_companies
+		BRA_combat_separatism
+		BRA_war_bonds
+		BRA_the_international_crisis
+		BRA_cooperation_in_the_americas
+		BRA_washington_accords
+		BRA_potenji_river_conference
+		BRA_us_brazil_technology_exchange
+		BRA_reach_out_to_our_neighbors
+		BRA_no_communism_in_south_america
+		BRA_defense_spending
+		BRA_no_fascism_in_south_america
+		BRA_south_american_defense_cooperation
+		BRA_south_american_research_cooperation
+		BRA_united_states_of_south_america
+		
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_henrique_plan = {
+	name = "Brazilian Monarchist Plan - Dom Henrique"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_MONARCHIST_HENRIQUE
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = BRA_MONARCHIST_HENRIQUE
+			}	
+		}
+
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+		BRA_desenvolvimentismo
+
+
+		BRA_end_the_state_of_emergency
+		BRA_romanticize_the_old_empire
+		BRA_vassouras_line
+		BRA_restore_the_coffee_barons		
+		BRA_constitutional_monarchy
+
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+
+		BRA_invest_in_the_armed_forces
+		BRA_royal_colleges
+
+		BRA_undermine_democracy
+		BRA_issue_lordships
+		BRA_promote_agriculture
+		BRA_use_the_national_security_law
+		BRA_penal_battalions
+		BRA_amazonian_settlement
+		BRA_empire_of_brazil
+		BRA_reclaim_territory_in_south_america
+		BRA_spirit_of_acre_war
+		BRA_restoration_of_honor
+		BRA_secure_our_borders
+	
+		BRA_domination_of_the_americas
+		BRA_berlin_accords
+		BRA_defense_of_the_fatherland
+		BRA_rome_accords
+		BRA_expand_operation_bolivar
+		BRA_german_tanks
+		BRA_italian_car_industry
+		BRA_italian_aircraft
+		BRA_italian_trucks
+		BRA_italian_cooperation
+		BRA_german_subs
+		BRA_german_cooperation
+		BRA_form_mercosul
+		
+		BRA_companhia_siderurgica_nacional
+		BRA_batalha_do_borracha
+		BRA_banco_do_brasil
+
+		BRA_guyana_crisis
+
+		BRA_paraguay_intervention
+		BRA_stimulate_the_civilian_economy
+
+		BRA_provoke_argentina
+		BRA_domestic_arms_industry
+
+		BRA_attack_chile
+		BRA_war_production
+
+		BRA_panama_push
+		BRA_promote_resource_extraction
+
+		BRA_unify_south_america
+		BRA_establish_caloi		
+		BRA_invest_in_road_infrastructure
+		BRA_bonus_tech_slot
+			
+		BRA_federal_development
+		BRA_centralize_development
+		BRA_financial_stimulation
+
+		BRA_invest_in_railways
+		BRA_national_petroleum_council
+		BRA_invest_in_ports
+
+		
+
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_alcantara_plan = {
+	name = "Brazilian Monarchist Plan - Dom Alcantara"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_MONARCHIST_ALCANTARA
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = BRA_MONARCHIST_ALCANTARA
+			}	
+		}
+
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+		BRA_desenvolvimentismo
+
+
+		BRA_end_the_state_of_emergency
+		BRA_romanticize_the_old_empire
+		BRA_petropolis_line
+		BRA_restore_the_coffee_barons		
+		BRA_constitutional_monarchy
+
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+
+		BRA_invest_in_the_armed_forces
+		BRA_royal_colleges
+
+		BRA_undermine_democracy
+		BRA_issue_lordships
+		BRA_promote_agriculture
+		BRA_use_the_national_security_law
+		BRA_united_kingdom_of_brazil_and_portugal
+		BRA_empire_of_brazil
+		BRA_demand_portugese_submission
+	
+
+		BRA_penal_battalions
+		BRA_amazonian_settlement
+		BRA_reclaim_territory_in_south_america
+		BRA_spirit_of_acre_war
+		BRA_restoration_of_honor
+		BRA_secure_our_borders
+	
+		BRA_domination_of_the_americas
+		BRA_defense_of_the_fatherland
+		
+		BRA_companhia_siderurgica_nacional
+		BRA_batalha_do_borracha
+		BRA_banco_do_brasil
+
+		BRA_guyana_crisis
+
+		BRA_berlin_accords
+		BRA_rome_accords
+		BRA_expand_operation_bolivar
+		BRA_german_tanks
+		BRA_german_subs
+		BRA_german_cooperation
+		BRA_unify_south_america
+		BRA_italian_car_industry
+		BRA_italian_aircraft
+		BRA_italian_trucks
+		BRA_italian_cooperation
+
+		BRA_paraguay_intervention
+		BRA_stimulate_the_civilian_economy
+
+		BRA_provoke_argentina
+		BRA_domestic_arms_industry
+
+		BRA_attack_chile
+		BRA_war_production
+
+		BRA_panama_push
+		BRA_promote_resource_extraction
+
+		BRA_establish_caloi		
+		BRA_invest_in_road_infrastructure
+		BRA_bonus_tech_slot
+			
+		BRA_federal_development
+		BRA_centralize_development
+		BRA_financial_stimulation
+
+		BRA_invest_in_railways
+		BRA_national_petroleum_council
+		BRA_invest_in_ports
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_stalinist_plan = {
+	name = "Brazilian Communist Plan - Stalinism"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_STALINIST
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = BRA_COMMUNIST_STALINISM
+			}	
+		}
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		BRA_prepare_for_second_intentona
+		BRA_radicalize_the_proletariat
+		BRA_infilitrate_the_military
+		BRA_free_prestes
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+
+		BRA_seek_soviet_support
+		BRA_launch_the_revolution
+
+
+		SMB_army
+		SMB_military_facilities
+		SMB_air_force
+
+		
+		BRA_align_with_moscow
+		BRA_soviet_economic_aid
+		BRA_tech_slot_3
+
+		BRA_nationalization_of_industry
+		BRA_companhia_siderurgica_nacional
+		BRA_collectivization_of_agriculture
+		BRA_national_petroleum_council
+		BRA_batalha_do_borracha
+		BRA_collectivization_of_transport
+		BRA_rapid_industrialization
+		BRA_stimulate_the_civilian_economy
+		BRA_domestic_arms_industry
+		SMB_regular_infantry
+		SMB_construct_air_bases
+		SMB_purchase_aircraft
+		SMB_establish_aircraft_industry
+
+		BRA_purchase_soviet_equipment
+		BRA_desenvolvimentismo
+		BRA_allow_the_church_to_operate
+		BRA_equality_for_women
+		BRA_soviet_arms_industry
+		BRA_spread_the_revolution
+		BRA_join_the_comintern
+		
+		BRA_create_faction
+		BRA_jaguar_diplomacy
+		BRA_anti_imperialism
+		BRA_union_of_latin_american_socialist_republics
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_independent_communist_plan = {
+	name = "Brazilian Communist Plan - Independent"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+	}
+	enable = {
+		OR = {
+			has_country_flag = BRA_AI_RANDOM_INDEPENDENT_COMMUNIST
+			has_game_rule = {
+				rule = BRA_AI_BEHAVIOR
+				option = BRA_COMMUNIST_INDEPENDENT
+			}	
+		}
+
+		has_dlc = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		BRA_prepare_for_second_intentona
+		BRA_radicalize_the_proletariat
+		BRA_infilitrate_the_military
+		BRA_revive_the_anl
+		BRA_coffee_crisis_aftermath
+
+		BRA_sway_the_cangaco
+		BRA_launch_the_revolution
+		BRA_radio_nacional
+		SMB_army
+		SMB_military_facilities
+		SMB_air_force		
+		BRA_desenvolvimentismo
+
+		BRA_cangaco_coup
+
+
+		BRA_tech_slot_3
+
+		BRA_nationalization_of_industry
+		BRA_radio_nacional
+		BRA_companhia_siderurgica_nacional
+		BRA_collectivization_of_agriculture
+		BRA_national_petroleum_council
+		BRA_batalha_do_borracha
+		BRA_collectivization_of_transport
+		BRA_rapid_industrialization
+		BRA_stimulate_the_civilian_economy
+		BRA_domestic_arms_industry
+
+		SMB_army
+		SMB_military_facilities
+		SMB_regular_infantry
+		SMB_air_force
+		SMB_construct_air_bases
+		SMB_purchase_aircraft
+		SMB_establish_aircraft_industry
+
+
+		BRA_allow_the_church_to_operate
+		BRA_equality_for_women
+		BRA_spread_the_revolution
+		
+		BRA_create_faction
+		BRA_jaguar_diplomacy
+		BRA_anti_imperialism
+		BRA_union_of_latin_american_socialist_republics
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

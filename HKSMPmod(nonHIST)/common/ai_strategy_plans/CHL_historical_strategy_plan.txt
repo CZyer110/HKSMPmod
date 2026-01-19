@@ -1,0 +1,146 @@
+CHL_historical_plan = {
+	name = "CHL historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = CHL
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = CHL_ai_behavior
+					option = DEFAULT
+				}
+			}
+			AND = {
+				has_game_rule = {
+					rule = CHL_ai_behavior
+					option = RANDOM
+				}
+				has_country_flag = CHL_AI_RANDOM_HISTORICAL
+			}
+			has_country_flag = CHL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = CHL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	# On average = five 70 days focuses per year
+
+	ai_national_focuses = {		
+		CHL_reestablish_the_republican_guard
+		CHL_endorse_the_constitution
+		CHL_policies_of_arturo_alessandri
+		CHL_suppress_the_nacistas
+		CHL_construct_the_estadio_nacional
+		CHL_cooperation_with_the_falange
+		CHL_inflation_control_by_the_central_bank
+
+		#Things to do ASAP
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+		CHL_1938_chilean_presidential_election
+		CHL_establish_corfo
+		CHL_low_cost_housing
+		CHL_enact_universal_suffrage
+		CHL_strengthen_instituto_nacional
+		CHL_reapproach_america
+
+		CHL_dissolve_covensa
+		CHL_we_must_dig_deeper
+		CHL_devalue_the_peso
+		CHL_public_works
+		CHL_expand_the_forestry
+		SMB_air_force
+		SMB_air_defense
+		CHL_kickstart_the_arsenal_of_democracy
+		CHL_development_inwards
+		CHL_enforce_stricter_secularism
+		CHL_socialist_youth
+		CHL_support_the_democracies
+		CHL_land_reforms
+		CHL_mapuche_reconcilliation_campaigns
+		CHL_found_national_steelworks
+		CHL_a_joint_application_to_the_allies
+		CHL_enact_stricter_labor_laws
+
+		CHL_expand_southern_infrastructure
+		CHL_impose_new_taxes
+		CHL_issue_bonds
+		CHL_utlilize_famae
+		CHL_domestic_production_of_the_willys_mb
+		CHL_advancements_in_telecommunications
+		CHL_establish_the_ministry_of_mining
+		CHL_the_nationalization_of_copper
+		CHL_high_quality_nitrate
+		CHL_strengthen_the_central_bank
+
+		SMB_air_defense
+		SMB_regular_infantry
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_air_academy
+		SMB_domestic_designs
+		SMB_navy
+		SMB_construct_naval_bases
+		SMB_special_forces
+		SMB_special_forces_option_2
+		SMB_special_forces_option_2_continuation
+		SMB_atacama_training
+		SMB_a_land_of_mountains
+		SMB_army_academy
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_construct_air_bases
+		SMB_jungle_warfare_training
+		SMB_brown_water_navy
+		SMB_establish_aircraft_industry
+		SMB_nimble_air_force
+		SMB_winning_the_air_war
+		SMB_air_modifier_boost_2
+
+		
+		
+	}
+
+	focus_factors = {
+		CHL_dispute_over_tierra_del_fuego = 0
+		SMB_reescalate_the_naval_arms_race = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+	traits = {
+
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

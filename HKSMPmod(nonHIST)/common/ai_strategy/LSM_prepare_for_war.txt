@@ -1,0 +1,20 @@
+USA_ignore_friendly_countries = {
+	reversed = yes
+	allowed = {
+		tag = USA
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		has_government = democratic
+		has_war = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = USA
+		value = -2000
+	}
+}

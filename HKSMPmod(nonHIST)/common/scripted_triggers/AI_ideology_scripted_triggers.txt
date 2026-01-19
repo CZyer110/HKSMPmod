@@ -1,0 +1,48 @@
+is_country_monarchist = {
+	has_government = neutrality
+	OR = {
+		AND = {
+			original_tag = ENG
+			has_completed_focus = ENG_the_kings_party
+		}
+		AND = {
+			original_tag = FRA
+			has_completed_focus = FRA_repeal_the_law_of_exile
+		}
+		AND = {
+			original_tag = POL
+			has_completed_focus = POL_assemble_the_regency_council
+		}
+		AND = {
+			original_tag = TUR
+			has_completed_focus = TUR_pivot_to_the_past
+		}
+	}
+}
+
+HOL_is_pro_germany = {
+	AND = {
+		check_variable = { var = ger_temp_trade_influence value = 15 compare = greater_than_or_equals }
+		check_variable = { var = GER.ger_gateway_to_europe_influence value = 25 compare = greater_than_or_equals }	
+		NOT = { has_war_with = GER }
+		GER = { has_government = fascism }
+	}
+}
+HOL_is_pro_british = {
+	AND = {
+		check_variable = { var = ger_temp_trade_influence value = 15 compare = greater_than_or_equals }
+		check_variable = { var = GER.ger_gateway_to_europe_influence value = 25 compare = greater_than_or_equals }	
+		NOT = { has_war_with = ENG }
+		ENG = { has_government = democratic }
+	}
+}
+HOL_is_pro_neutral = {
+	AND = {
+		check_variable = { var = ENG.eng_gateway_to_europe_influence value = 50 compare = greater_than_or_equals }
+		check_variable = { var = GER.ger_gateway_to_europe_influence value = 50 compare = greater_than_or_equals }
+		check_variable = { var = eng_temp_trade_influence value = 5 compare = less_than_or_equals }
+		check_variable = { var = eng_temp_trade_influence value = -5 compare = greater_than_or_equals }	
+		NOT = { has_war_with = GER }	
+		NOT = { has_war_with = ENG }
+	}
+}

@@ -1,0 +1,281 @@
+
+German_alternate_stalinist = {
+	name = "German Alternate plan to establish a proletarian dictatorship"
+	desc = "I am the senate"
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Gotterdammerung"
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_COMMUNIST_STALINIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_COMMUNIST_STALINIST
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		GER_oppose_hitler_ww
+		GER_rally_the_nation
+		GER_denazification_campaigns
+		GER_tend_to_the_future_of_germany
+		GER_start_the_proletarian_revolution
+
+		GER_the_peoples_victory
+		GER_ressurect_the_red_front_fighters_league
+		GER_formalize_the_intelligence_wing
+		GER_political_commissars
+
+		GER_proletarian_dictatorship
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_establish_the_reichswerke
+		GER_coal_liquefaction
+		GER_establish_buna_werke
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_accelerate_the_rearmament_program
+		GER_concentrated_armament_program
+		GER_establish_production_targets
+		GER_zentrale_planung
+		GER_armament_rationalization
+		GER_create_rustungsstab
+		GER_totaler_krieg
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries
+		GER_autarky_achieved
+
+		GER_state_controlled_economy
+		GER_central_planning
+		GER_nationalize_industries
+		GER_labor_rights_and_union_stuff
+		GER_expand_social_welfare
+		GER_effectivize_the_volkswerke
+		GER_womens_rights_and_equality
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+
+		GER_sign_the_second_treaty_of_berlin
+		GER_defense_treaty_with_the_soviet
+		GER_spheres_of_influence
+		
+		GER_liberate_austria
+		GER_czechoslovakia
+		GER_poland
+		GER_hungary
+		GER_the_northern_shield
+		GER_liberate_italy
+		GER_the_end_to_fascist_europe
+
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		ernst_thalmann = 0
+		GER_dietrich_bonhoeffer = 0
+		GER_adolf_friedrich_von_mecklenburg = 0
+		GER_walter_ulbricht = 0
+		GER_hans_luther = 0
+		GER_otto_ruhle = 25
+		GER_august_thalheimer = 15
+		GER_hermann_duncker = 15
+		hjalmar_schacht = 0
+		walther_funk = 0
+		GER_philipp_holzmann = 0
+		GER_deutsche_reichsbahn = 0
+		GER_rwe = 0
+		GER_vereinigte_stahlwerke = 0
+		ig_faben = 0
+		krupp = 0
+		siemens = 0
+	}
+
+	traits = {
+		GER_mefo_bills_architect = 0
+		construction_company = 0
+		mining_company = 0
+		conglomerate = 5
+		GER_reichswerke_conglomerate = 10
+		energy_supply_company = 0
+		GER_reich_minister_of_economy = 0
+		railway_company = 0
+		the_banker = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_monarchist_sentiment = 0
+		GER_remilitarize_the_rhineland = 0
+		GER_legacy_of_the_spartacus_league = 0
+	}
+
+}
+
+# German spartacist plan
+German_alternate_spartacist = {
+	name = "German Alternate plan to establish a communist revolutionary state"
+	desc = "Javohl! Kommunismus!"
+
+	allowed = {
+		original_tag = GER
+		has_dlc = "Gotterdammerung"
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_COMMUNIST_SPARTACUS
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = GER_COMMUNIST_SPARTACUS
+			}
+		}
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		GER_oppose_hitler_ww
+		GER_rally_the_nation
+		GER_denazification_campaigns
+		GER_tend_to_the_future_of_germany
+		GER_start_the_proletarian_revolution
+
+		GER_the_peoples_victory
+		GER_ressurect_the_red_front_fighters_league
+		GER_formalize_the_intelligence_wing
+		GER_political_commissars
+
+		GER_legacy_of_the_spartacus_league
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_social_ownership
+		GER_civil_liberties
+		GER_embrace_democratic_institutions
+		GER_liberate_austria
+		GER_spark_the_flame_of_revolution
+		GER_protect_the_revolution
+		GER_the_proletarian_legion
+		GER_support_the_proletarian_uprising
+		GER_strengthen_the_proletarian_international
+		GER_red_europe
+		GER_establish_volkskommissariats
+
+		GER_establish_the_reichswerke
+		GER_coal_liquefaction
+		GER_establish_buna_werke
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_accelerate_the_rearmament_program
+		GER_concentrated_armament_program
+		GER_establish_production_targets
+		GER_zentrale_planung
+		GER_armament_rationalization
+		GER_create_rustungsstab
+		GER_totaler_krieg		
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+
+		GER_subsidize_hoesch_benzin
+		GER_seize_foreign_industries
+		GER_autarky_achieved
+		GER_nationalize_industries
+		GER_labor_rights_and_union_stuff
+		GER_expand_social_welfare
+		GER_effectivize_the_volkswerke
+		GER_womens_rights_and_equality
+
+
+
+		GER_sign_the_second_treaty_of_berlin
+		GER_defense_treaty_with_the_soviet
+		GER_liberate_italy
+		GER_the_end_to_fascist_europe
+
+		GER_root_out_imperialism
+		GER_hegemony_over_europe
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		ernst_thalmann = 0
+		GER_dietrich_bonhoeffer = 0
+		GER_adolf_friedrich_von_mecklenburg = 0
+		GER_walter_ulbricht = 0
+		GER_hans_luther = 0
+		GER_otto_ruhle = 25
+		GER_august_thalheimer = 15
+		GER_hermann_duncker = 15
+		hjalmar_schacht = 0
+		walther_funk = 0
+		GER_philipp_holzmann = 0
+		GER_deutsche_reichsbahn = 0
+		GER_rwe = 0
+		GER_vereinigte_stahlwerke = 0
+		ig_faben = 0
+		krupp = 0
+		siemens = 0
+	}
+
+	traits = {
+		GER_mefo_bills_architect = 0
+		construction_company = 0
+		mining_company = 0
+		conglomerate = 5
+		GER_reichswerke_conglomerate = 10
+		energy_supply_company = 0
+		GER_reich_minister_of_economy = 0
+		railway_company = 0
+		the_banker = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		base = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		GER_monarchist_sentiment = 0
+		GER_remilitarize_the_rhineland = 0
+		GER_proletarian_dictatorship = 0
+		GER_defense_treaty_with_the_soviet = 0
+	}
+
+}

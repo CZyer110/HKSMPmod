@@ -1,0 +1,135 @@
+
+ENG_infra_resource_boost_aluminium = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			has_war = yes	
+			check_variable = { resource_imported@aluminium > 80 }
+		}
+		687 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 687 
+		value = 2000
+	}
+}
+HOL_infra_resource_boost_aluminium = {
+	allowed = {
+		original_tag = HOL
+	}
+	enable = {
+		OR = {	
+			has_capitulated = yes
+			check_variable = { resource_exported@aluminium > 80 }	
+			check_variable = { resource_imported@aluminium > 80 }
+		}
+		309 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 309 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_chromium = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war = yes
+		OR = {
+			check_variable = { resource_exported@chromium > 80 }
+			check_variable = { resource_imported@chromium > 40 }
+		}
+		542 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 542 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_steel = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war = yes
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		700 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 700 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_rubber = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war = yes
+		OR = {
+			check_variable = { resource_exported@rubber > 120 }
+			check_variable = { resource_imported@rubber > 80 }
+		}
+		422 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 422 
+		value = 2000
+	}
+}

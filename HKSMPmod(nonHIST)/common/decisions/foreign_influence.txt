@@ -1,0 +1,1459 @@
+foreign_influence = {
+
+	# Decisions for masters to push their ideology onto puppets
+	# Note that subject status is not checked due to those only appearing in DLC
+	# (Subjects are puppets with high autonomy)
+
+	nation_building = {
+
+		icon = eng_propaganda_campaigns
+
+		days_remove = 120
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				democratic < 0.9
+			}
+			OR = {
+				political_power_daily > 0.5
+				has_political_power > 60
+			}
+		}
+
+		visible = {
+			has_government = democratic
+			FROM = {
+				is_puppet_of = ROOT
+				democratic < 0.99
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = { add_timed_idea = { idea = nation_building days = 120 } }
+		}
+
+		modifier = {
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	socialist_education = {
+
+		icon = eng_propaganda_campaigns
+
+		days_remove = 120
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				communism < 0.9
+			}
+			OR = {
+				political_power_daily > 0.5
+				has_political_power > 60
+			}
+		}
+
+		visible = {
+			has_government = communism
+			NOT = {
+				AND = {
+					tag = ENG
+					has_completed_focus = ENG_concessions_to_the_trade_unions
+					FROM = {
+						OR = {
+							tag = CAN
+							tag = SAF
+							tag = RAJ
+							tag = AST
+							tag = NZL
+						}
+						has_government = communism
+					}
+				}
+			}
+			FROM = {
+				is_puppet_of = ROOT
+				communism < 0.99
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_timed_idea = { idea = socialist_education days = 120 }
+			}
+		}
+		modifier = {
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	paramilitary_training = {
+
+		icon = eng_propaganda_campaigns
+
+		days_remove = 120
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				fascism < 0.9
+			}
+			OR = {
+				political_power_daily > 0.5
+				has_political_power > 60
+			}
+		}
+
+		visible = {
+			has_government = fascism
+			NOT = {
+				AND = {
+					tag = ENG
+					has_completed_focus = ENG_organize_the_blackshirts
+					FROM = {
+						OR = {
+							tag = CAN
+							tag = SAF
+							tag = RAJ
+							tag = AST
+							tag = NZL
+						}
+						has_government = fascism
+					}
+				}
+			}
+			FROM = {
+				is_puppet_of = ROOT
+				fascism < 0.99
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_timed_idea = { idea = paramilitary_training days = 120 }
+			}
+		}
+
+		modifier = {
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	military_parade = {
+
+		icon = eng_propaganda_campaigns
+
+		days_remove = 120
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+				neutrality < 0.9
+			}
+			OR = {
+				political_power_daily > 0.5
+				has_political_power > 60
+			}
+		}
+
+		visible = {
+			has_government = neutrality
+			FROM = {
+				is_puppet_of = ROOT
+				neutrality < 0.99
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_timed_idea = { idea = military_parade days = 120 }
+			}
+		}
+
+		modifier = {
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	police_action = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				democratic > 0.6
+			}
+			FROM = {
+				NOT = { has_government = democratic }
+			}
+		}
+
+		visible = {
+			has_government = democratic
+			FROM = {
+				is_puppet_of = ROOT
+				NOT = { has_government = democratic }
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = { country_event = { id = mtg_generic.1 } }
+			FROM = {
+				add_timed_idea = {
+					idea = political_turmoil
+					days = 365
+				}
+			}
+			FROM = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	fraternal_republic = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				communism > 0.6
+			}
+			FROM = {
+				NOT = { has_government = communism }
+			}
+		}
+
+		visible = {
+			has_government = communism
+			FROM = {
+				is_puppet_of = ROOT
+				NOT = { has_government = communism }
+			}
+			NOT = {
+				AND = {
+					tag = ENG
+					has_completed_focus = ENG_concessions_to_the_trade_unions
+					FROM = {
+						OR = {
+							tag = CAN
+							tag = SAF
+							tag = RAJ
+							tag = AST
+							tag = NZL
+						}
+					}
+				}
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = { country_event = { id = mtg_generic.1 } }
+			FROM = {
+				add_timed_idea = {
+					idea = political_turmoil
+					days = 365
+				}
+			}
+			FROM = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	ultranationalist_coup = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				fascism > 0.6
+			}
+			FROM = {
+				NOT = { has_government = fascism }
+			}
+		}
+
+		visible = {
+			has_government = fascism
+			FROM = {
+				is_puppet_of = ROOT
+				NOT = { has_government = fascism }
+			}
+			NOT = {
+				AND = {
+					tag = ENG
+					has_completed_focus = ENG_organize_the_blackshirts
+					FROM = {
+						OR = {
+							tag = CAN
+							tag = SAF
+							tag = RAJ
+							tag = AST
+							tag = NZL
+						}
+					}
+				}
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = { country_event = { id = mtg_generic.1 } }
+			FROM = {
+				add_timed_idea = {
+					idea = political_turmoil
+					days = 365
+				}
+			}
+			FROM = {
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	military_dictatorship = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		available = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+			FROM = {
+				neutrality > 0.6
+			}
+			FROM = {
+				NOT = { has_government = neutrality }
+			}
+		}
+
+		visible = {
+			has_government = neutrality
+			FROM = {
+				is_puppet_of = ROOT
+				NOT = { has_government = neutrality }
+			}
+		}
+
+		target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = { country_event = { id = mtg_generic.1 } }
+			FROM = {
+				add_timed_idea = {
+					idea = political_turmoil
+					days = 365
+				}
+			}
+			FROM = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	instantiate_collaboration = {
+		icon = generic_prepare_civil_war
+
+		cost = 0
+
+		available = {
+			has_core_occupation_modifier = {
+				occupied_country_tag = FROM
+				modifier = compliance_80
+			}
+		}
+        visible = {
+			has_rule = can_create_collaboration_government
+			is_available_to_collaboration_government = yes
+			has_core_occupation_modifier = {
+				occupied_country_tag = FROM
+				modifier = compliance_60
+			}
+        }
+
+		complete_effect = {
+			set_temp_variable = { country_to_initiate = FROM }
+			instantiate_collaboration_government = yes
+		}
+
+		target_non_existing = yes
+		target_array = occupied_countries
+
+
+		ai_will_do = {
+			base = 10
+			# priotize larger countries
+
+			modifier = {
+				# blocks our focus tree for libyan oil
+				FROM = { has_war = yes }
+				ROOT = { has_war = yes }
+				factor = 0
+			}
+
+			modifier = {
+				# blocks our focus tree for libyan oil
+				tag = ITA
+				FROM = {
+					tag = LBA
+				}
+
+				factor = 0
+			}
+			modifier = {
+			# we dont want japan doing this and its not covered by the below size checks
+				tag = JAP
+				FROM = { tag = GUM }
+
+				factor = 0
+			}
+			modifier = {
+			# feels wierd to generate random ppl here over the nazis running the show and hoi doesnt have those except perhaps Von Neurath, but he didnt really run things past 41 so best just block it from ai while at war honestly.
+				tag = GER
+				FROM = { tag = CZE }
+				has_war = yes
+
+				factor = 0
+			}
+
+			modifier = {
+				# neutrals won't do collaboration until 1944 and they are at peace
+
+				has_government = neutrality
+				# allow neutral GER
+				not = { tag = GER }
+
+				OR = {
+					has_war = yes
+					date < 1944.01.01
+				}
+
+				factor = 0
+			}
+
+			modifier = {
+				# calculating cores we control
+				set_temp_variable = { num_cores_we_control = 0 }
+				all_of_scopes = {
+					array = FROM.core_states
+
+					if = {
+						limit = { is_controlled_by = PREV }
+						add_to_temp_variable = { num_cores_we_control = 1 }
+					}
+				}
+
+				# more score if more cores are controlled by us
+				add = num_cores_we_control
+			}
+
+			# dont make too many collaboratios
+			modifier = {
+				has_global_flag = limited_number_of_collab
+				set_temp_variable = { num_min_cores = 1.5 }
+				all_of_scopes = {
+					array = subjects
+					if = {
+						limit = {
+							has_autonomy_state = autonomy_collaboration_government
+						}
+						add_to_temp_variable = { num_min_cores = 0.7 }
+					}
+				}
+
+				check_variable = { num_cores_we_control < num_min_cores }
+
+				factor = 0
+			}
+
+			modifier = {
+			# [softly] Don't...
+				tag = TUR
+				FROM = { tag = KUR }
+
+				factor = 0
+			}
+
+			modifier = {
+			# [softly] Don't...
+				OR = {
+					AND = {
+						has_government = fascism
+						tag = BUL
+					}
+					AND = {
+						NOT = { has_completed_focus = SOV_found_the_comecon }
+						tag = SOV
+					}
+				}
+
+				factor = 0
+			}
+
+			modifier = {
+				is_historical_focus_on = yes #no collab on historical
+				factor = 0
+			}
+
+
+			modifier = {
+				FROM = {
+					tag = POL
+					is_ai = no
+				}
+
+				factor = 0
+			}
+			# don't create collab governments if you have contested cores
+			modifier = {
+				any_state = {
+					OR = {
+						is_controlled_by = ROOT
+						is_owned_by = ROOT
+					}
+					is_core_of = FROM
+					is_core_of = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+
+	ahistorical_puppet_system = {
+		icon = generic_prepare_civil_war
+
+		cost = 0
+
+		available = {
+			if = {
+				limit = {
+					any_state = { 
+						is_core_of = FROM
+						NOT = { is_controlled_by = ROOT }
+					}		
+					NOT = {
+						AND = {
+							original_tag = RAJ
+							has_completed_focus = RAJ_incorporation_of_the_east_india_company #release everything my bro
+						}
+					}
+				}
+				any_state = {
+					is_core_of = FROM
+					is_controlled_by = ROOT
+					has_variable = historical_capital_for_country
+				}
+			}
+			if = {
+				limit = {
+					any_state = { 
+						is_core_of = FROM
+						OR = {
+							is_core_of = ROOT
+							is_claimed_by = ROOT
+						}
+					}		
+					NOT = {
+						AND = {
+							original_tag = RAJ
+							has_completed_focus = RAJ_incorporation_of_the_east_india_company #release everything my bro
+						}
+					}
+				}
+				any_state = {
+					is_core_of = FROM
+					NOT = { is_claimed_by = ROOT }
+					NOT = { is_core_of = ROOT }
+				}
+			}
+			if = {
+				limit = {		
+					AND = {
+						original_tag = RAJ
+						has_completed_focus = RAJ_incorporation_of_the_east_india_company #release everything my bro
+					}
+					any_state = {
+						is_core_of = FROM
+						is_controlled_by = RAJ
+					}
+					FROM = {
+						OR = {
+							original_tag = MYS
+							original_tag = HYD
+							original_tag = MYS
+							original_tag = RJP
+							original_tag = CIP
+							original_tag = WIS
+							original_tag = SIN
+							original_tag = KAS
+							original_tag = KOL
+							original_tag = KAS
+							original_tag = WIS
+							original_tag = NWF
+							original_tag = MPU
+							original_tag = KHL
+							original_tag = FSS
+							original_tag = SKK
+							original_tag = RAS
+							original_tag = KLT
+							original_tag = PAK
+						}
+					}
+				}
+				any_state = {
+					is_core_of = FROM
+					is_controlled_by = RAJ
+				}
+			}
+		}
+        	visible = {
+			has_capitulated = no
+			OR = {
+				any_state = {
+					is_core_of = FROM
+					is_owned_by = ROOT 
+					NOT = { is_core_of = ROOT }
+					NOT = { is_claimed_by = ROOT }
+					NOT = {
+						is_in_array = {
+							ROOT.core_states_at_game_start = THIS
+						}
+					}
+				}		
+				AND = {
+					original_tag = RAJ
+					has_completed_focus = RAJ_incorporation_of_the_east_india_company #release everything my bro
+					FROM = {
+						OR = {
+							original_tag = MYS
+							original_tag = HYD
+							original_tag = MYS
+							original_tag = RJP
+							original_tag = CIP
+							original_tag = WIS
+							original_tag = SIN
+							original_tag = KAS
+							original_tag = KOL
+							original_tag = KAS
+							original_tag = WIS
+							original_tag = NWF
+							original_tag = MPU
+							original_tag = KHL
+							original_tag = FSS
+							original_tag = SKK
+							original_tag = RAS
+							original_tag = KLT
+							original_tag = PAK
+						}
+					}
+				}
+			}
+			NOT = { country_exists = FROM }
+			is_historical_focus_on = no
+			ROOT = { is_ai = yes }	
+			is_subject = no
+			has_civil_war = no
+			NOT = { FROM = { original_tag = ROOT } }
+       	 	}
+
+		complete_effect = {
+			set_temp_variable = { puppet_to_initiate = FROM }
+			release_this_country_as_puppet = yes
+		}
+
+		target_non_existing = yes
+		target_array = occupied_countries
+
+
+		ai_will_do = {
+			factor = 9999
+			modifier = {
+				set_temp_variable = { base_state_factor = 10 }
+				multiply_temp_variable = { base_state_factor = FROM.num_core_states }
+				multiply_temp_variable = { base_state_factor = -1 }
+				add = base_state_factor
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					has_variable = historical_capital_for_country
+					is_on_continent = south_america
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { is_on_continent = south_america }
+					}
+				}
+				ROOT = {
+					capital_scope = { is_on_continent = north_america }
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					has_variable = historical_capital_for_country
+					is_on_continent = asia
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { is_on_continent = asia }
+					}
+				}
+				FROM = {
+					NOT = { has_country_flag = originally_existing_country }
+					OR = {
+						original_tag = PAK
+						original_tag = RAJ
+						original_tag = BRM
+					}
+				}
+				ROOT = {
+					OR = {
+						original_tag = ENG
+						original_tag = FRA
+						original_tag = GER
+						original_tag = BEL
+						original_tag = HOL
+						original_tag = SPR
+						original_tag = POR
+						original_tag = ITA
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					is_on_continent = middle_east
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { is_on_continent = middle_east }
+					}
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							original_tag = IRQ
+							original_tag = PER
+							original_tag = TUR
+							original_tag = YEM
+							original_tag = AFG
+							original_tag = LEB
+							original_tag = SYR
+							original_tag = JOR
+							original_tag = EGY
+							original_tag = ISR
+							original_tag = KUR
+						}
+					}
+				}
+			}
+			modifier = { #too rich, dont release if captured
+				factor = 0
+				FROM = {
+					OR = {
+						original_tag = VIN
+						original_tag = BRM
+						original_tag = PAK
+						original_tag = RAJ
+						original_tag = SIA
+					}
+				}
+				ROOT = {
+					capital_scope = { is_on_continent = europe }
+					NOT = { original_tag = SOV }
+				}
+			}
+			modifier = { #our land
+				factor = 0
+				FROM = {
+					OR = {
+						original_tag = MYS
+						original_tag = HYD
+						original_tag = MYS
+						original_tag = RJP
+						original_tag = CIP
+						original_tag = WIS
+						original_tag = SIN
+						original_tag = KAS
+						original_tag = KOL
+						original_tag = KAS
+						original_tag = WIS
+						original_tag = NWF
+						original_tag = MPU
+						original_tag = KHL
+						original_tag = FSS
+						original_tag = SKK
+						original_tag = RAS
+						original_tag = KLT
+						original_tag = NEP
+						original_tag = PAK
+						original_tag = AFG
+						original_tag = BRM
+						original_tag = BHU
+						original_tag = TIB
+						original_tag = SIK
+						original_tag = PER
+						original_tag = SIA
+						original_tag = MAL
+						original_tag = CAM
+						original_tag = LAO
+						original_tag = VIN
+					}
+				}
+				ROOT = {
+					original_tag = RAJ		
+					NOT = { has_completed_focus = RAJ_incorporation_of_the_east_india_company } #EIC prefers lotta puppets
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					is_on_continent = africa
+				}
+				NOT = {
+					OR = {
+						capital_scope = { is_on_continent = africa }
+						capital_scope = { is_on_continent = asia }
+						capital_scope = { is_on_continent = south_america }
+					}
+				}
+				FROM = {
+					OR = {
+						original_tag = EGY
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					is_on_continent = africa
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { is_on_continent = africa }
+					}
+				}
+				ROOT = {
+					OR = {
+						capital_scope = { is_on_continent = europe }
+						capital_scope = { is_on_continent = north_america }
+					}
+				}
+				FROM = {
+					NOT = {
+						OR = {
+							original_tag = POR
+							original_tag = SPR
+							original_tag = BRA
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					is_on_continent = south_america
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { is_on_continent = south_america }
+						NOT = { is_on_continent = north_america }
+					}
+				}
+				ROOT = {
+					capital_scope = { is_on_continent = south_america }
+					OR = {
+						original_tag = ARG
+						original_tag = BRA
+						original_tag = CHL
+						original_tag = PAR
+						original_tag = URG
+					}
+					NOT = { has_government = democratic }
+					NOT = { has_completed_focus = BRA_united_states_of_south_america }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { original_tag = ENG }
+				FROM = {
+					OR = {
+						original_tag = CAN
+						original_tag = RAJ
+						original_tag = SAF
+						original_tag = AST
+						original_tag = NZL
+						original_tag = MAL
+						original_tag = USA
+						original_tag = MEX
+						original_tag = ICE
+						original_tag = IRE
+						original_tag = PAK
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = {
+					OR = {
+						original_tag = CSA
+						tag = USB
+						original_tag = USA
+					}
+				}
+				FROM = {
+					OR = {
+						original_tag = CSA
+						tag = USB
+						original_tag = USA
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					original_tag = EST 
+					has_government = fascism
+				}
+				FROM = {
+					OR = {
+						original_tag = FIN
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { is_literally_china = yes }
+				FROM = { is_literally_china = yes }
+			}
+			modifier = {
+				factor = 0
+				ROOT = { original_tag = JAP }
+				FROM = {
+					OR = {
+						original_tag = SIK
+						original_tag = XSM
+						original_tag = SHX
+						original_tag = YUN
+						original_tag = GXC
+						original_tag = PRC
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					original_tag = SOV 
+					NOT = { has_government = democratic }
+				}
+				FROM = {
+					OR = {
+						original_tag = LIT
+						original_tag = LAT
+						original_tag = EST
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					OR = {
+						original_tag = CHI
+						original_tag = PRC
+						original_tag = MAN
+						is_literally_china = yes
+					}
+						
+				}
+				FROM = {
+					OR = {
+						original_tag = TIB
+						original_tag = TAN
+						original_tag = MON
+						original_tag = MAN
+						original_tag = KOR
+						original_tag = MEN
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					is_nordic_formable_countries = yes
+				}
+				FROM = {
+					is_nordic_formable_countries = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					is_baltic_formable_countries = yes
+				}
+				FROM = {
+					is_baltic_formable_countries = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					OR = {
+						AND = {
+							is_eu_formable_countries = yes
+							has_government = democratic
+						}
+						AND = {
+							original_tag = ENG
+							has_government = fascism
+						}
+					}
+				}
+				FROM = {
+					is_eu_formable_countries = yes
+				}
+				NOT = {
+					any_other_country = {
+						is_eu_formable_countries = yes
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					is_benelux_formable_countries = yes
+				}
+				FROM = {
+					is_benelux_formable_countries = yes
+				}
+				NOT = {
+					any_other_country = {
+						is_benelux_formable_countries = yes
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					is_auh_formable_countries = yes
+				}
+				FROM = {
+					is_auh_formable_countries = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					original_tag = GER
+				}
+				FROM = {
+					is_benelux_formable_countries = yes
+					
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					is_cena_formable_countries = yes
+				}
+				FROM = {
+					is_cena_formable_countries = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					original_tag = POL
+				}
+				FROM = {
+					is_baltic_formable_countries = yes
+				}
+			}
+			modifier = {
+				factor = 0 #known super colonial powers
+				ROOT = { 
+					OR = {
+						original_tag = FRA
+						original_tag = ENG
+						original_tag = POR
+						original_tag = SPR
+						original_tag = ITA
+					}
+				}
+				FROM = {
+					NOT = { has_country_flag = originally_existing_country }
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = { 
+					original_tag = SPR
+				}
+				FROM = {
+					OR = {
+						original_tag = POR
+						original_tag = MOR
+						original_tag = ALG
+						original_tag = TUN
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				date < 1939.1.1
+				has_government = democratic
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_owned_by = ROOT
+						compliance < 35
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				date > 1939.1.1
+				has_government = democratic
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_owned_by = ROOT
+						compliance < 55
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { has_government = democratic }
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_owned_by = ROOT
+						compliance < 50
+					}
+				}
+				ROOT = {
+					original_tag = RAJ		
+					NOT = { has_completed_focus = RAJ_incorporation_of_the_east_india_company } #EIC prefers lotta puppets
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_owned_by = ROOT
+						is_island_state = no
+					}
+				}
+			}
+			modifier = {
+				factor = 0		
+				ROOT = { tag = AFG }
+				any_state = {
+					is_core_of = FROM
+					OR = {
+						is_core_of = PAK
+						is_claimed_by = PAK
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				any_state = {
+					is_core_of = FROM
+					OR = {
+						controller = { has_war_with = ROOT }
+						any_neighbor_state = {
+							controller = { has_war_with = ROOT }
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				ROOT = {
+					tag = JAP
+				}
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_island_state = no
+						is_coastal = no
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = { original_tag = DIP } #very much never release Partisan please
+			}
+			modifier = {
+				add = 9999
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						NOT = { has_state_flag = tainted_state }
+						OR = {
+							is_island_state = yes
+							is_coastal = yes
+							any_neighbor_state = {
+								OR = {
+									is_core_of = ROOT
+									is_owned_by = ROOT
+									is_controlled_by = ROOT
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = limited_number_of_collab
+				FROM = {
+					NOT = { has_country_flag = originally_existing_country }
+				}
+			}	
+		}
+	}
+
+	ahistorical_return_state_system = {
+		icon = generic_prepare_civil_war
+
+		cost = 0
+
+		available = {
+			any_state = {
+				is_core_of = FROM
+				is_owned_by = ROOT 
+				NOT = { is_core_of = ROOT }
+				OR = {
+					NOT = { is_claimed_by = ROOT }
+					FROM = { is_subject = no }
+				}
+				OR = {
+					compliance < 35
+					has_state_flag = tainted_state
+				}
+			}
+		}
+        	visible = {
+			any_state = {
+				is_core_of = FROM
+				is_owned_by = ROOT
+				NOT = { is_core_of = ROOT }
+				OR = {
+					NOT = { is_claimed_by = ROOT }
+					FROM = { is_subject = no }
+				}
+				OR = {
+					compliance < 35
+					has_state_flag = tainted_state
+				}
+			}
+			ROOT = { is_ai = yes }
+			is_historical_focus_on = no
+			FROM = { is_in_faction_with = ROOT }
+			has_civil_war = no
+			FROM = { has_civil_war = no }
+       	 	}
+
+		complete_effect = {
+			set_temp_variable = { release_to_initiate = FROM }
+			release_non_core_claim_to_from = yes
+		}
+		target_array = allies
+
+
+		ai_will_do = {
+			factor = 2000
+			modifier = {
+				factor = 0
+				NOT = {
+					any_state = {
+						is_core_of = FROM
+						is_owned_by = ROOT
+						NOT = { is_in_array = { ROOT.game_start_core_states = THIS } }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						ROOT = { original_tag = SPR }
+						FROM = { original_tag = POR }
+					}
+					AND = {
+						ROOT = { original_tag = POR }
+						FROM = { original_tag = SPR }
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				FROM = { is_subject = no }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { is_subject = yes }
+			}
+			modifier = {
+				factor = 0
+				ROOT = {
+					is_literally_china = yes
+				}
+				FROM = {
+					is_literally_china = yes
+				}
+				OR = {
+					ROOT = { is_subject = no }
+					FROM = { is_subject = yes }
+				}
+			}
+		}
+	}
+}

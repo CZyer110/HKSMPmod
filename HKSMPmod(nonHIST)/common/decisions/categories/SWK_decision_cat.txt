@@ -1,0 +1,8 @@
+
+the_second_weltkrieg_decision_cat = {
+	icon = generic_propaganda
+
+	visible = {
+		always = yes
+	}
+}

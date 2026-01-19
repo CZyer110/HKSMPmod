@@ -1,0 +1,559 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					tag = FIN
+					is_ai = yes
+					is_historical_focus_on = yes
+				}
+				random_other_country = {
+					limit = {
+						is_axis_ai = yes
+						is_ai = yes
+						has_tech = interwar_antitank
+					}
+					create_production_license = {
+						target = FIN
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = ROM
+						tag = HUN
+						tag = ITA
+					}
+					is_ai = yes
+					is_historical_focus_on = yes
+					NOT = { has_tech = interwar_antitank }
+				}
+				random_other_country = {
+					limit = {
+						is_axis_ai = yes
+						is_ai = yes
+						has_tech = interwar_antitank
+					}
+					create_production_license = {
+						target = ROM
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = BUL
+					is_ai = yes
+					is_historical_focus_on = yes
+				}
+				random_other_country = {
+					limit = {
+						is_axis_ai = yes
+						is_ai = yes
+						has_tech = interwar_antitank
+					}
+					create_production_license = {
+						target = FIN
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+				random_other_country = {
+					limit = {
+						is_axis_ai = yes
+						is_ai = yes
+						has_tech = interwar_antiair
+					}
+					create_production_license = {
+						target = BUL
+						equipment = {
+							type = anti_air_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = BEL
+					is_ai = yes
+					is_historical_focus_on = yes
+				}
+				random_other_country = {
+					limit = {
+						is_allied_ai = yes
+						has_tech = interwar_antiair
+					}
+					create_production_license = {
+						target = BEL
+						equipment = {
+							type = anti_air_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = CHI
+					is_ai = yes
+					is_historical_focus_on = yes
+					NOT = { has_tech = infantry_weapons1 }
+				}
+				random_other_country = {
+					limit = {
+						is_allied_ai = yes
+						has_tech = infantry_weapons1
+					}
+					create_production_license = {
+						target = CHI
+						equipment = {
+							type = infantry_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = SOV
+					is_ai = yes
+					is_historical_focus_on = yes
+					has_global_flag = is_active
+				}
+				random_other_country = {
+					limit = {
+						is_ai = yes
+						is_allied_ai = yes
+						has_tech = basic_heavy_tank_chassis
+					}
+					create_production_license = {
+						target = SOV
+						equipment = {
+							type = heavy_tank_chassis_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = SOV
+					is_ai = yes
+					is_historical_focus_on = no
+				}
+				random_other_country = {
+					limit = {
+						is_ai = yes
+						tag = FRA
+						has_tech = basic_heavy_tank_chassis
+					}
+					create_production_license = {
+						target = SOV
+						equipment = {
+							type = heavy_tank_chassis_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					tag = JAP
+					is_ai = yes
+					is_historical_focus_on = yes
+				}
+				random_other_country = {
+					limit = {
+						is_ai = yes
+						is_axis_ai = yes
+						has_tech = interwar_antiair
+					}
+					create_production_license = {
+						target = JAP
+						equipment = {
+							type = anti_air_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+				random_other_country = {
+					limit = {
+						is_ai = yes
+						is_axis_ai = yes
+						has_tech = interwar_antitank
+					}
+					create_production_license = {
+						target = JAP
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+						cost_factor = 0
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				if = { 
+					limit = { 
+						NOT = { has_tech = basic_train }
+						OR = {
+							is_allied_ai = yes
+							is_axis_ai = yes
+						}
+					}
+					set_technology = { basic_train = 1 popup = no }
+					add_equipment_to_stockpile = { 
+						type = train_equipment_1
+						amount = 5
+						producer = PREV
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				if = { 
+					limit = { 
+						is_in_faction = yes
+						NOT = { has_tech = tech_trucks }
+					}
+					set_technology = { tech_trucks = 1 popup = no }
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = FIN
+						original_tag = NOR
+						original_tag = SWE
+						original_tag = DEN
+					}
+				}
+				set_technology = { militia_tech = 1 popup = no }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				GER = {
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = GER_porsche_organization
+							}
+						}
+						add_mio_size = 1
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = GER_porsche_organization
+								is_military_industrial_organization = GER_rheinmetall_organization
+							}
+						}
+						add_mio_size = 1
+					}
+				}
+				FRA = {
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = FRA_renault_organization
+							}
+						}
+						add_mio_size = 1
+						add_mio_funds = 250
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = FRA_panhard_organization
+							}
+						}
+						add_mio_size = 4
+					}
+				}
+				ENG = {
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = ENG_yarrow_shipbuilders_organization
+							}
+						}
+						add_mio_size = 2
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = ENG_rsaf_enfield_organization
+							}
+						}
+						add_mio_size = 1
+					}
+				}
+				USA = {
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = USA_norfolk_naval_yard_organization
+								is_military_industrial_organization = USA_newport_news_shipbuilding_organization
+							}
+						}
+						add_mio_size = 2
+					}
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = USA_boeing_organization
+							}
+						}
+						add_mio_size = 3
+					}
+				}
+				JAP = {
+					every_military_industrial_organization = {
+						limit = {
+							OR = {
+								is_military_industrial_organization = JAP_nissan_organization
+							}
+						}
+						add_mio_size = 1
+					}
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				if = { 
+					limit = { 
+						OR = {
+							tag = TAN
+							tag = MON
+							tag = BRA
+							tag = ARG
+							tag = CHL
+							tag = URG
+							tag = PAR
+						}
+					}
+					add_research_slot = 1
+				}
+			}
+		}
+		effect = {
+			every_country = {
+				if = { 
+					limit = { 
+						OR = {
+							tag = BEL
+							tag = BUL
+							tag = ROM
+							tag = HUN
+							tag = AUS
+							tag = CAN
+							tag = GRE
+							tag = YUG
+							tag = TUR
+							tag = SWI
+						}
+						NOT = { has_tech = gw_artillery }
+					}
+					set_technology = { gw_artillery = 1 popup = no }
+				}
+			}
+		}
+		effect = {
+			SOV = {
+				#if = {
+				#	limit = { 
+				#		has_dlc = "No Step Back"  
+				#		date < 1937.1.1
+				#	}
+				#	set_technology = { basic_heavy_tank_chassis = 1 popup = no } #T35 is a disappointing piece of shit
+				#}
+				set_technology = { interwar_antitank = 1 popup = no }
+			}
+			FRA = {
+				if = {
+					limit = {   
+						date < 1937.1.1
+					}
+					set_technology = { interwar_antitank = 1 popup = no }
+				}
+			}
+			GER = {
+				if = {
+					limit = {   
+						date < 1937.1.1
+					}
+					set_technology = { interwar_antitank = 1 popup = no }
+				}
+			}
+			ENG = {
+				if = {
+					limit = {   
+						date < 1937.1.1
+					}
+					set_technology = { marines = 1 popup = no }
+				}
+			}
+			JAP = {
+				if = {
+					limit = {   
+						date < 1937.1.1
+					}
+					set_technology = { marines = 1 popup = no }
+				}
+			}
+		}
+		effect = {
+			SOV = {
+				add_tech_bonus = {
+					name = SOV_early_dev
+					bonus = 3.0
+					technology = mtg_transport
+				}
+			}
+		}
+		effect = {
+			INS = {
+				if = {
+					limit = {
+						NOT = { has_tech = infantry_weapons1 }
+					}
+					set_technology = { infantry_weapons1 = 1 popup = no }
+				}
+			}
+		}
+		effect = {
+			NEP = {
+				if = {
+					limit = {
+						NOT = { has_tech = tech_mountaineers }
+					}
+					set_technology = { tech_mountaineers = 1 popup = no }
+				}
+			}
+		}
+		effect = {
+			SOV = {
+				if = {
+					limit = {
+						is_ai = yes
+						LIB = { is_ai = no }
+						has_intelligence_agency = no
+					}
+					create_intelligence_agency = yes
+					add_ideas = spy_test
+				}
+			}
+		}
+		effect = {
+			every_possible_country = {
+				if = { 
+					limit = { 
+						OR = {
+							tag = CHI
+							tag = JAP
+							tag = PER
+							tag = AFG
+							tag = IRQ
+							tag = TUR
+							tag = SAF
+							tag = AST
+							tag = ITA
+						}
+					}
+					set_technology = { natural_heat_acclimatization = 1 popup = no }
+				}
+				if = { 
+					limit = { 
+						OR = {
+							tag = VIN
+							tag = CAM
+							tag = LAO
+							tag = PHI
+							tag = SIA
+							tag = INS
+							tag = MAL
+							tag = SAU
+							tag = YEM
+							tag = OMA
+							tag = EGY
+							tag = ETH
+							tag = ALG
+							tag = TUN
+							tag = RAJ
+							tag = COL
+							tag = ECU
+							tag = VEN
+						}
+					}
+					set_technology = { natural_heat_acclimatization_2 = 1 popup = no }
+				}
+				if = { 
+					limit = { 
+						OR = {
+							tag = SOV
+							tag = JAP
+							tag = LIT
+							tag = LAT
+							tag = EST
+							tag = DEN
+							tag = KOR
+							tag = MAN
+							tag = MON
+							tag = CHL
+						}
+					}
+					set_technology = { natural_winter_acclimatization = 1 popup = no }
+				}
+				if = { 
+					limit = { 
+						OR = {
+							tag = CAN
+							tag = FIN
+							tag = SWE
+							tag = NOR
+							tag = ICE
+							tag = TIB
+							tag = NEP
+							tag = BHU
+						}
+					}
+					set_technology = { natural_winter_acclimatization_2 = 1 popup = no }
+				}
+			}
+		}
+	}
+}

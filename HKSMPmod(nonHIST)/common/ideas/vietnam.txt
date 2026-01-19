@@ -1,0 +1,1367 @@
+ideas = {
+	country = {
+		first_indochina_war = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				OR = { 
+					has_war_with = VIN
+					has_war_with = FRA
+				}
+				VIN = { is_in_faction = no }
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				ai_call_ally_desire_factor = -10000
+				ai_join_ally_desire_factor = -10000
+			}
+		}
+		VIN_the_eventual_revolution_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			on_remove = { 
+				add_timed_idea = { idea = VIN_the_eventual_revolution_1 days = 730 }
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				custom_modifier_tooltip = gain_communist_drift_1_tt
+				custom_modifier_tooltip = communism_ban_backlash_tt
+				custom_modifier_tooltip = monthly_manpower_loss_tt
+			}
+		}
+		VIN_the_eventual_revolution_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			on_remove = { 
+				add_timed_idea = { idea = VIN_the_eventual_revolution_2 days = 730 }
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				custom_modifier_tooltip = gain_communist_drift_2_tt
+				custom_modifier_tooltip = communism_ban_backlash_tt
+				custom_modifier_tooltip = monthly_manpower_loss_tt
+			}
+		}
+		VIN_the_eventual_revolution_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			on_remove = { 
+				add_ideas = VIN_the_eventual_revolution_3
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				custom_modifier_tooltip = gain_communist_drift_3_tt
+				custom_modifier_tooltip = communism_ban_backlash_tt
+				custom_modifier_tooltip = monthly_manpower_loss_tt
+			}
+		}
+		VIN_the_eventual_revolution_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				custom_modifier_tooltip = gain_communist_drift_4_tt
+				custom_modifier_tooltip = communism_ban_backlash_tt
+				custom_modifier_tooltip = monthly_manpower_loss_tt
+			}
+		}
+		VIN_apathetic_people_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				conscription_factor = -0.45
+			}
+		}
+		VIN_apathetic_people_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				conscription_factor = -0.30
+			}
+		}
+		VIN_apathetic_people_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				conscription_factor = -0.15
+			}
+		}
+		VIN_colonial_army_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption
+
+			modifier = {
+				conscription_factor = -0.25
+				army_attack_factor = -0.25
+				army_defence_factor = -0.25
+				army_org_factor = -0.25
+			}
+		}
+		VIN_colonial_army_1a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.25
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_org_factor = -0.2
+			}
+		}
+		VIN_colonial_army_1b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.25
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				army_org_factor = -0.15
+			}
+		}
+		VIN_colonial_army_1c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.25
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_org_factor = -0.1
+			}
+		}
+		VIN_colonial_army_2a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.25
+			}
+		}
+		VIN_colonial_army_2b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.2
+			}
+		}
+		VIN_colonial_army_2c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.15
+			}
+		}
+		VIN_colonial_army_3a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.15
+				training_time_factor = 0.25
+			}
+		}
+		VIN_colonial_army_3b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.15
+				training_time_factor = 0.25
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		VIN_colonial_army_3c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.25
+				training_time_factor = 0.25
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		VIN_colonial_army_4a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 500
+				conscription_factor = -0.50
+				training_time_factor = 0.50
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+			}
+		}
+		VIN_colonial_army_4b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 500
+				conscription_factor = -0.65
+				training_time_factor = 0.65
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+			}
+		}
+		VIN_colonial_army_4c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 750
+				conscription_factor = -0.80
+				training_time_factor = 0.80
+				army_attack_factor = 0.25
+				army_defence_factor = 0.25
+			}
+		}
+		VIN_colonial_army_4d = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 1000
+				conscription_factor = -0.95
+				training_time_factor = 0.95
+				army_attack_factor = 0.30
+				army_defence_factor = 0.30
+			}
+		}
+		VIN_colonial_army_4e = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 1500
+				conscription_factor = -1
+				training_time_factor = 1
+				army_attack_factor = 0.40
+				army_defence_factor = 0.40
+			}
+		}
+		VIN_colonial_army_4f = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				weekly_manpower = 2000
+				conscription_factor = -1
+				training_time_factor = 1
+				army_attack_factor = 0.50
+				army_defence_factor = 0.50
+			}
+		}
+		VIN_colonial_exploitation_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = ARG_economic_reactivation
+
+			modifier = {
+				stability_factor = -0.10
+				trade_laws_cost_factor = 1.00
+				extra_trade_to_overlord_factor = 0.25
+			}
+		}
+		VIN_colonial_exploitation_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = ARG_economic_reactivation
+
+			modifier = {
+				stability_factor = -0.20
+				trade_laws_cost_factor = 1
+				extra_trade_to_overlord_factor = 0.50
+			}
+		}
+		VIN_colonial_exploitation_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = ARG_economic_reactivation
+
+			modifier = {
+				stability_factor = -0.30
+				trade_laws_cost_factor = 1
+				extra_trade_to_overlord_factor = 0.75
+			}
+		}
+		VIN_colonial_exploitation_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = ARG_economic_reactivation
+
+			modifier = {
+				stability_factor = -0.40
+				trade_laws_cost_factor = 1
+				extra_trade_to_overlord_factor = 1
+			}
+		}
+		VIN_colonial_exploitation_4 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = ARG_economic_reactivation
+
+			modifier = {
+				stability_factor = -0.50
+				trade_laws_cost_factor = 1
+				extra_trade_to_overlord_factor = 1
+			}
+		}
+		VIN_imperial_army_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption
+
+			modifier = {
+				conscription_factor = -1
+				army_attack_factor = -0.50
+				army_defence_factor = -0.50
+			}
+		}
+		VIN_imperial_army_1a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.95
+				army_attack_factor = -0.45
+				army_defence_factor = -0.45
+			}
+		}
+		VIN_imperial_army_1b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.90
+				army_attack_factor = -0.4
+				army_defence_factor = -0.4
+			}
+		}
+		VIN_imperial_army_1c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.85
+				army_attack_factor = -0.35
+				army_defence_factor = -0.35
+			}
+		}
+		VIN_imperial_army_2a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.8
+				army_attack_factor = -0.30
+				army_defence_factor = -0.30
+			}
+		}
+		VIN_imperial_army_2b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.7
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+			}
+		}
+		VIN_imperial_army_2c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				conscription_factor = -0.65
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+			}
+		}
+		VIN_imperial_army_3a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.6
+				army_attack_factor = -0.10
+				army_defence_factor = -0.10
+			}
+		}
+		VIN_imperial_army_3b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.55
+				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+			}
+		}
+		VIN_imperial_army_3c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.50
+			}
+		}
+		VIN_imperial_army_4a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.45
+			}
+		}
+		VIN_imperial_army_4b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.4
+			}
+		}
+		VIN_imperial_army_4c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.35
+			}
+		}
+		VIN_imperial_army_4d = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.30
+			}
+		}
+		VIN_imperial_army_4e = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.25
+			}
+		}
+		VIN_imperial_army_4f = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = -0.20
+			}
+		}
+		VIN_independent_army_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption
+
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				attrition = -0.02
+				out_of_supply_factor = -0.05
+			}
+		}
+		VIN_independent_army_1a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+				attrition = -0.04
+				out_of_supply_factor = -0.10
+			}
+		}
+		VIN_independent_army_1b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+				attrition = -0.06
+				out_of_supply_factor = -0.15
+			}
+		}
+		VIN_independent_army_1c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.2
+				army_core_defence_factor = 0.2
+				attrition = -0.08
+				out_of_supply_factor = -0.2
+			}
+		}
+		VIN_independent_army_2a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.25
+				army_core_defence_factor = 0.25
+				attrition = -0.1
+				out_of_supply_factor = -0.25
+			}
+		}
+		VIN_independent_army_2b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.30
+				army_core_defence_factor = 0.30
+				attrition = -0.12
+				out_of_supply_factor = -0.30
+			}
+		}
+		VIN_independent_army_2c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+
+			modifier = {
+				army_core_attack_factor = 0.35
+				army_core_defence_factor = 0.35
+				attrition = -0.14
+				out_of_supply_factor = -0.35
+			}
+		}
+		VIN_independent_army_3a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.40
+				army_core_defence_factor = 0.40
+				attrition = -0.16
+				out_of_supply_factor = -0.40
+			}
+		}
+		VIN_independent_army_3b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.45
+				army_core_defence_factor = 0.45
+				attrition = -0.18
+				out_of_supply_factor = -0.45
+			}
+		}
+		VIN_independent_army_3c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.50
+				army_core_defence_factor = 0.50
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4a = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.45
+				army_core_defence_factor = 0.45
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4b = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.40
+				army_core_defence_factor = 0.40
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4c = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.35
+				army_core_defence_factor = 0.35
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4d = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.30
+				army_core_defence_factor = 0.30
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4e = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.25
+				army_core_defence_factor = 0.25
+				army_attack_factor = 0.25
+				army_defence_factor = 0.25
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_independent_army_4f = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_core_attack_factor = 0.20
+				army_core_defence_factor = 0.20
+				army_attack_factor = 0.3
+				army_defence_factor = 0.3
+				attrition = -0.20
+				out_of_supply_factor = -0.50
+			}
+		}
+		VIN_mutiny = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_army_problems
+
+			modifier = {
+				stability_factor = -0.25
+				war_support_factor = -0.25
+				army_org_factor = -0.25
+			}
+		}		
+		VIN_agricultural_reform = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_agrarian_reform
+
+			modifier = {
+			}
+		}		
+		VIN_agricultural_advance = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_agrarian_reform
+
+			modifier = {
+			}
+		}	
+		VIN_a_sea_empire = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_fascist_workers
+
+			modifier = {
+			}
+		}
+		VIN_famine = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+	
+			available = { 
+				has_war = yes
+			}
+
+			removal_cost = -1
+
+			picture = the_war_to_end_all_wars
+
+			modifier = {
+				weekly_manpower = -2000
+				stability_weekly = -0.01
+				war_support_weekly = -0.01
+				consumer_goods_factor = 1
+			}
+		}
+		VIN_promise_of_independence = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = spr_political_violence
+
+			modifier = {
+			}
+		}
+		VIN_impending_revolution = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = spr_political_violence
+
+			modifier = {
+			}
+		}
+		VIN_independent_indochina = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = { 
+				is_subject = no
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				conscription_factor = 0.20
+				surrender_limit = 0.20
+				monthly_population = 0.80
+			}
+		}
+	}
+}

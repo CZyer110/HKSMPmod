@@ -1,0 +1,27 @@
+on_actions = {
+	on_declare_war = {
+		effect = {
+			ROOT = {
+				set_country_flag = {
+					flag = recently_declared_war
+					days = 7
+				}
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { tag = GER }
+				}
+				ROOT = {
+					set_country_flag = {
+						flag = recently_capitulated_to_GER
+						days = 30
+					}
+				}
+			}
+		}
+	}
+}

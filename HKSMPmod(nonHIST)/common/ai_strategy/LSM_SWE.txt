@@ -1,0 +1,30 @@
+
+SWE_support_axis = {
+	allowed = {
+		original_tag = SWE
+	}
+	enable = {
+		is_historical_focus_on = yes	
+		is_in_faction_with = GER
+		NOT = { has_war_with = SWE }
+		NOT = { GER = { has_war_with = SWE } }
+		SWE = { 
+			is_in_faction = no 
+			has_idea = LSM_neutrality_idea
+		}
+		NOT = { has_global_flag = d_day_happened }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "SWE"
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = "SWE"
+		value = 500
+	}
+}

@@ -1,0 +1,297 @@
+BEL_historical_plan = {
+	name = "Belgium Historical Plan"
+	desc = "Historical behavior for Belgium"
+
+	allowed = {
+		original_tag = BEL
+		has_dlc = "Gotterdammerung"
+	}
+
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BEL_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BEL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BEL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+
+	abort = {
+		has_global_flag = allies_mainland_withdrawal
+	}
+
+	ai_national_focuses = {		
+		BEL_unfit_to_reign
+		BEL_government_in_exile
+		BEL_moi_dabord
+		BEL_v_for_victory
+		BEL_democratic_homecoming
+
+		BEL_secretaries_general
+		BEL_the_secret_army
+		BEL_the_belgian_legion
+		BEL_develop_home_support
+		BEL_military_service_for_all_in_exile
+		BEL_free_belgian_forces
+
+
+
+		BEL_monetary_reconstruction
+		BEL_gold_reserves
+		BEL_government_resigns
+		BEL_government_of_national_unity
+		BEL_investigate_bribery_charges
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+		BEL_repudiate_treaty_with_france
+		BEL_royal_intervention
+		BEL_paul_emile_janson
+		BEL_defense_bill
+		BEL_royal_military_academy
+		BEL_increased_length_of_service
+		BEL_fn_herstal
+		BEL_poudreries_reunies_de_belgique
+		BEL_department_of_ballistic_metrology
+		BEL_fonderie_royale_de_canons_liege
+		BEL_junior_officer_training
+		BEL_strategic_doctrine_development
+		BEL_dyle_plan
+		BEL_anti_tank_guns
+		BEL_minerva_imperia
+		BEL_legacy_of_the_great_war
+
+
+		BEL_plan_de_man
+		BEL_economic_recovery
+		BEL_adriaan_martens_crisis
+		BEL_tripartite_government
+		BEL_broken_neutrality
+
+		BEL_defensive_neutrality
+		BEL_national_redoubt_at_antwerp
+		BEL_fortify_liege
+		BEL_eben_emael_fortress
+		BEL_belgian_gates
+		BEL_iron_wall
+
+		BEL_koningshooikt_wavre_line
+		BEL_flooded_tank_barriers
+		BEL_mobilize_the_nation
+		BEL_defensive_reorganization
+
+		BEL_multi_language_courses
+		BEL_resist_and_bite
+		BEL_belgian_special_forces
+		BEL_interpreters
+
+		BEL_department_of_telecommunications
+		BEL_center_for_advanced_military_studies
+
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		CONGO_cheap_labor
+		CONGO_requisition_funds
+
+		CONGO_ccci
+		CONGO_prince_leopold_mine
+		CONGO_regional_specialization
+		CONGO_ruanda_urundi
+		CONGO_expand_tungsten_mines
+		CONGO_forminiere
+		CONGO_bakwanga_mine
+		CONGO_societe_miniere_de_bakwanga
+		CONGO_antwerp_diamond_district
+		CONGO_gold_and_diamonds
+		CONGO_expand_metallurgical_industry
+		CONGO_copper_cartridges
+		CONGO_jungle_industry
+		CONGO_force_publique
+		CONGO_modernize_force_publique
+		CONGO_jungle_fighting
+		CONGO_congo_army
+		CONGO_expand_force_publique_recruitment
+		CONGO_belgian_devaluation
+		CONGO_interfaith_school_subsidies
+		CONGO_separate_corporations_from_politics
+		
+		CONGO_humanitarian_aid
+		CONGO_purchasing_commission
+		CONGO_chefs_coutumiers
+		CONGO_develop_infrastructure
+		CONGO_new_vegetable_produce_markets
+		CONGO_improved_employment_contracts
+		CONGO_congos_place_in_the_world
+		CONGO_overseas_department_of_belgium
+
+	}
+
+	#Focuses never to take
+	focus_factors = {
+
+	}			
+
+	research = {
+
+	}
+
+	traits = {
+		army_chief_defensive_2 = 50
+		financial_expert = 25
+		military_theorist = 25
+		BEL_arms_designer = 15
+		BEL_minister_of_national_defence_deveze = 15
+		army_commando_2 = 15
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+BEL_historical_plan_3 = {
+	name = "Belgium Historical Plan"
+	desc = "Historical behavior for Belgium"
+
+	allowed = {
+		original_tag = BEL
+		has_dlc = "Gotterdammerung"
+	}
+
+	enable = {
+		has_global_flag = allies_mainland_withdrawal
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BEL_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BEL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BEL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+
+	abort = {
+	}
+
+	ai_national_focuses = {
+		#1936
+
+		BEL_the_king_surrenders
+		BEL_unfit_to_reign
+		BEL_government_in_exile
+		BEL_moi_dabord
+		BEL_v_for_victory
+		BEL_democratic_homecoming
+		BEL_secretaries_general
+		BEL_the_secret_army
+		BEL_the_belgian_legion
+		BEL_develop_home_support
+		BEL_military_service_for_all_in_exile
+		BEL_free_belgian_forces
+
+
+
+		BEL_government_resigns
+		BEL_investigate_bribery_charges
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+		BEL_repudiate_treaty_with_france
+		BEL_royal_intervention
+		BEL_monetary_reconstruction
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		CONGO_cheap_labor
+		CONGO_requisition_funds
+
+		BEL_defense_bill
+		BEL_increased_length_of_service
+		BEL_royal_military_academy
+		BEL_junior_officer_training
+		BEL_strategic_doctrine_development
+		BEL_multi_language_courses
+		BEL_resist_and_bite
+		BEL_belgian_special_forces
+
+		BEL_dyle_plan
+		BEL_plan_de_man
+		BEL_economic_recovery
+		BEL_adriaan_martens_crisis
+		BEL_interpreters
+
+		CONGO_ccci
+		CONGO_prince_leopold_mine
+		CONGO_regional_specialization
+		CONGO_ruanda_urundi
+		CONGO_expand_tungsten_mines
+		CONGO_forminiere
+		CONGO_bakwanga_mine
+		CONGO_societe_miniere_de_bakwanga
+		CONGO_antwerp_diamond_district
+		CONGO_gold_and_diamonds
+		CONGO_expand_metallurgical_industry
+		CONGO_copper_cartridges
+		CONGO_jungle_industry
+		CONGO_force_publique
+		CONGO_modernize_force_publique
+		CONGO_jungle_fighting
+		CONGO_congo_army
+		CONGO_expand_force_publique_recruitment
+		CONGO_belgian_devaluation
+		CONGO_interfaith_school_subsidies
+		CONGO_separate_corporations_from_politics
+		
+		CONGO_humanitarian_aid
+		CONGO_purchasing_commission
+		CONGO_chefs_coutumiers
+		CONGO_develop_infrastructure
+		CONGO_new_vegetable_produce_markets
+		CONGO_improved_employment_contracts
+		CONGO_congos_place_in_the_world
+		CONGO_overseas_department_of_belgium
+	}
+
+	#Focuses never to take
+	focus_factors = {
+
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

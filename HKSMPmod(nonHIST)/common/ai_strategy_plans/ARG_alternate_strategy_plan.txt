@@ -1,0 +1,426 @@
+ARG_fascism_plan = {
+	name = "Argentina Fascist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		OR = {
+			has_country_flag = ARG_AI_RANDOM_FASCISM
+			has_game_rule = {
+				rule = ARG_AI_BEHAVIOR
+				option = FASCISM
+			}	
+		}
+		has_DLC = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+		ARG_roberto_maria_ortiz
+		ARG_work_with_the_nationalists
+		ARG_crack_down_on_corruption
+		ARG_cut_ties_with_britain
+		ARG_corporatism
+		ARG_reestablish_ligas_patrioticas
+		ARG_fascist_researchers
+		ARG_support_radical_nationalism
+		ARG_encourage_german_investments
+		ARG_encourage_italian_argentine_diplomacy
+		ARG_union_nacional_fascista
+		ARG_guardia_nacional
+		ARG_rapid_militirization
+		ARG_argentine_nationalism
+		ARG_conquer_uruguay
+		ARG_war_division
+		ARG_join_the_axis #prioritize Germany if they are fascist
+		ARG_argentina_first
+		ARG_our_own_path
+		ARG_dominate_the_south
+		ARG_the_war_machine
+		ARG_paraguayan_ultimatum
+		ARG_chilean_ultimatum
+		ARG_the_old_enemy
+		ARG_south_american_unity
+		ARG_banco_central_de_la_republica_argentina
+		ARG_industrial_expansion	
+		ARG_rapid_urbanization
+		ARG_agricultural_improvements
+		ARG_economic_reactivation_act
+		ARG_military_production_lines	
+		SMB_navy
+		ARG_support_the_spanish_coup
+		ARG_invite_spanish_nationalists
+		ARG_integrate_operation_bolivar
+		ARG_release_hellmuth
+		ARG_capitalize_the_beef_industry
+		ARG_a_new_trading_partner
+		ARG_production_initiative
+		ARG_develop_the_electricity_sector
+		ARG_invest_in_construction_guilds
+		ARG_technical_schools
+		SMB_army_academy
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_air_academy
+		SMB_air_defense
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_domestic_designs
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ARG_democratic_plan = {
+	name = "Argentina Democratic Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		OR = {
+			has_country_flag = ARG_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = ARG_AI_BEHAVIOR
+				option = DEMOCRATIC
+			}	
+		}
+		has_DLC = "Trial of Allegiance"
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = { #the commented numbers is the ai weight to keep my sanity somewhat intact
+		#1936
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+		ARG_the_clean_election
+		ARG_in_memory_of_yrigoyen
+		ARG_anti_corruption_policies
+		ARG_reinforce_the_education_system
+		ARG_university_reforms
+		ARG_a_true_democracy
+		ARG_promote_urbanization
+		ARG_regulated_national_salaries
+		ARG_social_welfare_fund
+		ARG_argentina_for_all
+		ARG_internal_focus
+		ARG_alvears_democracy
+
+		ARG_join_the_allies
+
+		ARG_bastion_of_democracy
+		ARG_align_with_the_monroe_doctrine
+		ARG_south_american_alliance
+		ARG_bolstering_the_army
+		ARG_the_second_argentine_republic
+		ARG_extinguish_south_american_communism
+		ARG_extinguish_south_american_fascism
+		ARG_envoy_to_london
+		ARG_islas_del_atlantico_sur
+		ARG_improving_the_islands
+		SMB_army_academy
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_air_academy
+		SMB_air_defense
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_domestic_designs
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ARG_communist_plan = {
+	name = "Argentina Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		OR = {
+			has_country_flag = ARG_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = ARG_AI_BEHAVIOR
+				option = COMMUNIST
+			}	
+			AND = {
+				OR = {
+					has_country_flag = ARG_AI_RANDOM_SOVIET_COMMUNIST
+					has_game_rule = {
+						rule = ARG_AI_BEHAVIOR
+						option = SOVIET_COMMUNIST
+					}
+				}
+				OR = {
+					AND = {
+						date > 1939.1.1
+						SOV = { is_faction_leader = no }
+					}
+					NOT = { SOV = { has_government = communism } } 
+				}
+			}
+		}
+
+		has_DLC = "Trial of Allegiance"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		ARG_a_call_to_reform
+		ARG_invite_ghioldi_back_to_argentina
+		ARG_legitimize_the_PCA
+		ARG_reach_out_to_the_soviet_union
+		ARG_unite_the_workers_of_argentina
+
+		#1938
+		ARG_viva_la_revolucion
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+
+		#1939
+		ARG_forge_our_own_future
+		ARG_workers_rights
+		ARG_women_in_industry
+		ARG_support_the_farmers
+		ARG_reform_our_industry
+		ARG_empower_the_fjc
+		ARG_state_atheism
+		ARG_socialist_researchers
+		ARG_the_buenos_aires_conference
+		ARG_conquer_south_america
+		ARG_unify_south_america
+		ARG_integrate_the_motherland
+		ARG_a_red_south_america
+		ARG_improve_patagonia
+		ARG_establish_the_free_association
+		ARG_banco_central_de_la_republica_argentina	
+		ARG_industrial_expansion
+		ARG_rapid_urbanization
+		ARG_agricultural_improvements
+		ARG_military_production_lines
+		ARG_capitalize_the_beef_industry
+		ARG_economic_reactivation_act
+		SMB_navy
+		ARG_revisit_the_roca_runciman_treaty
+		ARG_production_initiative
+		ARG_develop_the_electricity_sector
+		ARG_invest_in_construction_guilds
+		ARG_technical_schools
+		SMB_army_academy
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_air_academy
+		SMB_air_defense
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_domestic_designs
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+ARG_soviet_communist_plan = {
+	name = "Argentina Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		OR = {
+			has_country_flag = ARG_AI_RANDOM_SOVIET_COMMUNIST
+			has_game_rule = {
+				rule = ARG_AI_BEHAVIOR
+				option = SOVIET_COMMUNIST
+			}	
+		}
+
+		has_DLC = "Trial of Allegiance"
+
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			AND = {
+				date > 1939.1.1
+				SOV = { is_faction_leader = no }
+			}
+			NOT = { SOV = { has_government = communism } } 
+		}
+	}
+
+	ai_national_focuses = {
+		ARG_a_call_to_reform
+		ARG_invite_ghioldi_back_to_argentina
+		ARG_legitimize_the_PCA
+		ARG_reach_out_to_the_soviet_union
+		ARG_unite_the_workers_of_argentina
+
+		#1938
+		ARG_viva_la_revolucion
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+
+		#1939
+		ARG_align_with_the_soviets
+		ARG_workers_rights
+		ARG_reform_our_industry
+		ARG_empower_the_fjc
+		ARG_state_atheism
+		ARG_socialist_researchers
+		ARG_soviet_industrial_model
+		ARG_russian_manufacturers
+		ARG_centralize_power
+		ARG_conquer_south_america
+		ARG_unify_south_america
+		ARG_integrate_the_motherland
+		ARG_a_red_south_america
+		ARG_improve_patagonia
+		ARG_establish_the_free_association
+		ARG_banco_central_de_la_republica_argentina	
+		ARG_industrial_expansion
+		ARG_rapid_urbanization
+		ARG_agricultural_improvements
+		ARG_military_production_lines
+		ARG_capitalize_the_beef_industry
+		ARG_economic_reactivation_act
+		SMB_navy
+		ARG_revisit_the_roca_runciman_treaty
+		ARG_production_initiative
+		ARG_develop_the_electricity_sector
+		ARG_invest_in_construction_guilds
+		ARG_technical_schools
+		SMB_army_academy
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_air_academy
+		SMB_air_defense
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_domestic_designs
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

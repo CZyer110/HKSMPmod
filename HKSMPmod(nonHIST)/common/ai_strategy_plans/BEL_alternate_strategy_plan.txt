@@ -1,0 +1,348 @@
+BEL_nationalist_fascist_plan = {
+	name = "Belgian Nationalist Fascism Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = { 
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_NATIONALIST_FASCIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = NATIONALIST_FASCIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+		BEL_repudiate_treaty_with_france
+		BEL_government_resigns
+		BEL_government_of_national_unity
+		BEL_investigate_bribery_charges	
+		BEL_royal_intervention
+		BEL_support_the_rexists
+		BEL_the_french_horse_and_the_red_rider
+		BEL_monetary_reconstruction
+		BEL_gold_reserves
+		BEL_defense_bill
+		BEL_increased_length_of_service
+		BEL_royal_military_academy
+		BEL_the_flemish_question
+		BEL_christian_corporatism
+		BEL_legacy_of_the_soldier_king
+		BEL_the_lost_tribe
+		BEL_the_walloon_legion
+		BEL_join_axis
+		BEL_the_new_ruhr
+		BEL_royal_commander_in_chief
+		BEL_civil_service_purge
+		BEL_traditional_family_values
+		BEL_the_european_crusade
+		BEL_rebuild_wallonian_industry
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_abandon_neutrality
+		BEL_social_partners
+		BEL_revive_coal_mining
+		BEL_railway_expansion
+		BEL_cockerill
+		BEL_40_hour_workweek
+		BEL_corporate_social_responsibility
+		BEL_engine_of_the_economy
+		BEL_val_benoit_institutes	
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_expansionist_fascist_plan = {
+	name = "Expansionist Fascist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_EXPANSIONIST_FASCIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = EXPANSIONIST_FASCIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+		BEL_repudiate_treaty_with_france
+		BEL_government_resigns
+		BEL_government_of_national_unity
+		BEL_investigate_bribery_charges	
+		BEL_royal_intervention
+		BEL_support_the_vnv
+		BEL_the_french_horse_and_the_red_rider
+		BEL_monetary_reconstruction
+		BEL_gold_reserves
+		BEL_defense_bill
+		BEL_increased_length_of_service
+		BEL_royal_military_academy
+
+		BEL_revitalize_nederlands
+		BEL_abandon_neutrality
+		BEL_flanders_ascendant
+		BEL_dietsland
+		BEL_belgian_east_indies
+		BEL_demand_calais
+		BEL_burgundy_rising
+		BEL_join_axis
+
+		BEL_royal_commander_in_chief
+		BEL_civil_service_purge
+		BEL_traditional_family_values
+		BEL_the_european_crusade
+		BEL_rebuild_wallonian_industry
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_social_partners
+		BEL_revive_coal_mining
+		BEL_railway_expansion
+		BEL_cockerill
+		BEL_40_hour_workweek
+		BEL_corporate_social_responsibility
+		BEL_engine_of_the_economy
+		BEL_val_benoit_institutes
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_defensive_democrat_plan = {
+	name = "Defensive Democrat Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_DEFENSIVE_DEMOCRAT
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = DEFENSIVE_DEMOCRAT
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		BEL_government_resigns
+		BEL_government_of_national_unity
+		BEL_investigate_bribery_charges	
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+		BEL_repudiate_treaty_with_france
+
+
+		BEL_royal_intervention
+
+		BEL_constitutional_crisis
+		BEL_kings_abdication
+		BEL_snap_election
+
+		BEL_monetary_reconstruction
+		BEL_gold_reserves
+		BEL_defense_bill
+		BEL_increased_length_of_service
+		BEL_royal_military_academy
+
+		BEL_anti_corruption_taskforce
+		BEL_belgian_maginot
+		BEL_expedite_fort_construction
+		BEL_unity_makes_strength
+		BEL_better_than_maginot
+
+		BEL_rebuild_wallonian_industry
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+
+		BEL_social_partners
+		BEL_revive_coal_mining
+		BEL_railway_expansion
+		BEL_cockerill
+		BEL_40_hour_workweek
+		BEL_corporate_social_responsibility
+		BEL_engine_of_the_economy
+		BEL_val_benoit_institutes
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_communist_plan = {
+	name = "Belgian Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = COMMUNIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		#1936
+		BEL_investigate_bribery_charges
+		BEL_government_resigns
+		BEL_problem_of_language
+		BEL_trade_union_support
+		BEL_aid_for_spain
+		BEL_spanish_intervention
+		BEL_cooperative_cooperation
+		BEL_la_belgique_et_le_congo
+		BEL_the_grand_place	
+		BEL_growing_threat_of_fascism
+		BEL_repudiate_treaty_with_france
+		BEL_international_socialist_bureau
+		BEL_raise_the_red_flag
+
+		BEL_soviet_guarantee
+		BEL_support_the_european_project
+		BEL_european_community
+		BEL_monetary_reconstruction
+		BEL_gold_reserves
+		BEL_defense_bill
+		BEL_increased_length_of_service
+		BEL_royal_military_academy
+
+		BEL_rebuild_wallonian_industry
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+
+		BEL_social_partners
+		BEL_revive_coal_mining
+		BEL_railway_expansion
+		BEL_cockerill
+		BEL_40_hour_workweek
+		BEL_corporate_social_responsibility
+		BEL_engine_of_the_economy
+		BEL_val_benoit_institutes
+
+
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

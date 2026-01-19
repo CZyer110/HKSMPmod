@@ -1,0 +1,44 @@
+on_actions = {	
+	on_startup = {
+		effect = {
+			if = {
+				limit = { #1939 start date
+					date > 1939.1.1
+					date < 1940.1.1
+				}
+				GER = { 
+					set_country_flag = mobile_warfare_flag
+				}
+				SOV = {
+					set_country_flag = spacemarine
+				}
+				GER = {
+					division_template = {
+						name = "Infantry template 1"			
+						division_names_group = GER_INF_01
+						is_locked = no
+						priority = 1
+	
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+						}
+						support = {		
+							artillery = { x = 0 y = 0 }
+							anti_tank = { x = 0 y = 1 }	
+							anti_air = { x = 0 y = 2 }
+							engineer = { x = 0 y = 3 }
+						}
+					}
+				}
+			}
+		}
+	}
+}

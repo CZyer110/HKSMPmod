@@ -1,0 +1,2191 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_GER_SOV
+country_event = {
+	id = LSM_GER_SOV.200
+	title = LSM_GER_SOV.200.t
+	desc = LSM_GER_SOV.200.d
+	picture = GFX_report_event_germany_politician_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.200.a
+
+		trigger = {
+			GER = { can_do_molotov_ribbentrop = yes }
+		}
+
+		ai_chance = { factor = 100 }
+
+		add_timed_idea = { idea = pushing_the_general_staff days = 45 }
+	
+		hidden_effect = { add_timed_idea = { idea = challenged_by_the_general_staff days = 90 } }
+	
+		hidden_effect = { 
+			if = {
+				limit = { 
+					has_global_flag = warning_issued
+					SOV = { has_idea = GER_soviet_military_exercises_LSM }
+					NOT = { SOV = { has_idea = GER_soviet_protect_our_sphere_LSM } }
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_protect_our_sphere_LSM days = 730 } }
+			}
+			if = {
+				limit = { 
+					has_global_flag = warning_issued
+					NOT = { 
+						SOV = { has_idea = GER_soviet_military_exercises_LSM }
+					}
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_military_exercises_LSM days = 365 } }
+			}
+		}
+	
+		hidden_effect = { set_global_flag = warning_issued }
+	}
+
+	option = {
+		name = LSM_GER_SOV.200.c
+
+		ai_chance = { factor = 100 }
+
+		trigger = {
+			GER = { can_do_molotov_ribbentrop = no }
+		}
+
+		hidden_effect = {
+			set_country_flag = dismissed_all_concern
+		}
+
+		add_timed_idea = { idea = pushing_the_general_staff_2 days = 365 }
+	
+		hidden_effect = { 
+			if = {
+				limit = {
+					NOT = { 
+						SOV = { has_idea = GER_soviet_military_exercises_LSM }
+					}
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_military_exercises_LSM days = 730 } }
+			}
+			if = {
+				limit = {
+					NOT = { SOV = { has_idea = GER_soviet_protect_our_sphere_LSM } }
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_protect_our_sphere_LSM days = 730 } }
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.200.b
+
+		ai_chance = { factor = 0 }
+
+		hidden_effect = {
+			set_country_flag = dismissed_all_concern
+		}
+	
+		hidden_effect = { 
+			if = {
+				limit = {
+					NOT = { 
+						SOV = { has_idea = GER_soviet_military_exercises_LSM }
+					}
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_military_exercises_LSM days = 365 } }
+			}
+			if = {
+				limit = {
+					NOT = { SOV = { has_idea = GER_soviet_protect_our_sphere_LSM } }
+				}
+				SOV = { add_timed_idea = { idea = GER_soviet_protect_our_sphere_LSM days = 365 } }
+			}
+		}
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.201
+	title = LSM_GER_SOV.201.t
+	desc = LSM_GER_SOV.201.d
+	picture = GFX_report_event_germany_politician_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.201.a
+
+		ai_chance = { factor = 100 }
+
+		custom_effect_tooltip = yield_to_GER_tt
+
+		every_state = {
+			limit = {
+				OR = {
+					state = 86
+					state = 807
+					state = 85
+					state = 762
+				}
+				owner = { tag = POL }
+			}
+			GER = { transfer_state = PREV }
+			add_core_of = GER
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 98
+					state = 87
+				}
+				owner = { tag = POL }
+			}
+			GER = { transfer_state = PREV }
+			add_claim_by = GER
+		}
+		
+		GER = { set_autonomy = { target = POL autonomy_state = autonomy_reichskommissariat } }
+
+		add_ideas = POL_german_staff
+		add_ideas = POL_german_training
+					
+	}
+
+	option = {
+		name = LSM_GER_SOV.201.b
+
+		ai_chance = { factor = 0 }
+
+		custom_effect_tooltip = yield_to_nobody_tt
+
+		hidden_effect = {
+			set_global_flag = rebellious_poland
+		}
+
+		add_ideas = POL_committee_of_international_liberation
+	}
+
+	option = {
+		name = LSM_GER_SOV.201.c
+
+		ai_chance = { factor = 0 }
+
+		trigger = { has_global_flag = sov_yes_pact }
+
+		custom_effect_tooltip = yield_to_SOV_tt
+
+		if = {
+			limit = { has_global_flag = sov_yes_pact }
+			every_state = {
+				limit = {
+					OR = {
+						state = 86
+						state = 807
+						state = 85
+						state = 762
+					}
+					owner = { tag = POL }
+				}
+				GER = { transfer_state = PREV }
+				add_core_of = GER
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 98
+						state = 87
+					}
+					owner = { tag = POL }
+				}
+				GER = { transfer_state = PREV }
+				add_claim_by = GER
+			}
+			set_global_flag = new_peace_arrangement
+		}
+		
+		SOV = { set_autonomy = { target = POL autonomy_state = autonomy_satellite } }
+	
+		
+		custom_effect_tooltip = SOV_cede_to_POL_tt
+
+		hidden_effect = {
+			every_state = {
+				limit = { 
+					OR = {
+						is_core_of = LIT 
+						is_core_of = LAT 
+						is_core_of = EST
+						state = 80
+					} 
+					owner = { is_in_faction_with = SOV }
+				}
+				POL = { transfer_state = PREV }
+				add_core_of = POL
+			}
+	
+			every_state = {
+				limit = { 
+					is_core_of = POL 
+					owner = { tag = SOV }
+				}
+				POL = { transfer_state = PREV }
+				add_core_of = POL
+			}
+		}
+
+		add_ideas = POL_committee_of_international_liberation
+		add_ideas = SOV_defense_industry_artillery_bonus
+	}
+
+	option = {
+		name = LSM_GER_SOV.201.e
+
+		ai_chance = { factor = 0 }
+
+		trigger = { NOT = { has_global_flag = sov_yes_pact } }
+
+		custom_effect_tooltip = yield_to_SOV_completely_tt
+
+		SOV = { add_to_faction = POL }
+		
+		SOV = { set_autonomy = { target = POL autonomy_state = autonomy_satellite } }
+
+		set_global_flag = new_peace_arrangement
+
+		every_state = {
+			limit = {
+				is_controlled_by = POL
+				is_claimed_by = SOV
+			}
+			SOV = { transfer_state = PREV }
+			if = {
+				limit = { is_core_of = POL }
+				remove_core_of = POL
+			}
+			if = {
+				limit = { is_claimed_by = POL }
+				remove_claim_by = POL
+			}
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 5
+					state = 63
+					state = 68
+					state = 66
+					state = 67
+				}
+			}
+			add_claim_by = POL
+		}
+
+		add_ideas = POL_committee_of_international_liberation
+		add_ideas = SOV_defense_industry_artillery_bonus
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.99
+	title = LSM_GER_SOV.99.t
+	desc = LSM_GER_SOV.99.d
+	picture = report_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.99.a
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.101
+	title = LSM_GER_SOV.101.t
+	desc = LSM_GER_SOV.101.d
+	picture = GFX_report_event_merchant_ship_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.101.a
+
+		ai_chance = { factor = 40 }
+
+		trigger = { 
+			NOT = { has_war_with = USA } 
+			NOT = { USA = { is_in_faction_with = CAN } }
+		}
+
+		custom_effect_tooltip = ask_the_USA_to_intervene_tt
+
+		USA = {
+			country_event = {
+				id = LSM_GER_SOV.102
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.101.b
+
+		ai_chance = { factor = 60 }
+
+		custom_effect_tooltip = dont_ask_the_USA_to_intervene_tt
+
+		GER = {
+			country_event = {
+				id = LSM_GER_SOV.1
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_GER_SOV.102
+	title = LSM_GER_SOV.102.t
+	desc = LSM_GER_SOV.102.d
+	picture = GFX_report_event_merchant_ship_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.102.a
+
+		trigger = { 
+			USA = { 
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+					is_ai = no
+				}
+				has_civil_war = no
+				is_subject = no
+			}  
+			NOT = { has_war_with = GER } 
+			NOT = { USA = { is_in_faction_with = CAN } }
+		}
+
+		ai_chance = { factor = 10 }
+
+		custom_effect_tooltip = "Yeehaw!"
+
+		USA = {
+			declare_war_on = { target = CAN type = annex_everything }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.102.b
+
+		ai_chance = { factor = 45 }
+
+		custom_effect_tooltip = "Hell no"
+
+		if = {
+			limit  = {
+				GER = { NOT = { has_war_with = SOV } }
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.1
+					days = 2
+				}
+			}
+		}
+
+		if = {
+			limit  = {
+				GER = { has_war_with = SOV }
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.26
+					days = 2
+				}
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.102.c
+
+		ai_chance = { factor = 45 }
+
+		custom_effect_tooltip = USA_support_CAN
+
+		if = {
+			limit = {
+				CAN = {
+					is_faction_leader = yes
+				}
+			}
+			CAN = { add_to_faction = USA }
+			USA = { set_faction_leader = yes }
+		}
+
+		if = {
+			limit = {
+				ENG = {
+					is_faction_leader = yes
+				}
+			}
+			ENG = { add_to_faction = USA }
+		}
+
+		if = {
+			limit  = {
+				GER = { NOT = { has_war_with = SOV } }
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.1
+					days = 2
+				}
+			}
+		}
+
+		if = {
+			limit  = {
+				GER = { has_war_with = SOV }
+			}
+			GER = {
+				country_event = {
+					id = LSM_GER_SOV.26
+					days = 2
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_GER_SOV.1
+	title = LSM_GER_SOV.1.t
+	desc = LSM_GER_SOV.1.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.1.a
+
+		ai_chance = { factor = 67 }
+
+		custom_effect_tooltip = GER_SOV_1_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1100 }
+		}
+
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.2
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.1.b
+
+		ai_chance = { factor = 33 }
+
+		custom_effect_tooltip = GER_SOV_2_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1101 }
+			activate_mission = GER_doomsday_barbarossa
+			add_ai_strategy = {
+				type = antagonize
+				id = SOV
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = SOV
+				value = 9999
+			}
+		}
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.10
+				days = 2
+			}
+			add_ideas = SOV_prepare_for_barbarossa
+		}
+	}
+}
+
+country_event = {
+	id = LSM_GER_SOV.2
+	title = LSM_GER_SOV.2.t
+	desc = LSM_GER_SOV.2.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.2.a
+
+		ai_chance = { factor = 75 }
+
+		custom_effect_tooltip = GER_SOV_3_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.3
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.2.b
+
+		ai_chance = { factor = 25 }
+
+		custom_effect_tooltip = GER_SOV_4_tt
+
+		hidden_effect = {
+			add_ideas = SOV_prepare_for_barbarossa
+			add_ai_strategy = {
+				type = antagonize
+				id = GER
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = GER
+				value = 9999
+			}
+			add_ideas = SOV_prepare_for_barbarossa
+		}
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.4
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_GER_SOV.4
+	title = LSM_GER_SOV.4.t
+	desc = LSM_GER_SOV.4.d
+	picture = GFX_report_event_generic_battle
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.4.a
+
+		ai_chance = { factor = 50 }
+
+		custom_effect_tooltip = GER_SOV_5_tt
+
+		add_manpower = -1
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1101 }
+			activate_mission = GER_doomsday_barbarossa
+			add_ai_strategy = {
+				type = antagonize
+				id = SOV
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = SOV
+				value = 9999
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.3
+	title = LSM_GER_SOV.3.t
+	desc = LSM_GER_SOV.3.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.3.a
+
+		ai_chance = { factor = 50 }
+
+		custom_effect_tooltip = GER_SOV_6_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.5
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.3.b
+
+		ai_chance = { factor = 50 }
+
+		custom_effect_tooltip = GER_SOV_7_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.6
+				days = 2
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = LSM_GER_SOV.6
+	title = LSM_GER_SOV.6.t
+	desc = LSM_GER_SOV.6.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.6.a
+
+		ai_chance = { factor = 75 }
+
+		custom_effect_tooltip = GER_SOV_8_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1300 }
+		}
+	
+		GER = { complete_national_focus = GER_alliance_with_the_ussr }	
+
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.18
+				days = 2
+			}
+		}
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.19
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.6.b
+
+		ai_chance = { factor = 25 }
+
+		custom_effect_tooltip = "Why?"
+
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.10
+				days = 2
+			}
+		}
+
+		GER = {
+			country_event = {
+				id = LSM_GER_SOV.150
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = LSM_GER_SOV.5
+	title = LSM_GER_SOV.5.t
+	desc = LSM_GER_SOV.5.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.5.a
+
+		ai_chance = { factor = 20 }
+
+		custom_effect_tooltip = GER_SOV_8_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.8
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.5.b
+
+		ai_chance = { factor = 80 }
+
+		custom_effect_tooltip = GER_SOV_9_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.9
+				days = 2
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.8
+	title = LSM_GER_SOV.8.t
+	desc = LSM_GER_SOV.8.d
+	picture = GFX_report_event_hitler_croatia_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.8.a
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1200 }
+		}
+
+		SOV = { 
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+		}
+		GER = { 
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+			if = { 
+				limit = {
+					has_completed_focus = GER_anti_soviet_pact
+				}
+				uncomplete_national_focus = { focus = GER_anti_soviet_pact }
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+			if = { 
+				limit = {
+					NOT = { has_completed_focus = GER_molotov_ribbentrop_pact }
+					NOT = { has_completed_focus = GER_anti_soviet_pact }
+				}
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.9
+	title = LSM_GER_SOV.9.t
+	desc = LSM_GER_SOV.9.d
+	picture = GFX_report_event_military_planning
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.9.a
+
+		ai_chance = { factor = 60 }
+
+		custom_effect_tooltip = GER_SOV_10_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.18
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.9.b
+
+		ai_chance = { factor = 30 } # less likely because we hate sharing
+
+		custom_effect_tooltip = GER_SOV_13_tt
+
+		FROM = {
+			country_event = {
+				id = LSM_GER_SOV.19
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.9.c
+
+		ai_chance = { factor = 10 }
+
+		custom_effect_tooltip = GER_SOV_11_tt
+
+		SOV = {
+			country_event = {
+				id = LSM_GER_SOV.10
+				days = 2
+			}
+			add_ideas = SOV_prepare_for_barbarossa
+			add_manpower = -29
+		}
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1101 }
+			activate_mission = GER_doomsday_barbarossa
+			add_ai_strategy = {
+				type = antagonize
+				id = SOV
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = SOV
+				value = 9999
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.18
+	title = LSM_GER_SOV.18.t
+	desc = LSM_GER_SOV.18.d
+	picture = GFX_report_event_soviet_invasion_map
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.18.a
+
+		custom_effect_tooltip = GER_SOV_12_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1200 }
+		}
+
+		every_state = {
+			limit = {
+				is_claimed_by = SOV
+				controller = { 
+					OR = {
+						is_in_faction_with = GER 
+						is_guaranteed_by = GER
+					}
+				}
+			}
+			SOV = { transfer_state = PREV }
+			add_core_of = SOV
+		}
+
+
+		if = {
+			limit = {
+				any_country = {
+					has_idea = anti_soviet_pact
+				}
+			}
+			every_country = {
+				limit = {
+					has_idea = anti_soviet_pact
+				}
+			remove_ideas = anti_soviet_pact
+			}
+		}
+
+		if = {
+			limit = {
+				has_guaranteed = FIN
+			}
+			diplomatic_relation = {
+				country = FIN
+				relation = guarantee
+				active = no
+			}
+		}
+
+		if = {
+			limit = {
+				any_country = {
+					is_guaranteed_by = GER
+				}
+			}
+			GER = {
+				diplomatic_relation = {
+					country = PREV
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				FIN = { has_country_flag = FIN_pact_for_continuation_war_flag }
+			}
+			FIN = { clr_country_flag = FIN_pact_for_continuation_war_flag }
+		}
+
+		every_state = {
+			limit = {
+				is_claimed_by = SOV
+				is_controlled_by = SOV
+			}
+			add_core_of = SOV
+		}
+
+		GER = {
+			diplomatic_relation = {
+				country = SOV
+				relation = guarantee
+				active = yes
+			}
+			set_truce = {
+				target = SOV
+				days = 1095 #don't touch us please
+			}
+			if = { 
+				limit = {
+					has_completed_focus = GER_anti_soviet_pact
+				}
+				uncomplete_national_focus = { focus = GER_anti_soviet_pact }
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+			if = { 
+				limit = {
+					NOT = { has_completed_focus = GER_molotov_ribbentrop_pact }
+					NOT = { has_completed_focus = GER_anti_soviet_pact }
+				}
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+		}
+
+		if = { 
+			limit = { 
+				FIN = { is_subject = no }
+			}
+			every_state = { 
+				limit = { is_core_of = FIN }
+				add_claim_by = SOV
+			}		
+			SOV = {
+				create_wargoal = {
+					target = FIN
+					type = annex_everything
+				}
+			}
+		}
+
+
+		if = { 
+			limit = { 
+				FIN = { is_subject_of = SOV }
+			}
+			every_state = { 
+				limit = { is_core_of = FIN }
+				add_core_of = SOV
+			}		
+			SOV = {
+				annex_country = {
+					target = FIN
+					transfer_troops = yes
+				}
+			}
+		}
+
+		SOV = {
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+		}
+		GER = { 
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+			add_ai_strategy = {
+				type = support
+				id = SOV
+				value = 500
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = SOV
+				value = 500
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.19
+	title = LSM_GER_SOV.19.t
+	desc = LSM_GER_SOV.19.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.19.a
+
+		custom_effect_tooltip = GER_SOV_14_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1200 }
+		}
+
+		every_state = {
+			limit = {
+				is_on_continent = europe
+				is_owned_by = SOV
+				is_core_of = SOV
+			}
+			ETH_upgrade_state_category = yes
+		}
+
+			
+		SOV = {
+			if = { 
+				limit = { 
+					NOT = { has_completed_focus = SOV_lessons_of_war }
+				}
+				complete_national_focus = SOV_lessons_of_war
+			}
+		}
+		SOV = { 
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+		}
+		GER = { 
+			add_timed_idea = { idea = GER_SOV_hitler_stalin_pact days = 1825 }
+			diplomatic_relation = {
+				country = SOV
+				relation = guarantee
+				active = yes
+			}
+			add_ai_strategy = {
+				type = support
+				id = SOV
+				value = 500
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = SOV
+				value = 500
+			}
+			set_truce = {
+				target = SOV
+				days = 1095 #don't touch us please
+			}
+			if = { 
+				limit = {
+					has_completed_focus = GER_anti_soviet_pact
+				}
+				uncomplete_national_focus = { focus = GER_anti_soviet_pact }
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+			if = { 
+				limit = {
+					NOT = { has_completed_focus = GER_molotov_ribbentrop_pact }
+					NOT = { has_completed_focus = GER_anti_soviet_pact }
+				}
+				complete_national_focus = GER_molotov_ribbentrop_pact
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.10
+	title = LSM_GER_SOV.10.t
+	desc = LSM_GER_SOV.10.d
+	picture = GFX_report_event_stalin_propaganda
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.10.a
+
+		custom_effect_tooltip = GER_SOV_15_tt
+
+		hidden_effect = {
+			news_event = { hours = 12 id = lsm_news.1101 }
+		}
+
+		hidden_effect = {
+			add_ai_strategy = {
+				type = antagonize
+				id = GER
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = GER
+				value = 9999
+			}
+			add_ideas = SOV_prepare_for_barbarossa
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.150
+	title = LSM_GER_SOV.150.t
+	desc = LSM_GER_SOV.150.d
+	picture = GFX_report_event_stalin_propaganda
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.150.a
+
+		custom_effect_tooltip = GER_SOV_15_tt
+
+		hidden_effect = {
+			activate_mission = GER_doomsday_barbarossa
+			add_ai_strategy = {
+				type = antagonize
+				id = SOV
+				value = 9999
+			}
+			add_ai_strategy = {
+				type = prepare_for_war
+				id = SOV
+				value = 9999
+			}
+		}
+	}
+}
+
+
+
+country_event = {
+	id = LSM_GER_SOV.26
+	title = LSM_GER_SOV.26.t
+	desc = LSM_GER_SOV.26.d
+	picture = GFX_report_event_german_inspect_troops
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.26.a
+
+		custom_effect_tooltip = GER_SOV_5_tt
+	}
+}
+
+
+country_event = {
+	id = LSM_GER_SOV.27
+	title = LSM_GER_SOV.27.t
+	desc = LSM_GER_SOV.27.d
+	picture = GFX_report_event_german_inspect_troops
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.27.a
+
+		custom_effect_tooltip = GER_SOV_15_tt
+	}
+}
+
+
+country_event = {
+	id = LSM_GER_SOV.472
+	title = LSM_GER_SOV.472.t
+	desc = LSM_GER_SOV.472.d
+	picture = GFX_report_event_japanese_reply
+
+	is_triggered_only = yes
+
+	trigger = { 
+		OR = {
+			JAP = { has_war_with = ENG }
+			JAP = { has_war_with = USA }
+		}
+		NOT = { SOV = { has_war_with = ENG } }
+		NOT = { SOV = { has_war_with = USA } }
+	}
+
+	option = {
+		name = LSM_GER_SOV.472.a
+
+		ai_chance = { factor = 90 }
+	
+		trigger = { NOT = { has_global_flag = kwantung_intervention } }
+
+		create_wargoal = { target = JAP type = annex_everything }
+
+		custom_effect_tooltip = GER_SOV_16_tt
+
+		hidden_effect = {
+			set_global_flag = kwantung_intervention
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.472.a
+
+		ai_chance = { factor = 90 }
+	
+		trigger = { has_global_flag = kwantung_intervention }
+
+		declare_war_on = { target = JAP type = annex_everything }
+	}
+}
+
+
+country_event = {
+	id = LSM_GER_SOV.473
+	title = LSM_GER_SOV.473.t
+	desc = LSM_GER_SOV.473.d
+	picture = GFX_report_event_merchant_ship_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.473.a
+
+		ROOT = {
+			add_timed_idea = { idea = FRA_research_boost days = 60 }
+			hidden_effect = { set_global_flag = french_contact }
+			if = {
+				limit = {
+					GER = { 
+						has_tech = improved_small_airframe 
+					}
+					NOT = { ROOT = { has_tech = improved_small_airframe } }
+				}
+				add_tech_bonus = {
+					name = fighter_bonus
+					bonus = 3.0
+					ahead_reduction = 1
+					uses = 1
+					technology = improved_small_airframe
+				}
+			}
+			if = {
+				limit = {
+					GER = { 
+						has_tech = aa_hmg 
+					}
+					NOT = { ROOT = { has_tech = aa_hmg } }
+				}
+				add_tech_bonus = {
+					name = fighter_bonus
+					bonus = 3.0
+					uses = 1
+					technology = aa_hmg
+				}
+			}
+			if = {
+				limit = {
+					GER = { 
+						has_tech = engines_3 
+					}
+					NOT = { ROOT = { has_tech = engines_3 } }
+				}
+				add_tech_bonus = {
+					name = fighter_bonus
+					bonus = 3.0
+					uses = 1
+					technology = engines_3
+				}
+			}
+			if = {
+				limit = {
+					GER = { 
+						has_tech = survivability_studies 
+					}
+					NOT = { ROOT = { has_tech = survivability_studies } }
+				}
+				add_tech_bonus = {
+					name = fighter_bonus
+					bonus = 3.0
+					uses = 1
+					technology = survivability_studies
+				}
+			}
+			if = {
+				limit = {
+					GER = { 
+						has_tech = range_improvements 
+					}
+					NOT = { ROOT = { has_tech = range_improvements } }
+				}
+				add_tech_bonus = {
+					name = fighter_bonus
+					bonus = 3.0
+					uses = 1
+					technology = range_improvements
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.474
+	title = LSM_GER_SOV.474.t
+	desc = LSM_GER_SOV.474.d
+	picture = GFX_report_event_airplane_crash
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = {
+			tag = SOV
+			date > 1939.12.18
+			date < 1940.1.1
+			NOT = { has_global_flag = santa_captured_SOV }	
+			has_government = communism
+			NOT = { has_country_flag = SOV_ded_moroz_is_leader }
+			has_global_flag = flavour_enabled_flag
+			has_global_flag = santa_for_soviet_enabled
+		}
+	}
+
+	immediate = {
+		set_global_flag = santa_captured_SOV
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = LSM_GER_SOV.474.a #capture
+		trigger = { 
+			is_ai = no 
+			NOT = { has_country_flag = SOV_moroz_flag }
+		}
+		custom_effect_tooltip = "It will be the last we see of him! Off to Gulag you go!"
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.475 hours = 12 }
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.474.e #interrogate him first
+		trigger = { 
+			is_ai = no 
+			NOT = { has_country_flag = SOV_moroz_flag }
+		}
+		custom_effect_tooltip = "We will get down to the bottom of this"
+		hidden_effect = {
+			country_event = { id = LSM_GER_SOV.479 hours = 3 }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.474.b #let him go
+		custom_effect_tooltip = "I hope there will not be any consequences..."
+		hidden_effect = {
+			set_global_flag = santa_released
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.474.c #provide him with accomodation
+		trigger = { 
+			is_ai = no 
+			NOT = { has_country_flag = SOV_moroz_flag }
+		}
+		custom_effect_tooltip = "I wonder if this man knew who we are..."
+		hidden_effect = {
+			country_event = { id = LSM_GER_SOV.476 hours = 12 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.475
+	title = LSM_GER_SOV.475.t
+	desc = LSM_GER_SOV.475.d
+	picture = GFX_report_event_FIN_petsamo_mine
+
+	trigger = {
+		OR = {
+			has_country_flag = {
+				flag = yearly_coal
+				days > 364
+			} 
+			NOT = { has_country_flag = yearly_coal }
+		}
+		has_country_flag = coal_sub
+		check_variable = {
+			yearly_coal_amount < 5
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = { 
+		set_country_flag = yearly_coal 
+		add_to_variable = { yearly_coal_amount = 1 }
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { 
+			check_variable = {
+				yearly_coal_amount < 3
+			}
+		}
+		name = LSM_GER_SOV.475.a #coal
+		custom_effect_tooltip = "What an amazing support from this anonymous individual?"
+		add_cic = 80000
+	}
+
+	option = {
+		trigger = { 
+			check_variable = {
+				yearly_coal_amount > 2
+			}
+		}
+		name = LSM_GER_SOV.475.b #coal
+		custom_effect_tooltip = "I wonder if they are doing alright...?"
+		add_cic = 500
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.476
+	title = LSM_GER_SOV.476.t
+	desc = LSM_GER_SOV.476.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.476.a #he is a spy
+		custom_effect_tooltip = "The man will be sent to gulag, and it will be the last we see of him"
+		country_event = { id = LSM_GER_SOV.475 days = 1 }
+		hidden_effect = { 
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.476.b #such kindness
+		custom_effect_tooltip = "We should perhaps assist him in what he needs to do..."
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.477 hours = 12 }
+		}
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.477
+	title = LSM_GER_SOV.477.t
+	desc = LSM_GER_SOV.477.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.477.a #such nonsense
+		custom_effect_tooltip = "The man will be sent to gulag, and it will be the last we see of him"
+		country_event = { id = LSM_GER_SOV.475 hours = 12 }
+		hidden_effect = { 
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.477.b #welcome santa
+		custom_effect_tooltip = "But is this not against our scientific paradise?"
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.478 hours = 3 }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.477.c
+		custom_effect_tooltip = "Oh no, everyone is in trouble!"
+		trigger = { 
+			has_country_leader = {
+				character = SOV_iosif_stalin
+				ruling_only = yes
+			}
+		}
+		add_stability = -0.1
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.501 hours = 12 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.478
+	title = LSM_GER_SOV.478.t
+	desc = LSM_GER_SOV.478.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.478.a #welcome santa
+		custom_effect_tooltip = "He did not specify what this blessing was, but it appears that every winter is now more wholesome than ever."
+		hidden_effect = {
+			set_global_flag = santa_welcomed_in_the_soviet_union
+			set_technology = { santa_winter_buff = 1 popup = no }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.479
+	title = LSM_GER_SOV.479.t
+	desc = LSM_GER_SOV.479.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.479.a #the list, the list
+		custom_effect_tooltip = "The individual will be sent to gulag, and it will be the last we see of him"
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.475 hours = 12 }
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.479.b #let him plead his case
+		hidden_effect = {
+			country_event = { id = LSM_GER_SOV.480 hours = 3 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.480
+	title = LSM_GER_SOV.480.t
+	desc = LSM_GER_SOV.480.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.480.a #the communication
+		custom_effect_tooltip = "The individual will be sent to gulag, and it will be the last we see of him"
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.475 hours = 12 }
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.480.b #let him plead his case
+		hidden_effect = {
+			country_event = { id = LSM_GER_SOV.481 hours = 12 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.481
+	title = LSM_GER_SOV.481.t
+	desc = LSM_GER_SOV.481.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.481.a #spy plane
+		custom_effect_tooltip = "The individual will be sent to gulag, and it will be the last we see of him"
+		country_event = { id = LSM_GER_SOV.475 days = 1 }
+		hidden_effect = { 
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.481.b #let him plead his case
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.482 hours = 12 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.482
+	title = LSM_GER_SOV.482.t
+	desc = LSM_GER_SOV.482.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.482.a #present
+		custom_effect_tooltip = "The individual will be sent to gulag, and it will be the last we see of him"
+		country_event = { id = LSM_GER_SOV.475 hours = 12 }
+		hidden_effect = { 
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.482.b #let him plead his case
+		country_event = { id = LSM_GER_SOV.483 }
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.483
+	title = LSM_GER_SOV.483.t
+	desc = LSM_GER_SOV.483.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.483.a #he is a communist
+		hidden_effect = {
+			set_global_flag = santa_welcomed_in_the_soviet_union
+			set_technology = { santa_winter_buff = 1 popup = no }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.500
+	title = LSM_GER_SOV.500.t
+	desc = LSM_GER_SOV.500.d
+	picture = GFX_report_event_german_troops
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = {
+			tag = GER
+			date > 1940.12.18
+			date < 1941.1.1
+			NOT = { has_global_flag = santa_in_gulag }
+			NOT = { has_global_flag = santa_captured_GER }
+			NOT = { has_global_flag = santa_claus_is_sov_leader }
+			has_global_flag = flavour_enabled_flag
+			has_global_flag = santa_for_soviet_enabled
+		}
+	}
+
+	immediate = {
+		set_global_flag = santa_captured_GER
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = LSM_GER_SOV.500.a #capture
+		ai_chance = { 
+			factor = 100
+			modifier = { 
+				factor = 0
+				NOT = { has_global_flag = santa_welcomed_in_the_soviet_union }
+			}
+		}
+		custom_effect_tooltip = LSM_GER_SOV_santa_GER_tt_1
+		hidden_effect = { 
+			set_country_flag = yearly_coal 
+			set_global_flag = santa_is_dead
+			country_event = { id = LSM_GER_SOV.475 days = 1 }
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+			SOV = { set_technology = { santa_winter_buff = 1 popup = no } }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.474.b #let him go
+		ai_chance = { 
+			factor = 100
+			modifier = { 
+				factor = 0
+				has_global_flag = santa_welcomed_in_the_soviet_union
+			}
+		}
+		custom_effect_tooltip = LSM_GER_SOV_santa_GER_tt_2
+		hidden_effect = {
+			set_global_flag = santa_released
+		}
+	}
+
+	option = {
+		trigger = { 
+			NOT = { has_global_flag = santa_welcomed_in_the_soviet_union }
+			is_ai = yes 
+		}
+		name = LSM_GER_SOV.474.c #provide him with accomodation
+		custom_effect_tooltip = "I wonder if this man knew who we are..."
+		hidden_effect = {
+			set_global_flag = santa_welcomed_in_germany
+			set_technology = { santa_winter_buff = 1 popup = no }
+		}
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.501
+	title = LSM_GER_SOV.501.t
+	desc = LSM_GER_SOV.501.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.501.a 
+		custom_effect_tooltip = "We have to be cautious, the risk of assassination is ever present!"
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.475 hours = 12 }
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.501.b
+		custom_effect_tooltip = "Maybe he is a good cook"
+		add_stability = -0.1
+		hidden_effect = {
+			country_event = { id = LSM_GER_SOV.502 hours = 2 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.502
+	title = LSM_GER_SOV.502.t
+	desc = LSM_GER_SOV.502.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.502.a
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.478 hours = 2 }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.502.b
+		add_stability = -0.1
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.503 hours = 2 }
+		}
+	}
+}
+country_event = {
+	id = LSM_GER_SOV.503
+	title = LSM_GER_SOV.503.t
+	desc = LSM_GER_SOV.503.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.503.a
+
+		add_stability = -0.2
+
+		hidden_effect = {
+			set_global_flag = santa_welcomed_in_the_soviet_union
+			set_global_flag = santa_claus_is_sov_leader
+			set_country_flag = santa_claus_is_leader
+			set_technology = { santa_winter_buff = 1 popup = no }
+			mark_focus_tree_layout_dirty = yes
+			country_event = { id = LSM_santa.1 days = 2}
+		}
+
+		kill_country_leader = yes
+
+		create_country_leader = {
+			name = "Santa Claus"
+			picture = GFX_portrait_SOV_santa_claus
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {
+				SOV_santaism
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.503.b
+
+		add_stability = 0.2
+
+		hidden_effect = {
+			country_event = { id = LSM_santa.4 days = 1 }
+		}
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.504
+	title = LSM_GER_SOV.504.t
+	desc = LSM_GER_SOV.504.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.504.a
+
+		custom_effect_tooltip = "Santa Claus will never be seen again, and Christmas is forever lost in the Soviet Union and around the world"
+
+		hidden_effect = { 
+			country_event = { id = LSM_GER_SOV.475 hours = 12 }
+			set_country_flag = coal_sub
+			set_global_flag = santa_in_gulag
+			set_variable = { yearly_coal_amount = 0 }
+			set_technology = { santa_winter_debuff = 1 popup = no }
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.504.b
+
+		custom_effect_tooltip = "Santa Claus will have to depart immediately, but the Soviet Union continues to welcome him as a whole"
+
+		hidden_effect = {
+			set_global_flag = santa_welcomed_in_the_soviet_union
+			set_technology = { santa_winter_buff = 1 popup = no }
+			country_event = { id = LSM_santa.4 days = 1 }
+		}
+	}
+
+}
+country_event = {
+	id = LSM_GER_SOV.505
+	title = LSM_GER_SOV.505.t
+	desc = LSM_GER_SOV.505.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = LSM_GER_SOV.505.a
+
+		ai_chance = {
+			factor = 80
+		}
+
+		complete_national_focus = GER_alliance_with_the_ussr
+
+		hidden_effect = {
+			GER = {
+				add_named_threat = { threat = 50 name = event_505_tt }
+			}
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.505.b
+
+		ai_chance = {
+			factor = 20
+		}
+	}
+
+}
+#Soviet Union has early war
+country_event = {
+	id = LSM_GER_SOV.506
+	title = LSM_GER_SOV.506.t
+	desc = LSM_GER_SOV.506.d
+	picture = GFX_report_event_SOV_tank_column
+
+	trigger = {
+		tag = JAP
+		is_faction_leader = yes
+		is_historical_focus_on = yes
+		has_global_flag = SOV_has_early_war
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+		}
+		has_global_flag = is_active
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = {
+		name = LSM_GER_SOV.506.a
+		ai_chance = { factor = 100 }
+		dismantle_faction = yes
+		trigger = { 
+			NOT = { has_war_with = CHI }
+		}
+		CHI = { country_event = { id = LSM_GER_SOV.507 days = 1 } }
+		hidden_effect = {
+			remove_country_leader_trait = imperial_sanction
+		}
+		if = {
+			limit = { NOT = { has_war_with = CHI } }
+			every_state = {
+				limit = {
+					OR = {
+						state = 609
+						state = 524
+						state = 745
+					}
+				}
+				add_claim_by = JAP
+				add_dynamic_modifier = { modifier = JAP_imperial_territory_2 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					owner = {
+						OR = {
+							tag = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				remove_core_of = CHI
+			}
+		}
+		
+	}
+
+	option = {
+		name = LSM_GER_SOV.506.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_war_with = CHI
+				NOt = { has_global_flag = CHI_say_yes_to_peace }
+			}
+			custom_effect_tooltip = LSM_GER_SOV_506_a_tt
+			set_global_flag = JAP_say_yes_to_peace
+		}
+		else_if = {
+			limit = {
+				has_war_with = CHI
+				has_global_flag = CHI_say_yes_to_peace
+			}
+			set_global_flag = JAP_say_yes_to_peace
+			every_state = {
+				limit = {
+					OR = {
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+						state = 609
+						state = 524
+						state = 745
+					}
+				}
+				JAP = { transfer_state = PREV }
+				add_claim_by = JAP
+				add_dynamic_modifier = { modifier = JAP_imperial_territory_2 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					owner = {
+						OR = {
+							tag = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				remove_core_of = CHI
+			}
+			dismantle_faction = yes
+			white_peace = CHI
+			hidden_effect = {
+				CHI = { 
+					if = {
+						limit = { has_completed_focus = CHI_foreign_threats }
+						uncomplete_national_focus = { focus = CHI_foreign_threats }
+					} 
+					if = {
+						limit = { has_completed_focus = CHI_united_front }
+						uncomplete_national_focus = { focus = CHI_united_front }
+					}
+					if = {
+						limit = { is_in_faction_with = PRC }
+						leave_faction = yes
+					}
+					complete_national_focus = CHI_prioritize_the_interior
+				}
+			}		
+		}
+		trigger = { 
+			has_war_with = CHI
+		}
+		hidden_effect = {
+			remove_country_leader_trait = imperial_sanction
+		}
+		CHI = { country_event = { id = LSM_GER_SOV.507 days = 1 } }
+		
+	}
+
+	option = {
+		name = LSM_GER_SOV.506.b
+		custom_effect_tooltip = LSM_GER_SOV_506_b_tt
+	}
+	
+}
+
+
+country_event = {
+	id = LSM_GER_SOV.507
+	title = LSM_GER_SOV.507.t
+	desc = LSM_GER_SOV.507.d
+	picture = GFX_report_event_SOV_tank_column
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_GER_SOV.507.a
+		ai_chance = { factor = 100 }
+		add_cic = 50000
+		if = {
+			limit = {
+				NOT = { has_global_flag = JAP_say_yes_to_peace }
+			}
+			set_global_flag = CHI_say_yes_to_peace
+			every_state = {
+				limit = {
+					OR = {
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+						state = 609
+						state = 524
+						state = 745
+					}
+					controller = { 
+						OR = {
+							tag = JAP
+							is_in_faction_with = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				JAP = { transfer_state = PREV }
+				add_claim_by = JAP
+				add_dynamic_modifier = { modifier = JAP_imperial_territory_2 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					owner = {
+						OR = {
+							tag = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				remove_core_of = CHI
+			}
+			white_peace = JAP
+			CHI = { 
+				if = {
+					limit = { has_completed_focus = CHI_foreign_threats }
+					uncomplete_national_focus = { focus = CHI_foreign_threats }
+				} 
+				if = {
+					limit = { has_completed_focus = CHI_united_front }
+					uncomplete_national_focus = { focus = CHI_united_front }
+				}
+				if = {
+					limit = { is_in_faction_with = PRC }
+					leave_faction = yes
+				}
+				complete_national_focus = CHI_prioritize_the_interior
+			}	
+		}
+		if = {
+			limit = {
+				has_global_flag = JAP_say_yes_to_peace
+			}
+			set_global_flag = CHI_say_yes_to_peace
+			every_state = {
+				limit = {
+					OR = {
+						state = 608
+						state = 614
+						state = 597
+						state = 743
+						state = 609
+						state = 524
+						state = 745
+					}
+					controller = { 
+						OR = {
+							tag = JAP
+							is_in_faction_with = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				JAP = { transfer_state = PREV }
+				add_claim_by = JAP
+				add_dynamic_modifier = { modifier = JAP_imperial_territory_2 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = CHI
+					owner = {
+						OR = {
+							tag = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+				remove_core_of = CHI
+			}
+			white_peace = JAP
+			CHI = { 
+				if = {
+					limit = { has_completed_focus = CHI_foreign_threats }
+					uncomplete_national_focus = { focus = CHI_foreign_threats }
+				} 
+				if = {
+					limit = { has_completed_focus = CHI_united_front }
+					uncomplete_national_focus = { focus = CHI_united_front }
+				}
+				if = {
+					limit = { is_in_faction_with = PRC }
+					leave_faction = yes
+				}
+				complete_national_focus = CHI_prioritize_the_interior
+			}		
+		}
+	}
+
+	option = {
+		name = LSM_GER_SOV.507.b
+	}
+	
+}

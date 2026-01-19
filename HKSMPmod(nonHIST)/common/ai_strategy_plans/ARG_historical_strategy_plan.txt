@@ -1,0 +1,544 @@
+ARG_historical_plan = {
+	name = "Argentina Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = ARG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ARG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ARG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		has_completed_focus = ARG_the_american_push
+	}
+
+	ai_national_focuses = {
+		SMB_army
+		SMB_military_facilities
+
+		ARG_roberto_maria_ortiz
+		ARG_defense_and_democracy
+		ARG_crack_down_on_corruption
+		
+		ARG_british_cooperation
+		ARG_import_substitution
+		ARG_emphasis_on_public_works
+		ARG_towards_a_greater_argentina
+		ARG_universidad_de_buenos_aires
+		ARG_the_castillo_cabinet
+
+		ARG_consolidating_power
+		ARG_march_to_la_casa_rosada
+		ARG_balancing_act
+		ARG_juan_peron_elected
+		ARG_peronism	
+		
+		ARG_the_american_push
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+ARG_historical_plan_con1 = {
+	name = "Argentina Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = ARG_the_american_push
+		OR = {
+			GER = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+			ENG = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+			USA = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+			FRA = {
+				has_government = democratic
+				is_faction_leader = yes
+			}
+			has_completed_focus = ARG_join_the_allies
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = ARG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ARG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ARG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+	
+		ARG_join_the_allies
+	
+		ARG_align_with_the_monroe_doctrine
+		ARG_american_allyship
+		ARG_south_american_alliance
+		ARG_envoy_to_london
+		ARG_bolstering_the_army
+		ARG_the_second_argentine_republic
+		ARG_extinguish_south_american_communism
+		ARG_extinguish_south_american_fascism
+
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ARG_historical_plan_con2 = {
+	name = "Argentina Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_completed_focus = ARG_the_american_push
+		OR = {
+			has_completed_focus = ARG_maintain_neutrality
+			NOT = {
+				OR = {
+					GER = {
+						has_government = democratic
+						is_faction_leader = yes
+					}
+					ENG = {
+						has_government = democratic
+						is_faction_leader = yes
+					}
+					USA = {
+						has_government = democratic
+						is_faction_leader = yes
+					}
+					FRA = {
+						has_government = democratic
+						is_faction_leader = yes
+					}
+				}
+			}
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = ARG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ARG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ARG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+
+		ARG_maintain_neutrality
+		ARG_our_own_path
+		ARG_dominate_the_south
+		ARG_preparations_for_war
+		ARG_the_war_machine
+		ARG_secure_the_borders
+		
+		ARG_conquer_paraguay
+		ARG_chilean_ultimatum
+		ARG_the_old_enemy
+		ARG_south_american_unity
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+
+ARG_historical_plan2 = {
+	name = "Argentina Stronger Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = ARG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ARG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ARG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no
+			}
+			has_global_flag = vanilla_history
+		}
+	}
+
+	ai_national_focuses = {
+		ARG_juan_peron_elected
+
+		ARG_join_the_allies
+		ARG_align_with_the_monroe_doctrine
+		ARG_south_american_alliance
+
+		ARG_the_clean_election
+		ARG_in_memory_of_yrigoyen
+		ARG_anti_corruption_policies
+
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+
+		ARG_reinforce_the_education_system
+		ARG_university_reforms
+		ARG_promote_urbanization
+		ARG_regulated_national_salaries
+		ARG_a_true_democracy
+
+		ARG_argentina_for_all
+		ARG_internal_focus
+		ARG_alvears_democracy
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_air_force
+		SMB_construct_air_bases
+
+		SMB_domestic_designs
+		SMB_establish_aircraft_industry
+		SMB_navy
+		SMB_army_professionalism
+		SMB_artillery
+		SMB_regular_infantry
+		SMB_army_academy
+		SMB_air_academy
+		SMB_air_defense
+		ARG_banco_central_de_la_republica_argentina
+
+		ARG_industrial_expansion
+		ARG_rapid_urbanization
+		ARG_military_production_lines
+		ARG_revisit_the_roca_runciman_treaty
+		ARG_capitalize_the_beef_industry
+		ARG_agricultural_improvements
+
+		SMB_joint_operative_command
+		SMB_women_in_aviation
+		SMB_special_forces
+
+		ARG_economic_tax_reforms
+		ARG_production_initiative
+		ARG_develop_the_electricity_sector
+		ARG_invest_in_construction_guilds
+		ARG_technical_schools
+	
+		ARG_economic_reactivation_act
+		ARG_immigration_wave
+		ARG_develop_civilian_economy
+		ARG_the_argentinian_metropole
+	}
+
+	focus_factors = {
+		ARG_the_second_argentine_republic = 0
+		ARG_encourage_the_red_scare = 0
+		ARG_extinguish_south_american_fascism = 0
+		ARG_extinguish_south_american_communism = 0
+		SMB_reescalate_the_naval_arms_race = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		ARG_uribaldi_diaz_brittenberg = 0
+		ARG_eleazar_videla = 0
+		ARG_carlos_marquez2 = 5
+		ARG_jose_cantilo = 0
+		ARG_raul_prebisch = 4
+		ARG_vincente_gallo = 15
+		ARG_diogenes_taboada = 5
+		ARG_roberto_maria_ortiz_idea = 0
+		ARG_ramon_castillo = 0
+		ARG_edelmiro_julian_farrell = 0
+		ARG_nimio_de_anquin = 0
+		ARG_enrique_mosca = 0
+		ARG_marcelo_t_de_alvear = 0
+		ARG_manuel_maria_de_iriondo = 0
+		ARG_honorio_pueyrredon = 0
+		ARG_julio_roca = 0
+		ARG_hugo_wast = 0
+		ARG_guillermo_rothe = 0
+		ARG_enrique_ruiz_guinazu = 0
+		ARG_carlos_lamas = 0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+ARG_historical_plan_weak = {
+	name = "Argentina Stronger Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ARG
+	}
+	enable = {			
+		has_global_flag = vanilla_history
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = ARG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ARG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = ARG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no
+			}
+		}
+	}
+
+	ai_national_focuses = {
+
+		#1936
+		#ARG_preparation_for_the_elections
+		SMB_army
+		SMB_navy
+		ARG_roberto_maria_ortiz
+		ARG_defense_and_democracy
+		ARG_banco_central_de_la_republica_argentina
+
+		#1937
+		ARG_crack_down_on_corruption
+		ARG_industrial_expansion
+		ARG_british_cooperation
+		ARG_rapid_urbanization
+		ARG_import_substitution
+		ARG_agricultural_improvements
+
+		#1938
+		ARG_military_production_lines
+		ARG_emphasis_on_public_works
+		ARG_economic_reactivation_act
+		ARG_towards_a_greater_argentina
+		ARG_universidad_de_buenos_aires
+		SMB_air_force
+
+		#1939
+		SMB_construct_air_bases
+		ARG_capitalize_the_beef_industry
+		ARG_revisit_the_roca_runciman_treaty
+		ARG_immigration_wave
+		ARG_develop_civilian_economy
+		ARG_the_argentinian_metropole
+
+		#1940
+		ARG_economic_tax_reforms
+		ARG_invest_in_the_roads
+		ARG_invest_in_the_railways
+		ARG_expand_steel_extraction
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_construct_naval_bases
+		SMB_naval_foreign_advisors
+
+		#1941
+		ARG_expand_aluminum_extraction
+		ARG_the_castillo_cabinet
+		ARG_consolidating_power
+		ARG_march_to_la_casa_rosada
+		ARG_balancing_act
+		SMB_military_facilities
+		SMB_army_academy
+		SMB_tank_warfare
+
+		#1942
+		SMB_regular_infantry
+		SMB_artillery
+		SMB_construct_naval_bases
+		SMB_naval_foreign_advisors
+		SMB_domestic_production
+		SMB_tierra_del_fuego_training
+		SMB_foreign_advisors
+		SMB_purchase_destroyers_and_subs
+		SMB_expand_repair_yards
+
+		#1943
+		SMB_enlarge_naval_facilities
+		SMB_air_academy
+		SMB_license_designs
+		SMB_fortification_effort
+		SMB_air_defense
+		ARG_yacimientos_petroliferos_fiscales
+
+		#1944
+		ARG_the_american_push
+		SMB_establish_aircraft_industry
+		SMB_nimble_air_force
+		SMB_winning_the_air_war
+		SMB_air_modifier_boost_1
+
+		#1945
+		ARG_join_the_allies
+		ARG_align_with_the_monroe_doctrine
+		ARG_envoy_to_london
+		ARG_american_allyship
+		ARG_study_the_battle_of_the_river_plate
+		ARG_firmes_volamos
+	}
+
+	focus_factors = {
+		ARG_the_second_argentine_republic = 0
+		ARG_encourage_the_red_scare = 0
+		ARG_extinguish_south_american_fascism = 0
+		ARG_extinguish_south_american_communism = 0
+		SMB_reescalate_the_naval_arms_race = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+

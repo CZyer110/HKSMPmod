@@ -1,0 +1,148 @@
+
+CAN_need_their_marines = {
+	allowed = {
+		original_tag = CAN
+	}
+	enable = {
+		has_tech = amphibious_mechanized_infantry
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 200
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 50
+	}
+}
+
+CAN_production_prep = {
+	allowed = {
+		original_tag = CAN
+	}
+	enable = {
+		has_tech = mechanised_infantry
+		has_tech = amphibious_mechanized_infantry
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = amphibious_mechanized_equipment
+		value = 3
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = mechanized_equipment
+		value = 6
+	}
+}
+CAN_production_prep_2 = {
+	allowed = {
+		original_tag = CAN
+	}
+	enable = {
+		has_tech = mechanised_infantry
+		has_tech = amphibious_mechanized_infantry
+		num_of_military_factories > 20
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = amphibious_mechanized_equipment
+		value = 3
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = mechanized_equipment
+		value = 6
+	}
+}
+CAN_production_prep_3 = {
+	allowed = {
+		original_tag = CAN
+	}
+	enable = {
+		has_tech = mechanised_infantry
+		has_tech = amphibious_mechanized_infantry
+		num_of_military_factories > 40
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = amphibious_mechanized_equipment
+		value = 4
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = mechanized_equipment
+		value = 8
+	}
+}
+CAN_dont_touch_factory_yet = {
+	allowed = {
+		original_tag = CAN
+	}
+	enable = {
+		has_war = no
+		has_idea = civilian_economy
+		date < 1938.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -999
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -999
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 276 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 468 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 464 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 682 
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 862 
+		value = 2000
+	}
+}

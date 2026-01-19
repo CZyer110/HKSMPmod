@@ -1,0 +1,219 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+
+
+defined_text = {
+	name = GetArmyPrimacyName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_army_primacy_bba_b_alt
+	}
+	text = {
+		localization_key = ITA_army_primacy_bba_b_default
+	}
+}
+
+defined_text = {
+	name = GetArmyPrimacyDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_army_primacy_bba_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_army_primacy_bba_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetPreserveArmyName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_preserve_army_traditions_b_alt
+	}
+	text = {
+		localization_key = ITA_preserve_army_traditions_b_default
+	}
+}
+
+defined_text = {
+	name = GetPreserveArmyDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_preserve_army_traditions_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_preserve_army_traditions_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetBanditName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_a_bandits_war_b_alt
+	}
+	text = {
+		localization_key = ITA_a_bandits_war_b_default
+	}
+}
+
+defined_text = {
+	name = GetBanditDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_a_bandits_war_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_a_bandits_war_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetLeaderName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_army_leaders_b_alt
+	}
+	text = {
+		localization_key = ITA_army_leaders_b_default
+	}
+}
+
+defined_text = {
+	name = GetLeaderDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_army_leaders_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_army_leaders_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetTanketteName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_italian_tankettes_b_alt
+	}
+	text = {
+		localization_key = ITA_italian_tankettes_b_default
+	}
+}
+
+defined_text = {
+	name = GetTanketteDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_italian_tankettes_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_italian_tankettes_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetSuperName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_superesercito_b_alt
+	}
+	text = {
+		localization_key = ITA_superesercito_b_default
+	}
+}
+
+defined_text = {
+	name = GetSuperDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_superesercito_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_superesercito_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetAlpineName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_divisioni_alpine_b_alt
+	}
+	text = {
+		localization_key = ITA_divisioni_alpine_b_default
+	}
+}
+
+defined_text = {
+	name = GetAlpineDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_divisioni_alpine_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_divisioni_alpine_b_desc_default
+	}
+}
+
+defined_text = {
+	name = GetPropelledName
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_self_propelled_guns_b_alt
+	}
+	text = {
+		localization_key = ITA_self_propelled_guns_b_default
+	}
+}
+
+defined_text = {
+	name = GetPropelledDesc
+	text = {
+		trigger = {
+			has_country_flag = ITA_defeat_in_ethiopia_flag
+		}
+		localization_key = ITA_self_propelled_guns_b_desc_alt
+	}
+	text = {
+		localization_key = ITA_self_propelled_guns_b_desc_default
+	}
+}

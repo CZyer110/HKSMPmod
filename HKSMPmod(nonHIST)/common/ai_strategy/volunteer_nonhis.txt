@@ -1,0 +1,768 @@
+FRA_never_send_volunteers_if_unsafe = {
+	reversed = yes
+	allowed = {
+		tag = FRA
+	}
+	enable = {
+		is_historical_focus_on = no
+		any_country = {
+			OR = {
+				has_wargoal_against = FRA
+				is_justifying_wargoal_against = FRA
+			}
+		}
+		has_civil_war = no #only intervene in civil war on nonhis
+		FRA = {
+			NOT = { is_in_faction_with = GER }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FRA"
+		value = -9999
+	}
+}
+ITA_never_send_volunteers_if_unsafe = {
+	reversed = yes
+	allowed = {
+		tag = ITA
+	}
+	enable = {
+		is_historical_focus_on = no
+		any_country = {
+			OR = {
+				has_wargoal_against = ITA
+				is_justifying_wargoal_against = ITA
+			}
+		}
+		has_civil_war = no #only intervene in civil war on nonhis
+		ITA = {
+			NOT = { is_in_faction_with = GER }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ITA"
+		value = -9999
+	}
+}
+GER_never_send_volunteers_if_unsafe = {
+	reversed = yes
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		is_historical_focus_on = no
+		any_country = {
+			OR = {
+				has_wargoal_against = GER
+				is_justifying_wargoal_against = GER
+			}
+		}
+		has_civil_war = no #only intervene in civil war on nonhis
+		GER = {
+			NOT = { 
+				OR = {
+					is_in_faction_with = FRA 
+					is_in_faction_with = ITA 
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ITA"
+		value = -9999
+	}
+}
+FRA_nonhistorical_volunteer = {
+	reversed = yes
+	allowed = {
+		tag = FRA
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = { 
+				has_government = fascism
+				FRA = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = communism }
+						}
+						has_government = democratic
+					}
+					has_government = communism
+				}
+				FRA = { has_government = communism }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FRA"
+		value = 500
+	}
+}
+ITA_nonhistorical_volunteer = {
+	reversed = yes
+	allowed = {
+		tag = ITA
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = {  
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = fascism }
+						}
+						has_government = neutrality
+					}
+					has_government = fascism
+				}
+				ITA = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = neutrality }
+						}
+						has_government = democratic
+					}
+				}
+				ITA = { has_government = neutrality }
+			}
+			AND = {
+				OR = {
+					has_government = democratic
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = democratic }
+						}
+						has_government = communism
+					}
+				}
+				ITA = { has_government = democratic }
+			}
+			AND = { 
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = communism }
+						}
+						has_government = democratic
+					}
+					has_government = communism
+				}
+				ITA = { has_government = communism }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ITA"
+		value = 500
+	}
+}
+JAP_nonhistorical_volunteer = {
+	reversed = yes
+	allowed = {
+		tag = JAP
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = {  
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+				JAP = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+				}
+				JAP = { has_government = neutrality }
+			}
+			AND = {
+				OR = {
+					has_government = democratic
+					has_government = communism
+				}
+				JAP = { has_government = democratic }
+			}
+			AND = { 
+				OR = {
+					has_government = communism
+				}
+				JAP = { has_government = communism }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "JAP"
+		value = 500
+	}
+}
+POR_nonhistorical_volunteer = {
+	reversed = yes
+	allowed = {
+		tag = POR
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = {  
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+				POR = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+				POR = { has_government = neutrality }
+			}
+			AND = {
+				OR = {
+					has_government = democratic
+					has_government = communism
+				}
+				POR = { has_government = democratic }
+			}
+			AND = { 
+				OR = {
+					has_government = communism
+				}
+				POR = { has_government = communism }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "POR"
+		value = 500
+	}
+}
+ENG_nonhistorical_volunteer = {
+	reversed = yes
+	allowed = {
+		tag = ENG
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = {  
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = fascism }
+						}
+						has_government = neutrality
+					}
+					has_government = fascism
+				}
+				ENG = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = neutrality }
+						}
+						has_government = fascism
+					}
+				}
+				ENG = { has_government = neutrality }
+			}
+			AND = {
+				OR = {
+					has_government = democratic
+				}
+				ENG = { has_government = democratic }
+			}
+			AND = {
+				OR = {
+					has_government = communism
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = communism }
+						}
+						has_government = democratic
+					}
+				}
+				ENG = { has_government = communism }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ENG"
+		value = 500
+	}
+}
+
+SOV_intervention_in_civil_wars = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = communism }
+						}
+						has_government = democratic
+					}
+					has_government = communism
+				}
+				SOV = {
+					has_government = communism
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = neutrality }
+						}
+						has_government = democratic
+					}
+					has_government = neutrality
+				}
+				SOV = {
+					has_government = neutrality
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = fascism }
+						}
+						has_government = neutrality
+					}
+					has_government = fascism
+				}
+				SOV = {
+					has_government = fascism
+				}
+			}
+		}
+		has_civil_war = yes
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SOV"
+		value = 500
+	}
+}
+
+GER_intervention_in_civil_wars = {
+	reversed = yes
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = { 
+				OR = {
+					has_government = fascism
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = fascism }
+						}
+						has_government = neutrality
+					}
+				}
+				GER = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = neutrality }
+						}
+						has_government = democratic
+					}
+				}
+				GER = { has_government = neutrality }
+			}
+			AND = { 
+				has_government = democratic
+				GER = { has_government = democratic }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "GER"
+		value = 500
+	}
+}
+USA_intervention_in_civil_wars = {
+	reversed = yes
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_civil_war = yes
+		OR = {
+			AND = { 
+				OR = {
+					has_government = fascism
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = fascism }
+						}
+						has_government = neutrality
+					}
+				}
+				USA = { has_government = fascism }
+			}
+			AND = { 
+				OR = {
+					has_government = neutrality
+					AND = {
+						NOT = { 
+							any_enemy_country = { has_government = neutrality }
+						}
+						has_government = democratic
+					}
+				}
+				USA = { has_government = neutrality }
+			}
+			AND = { 
+				OR = {
+					any_enemy_country = {
+						has_government = fascism
+					}
+					has_government = democratic
+				}
+				USA = { has_government = democratic }
+			}
+		}
+		OR = {
+			is_dynamic_country = no
+			original_tag = SPR
+			any_country = {
+				is_ai = no
+				ROOT = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 0
+					}
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "USA"
+		value = 500
+	}
+}
+FRA_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = FRA
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = FRA }
+		NOT = { has_non_aggression_pact_with = FRA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FRA"
+		value = -9999
+	}
+}
+GER_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = GER }
+		NOT = { has_non_aggression_pact_with = GER }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FRA"
+		value = -9999
+	}
+}
+SOV_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = FRA
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = SOV }
+		NOT = { has_non_aggression_pact_with = SOV }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FRA"
+		value = -9999
+	}
+}
+JAP_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = JAP
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = JAP }
+		NOT = { has_non_aggression_pact_with = JAP }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "JAP"
+		value = -9999
+	}
+}
+ENG_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = ENG
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = ENG }
+		NOT = { has_non_aggression_pact_with = ENG }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ENG"
+		value = -9999
+	}
+}
+USA_never_send_volunteers_to_potential_enemy = {
+	reversed = yes
+	allowed = {
+		tag = USA
+	}
+	enable = {
+		has_civil_war = no
+		is_in_faction = yes
+		NOT = { is_in_faction_with = USA }
+		NOT = { has_non_aggression_pact_with = USA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ENG"
+		value = -9999
+	}
+}
+saving_private_nationalist_spain = {
+	enable = {
+		is_major = yes
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+		}
+		any_country = {
+			original_tag = SPR
+			has_civil_war = yes
+			NOT = {
+				any_enemy_country = {
+					NOT = { original_tag = SPR }
+				}
+			}
+		}	
+		country_exists = SPA	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SPA
+		value = 500
+	}
+
+	ai_strategy = {
+		type = support
+		id = SPA
+		value = 500
+	}
+
+}

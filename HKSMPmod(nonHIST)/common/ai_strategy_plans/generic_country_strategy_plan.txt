@@ -1,0 +1,142 @@
+generic_nation_fascist = {
+	name = "G F"
+	desc = "G F"
+
+	allowed = {
+		always = yes
+	}
+	enable = {
+		is_ai_fascist_generic = yes
+		has_focus_tree = generic_focus
+		is_historical_focus_on = no
+	}
+	abort = {
+		
+	}
+
+	traits = {
+		fascist_demagogue = 500
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+generic_nation_commie = {
+	name = "G C"
+	desc = "G C"
+
+	allowed = {
+		always = yes
+	}
+	enable = {
+		is_ai_communist_generic = yes
+		is_historical_focus_on = no
+		has_focus_tree = generic_focus
+	}
+	abort = {
+		
+	}
+
+	traits = {
+		communist_revolutionary = 500
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+generic_nation_dem = {
+	name = "G D"
+	desc = "G D"
+
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_country_flag = interventionist_generic_flag
+		is_historical_focus_on = no
+		has_focus_tree = generic_focus
+	}
+	abort = {
+		
+	}
+
+	traits = {
+		democratic_reformer = 500
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
+allies_ban_mainland_construction = {
+	name = "Generic allied minors in Europe avoid helping Germany"
+	desc = "G F"
+
+	allowed = {
+		OR = {
+			tag = BEL
+			tag = LUX
+			tag = HOL
+			tag = DEN
+			tag = NOR
+			tag = SWI
+			tag = AUS
+		}
+	}
+	enable = {
+		has_global_flag = allies_mainland_withdrawal
+		has_focus_tree = generic_focus
+	}
+	abort = {
+		date > 1941.1.1
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		industrial_effort = 0
+		naval_effort = 0
+	}
+
+}

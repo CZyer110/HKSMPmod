@@ -16,7 +16,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = SOV_second_five_year_plan_ccp_2d_sov_compatibility # New GFX entry pointing to the original icon, so it can be safely overwritten by CCP 2D Sov Art without impacting other content using the same icon
+			picture = SOV_second_five_year_plan_ccp_2d_sov_compatibility
 
 			allowed = {
 				always = no
@@ -35,7 +35,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = SOV_third_five_year_plan_ccp_2d_sov_compatibility # New GFX entry pointing to the original icon, so it can be safely overwritten by CCP 2D Sov Art without impacting other content using the same icon
+			picture = SOV_third_five_year_plan_ccp_2d_sov_compatibility
 
 			allowed = {
 				always = no
@@ -62,10 +62,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				OR = {
-					SOV_is_right_opposition = yes
-					NOT = { tag = SOV } #Stalin/Beriya
-				}
+				NOT = { tag = SOV } #Stalin/Beriya
 			}
 
 			modifier = {
@@ -120,8 +117,66 @@ ideas = {
 				always = no # Added via event
 			}
 
+			on_add = {
+				if = {
+					limit = {
+						GER = { has_war_with = POL }
+						NOT = { has_global_flag = molotov_ribbentrop_fulfillment_demand }
+					}
+					set_global_flag = molotov_ribbentrop_fulfillment_demand
+				}
+				every_state = {
+					limit = {
+						is_core_of = GER
+						is_claimed_by = SOV
+					}
+					remove_claim_by = SOV
+				}
+				every_state = {
+					limit = {
+						NOT = { is_core_of = GER }
+						owner = { 
+							OR = {
+								tag = GER
+								is_subject_of = GER
+							}
+						}
+						is_claimed_by = SOV
+					}
+					SOV = { transfer_state = PREV }
+				}
+				every_country = {
+					limit = {
+						is_in_faction_with = GER
+						any_owned_state = {
+							is_claimed_by = SOV
+						}
+						NOT = {
+							any_owned_state = {
+								NOT = {
+									is_claimed_by = SOV
+								}
+							}
+						}
+					}
+					GER = { 
+						remove_from_faction = PREV 
+						add_ai_strategy = {
+							type = alliance
+							id = PREV
+							value = -2000
+						}
+					}
+					add_ideas = LSM_on_our_own_idea_mr
+				}
+			}
+
 			allowed_civil_war = {
 				has_government = communism
+			}
+
+			modifier = {
+				send_volunteers_tension = 1
 			}
 		}
 
@@ -1067,6 +1122,14 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.1
 				}
+				anti_tank_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				anti_air_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
 			}
 		}
 
@@ -1086,9 +1149,9 @@ ideas = {
 			}
 
 			modifier = {
-				winter_attrition_factor = -0.15
-				out_of_supply_factor = -0.1
-				supply_node_range = 0.1
+				winter_attrition_factor = -0.25
+				out_of_supply_factor = -0.15
+				supply_node_range = 0.2
 			}
 		}
 
@@ -1110,7 +1173,7 @@ ideas = {
 			modifier = {
 				mobilization_speed = 0.25
 				minimum_training_level = -0.05
-				training_time_factor = -0.1
+				training_time_factor = -0.25
 			}
 		}
 
@@ -1776,14 +1839,6 @@ ideas = {
 			}
 
 			on_remove = {
-				#var:SOV_capital_for_soviet_imports = { #This is where the German capital is stored and where Soviet Imports state modifier was added
-				#	if = {
-				#		limit = {
-				#			has_dynamic_modifier = { modifier = SOV_soviet_imports }
-				#		}
-				#		remove_dynamic_modifier = { modifier = SOV_soviet_imports }
-				#	}
-				#}
 			}
 
 			modifier = {
@@ -2177,7 +2232,7 @@ ideas = {
 			}
 
 			modifier = {
-				communism_drift = -0.2
+				communism_drift = -0.20
 				stability_weekly = 0.005
 			}
 		}
@@ -2196,9 +2251,8 @@ ideas = {
 			}
 
 			modifier = {
-				consumer_goods_factor = -0.20
+				consumer_goods_factor = -0.10
 				industry_repair_factor = 0.25
-				research_speed_factor = 0.08
 			}
 		}
 
@@ -2216,7 +2270,7 @@ ideas = {
 			}
 
 			modifier = {
-				production_speed_buildings_factor = 0.15
+				production_speed_buildings_factor = 0.1
 			}
 		}
 
@@ -2257,7 +2311,7 @@ ideas = {
 			}
 
 			modifier = {
-				communism_drift = -0.01
+				communism_drift = -0.020
 				stability_factor = 0.05
 				political_power_factor = 0.05
 			}
@@ -2278,7 +2332,7 @@ ideas = {
 			}
 
 			modifier = {
-				communism_drift = -0.01
+				communism_drift = -0.020
 				stability_factor = 0.1
 				political_power_factor = 0.05
 				consumer_goods_factor = -0.10
@@ -2300,7 +2354,7 @@ ideas = {
 			}
 
 			modifier = {
-				communism_drift = -0.01
+				communism_drift = -0.05
 				stability_factor = 0.1
 				political_power_factor = 0.1
 				consumer_goods_factor = -0.15
@@ -2322,7 +2376,7 @@ ideas = {
 			}
 
 			modifier = {
-				production_speed_buildings_factor = 0.15
+				production_speed_buildings_factor = 0.1
 			}
 		}
 
@@ -2342,7 +2396,7 @@ ideas = {
 
 			modifier = {
 				political_power_factor = 0.15
-				stability_factor = 0.1
+				stability_factor = 0.05
 			}
 		}
 
@@ -2563,8 +2617,8 @@ ideas = {
 			}
 
 			modifier = {
-				industrial_capacity_factory = 0.1
-				industrial_capacity_dockyard = 0.1
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
 			}
 		}
 
@@ -2663,7 +2717,7 @@ ideas = {
 
 			modifier = {
 				weekly_manpower = 1000
-				army_attack_factor = 0.15
+				army_attack_factor = 0.10
 			}
 		}
 
@@ -2691,7 +2745,7 @@ ideas = {
 
 		SOV_the_local_soviets_idea = {
 
-			picture = SOV_the_local_soviets_idea_nsb_ccp_sov_compatibility
+			picture = generic_morale_bonus
 			removal_cost = -1
 
 			allowed = {
@@ -2773,7 +2827,8 @@ ideas = {
 			}
 
 			modifier = {
-				weekly_manpower = 1000
+				weekly_manpower = 2000
+				consumer_goods_expected_value = -0.05
 			}
 		}
 
@@ -3327,6 +3382,147 @@ ideas = {
 
 
 	hidden_ideas = {
+	
+
+		SOV_for_the_motherland_1 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = 1000
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+	
+
+		SOV_for_the_motherland_2 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = 2000
+				consumer_goods_factor = -0.1
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+	
+
+		SOV_for_the_motherland_3 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = 3000
+				consumer_goods_factor = -0.15
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+			}
+		}
+	
+
+		SOV_for_the_motherland_4 = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = 4000
+				consumer_goods_factor = -0.2
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+			}
+		}
+	
+
+		SOV_to_the_last_man = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				out_of_supply_factor = -0.25
+				attrition = -0.25
+				no_supply_grace = 50
+			}
+		}
+	
+
+		SOV_construction_workers = { 
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = -1000
+				production_speed_buildings_factor = 0.20
+			}
+		}
 		SOV_non_communism_aversion_ns = {
 			removal_cost = -1
 
@@ -4424,11 +4620,11 @@ ideas = {
 							has_country_flag = SOV_accepted_OKMO
 						}
 					}
-				}	
+				}
 			}
 
 			available = {
-				IF = {
+				if = {
 					limit = {
 						NOT = { has_dlc = "No Compromise, No Surrender" }
 						OR = {
@@ -4467,7 +4663,6 @@ ideas = {
 
 			allowed = {
 				original_tag = SOV
-
 			}
 
 			visible = {
@@ -9593,14 +9788,6 @@ ideas = {
 
 			modifier = {
 				consumer_goods_factor = -0.05
-			}
-			
-			ai_will_do = {
-				base = 2
-				modifier = {
-					factor = 4
-					date > 1937.1.1
-				}
 			}
 		}
 

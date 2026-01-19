@@ -1,0 +1,353 @@
+DEN_rearmament_plan = {
+	name = "Danish Rearmament"
+	desc = "TODO_DANNE: Denmark will try to seek alliances with stronger nations and try to withstand any invasion attempts."
+
+	allowed = {
+		original_tag = DEN
+	}
+	enable = {
+		OR = {
+			has_country_flag = DEN_AI_RANDOM_ALLIANCE_PLAN
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = DEN_rearmament_plan
+			}
+		}
+	}
+
+	abort = { 
+		
+	}
+
+	ai_national_focuses = {
+		#1936
+		DEN_kanslergadeforliget			#35
+		DEN_devalue_the_krone					#35	
+		DEN_agricultural_subsidies				#70
+		DEN_industrial_investments				#70
+
+		#1937
+		DEN_public_works						#70
+		DEN_support_schleswigian_farmers		#70	
+		DEN_connect_the_islands
+		DEN_reorient_production_lines
+		DEN_strengthen_military_industries
+		DEN_expand_institut_for_teoretisk_fysik
+
+		DEN_declare_neutrality					#35
+		DEN_political_unity						#35
+		DEN_start_the_rearmament				#35
+		DEN_national_unity						#35
+		DEN_sign_forsvarsforliget				#35
+		DEN_seek_protection						#35
+
+		#1938
+		DEN_expand_vaernepligten				#70
+		DEN_strength_in_numbers					#35
+		DEN_military_cooperation_program		#70
+		DEN_joint_military_drills				#70
+		DEN_industrial_preparations				#70
+
+		#1939
+		DEN_military_preparations				#70
+		DEN_civilian_preparations				#70
+		DEN_full_social_mobilization			#70
+		DEN_social_stability					#35
+		DEN_build_motorveje						#70
+
+		#1940
+		DEN_no_market_regulations				#70
+		DEN_foreign_designs						#70
+		DEN_haeren_reorganization				#35
+		DEN_welcome_foreign_scientists			#70
+		DEN_expand_ubadsvabnet					#35
+
+	}
+
+	#Focuses never to take
+	focus_factors = {
+		DEN_unify_the_right = 0
+		DEN_policy_of_disarmament = 0
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+DEN_communist_plan = {
+	name = "Danish Communism"
+	desc = ""
+
+	allowed = {
+		original_tag = DEN
+	}
+	enable = {
+		OR = {
+			has_country_flag = DEN_AI_RANDOM_COMMUNIST_PLAN
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = DEN_communist_plan
+			}
+		}
+	}
+
+	abort = { 
+		
+	}
+
+	ai_national_focuses = {
+		DEN_kanslergadeforliget
+		DEN_devalue_the_krone
+
+		DEN_declare_neutrality
+		DEN_political_unity
+		DEN_policy_of_disarmament
+		DEN_social_stability
+		DEN_sign_forsvarsforliget
+
+		DEN_build_motorveje
+		DEN_heavy_market_regulations
+		DEN_welcome_foreign_scientists
+		DEN_side_with_unions
+		DEN_import_machinery_and_material
+
+		DEN_modernize_agricultural_machinery
+		DEN_agricultural_reinvestments
+		DEN_increase_produce_production
+		DEN_five_year_plan
+		DEN_industrial_reinvestments
+
+		DEN_modernize_industrial_machinery
+		DEN_increase_industrial_production
+		DEN_research_and_development
+		DEN_north_sea_oil_drilling
+		DEN_trade_with_britain
+		DEN_trade_with_germany
+
+
+		DEN_industrial_investments
+		DEN_public_works
+		DEN_agricultural_subsidies
+		DEN_support_schleswigian_farmers
+		DEN_connect_the_islands
+		DEN_expand_institut_for_teoretisk_fysik
+		DEN_expand_the_industries
+		DEN_aalborg_portland_cement_plant
+		DEN_support_bornholms_industries
+		DEN_reorient_production_lines
+		DEN_danske_stalvalsevaerket
+		DEN_strengthen_military_industries
+		DEN_protect_bornholm
+		DEN_protect_the_faroe_islands
+		DEN_support_the_faroes_industries
+		DEN_develop_greenland
+		DEN_expand_the_ivittuut_mine
+		DEN_prospecting_new_sites
+		DEN_protect_greenland
+
+	}
+
+	#Focuses never to take
+	focus_factors = {
+		DEN_unify_the_right = 0
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+		DEN_aksel_larsen = 50
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+DEN_monarchist_plan = {
+	name = "Expansionist Monarchy"
+	desc = "TODO_DANNE: King Christian X will try to secure natural resources and strengthen Denmark's military capabilities by controlling the rest of the Nordics by any means necessary."
+
+	allowed = {
+		original_tag = DEN
+	}
+	enable = {
+		OR = {
+			has_country_flag = DEN_AI_RANDOM_MONARCHIST_PLAN
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = DEN_monarchist_plan
+			}
+		}
+	}
+
+	abort = { 
+	
+	}
+
+	ai_national_focuses = {
+		DEN_kanslergadeforliget			#35
+		DEN_devalue_the_krone					#35	
+
+		DEN_declare_neutrality					#35
+		DEN_sign_forsvarsforliget				#35
+		DEN_expand_vaernepligten				#35
+		DEN_unify_the_right
+		DEN_conservatives_support
+		DEN_conspire_with_the_officer_corps
+		DEN_encourage_paramilitary
+		DEN_strengthen_the_officer_corp
+		DEN_overthrow_the_government
+		DEN_king_assumes_power
+		DEN_scandinavian_security
+		DEN_reintegrate_iceland
+		DEN_konge_og_faedreland
+		DEN_the_royal_guard
+		DEN_align_industries
+		DEN_economic_mobilization_strategy
+		DEN_expand_kobenhavns_university
+	
+		DEN_agricultural_subsidies				#70
+		DEN_industrial_investments				#70
+
+		#1937
+		DEN_public_works						#70
+		DEN_support_schleswigian_farmers		#70	
+		DEN_connect_the_islands
+		DEN_reorient_production_lines
+		DEN_strengthen_military_industries
+		DEN_expand_institut_for_teoretisk_fysik
+
+		DEN_secure_swedish_steel
+		DEN_pan_scandinavianism
+		DEN_reclaim_norway
+
+	}
+
+	#Focuses never to take
+	focus_factors = {
+		DEN_political_unity = 0
+		DEN_march_on_the_capital = 0
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}
+
+DEN_fascist_plan = {
+	name = "Fascist Denmark"
+	desc = "TODO_DANNE: The Fascist Party will try to seize power in Denmark and re-establish the North Sea Empire of old."
+
+	allowed = {
+		original_tag = DEN
+	}
+	enable = {
+		OR = {
+			has_country_flag = DEN_AI_RANDOM_FASCIST_PLAN
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = DEN_fascist_plan
+			}
+		}
+	}
+
+	abort = { 
+	
+	}
+
+	ai_national_focuses = {
+		DEN_kanslergadeforliget			#35
+		DEN_devalue_the_krone					#35	
+
+		DEN_declare_neutrality					#35
+		DEN_sign_forsvarsforliget				#35
+		DEN_expand_vaernepligten				#35
+		DEN_unify_the_right
+		DEN_conservatives_support
+		DEN_conspire_with_the_officer_corps
+		DEN_encourage_paramilitary
+		DEN_strengthen_the_officer_corp
+		DEN_overthrow_the_government
+
+		DEN_march_on_the_capital
+		DEN_reintegrate_iceland
+	
+		DEN_agricultural_subsidies				#70
+		DEN_industrial_investments				#70
+
+		#1937
+		DEN_public_works						#70
+		DEN_support_schleswigian_farmers		#70	
+		DEN_connect_the_islands
+		DEN_reorient_production_lines
+		DEN_strengthen_military_industries
+		DEN_expand_institut_for_teoretisk_fysik
+
+		DEN_seize_power
+		DEN_rally_the_nation
+		DEN_institute_corporatism
+		DEN_assault_troops
+		DEN_experimental_technology
+		DEN_prioritize_army
+		DEN_total_war
+		DEN_reclaim_norway
+		DEN_military_might
+		DEN_pan_scandinavianism
+		DEN_dominium_maris_baltici
+	}
+
+	#Focuses never to take
+	focus_factors = {
+		DEN_political_unity = 0
+		DEN_king_assumes_power = 0
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+}

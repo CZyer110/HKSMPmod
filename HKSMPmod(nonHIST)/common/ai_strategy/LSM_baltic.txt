@@ -1,0 +1,96 @@
+
+LAT_avoid_two_front_wars = {
+	allowed = {
+		original_tag = LAT
+	}
+	enable = {
+		has_war_with = EST
+		NOT = { has_war_with = LIT }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "LIT"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = ignore_claim
+		id = "LIT"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "LIT"
+		value = -9999
+	}
+}
+LAT_avoid_two_front_wars_2 = {
+	allowed = {
+		original_tag = LAT
+	}
+	enable = {
+		has_war_with = LIT
+		NOT = { has_war_with = EST }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "EST"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = ignore_claim
+		id = "EST"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "EST"
+		value = -9999
+	}
+}
+lit_never_sign_nap = {
+	reversed = yes
+	allowed = {
+		original_tag = LIT
+	}
+	enable = {
+		OR = {
+			has_completed_focus = LIT_a_king_for_our_people
+			has_completed_focus = LIT_unify_the_military
+		}
+		OR = {
+			original_tag = LAT
+			original_tag = EST 
+		}
+		NOT = { is_in_faction_with = LIT }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = befriend
+		id = "LIT"
+		value = -200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "LIT"
+		value = -200
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "LIT"
+		value = 200
+	}
+}

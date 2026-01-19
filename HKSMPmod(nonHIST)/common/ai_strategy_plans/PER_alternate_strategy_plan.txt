@@ -1,0 +1,863 @@
+PER_imperial_plan = {
+	name = "Iran Imperial Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_IMPERIAL
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = IMPERIAL_PER
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		PER_restructure_army
+		PER_expand_military_facilities
+		PER_modernizing_iran
+		PER_the_pahlavi_imperium
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+		PER_legacy_of_greatness
+		PER_assessing_the_opposition
+		PER_root_out_conspiracies
+		PER_absolute_monarchy
+		PER_first_iranian_empire
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+
+		#1937
+		PER_imperial_funded_universities
+
+		#1938
+		PER_adult_literacy
+		PER_develop_cities
+		PER_foreign_retraining
+		PER_the_unification_initiative
+
+		#1939
+		PER_clamp_kurdish_dissidence
+		PER_clamp_azerbaijani_dissidence
+		PER_venerate_islam
+		PER_take_regional_tour
+		PER_embrace_industrial_powers
+		PER_modernize_iran_economy
+		PER_last_thousand_years
+		PER_stand_with_germany
+		PER_align_with_axis
+		PER_donate_oil_fields
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+		PER_imperial_expansionism
+
+		#1941
+		PER_tehran_moscow_pact
+		PER_metropolitan_iran
+		PER_establish_special_unit
+		PER_czech_tanks
+		PER_future_of_war
+		PER_demand_iraqi_territory
+		PER_demand_afghan_territory
+
+		#1942
+		PER_establish_airforce
+		PER_pilot_training
+		PER_establish_the_navy
+		PER_war_plan_xerxes
+		PER_reclaim_turkish_peninsula
+		PER_reintegrate_anatolia
+		PER_expand_imperial_guard
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+PER_imperial_plan_third_persian_empire = {
+	name = "Iran Imperial Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_IMPERIAL_THIRD
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = IMPERIAL_PER_THIRD
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		PER_restructure_army
+		PER_expand_military_facilities
+		PER_modernizing_iran
+		PER_the_pahlavi_imperium
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+		PER_legacy_of_greatness
+		PER_assessing_the_opposition
+
+		PER_assassinate_reza_shah
+		PER_his_fathers_footsteps
+		PER_third_persian_empire
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+
+		#1937
+		PER_imperial_funded_universities
+
+		#1938
+		PER_adult_literacy
+		PER_develop_cities
+		PER_foreign_retraining
+		PER_the_unification_initiative
+
+		#1939
+		PER_clamp_kurdish_dissidence
+		PER_clamp_azerbaijani_dissidence
+		PER_venerate_islam
+		PER_choose_a_shahbanu
+		PER_shahanshah
+		PER_emperor_for_people
+		PER_uphold_civil_rights
+		PER_last_thousand_years
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+		PER_imperial_expansionism
+
+		#1941
+		PER_tehran_moscow_pact
+		PER_metropolitan_iran
+		PER_establish_special_unit
+		PER_czech_tanks
+		PER_future_of_war
+		PER_demand_iraqi_territory
+		PER_demand_afghan_territory
+
+		#1942
+		PER_establish_airforce
+		PER_pilot_training
+		PER_establish_the_navy
+		PER_war_plan_xerxes
+		PER_reclaim_turkish_peninsula
+		PER_reintegrate_anatolia
+		PER_expand_imperial_guard
+
+		PER_war_plan_cambyses
+		PER_path_through_iraq
+		PER_march_to_nile
+		PER_war_plan_darius
+		PER_foothold_in_indus
+		PER_usurp_afghanistan
+		PER_invasion_of_india
+		PER_glory_of_cyrus
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+PER_democratic_plan = {
+	name = "Iran Democratic Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_DEMOCRATIC
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = DEMOCRATIC_PER
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		#1936
+		PER_modernizing_iran
+		PER_rally_the_reformers
+		PER_propagate_political_literature
+		PER_stage_mass_protests
+		PER_rally_behind_mosaddegh
+		PER_embrace_national_front
+		PER_restructure_army
+		PER_expand_military_facilities
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+		PER_develop_cities
+		PER_adult_literacy
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+		PER_force_abdication
+		PER_free_elections
+		PER_continue_westernization
+		PER_royal_college_funding
+		PER_entice_foreign_investment
+		PER_increase_faculty_staffing_budget
+		PER_expand_oil_production
+		PER_increase_oil_sales
+		PER_request_membership_allies
+		
+
+
+
+		#1937
+
+		#1938
+		PER_foreign_retraining
+
+		#1939
+		PER_special_units
+		PER_form_savak
+		PER_fund_state_intelligence
+		PER_transfer_officers_to_intelligence
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+
+		#1941
+		PER_establish_airforce
+		PER_pilot_training
+		PER_establish_the_navy
+		PER_czech_tanks
+		PER_future_of_war
+		PER_secure_iraq
+		PER_secure_afghanistan
+		PER_post_war_spoils
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+PER_communism_plan = {
+	name = "Iran Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_COMMUNISM
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = COMMUNISM_PER
+			}
+			AND = {
+				SOV = { has_completed_focus = SOV_beaten_but_not_defeated }
+				OR = {
+					has_country_flag = PER_AI_RANDOM_COMMUNISM_SOVIET
+					has_game_rule = {
+						rule = PER_AI_BEHAVIOR
+						option = COMMUNISM_PER_SOVIET
+					}
+				}
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		#1936
+		PER_rally_the_reformers
+		PER_propagate_political_literature
+		PER_stage_mass_protests
+		PER_united_progressive_parties
+		PER_reach_to_seperatists
+		PER_modernizing_iran
+		PER_restructure_army
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+
+		#1937
+		PER_elevate_the_iran_party
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+		PER_iranian_socialist_revolution
+		PER_appease_the_seperatists
+		PER_iranian_revolutionary_vanguard
+		PER_iranian_socialism
+
+		#1938
+		PER_adult_literacy
+		PER_develop_cities
+		PER_expand_military_facilities
+		PER_foreign_retraining
+		PER_communist_education_reform
+
+		#1939
+		PER_communist_propaganda
+		PER_communist_industrialization
+		PER_iranian_industrialization
+		PER_reject_foreign_dominance
+		PER_the_new_economy
+		PER_workers_army
+		PER_the_peoples_airforce
+		PER_international_solidarity
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+		PER_communist_afghanistan_intervention
+		PER_communist_liberate_pashtuns
+		PER_communist_destabilize_iraq
+		PER_revolution_in_the_gulf
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+PER_communism_sov_plan = {
+	name = "Iran Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_COMMUNISM_SOVIET
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = COMMUNISM_PER_SOVIET
+			}
+		}	
+	}
+	abort = {
+		OR = { 
+			is_subject = yes
+			SOV = { has_completed_focus = SOV_beaten_but_not_defeated }
+		} 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		#1936
+		PER_rally_the_reformers
+		PER_propagate_political_literature
+		PER_stage_mass_protests
+		PER_united_progressive_parties
+		PER_reach_to_seperatists
+		PER_modernizing_iran
+		PER_restructure_army
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+
+		#1937
+		PER_strengthen_the_tudeh
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+		PER_iranian_socialist_revolution
+		PER_appease_the_seperatists
+		PER_soviet_alignment
+		PER_industrial_aid
+		PER_soviet_iranian_oil_collaboration
+
+		#1938
+		PER_adult_literacy
+		PER_develop_cities
+		PER_expand_military_facilities
+		PER_foreign_retraining
+		PER_communist_education_reform
+
+		#1939
+		PER_communist_propaganda
+		PER_communist_industrialization
+		PER_the_new_economy
+		PER_workers_army
+		PER_the_peoples_airforce
+		PER_international_solidarity
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+		PER_communist_afghanistan_intervention
+		PER_communist_liberate_pashtuns
+		PER_communist_destabilize_iraq
+		PER_revolution_in_the_gulf
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+PER_fascism_plan = {
+	name = "Iran Fascist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_FASCISM
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = FASCISM_PER
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		#1936
+		PER_rally_the_reformers
+		PER_propagate_political_literature
+		PER_stage_mass_protests
+		PER_modernizing_iran
+		PER_restructure_army
+		PER_iranian_culture
+
+		#1937
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+		PER_form_sumka
+		PER_brown_shirts
+		PER_ally_the_bazaari
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+		PER_march_on_saadabad
+
+		#1938
+		PER_adult_literacy
+		PER_develop_cities
+		PER_expand_military_facilities
+		PER_foreign_retraining
+		PER_finding_a_shah
+		PER_fascist_secularism
+
+		#1939
+		PER_roll_back_reforms
+		PER_pan_iranianism
+		PER_form_savama
+		PER_fascist_reach_out_to_germany
+		PER_fascist_reach_out_to_japan
+		PER_iran_first
+		PER_fascist_attack_turkey
+		PER_crush_saudi_arabia
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+		PER_intervention_in_iraq
+
+		#1941
+		PER_establish_airforce
+		PER_pilot_training
+		PER_establish_the_navy
+		PER_czech_tanks
+		PER_future_of_war
+		PER_fascist_attack_afghanistan
+		PER_intervene_in_central_asia
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+PER_islamic_plan = {
+	name = "Iran islamic Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = PER
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			has_country_flag = PER_AI_RANDOM_ISLAMIC
+			has_game_rule = {
+				rule = PER_AI_BEHAVIOR
+				option = ISLAMIC_PER
+			}
+		}	
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+
+		PER_fight_for_iran
+		PER_dig_and_defend
+		PER_capital_protect
+		PER_secure_coastline # Do this if you can't protect Teheran
+
+		#1936
+		PER_modernizing_iran
+		PER_rally_the_reformers
+		PER_propagate_political_literature
+		PER_stage_mass_protests
+		PER_rally_behind_mosaddegh
+		PER_constitutional_monarchy
+		PER_promise_clergy_power
+		PER_restructure_army
+		PER_expand_military_facilities
+		PER_rapid_industrialization
+		PER_tehran_power_plant
+		PER_develop_cities
+		SSB_the_saadabad_pact
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+		PER_strengthen_iranian_parliament
+		PER_adult_literacy
+		PER_free_elections
+		PER_islamic_restoration
+		PER_ally_bazaari
+		PER_islamic_revolution
+		PER_expand_oil_production
+		PER_nationalize_oil_fields
+		PER_islamic_solidarity
+		
+
+
+
+		#1937
+
+		#1938
+		PER_foreign_retraining
+
+		#1939
+		PER_special_units
+		PER_form_savak
+		PER_fund_state_intelligence
+		PER_transfer_officers_to_intelligence
+
+		#1940
+		PER_national_museum
+		PER_shiraz_university
+		PER_educational_reforms
+		PER_trans_iranian_railway
+		PER_expand_tabriz_masshad
+		PER_expand_tehran_emam
+		PER_expand_tehran_abbas
+
+		#1941
+		PER_establish_airforce
+		PER_pilot_training
+		PER_establish_the_navy
+		PER_czech_tanks
+		PER_future_of_war
+		PER_secure_iraq
+		PER_secure_afghanistan
+		PER_post_war_spoils
+
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

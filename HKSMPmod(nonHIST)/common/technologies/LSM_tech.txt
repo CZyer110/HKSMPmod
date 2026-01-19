@@ -1,0 +1,530 @@
+technologies = {
+	
+	@1918 = 0
+	@1936 = 2
+	@1938 = 4
+	@1939 = 6
+	@1940 = 8
+	@1941 = 10
+	@1942 = 12
+	@1943 = 14
+	@1944 = 16
+	@1945 = 18
+	@1946 = 20
+
+	LSM_HP_testing = {
+		allow = { always = no }
+		
+		category_front_line = {
+			max_strength = -50
+		}
+	}
+
+	enable_mech = {
+		allow = { always = no }
+		
+		enable_subunits = {
+			mechanized
+		}
+	}
+
+	enable_amtrac = {
+		allow = { always = no }
+		
+		enable_subunits = {
+			amphibious_mechanized
+		}
+	}
+
+	LSM_penal_battalion = {
+		allow = { always = no }
+		
+		enable_subunits = {
+			penal_battalion
+		}
+	}
+
+
+	SOV_universal_welfare_tech = {
+		allow = { always = no }
+
+		field_hospital = {
+			experience_loss_factor = -0.4
+			casualty_trickleback = 0.3
+		}
+	}
+
+	elite_infantry_paratrooper = {
+		allow = { always = no }
+
+		paratrooper = {
+			experience_loss_factor = -0.02
+			casualty_trickleback = 0.02
+
+			hills = {
+				attack = 0.05
+			}
+
+			urban = {
+				attack = 0.05 
+				defence = 0.15
+			}
+
+			fort = {
+				attack = 0.1
+				defence = 0.1
+			}
+		
+			forest = {
+				attack = 0.05
+				defence = 0.10
+			}
+
+			mountain = {
+				attack = 0.05
+				defence = 0.05
+			}
+
+			marsh = {
+				attack = 0.05
+				defence = 0.10
+			}
+
+			river = {
+				attack = 0.05
+				defence = 0.10
+			}
+		}
+	}
+
+	we_shall_fight_on_the_hill = { # We shall never surrender
+		allow = { always = no }
+		land_reinforce_rate = 0.05
+		conscription = 0.05
+		no_supply_grace = 72
+
+		enable_tactic = tactic_guerrilla_tactics
+
+		infantry = {
+			hills = {
+				attack = 0.1
+				defence = 0.1
+				movement = 0.1
+			}
+
+			urban = {
+				attack = 0.15 
+				defence = 0.15
+				movement = 0.15
+			}
+		}
+	}
+
+	ENG_militia_resistance = { #only added through the last stand decision
+		allow = { always = no }
+		no_supply_grace = 144
+
+		militia = {
+			equipment_capture_factor = 0.1
+		}
+	}
+
+	santa_winter_buff = { 
+		allow = { always = no }
+		no_supply_grace = 24
+		supply_factor = 0.1
+		supply_node_range = 0.1
+		supply_consumption_factor = -0.1
+		winter_attrition_factor = -0.25
+		acclimatization_cold_climate_gain_factor = 2.0
+
+		engineer = {
+			snow = {
+				attack = 0.1
+				defence = 0.1
+				movement = 0.1
+			}
+		}
+	}
+
+	santa_winter_debuff = { 
+		allow = { always = no }
+		no_supply_grace = -24
+		acclimatization_cold_climate_gain_factor = -2.0
+		winter_attrition_factor = 0.5
+		attrition = 0.05
+
+		engineer = {
+			snow = {
+				attack = -0.25
+				defence = -0.25
+				movement = -0.5
+			}
+		}
+	}
+
+	natural_winter_acclimatization = { 
+		allow = { always = no }
+		acclimatization_cold_climate_gain_factor = 0.5
+	}
+
+	natural_winter_acclimatization_2 = { 
+		allow = { always = no }
+		acclimatization_cold_climate_gain_factor = 2.0
+	}
+
+	natural_heat_acclimatization = { 
+		allow = { always = no }
+		acclimatization_hot_climate_gain_factor = 0.5
+	}
+
+	natural_heat_acclimatization_2 = { 
+		allow = { always = no }
+		acclimatization_hot_climate_gain_factor = 2.0
+	}
+
+	we_are_good_with_logistics = { #only added through the last stand decision
+		allow = { always = no }
+		no_supply_grace = 168
+		invasion_preparation = -0.5
+		supply_factor = 0.25
+		supply_node_range = 0.25
+		supply_consumption_factor = -0.25
+	}
+
+
+	LSM_infantry_anti_tank = { #only added through the last stand decision
+		allow = { always = no }
+
+		category_all_infantry = {
+			hard_attack = 0.25
+			ap_attack = 1.25
+		}
+
+		enable_tactic = tactic_guerrilla_tactics
+
+		infantry = {
+			urban = {
+				attack = 0.1
+				defence = 0.1
+				movement = 0.2
+			}
+		}
+	}
+
+
+	LSM_width_stuff = { 
+		allow = { always = no }
+	}
+
+	cossack_horse_tech = {
+		allow = { always = no }
+		
+		cavalry = {
+
+			combat_width = -0.4
+
+			plains = {
+				attack = 0.10
+				movement = 0.10
+			}
+		
+			forest = {
+				attack = 0.10
+				defence = 0.10
+				movement = 0.10
+			}
+
+			hills = {
+				attack = 0.15
+				movement = 0.05
+			}
+		}
+	}
+
+
+	mech_god_tech = { #only added through event because this is a cheat!
+		allow = { always = no }
+
+		logistics_company = {
+			fuel_consumption_factor = -0.2
+		}
+		
+		mechanized = {
+
+			combat_width = -0.4
+
+			plains = {
+				attack = 0.05
+				movement = 0.10
+			}
+
+			urban = {
+				attack = 0.05
+				defence = 0.10
+			}
+
+			fort = {
+				attack = 0.10
+				defence = 0.10
+			}
+		
+			forest = {
+				defence = 0.10
+			}
+
+			hills = {
+				attack = 0.05
+				defence = 0.05
+			}
+		}
+	}
+
+
+	LSM_katyusha_tech  = { #only added through weird stuffs
+		allow = { always = no }
+
+		motorized_rocket_brigade = {		
+
+			combat_width = -1 #more more more lmao
+
+			urban = {
+				attack = 0.3 #we lever cities!
+				movement = -0.3
+			}
+
+			fort = {
+				attack = 0.5
+			}
+		
+			forest = {
+				attack = 0.2
+				movement = -0.3
+			}
+
+			hills = {
+				movement = -0.05
+			}
+		}
+	}
+
+
+	destroyer_of_exploiter  = { #anti exploit mech
+		allow = { always = no }
+
+		heavy_armor = {
+
+			urban = {
+				attack = 1
+				movement = -0.3
+			}
+
+			fort = {
+				attack = 1
+			}
+		
+			forest = {
+				attack = 0.3
+				movement = -0.3
+			}
+
+			hills = {
+				attack = 0.3
+				movement = -0.05
+			}
+			river = { 
+				attack = 1 
+				movement = -0.4
+			}
+		}
+	}
+
+	LSM_indochinese_warfare = {
+		allow = { always = no }
+
+		enable_tactic = tactic_guerrilla_tactics
+
+		category_all_infantry = {
+			urban = {
+				attack = 0.1
+				defence = 0.20
+			}
+			forest = {
+				attack = 0.1
+				defence = 0.35
+			}
+			mountain = {
+				attack = 0.2
+				defence = 0.50
+			}
+			jungle = {
+				attack = 0.3
+				defence = 0.6
+			}
+		}
+	}
+
+
+	LSM_infantry_anti_tank_GER = { #the end of the world for Germany
+		allow = { always = no }
+
+		category_all_infantry = {
+			hard_attack = 0.5
+			ap_attack = 2
+			casualty_trickleback = -0.05 #stackable
+			experience_loss_factor = 0.05 #stackable
+		}
+
+		enable_tactic = tactic_guerrilla_tactics
+
+		category_all_infantry = {
+			urban = {
+				attack = 0.2
+				defence = 0.5
+				movement = 0.5
+			}
+		}
+	}
+
+
+	JAP_for_the_emperor_tech = { # prepare your purple hearts, damn yankees
+		allow = { always = no }
+		conscription = 0.02
+
+		category_all_infantry = { #lunge mine is real
+			hard_attack = 1.00
+			ap_attack = 1.00
+			casualty_trickleback = -0.1 #stackable
+			experience_loss_factor = 0.1 #stackable
+		}
+
+		enable_tactic = tactic_guerrilla_tactics
+
+		category_all_infantry = {
+			hills = {
+				attack = 0.1
+				defence = 0.1
+				movement = 0.2
+			}
+			mountain = {
+				defence = 0.2
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.1 
+				defence = 0.2
+				movement = 0.1
+			}
+			jungle = {
+				attack = 0.1
+				defence = 0.2
+			}
+			marsh = {
+				attack = 0.1
+				defence = 0.2
+			}
+			forest = {
+				attack = 0.1
+				defence = 0.2
+				movement = 0.5
+			}
+			plains = {
+				attack = 0.1
+				movement = 0.3
+			}
+		}
+	}
+
+	USA_flame_tank_meta = { #added against Japanese last stand lmao
+		allow = { always = no } 
+
+		light_flame_tank = {
+			casualty_trickleback = -0.2
+			experience_loss_factor = 0.2
+			hills = {
+				attack = 0.1
+			}
+			urban = {
+				attack = 0.2
+			}
+			jungle = {
+				attack = 0.3
+			}
+			marsh = {
+				attack = 0.3
+			}
+			forest = {
+				attack = 0.15
+			}
+			fort = {
+				attack = 0.15
+			}
+			amphibious = {
+				attack = 0.10
+			}
+		} 
+
+		medium_flame_tank = {
+			casualty_trickleback = -0.2
+			experience_loss_factor = 0.2
+			hills = {
+				attack = 0.2
+			}
+			urban = {
+				attack = 0.3
+			}
+			jungle = {
+				attack = 0.2
+			}
+			marsh = {
+				attack = 0.2
+			}
+			forest = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.2
+			}
+			amphibious = {
+				attack = 0.15
+			}
+		}
+
+		heavy_flame_tank = {
+			casualty_trickleback = -0.3
+			experience_loss_factor = 0.3
+			hills = {
+				attack = 0.3
+			}
+			urban = {
+				attack = 0.3
+			}
+			jungle = {
+				attack = 0.05
+			}
+			marsh = {
+				attack = 0.05
+			}
+			forest = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.3
+			}
+			amphibious = {
+				attack = 0.2
+			}
+		}
+	}
+	USA_artillery_meta = { #bam bam bam on the Japs
+		allow = { always = no } 
+
+		land_reinforce_rate = -0.06
+		coordination_bonus = 0.20
+
+		category_artillery = { 
+			soft_attack = 2.00 
+			breakthrough = -0.75
+		}
+	}
+}

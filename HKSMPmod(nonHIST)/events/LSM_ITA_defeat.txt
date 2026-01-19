@@ -1,0 +1,298 @@
+﻿###########################
+###########################
+
+add_namespace = LSM_ITA_defeat
+
+country_event = { #the end of fiat
+	id = LSM_ITA_defeat.1
+	title = LSM_ITA_defeat.1.t
+	desc = LSM_ITA_defeat.1.d
+	picture = GFX_report_event_peasant_revolt
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.1.a
+		custom_effect_tooltip = LSM_ITA_defeat_1_tt
+		if = {
+			limit = {
+				NOT = { has_country_flag = industry_tech_slot }
+			}
+			add_research_slot = 1
+			set_country_flag = industry_tech_slot
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = LSM_technological_advance_idea }
+			}
+			add_timed_idea = { idea = LSM_technological_advance_idea days = 90 }
+		}
+		if = {
+			limit = {
+				has_idea = LSM_technological_advance_idea
+			}
+			modify_timed_idea = { idea = LSM_technological_advance_idea days = 90 }
+		}
+	}
+}
+
+country_event = { #a new ansaldo
+	id = LSM_ITA_defeat.2
+	title = LSM_ITA_defeat.2.t
+	desc = LSM_ITA_defeat.2.d
+	picture = GFX_report_event_iww_demonstration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.2.a
+		custom_effect_tooltip = LSM_ITA_defeat_2_tt
+		if = {
+			limit = {
+				NOT = { has_country_flag = industry_tech_slot }
+			}
+			add_research_slot = 1
+			set_country_flag = industry_tech_slot
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = LSM_technological_advance_idea }
+			}
+			add_timed_idea = { idea = LSM_technological_advance_idea days = 90 }
+		}
+		if = {
+			limit = {
+				has_idea = LSM_technological_advance_idea
+			}
+			modify_timed_idea = { idea = LSM_technological_advance_idea days = 90 }
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.3
+	title = LSM_ITA_defeat.3.t
+	desc = LSM_ITA_defeat.3.d
+	picture = GFX_report_event_ITA_grand_council
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.3.a
+		effect_tooltip = {
+			add_ideas = ITA_a_meeting_at_the_high_table2
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.4
+	title = LSM_ITA_defeat.4.t
+	desc = LSM_ITA_defeat.4.d
+	picture = GFX_report_event_ITA_grand_council
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.4.a
+
+		ai_chance = {
+			factor = 100
+		} 
+		
+		add_stability = -0.2
+		add_political_power = -300
+
+		add_timed_idea = { idea = ITA_a_meeting_at_the_high_table3 days = 730 }
+
+		hidden_effect = {
+			clr_country_flag = ITA_missiolinis_system_active_flag
+		}
+	}
+	
+	option = {
+		name = LSM_ITA_defeat.4.b
+
+		ai_chance = {
+			factor = 0
+		} 
+
+		add_timed_idea = { idea = ITA_a_meeting_at_the_high_table3 days = 180 }
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.5
+	title = LSM_ITA_defeat.5.t
+	desc = LSM_ITA_defeat.5.d
+	picture = GFX_report_event_ITA_grand_council
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.5.a
+		add_political_power = 300
+		add_cic = 50000
+		effect_tooltip = {
+			add_ideas = ITA_a_meeting_at_the_high_table4
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.6
+	title = LSM_ITA_defeat.6.t
+	desc = LSM_ITA_defeat.6.d
+	picture = GFX_report_event_ITA_democratic_parlament
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.6.a
+		custom_effect_tooltip = LSM_ITA_defeat_6_tt
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.7
+	title = LSM_ITA_defeat.7.t
+	desc = LSM_ITA_defeat.7.d
+	picture = GFX_report_event_tanks_vietnam
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.7.a
+		custom_effect_tooltip = LSM_ITA_defeat_7_tt
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.8
+	title = LSM_ITA_defeat.8.t
+	desc = LSM_ITA_defeat.8.d
+	picture = GFX_report_event_generic_factory
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.8.a
+		ai_chance = {
+			factor = 100
+		}
+		add_ideas = ITA_better_stronger_gun1
+	}
+	
+	option = {
+		name = LSM_ITA_defeat.8.b
+		ai_chance = {
+			factor = 0
+		}
+		add_ideas = ITA_better_stronger_gun1a
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.9
+	title = LSM_ITA_defeat.9.t
+	desc = LSM_ITA_defeat.9.d
+	picture = GFX_report_event_generic_lend_lease
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.9.a
+		effect_tooltip = {
+			add_ideas = ITA_reforming_italy_armor2
+		}
+	}
+}
+
+country_event = {
+	id = LSM_ITA_defeat.10
+	title = LSM_ITA_defeat.10.t
+	desc = LSM_ITA_defeat.10.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.10.a
+		ai_chance = {
+			factor = 100
+		}
+		effect_tooltip = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 844
+						state = 559
+						is_core_of = ETH
+						state = 550
+					}
+					is_owned_by = ITA
+				}
+				ETH = { transfer_state = PREV }
+				add_core_of = ETH
+			}
+		}
+		ITA = {
+			country_event = { id = LSM_ITA_defeat.11 days = 1 }
+		}
+	}
+	
+	option = {
+		name = LSM_ITA_defeat.10.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+}
+
+country_event = {
+	id = LSM_ITA_defeat.11
+	title = LSM_ITA_defeat.11.t
+	desc = LSM_ITA_defeat.11.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = LSM_ITA_defeat.11.a
+		every_state = {
+			limit = {
+				OR = {
+					state = 844
+					state = 559
+					is_core_of = ETH
+					state = 550
+				}
+				is_owned_by = ITA
+			}
+			ETH = { transfer_state = PREV }
+			add_core_of = ETH
+		}
+		ITA = {
+			add_timed_idea = { idea = ITA_exchange days = 120 }
+			add_stability = 0.1
+			army_experience = 100
+			add_political_power = 100
+			add_manpower = 12000
+			add_equipment_to_stockpile = { 
+				type = infantry_equipment_1
+				amount = 10000
+				producer = ITA
+			}
+			add_equipment_to_stockpile = { 
+				type = artillery_equipment_1
+				amount = 500
+				producer = ITA
+			}
+			add_equipment_to_stockpile = { 
+				type = support_equipment_1
+				amount = 50
+				producer = ITA
+			}
+		}
+	}
+
+}

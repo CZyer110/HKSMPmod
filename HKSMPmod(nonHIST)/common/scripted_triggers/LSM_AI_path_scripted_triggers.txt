@@ -1,0 +1,117 @@
+FRA_is_democratic = {
+	FRA = {
+		OR = {
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = DEMOCRATIC_ALTERNATE
+			}
+			has_country_flag = FRA_AI_RANDOM_DEMOCRATIC_ALTERNATE
+		}
+	}
+}
+DEN_communist_ai = {
+	DEN = {
+		OR = {
+			has_country_flag = DEN_AI_RANDOM_COMMUNIST_PLAN
+			has_game_rule = {
+				rule = DEN_ai_behavior
+				option = DEN_communist_plan
+			}
+		}
+	}
+}
+FRA_is_communist = {
+	FRA = {
+		OR = {
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = COMMUNIST
+			}
+			has_country_flag = FRA_AI_COMMUNIST
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = COMMUNIST_2
+			}
+			has_country_flag = FRA_AI_COMMUNIST_2
+		}
+	}
+}
+SOV_is_communist = {
+	SOV = {
+		OR = {
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = HISTORICAL
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = HISTORICAL_ALTERNATIVE
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = LEFT_OPPOSITION
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = LEFT_OPPOSITION_COOPERATIVE
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = RIGHT_OPPOSITION
+			}
+			has_game_rule = {
+				rule = SOV_ai_behavior
+				option = RIGHT_OPPOSITION_COOPERATIVE
+			}
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_HISTORICAL_ALTERNATIVE
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_LEFT_OPPOSITION_COOPERATIVE
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION
+			has_country_flag = SOV_AI_RANDOM_COMMUNIST_RIGHT_OPPOSITION_COOPERATIVE
+		}
+	}
+}
+FRA_is_democratic_alternative = {
+	FRA = {
+		OR = {
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = DEMOCRATIC_ALTERNATE
+			}
+			has_country_flag = FRA_AI_RANDOM_DEMOCRATIC_ALTERNATE
+		}
+	}
+}
+ENG_is_democratic = {
+	ENG = {
+		OR = {
+			has_game_rule = {
+				rule = ENG_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = ENG_ai_behavior
+				option = DEMOCRATIC_ALTERNATE
+			}
+			has_country_flag = ENG_AI_RANDOM_DEMOCRATIC_ALTERNATE
+		}
+	}
+}
+GER_is_democratic = {
+	GER = {
+		OR = {
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = DEMOCRATIC
+			}
+			has_country_flag = GER_AI_RANDOM_DEMOCRATIC
+		}
+	}
+}

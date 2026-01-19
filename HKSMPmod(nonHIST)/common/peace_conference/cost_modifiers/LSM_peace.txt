@@ -1,0 +1,455 @@
+# Scripted cost modifiers for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+peace_action_modifiers = {
+
+    	no_contest_peace = { #1v1 war
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = { is_owned_by = FROM.FROM }
+			NOT = {
+				any_country = {
+					NOT = { original_tag = FROM.FROM }
+					NOT = { original_tag = ROOT.FROM }
+					has_war_with = ROOT.FROM
+				}
+			}
+       		}
+        	cost_multiplier = 0.10
+    	}
+
+    	we_have_a_hold_here = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = { is_owned_by = FROM.FROM }
+            		FROM.FROM = {
+				any_state = { 
+					is_core_of = PREV
+					controller = { tag = ROOT }
+				}
+			}
+       		}
+        	cost_multiplier = 0.96
+    	}
+
+    	we_dont_have_a_hold_here = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = { is_owned_by = FROM.FROM }
+            		FROM.FROM = {
+				NOT = {
+					any_state = { 
+						is_core_of = PREV
+						controller = { tag = ROOT }
+					}
+				}
+			}
+       		}
+        	cost_multiplier = 1.04
+    	}
+
+    	cant_say_we_like_this_state_cost = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+            		FROM.FROM.FROM = { 
+				NOT = { 
+					any_neighbor_state = {
+						owner = { tag = ROOT.FROM }
+					}
+				}
+				is_coastal = no
+				NOT = { is_claimed_by = ROOT.FROM }
+				NOT = { is_core_of = ROOT.FROM }
+			}
+       		}
+        	cost_multiplier = 1.12
+    	}
+
+    	cant_say_we_like_this_state2_cost = {
+        	peace_action_type = { take_states }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+            		FROM.FROM.FROM = { 
+				NOT = { 
+					any_neighbor_state = {
+						controller = { tag = ROOT.FROM }
+					}
+				}
+				is_coastal = no
+				NOT = { is_claimed_by = ROOT.FROM }
+				NOT = { is_core_of = ROOT.FROM }
+			}
+       		}
+        	cost_multiplier = 1.07
+    	}
+	super_participant_has_core = {
+       		category = core_of_ally
+        	peace_action_type = { take_states puppet force_government }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = {
+				NOT = {
+					OR = {
+						is_claimed_by = ROOT.FROM
+						is_core_of = ROOT.FROM
+					}
+				}
+			}
+        	    	any_country = {
+                		NOT = { tag = ROOT.FROM }
+				ROOT.FROM = { is_subject_of = PREV }
+                		pc_is_on_same_side_as = ROOT
+              		  	pc_is_liberated = no
+                		pc_is_puppeted = no
+                		FROM.FROM.FROM = {
+                   			OR = {
+						is_claimed_by = PREV
+						is_core_of = PREV
+					}
+                		}
+            		}
+       		}
+       		cost_multiplier = 1.5
+    	}
+
+
+	extra_generic_participant_has_core = {
+       		category = core_of_ally
+        	peace_action_type = { take_states puppet force_government }
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = {
+				NOT = {
+					OR = {
+						is_claimed_by = ROOT.FROM
+						is_core_of = ROOT.FROM
+					}
+				}
+			}
+            		any_country = {
+                		NOT = { tag = ROOT.FROM }
+               		 	pc_is_on_same_side_as = ROOT
+                		pc_is_liberated = no
+                		pc_is_puppeted = no
+                		FROM.FROM.FROM = {
+                    			is_core_of = PREV
+                		}
+            		}
+        	}
+       		cost_multiplier = 1.2
+    	}
+
+    	extra_generic_participant_has_claim = {
+        	category = core_of_ally
+        	peace_action_type = { take_states puppet force_government }
+        	enable = {
+			ROOT = { tag = ROOT.FROM }
+			FROM.FROM.FROM = {
+				NOT = {
+					OR = {
+						is_claimed_by = ROOT.FROM
+						is_core_of = ROOT.FROM
+					}
+				}
+			}
+            		any_country = {
+                 		NOT = { tag = ROOT.FROM }
+                		pc_is_on_same_side_as = ROOT
+                		pc_is_liberated = no
+                		pc_is_puppeted = no
+                		FROM.FROM.FROM = {
+                    			is_claimed_by = PREV
+                		}
+            		}
+        	}
+        	cost_multiplier = 1.1
+    	}
+
+    	generic_the_last_few_states = {
+        	category = events_or_focuses
+       		peace_action_type = { take_states }
+
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { is_faction_leader = yes }
+			ROOT = { 
+				tag = ROOT.FROM 
+				any_owned_state = { is_coastal = yes }
+			}
+			FROM.FROM.FROM = {
+				OR = {
+					is_island_state = yes
+					NOT = {
+						any_neighbor_state = {
+							controller = { tag = FROM.FROM }
+						}
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT.FROM }
+					pc_is_on_same_side_as = ROOT
+					pc_is_liberated = no
+					pc_is_puppeted = no
+					FROM.FROM.FROM = {
+						OR = {
+							is_claimed_by = PREV
+							is_core_of = PREV
+							is_controlled_by = PREV
+						}
+					}
+				}
+			}
+		}
+       	 	cost_multiplier = 0.50
+	}
+
+    	generic_the_last_few_states_2 = {
+        	category = events_or_focuses
+       		peace_action_type = { take_states }
+
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { is_faction_leader = yes }
+			ROOT = { NOT = { tag = ROOT.FROM } }
+			FROM.FROM.FROM = {
+				NOT = {
+					any_neighbor_state = {
+						controller = { tag = FROM.FROM }
+					}
+				}
+				any_neighbor_state = {
+					controller = { tag = ROOT.FROM }
+				}
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT.FROM }
+					pc_is_on_same_side_as = ROOT
+					pc_is_liberated = no
+					pc_is_puppeted = no
+					FROM.FROM.FROM = {
+						OR = {
+							is_claimed_by = PREV
+							is_core_of = PREV
+							is_controlled_by = PREV
+						}
+					}
+				}
+			}
+		}
+       	 	cost_multiplier = 0.80
+	}
+
+
+    	generic_the_last_few_states_neighbor = {
+        	category = events_or_focuses
+       		peace_action_type = { take_states }
+
+        	enable = {
+			is_historical_focus_on = no
+			ROOT = { is_faction_leader = yes }
+			FROM.FROM.FROM = {
+				OR = {
+					is_island_state = yes
+					NOT = {
+						any_neighbor_state = {
+							owner = { tag = FROM.FROM }
+						}
+					}
+					any_neighbor_state = {
+						owner = { tag = ROOT.FROM }
+					}
+				}
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT.FROM }
+					pc_is_on_same_side_as = ROOT
+					pc_is_liberated = no
+					pc_is_puppeted = no
+					FROM.FROM.FROM = {
+						OR = {
+							is_claimed_by = PREV
+							is_core_of = PREV
+							is_controlled_by = PREV
+						}
+					}
+				}
+			}
+		}
+       	 	cost_multiplier = 0.70
+	}
+
+
+    generic_is_actually_core_or_claim = {
+        category = events_or_focuses
+        peace_action_type = { take_states }
+
+        enable = {
+			is_historical_focus_on = no
+            OR = {
+				FROM.FROM.FROM = { is_core_of = ROOT.FROM }
+				FROM.FROM.FROM = { is_claimed_by = ROOT.FROM }
+				FROM.FROM.FROM = { is_controlled_by = ROOT.FROM }
+			}
+            OR = {
+                FROM = { pc_is_puppeted = no } # Taker is free
+                FROM = { tag = ROOT } # Taker might be subject but negotiating for itself
+            }
+        }
+
+        cost_multiplier = 0.92 #annex or puppet everything in nonhis please
+    }
+    generic_is_not_core_or_claim_neighbor = {
+        category = events_or_focuses
+        peace_action_type = { take_states }
+
+        enable = {
+			is_historical_focus_on = no
+            OR = {
+				FROM.FROM.FROM = { controller = { tag = ROOT } }
+				FROM.FROM.FROM = { any_neighbor_state = { controller = { tag = ROOT } } }
+			}
+            OR = {
+                FROM = { pc_is_puppeted = no } # Taker is free
+                FROM = { tag = ROOT } # Taker might be subject but negotiating for itself
+            }
+        }
+
+        cost_multiplier = 0.8 #annex or puppet everything in nonhis please
+    }
+	SOV_release_must_be_cheap = {
+        category = events_or_focuses
+        peace_action_type = { puppet force_government liberate }
+
+        enable = {
+        	FROM.FROM.FROM = { 
+			OR = {
+				is_core_of = SOV
+				is_core_of = MON
+			}
+			NOT = { is_core_of = UKR }
+			NOT = { is_core_of = BLR }
+			NOT = { is_core_of = LIT }
+			NOT = { is_core_of = LAT }
+			NOT = { is_core_of = EST }
+			NOT = { is_core_of = FIN }
+			NOT = { is_core_of = CZE }
+			NOT = { is_core_of = POL }
+			NOT = { is_core_of = ROM }
+		}
+        	ROOT = { 
+			OR = {
+				has_government = democratic
+				any_country = {
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+					has_government = democratic
+				}
+			}
+		}
+        }
+
+        cost_multiplier = 0.8
+    }
+   CHI_release_must_be_cheap = {
+        category = events_or_focuses
+        peace_action_type = { liberate }
+
+        enable = {
+        	FROM.FROM.FROM = { 
+			OR = {
+				is_core_of = CHI
+				is_core_of = PRC
+			}
+		}
+        	ROOT = { 
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+        }
+
+        cost_multiplier = 0.9
+    }
+   eastern_europe_release_must_be_cheap = {
+        category = events_or_focuses
+        peace_action_type = { puppet force_government liberate }
+
+        enable = {
+        	FROM.FROM.FROM = {
+			OR = {
+				is_core_of = LIT
+				is_core_of = LAT
+				is_core_of = EST
+				is_core_of = FIN
+			}
+		}
+        	ROOT = { 
+			OR = {
+				has_government = democratic
+				any_country = {
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+					has_government = democratic
+				}
+			}
+		}
+        }
+
+        cost_multiplier = 0.9
+    }
+   CHI_taiwan = {
+        category = events_or_focuses
+        peace_action_type = { take_states puppet liberate }
+
+        enable = {
+		is_historical_focus_on = yes
+        	FROM.FROM.FROM = { 
+			state = 524
+			is_owned_by = CHI
+		}
+        	ROOT = { 
+			is_literally_china = yes
+			divisions_in_state = { state = 524 size < 1 }
+		}
+        }
+
+        cost_multiplier = 999.0 
+    }
+
+   non_aligned_in_democratic_faction_must_act_nice = {
+        category = events_or_focuses
+        peace_action_type = { take_states puppet liberate force_government }
+        enable = {	
+		is_historical_focus_on = yes
+        	ROOT = {
+			is_ai = yes
+			has_government = neutrality
+			is_in_faction = yes
+			any_country = {
+				is_in_faction_with = ROOT
+				has_government = democratic
+				is_faction_leader = yes
+			}
+		}
+        }
+        cost_multiplier = 999.0
+    }
+
+
+}

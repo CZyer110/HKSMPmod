@@ -1,0 +1,142 @@
+
+dont_declare_on_each_other_SOV = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_guaranteed_by = ENG
+			any_country = {
+				is_in_faction_with = ENG
+				has_guaranteed = PREV
+			}
+		}
+		is_historical_focus_on = yes
+		date < 1945.1.1
+		date > 1939.1.1
+		NOT = {
+			AND = {
+				original_tag = POL
+				SOV = { has_idea = SOV_molotov_ribbentrop_pact } #fulfill this
+				has_capitulated = no
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "SOV"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = declare_war
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "SOV"
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "SOV"
+		value = -200
+	}
+}
+
+SOV_just_ignore_iran = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		PER = {
+			OR = {
+				is_in_faction_with = ENG
+				is_guaranteed_by = ENG
+				any_country = {
+					is_in_faction_with = ENG
+					has_guaranteed = PER
+				}
+			}
+		}
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "PER"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "PER"
+		target = declare_war
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "PER"
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "PER"
+		value = -200
+	}
+}
+SOV_just_ignore_iraq = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		IRQ = {
+			OR = {
+				is_in_faction_with = ENG
+				is_guaranteed_by = ENG
+				any_country = {
+					is_in_faction_with = ENG
+					has_guaranteed = IRQ
+				}
+			}
+		}
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "IRQ"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "IRQ"
+		target = declare_war
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "IRQ"
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "IRQ"
+		value = -200
+	}
+}

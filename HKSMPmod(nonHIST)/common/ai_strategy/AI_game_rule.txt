@@ -1,0 +1,251 @@
+
+GER_do_not_add_countries_at_war_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_war = yes
+		date < 1939.6.1
+		threat < 0.70
+		GER = { 
+			is_faction_leader = yes
+			has_war = no 
+			has_idea = ahistorical_major_rule_2
+		}
+		NOT = { is_in_faction_with = GER }
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -2000
+	}
+}
+ENG_do_not_add_countries_at_war_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_war = yes
+		date < 1939.6.1
+		threat < 0.70
+		ENG = { 
+			is_faction_leader = yes
+			has_war = no 
+			has_idea = ahistorical_major_rule_2
+		}
+		NOT = { is_in_faction_with = ENG }
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = -2000
+	}
+}
+FRA_do_not_add_countries_at_war_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_war = yes
+		date < 1939.6.1
+		threat < 0.70
+		FRA = { 
+			is_faction_leader = yes
+			has_war = no 
+			has_idea = ahistorical_major_rule_2
+		}
+		NOT = { is_in_faction_with = FRA }
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "FRA"
+		value = -2000
+	}
+}
+SOV_do_not_add_countries_at_war_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_war = yes
+		date < 1939.6.1
+		threat < 0.70
+		SOV = { 
+			is_faction_leader = yes
+			has_war = no 
+			has_idea = ahistorical_major_rule_2
+		}
+		NOT = { is_in_faction_with = SOV }
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -2000
+	}
+}
+ITA_do_not_add_countries_at_war_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		is_historical_focus_on = no
+		has_war = yes
+		date < 1939.6.1
+		threat < 0.70
+		ITA = { 
+			is_faction_leader = yes
+			has_war = no 
+			has_idea = ahistorical_major_rule_2
+		}
+		NOT = { is_in_faction_with = ITA }
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = "ITA"
+		value = -2000
+	}
+}
+GER_do_not_protect_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		is_historical_focus_on = no
+		date < 1938.6.1
+		threat < 0.40
+		NOT = { is_guaranteed_by = GER }
+		GER = {
+			is_in_faction = yes
+			has_idea = ahistorical_major_rule_2
+		}
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = protect
+		id = "GER"
+		value = -2000
+	}
+}
+ENG_do_not_protect_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		is_historical_focus_on = no
+		date < 1938.6.1
+		threat < 0.40
+		NOT = { is_guaranteed_by = ENG }
+		ENG = {
+			is_in_faction = yes
+			has_idea = ahistorical_major_rule_2
+		}
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = protect
+		id = "ENG"
+		value = -2000
+	}
+}
+FRA_do_not_protect_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		is_historical_focus_on = no
+		date < 1938.6.1
+		threat < 0.40
+		NOT = { is_guaranteed_by = FRA }
+		FRA = {
+			is_in_faction = yes
+			has_idea = ahistorical_major_rule_2
+		}
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = protect
+		id = "FRA"
+		value = -2000
+	}
+}
+SOV_do_not_protect_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = no
+		date < 1938.6.1
+		threat < 0.40
+		NOT = { is_guaranteed_by = SOV }
+		SOV = {
+			is_in_faction = yes
+			has_idea = ahistorical_major_rule_2
+		}
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = protect
+		id = "SOV"
+		value = -2000
+	}
+}
+ITA_do_not_protect_before_1939_or_low_threat = {
+	reversed = yes
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		is_historical_focus_on = no
+		date < 1938.6.1
+		threat < 0.40
+		NOT = { is_guaranteed_by = ITA }
+		ITA = {
+			is_in_faction = yes
+			has_idea = ahistorical_major_rule_2
+		}
+		is_ai = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = protect
+		id = "ITA"
+		value = -2000
+	}
+}

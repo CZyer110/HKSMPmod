@@ -1,0 +1,131 @@
+SPA_support_axis = {
+	reversed = yes
+	allowed = {
+		original_tag = SPR
+	}
+	enable = {
+		is_historical_focus_on = yes
+		SPR = {
+			has_completed_focus = SPA_la_division_azul
+			has_civil_war = no
+			has_army_manpower = { size > 600000 }
+		}
+		OR = {
+			original_tag = FRA
+			original_tag = ITA
+			original_tag = GER
+		}
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+		}
+		NOT = {
+			any_enemy_country = {
+				has_government = fascism
+				is_major = yes
+			}
+		}
+		is_in_faction_with = GER
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			date > 1942.1.1
+		}
+		OR = {
+			date > 1943.1.1
+			SPR = { has_completed_focus = SPA_ensure_agricultural_self_sufficiency }
+		} 
+		any_enemy_country = {
+			is_ai = no
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SPR"
+		value = 5000
+	}
+}
+SPA_support_axis_2 = {
+	allowed = {
+		original_tag = SPR
+	}
+	enable = {
+		is_historical_focus_on = yes
+		date > 1942.1.1
+		has_government = fascism
+		has_completed_focus = SPA_la_division_azul
+		has_civil_war = no
+		has_completed_focus = SPA_ensure_agricultural_self_sufficiency
+		country_exists = VIC
+		VIC = {
+			has_government = fascism
+			any_enemy_country = {
+				is_ai = no
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "VIC"
+		value = 5000
+	}
+}
+GEACS_do_not_support_axis_VIN = {
+	reversed = yes
+	allowed = {
+		original_tag = VIN
+	}
+	enable = {
+		is_historical_focus_on = yes
+		capital_scope = { is_on_continent = europe }
+		VIN = { has_government = fascism }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "VIN"
+		value = -5000
+	}
+}
+GEACS_do_not_support_axis_SIA = {
+	reversed = yes
+	allowed = {
+		original_tag = SIA
+	}
+	enable = {
+		is_historical_focus_on = yes
+		capital_scope = { is_on_continent = europe }
+		SIA = { has_government = fascism }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SIA"
+		value = -5000
+	}
+}
+SOV_go_nowhere = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		date > 1938.4.1
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SPR"
+		value = -500
+	}
+}

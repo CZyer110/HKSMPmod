@@ -1,0 +1,23 @@
+ideas = {
+
+	country = {
+		idea_EGY_army_of_egypt = {
+			picture = MEX_politicised_army_2
+			allowed_civil_war = {
+				always = yes
+			}
+
+			available = {
+				is_subject_of = ENG
+			}
+
+			allowed = {
+				original_tag = EGY
+			}
+			removal_cost = -1
+			modifier = {
+				conscription_factor = -0.70
+			}
+		}
+	}
+}

@@ -1,0 +1,384 @@
+AFG_historical_plan = {
+	name = "Afghanistan Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = AFG
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = AFG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = AFG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = AFG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+			has_global_flag = SOV_has_early_war
+		}
+	}
+
+	ai_national_focuses = {
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+
+		AFG_pursue_our_own_agenda
+		AFG_anti_soviet_cooperation
+		AFG_graveyard_of_empires
+		
+		#1936
+		AFG_support_king_zahir
+		AFG_expand_the_kings_powerbase
+		AFG_retire_the_uncles
+		AFG_promote_the_counter_elite
+		AFG_gain_religious_support_for_reforms
+		AFG_reform_1
+		AFG_maintain_quami
+		AFG_asymmetric_warfare
+		AFG_expand_telegraph_network
+		AFG_fruit_packing
+		AFG_look_to_other_partners
+		AFG_75_year_oil_concessions
+		AFG_ministry_of_supply
+		AFG_implement_currency_controls
+		AFG_sugar_processing
+		AFG_expand_karakul_lambskin_industry
+		AFG_infrastructure_construction
+		AFG_electrification
+		AFG_connect_the_cities
+		AFG_establish_radio_networks
+		AFG_rail_construction
+		AFG_expand_kabul_university
+		AFG_state_industries
+		AFG_clear_malarial_swamps
+		AFG_qargha_dam
+		AFG_kajaki_dam
+		AFG_iron_mines
+		AFG_chromite_mines
+		AFG_modern_economy
+
+		AFG_khyber_pass_riflining
+		AFG_expand_quami_template
+		AFG_militia_cavalry
+		AFG_scavenging
+		AFG_expand_border_guards
+		AFG_mountain_training
+		AFG_mountain_training_2
+		AFG_visit_foreign_capitals
+		AFG_expand_royal_guard
+		AFG_introduce_national_service
+
+		AFG_alternative_partnerships
+		AFG_officer_training
+	}
+
+	focus_factors = {
+		AFG_join_axis = 0
+		AFG_align_with_the_allies = 0
+		AFG_parliamentary_democracy = 0.0
+		AFG_anti_soviet_cooperation = 0.0
+		AFG_propose_confederation_with_pakistan = 0.0
+		AFG_afghan_pakistan_cold_War = 0.0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+AFG_historical_plan_2 = {
+	name = "Afghanistan Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = AFG
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		has_global_flag = SOV_has_early_war
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = AFG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = AFG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = AFG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+			has_war_with = SOV
+		}
+	}
+
+	ai_national_focuses = {
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+
+		
+
+		AFG_pursue_our_own_agenda
+		AFG_anti_soviet_cooperation
+		AFG_graveyard_of_empires
+
+		AFG_alternative_partnerships
+		AFG_officer_training
+		AFG_join_axis
+		AFG_kabul_conference
+		AFG_protector_of_the_tajiks
+		
+		#1936
+		AFG_support_king_zahir
+		AFG_expand_the_kings_powerbase
+		AFG_retire_the_uncles
+		AFG_promote_the_counter_elite
+		AFG_gain_religious_support_for_reforms
+		AFG_reform_1
+		AFG_maintain_quami
+		AFG_asymmetric_warfare
+		AFG_expand_telegraph_network
+		AFG_fruit_packing
+		AFG_look_to_other_partners
+		AFG_75_year_oil_concessions
+		AFG_ministry_of_supply
+		AFG_implement_currency_controls
+		AFG_sugar_processing
+		AFG_expand_karakul_lambskin_industry
+		AFG_infrastructure_construction
+		AFG_electrification
+		AFG_connect_the_cities
+		AFG_establish_radio_networks
+		AFG_rail_construction
+		AFG_expand_kabul_university
+		AFG_state_industries
+		AFG_clear_malarial_swamps
+		AFG_qargha_dam
+		AFG_kajaki_dam
+		AFG_iron_mines
+		AFG_chromite_mines
+		AFG_modern_economy
+
+		AFG_khyber_pass_riflining
+		AFG_expand_quami_template
+		AFG_militia_cavalry
+		AFG_scavenging
+		AFG_expand_border_guards
+		AFG_mountain_training
+		AFG_mountain_training_2
+		AFG_visit_foreign_capitals
+		AFG_expand_royal_guard
+		AFG_introduce_national_service
+	}
+
+	focus_factors = {
+		AFG_join_axis = 0
+		AFG_align_with_the_allies = 0
+		AFG_parliamentary_democracy = 0.0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+AFG_historical_plan_2 = {
+	name = "Afghanistan Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = AFG
+		has_dlc = "Graveyard of Empires"
+	}
+	enable = {
+		has_global_flag = SOV_has_early_war
+		has_war_with = SOV
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = AFG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = AFG_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = AFG_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no 
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		SSB_expand_turkish_chromium_deposits
+		SSB_military_cooperation
+		SSB_economic_cooperation
+		SSB_joint_military_exercises
+		SSB_integration_of_our_infrastructure
+		SSB_expand_road_and_rail_connections
+		SSB_coordinate_military_production
+		SSB_combined_arms
+		SSB_saadabad_research_cooperation
+		SSB_expand_iraqs_military_infrastructure
+		SSB_expand_irans_military_infrastructure
+		SSB_expand_iranian_oil_fields
+		SSB_baghlan_sugar_factory_branches
+
+		
+		AFG_maintain_quami
+		AFG_asymmetric_warfare
+		AFG_expand_quami_template
+
+		AFG_pursue_our_own_agenda
+		AFG_anti_soviet_cooperation
+		AFG_graveyard_of_empires
+
+		AFG_alternative_partnerships
+		AFG_officer_training
+		AFG_join_axis
+		AFG_kabul_conference
+		AFG_protector_of_the_tajiks
+		
+		#1936
+		AFG_support_king_zahir
+		AFG_expand_the_kings_powerbase
+		AFG_retire_the_uncles
+		AFG_promote_the_counter_elite
+		AFG_gain_religious_support_for_reforms
+		AFG_reform_1
+		AFG_expand_telegraph_network
+		AFG_fruit_packing
+		AFG_look_to_other_partners
+		AFG_75_year_oil_concessions
+		AFG_ministry_of_supply
+		AFG_implement_currency_controls
+		AFG_sugar_processing
+		AFG_expand_karakul_lambskin_industry
+		AFG_infrastructure_construction
+		AFG_electrification
+		AFG_connect_the_cities
+		AFG_establish_radio_networks
+		AFG_rail_construction
+		AFG_expand_kabul_university
+		AFG_state_industries
+		AFG_clear_malarial_swamps
+		AFG_qargha_dam
+		AFG_kajaki_dam
+		AFG_iron_mines
+		AFG_chromite_mines
+		AFG_modern_economy
+
+		AFG_khyber_pass_riflining
+		AFG_militia_cavalry
+		AFG_scavenging
+		AFG_expand_border_guards
+		AFG_mountain_training
+		AFG_mountain_training_2
+		AFG_visit_foreign_capitals
+		AFG_expand_royal_guard
+		AFG_introduce_national_service
+	}
+
+	focus_factors = {
+		AFG_join_axis = 0
+		AFG_align_with_the_allies = 0
+		AFG_parliamentary_democracy = 0.0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

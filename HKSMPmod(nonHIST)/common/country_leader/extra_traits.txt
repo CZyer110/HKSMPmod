@@ -1,0 +1,225 @@
+leader_traits = {
+
+	USA_fascist_revolutionary = {
+		sprite = 13
+		random = no
+		stability_factor = -0.20
+		army_core_attack_factor = 0.20
+		army_core_defence_factor = 0.20
+		fascism_drift = 0.20
+	}
+
+	USA_syndicalist_vanguard = {
+		sprite = 13
+		random = no
+		army_attack_factor = 0.20
+		breakthrough_factor = 0.20
+		industrial_capacity_factory = 0.20
+		communism_drift = 0.20
+	}
+
+	CAN_beacon_of_liberty = {
+		sprite = 13
+		random = no
+		army_core_attack_factor = 0.20
+		army_core_defence_factor = 0.20
+		democratic_drift = 0.20
+	}
+
+	CAN_fascism_ideologue = {
+		sprite = 13
+		random = no
+		army_attack_factor = 0.05
+		conscription_factor = 0.10
+		land_reinforce_rate = 0.05
+		fascism_drift = 0.20
+	}
+
+	CAN_anti_imperialist_revolutionary = {
+		sprite = 13
+		random = no
+		non_core_manpower = 0.10
+		army_attack_against_major_factor = 0.05
+		army_defence_against_major_factor = 0.15
+		communism_drift = 0.20
+	}
+
+	SOV_truly_a_president_of_democracy = {
+		sprite = 13
+		random = no
+		political_power_factor = -0.30
+		stability_factor = 0.30
+		resistance_target = -0.15
+		resistance_damage_to_garrison = -0.15
+	}
+
+	unparalleled_druglord = {
+		sprite = 13
+		random = no
+		stability_factor = -0.25
+		conscription_factor = -0.25
+	}
+
+	mekong_meth_king = {
+		sprite = 13
+		random = no
+		custom_modifier_tooltip = meth_king_trait_tt
+	}
+
+	meth_addict = {
+		sprite = 13
+		random = no
+		stability_factor = -0.25
+		war_support_factor = -0.25
+	}
+
+	meth_embodiment = {
+		sprite = 13
+		random = no
+		land_reinforce_rate = -0.05
+		coordination_bonus = -0.20
+		army_defence_factor = -0.25
+		army_attack_factor = 0.25
+	}
+
+	SOV_undemocratic_figure = {
+		sprite = 13
+		random = no
+		political_power_factor = -0.10
+		stability_factor = -0.10
+		neutrality_acceptance = 50
+		fascism_acceptance = 50
+	}
+
+	SOV_white_russia = {
+		sprite = 13
+		random = no
+		conscription_factor = 0.25
+		experience_gain_army = 0.25
+		neutrality_acceptance = 100
+		land_reinforce_rate = 0.04
+	}
+
+	SOV_leader_by_pure_luck = {
+		sprite = 13
+		random = no
+		political_advisor_cost_factor = 0.25
+	}
+
+	SOV_white_terror = {
+		sprite = 13
+		random = no
+		army_attack_factor = -0.05
+		army_defence_factor = -0.05	
+		war_support_factor = -0.1
+		resistance_damage_to_garrison = 0.50
+	}
+	SOV_controversial_leader = {
+		sprite = 13
+		random = no
+		stability_factor = -0.1	
+		war_support_factor = -0.1	
+	}
+	SOV_permanently_interim = {
+		sprite = 13
+		random = no
+		command_power_gain_mult = -0.35
+	}
+	SOV_desire_to_be_good = {
+		sprite = 13
+		random = no
+		political_advisor_cost_factor = -0.5
+		trade_laws_cost_factor = -0.5
+		economy_cost_factor = -0.5
+		global_building_slots_factor = 0.15
+	}
+	SOV_lack_of_military_backing = {
+		sprite = 13
+		random = no
+		high_command_cost_factor = 0.25
+		air_chief_cost_factor = 0.25
+		army_chief_cost_factor = 0.25
+		navy_chief_cost_factor = 0.25
+		experience_gain_army_factor = -0.25
+	}
+	SOV_unpopular_monarchist = {
+		sprite = 13
+		random = no
+		political_advisor_cost_factor = 0.15
+		stability_factor = -0.1
+		war_support_factor = -0.1
+	}
+	SOV_inexperienced_leader = {
+		sprite = 13
+		random = no
+		political_power_factor = -0.15
+	}
+	SOV_legacy_of_the_tsar = {
+		sprite = 13
+		random = no
+		max_command_power_mult = -0.25
+		conscription_factor = -0.25
+		mobilization_laws_cost_factor = 0.50
+	}
+		
+	SOV_democratic_tsar = {
+		sprite = 13
+		random = no
+		democratic_drift = 0.10
+		neutrality_drift = 0.10
+		monthly_population = 0.30
+		army_core_defence_factor = 0.25
+	}
+	SOV_trade_unionist_champion = {
+		sprite = 13
+		random = no
+		industrial_capacity_factory = 0.1
+		production_factory_max_efficiency_factor = 0.1
+		line_change_production_efficiency_factor = 0.1
+		production_speed_buildings_factor = 0.1
+	}
+	SOV_socialist_background = {
+		sprite = 13
+		random = no
+		max_command_power_mult = -0.25
+		party_popularity_stability_factor = -0.25
+	}
+	SOV_popular_amongst_workers = {
+		sprite = 13
+		random = no
+		stability_factor = 0.10
+	}
+	SOV_popular_amongst_everyone = {
+		sprite = 13
+		random = no
+		stability_factor = 0.25
+	} 
+	SOV_disliked_by_the_military = {
+		sprite = 13
+		random = no
+		high_command_cost_factor = 0.5
+		air_chief_cost_factor = 0.5
+		army_chief_cost_factor = 0.5
+		navy_chief_cost_factor = 0.5
+		experience_gain_army_factor = -0.5
+	}
+	marshal_of_quanta_sponda = {
+		sprite = 13
+		random = no
+		surrender_limit = 0.25
+		monthly_population = -0.25
+	}
+	governor_general_of_italian_libya = {
+		sprite = 13
+		random = no
+		command_power_gain_mult = 0.50
+		supply_node_range = 0.25
+		weekly_manpower = 250
+	}
+
+	USA_champion_of_democracy = {
+		random = no
+		defensive_war_stability_factor = 0.2
+	}
+}
+

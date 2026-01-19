@@ -1,0 +1,221 @@
+
+FIN_hug_your_cities = {
+	enable = {
+		tag = FIN
+		SOV = { 
+			NOT = { surrender_progress > 0.2 } 
+			OR = {
+				is_ai = no 
+				has_global_flag = FIN_test_plan
+			}
+		}
+		is_in_faction = no
+		any_state = {
+			NOT = { state = 111 }
+			is_controlled_by = FIN
+		}
+		surrender_progress < 0.9
+		is_historical_focus_on = yes
+		NOT = { has_idea = anti_soviet_pact }
+		NOT = { GER = { has_war_with = SOV } }
+		NOT = { has_country_flag = FIN_pact_for_continuation_war_flag }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+       		type = force_build_armies
+        	value = 300
+    	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 2
+		states = {
+			111
+		}
+		area = europe
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			NOT = {
+				OR = {
+					state = 111
+					state = 926
+					state = 927
+				}
+			}
+		}
+		value = -400
+	}
+	ai_strategy = {
+		type = garrison
+		value = -400
+	}
+}
+FIN_build_main_cities_only = {
+	allowed = { original_tag = FIN }
+	enable = {
+		SOV = { 
+			NOT = { surrender_progress > 0.2 }
+			OR = {
+				is_ai = no 
+				has_global_flag = FIN_test_plan
+			}
+		}
+		is_in_faction = no
+		is_historical_focus_on = yes
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+       	 	type = factory_build_score_factor
+        	target = 111
+       		value = 800
+    	}
+
+	ai_strategy = {
+       	 	type = factory_build_score_factor
+        	target = 926
+       		value = 200
+    	}
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = -100
+	}
+}
+FIN_the_greater_fortification_step_1 = {
+	allowed = {
+		original_tag = FIN
+	}
+	enable = {
+		tag = FIN
+		SOV = { 
+			NOT = { surrender_progress > 0.2 } 
+			OR = {
+				is_ai = no 
+				has_global_flag = FIN_test_plan
+			}
+		}
+		is_in_faction = no
+		is_historical_focus_on = yes
+		NOT = { has_idea = anti_soviet_pact }
+		NOT = { GER = { has_war_with = SOV } }
+		NOT = { has_idea = FIN_the_lone_wolf }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11105 
+		value = 3
+	}
+	ai_strategy = {
+		type = build_building
+		id = coastal_bunker
+		target = 11105 
+		value = 3
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 6108 
+		value = 3
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 6009 
+		value = 3
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11211 
+		value = 2
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 204 
+		value = 2
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 3161 
+		value = 2
+	}
+}
+FIN_the_greater_fortification_step_2 = {
+	allowed = {
+		original_tag = FIN
+	}
+	enable = {
+		tag = FIN
+		SOV = { 
+			NOT = { surrender_progress > 0.2 } 
+			OR = {
+				is_ai = no 
+				has_global_flag = FIN_test_plan
+			}
+		}
+		is_in_faction = no
+		is_historical_focus_on = yes
+		NOT = { has_idea = anti_soviet_pact }
+		NOT = { GER = { has_war_with = SOV } }
+		NOT = { has_idea = FIN_the_lone_wolf }
+		date > 1940.3.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11105 
+		value = 6
+	}
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 6108 
+		value = 4
+	}
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 6009 
+		value = 4
+	}
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 11211 
+		value = 4
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 204 
+		value = 4
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = bunker
+		target = 3161 
+		value = 4
+	}
+}

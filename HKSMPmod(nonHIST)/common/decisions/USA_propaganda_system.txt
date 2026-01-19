@@ -1,0 +1,82 @@
+
+
+USA_propaganda_campaigns = {
+	USA_propaganda_homeland_of_freedom = {
+		priority = 2
+
+		icon = eng_propaganda_campaigns
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				surrender_progress > 0.4
+			}
+			modifier = {
+				add = 10
+				has_manpower < 500000
+			}
+			modifier = {
+				factor = 0.1
+				check_variable = { SOV_propaganda_motherland_calls_cost > 30 } #Less likely to do it a third time
+			}
+			modifier = {
+				factor = 0.1
+				check_variable = { SOV_propaganda_motherland_calls_cost > 45 } #Even less likely to do it a fourth time
+			}
+			modifier = {
+				factor = 0
+				check_variable = { SOV_propaganda_motherland_calls_cost > 90 } #Shouldn't even consider doing it a fifth time
+			}
+		}
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			SOV_propaganda_poster_slot_available = yes
+
+			has_war = yes
+			has_war_support > 0.70
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_expand_the_agitprop
+				has_country_flag = SOV_debug_unlock_propaganda_campaigns_flag #debug
+			}
+		}
+
+		days_remove = SOV_default_propaganda_campaign_duration
+
+		days_re_enable = SOV_default_propaganda_campaign_cooldown
+
+		cost = SOV_propaganda_motherland_calls_cost
+
+		modifier = {
+			weekly_manpower = 1000
+			training_time_factor = -0.1
+			minimum_training_level = -0.1
+		}
+
+		complete_effect = {
+			set_variable = { SOV_new_propaganda_campaign = 3 }
+			SOV_pick_propaganda_campaign_slot_effect = yes
+			SOV_achievement_propaganda_counter_effect = yes
+		}
+
+		remove_effect = {
+			set_variable = { SOV_propaganda_campaign_to_remove = 3 }
+			SOV_reset_propaganda_campaign_slot_effect = yes
+
+			# Okay this looks dumb I know but it's better than having to change 24 operations each time we feel like tweaking how propaganda campaign's cost escalates
+			set_variable = { SOV_propaganda_cost = SOV_propaganda_motherland_calls_cost }
+			SOV_increase_propaganda_campaign_cost_effect = yes
+			set_variable = { SOV_propaganda_motherland_calls_cost = SOV_propaganda_cost }
+			clear_variable = SOV_propaganda_cost
+
+			custom_effect_tooltip = SOV_propaganda_campaign_cooldown_tt
+		}
+	}
+}

@@ -1,0 +1,163 @@
+
+
+neutrality_has_its_meaning = {
+	enable = {
+		has_idea = LSM_neutrality_idea
+		has_war = no
+		is_historical_focus_on = yes
+		GER = { is_ai = yes }
+		OR = {
+			USA = { is_ai = no }
+			SOV = { is_ai = no }
+			ENG = { is_ai = no }
+			FRA = { is_ai = no }
+		}
+		capital_scope = { is_on_continent = europe }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 30
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -5
+	}
+	ai_strategy = {
+		type = building_target
+		id = synthetic_refinery
+		value = 18
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = fuel_silos
+		value = 100
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = synth_oil_experiments
+		value = 100
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = rubber_processing
+		value = 100
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = improved_rubber_processing
+		value = 100
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = advanced_rubber_processing
+		value = 100
+	}
+	ai_strategy = {
+		type = research_weight_factor
+		id = modern_rubber_processing
+		value = 100
+	}
+}
+neutrality_iran_avoid_war = {
+	allowed = {
+		original_tag = PER
+	}
+	reversed = yes
+	enable = {
+		is_historical_focus_on = yes
+		PER = {
+			has_idea = LSM_neutrality_idea
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = "PER"
+		value = -5000
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "PER"
+		target = declare_war
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "PER"
+		value = 5000
+	}
+}
+neutrality_afghan_avoid_war = {
+	allowed = {
+		original_tag = AFG
+	}
+	reversed = yes
+	enable = {
+		is_historical_focus_on = yes
+		AFG = {
+			has_idea = LSM_neutrality_idea
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = "AFG"
+		value = -5000
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "AFG"
+		target = declare_war
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "AFG"
+		value = 5000
+	}
+}
+neutrality_iraq_avoid_war = {
+	allowed = {
+		original_tag = IRQ
+	}
+	reversed = yes
+	enable = {
+		is_historical_focus_on = yes
+		IRQ = {
+			has_idea = LSM_neutrality_idea
+		}
+		has_war = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = "IRQ"
+		value = -5000
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "IRQ"
+		target = declare_war
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "IRQ"
+		value = 5000
+	}
+}

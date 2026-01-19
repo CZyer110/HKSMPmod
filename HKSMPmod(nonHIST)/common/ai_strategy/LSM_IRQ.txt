@@ -1,0 +1,32 @@
+
+IRQ_infra_prep = {
+	allowed = {
+		original_tag = IRQ
+	}
+	enable = {
+		is_historical_focus_on = yes	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 291 
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 1010 
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 676 
+		value = 1000
+	}
+}

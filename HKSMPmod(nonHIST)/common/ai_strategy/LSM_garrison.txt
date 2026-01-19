@@ -1,0 +1,63 @@
+
+GER_garrison_production = {
+	allowed = { original_tag = GER }
+	enable = {
+		check_variable = { num_divisions > 250 }
+		is_historical_focus_on = yes
+		has_war_with = ENG
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 25 #we need more coastal garrison now
+	}
+}
+
+USA_garrison_production = {
+	allowed = { original_tag = USA }
+	enable = {
+		check_variable = { num_divisions > 200 }
+		is_historical_focus_on = yes
+		has_war_with = JAP
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 5
+	}
+}
+
+RK_unit_production = {
+	enable = {
+		OR = {
+			has_idea = GER_german_controlled_reichskommissariat
+			has_idea = GER_local_controlled_reichskommissariat
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 500
+	}
+}
+RK_unit_production_halt = {
+	enable = {
+		OR = {
+			has_idea = GER_german_controlled_reichskommissariat
+			has_idea = GER_local_controlled_reichskommissariat
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 500
+	}
+}

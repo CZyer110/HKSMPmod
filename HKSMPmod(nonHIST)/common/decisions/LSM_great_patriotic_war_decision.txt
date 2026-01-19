@@ -1,0 +1,2414 @@
+LSM_great_patriotic_war_decision = {
+
+	LSM_speedrun_civil_war = { #so we get content 
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_civil_war = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_civil_war = yes
+			NOT = { has_completed_focus = SOV_the_centre }
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Let's ask for it"
+			hidden_effect = {
+				SOV = { 
+					add_ideas = kill_the_AI
+				}
+				#SOV_concentrate_troops_near_railway = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_patriotic_war_not_one_step_back = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+				num_of_controlled_factories > 300 #supermajor war 
+				is_ai = yes #dont retreat vs humans
+			}
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			surrender_progress > 0.2
+			has_government = communism
+			has_global_flag = is_done
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Not one step back!"
+			news_event = { hours = 12 id = lsm_news.1000 }
+			hidden_effect = {
+				every_owned_state = {
+					limit = { 
+						OR = {
+							any_neighbor_state = { 
+								controller = { has_war_with = SOV }
+							}
+							AND = {
+								NOT = { is_fully_controlled_by = SOV }
+								is_controlled_by = SOV
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 30 scope = SOV } #only 30 days for balancing. will be integrated for players
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 99999
+		}
+	}
+
+	LSM_the_great_patriotic_war_has_begun = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+				OR = {
+					is_ai = no
+					num_of_controlled_factories > 300 #supermajor war 
+				}
+			}
+		}
+
+		visible = {
+			tag = SOV
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+				OR = {
+					is_ai = no
+					num_of_controlled_factories > 300 #supermajor war 
+				}
+			}
+			surrender_progress > 0.05
+			OR = { 
+				is_ai = yes
+			}
+			NOT = { has_country_flag = LSM_patriotic_war_allowed }
+			has_global_flag = enclave_enabled
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "The Great Patriotic War shall begin"
+			hidden_effect = {
+				set_country_flag = LSM_patriotic_war_allowed
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_organize_template_for_AI_only_base = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_army_experience > 30
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_army_experience > 30
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Basic Template" 
+			hidden_effect = {
+				division_template = {
+					name = "Paratrooper 1936 A"			# Rifle Division
+					division_names_group = SOV_PAR_01
+					is_locked = no
+					priority = 2
+
+					regiments = {
+						paratrooper = { x = 0 y = 0 }
+						paratrooper = { x = 0 y = 1 }
+						paratrooper = { x = 0 y = 2 }
+						paratrooper = { x = 1 y = 0 }
+						paratrooper = { x = 1 y = 1 }
+						paratrooper = { x = 1 y = 2 }
+						paratrooper = { x = 2 y = 0 }
+						paratrooper = { x = 2 y = 1 }
+						paratrooper = { x = 2 y = 2 }
+						paratrooper = { x = 2 y = 3 }
+						paratrooper = { x = 3 y = 0 }
+						paratrooper = { x = 3 y = 1 }
+					}
+					support = {		
+						engineer = { x = 0 y = 0 }		
+						anti_air = { x = 0 y = 1 }		
+						artillery = { x = 0 y = 2 }
+					}
+				}
+				division_template = {
+					name = "Infantry 1936 B"			# Rifle Division
+					division_names_group = SOV_INF_01
+					is_locked = no
+					priority = 1
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+					}
+					support = {		
+						engineer = { x = 0 y = 0 }		
+						anti_air = { x = 0 y = 1 }		
+						anti_tank = { x = 0 y = 2 }		
+						artillery = { x = 0 y = 3 }
+					}
+				}
+				division_template = {
+					name = "Infantry 1936 A"			# Rifle Division
+					division_names_group = SOV_INF_01
+					is_locked = no
+					priority = 1
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+					}
+				}
+				if = {
+					limit = { 
+						has_country_flag = mech_tank_test 
+						has_dlc = "No Step Back"
+					}
+					division_template = {
+						name = "Infantry 1936 G"
+						division_names_group = SOV_INF_01
+
+						regiments = {
+							mechanized = { x = 0 y = 0 }
+							mechanized = { x = 0 y = 1 }
+							mechanized = { x = 0 y = 2 }
+							mechanized = { x = 0 y = 3 }
+							mechanized = { x = 0 y = 4 }
+							mechanized = { x = 1 y = 0 }
+							mechanized = { x = 1 y = 1 }
+							mechanized = { x = 1 y = 2 }
+							mechanized = { x = 1 y = 3 }
+							light_tank_destroyer_brigade = { x = 2 y = 0 }
+							light_tank_destroyer_brigade = { x = 2 y = 1 }
+							light_tank_destroyer_brigade = { x = 2 y = 2 }
+							medium_armor = { x = 3 y = 0 }
+							medium_armor = { x = 3 y = 1 }
+							medium_armor = { x = 3 y = 2 }
+							medium_armor = { x = 4 y = 0 }
+							medium_armor = { x = 4 y = 1 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 3 }
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 } 
+							anti_air = { x = 0 y = 2 }
+							logistics_company = { x = 0 y = 3 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						NOT = { has_country_flag = pure_infantry }
+					}
+					division_template = {
+						name = "Infantry 1936 F"
+						division_names_group = SOV_INF_01
+
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							medium_tank_destroyer_brigade = { x = 2 y = 0 }
+							medium_tank_destroyer_brigade = { x = 2 y = 1 }
+							medium_tank_destroyer_brigade = { x = 2 y = 2 }
+							medium_tank_destroyer_brigade = { x = 2 y = 3 }
+							medium_tank_destroyer_brigade = { x = 2 y = 4 }
+							medium_armor = { x = 3 y = 0 }
+							medium_armor = { x = 3 y = 1 }
+							medium_armor = { x = 3 y = 2 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 3 }
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 } 
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						NOT = { has_country_flag = pure_infantry }
+					}
+					division_template = {
+						name = "Infantry 1937 A"
+						division_names_group = SOV_INF_01
+
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							light_tank_destroyer_brigade = { x = 2 y = 0 }
+							light_tank_destroyer_brigade = { x = 2 y = 1 }
+							light_tank_destroyer_brigade = { x = 2 y = 2 }
+							light_tank_destroyer_brigade = { x = 2 y = 3 }
+							light_tank_destroyer_brigade = { x = 2 y = 4 }
+							medium_armor = { x = 3 y = 0 }
+							medium_armor = { x = 3 y = 1 }
+							medium_armor = { x = 3 y = 2 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 3 }
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 } 
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = pure_infantry
+					}
+					division_template = {
+						name = "Infantry 1937 A"
+						division_names_group = SOV_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							infantry = { x = 1 y = 4 }
+
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 2 }
+							infantry = { x = 2 y = 3 }
+							infantry = { x = 2 y = 4 }
+
+							infantry = { x = 3 y = 0 }
+							infantry = { x = 3 y = 1 }
+							infantry = { x = 3 y = 2 }
+							infantry = { x = 3 y = 3 }
+							infantry = { x = 3 y = 4 }
+
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = pure_infantry_no_air
+					}
+					division_template = {
+						name = "Infantry 1937 A"
+						division_names_group = SOV_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							infantry = { x = 1 y = 4 }
+
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 2 }
+							infantry = { x = 2 y = 3 }
+							infantry = { x = 2 y = 4 }
+
+							infantry = { x = 3 y = 0 }
+							infantry = { x = 3 y = 1 }
+							infantry = { x = 3 y = 2 }
+							infantry = { x = 3 y = 3 }
+							infantry = { x = 3 y = 4 }
+							heavy_tank_destroyer_brigade = { x = 4 y = 0 }
+
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_check_tank_temp_no_nsb = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_tech = basic_heavy_tank
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			NOT = { has_dlc = "No Step Back" }
+			has_tech = basic_heavy_tank
+			always = no
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Check if have basic template"
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_dlc = "No Step Back" }
+					}
+					division_template = {
+						name = "Infantry Template 14"
+						division_names_group = SOV_INF_01
+
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							infantry = { x = 1 y = 4 }
+							heavy_tank_destroyer_brigade = { x = 2 y = 0 }
+							heavy_tank_destroyer_brigade = { x = 2 y = 1 }
+							heavy_tank_destroyer_brigade = { x = 2 y = 2 }
+							heavy_tank_destroyer_brigade = { x = 2 y = 3 }
+							heavy_tank_destroyer_brigade = { x = 2 y = 4 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 0 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 1 }
+							heavy_tank_destroyer_brigade = { x = 3 y = 2 }
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 } 
+						}
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_check_tank_design0 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_dlc = "No Step Back"
+			has_army_experience > 50
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Check if have basic design for light tanks"
+			SOV = {
+				create_equipment_variant = { 
+					name = "SU-5"
+					type = light_tank_destroyer_chassis_2
+					parent_version = 0
+					allow_without_tech = yes # Tooltip purposes, tech is required anyways
+					modules = {
+						main_armament_slot = tank_high_velocity_cannon
+						turret_type_slot = tank_light_fixed_superstructure_turret
+						suspension_type_slot = tank_wheeled_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_diesel_engine
+						special_type_slot_1 = empty
+						special_type_slot_2 = empty
+						special_type_slot_3 = empty
+						special_type_slot_4 = empty
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
+					}
+					design_team = mio:SOV_mytishchy_machine_building_plant_organization
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_check_tank_design = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_tech = antitank4
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_tech = antitank4
+			has_dlc = "No Step Back"
+			has_army_experience > 50
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Check tank design for medium TD even though we won't use it since it is IW tank" 
+			SOV = {
+				create_equipment_variant = { 
+					name = "SU-75"
+					type = medium_tank_destroyer_chassis_0
+					parent_version = 0
+					allow_without_tech = yes # Tooltip purposes, tech is required anyways
+					modules = {
+						main_armament_slot = tank_high_velocity_cannon_2
+						turret_type_slot = tank_medium_three_man_tank_turret
+						suspension_type_slot = tank_bogie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+						special_type_slot_1 = empty
+						special_type_slot_2 = empty
+						special_type_slot_3 = empty
+						special_type_slot_4 = empty
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
+					}
+					icon = "GFX_SOV_advanced_heavy_tank_medium"
+					design_team = mio:SOV_mytishchy_machine_building_plant_organization
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_template_reorganization_for_AI_only = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			date > 1938.7.1 #let them waste some xp first
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			if = {
+				limit = { has_country_flag = mass_assault_standard }
+				division_template = {
+					name = "Infantry 1938 G"
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 1 y = 4 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						infantry = { x = 2 y = 4 }
+						infantry = { x = 3 y = 0 }
+						infantry = { x = 3 y = 1 }
+						infantry = { x = 3 y = 2 }
+						infantry = { x = 3 y = 3 }
+						anti_air_brigade = { x = 4 y = 0 }
+						anti_tank_brigade = { x = 4 y = 1 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}
+			if = {
+				limit = { has_country_flag = mass_assault_meatwall }
+				division_template = {
+					name = "Infantry template 9"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 1 y = 4 }
+						anti_tank_brigade = { x = 2 y = 0 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 		
+						anti_tank = { x = 0 y = 2 } 		
+						anti_air = { x = 0 y = 3 }
+					}
+				}
+			}
+			if = {
+				limit = { has_country_flag = superior_firepower_high }
+				division_template = {
+					name = "Infantry template 15"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						artillery_brigade = { x = 3 y = 0 }
+						artillery_brigade = { x = 3 y = 1 }
+						artillery_brigade = { x = 3 y = 2 }
+						anti_tank_brigade = { x = 4 y = 0 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 }
+					}
+				}
+				division_template = {
+					name = "Infantry template 18"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						artillery_brigade = { x = 3 y = 0 }
+						artillery_brigade = { x = 3 y = 1 }
+						artillery_brigade = { x = 3 y = 2 }
+						anti_tank_brigade = { x = 4 y = 0 }
+						anti_air_brigade = { x = 4 y = 1 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}	
+			if = {
+				limit = { has_country_flag = superior_firepower_low }
+				division_template = {
+					name = "Infantry template 48"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						anti_tank_brigade = { x = 2 y = 0 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 }		
+						anti_air = { x = 0 y = 2 }
+					}
+				}
+			}		
+			if = {
+				limit = { has_country_flag = grand_battleplan_35w }
+				division_template = {
+					name = "Infantry template 49"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						anti_tank_brigade = { x = 3 y = 0 }
+						anti_air_brigade = { x = 3 y = 1 }
+						artillery_brigade = { x = 3 y = 2 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 
+					}
+				}
+			}		
+			if = {
+				limit = { has_country_flag = grand_battleplan_30w }	
+				division_template = {
+					name = "Infantry template 22"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 0 y = 4 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 1 y = 4 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						infantry = { x = 2 y = 3 }
+						infantry = { x = 2 y = 4 }
+						infantry = { x = 3 y = 0 }
+						infantry = { x = 3 y = 1 }
+						artillery_brigade = { x = 4 y = 0 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 
+					}
+				}
+			}			
+			if = {
+				limit = { has_country_flag = grand_battleplan_15w }	
+				division_template = {
+					name = "Infantry template 16"			# Rifle Division
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 1 y = 3 }
+						anti_tank_brigade = { x = 2 y = 0 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 		
+						anti_air = { x = 0 y = 2 }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_organized_tank_template_for_AI_2 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			date > 1939.1.1
+			has_dlc = "No Step Back"
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Only works for a specific test build"
+			if = {
+				limit = { has_country_flag = mech_tank_test }
+				division_template = {
+					name = "Infantry Template 12"
+					division_names_group = SOV_INF_01
+
+					regiments = {
+						mechanized = { x = 0 y = 0 }
+						mechanized = { x = 0 y = 1 }
+						mechanized = { x = 0 y = 2 }
+						mechanized = { x = 0 y = 3 }
+						mechanized = { x = 0 y = 4 }
+						mechanized = { x = 1 y = 0 }
+						mechanized = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }
+						mechanized = { x = 1 y = 3 }
+						light_tank_destroyer_brigade = { x = 2 y = 0 }
+						light_tank_destroyer_brigade = { x = 2 y = 1 }
+						light_tank_destroyer_brigade = { x = 2 y = 2 }
+						light_tank_destroyer_brigade = { x = 2 y = 3 }
+						light_tank_destroyer_brigade = { x = 2 y = 4 }
+						medium_armor = { x = 3 y = 0 }
+						medium_armor = { x = 3 y = 1 }
+						medium_armor = { x = 3 y = 2 }
+						heavy_tank_destroyer_brigade = { x = 3 y = 3 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 
+						anti_air = { x = 0 y = 2 }
+						logistics_company = { x = 0 y = 3 }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_sdank_d_for_AI_only_55 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_tech = basic_heavy_tank_chassis
+			has_tech = interwar_antitank
+			has_army_experience > 35
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_tech = basic_heavy_tank_chassis
+			has_tech = interwar_antitank
+			has_army_experience > 35
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			hidden_effect = {
+					create_equipment_variant = { 
+						name = "A 41"
+						type = heavy_tank_destroyer_chassis_1
+						parent_version = 0
+						allow_without_tech = yes # Tooltip purposes, tech is required anyways
+						modules = {
+							main_armament_slot = tank_heavy_cannon
+							turret_type_slot = tank_medium_fixed_superstructure_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_riveted_armor
+							engine_type_slot = tank_diesel_engine
+							special_type_slot_1 = empty
+							special_type_slot_2 = empty
+							special_type_slot_3 = empty
+							special_type_slot_4 = empty
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 4
+						}
+						design_team = mio:SOV_mytishchy_machine_building_plant_organization
+					}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_sdank_d_for_AI_only_25 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_tech = basic_heavy_tank_chassis
+			has_tech = antitank2
+			has_army_experience > 35
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_tech = basic_heavy_tank_chassis
+			has_tech = antitank2
+			has_army_experience > 35
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			hidden_effect = {
+					create_equipment_variant = { 
+						name = "A 42"
+						type = heavy_tank_destroyer_chassis_1
+						parent_version = 0
+						allow_without_tech = yes # Tooltip purposes, tech is required anyways
+						modules = {
+							main_armament_slot = tank_heavy_cannon_2
+							turret_type_slot = tank_medium_fixed_superstructure_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_welded_armor
+							engine_type_slot = tank_gasoline_engine
+							special_type_slot_1 = empty
+							special_type_slot_2 = empty
+							special_type_slot_3 = empty
+							special_type_slot_4 = empty
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 4
+						}
+						design_team = mio:SOV_mytishchy_machine_building_plant_organization
+					}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_sdank_d_for_AI_only_26 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+			has_tech = improved_heavy_tank_chassis
+			has_tech = antitank2
+			has_army_experience > 35
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_tech = improved_heavy_tank_chassis
+			has_tech = antitank2
+			has_army_experience > 35
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			hidden_effect = {
+					create_equipment_variant = { 
+						name = "B 41"
+						type = heavy_tank_destroyer_chassis_2
+						parent_version = 0
+						allow_without_tech = yes # Tooltip purposes, tech is required anyways
+						modules = {
+							main_armament_slot = tank_heavy_cannon_2
+							turret_type_slot = tank_medium_fixed_superstructure_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_welded_armor
+							engine_type_slot = tank_gasoline_engine
+							special_type_slot_1 = empty
+							special_type_slot_2 = empty
+							special_type_slot_3 = empty
+							special_type_slot_4 = empty
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 4
+						}
+						design_team = mio:SOV_mytishchy_machine_building_plant_organization
+					}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_organize_tank_template_for_AI_only_3 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_tech = main_battle_tank_chassis
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			date > 1945.1.1
+			has_tech = main_battle_tank_chassis
+			has_dlc = "No Step Back"
+			NOT = {
+				AND = {
+					has_war_with = GER
+					GER_is_not_relevant = no
+				}
+			}
+			has_global_flag = is_active
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			hidden_effect = {
+					create_equipment_variant = { 
+						name = "IS-3/122"
+						type = modern_tank_chassis_1
+						parent_version = 0
+						allow_without_tech = yes # Tooltip purposes, tech is required anyways
+						modules = {
+							main_armament_slot = tank_heavy_cannon_3
+							turret_type_slot = tank_modern_tank_turret
+							suspension_type_slot = tank_torsion_bar_suspension
+							armor_type_slot = tank_welded_armor
+							engine_type_slot = tank_diesel_engine
+							special_type_slot_1 = tank_radio_3
+							special_type_slot_2 = sloped_armor
+							special_type_slot_3 = stabilizer
+							special_type_slot_4 = auto_loader
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 8
+							tank_nsb_armor_upgrade = 10
+						}
+						icon = "GFX_SOV_advanced_heavy_tank_medium"
+					}
+				division_template = {
+					name = "Rokossovskyimekhakorp"			# Rifle Division
+					division_names_group = SOV_ARM_01
+
+					regiments = {
+						mechanized = { x = 0 y = 0 }
+						mechanized = { x = 0 y = 1 }
+						mechanized = { x = 0 y = 2 }
+						mechanized = { x = 0 y = 3 }
+						mechanized = { x = 1 y = 0 }
+						mechanized = { x = 1 y = 1 }
+						mechanized = { x = 1 y = 2 }
+						mechanized = { x = 1 y = 3 }
+						modern_armor = { x = 2 y = 0 }
+						modern_armor = { x = 2 y = 1 }
+						modern_armor = { x = 2 y = 2 }
+						modern_armor = { x = 2 y = 3 }
+						modern_armor = { x = 2 y = 4 }
+						modern_armor = { x = 3 y = 0 }
+						modern_armor = { x = 3 y = 1 }
+						modern_armor = { x = 3 y = 2 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						anti_tank = { x = 0 y = 1 } 		
+						field_hospital = { x = 0 y = 2 } 		
+						anti_air = { x = 0 y = 3 } 		
+						logistics_company = { x = 0 y = 4 }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_organize_tank_template_for_AI_only_4 = {
+	
+		icon = generic_research
+
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			date > 1941.6.6
+			has_global_flag = AI_is_balanced
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Special flavoured divisions"
+			hidden_effect = {
+				set_technology = { LSM_katyusha_tech = 1 }
+				set_technology = { rocket_artillery = 1 }
+				set_technology = { motorized_rocket_unit = 1 }
+				division_template = {
+					name = "Katyusha"	# Rifle Division
+					division_names_group = SOV_ARM_01
+
+					regiments = {
+						motorized = { x = 0 y = 0 }
+						motorized = { x = 0 y = 1 }
+						motorized = { x = 0 y = 2 }
+						motorized = { x = 0 y = 3 }
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+						motorized_rocket_brigade = { x = 2 y = 0 }
+						motorized_rocket_brigade = { x = 2 y = 1 }
+						motorized_rocket_brigade = { x = 2 y = 2 }
+						motorized_rocket_brigade = { x = 2 y = 3 }
+						motorized_rocket_brigade = { x = 2 y = 4 }
+						motorized_rocket_brigade = { x = 3 y = 0 }
+						motorized_rocket_brigade = { x = 3 y = 1 }
+						motorized_rocket_brigade = { x = 3 y = 2 }
+						motorized_rocket_brigade = { x = 3 y = 3 }
+						motorized_rocket_brigade = { x = 3 y = 4 }
+					}
+					support = { 		
+						engineer = { x = 0 y = 0 } 		
+						artillery = { x = 0 y = 1 } 		
+						rangers_support= { x = 0 y = 2 } 		
+						anti_air = { x = 0 y = 3 } 		
+						rocket_artillery = { x = 0 y = 4 }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_the_great_patriotic_war_free_201s = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+		
+		days_re_enable = 7
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_army_manpower = { size < 3999999 } #always keep fighting bros
+		}
+
+		visible = {
+			tag = SOV
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+				OR = {
+					is_ai = no
+					num_of_controlled_factories > 300 #supermajor war 
+				}
+			}
+			OR = { 
+				is_ai = yes
+			}
+			has_country_flag = LSM_patriotic_war_allowed
+			has_global_flag = enclave_enabled
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Comrades, never surrender!"
+			hidden_effect = {
+				if = { 
+					limit = { 
+						NOT = { has_country_flag = giga_template_given_lsm }
+					}
+					set_country_flag = giga_template_given_lsm
+					division_template = {
+						name = "Slavastressa Diviziya"
+						division_names_group = SOV_INF_01
+						priority = 0
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }
+							infantry = { x = 0 y = 4 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }
+							infantry = { x = 1 y = 4 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+							infantry = { x = 2 y = 2 }
+							infantry = { x = 2 y = 3 }
+							infantry = { x = 2 y = 4 }
+							infantry = { x = 3 y = 0 }
+							infantry = { x = 3 y = 1 }
+							anti_tank_brigade = { x = 4 y = 0 }
+						}
+						support = { 		
+							engineer = { x = 0 y = 0 } 		
+							artillery = { x = 0 y = 1 } 		
+							field_hospital = { x = 0 y = 2 } 		
+							anti_air = { x = 0 y = 3 }
+						}
+					}
+				}
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Slavastressa Diviziya\" division_template = \"Slavastressa Diviziya\" start_equipment_factor = 1 start_experience_factor = 0.4"  
+						owner = SOV
+						allow_spawning_on_enemy_provs = no  
+						count = 3  
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	LSM_patriotic_war_counter_attack = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+
+		days_re_enable = 122
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_war = yes
+			is_historical_focus_on = yes
+			OR = {
+				not_a_good_time_for_counterattack = no
+				AND = {
+					SOV_is_infantry_based = yes
+					OR = {
+						NOT = { has_country_flag = tried_once }
+						has_country_flag = try_once
+						has_equipment = { infantry_equipment > 100000 }
+						AND = {
+							OR = {
+								GER = { has_equipment = { infantry_equipment < 10000 } } #on the brink of collapse
+								GER = { has_manpower < 100000 }
+							}
+							has_equipment = { infantry_equipment > 0 } 
+						}
+					}
+				}
+				AND = {
+					GER = { surrender_progress > 0.1 }
+					SOV = { surrender_progress > 0 }
+					GER_is_not_relevant = yes
+				}
+			}
+			NOT = { has_country_flag = SOV_patriotic_counterattack_enabled }
+			OR = {
+				has_completed_focus = SOV_lessons_of_war #just gotta do it
+				AND = {
+					SOV_is_infantry_based = yes
+					OR = {
+						NOT = { has_country_flag = tried_once }
+						has_country_flag = try_once
+						has_equipment = { infantry_equipment > 100000 }
+						AND = {
+							OR = {
+								GER = { has_equipment = { infantry_equipment < 10000 } } #on the brink of collapse
+								GER = { has_manpower < 100000 }
+							}
+							has_equipment = { infantry_equipment > 0 } 
+						}
+					}
+					GER_player_is_infantry_based = no
+				}
+				AND = {
+					has_war_with = GER
+					GER = {
+						OR = {
+							has_manpower < 200000
+							has_equipment = { infantry_equipment < 20000 }
+							AND = {
+								has_manpower < 300000
+								has_equipment = { infantry_equipment < 40000 }
+							}
+						}
+					}
+					has_tech = advanced_infantry_weapons
+					has_equipment = { infantry_equipment > 100000 } #just battleplan them
+				}
+				has_offensive_war = yes
+				AND = { 
+					AND = {
+						any_country = {
+							has_war_with = ROOT
+							is_major = yes
+							num_of_controlled_factories > 300 #easy_game
+						}
+						OR = { 
+							casualties_inflicted_by = { opponent = SOV thousands > 2000 }
+							casualties_k > 4000 # you are nub
+						}
+						SOV = { surrender_progress < 0.1 } #you are clearly not winning so it is our turn
+					}
+				}	
+				NOT = { 
+					any_country = {
+						has_war_with = ROOT
+						is_major = yes
+						num_of_controlled_factories > 300 #easy_game
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "Tweak AI behavior to perform a Great Infantry Offensive"
+			hidden_effect = {
+				activate_mission = SOV_patriotic_offensive_mission
+				set_country_flag = SOV_patriotic_counterattack_enabled
+				if = {
+					limit = { has_global_flag = SOV_spartan }
+					add_ideas = SOV_patriotic_offensive_0 #perpetual offensive
+				}
+				if = {
+					limit = { NOT = { has_global_flag = SOV_spartan } }
+					add_timed_idea = { idea = SOV_patriotic_offensive_1 days = 34 }
+				}
+				if = {
+					limit = { has_country_flag = try_once }
+					clr_country_flag = try_once
+				}
+				if = {
+					limit = { NOT = { has_country_flag = tried_once } }
+					set_country_flag = tried_once
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 1000
+			modifier = {
+				add = 9999
+				has_manpower > 1000000
+				OR = {
+					AND = {
+						SOV_is_infantry_based = yes
+						has_manpower > 3000000
+						has_equipment = { infantry_equipment > 100000 }
+						has_equipment = { support_equipment > 5000 }
+						has_equipment = { anti_air_equipment > 8000 }
+						has_equipment = { anti_tank_equipment > 5000 }
+					}
+					AND = {
+						SOV_is_infantry_based = yes
+						has_country_flag = try_once
+						has_equipment = { infantry_equipment > 40000 }
+					}
+					AND = {
+						OR = {
+							GER = { has_equipment = { infantry_equipment < 10000 } } #on the brink of collapse
+							GER = { has_manpower < 100000 }
+						}
+						has_equipment = { infantry_equipment > 0 } 
+					}
+					AND = {
+						OR = {
+							GER = { has_equipment = { infantry_equipment < 30000 } } #on the brink of collapse
+							GER = { has_manpower < 300000 }
+						}
+						has_equipment = { infantry_equipment > 100000 } 
+					}
+				}
+			}
+			modifier = {
+				add = -9999
+				NOT = { has_global_flag = SOV_one_step_forward }
+				has_manpower < 500000
+				NOT = {
+					has_global_flag = {
+						flag = SOV_one_step_forward
+						days < 180
+					}
+				}
+			}
+			modifier = {
+				add = 9999
+				OR = {
+					has_global_flag = {
+						flag = tremor_of_d_day
+						days < 180
+					}
+					has_global_flag = {
+						flag = d_day_happened
+						days < 180
+					}
+					AND = {
+						NOT = { has_war_with = GER }
+						NOT = { has_war_with = ENG }
+						NOT = { has_war_with = FRA }
+						has_war_with = JAP
+						has_global_flag = kwantung_intervention
+					}
+					AND = {
+						has_war_with = GER
+						has_global_flag = {
+							flag = SOV_one_step_forward
+							days < 180
+						}
+					}
+					AND = {
+						has_war_with = FIN
+						FIN = { is_in_faction = no }
+						NOT = { has_war_with = GER }
+					}
+					AND = {
+						has_war_with = POL
+						POL = { is_ai = yes }
+						OR = {
+							POL = { is_in_faction = no }
+							date < 1940.1.1
+						}
+					}
+				}
+			
+			}
+			modifier = {
+				OR = {
+					has_country_flag = mass_assault_meatwall
+					has_country_flag = superior_firepower_low
+					has_country_flag = mech_brick
+				}
+				NOT = { has_global_flag = SOV_one_step_forward }
+				NOT = {
+					OR = {
+						GER = { check_variable = { GER_blitzkrieg < 0 } }
+						has_global_flag = d_day_crisis
+						has_global_flag = d_day_was_a_success
+						AND = {
+							GER = { has_manpower < 300000 }
+							SOV = { has_manpower > 1500000 }
+						}
+						GER = { surrender_progress < 0.2 }
+					}
+				}
+				has_equipment = { infantry_equipment < 40000 }
+				has_war_with = GER
+				date < 1945.3.1 	
+				is_historical_focus_on = yes
+				add = -4001
+			}
+			modifier = {
+				NOT = { has_global_flag = SOV_one_step_forward }
+				OR = {
+					AND = {	
+						has_equipment = { infantry_equipment > 50000 }
+						has_global_flag = d_day_was_a_success
+					}
+					has_equipment = { infantry_equipment > 100000 }
+				}
+				OR = {
+					has_equipment = { medium_tank_chassis > 2000 }
+					has_equipment = { heavy_tank_chassis > 2000 }
+				}
+				has_war_with = GER
+				add = 3000
+			}
+			modifier = {
+				NOT = { has_global_flag = SOV_one_step_forward }
+				has_war_with = GER
+				OR = {
+					has_global_flag = d_day_crisis
+					has_global_flag = d_day_was_a_success
+					AND = {
+						GER = { has_manpower < 300000 }
+						SOV = { has_manpower > 1200000 }
+					}
+				}
+				has_equipment = { infantry_equipment > 100000 }
+				add = 5000
+			}
+			modifier = {
+				OR = {
+					NOT = { has_global_flag = SOV_one_step_forward }
+					has_global_flag = {
+						flag = SOV_one_step_forward
+						days > 180
+					}
+				}
+				OR = {
+					GER = { has_idea = GER_barbarossa }
+					has_idea = SOV_prepare_for_barbarossa
+					has_idea = SOV_post_barb_clarity
+					AND = {
+						has_doctrine = mass_assault 	
+						is_historical_focus_on = yes
+						has_equipment = { infantry_equipment < 100000 }
+						NOT = { has_global_flag = d_day_happened }
+					}
+					AND = {
+						OR = {
+							has_doctrine = superior_firepower
+							has_doctrine = grand_battleplan
+						} 	
+						is_historical_focus_on = yes
+						has_equipment = { infantry_equipment < 80000 }
+						has_equipment = { artillery_equipment < 2000 }
+						NOT = { has_global_flag = d_day_happened }
+					}
+					has_equipment = { infantry_equipment < 30000 } #cant
+					AND = {
+						has_idea = SOV_elite_difficulty
+						OR = {
+							date < 1944.9.1 #we defend til the end of time
+							GER = { has_manpower > 1000000 }
+						}
+					}
+					AND = {
+						has_army_manpower = { size < 3999999 } 
+						has_equipment = { infantry_equipment < 30000 }
+						any_country = {
+							has_war_with = ROOT
+							is_major = yes
+							num_of_controlled_factories > 300 
+						} 	
+						is_historical_focus_on = yes
+						NOT = { has_global_flag = d_day_happened }
+					}
+					AND = {
+						has_manpower < 1999999 
+						any_country = {
+							has_war_with = ROOT
+							is_major = yes
+							num_of_controlled_factories > 300 
+						}	 	
+						is_historical_focus_on = yes
+						NOT = { has_global_flag = d_day_happened }
+					}
+					has_manpower < 999999
+
+					AND = {
+						NOT = { GER = { has_idea = endsieg_idea } }
+						OR = {
+							AND = { #bro its winter
+								date > 1940.11.1
+								date < 1941.4.12
+							}
+							AND = { #bro its winter
+								date > 1941.11.1
+								date < 1942.4.12
+							}
+							AND = { #bro its winter
+								date > 1942.11.1
+								date < 1943.4.12
+							}
+							AND = { #bro its winter
+								date > 1943.11.1
+								date < 1944.4.12 
+							}
+							AND = { #bro its winter
+								date > 1944.11.1
+								date < 1945.4.12
+							}
+							AND = { #bro its winter
+								date > 1945.11.1
+								date < 1946.4.12
+							}
+							AND = { #bro its winter
+								date > 1946.11.1
+								date < 1947.4.12
+							}
+							AND = { #bro its winter
+								date > 1947.11.1
+								date < 1948.4.12
+							}
+							AND = { #bro its winter
+								date > 1948.11.1
+								date < 1949.4.12
+							}
+							AND = { #bro its winter
+								date > 1949.11.1
+								date < 1950.4.12 
+							}
+							AND = { #bro its winter
+								date > 1950.11.1
+								date < 1951.4.12
+							}
+							AND = { #bro its winter
+								date > 1952.11.1
+								date < 1953.4.12 
+							}
+							AND = { #bro its winter
+								date > 1953.11.1
+								date < 1954.4.12
+							}
+						}
+					}
+				}
+				add = -4000	
+			}
+		}
+	}
+
+	GER_doomsday_barbarossa = {
+	
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available =  {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			always = no
+		}
+
+		cancel_trigger = {
+			has_war_with = SOV
+		}
+
+		is_good = no
+
+		days_mission_timeout = 140
+
+		timeout_effect = {
+			declare_war_on = { 
+				target = SOV
+				type = annex_everything
+			}
+		}
+	}
+
+	SOV_patriotic_offensive_mission = { 
+		priority = 50
+
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available =  {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			always = no
+		}
+
+		cancel_trigger = {
+			NOT = { has_idea = SOV_patriotic_offensive_1 }
+			NOT = { has_idea = SOV_patriotic_offensive_2 }
+			NOT = { has_idea = SOV_patriotic_offensive_3 }
+			NOT = { has_idea = SOV_patriotic_offensive_4 }
+			NOT = { has_idea = SOV_patriotic_offensive_5 }
+		}
+
+		is_good = no
+
+		days_mission_timeout = 45
+
+		timeout_effect = {
+			activate_mission = SOV_patriotic_offensive_mission
+		}
+
+		cancel_effect = {
+			clr_country_flag = SOV_patriotic_counterattack_enabled
+			if = {
+				limit = {		
+					is_historical_focus_on = yes
+					SOV_is_infantry_based = yes
+					has_equipment = { infantry_equipment > 80000 }
+					has_manpower > 3000000
+				}
+				activate_decision = LSM_patriotic_war_counter_attack
+			}
+		}
+	}
+
+	SOV_backup_industry = {
+	
+		icon = generic_research
+
+		fire_only_once = no
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			surrender_progress > 0.1
+		}
+
+		visible = {
+			tag = SOV
+			is_ai = yes
+			has_war_with = GER
+			NOT = { has_country_flag = SOV_build_up }
+			has_global_flag = AI_is_balanced
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				activate_mission = SOV_backup_industry_infra_buildup
+				set_country_flag = SOV_build_up
+			}
+		}
+
+		ai_will_do = {
+			factor = 9999
+		}
+	}
+
+	SOV_backup_industry_infra_buildup = { 
+		priority = 50
+
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available =  {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			always = no
+		}
+
+		cancel_trigger = {
+			surrender_progress < 0.05
+		}
+
+		is_good = yes
+
+		days_mission_timeout = 10
+
+		timeout_effect = {
+			activate_mission = SOV_backup_industry_infra_buildup
+			random_owned_state = {
+				limit = {
+					is_fully_controlled_by = SOV
+					NOT = { is_on_continent = europe }
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes						
+				}
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = SOV_build_up
+		}
+	}
+	
+	LSM_the_great_patriotic_war_decision = {
+
+		icon = generic_prepare_civil_war
+		
+		state_target = yes
+
+		target_array = ROOT.controlled_states
+		
+		on_map_mode = map_and_decisions_view
+		
+		allowed = {
+			always = yes
+		}
+
+		target_trigger = {
+			custom_trigger_tooltip =  {
+				tooltip = "State can be mobilised"
+				FROM = {
+					AND = { 
+						eligible_for_patriotic_war = yes
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						is_owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		available = {
+			OR = { 
+				custom_trigger_tooltip =  {
+					tooltip = "Can ignore war support"
+					has_global_flag = LSM_war_support
+				}
+				has_war_support > 0.49
+				AND = { #fighting til the bitter end
+					has_war_support > 0.24
+					OR = { 
+						has_idea = tot_economic_mobilisation
+						has_idea = scraping_the_barrel
+						has_idea = closed_economy
+					}
+				}
+				AND = { #Ultimate Victory
+					has_war_support > 0.09
+					has_idea = tot_economic_mobilisation
+					has_idea = scraping_the_barrel
+				}
+				AND = { #Ultimate Victory
+					has_war_support > 0.09
+					has_idea = tot_economic_mobilisation
+					has_idea = closed_economy
+				}
+				AND = { #Ultimate Victory
+					has_war_support > 0.09
+					has_idea = closed_economy
+					has_idea = scraping_the_barrel
+				}
+				AND = { #North Korea Simulation
+					has_idea = closed_economy
+					has_idea = scraping_the_barrel
+					has_idea = tot_economic_mobilisation
+				}
+			}
+			custom_trigger_tooltip = { 
+				tooltip = "[FROM.GetName] can be mobilised"
+				FROM = {
+					AND = { 
+						eligible_for_patriotic_war = yes
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+						is_owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_global_flag = enclave_enabled
+			has_country_flag = LSM_patriotic_war_allowed
+			threat > 0.25 #it worth the sacrifice
+				ROOT = {
+					AND = { 
+						has_war = yes
+						OR = { 
+							is_ai = yes
+						}	
+						original_tag = SOV
+					}
+				}
+		}
+
+		days_re_enable = 1 
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 100000
+		}
+
+		modifier = {
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = "state will be mobilised against the imminent invasion"
+			hidden_effect = {
+				SOV = {
+					add_manpower = 5000 #national volunteer
+					if = { 
+						limit = { 
+							NOT = { has_country_flag = partisan_template_given_lsm }
+						}
+						set_country_flag = partisan_template_given_lsm
+						division_template = {
+							name = "Partisan Volunteer"
+							division_names_group = SOV_INF_01
+							priority = 0
+							regiments = {
+								militia = { x = 0 y = 0 }
+								militia = { x = 0 y = 1 }
+								militia = { x = 0 y = 2 }
+								militia = { x = 1 y = 0 }
+								militia = { x = 1 y = 1 }
+								militia = { x = 1 y = 2 }
+							}
+							support = {
+								
+							}
+						}
+					}
+					if = { 
+						limit = { 
+							NOT = { has_tech = LSM_infantry_anti_tank }
+						}
+						set_technology = { LSM_infantry_anti_tank = 1 }
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = megalopolis 
+							AND = {
+								is_core_of = FROM.controller
+								is_core_of = SOV
+							}
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states 
+									has_dynamic_modifier = { modifier = LSM_enclave_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_recency_modifier } 
+								}
+							}
+						}
+					}
+					SOV = {  
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_0
+							amount = 20000
+							producer = SOV
+						}
+						add_manpower = 100000 
+					}
+					FROM = {
+						add_manpower = -100000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 720 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 360 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 1000 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 1000 } #no zombie spawning on island states		
+						add_building_construction = {
+							type = anti_air_building
+							level = 2
+							instant_build = yes
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = metropolis  
+							AND = {
+								is_core_of = FROM.controller
+								is_core_of = SOV
+							}
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states 
+									has_dynamic_modifier = { modifier = LSM_enclave_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_recency_modifier } 
+								}
+							}
+						}
+					}
+					SOV = {  
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_0
+							amount = 16000
+							producer = SOV
+						}
+						add_manpower = 60000 
+					}
+					FROM = {
+						add_manpower = -60000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 360 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 180 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 450 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 450 } #no zombie spawning on island states			
+						add_building_construction = {
+							type = anti_air_building
+							level = 2
+							instant_build = yes
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = large_city 
+							AND = {
+								is_core_of = FROM.controller
+								is_core_of = SOV
+							}
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states 
+									has_dynamic_modifier = { modifier = LSM_enclave_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_recency_modifier } 
+								}
+							}
+						}
+					}
+					SOV = {  
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_0
+							amount = 12000
+							producer = SOV
+						}
+						add_manpower = 40000 
+					}
+					FROM = {
+						add_manpower = -40000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 180 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 120 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 240 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 240 } #no zombie spawning on island states		
+						add_building_construction = {
+							type = anti_air_building
+							level = 1
+							instant_build = yes
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = city  
+							is_core_of = FROM.controller
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states 
+									has_dynamic_modifier = { modifier = LSM_enclave_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_recency_modifier } 
+								}
+							}
+						}
+					}
+					SOV = {  
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_0
+							amount = 8000
+							producer = SOV
+						}
+						add_manpower = 20000 
+					}
+					FROM = {
+						add_manpower = -20000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 90 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 60 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 120 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 240 } #no zombie spawning on island states
+						if = {
+							limit = {
+								free_building_slots = {
+									building = anti_air_building 
+									size > 0 
+								}
+							}			
+							add_building_construction = {
+								type = anti_air_building
+								level = 1
+								instant_build = yes
+							}
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = large_town 
+							AND = {
+								is_core_of = FROM.controller
+								is_core_of = SOV
+							}
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states
+								}
+							}
+						}
+					}
+					SOV = {  
+						add_equipment_to_stockpile = { 
+							type = infantry_equipment_0
+							amount = 6000
+							producer = SOV
+						}
+						add_manpower = 10000 
+					}
+					FROM = {
+						add_manpower = -10000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 42 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 21 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 42 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 200 } #no zombie spawning on island states
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							has_state_category = town 
+							AND = {
+								is_core_of = FROM.controller
+								is_core_of = SOV
+							}
+							NOT = { 
+								OR = { 
+									has_dynamic_modifier = { modifier = LSM_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_recency_modifier } #no zombie spawning on island states 
+									has_dynamic_modifier = { modifier = LSM_enclave_last_stand_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_dont_starve_modifier }	
+									has_dynamic_modifier = { modifier = LSM_enclave_recency_modifier } 
+								}
+							}		
+						}
+					}
+					SOV = { add_manpower = 5000 }
+					FROM = {
+						add_manpower = -5000 #might make zombie
+						add_dynamic_modifier = { modifier = LSM_last_stand_modifier days = 21 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_dont_starve_modifier days = 7 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_there_is_no_food_left_modifier days = 21 scope = SOV }	
+						add_dynamic_modifier = { modifier = LSM_recency_modifier days = 120 } #no zombie spawning on island states
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+						create_unit = {
+							division = "name = \"Partisan Volunteer\" division_template = \"Partisan Volunteer\" start_experience_factor = 0"  
+							owner = SOV
+						}
+					}
+				}
+			}
+		}
+	}
+}
+	

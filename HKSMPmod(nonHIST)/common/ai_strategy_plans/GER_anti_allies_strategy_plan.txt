@@ -1,0 +1,445 @@
+GER_alternative_mr_pact = {
+	name = "German fascist plan to ally with Soviet Union/Russia"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST_MR_PACT
+			}
+		}
+	}
+	abort = {
+		democratic_power_is_too_threatening = yes
+	}
+
+	ai_national_focuses = {
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_molotov_ribbentrop_pact
+		GER_treaty_with_the_ussr
+		GER_alliance_with_the_ussr
+		GER_form_rome_berlin_axis
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+
+
+		GER_danzig_or_war
+		GER_expand_the_truppenschulen		
+		GER_around_maginot
+		GER_war_with_france
+
+
+		GER_invest_in_vereinigte_stahlwerke
+		GER_operation_weserubung
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+		GER_war_production
+		GER_demands_to_sweden
+
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		naval_equipment = -50.0
+	}
+
+	ideas = {
+	}
+
+	traits = {
+	}
+
+	focus_factors = {
+	}
+
+}
+
+GER_alternative_mr_pact_france_is_main_threat = {
+	name = "German fascist plan to ally with Soviet Union/Russia"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST_MR_PACT
+			}
+		}
+		OR = {
+			AND = {
+				ENG = { has_completed_focus = ENG_steady_as_she_goes }
+				FRA = { has_completed_focus = FRA_confirm_eastern_commitments }
+			}
+			AND = {
+				ENG = { has_government = democratic }
+				FRA = { has_government = democratic }
+				CZE = { 
+					has_completed_focus = CZE_an_entente_of_our_own 
+					is_in_faction_with = YUG
+					is_in_faction_with = CZE
+					is_in_faction_with = HUN
+				}
+			}
+		}
+	}
+	abort = {
+		AND = {
+			ENG = { has_government = democratic }
+			FRA = { has_government = democratic }
+			AUS = { is_guaranteed_by = ITA }
+		}
+	}
+
+	ai_national_focuses = {
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_molotov_ribbentrop_pact
+		GER_treaty_with_the_ussr
+		GER_alliance_with_the_ussr
+		GER_form_rome_berlin_axis
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+
+		GER_agricultural_reforms
+		GER_danzig_or_war	
+		GER_around_maginot
+		GER_war_with_france
+
+
+		GER_invest_in_vereinigte_stahlwerke
+		GER_operation_weserubung
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+
+		GER_war_production
+		GER_demands_to_sweden
+		GER_demand_slovenia
+		GER_first_ljubljana_award
+		GER_fate_of_yugoslavia
+		GER_second_ljubljana_award
+		GER_fate_of_greece
+		GER_puppet_turkey
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		naval_equipment = -50.0
+	}
+
+	ideas = {
+	}
+
+	traits = {
+	}
+
+	focus_factors = {
+	}
+
+}
+GER_alternative_mr_pact_stresa_is_main_threat = {
+	name = "German fascist plan to ally with Soviet Union/Russia"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		OR = {
+			has_country_flag = GER_AI_RANDOM_FASCIST_MR_PACT
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST_MR_PACT
+			}
+		}
+		AND = {
+			ENG = { has_government = democratic }
+			FRA = { has_government = democratic }
+			AUS = { is_guaranteed_by = ITA }
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_anschluss
+		GER_molotov_ribbentrop_pact
+		GER_treaty_with_the_ussr
+		GER_alliance_with_the_ussr
+		GER_form_rome_berlin_axis
+		GER_alliance_with_spain
+		GER_alliance_with_portugal
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+
+		GER_agricultural_reforms
+		GER_danzig_or_war	
+		GER_around_maginot
+		GER_war_with_france
+
+
+		GER_invest_in_vereinigte_stahlwerke
+		GER_operation_weserubung
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+
+		GER_war_production
+		GER_demands_to_sweden
+		GER_demand_slovenia
+		GER_first_ljubljana_award
+		GER_fate_of_yugoslavia
+		GER_second_ljubljana_award
+		GER_fate_of_greece
+		GER_puppet_turkey
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		naval_equipment = -50.0
+	}
+
+	ideas = {
+	}
+
+	traits = {
+	}
+
+	focus_factors = {
+	}
+
+}

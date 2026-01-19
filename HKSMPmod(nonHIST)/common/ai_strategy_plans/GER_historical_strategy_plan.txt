@@ -1,0 +1,731 @@
+GER_historical_standard = {
+	name = "German historical plan"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		NOT = { has_country_flag = FYP_preferred }
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					NOT = { has_dlc = "Waking the Tiger" }
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = DEFAULT
+					}
+				}	
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			NOT = { has_government = fascism }
+			has_country_flag = FYP_preferred
+			has_global_flag = vanilla_history
+			has_global_flag = SOV_has_early_war
+			GER_AI_is_infantry_based = yes
+		}
+	}
+
+	ai_national_focuses = {
+		GER_anschluss
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_trade_deal_with_sweden
+		GER_increased_trade
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_build_the_rur_dam
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+		GER_expand_the_truppenschulen		
+		GER_around_maginot
+		GER_agricultural_reforms
+		GER_war_with_france
+		GER_demands_to_sweden
+
+
+		GER_invest_in_vereinigte_stahlwerke
+		GER_operation_weserubung
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+		GER_improve_the_logistics_system
+		GER_mass_production
+		GER_war_production
+
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 0
+		GER_ludwig_erhard = 50
+		GER_wilhelm_canaris = 1.5
+		GER_reinhard_heydrich = 1.5
+		GER_hanns_kerrl = 0
+		GER_franz_seldte = 0
+		GER_leni_riefenstahl = 0
+		joachim_von_ribbentrop = 0
+
+		gerd_von_rundstedt = 0
+		werner_von_fritsch_high_command = 0
+		GER_kurt_student = 0
+		gunther_lutjens = 0
+		erich_bey = 0
+		viktor_schutze = 0
+		GER_josef_kammhuber = 0
+	}
+
+	traits = {
+		economic_reformer = 50
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+
+		#Focuses never to take:
+		GER_the_prussian_legacy = 0
+		GER_heed_von_neuraths_concerns = 0
+		GER_alliance_with_the_ussr = 0
+		GER_befriend_china = 0
+		GER_oppose_hitler_ww = 0
+		GER_a_strong_successor = 0
+		GER_befriend_turkey = 0 # Turkey should not be incentivized to join an AI Axis on historical
+
+		GER_ascension_of_speer = 0
+		GER_ascension_of_goring = 0
+		GER_ascension_of_himmler = 0
+
+		GER_operation_sea_lion = 0.5
+		GER_operation_felix = 0.1
+		GER_alliance_with_spain = 0.1
+		GER_operation_tannenbaum = 0.01
+	
+		GER_uplift_the_rosenberg_office = 0
+	}
+
+}
+GER_historical_standard_4YP = {
+	name = "German historical plan"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_country_flag = FYP_preferred
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					NOT = { has_dlc = "Waking the Tiger" }
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = DEFAULT
+					}
+				}	
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			NOT = { has_government = fascism }
+			has_global_flag = vanilla_history
+			has_global_flag = SOV_has_early_war
+			GER_AI_is_infantry_based = yes
+		}
+	}
+
+	ai_national_focuses = {
+		GER_loyalty_to_the_fuhrer
+		GER_autarky_achieved
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+		GER_reorganize_the_wehrmacht
+
+		GER_the_four_year_plan
+		GER_autarky_efforts
+		GER_institute_price_controls
+		GER_accelerate_the_rearmament_program
+		GER_concentrated_armament_program
+		GER_ascension_of_goring
+
+		GER_establish_production_targets
+		GER_coal_liquefaction
+		GER_construct_the_reichsautobahn
+		GER_kdf_wagen_factories
+		GER_ascension_of_goebbels
+		GER_anschluss
+
+		GER_build_the_rur_dam
+		GER_develop_heraeus_facilities
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+
+		GER_establish_buna_werke
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+		GER_establish_the_reichswerke
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_form_rome_berlin_axis
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_expand_the_truppenschulen
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+
+
+		GER_subsidize_hoesch_benzin		
+		GER_around_maginot
+		GER_seize_foreign_industries
+		GER_war_with_france
+		GER_operation_weserubung
+		GER_demands_to_sweden
+		GER_zentrale_planung
+
+		GER_advanced_panzer_research
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_panzer_troops_school
+		GER_expand_kummersdorfs_capacity
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+		GER_improve_the_logistics_system
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+
+		GER_armament_rationalization
+		GER_create_rustungsstab
+		GER_totaler_krieg
+		GER_trade_deal_with_sweden
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_hanns_kerrl = 0
+		GER_franz_seldte = 0
+		GER_leni_riefenstahl = 0
+		joachim_von_ribbentrop = 0
+
+		gerd_von_rundstedt = 0
+		werner_von_fritsch_high_command = 0
+		GER_kurt_student = 0
+		gunther_lutjens = 0
+		erich_bey = 0
+		viktor_schutze = 0
+		GER_josef_kammhuber = 0
+	}
+
+	traits = {
+		captain_of_industry = 5
+		economic_reformer = 50
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+
+		#Focuses never to take:
+		GER_the_prussian_legacy = 0
+		GER_heed_von_neuraths_concerns = 0
+		GER_alliance_with_the_ussr = 0
+		GER_befriend_china = 0
+		GER_oppose_hitler_ww = 0
+		GER_a_strong_successor = 0
+		GER_befriend_turkey = 0 # Turkey should not be incentivized to join an AI Axis on historical
+
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+
+		GER_operation_sea_lion = 0.5
+		GER_operation_felix = 0.1
+		GER_alliance_with_spain = 0.1
+		GER_operation_tannenbaum = 0.01
+		GER_uplift_the_rosenberg_office = 0.001 #maybe once we are at peace
+	}
+
+}
+
+GER_historical_standard_vanilla = {
+	name = "German historical plan"
+	desc = "Essentially historical behaviour for Germany"
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_global_flag = vanilla_history
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					NOT = { has_dlc = "Waking the Tiger" }
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = DEFAULT
+					}
+				}	
+			}
+			has_country_flag = GER_AI_RANDOM_FASCIST
+			has_game_rule = {
+				rule = GER_ai_behavior
+				option = FASCIST
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_subject = yes
+			NOT = { has_government = fascism }
+			has_global_flag = SOV_has_early_war
+		}
+	}
+
+	ai_national_focuses = {
+		GER_loyalty_to_the_fuhrer
+
+		GER_remilitarize_the_rhineland
+		GER_fuhrerprinzip
+		GER_party_chancellor_hess
+
+		GER_prioritize_economic_growth
+		GER_reorganize_the_wehrmacht
+		GER_currency_reforms
+		GER_lower_taxes
+		GER_housing_developments
+		GER_ascension_of_todt
+
+		GER_abolish_price_controls
+		GER_workers_rights
+		GER_industrial_expansion
+		GER_construct_the_reichsautobahn
+		GER_ascension_of_goebbels
+
+		GER_kdf_wagen_factories
+		GER_develop_heraeus_facilities
+		GER_anschluss
+		GER_build_the_rur_dam
+
+		GER_develop_modern_maneuver_warfare
+		GER_adopt_new_panzer_doctrine
+		GER_instill_auftragstaktik
+		GER_panzergrenadier
+
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_fate_of_czechoslovakia
+		GER_reassert_eastern_claims
+		GER_bribe_senior_officers
+		GER_autonomy_in_the_kriegsschulen
+		GER_agricultural_reforms
+		GER_molotov_ribbentrop_pact
+		GER_danzig_or_war
+		GER_expand_the_truppenschulen
+		GER_form_rome_berlin_axis
+		GER_invest_in_vereinigte_stahlwerke
+		
+		GER_around_maginot
+		GER_war_with_france
+
+		GER_operation_weserubung
+
+		GER_urbanization
+		GER_wirtschaftswunder
+		GER_build_defense_industry
+		GER_mass_production
+		GER_improve_the_logistics_system
+
+		GER_anti_comintern_pact
+		GER_war_with_the_ussr
+		GER_war_production
+		GER_demands_to_sweden
+
+
+		GER_advanced_panzer_research
+
+		GER_demonstration_of_military_achievements
+
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_an_invincible_army
+		GER_the_supreme_leader
+
+		GER_ascension_of_speer
+
+		GER_expanding_the_luftwaffe
+		GER_form_the_jagdwaffe
+		GER_develop_the_knickebein
+		GER_defense_of_the_reich
+
+		GER_aeronautical_research_institute
+		GER_dive_bombers
+		GER_combined_arms
+
+		GER_increased_trade
+		GER_fallschirmjager
+		GER_strengthen_the_kriegsmarine
+		GER_re_establish_the_seekriegsleitung
+		GER_marinestosstrupp
+		GER_the_swiss_gold
+
+
+		GER_trade_interdiction
+		GER_wolfpack_tactics
+		GER_u_boat_efforts
+		GER_cruiser_warfare
+		GER_unrestricted_convoy_raiding
+		GER_plan_z
+		GER_expand_kriegsmarinewerft
+		GER_high_seas_fleet
+		GER_seeherrschaft
+	}
+
+	research = {
+		infantry_weapons = 50.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		hjalmar_schacht = 10
+		GER_ludwig_erhard = 50
+
+		gerd_von_rundstedt = 0
+		werner_von_fritsch_high_command = 0
+		GER_kurt_student = 0
+		gunther_lutjens = 0
+		erich_bey = 0
+		viktor_schutze = 0
+		GER_josef_kammhuber = 0
+	}
+
+	traits = {
+		captain_of_industry = 5
+		economic_reformer = 50
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+
+	focus_factors = {
+		GER_remilitarize_the_rhineland = 1.0
+
+		#Focuses never to take:
+		GER_the_prussian_legacy = 0
+		GER_heed_von_neuraths_concerns = 0
+		GER_alliance_with_the_ussr = 0
+		GER_befriend_china = 0
+		GER_oppose_hitler_ww = 0
+		GER_a_strong_successor = 0
+		GER_befriend_turkey = 0 # Turkey should not be incentivized to join an AI Axis on historical
+
+		GER_ascension_of_speer = 0
+		GER_ascension_of_todt = 0
+		GER_ascension_of_himmler = 0
+
+		GER_operation_sea_lion = 0.5
+		GER_operation_felix = 0.1
+		GER_alliance_with_spain = 0.1
+		GER_operation_tannenbaum = 0.01
+	}
+
+}
+
+GER_minor_allies = { #used to make minor European nations like Axis more
+	name = "Minor German Allies"
+
+	allowed = {
+		OR = {
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = YUG
+			original_tag = ITA
+			original_tag = CZE
+			original_tag = DEN
+			original_tag = NOR
+			original_tag = SWE
+			original_tag = FIN
+			original_tag = SPR
+			original_tag = POR
+			original_tag = HOL
+			original_tag = BEL
+			original_tag = LUX
+			original_tag = POL
+			original_tag = LAT
+			original_tag = LIT
+			original_tag = EST
+			original_tag = CRO
+			original_tag = SLO
+			original_tag = VIC
+			original_tag = SER
+			original_tag = SWI
+			original_tag = UKR
+			original_tag = BLR
+			original_tag = UBD
+			original_tag = ALB
+			original_tag = MNT
+			original_tag = GRE
+			original_tag = IRE
+			original_tag = BRI
+			original_tag = OCC
+			original_tag = WLS
+			original_tag = SCO
+			original_tag = ICE
+			original_tag = GRN
+			original_tag = SMI
+			original_tag = KAR
+			original_tag = GEO
+			original_tag = ARM
+			original_tag = CRI
+			original_tag = MLD
+			original_tag = VGE
+		}
+	}
+	enable = {
+		OR = {
+			has_government = fascism
+			fascism > 0.5
+		}
+		is_in_faction = no
+		GER = {
+			has_government = fascism
+		}
+		OR = {
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = YUG
+			original_tag = ITA
+			original_tag = CZE
+			original_tag = DEN
+			original_tag = NOR
+			original_tag = SWE
+			original_tag = FIN
+			original_tag = SPR
+			original_tag = POR
+			original_tag = HOL
+			original_tag = BEL
+			original_tag = LUX
+			original_tag = POL
+			original_tag = LAT
+			original_tag = LIT
+			original_tag = EST
+			original_tag = CRO
+			original_tag = SLO
+			original_tag = VIC
+			original_tag = SER
+			original_tag = SWI
+			original_tag = UKR
+			original_tag = BLR
+			original_tag = UBD
+			original_tag = ALB
+			original_tag = MNT
+			original_tag = GRE
+			original_tag = IRE
+			original_tag = BRI
+			original_tag = OCC
+			original_tag = WLS
+			original_tag = SCO
+			original_tag = ICE
+			original_tag = GRN
+			original_tag = SMI
+			original_tag = KAR
+			original_tag = GEO
+			original_tag = ARM
+			original_tag = CRI
+			original_tag = MLD
+			original_tag = VGE
+		}
+	}
+	abort = {
+		GER = {
+			NOT = {
+				has_government = fascism
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = -500
+	}
+}

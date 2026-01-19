@@ -1,0 +1,497 @@
+BRA_historical_plan = {
+	name = "Brazilian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BRA_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BRA_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		has_completed_focus = BRA_secure_our_borders
+	}
+
+	ai_national_focuses = {
+
+
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+		BRA_tribunal_de_seguranca_nacional #35
+		BRA_ensure_continued_military_support #35
+		SMB_army
+		SMB_military_facilities
+		BRA_cohen_plan
+		BRA_estado_novo
+		BRA_the_polaca
+		
+
+		BRA_ban_political_parties
+		BRA_establish_psad
+		BRA_desenvolvimentismo
+		BRA_decree_no_37
+		BRA_corporatism
+		BRA_departamendo_de_propaganda
+		BRA_autarky
+		BRA_tech_slot_1
+		BRA_federal_employment_plan	
+		BRA_reward_army_loyalty
+		BRA_support_rural_folk
+		BRA_consolidation_of_labor_laws
+		BRA_secure_our_borders
+		BRA_uruguay_ultimatum
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_historical_plan_con1 = {
+	name = "Brazilian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			GER = { is_in_faction_with = ITA }
+			AND = {
+				GER = { has_government = fascism }
+				ITA = { has_government = fascism }
+			}
+			GER = { has_government = neutrality }
+			ENG = { NOT = { has_government = democratic } }
+			has_completed_focus = BRA_domination_of_the_americas
+		}
+		has_completed_focus = BRA_secure_our_borders
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BRA_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BRA_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		BRA_domination_of_the_americas	
+		BRA_defense_of_the_fatherland
+		BRA_berlin_accords
+		BRA_rome_accords
+		BRA_form_mercosul
+		
+		BRA_expand_operation_bolivar
+		BRA_german_tanks
+		BRA_german_subs
+		BRA_german_cooperation
+		BRA_unify_south_america
+
+		BRA_italian_car_industry
+		BRA_italian_aircraft
+		BRA_italian_trucks
+		BRA_italian_cooperation
+
+		BRA_guyana_crisis
+		BRA_attack_bolivia
+		BRA_paraguay_intervention
+		BRA_provoke_argentina
+		BRA_attack_chile
+		BRA_panama_push
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_historical_plan_con2 = {
+	name = "Brazilian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			NOT = {
+				OR = {
+					GER = { is_in_faction_with = ITA }
+					AND = {
+						GER = { has_government = fascism }
+						ITA = { has_government = fascism }
+					}
+					GER = { has_government = neutrality }
+					ENG = { NOT = { has_government = democratic } }
+				}
+			}
+			has_completed_focus = BRA_cooperation_in_the_americas
+		}
+		has_completed_focus = BRA_secure_our_borders
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BRA_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BRA_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		BRA_cooperation_in_the_americas
+		BRA_defense_spending
+		BRA_washington_accords
+		BRA_reach_out_to_our_neighbors
+		BRA_potenji_river_conference
+		BRA_south_american_defense_cooperation
+		BRA_no_fascism_in_south_america
+		BRA_no_communism_in_south_america
+		BRA_south_american_research_cooperation
+		BRA_united_states_of_south_america
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BRA_historical_plan2 = {
+	name = "Brazilian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BRA_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BRA_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no
+			}
+			has_global_flag = vanilla_history_test
+		}
+	}
+
+	ai_national_focuses = {
+		BRA_end_the_state_of_emergency
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+
+		BRA_repeal_the_national_security_law
+		BRA_continue_centralization
+		BRA_court_the_military
+		BRA_ban_the_communist_party
+		BRA_posts_for_generals
+		BRA_third_republic
+		SMB_air_force
+		BRA_establish_the_brazilian_investment_bank
+		BRA_church
+		BRA_tech_slot_2
+
+		BRA_desenvolvimentismo
+		BRA_stimulate_the_civilian_economy
+		BRA_domestic_arms_industry
+		BRA_war_production
+		BRA_companhia_siderurgica_nacional
+		BRA_batalha_do_borracha
+		BRA_banco_do_brasil
+		BRA_federal_development
+		BRA_financial_stimulation
+		BRA_invest_in_road_infrastructure
+		BRA_bonus_tech_slot
+		BRA_invest_in_railways
+		BRA_national_petroleum_council
+		BRA_invest_in_ports
+		BRA_promote_resource_extraction
+		BRA_establish_caloi
+		BRA_expand_fordlandia
+	
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_artillery
+		SMB_regular_infantry
+		SMB_army_academy
+		SMB_construct_air_bases
+		SMB_domestic_designs
+		SMB_establish_aircraft_industry
+
+		BRA_address_labor_disputes
+		BRA_invite_foreign_companies
+		BRA_the_international_crisis
+		BRA_war_bonds
+		BRA_cooperation_in_the_americas
+		BRA_washington_accords
+		BRA_defense_spending
+		BRA_potenji_river_conference
+		BRA_us_brazil_technology_exchange
+
+		SMB_air_academy
+		SMB_joint_operative_command
+		SMB_women_in_aviation
+		SMB_navy
+	}
+
+	focus_factors = {
+		SMB_reescalate_the_naval_arms_race = 0
+		BRA_no_fascism_in_south_america = 0
+		BRA_no_communism_in_south_america = 0
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		partial_economic_mobilisation = 20
+		war_economy = 200
+		tot_economic_mobilisation = 500
+	}
+
+	traits = {
+		army_chief_defensive_2 = 10
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+BRA_historical_plan_weak = {
+	name = "Brazilian Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BRA
+		has_dlc = "Trial of Allegiance"
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_global_flag = vanilla_history_test
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BRA_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BRA_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BRA_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes 
+				has_war = no
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		BRA_tribunal_de_seguranca_nacional
+		BRA_coffee_crisis_aftermath
+		BRA_radio_nacional
+		BRA_deal_with_the_cangaceiro
+		BRA_ensure_continued_military_support
+		BRA_cohen_plan
+		BRA_estado_novo
+		BRA_the_polaca
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+		SMB_air_force
+		BRA_ban_political_parties
+		BRA_decree_no_37
+		BRA_establish_psad
+		BRA_autarky
+		BRA_departamendo_de_propaganda
+		BRA_tech_slot_1
+		BRA_desenvolvimentismo
+		BRA_companhia_siderurgica_nacional
+		BRA_establish_caloi
+		BRA_batalha_do_borracha
+		BRA_banco_do_brasil
+		BRA_federal_development
+		BRA_financial_stimulation
+		BRA_invest_in_road_infrastructure
+		BRA_bonus_tech_slot
+		BRA_promote_resource_extraction
+		BRA_invest_in_railways
+		BRA_national_petroleum_council
+		BRA_invest_in_ports
+		BRA_stimulate_the_civilian_economy
+		BRA_domestic_arms_industry
+		BRA_war_production
+		BRA_reward_army_loyalty
+		BRA_secure_our_borders
+		BRA_cooperation_in_the_americas
+		BRA_washington_accords
+		BRA_potenji_river_conference
+		BRA_corporatism
+		BRA_support_rural_folk
+		BRA_consolidation_of_labor_laws
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_army_professionalism
+		SMB_special_forces
+	}
+
+	focus_factors = {
+		SMB_reescalate_the_naval_arms_race = 0
+		BRA_no_fascism_in_south_america = 0
+		BRA_no_communism_in_south_america = 0
+		BRA_reach_out_to_our_neighbors = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+

@@ -1,0 +1,63 @@
+###########################
+###########################
+
+add_namespace = LSM_continental_allies
+country_event = {
+	id = LSM_continental_allies.1
+	title = LSM_continental_allies.1.t
+	desc = LSM_continental_allies.1.d
+	picture = GFX_report_event_merchant_ship_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = LSM_continental_allies.1.a
+
+		ai_chance = { factor = 40 }
+
+		trigger = { 
+			NOT = { has_war_with = USA } 
+			NOT = { USA = { is_in_faction_with = CAN } }
+		}
+
+		custom_effect_tooltip = "We will begin negotiation with [SOV.GetNameDef]"
+
+		USA = {
+			country_event = {
+				id = LSM_GER_SOV.102
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = LSM_continental_allies.1.b
+
+		ai_chance = { factor = 30 }
+
+		custom_effect_tooltip = "I mean... the Chineses are technically not a bad option?"
+
+		GER = {
+			country_event = {
+				id = LSM_GER_SOV.1
+				days = 2
+			}
+		}
+	}
+
+	option = {
+		name = LSM_continental_allies.1.c
+
+		ai_chance = { factor = 30 }
+
+		custom_effect_tooltip = "Wait, the Japaneses are even better"
+
+		GER = {
+			country_event = {
+				id = LSM_GER_SOV.1
+				days = 2
+			}
+		}
+	}
+
+}

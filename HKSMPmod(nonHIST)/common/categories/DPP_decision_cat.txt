@@ -1,0 +1,8 @@
+
+displaced_population_decision = {
+	icon = generic_propaganda
+
+	visible = {
+		always = no
+	}
+}

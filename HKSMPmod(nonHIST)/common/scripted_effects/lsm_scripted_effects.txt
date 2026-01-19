@@ -1,0 +1,1237 @@
+#####
+##### displaced population system is here #####
+#####
+
+move_manpower_to_vichy_france = {
+	if = {
+		limit = {
+			16 = { controller = { has_war_with = FRA } }
+		}
+		16 = { add_manpower = -700000 }
+	}
+	if = {
+		limit = {
+			16 = { controller = { has_war_with = FRA } }
+		}
+		16 = { add_manpower = -700000 }
+	}
+	if = {
+		limit = {
+			28 = { controller = { has_war_with = FRA } }
+		}
+		28 = { add_manpower = -300000 }
+	}
+	if = {
+		limit = {
+			29 = { controller = { has_war_with = FRA } }
+		}
+		29 = { add_manpower = -600000 }
+	}
+	if = {
+		limit = {
+			15 = { controller = { has_war_with = FRA } }
+		}
+		15 = { add_manpower = -500000 }
+	}
+	if = {
+		limit = {
+			785 = { controller = { has_war_with = FRA } }
+		}
+		785 = { add_manpower = -200000 }
+	}
+	if = {
+		limit = {
+			18 = { controller = { has_war_with = FRA } }
+		}
+		18 = { add_manpower = -300000 }
+	}
+	if = {
+		limit = {
+			26 = { controller = { original_tag = FRA } }
+		}
+		26 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			26 = { controller = { original_tag = FRA } }
+		}
+		26 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			26 = { controller = { original_tag = FRA } }
+		}
+		26 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			33 = { controller = { original_tag = FRA } }
+		}
+		33 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			25 = { controller = { original_tag = FRA } }
+		}
+		25 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			22 = { controller = { original_tag = FRA } }
+		}
+		22 = { add_manpower = 500000 }
+	}
+	if = {
+		limit = {
+			20 = { controller = { original_tag = FRA } }
+		}
+		20 = { add_manpower = 500000 }
+	}
+}
+move_factory_to_vichy_france = {
+}
+SP_create_variant_based_on_country_assault_engineer_S = {
+	if = {
+		limit = {
+			original_tag = GER
+		}
+		create_equipment_variant = {
+			name = "Minenräumer mit Pz.Kpfw.Antrieb"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_GER_armored_support_vehicle_medium"
+			model = assault_engineer_entity
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = JAP
+		}
+		create_equipment_variant = {
+			name = "Type 97 Chi-Yu"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_JAP_armored_support_vehicle_medium"
+			model = JAP_assault_engineer_entity
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = SOV
+		}
+		create_equipment_variant = {
+			name = "PT-34"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_SOV_armored_support_vehicle_medium"
+			model = SOV_assault_engineer_entity
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = ENG
+		}
+		create_equipment_variant = {
+			name = "Sherman Crab"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_ENG_armored_support_vehicle_medium"
+			model = ENG_assault_engineer_entity
+		}
+	}
+	else_if = {
+		limit = {
+			original_tag = USA
+		}
+		create_equipment_variant = {
+			name = "Sherman T1E3"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_USA_armored_support_vehicle_medium"
+			model = USA_assault_engineer_entity
+		}
+	}
+	else = { #GENERIC
+		create_equipment_variant = {
+			name = "Mine-Clearing Vehicle"
+			type = armored_support_vehicle_1
+			parent_version = 0
+			mark_older_equipment_obsolete = yes
+			upgrades = {
+				tank_reliability_upgrade = 0
+				tank_engine_upgrade = 0
+				tank_armor_upgrade = 0
+				tank_gun_upgrade = 0
+			}
+			icon = "GFX_armored_support_vehicle_medium" 
+			model = assault_engineer_entity
+		}
+	}
+}
+upgrade_d_day_state_modifier = {
+	if = {
+		limit = { 
+			NOT = { has_dynamic_modifier = { modifier = d_day_preparation_state_modifier } }
+		}
+		add_dynamic_modifier = { modifier = d_day_preparation_state_modifier days = 730 }
+		set_variable = { d_day_preparation_production_speed = -0.1 }
+		set_variable = { d_day_preparation_non_core_manpower = -0.1 }
+		set_variable = { d_day_preparation_local_supplies = 0.1 }
+		set_variable = { d_day_preparation_supply_factor = 0.1 }
+		set_variable = { d_day_preparation_attrition = -0.1 }
+	}
+	else_if = {
+		limit = { 
+			has_dynamic_modifier = { modifier = d_day_preparation_state_modifier }
+		}
+		add_to_variable = { d_day_preparation_production_speed = -0.1 }
+		add_to_variable = { d_day_preparation_non_core_manpower = -0.1 }
+		add_to_variable = { d_day_preparation_local_supplies = 0.1 }
+		add_to_variable = { d_day_preparation_supply_factor = 0.1 }
+		add_to_variable = { d_day_preparation_attrition = -0.1 }
+	}
+}
+RAJ_upgrade_development = {
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_1 } }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_2 } }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_3 } }
+		}
+		add_dynamic_modifier = { modifier = RAJ_developing_state_1 }
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = { modifier = RAJ_developing_state_1 }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_2 } }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_3 } }
+		}
+		remove_dynamic_modifier = { modifier = RAJ_developing_state_1 }
+		add_dynamic_modifier = { modifier = RAJ_developing_state_2 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_1 } }
+			has_dynamic_modifier = { modifier = RAJ_developing_state_2 }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_3 } }
+		}
+		remove_dynamic_modifier = { modifier = RAJ_developing_state_2 }
+		add_dynamic_modifier = { modifier = RAJ_developing_state_3 }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_1 } }
+			NOT = { has_dynamic_modifier = { modifier = RAJ_developing_state_2 } }
+			has_dynamic_modifier = { modifier = RAJ_developing_state_3 }
+		}
+		add_extra_state_shared_building_slots = 3
+	}
+}
+
+SOV_add_core_santa = {
+	if = {
+		limit = {
+			has_idea = SOV_neutrality_idea
+			any_state = {
+				compliance > 50
+				NOT = { is_core_of = SOV }
+				controller = { tag = SOV }
+			}
+		}
+		every_state = {
+			limit = {
+				compliance > 50
+				NOT = { is_core_of = SOV }
+				controller = { tag = SOV }
+			}
+			add_core_of = SOV
+		}
+	}
+	if = {
+		limit = {
+			has_idea = SOV_aggressive_idea
+			any_state = {
+				is_claimed_by = SOV
+				NOT = { is_core_of = SOV }
+				controller = { tag = SOV }
+			}
+		}
+		every_state = {
+			limit = {
+				is_claimed_by = SOV
+				NOT = { is_core_of = SOV }
+				controller = { tag = SOV }
+			}
+			add_core_of = SOV
+		}
+	}
+}
+
+GER_go_up_on_economic_mobilisation = {
+	if = {
+		limit = { 
+			has_idea = GER_total_war_production_4
+		}
+		remove_ideas = GER_total_war_production_4
+		add_ideas = GER_total_war_production_5
+	}
+	if = {
+		limit = { 
+			has_idea = GER_total_war_production_3
+		}
+		remove_ideas = GER_total_war_production_3
+		add_ideas = GER_total_war_production_4
+	}
+	if = {
+		limit = { 
+			has_idea = GER_total_war_production_2
+		}
+		remove_ideas = GER_total_war_production_2
+		add_ideas = GER_total_war_production_3
+	}
+	if = {
+		limit = { 
+			has_idea = GER_total_war_production_1
+		}
+		remove_ideas = GER_total_war_production_1
+		add_ideas = GER_total_war_production_2
+	}
+	if = {
+		limit = { 
+			NOT = { has_idea = GER_total_war_production_1 } 
+			NOT = { has_idea = GER_total_war_production_2 } 
+			NOT = { has_idea = GER_total_war_production_3 } 
+			NOT = { has_idea = GER_total_war_production_4 } 
+			NOT = { has_idea = GER_total_war_production_5 }
+		}
+		add_ideas = GER_total_war_production_1
+	}
+}
+
+USA_go_up_on_economic_mobilisation = {
+	if = {
+		limit = { 
+			has_idea = USA_total_war_production_4
+		}
+		remove_ideas = USA_total_war_production_4
+		add_ideas = USA_total_war_production_5
+	}
+	if = {
+		limit = { 
+			has_idea = USA_total_war_production_3
+		}
+		remove_ideas = USA_total_war_production_3
+		add_ideas = USA_total_war_production_4
+	}
+	if = {
+		limit = { 
+			has_idea = USA_total_war_production_2
+		}
+		remove_ideas = USA_total_war_production_2
+		add_ideas = USA_total_war_production_3
+	}
+	if = {
+		limit = { 
+			has_idea = USA_total_war_production_1
+		}
+		remove_ideas = USA_total_war_production_1
+		add_ideas = USA_total_war_production_2
+	}
+	if = {
+		limit = { 
+			NOT = { has_idea = USA_total_war_production_1 } 
+			NOT = { has_idea = USA_total_war_production_2 } 
+			NOT = { has_idea = USA_total_war_production_3 } 
+			NOT = { has_idea = USA_total_war_production_4 } 
+			NOT = { has_idea = USA_total_war_production_5 }
+		}
+		add_ideas = USA_total_war_production_1
+	}
+}
+
+displaced_population_gain = {
+	add_to_variable = { displaced_production_speed_buildings_factor = 0.00001 }
+	add_to_variable = { displaced_local_building_slots_factor  = 0.00001 }
+	add_to_variable = { displaced_local_factories = 0.00001 }
+	add_to_variable = { displaced_state_resources_factor = 0.00001 }
+	add_to_variable = { displaced_local_supplies = -0.00001 }
+	add_to_variable = { displaced_army_speed_factor = -0.00001 }
+}
+
+displaced_population_lost = {
+	add_to_variable = { displaced_production_speed_buildings_factor = -0.00001 }
+	add_to_variable = { displaced_local_building_slots_factor  = -0.00001 }
+	add_to_variable = { displaced_local_factories = -0.00001 }
+	add_to_variable = { displaced_state_resources_factor = -0.00001 }
+	add_to_variable = { displaced_local_supplies = 0.00001 }
+	add_to_variable = { displaced_army_speed_factor = 0.00001 }
+}
+
+blitzkrieg_up = {
+	if = { 
+		limit = { 
+			check_variable = { GER_blitzkrieg < 200 }
+		}
+		add_to_variable = { GER_blitzkrieg = 1 }
+		add_to_variable = { GER_blitzkrieg_resistance = -0.001 }
+		add_to_variable = { GER_blitzkrieg_factory  = 0.005 }
+		add_to_variable = { GER_blitzkrieg_dockyard = 0.002 }
+		add_to_variable = { GER_blitzkrieg_repair = 0.005 }
+		add_to_variable = { GER_blitzkrieg_manpower = 25 }
+		add_to_variable = { GER_blitzkrieg_speed = 0.002 }
+		add_to_variable = { GER_blitzkrieg_breakthrough = 0.002 }
+		add_to_variable = { GER_blitzkrieg_compliance = 0.004 }
+	}
+}
+
+blitzkrieg_up_25 = {
+	if = { 
+		limit = { 
+			check_variable = { GER_blitzkrieg < 175 }
+		}
+		add_to_variable = { GER_blitzkrieg = 25 }
+		add_to_variable = { GER_blitzkrieg_resistance = -0.025 }
+		add_to_variable = { GER_blitzkrieg_factory  = 0.125 }
+		add_to_variable = { GER_blitzkrieg_dockyard = 0.05 }
+		add_to_variable = { GER_blitzkrieg_repair = 0.125 }
+		add_to_variable = { GER_blitzkrieg_manpower = 625 }
+		add_to_variable = { GER_blitzkrieg_speed = 0.05 }
+		add_to_variable = { GER_blitzkrieg_breakthrough = 0.05 }
+		add_to_variable = { GER_blitzkrieg_compliance = 0.1 }
+	}
+	if = { 
+		limit = { 
+			check_variable = { GER_blitzkrieg > 174 }
+		}
+		set_variable = { GER_blitzkrieg = 200 }
+		set_variable = { GER_blitzkrieg_resistance = -0.2 }
+		set_variable = { GER_blitzkrieg_factory  = 1 }
+		set_variable = { GER_blitzkrieg_dockyard = 0.4 }
+		set_variable = { GER_blitzkrieg_repair = 1 }
+		set_variable = { GER_blitzkrieg_manpower = 5000 }
+		set_variable = { GER_blitzkrieg_speed = 0.4 }
+		set_variable = { GER_blitzkrieg_breakthrough = 0.4 }
+		set_variable = { GER_blitzkrieg_compliance = 0.8 }
+	}
+}
+
+blitzkrieg_down = {
+	if = { 
+		limit = { 
+			check_variable = { GER_blitzkrieg > -50 }
+		}
+		add_to_variable = { GER_blitzkrieg = -1 }
+		add_to_variable = { GER_blitzkrieg_resistance = 0.001 }
+		add_to_variable = { GER_blitzkrieg_factory  = -0.005 }
+		add_to_variable = { GER_blitzkrieg_dockyard = -0.002 }
+		add_to_variable = { GER_blitzkrieg_repair = -0.005 }
+		add_to_variable = { GER_blitzkrieg_manpower = -25 }
+		add_to_variable = { GER_blitzkrieg_speed = -0.002 }
+		add_to_variable = { GER_blitzkrieg_breakthrough = -0.002 }
+		add_to_variable = { GER_blitzkrieg_compliance = -0.004 }
+	}
+}
+
+pop_lost_adjustment = {
+	if = { 
+		limit = { 
+			check_variable = { var_gained_population > 0 }
+		}
+		subtract_from_variable = { var_gained_population = 1 }
+	}
+	if = { 
+		limit = { 
+			check_variable = { var_gained_population < 1 }
+		}
+		add_to_variable = { var_lost_population = 1 }
+	}
+	if = { 
+		limit = { 
+			NOT = { has_dynamic_modifier = { modifier = LSM_displaced_population_debug_gain } }
+		}
+		add_dynamic_modifier = { modifier = LSM_displaced_population_debug_gain }
+	}
+	if = { 
+		limit = { 
+			NOT = { has_dynamic_modifier = { modifier = LSM_displaced_population_debug_lost } }
+		}
+		add_dynamic_modifier = { modifier = LSM_displaced_population_debug_lost }
+	}
+}
+
+pop_gain_adjustment = {
+	if = { 
+		limit = { 
+			check_variable = { var_gained_population = 0 compare = greater_than_or_equals }
+			check_variable = { var_lost_population < 1 }
+		}
+		add_to_variable = { var_gained_population = 1 }
+	}
+	if = { 
+		limit = { 
+			check_variable = { var_gained_population < 1 }
+			check_variable = { var_lost_population > 0 }
+		}
+		subtract_from_variable = { var_lost_population = 1 }
+	}
+	if = { 
+		limit = { 
+			check_variable = { var_gained_population > 0 }
+			check_variable = { var_lost_population > 0 }
+		}
+		subtract_from_variable = { var_lost_population = 1 }
+	}
+	if = { 
+		limit = { 
+			NOT = { has_dynamic_modifier = { modifier = LSM_displaced_population_debug_gain } }
+		}
+		add_dynamic_modifier = { modifier = LSM_displaced_population_debug_gain }
+	}
+	if = { 
+		limit = { 
+			NOT = { has_dynamic_modifier = { modifier = LSM_displaced_population_debug_lost } }
+		}
+		add_dynamic_modifier = { modifier = LSM_displaced_population_debug_lost }
+	}
+}
+
+
+increase_displacement = {
+	if = {
+		limit = {
+			check_variable = { var_displacement < 0.10 }
+		}
+		add_to_variable = { var_displacement = 0.01 }
+	}	
+}
+
+decrease_displacement = {
+	if = {
+		limit = {
+			check_variable = { var_displacement > 0 }
+		}
+		subtract_from_variable = { var_displacement = 0.01 }
+	}	
+}
+
+threat_adjust_cuz_i_am_dumb = {
+	if = {
+		limit = {
+			threat < 0.05
+		}
+		set_temp_variable = { var_threat = 0.05 }
+	}
+	if = {
+		limit = {
+			threat > 0.05
+			threat < 0.10
+		}
+		set_temp_variable = { var_threat = 0.10 }
+	}
+	if = {
+		limit = {
+			threat > 0.10
+			threat < 0.15
+		}
+		set_temp_variable = { var_threat = 0.15 }
+	}
+	if = {
+		limit = {
+			threat > 0.15
+			threat < 0.20
+		}
+		set_temp_variable = { var_threat = 0.20 }
+	}
+	if = {
+		limit = {
+			threat > 0.20
+			threat < 0.25
+		}
+		set_temp_variable = { var_threat = 0.25 }
+	}
+	if = {
+		limit = {
+			threat > 0.25
+			threat < 0.30
+		}
+		set_temp_variable = { var_threat = 0.30 }
+	}
+	if = {
+		limit = {
+			threat > 0.30
+			threat < 0.35
+		}
+		set_temp_variable = { var_threat = 0.35 }
+	}
+	if = {
+		limit = {
+			threat > 0.35
+			threat < 0.40
+		}
+		set_temp_variable = { var_threat = 0.40 }
+	}
+	if = {
+		limit = {
+			threat > 0.40
+			threat < 0.45
+		}
+		set_temp_variable = { var_threat = 0.45 }
+	}
+	if = {
+		limit = {
+			threat > 0.45
+			threat < 0.50
+		}
+		set_temp_variable = { var_threat = 0.50 }
+	}
+	if = {
+		limit = {
+			threat > 0.50
+			threat < 0.55
+		}
+		set_temp_variable = { var_threat = 0.55 }
+	}
+	if = {
+		limit = {
+			threat > 0.55
+			threat < 0.60
+		}
+		set_temp_variable = { var_threat = 0.60 }
+	}
+	if = {
+		limit = {
+			threat > 0.60
+			threat < 0.65
+		}
+		set_temp_variable = { var_threat = 0.65 }
+	}
+	if = {
+		limit = {
+			threat > 0.65
+			threat < 0.70
+		}
+		set_temp_variable = { var_threat = 0.70 }
+	}
+	if = {
+		limit = {
+			threat > 0.70
+			threat < 0.75
+		}
+		set_temp_variable = { var_threat = 0.75 }
+	}
+	if = {
+		limit = {
+			threat > 0.75
+			threat < 0.80
+		}
+		set_temp_variable = { var_threat = 0.80 }
+	}
+	if = {
+		limit = {
+			threat > 0.80
+			threat < 0.85
+		}
+		set_temp_variable = { var_threat = 0.85 }
+	}
+	if = {
+		limit = {
+			threat > 0.85
+			threat < 0.90
+		}
+		set_temp_variable = { var_threat = 0.90 }
+	}
+	if = {
+		limit = {
+			threat > 0.90
+			threat < 0.95
+		}
+		set_temp_variable = { var_threat = 0.95 }
+	}
+	if = {
+		limit = {
+			threat > 0.95
+		}
+		set_temp_variable = { var_threat = 1 }
+	}
+}
+
+damaged_building_adjust_cuz_i_am_dumb = {
+	set_temp_variable = { var_civilian = damaged_building_level@industrial_complex }
+	set_temp_variable = { var_military = damaged_building_level@arms_factory }
+	set_temp_variable = { var_infra_building = damaged_building_level@infrastructure }
+	if = { 
+		limit = {
+			check_variable = { building_level@arms_factory = 0 compare = greater_than }
+		}
+		divide_temp_variable = { var_military = building_level@arms_factory }
+	}
+	if = { 
+		limit = {
+			check_variable = { building_level@industrial_complex = 0 compare = greater_than }
+		}
+		divide_temp_variable = { var_civilian = building_level@industrial_complex }
+	}
+	if = { 
+		limit = {
+			check_variable = { building_level@infrastructure = 0 compare = greater_than }
+		}
+		divide_temp_variable = { var_infra_building = building_level@infrastructure }
+	}
+	divide_temp_variable = { var_civilian = 5 }
+	divide_temp_variable = { var_military = 10 }
+	divide_temp_variable = { var_infra_building = 5 }
+	add_to_temp_variable = { var_civilian = 1 }
+	add_to_temp_variable = { var_military = 1 }
+	add_to_temp_variable = { var_infra_building = 1 }
+	set_temp_variable = { var_damage = var_civilian }
+	multiply_temp_variable = { var_damage = var_military }
+	multiply_temp_variable = { var_damage = var_infra_building }
+}
+
+org_check_effect = {
+	every_state_division = {
+		limit = { 
+			OWNER = { is_in_faction_with = ROOT }
+		}
+		set_unit_organization = 1.05
+	}
+	set_state_flag = {
+		flag = d_day_effect
+		days = 7
+	}
+}
+
+org_recovery_effect = {
+	every_state_division = {
+		limit = { 
+			OWNER = { 
+				OR = {
+					tag = ROOT
+					is_in_faction_with = ROOT 
+				}
+			}
+		}
+		set_unit_organization = 1.05
+	}
+	set_state_flag = {
+		flag = org_recovery_effect_flag
+		days = 3
+	}
+}
+
+SF_PARA_combat_effect_lsm = { #When changing this, update the research tooltip
+	every_state_division = {
+		limit = { 
+			OWNER = { has_war_with = FROM }
+		}
+		set_unit_organization = 0.7
+	}
+	set_state_flag = {
+		flag = para_drop_effect
+		days = 30
+	}
+}
+
+self_org_nuke_effect = { 
+	every_state_division = {
+		limit = { 
+			OWNER = { is_in_faction_with = ROOT }
+		}
+		set_unit_organization = 0.50
+	} 
+	every_state_division = {
+		limit = { 
+			OWNER = { has_war_with = ROOT }
+		}
+		set_unit_organization = 1.50
+	}
+	set_state_flag = {
+		flag = self_nuke_effect
+		days = 7
+	}
+}
+release_this_country_as_puppet = {
+	hidden_effect = {
+		set_variable = { puppet_formed@var:puppet_to_initiate = 1 }
+
+		var:puppet_to_initiate = { 
+			set_variable = { puppet_formed_by = PREV }
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = FROM
+				OR = {
+					AND = {
+						NOT = { is_core_of = ROOT }
+						NOT = { is_claimed_by = ROOT }	
+					}	
+					AND = {
+						ROOT = {
+							original_tag = RAJ
+							has_completed_focus = RAJ_incorporation_of_the_east_india_company #release everything my bro
+						}
+						OR = {
+							is_core_of = MYS
+							is_core_of = HYD
+							is_core_of = MYS
+							is_core_of = RJP
+							is_core_of = CIP
+							is_core_of = WIS
+							is_core_of = SIN
+							is_core_of = KAS
+							is_core_of = KOL
+							is_core_of = KAS
+							is_core_of = WIS
+							is_core_of = NWF
+							is_core_of = MPU
+							is_core_of = KHL
+							is_core_of = FSS
+							is_core_of = SKK
+							is_core_of = RAS
+							is_core_of = KLT
+							is_core_of = PAK
+						}
+					}
+				}
+				is_owned_by = ROOT
+			}
+			var:puppet_to_initiate = { transfer_state = PREV }
+		}
+		
+		var:puppet_to_initiate = { 
+			ROOT = { puppet = PREV }
+		}
+
+		var:puppet_to_initiate = {
+			
+			if = {
+				limit = {
+					NOT = { has_country_flag = LSM_eligibility_nation }
+				}
+				add_ideas = LSM_defeat_payment
+			}
+			else_if = {
+				limit = {
+					has_country_flag = LSM_eligibility_nation
+				}
+				if = {
+					limit = { has_idea = LSM_defeat_payment }
+					remove_ideas = LSM_defeat_payment2
+				}
+				add_timed_idea = { idea = LSM_defeat_payment2 days = 730 }
+			}
+                	if = {
+				limit = {
+					NOT = { has_country_flag = militia_template_spawn }
+				}
+				set_country_flag = militia_template_spawn
+				division_template = {
+                   			name = "Emergency Militia"
+                   			priority = 1
+                    			regiments = {
+                        			infantry = { x = 0 y = 0 }
+                       				infantry = { x = 0 y = 1 }
+                        			infantry = { x = 1 y = 0 }
+                        			infantry = { x = 1 y = 1 }
+                    			}
+				}			
+                	}
+                	every_owned_state = {
+				limit = {
+					is_core_of = PREV
+				}
+                   		create_unit = {
+                       			division = "name = \"Emergency Militia\" division_template = \"Emergency Militia\" start_experience_factor = 0.02"
+                       			owner = PREV
+                       			count = 2
+               			}
+               		}
+		}
+	}
+}
+
+release_non_core_claim_to_from = {
+	hidden_effect = {
+		set_variable = { release_formed@var:release_to_initiate = 1 }
+
+		var:release_to_initiate = { 
+			set_variable = { release_formed_by = PREV } 
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = FROM
+				NOT = { is_core_of = ROOT }
+				NOT = { is_in_array = { ROOT.game_start_core_states = THIS } }
+				OR = {
+					NOT = { is_claimed_by = ROOT }
+					FROM = { is_subject = no }
+				}
+				is_owned_by = ROOT
+				OR = {
+					has_state_flag = tainted_state
+					compliance < 35
+				}
+			}
+			var:release_to_initiate = { transfer_state = PREV }
+		}
+	}
+}
+
+add_state_core_on_this_state = {
+	if = {
+		limit = {
+			is_claimed_by = ROOT
+		}
+		add_core_of = ROOT
+		hidden_effect = {
+			remove_claim_by = ROOT
+		}
+	}
+}
+
+trigger_army_check_CHI = {
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = CHI
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = CHI
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = CHI
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = CHI
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = CHI
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+}
+trigger_army_check_WRL = {
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = GXC
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+	random_owned_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = army_check_added }
+		}
+		set_state_flag = army_check_added
+		create_unit = {
+			division = "name = \"Juntuán\" division_template = \"Juntuán\" start_experience_factor = 0 start_equipment_factor = 0.3"  
+			owner = GXC
+			allow_spawning_on_enemy_provs = yes  
+			count = 3
+		}
+	}
+}
+give_the_proper_spg_tech = {
+	if = {
+		limit = { has_global_flag = is_active }
+	if = {
+		limit = {
+			NOT = { has_tech = basic_light_tank_chassis }
+			has_tech = interwar_artillery
+			NOT = { has_tech = artillery1 }
+		}
+		create_equipment_variant = { 
+			name = "25M Snoznvl"
+			type = light_tank_artillery_chassis_0
+			modules = {
+				main_armament_slot = tank_close_support_gun
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_tech = basic_light_tank_chassis }
+			has_tech = interwar_artillery
+			has_tech = artillery1
+			NOT = { has_tech = artillery3 }
+		}
+		create_equipment_variant = { 
+			name = "25M Snoznvl"
+			type = light_tank_artillery_chassis_0
+			modules = {
+				main_armament_slot = tank_close_support_gun
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = basic_light_tank_chassis
+			has_tech = interwar_artillery
+			NOT = { has_tech = artillery1 }
+			NOT = { has_tech = improved_light_tank_chassis }
+		}
+		create_equipment_variant = { 
+			name = "30M Szeged"
+			type = light_tank_artillery_chassis_1
+			modules = {
+				main_armament_slot = tank_medium_howitzer
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = basic_light_tank_chassis
+			NOT = { has_tech = improved_light_tank_chassis }
+			has_tech = interwar_artillery
+			has_tech = artillery1
+			NOT = { has_tech = artillery3 }
+		}
+		create_equipment_variant = { 
+			name = "Sherman DD"
+			type = light_tank_artillery_chassis_1
+			modules = {
+				main_armament_slot = tank_medium_howitzer
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = basic_light_tank_chassis
+			NOT = { has_tech = improved_light_tank_chassis }
+			has_tech = interwar_artillery
+			has_tech = artillery1
+			has_tech = artillery3
+		}
+		create_equipment_variant = { 
+			name = "Sherman DD"
+			type = light_tank_artillery_chassis_1
+			modules = {
+				main_armament_slot = tank_medium_howitzer_2
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = improved_light_tank_chassis
+			has_tech = interwar_artillery
+			NOT = { has_tech = artillery1 }
+		}
+		create_equipment_variant = { 
+			name = "30M Szeged"
+			type = light_tank_artillery_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_howitzer
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = improved_light_tank_chassis
+			has_tech = interwar_artillery
+			has_tech = artillery1
+			NOT = { has_tech = artillery3 }
+		}
+		create_equipment_variant = { 
+			name = "Sherman DD"
+			type = light_tank_artillery_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_howitzer
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	if = {
+		limit = {
+			has_tech = improved_light_tank_chassis
+			has_tech = interwar_artillery
+			has_tech = artillery1
+			has_tech = artillery3
+		}
+		create_equipment_variant = { 
+			name = "Sherman DD"
+			type = light_tank_artillery_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_howitzer_2
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_wheeled_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_hmg
+				special_type_slot_2 = additional_machine_guns
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}		
+		}
+	}
+	}
+}

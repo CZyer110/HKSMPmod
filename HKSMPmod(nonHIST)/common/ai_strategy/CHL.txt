@@ -1,0 +1,66 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+
+join_the_global_war_on_historical = {
+	allowed = {
+		original_tag = CHL
+	}
+	enable = {
+		original_tag = CHL
+		is_historical_focus_on = yes
+		has_completed_focus = CHL_protect_the_easter_island
+	}
+	abort = {
+		JAP = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+		}	
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "JAP"
+		value = 300
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 300
+	}
+}
+
+grand_armada_sir = {
+	allowed = {
+		original_tag = CHL
+	}
+	enable = {
+		original_tag = CHL
+		has_completed_focus = CHL_a_grand_armada
+		NOT = { surrender_progress > 0.05 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 25
+	}
+
+	ai_strategy = {
+		type = dockyard_to_military_factory_ratio
+		value = 80  #aim for a 2-1 ratio on naval factories
+	}
+}

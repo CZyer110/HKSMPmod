@@ -1,0 +1,131 @@
+
+ENG_infra_resource_boost_steel_130 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		130 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 130 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_steel_132 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		132 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 132 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_steel_128 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		128 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 128 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_steel_133 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		133 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 133 
+		value = 2000
+	}
+}
+ENG_infra_resource_boost_steel_931 = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			check_variable = { resource_exported@steel > 120 }
+			check_variable = { resource_imported@steel > 80 }
+		}
+		931 = {
+			free_building_slots = {
+				building = infrastructure
+				size > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 931 
+		value = 2000
+	}
+}

@@ -1,0 +1,148 @@
+
+mio_policy_land_armor_welding_specialists = {
+	icon = GFX_mio_policy_welding_specialists
+	allowed = {
+		OR = {
+			has_mio_equipment_type = armor
+			has_mio_equipment_type = flame_equipment
+			has_mio_equipment_type = mio_cat_eq_all_medium_tank
+			has_mio_equipment_type = mio_cat_eq_all_heavy_tank
+		}	
+	}
+	available = { 
+		has_mio_size > 5
+		hidden_trigger = {
+			OR = { 
+				AND = {
+					NOT = { has_mio_equipment_type = armor }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_lightt_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_medium_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_heavy_tank }
+				}
+				owner = { is_ai = no }
+			}
+		}
+	}
+	equipment_bonus = {
+		same_as_mio = {
+			armor_value = 0.05
+		}
+	}
+	ai_will_do = {
+		base = -200
+	}
+}
+
+mio_policy_land_casting_specialists = {
+	icon = GFX_mio_policy_casting_specialists
+	allowed = { 
+		OR = {
+			has_mio_equipment_type = armor
+			has_mio_equipment_type = flame_equipment
+			has_mio_equipment_type = mio_cat_eq_all_medium_tank
+			has_mio_equipment_type = mio_cat_eq_all_heavy_tank
+		}
+	}
+	available = { 
+		has_mio_size > 5
+		hidden_trigger = {
+			OR = { 
+				AND = {
+					NOT = { has_mio_equipment_type = armor }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_lightt_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_medium_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_heavy_tank }
+				}
+				owner = { is_ai = no }
+			}
+		}
+	}
+	equipment_bonus = {
+		same_as_mio = {
+			hardness = 0.025
+		}
+	}
+	ai_will_do = {
+		base = -200
+	}
+}
+
+mio_policy_land_heavy_gantry_cranes = {
+	icon = GFX_mio_policy_heavy_gantry_cranes_land
+	allowed = { 
+		OR = {
+			has_mio_equipment_type = armor
+			has_mio_equipment_type = mechanized
+			has_mio_equipment_type = flame
+			has_mio_equipment_type = railway_gun
+			has_mio_equipment_type = train
+			has_mio_equipment_type = mio_cat_eq_all_medium_tank
+			has_mio_equipment_type = mio_cat_eq_all_heavy_tank
+		}
+	 }
+	available = { 
+		has_mio_size > 5
+		hidden_trigger = {
+			OR = { 
+				AND = {
+					NOT = { has_mio_equipment_type = armor }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_lightt_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_medium_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_heavy_tank }
+				}
+				owner = { is_ai = no }
+			}
+		}
+	}
+	equipment_bonus = {
+		heavy_tank_chassis = {
+			production_efficiency_cap_factor = 0.05
+		}
+
+		train_equipment = {
+			production_efficiency_cap_factor = 0.05
+		}
+
+		railway_gun_equipment = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	ai_will_do = {
+		base = -200
+	}
+}
+
+mio_policy_land_factory_applied_camouflage  = {
+	icon = GFX_mio_policy_factory_applied_camouflage
+	allowed = { 
+		OR = {
+			has_mio_equipment_type = armor
+			has_mio_equipment_type = flame_equipment
+			has_mio_equipment_type = mio_cat_eq_all_medium_tank
+			has_mio_equipment_type = mio_cat_eq_all_heavy_tank
+		}
+	 }
+	available = { 
+		has_mio_size > 5
+		hidden_trigger = {
+			OR = { 
+				AND = {
+					NOT = { has_mio_equipment_type = armor }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_lightt_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_medium_tank }
+					NOT = { has_mio_equipment_type = mio_cat_eq_all_heavy_tank }
+				}
+				owner = { is_ai = no }
+			}
+		}
+	}
+	equipment_bonus = {
+		same_as_mio = {
+			defense = 0.02
+			breakthrough = 0.02
+		}
+	}
+	ai_will_do = {
+		base = -200
+	}
+}

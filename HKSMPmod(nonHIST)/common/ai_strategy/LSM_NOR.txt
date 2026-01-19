@@ -1,0 +1,24 @@
+
+NORvoy = {
+	allowed = {
+		original_tag = NOR
+	}
+	enable = {
+		has_completed_focus = NOR_vote_of_no_confidence
+		has_equipment = {
+			convoy < 1000
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = dockyard
+		value = 50
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = convoy
+		value = 50
+	}
+}

@@ -1,0 +1,67 @@
+GER_make_mev = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = armored_support_vehicle
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = support_equipment
+		value = 2
+	}
+}
+
+GER_make_mev2 = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		num_of_military_factories > 100
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = armored_support_vehicle
+		value = 2
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = support_equipment
+		value = 1
+	}
+}
+GER_make_mev3 = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		num_of_military_factories > 200
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = armored_support_vehicle
+		value = 3
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = support_equipment
+		value = 1
+	}
+}

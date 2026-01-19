@@ -1,0 +1,209 @@
+ENG_historical_plan = {
+	name = "United Kingdom historical plan"
+	desc = "Historical behavior for United Kingdom"
+
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		AND = {
+			is_historical_focus_on = yes
+			has_global_flag = SOV_has_early_war
+			has_global_flag = is_active
+		}
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					not = { has_dlc = "Man the Guns" }
+					has_game_rule = {
+						rule = ENG_ai_behavior 
+						option = DEFAULT
+					}
+				}
+			}
+			has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		limited_rearmament_focus
+		shadow_scheme_focus
+		uk_industrial_focus
+		uk_extra_tech_slot
+		royal_ordinance_focus
+		ENG_vickers_experimental_facility_focus
+
+		general_rearmament_focus
+		uk_small_arms_focus
+		uk_empire_focus
+		uk_service_focus
+		uk_colonial_focus
+
+		uk_commonwealth_focus
+		uk_india_focus
+		ENG_indian_autonomy
+		ENG_steady_as_she_goes
+		air_rearmament_focus
+
+		fighter_command_focus
+		aircraft_production_focus
+		ENG_home_defence
+		ENG_prepare_for_the_inevitable
+		ENG_issue_gasmasks
+
+		ENG_military_training_act
+		naval_rearmament_focus
+		air_defense_focus
+		radar_focus
+		ENG_special_air_service
+
+		ENG_parachute_regiments
+		uk_destroyer_focus
+		uk_convoy_focus
+		ENG_secure_the_imperial_shipping_routes
+		ENG_british_commonwealth_air_training_plan
+
+		uk_australia_focus
+		uk_new_zealand_focus
+		uk_canada_focus
+		uk_south_africa_focus
+		crypto_bomb_focus
+
+		ENG_chiefs_of_staff_committee
+		tizard_mission_focus
+		uk_waves_focus
+		uk_carrier_focus
+		ENG_expand_the_repair_yards
+
+		maud_focus
+		UK_secret_focus
+		uk_mediterranean_focus
+		uk_protect_suez
+
+		uk_rock_focus
+		uk_asia_focus
+		uk_burma_focus
+
+		uk_iraq_focus
+	}
+
+	research = {
+	}
+
+	ideas = {
+		home_defence_spirit = 1
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+
+
+FRA_historical_sov_early_war = {
+	name = "France historical plan but Soviets are more dangerous so we join them"
+	desc = "Historical behavior for France but TD spacemarine mass mob"
+
+	allowed = {
+		original_tag = FRA
+	}
+	enable = {
+		has_global_flag = SOV_has_early_war
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = FRA_ai_behavior
+					option = DEFAULT
+				}	
+			}
+			has_game_rule = {
+				rule = FRA_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = FRA_AI_DEMOCRATIC_HISTORICAL
+		}
+	}
+	abort = {
+		OR = {
+			has_country_flag = LSM_eligibility_nation
+			has_government = fascism
+		}
+	}
+
+	ai_national_focuses = {
+		FRA_revive_the_national_bloc
+		FRA_begin_rearmament
+		FRA_laissez_faire
+		FRA_protect_the_rights_of_man
+		FRA_review_foreign_policy
+
+		FRA_buy_time
+		FRA_strengthen_government_support
+		FRA_defensive_strategems
+		FRA_economic_devolution
+		FRA_promote_entrepeneurship
+
+		FRA_stimulate_the_dynamic_market
+		FRA_aggressive_focus
+		FRA_devalue_the_franc
+		FRA_invest_in_the_metropole
+		FRA_invest_in_the_colonies
+
+		FRA_metropolitan_france
+		FRA_algerie_france
+		FRA_invest_in_west_africa
+		FRA_invest_in_indochina
+		FRA_invest_in_syria
+		FRA_industrial_expansion
+		FRA_colonial_industry
+		FRA_military_factories
+
+		FRA_ban_communism
+		FRA_the_blum_viollette_proposal
+		FRA_extra_research_slot
+		FRA_extra_research_slot_2
+		FRA_battle_of_maneuver
+		FRA_motorized_focus
+		FRA_mechanized_focus
+	}
+	focus_factors = {
+		FRA_right_wing_rhetoric = 0
+		FRA_leftist_rhetoric = 0
+		FRA_establish_spheres_of_influence = 0
+		FRA_utilize_the_leagues = 0
+		FRA_go_with_britain = 0
+	}
+	research = {
+		naval_equipment = -100.0 #we don't need ships
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

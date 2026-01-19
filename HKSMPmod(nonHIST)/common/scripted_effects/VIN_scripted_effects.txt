@@ -1,0 +1,1241 @@
+set_appropriate_ruler = {
+	if = {
+		limit = {
+			is_subject_of = FRA 
+		}
+
+		create_country_leader = {
+			name = "Joseph-Jules Brévié" 
+			desc = ""
+			picture = GFX_portrait_joseph_brevie
+			expire = "1953.3.1"
+			ideology = conservatism
+			traits = {
+				tenacious_negotiator
+			}
+		}
+
+		create_country_leader = {
+			name = "Joseph-Jules Brévié" 
+			desc = ""
+			picture = GFX_portrait_joseph_brevie
+			expire = "1953.3.1"
+			ideology = despotism 
+			traits = {
+				tenacious_negotiator
+			}
+		}
+
+		create_country_leader = {
+			name = "Joseph-Jules Brévié" 
+			desc = ""
+			picture = GFX_portrait_joseph_brevie
+			expire = "1953.3.1"
+			ideology = fascism_ideology  
+			traits = {
+				tenacious_negotiator
+			}
+		}
+	}
+	if = {
+		limit = {
+			is_subject_of = JAP
+			any_country = {
+				original_tag = FRA
+				exists = yes
+				has_war = yes
+			}
+		}
+
+		create_country_leader = {
+			name = "Jean Decoux" 
+			desc = ""
+			picture = GFX_portrait_jean_decoux
+			expire = "1953.3.1"
+			ideology = conservatism
+			traits = {
+				unwilling_collaborator
+			}
+		}
+
+		create_country_leader = {
+			name = "Jean Decoux" 
+			desc = ""
+			picture = GFX_portrait_jean_decoux
+			expire = "1953.3.1"
+			ideology = fascism_ideology 
+			traits = {
+				unwilling_collaborator
+			}
+		}
+
+		create_country_leader = {
+			name = "Jean Decoux" 
+			desc = ""
+			picture = GFX_portrait_jean_decoux
+			expire = "1953.3.1"
+			ideology = despotism 
+			traits = {
+				unwilling_collaborator
+			}
+		}
+	}
+	if = {
+		limit = {
+			is_subject_of = JAP
+			NOT = {
+				any_country = {
+					original_tag = FRA
+					exists = yes
+					has_war = yes
+				}
+			}
+		}
+
+		create_country_leader = {
+			name = "Doihara Kenji"
+			desc = ""
+			picture = GFX_portrait_JAP_kenji_doihara
+			expire = "1953.3.1"
+			ideology = fascism_ideology 
+			traits = {
+				unparalleled_druglord
+				mekong_meth_king
+			}
+		}
+
+		create_country_leader = {
+			name = "Doihara Kenji" 
+			desc = ""
+			picture = GFX_portrait_JAP_kenji_doihara
+			expire = "1953.3.1"
+			ideology = despotism 
+			traits = {
+				unparalleled_druglord
+				mekong_meth_king
+			}
+		}
+	}
+	if = {
+		limit = {
+			is_subject = no 
+		}
+		set_party_name = {
+			ideology = democratic 
+			long_name = VIN_democratic_party_name
+			name = VIN_democratic_party_name_long
+		}
+		set_party_name = {
+			ideology = neutrality 
+			long_name = VIN_neutrality_party_name
+			name = VIN_neutrality_party_name_long
+		}
+		set_party_name = {
+			ideology = fascism 
+			long_name = VIN_fascism_party_name
+			name = VIN_fascism_party_name_long
+		}
+
+		create_country_leader = {
+			name = "Ngo Dinh Diem" 
+			desc = ""
+			picture = GFX_portrait_ngo_dinh_diem
+			expire = "1953.3.1"
+			ideology = fascism_ideology 
+			traits = {
+				assassination_survivor
+				hawk
+			}
+		}
+
+		create_country_leader = {
+			name = "Ngo Dinh Diem" 
+			desc = ""
+			picture = GFX_portrait_ngo_dinh_diem
+			expire = "1953.3.1"
+			ideology = conservatism 
+			traits = {
+				assassination_survivor
+				hawk
+			}
+		}
+
+		create_country_leader = {
+			name = "Bao Dai" 
+			desc = ""
+			picture = GFX_portrait_bao_dai
+			expire = "1953.3.1"
+			ideology = despotism 
+			traits = {
+				unpopular_monarch
+			}
+		}
+	}
+}
+set_appropriate_focus_tree = {
+}
+set_ticking_guerilla_resistance = {
+}
+update_exploitation = {
+	if = {
+		limit = {
+			NOT = { has_idea = VIN_colonial_exploitation_0 }
+		}
+		add_ideas = VIN_colonial_exploitation_0
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_exploitation_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_exploitation_0
+			add_idea = VIN_colonial_exploitation_1
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_exploitation_1
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_exploitation_1
+			add_idea = VIN_colonial_exploitation_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_exploitation_2
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_exploitation_2
+			add_idea = VIN_colonial_exploitation_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_exploitation_3
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_exploitation_3
+			add_idea = VIN_colonial_exploitation_4
+		}
+	}
+}
+update_apathetic_people = {
+	if = {
+		limit = {
+			has_idea = VIN_apathetic_people_1
+		}
+		swap_ideas = {
+			remove_idea = VIN_apathetic_people_1
+			add_idea = VIN_apathetic_people_2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_apathetic_people_2
+		}
+		swap_ideas = {
+			remove_idea = VIN_apathetic_people_2
+			add_idea = VIN_apathetic_people_3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_apathetic_people_3
+		}
+		remove_ideas = VIN_apathetic_people_3
+	}
+}
+update_indochinese_army = {
+	if = {
+		limit = {
+			has_idea = VIN_colonial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_0
+			add_idea = VIN_colonial_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1a
+			add_idea = VIN_colonial_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1b
+			add_idea = VIN_colonial_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1c
+			add_idea = VIN_colonial_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2a
+			add_idea = VIN_colonial_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2b
+			add_idea = VIN_colonial_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2c
+			add_idea = VIN_colonial_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3a
+			add_idea = VIN_colonial_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3b
+			add_idea = VIN_colonial_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3c
+			add_idea = VIN_colonial_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4a
+			add_idea = VIN_colonial_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4b
+			add_idea = VIN_colonial_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4c
+			add_idea = VIN_colonial_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4d
+			add_idea = VIN_colonial_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4e
+			add_idea = VIN_colonial_army_4f
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_0
+			add_idea = VIN_imperial_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1a
+			add_idea = VIN_imperial_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1b
+			add_idea = VIN_imperial_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1c
+			add_idea = VIN_imperial_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2a
+			add_idea = VIN_imperial_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2b
+			add_idea = VIN_imperial_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2c
+			add_idea = VIN_imperial_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3a
+			add_idea = VIN_imperial_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3b
+			add_idea = VIN_imperial_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3c
+			add_idea = VIN_imperial_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4a
+			add_idea = VIN_imperial_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4b
+			add_idea = VIN_imperial_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4c
+			add_idea = VIN_imperial_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4d
+			add_idea = VIN_imperial_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4e
+			add_idea = VIN_imperial_army_4f
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_0
+			add_idea = VIN_independent_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_1a
+			add_idea = VIN_independent_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_1b
+			add_idea = VIN_independent_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_1c
+			add_idea = VIN_independent_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_2a
+			add_idea = VIN_independent_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_2b
+			add_idea = VIN_independent_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_2c
+			add_idea = VIN_independent_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_3a
+			add_idea = VIN_independent_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_3b
+			add_idea = VIN_independent_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_3c
+			add_idea = VIN_independent_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_4a
+			add_idea = VIN_independent_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_4b
+			add_idea = VIN_independent_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_4c
+			add_idea = VIN_independent_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_4d
+			add_idea = VIN_independent_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_independent_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_independent_army_4e
+			add_idea = VIN_independent_army_4f
+		}
+	}
+}
+swap_indochinese_army_france_to_japan = {
+	if = {
+		limit = {
+			has_idea = VIN_colonial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_0
+			add_idea = VIN_imperial_army_0
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1a
+			add_idea = VIN_imperial_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1b
+			add_idea = VIN_imperial_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1c
+			add_idea = VIN_imperial_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2a
+			add_idea = VIN_imperial_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2b
+			add_idea = VIN_imperial_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2c
+			add_idea = VIN_imperial_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3a
+			add_idea = VIN_imperial_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3b
+			add_idea = VIN_imperial_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3c
+			add_idea = VIN_imperial_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4a
+			add_idea = VIN_imperial_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4b
+			add_idea = VIN_imperial_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4c
+			add_idea = VIN_imperial_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4d
+			add_idea = VIN_imperial_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4e
+			add_idea = VIN_imperial_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4f
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4f
+			add_idea = VIN_imperial_army_4f
+		}
+	}
+}
+swap_indochinese_army_japan_to_france = {
+	if = {
+		limit = {
+			has_idea = VIN_imperial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_0
+			add_idea = VIN_colonial_army_0
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1a
+			add_idea = VIN_colonial_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1b
+			add_idea = VIN_colonial_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1c
+			add_idea = VIN_colonial_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2a
+			add_idea = VIN_colonial_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2b
+			add_idea = VIN_colonial_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2c
+			add_idea = VIN_colonial_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3a
+			add_idea = VIN_colonial_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3b
+			add_idea = VIN_colonial_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3c
+			add_idea = VIN_colonial_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4a
+			add_idea = VIN_colonial_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4b
+			add_idea = VIN_colonial_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4c
+			add_idea = VIN_colonial_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4d
+			add_idea = VIN_colonial_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4e
+			add_idea = VIN_colonial_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4f
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4f
+			add_idea = VIN_colonial_army_4f
+		}
+	}
+}
+swap_indochinese_army_japan_to_independent = {
+	if = {
+		limit = {
+			has_idea = VIN_imperial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_0
+			add_idea = VIN_independent_army_0
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1a
+			add_idea = VIN_independent_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1b
+			add_idea = VIN_independent_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_1c
+			add_idea = VIN_independent_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2a
+			add_idea = VIN_independent_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2b
+			add_idea = VIN_independent_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_2c
+			add_idea = VIN_independent_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3a
+			add_idea = VIN_independent_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3b
+			add_idea = VIN_independent_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_3c
+			add_idea = VIN_independent_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4a
+			add_idea = VIN_independent_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4b
+			add_idea = VIN_independent_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4c
+			add_idea = VIN_independent_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4d
+			add_idea = VIN_independent_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4e
+			add_idea = VIN_independent_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_imperial_army_4f
+		}
+		swap_ideas = {
+			remove_idea = VIN_imperial_army_4f
+			add_idea = VIN_independent_army_4f
+		}
+	}
+}
+swap_indochinese_army_france_to_independent = {
+	if = {
+		limit = {
+			has_idea = VIN_colonial_army_0
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_0
+			add_idea = VIN_independent_army_0
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1a
+			add_idea = VIN_independent_army_1a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1b
+			add_idea = VIN_independent_army_1b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_1c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_1c
+			add_idea = VIN_independent_army_1c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2a
+			add_idea = VIN_independent_army_2a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2b
+			add_idea = VIN_independent_army_2b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_2c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_2c
+			add_idea = VIN_independent_army_2c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3a
+			add_idea = VIN_independent_army_3a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3b
+			add_idea = VIN_independent_army_3b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_3c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_3c
+			add_idea = VIN_independent_army_3c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4a
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4a
+			add_idea = VIN_independent_army_4a
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4b
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4b
+			add_idea = VIN_independent_army_4b
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4c
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4c
+			add_idea = VIN_independent_army_4c
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4d
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4d
+			add_idea = VIN_independent_army_4d
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4e
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4e
+			add_idea = VIN_independent_army_4e
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = VIN_colonial_army_4f
+		}
+		swap_ideas = {
+			remove_idea = VIN_colonial_army_4f
+			add_idea = VIN_independent_army_4f
+		}
+	}
+}

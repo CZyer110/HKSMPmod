@@ -1,0 +1,50 @@
+
+
+training_the_navy_first_USA = {
+	reversed = yes
+	allowed = {
+		tag = USA
+	}
+
+	enable = {
+		USA = {
+			OR = { 
+				has_idea = incredibly_funni_navy_stuffs
+				has_idea = incredibly_funni_navy_stuffs_2
+			}
+		}
+		NOT = { has_war_with = USA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = USA
+		value = -9999
+	}
+}
+training_the_navy_first_ENG = {
+	reversed = yes
+	allowed = {
+		tag = ENG
+	}
+
+	enable = {
+		ENG = {
+			OR = { 
+				has_idea = incredibly_funni_navy_stuffs
+				has_idea = incredibly_funni_navy_stuffs_2
+			}
+		}
+		NOT = { has_war_with = ENG }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = ENG
+		value = -9999
+	}
+}

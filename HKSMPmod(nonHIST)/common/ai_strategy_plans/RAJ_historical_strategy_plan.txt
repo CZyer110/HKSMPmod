@@ -1,0 +1,109 @@
+RAJ_historical = {
+	name = "Indian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = RAJ
+		has_dlc = "Together for Victory"
+		NOT = { has_dlc = "Graveyard of Empires" }
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = RAJ_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = RAJ_AI_RANDOM_DEMOCRATIC_HISTORICAL 
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = DEMOCRATIC_HISTORICAL
+			}
+			has_country_flag = britain_enforced_our_loyalty
+		}
+	}
+	abort = {
+		is_subject = no
+	}
+
+	ai_national_focuses = {
+		RAJ_administrative_oversight
+		RAJ_land_clearance
+		RAJ_strengthen_ties_with_british_investors
+		RAJ_british_arms_investors
+		RAJ_british_rail_investors
+		RAJ_clamp_down_on_corruption
+		RAJ_great_indian_peninsula_railway
+
+		RAJ_industrial_expansion
+		RAJ_assam_oil
+		RAJ_tata_steel
+		RAJ_indian_institute_of_science
+		RAJ_east_india_railways
+
+		RAJ_ishapore_arsenal
+		RAJ_lessons_of_the_great_war
+		RAJ_integrate_princely_railways
+		RAJ_indianisation_of_army
+		RAJ_lions_of_the_great_war
+
+		RAJ_provincial_elections
+		RAJ_indian_national_congress
+		RAJ_cripps_mission
+		RAJ_two_nation_theory
+		RAJ_quit_india_movement
+
+		RAJ_princely_state_donations
+		RAJ_imperial_service_troops
+		RAJ_institute_of_fundamental_research
+		RAJ_research_collaboration
+		RAJ_vickers_berthier_gun
+
+		RAJ_army_motorization
+		RAJ_royal_indian_artillery
+		RAJ_revive_the_screw_guns
+
+		RAJ_indian_armor
+		RAJ_modernizing_army
+		RAJ_an_indian_sandhurst
+		RAJ_indian_gentlemen_officers
+		RAJ_indian_defense_research
+		RAJ_british_army_support
+		RAJ_red_eagle_division
+		RAJ_indian_gurkhas
+									
+	}
+
+	research = {
+		industry = 20.0
+		infantry_tech = 15.0
+		artillery = 8.0
+		support_tech = 6.5
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		captain_of_industry = 5
+		war_industrialist = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+

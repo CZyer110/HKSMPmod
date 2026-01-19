@@ -1,0 +1,9 @@
+
+natural_state_check_cat = {
+	icon = generic_propaganda
+
+	visible = {
+		is_ai = no
+		any_controlled_state = { has_dynamic_modifier = { modifier = modifiers_wild_animal_region_1 } }
+	}
+}

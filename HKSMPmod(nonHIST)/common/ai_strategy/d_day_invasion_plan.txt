@@ -1,0 +1,3405 @@
+allies_tryhard_grace = {
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+		}
+		has_idea = AI_aggressive
+		set_temp_variable = { aggro_days = global.num_days }
+		modulo_temp_variable = { aggro_days = 40 }
+		check_variable = { aggro_days < 25 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			has_war_with = FROM
+			capital_scope = { is_on_continent = europe }
+		}
+		
+		state_trigger = {
+			is_on_continent = europe
+		}
+
+		ratio = 0.0
+
+		priority = 700
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+allies_tryhard_landing_in_italy = {
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+		}
+		NOT = { has_idea = AI_aggressive }
+		has_country_flag = {
+			flag = landing_priority_boost
+			days < 60
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+		set_temp_variable = { aggro_days_small = global.num_days }
+		modulo_temp_variable = { aggro_days_small = 15 }
+		check_variable = { aggro_days_small < 10 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			has_war_with = FROM
+			capital_scope = { is_on_continent = europe }
+		}
+		
+		state_trigger = {
+			OR = {
+				has_state_flag = landing_priority
+				any_neighbor_state = { has_state_flag = landing_priority }
+			}
+		}
+
+		ratio = 0.0
+
+		priority = 700
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		
+		state_trigger = {
+			OR = {
+				has_state_flag = landing_priority
+				any_neighbor_state = { has_state_flag = landing_priority }
+			}
+		}
+
+		value = 3
+	}
+}
+TOA_nations_historical_ignore_everybody_in_SA = {
+	enable = {
+		capital_scope = { is_on_continent = south_america }
+		NOT = { has_focus_tree = generic_focus }
+		has_government = democratic
+		is_historical_focus_on = yes
+		NOT = {
+			OR = {
+				any_enemy_country = {
+					capital_scope = { is_on_continent = south_america }
+				}
+				any_country = {
+					capital_scope = { is_on_continent = south_america }
+					is_ai = no
+					NOT = { has_government = democratic }
+				}
+			}	
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = south_america
+		value = -2000
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			capital_scope = { is_on_continent = south_america }
+			has_war = no
+			is_ai = yes
+		}
+		value = -500 
+	}
+}
+d_day_wait_normandy_BRA = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		OR = {
+			original_tag = BRA
+			original_tag = URG
+			original_tag = PAR
+			original_tag = CAN
+		}
+		any_country = {
+			OR = {
+				has_idea = d_day_preparation_1 
+				has_idea = d_day_preparation_2 
+				has_idea = d_day_preparation_3
+			}
+			OR = {
+				original_tag = ENG
+				is_ai = no 
+				is_in_faction_with = ENG
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			any_state = {
+				OR = {
+					state = 15
+					state = 14
+					state = 29
+					state = 785
+					state = 6
+					state = 7
+					state = 36
+				}
+				controller = { is_in_faction_with = ENG }
+			}	
+			usa_have_surrender_progress = yes
+			foreign_countries_have_surrender_progress = yes
+		}
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			125
+			126
+			127
+			128
+			129
+			338
+			123
+			122
+			131
+			121
+			119
+			132
+			4
+			932
+			12
+			6
+		}
+
+		ratio = 2
+
+		area = europe
+
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+d_day_wait_italy = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		OR = {
+			original_tag = ARG
+			original_tag = CHL
+			original_tag = SAF
+		}
+		any_country = {
+			OR = {
+				has_idea = d_day_preparation_1 
+				has_idea = d_day_preparation_2
+			}
+			OR = {
+				original_tag = ENG
+				is_ai = no 
+				is_in_faction_with = ENG
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			any_state = {
+				is_core_of = ITA
+				is_on_continent = europe
+				NOT = { state = 114 }
+				controller = { is_in_faction_with = ENG }
+			}	
+			usa_have_surrender_progress = yes
+			foreign_countries_have_surrender_progress = yes
+		}
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		states = {
+			448
+			451
+			450
+			458
+			460
+		}
+
+		ratio = 1
+
+		area = north_africa
+
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+
+d_day_europe_on_the_beach_BRA = {
+	enable = {	
+		is_historical_focus_on = yes	
+		OR = {
+			original_tag = BRA
+			original_tag = URG
+			original_tag = PAR
+			original_tag = CAN
+		}
+		is_in_faction_with = ENG
+		any_state = {
+			OR = {
+				state = 15
+				state = 14
+				state = 29
+				state = 785
+				state = 6
+				state = 7
+				state = 36
+			}
+			controller = { is_in_faction_with = ENG }
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		target = europe
+		value = 500
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 250
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -80
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = 250
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+d_day_wait_normandy_MEX = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		original_tag = MEX
+		any_country = {
+			OR = {
+				has_idea = d_day_preparation_1 
+				has_idea = d_day_preparation_2
+			}
+			OR = {
+				original_tag = ENG
+				is_ai = no 
+				is_in_faction_with = ENG
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			any_state = {
+				is_core_of = FRA
+				NOT = { state = 1 }
+				is_on_continent = europe
+				controller = { is_in_faction_with = ENG }
+			}	
+			usa_have_surrender_progress = yes
+			foreign_countries_have_surrender_progress = yes
+		}
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		# south england
+		states = {
+			125
+			126
+			127
+			128
+			129
+			338
+			123
+			1
+			122		
+			114
+		}
+
+		ratio = 1.5
+
+		area = europe
+
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+
+}
+
+d_day_europe_on_the_beach_MEX = {
+	allowed = {
+		original_tag = MEX
+	}
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		any_state = {
+			is_core_of = FRA
+			NOT = { state = 1 }
+			is_on_continent = europe
+			controller = { is_in_faction_with = ENG }
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 500
+		target = europe
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = 500
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+
+d_day_europe_on_the_beach_italy = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		OR = {
+			original_tag = ARG
+			original_tag = CHL
+			original_tag = SAF
+		}
+		any_state = {
+			is_core_of = ITA
+			NOT = { state = 114 }
+			is_on_continent = europe
+			controller = { is_in_faction_with = ENG }
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		value = 500
+		target = asia
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		target = italy
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -80
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 200
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -999999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			is_core_of = ITA
+		}
+		value = 15
+	}
+
+}
+
+allied_d_day_preference = {
+	enable = {
+		game_is_on_historical_course = yes
+		is_in_faction_with = ENG
+		GER_is_not_relevant_to_allies = no
+		OR = {
+			RAJ = { surrender_progress < 0.2 }
+			has_global_flag = d_day_crisis
+			GER = { surrender_progress > 0.2 }
+		}
+		OR = {
+			original_tag = ENG
+			original_tag = MEX
+			original_tag = BRA
+			original_tag = CAN
+			original_tag = FRA
+			original_tag = YUG
+			original_tag = IRE
+			original_tag = TUR
+			original_tag = ARG
+			original_tag = CHL
+			original_tag = URG
+			original_tag = GRE
+			original_tag = ETH
+			original_tag = USA
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		id = "JAP"
+		value = -50
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "RAJ"
+		value = 100
+	}
+
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "BRM"
+		value = 100
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -150
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = mainland_europe
+		value = 50
+	}
+
+	ai_strategy = {
+		type = front_armor_score
+		id = "SIA"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = front_armor_score
+		id = "JAP"
+		value = -500
+	}
+
+}
+allied_asia_preference = {
+	enable = {
+		game_is_on_historical_course = yes
+		is_in_faction_with = ENG
+		OR = {
+			AND = {
+				GER = { is_ai = yes }
+				CHI = { has_country_flag = LSM_eligibility_nation }
+			}
+			date > 1941.3.1
+			has_war_with = JAP
+			has_war_with = CHI
+			JAP = { has_wargoal_against = ROOT }
+			JAP = { has_wargoal_against = ENG }
+			JAP = { is_justifying_wargoal_against = ROOT }
+			JAP = { is_justifying_wargoal_against = ENG }
+		}
+		OR = {
+			original_tag = AST
+			original_tag = MAL
+			original_tag = RAJ
+			original_tag = PHI
+			original_tag = SAF
+			original_tag = ETH
+			original_tag = NEP
+			capital_scope = { is_on_continent = asia }
+			AND = { 
+				original_tag = HOL
+				has_capitulated = yes
+			}
+			original_tag = INS
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			is_in_faction_with = jAP
+		}
+		value = 25
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = 220
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = mainland_europe
+		value = -25
+	}
+
+}
+USA_double_on_the_beaches = {
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		is_in_faction_with = ENG
+		OR = {
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		any_country = {
+			capital_scope = { is_on_continent = europe }
+			is_faction_leader = yes
+			has_war_with = USA
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 50
+		target = europe
+	}
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 100
+		id = "ENG"
+	}
+
+}
+
+allied_minor_on_the_beaches = {
+	enable = {
+		NOT = { capital_scope = { is_on_continent = asia } }
+		NOT = { capital_scope = { is_on_continent = africa } }
+		NOT = { capital_scope = { is_on_continent = australia } }
+		is_in_faction_with = ENG
+		has_global_flag = {
+			flag = d_day_happened
+			days > 3
+		}
+		is_major = no
+		NOT = { tag = RAJ }
+		NOT = { is_literally_china = yes }
+		ITA = { has_civil_war = no }	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 250
+		target = europe
+	}
+
+}
+allied_minor_on_italy = {
+	enable = {
+		is_in_faction_with = ENG
+		is_major = no
+		NOT = { capital_scope = { is_on_continent = asia } }
+		NOT = { capital_scope = { is_on_continent = africa } }
+		NOT = { capital_scope = { is_on_continent = australia } }
+		NOT = { tag = RAJ }
+		NOT = { is_literally_china = yes }
+		OR = {
+			ITA = { has_civil_war = yes }
+			ITA = { surrender_progress > 0.4 }
+		}
+		RDS = { exists = yes }	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 200
+		id = "RDS"
+	}
+
+}
+
+allied_declare_on_VIC = {
+	allowed = {
+		OR = { 
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {
+		any_country = {
+			original_tag = FRA
+			has_government = fascism
+			ENG = { has_wargoal_against = PREV }
+		}
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			has_war_with = VIC
+		}
+		date < 1942.12.1
+		NOT = { has_war_with = VIC }
+		NOT = { ENG = { surrender_progress > 0 } }
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = "VIC"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = VIC
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = VIC
+		value = 500 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+}
+
+allied_declare_on_VICwar = {
+	allowed = {
+		OR = { 
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {
+		any_country = {
+			original_tag = FRA
+			has_government = fascism
+			ENG = { has_wargoal_against = PREV }
+		}
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			has_war_with = VIC
+		}
+		date < 1942.12.1
+		has_war_with = VIC
+		NOT = { ENG = { surrender_progress > 0 } }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		state = 665 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 458 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 513 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 459 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 460 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 461 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+		state = 462 
+		ratio = 0.1
+
+		priority = 200
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+}
+allied_fight_VIC = {
+	allowed = {
+		OR = { 
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {
+		NOT = { has_war_with = VIC }
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+		}
+		OR = {
+			date > 1942.1.1
+			is_in_faction_with = USA
+			NOT = {
+				any_state = {
+					is_core_of = LBA
+					controller = {
+ 						OR = {
+							is_subject_of = ITA 
+							tag = ITA
+						}
+					}
+				}
+			}
+		}
+		OR = {
+			NOT = { has_global_flag = allied_victory_in_africa }
+			date < 1942.8.1
+		}
+		OR = {
+			AND = {
+				tag = ENG
+				any_country = {
+					OR = {
+						is_in_faction_with = VIC
+						controls_state = 16
+					}
+					has_war_with = ENG
+				}
+			}
+			AND = {
+				tag = USA
+				any_country = {
+					OR = {
+						is_in_faction_with = VIC
+						controls_state = 16
+					}
+					has_war_with = USA
+				}
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			has_idea = d_day_preparation_3
+			date > 1942.8.1
+			d_day_secured = yes
+			ENG = { surrender_progress > 0.05 }
+		}
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = "VIC"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = VIC
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = VIC
+		value = 500 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "VIC"
+		value = 550 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 40
+	}
+
+}
+allied_fight_VICwar = {
+	allowed = {
+		OR = { 
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {
+		has_war_with = VIC
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+		}
+		OR = {
+			date > 1942.1.1
+			is_in_faction_with = USA
+			NOT = {
+				any_state = {
+					is_core_of = LBA
+					controller = {
+ 						OR = {
+							is_subject_of = ITA 
+							tag = ITA
+						}
+					}
+				}
+			}
+		}
+		OR = {
+			NOT = { has_global_flag = allied_victory_in_africa }
+			date < 1942.8.1
+		}
+		OR = {
+			AND = {
+				tag = ENG
+				any_country = {
+					OR = {
+						is_in_faction_with = VIC
+						controls_state = 16
+					}
+					has_war_with = ENG
+				}
+			}
+			AND = {
+				tag = USA
+				any_country = {
+					OR = {
+						is_in_faction_with = VIC
+						controls_state = 16
+					}
+					has_war_with = USA
+				}
+			}
+		}
+	}
+
+	abort = {
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			has_idea = d_day_preparation_3
+			date > 1942.8.1
+			d_day_secured = yes
+			ENG = { surrender_progress > 0.05 }
+		}
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 100
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = all_mainland_europe
+		value = -50
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "VIC"
+		value = 550 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 40
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 48 # western mediterranean
+		value = 500
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 68 # western mediterranean
+		value = 500
+	}
+}
+
+allies_sardegna_campaign = {
+	allowed = {
+		OR = {
+			original_tag = ENG
+			original_tag = FRA
+			original_tag = USA
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			114 = { controller = { has_war_with = ENG } }
+			1 = { controller = { has_war_with = ENG } }
+		}
+		NOT = { 	
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}	
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -100
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = sardinia
+		value = 25
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+
+}
+
+ENG_blitzkrieging_north_africa_for_the_giggle_p = {
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = FRA
+		}
+		NOT = { is_in_faction_with = ITA }
+		is_major = yes
+		NOT = { has_global_flag = vanilla_history } #italy will join war later so dont do it
+		OR = {
+			NOT = { surrender_progress > 0 }
+			AND = {
+				tag = FRA
+				NOT = { surrender_progress > 0.35 }
+			}
+		}
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		OR = {
+			has_war_with = VIC
+			date < 1942.1.1
+			FRA = { has_capitulated = no }
+		}
+		is_historical_focus_on = yes
+		any_state = {
+			is_core_of = LBA
+			controller = {
+				OR = {
+					original_tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		NOT = {
+			any_state = {
+				is_core_of = EGY
+				controller = { has_war_with = ENG }
+				NOT = { state = 452 }
+			}
+		}
+		OR = {
+			AND = {
+				is_in_faction_with = ENG 
+				ENG = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+			AND = {
+				is_in_faction_with = USA 
+				USA = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+		}
+		d_day_secured = no
+		OR = {
+			threat > 0.50
+			date > 1939.1.1
+			has_war_with = ITA
+			has_war_with = GER
+		}
+		NOT = { has_idea = incredibly_funni_navy_stuffs_2 }
+		NOT = { has_war_with = ITA }
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = sardinia
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		area = sardinia
+		value = 3
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = sardinia
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 114
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = balanced
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			state = 448
+		}
+		value = 15
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			state = 450
+		}
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		area = north_africa
+		value = 2
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = "ITA"
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = "LBA"
+		value = 50
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 29 # western mediterranean
+		value = 3000
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 68 # western mediterranean
+		value = 500
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 48 # western mediterranean
+		value = 500
+	}
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "LBA"
+		value = 550 #counterbalances...
+	}
+
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 69 
+	}
+
+}
+
+ENG_blitzkrieging_north_africa_for_the_giggle_w = {
+	enable = {
+		has_war_with = ITA
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = FRA
+		}
+		NOT = { is_in_faction_with = ITA }
+		is_major = yes
+		NOT = { has_global_flag = vanilla_history } #italy will join war later so dont do it
+		OR = {
+			NOT = { surrender_progress > 0 }
+			AND = {
+				tag = FRA
+				NOT = { surrender_progress > 0.35 }
+			}
+		}
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		OR = {
+			has_war_with = VIC
+			date < 1942.1.1
+			FRA = { has_capitulated = no }
+		}
+		is_historical_focus_on = yes
+		any_state = {
+			is_core_of = LBA
+			controller = {
+				OR = {
+					original_tag = ITA
+					is_subject_of = ITA
+				}
+			}
+		}
+		NOT = {
+			any_state = {
+				is_core_of = EGY
+				controller = { has_war_with = ENG }
+				NOT = { state = 452 }
+			}
+		}
+		OR = {
+			AND = {
+				is_in_faction_with = ENG 
+				ENG = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+			AND = {
+				is_in_faction_with = USA 
+				USA = {
+					has_navy_size = {
+						size > 250
+					}
+				}
+			}
+		}
+		d_day_secured = no
+		OR = {
+			threat > 0.50
+			date > 1939.1.1
+			has_war_with = ITA
+			has_war_with = GER
+		}
+		has_war_with = ITA
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = sardinia
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		area = sardinia
+		value = 3
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = sardinia
+		value = 15
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 114
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = balanced
+	}
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			state = 448
+		}
+		value = 15
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			state = 450
+		}
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			state = 449
+		}
+		value = -5
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		area = north_africa
+		value = 2
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 50
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 29 # western mediterranean
+		value = 3000
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 68 # western mediterranean
+		value = 500
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 48 # western mediterranean
+		value = 500
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "LBA"
+		value = 550 #counterbalances...
+	}
+
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 69 
+	}
+
+}
+
+ENG_blitzkrieging_north_africa_for_the_giggle_hold = {
+	enable = {
+		entire_condition_of_blitzkrieg_africa_dupe = yes
+		date < 1941.1.1
+		NOT = {
+			OR = {
+				LBA = { surrender_progress > 0.6 }
+				450 = { controller = { is_in_faction_with = ENG } }
+				450 = { controller = { is_in_faction_with = FRA } }
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+
+		state = 451 #derna
+
+		ratio = 0.0
+
+		priority = 300
+		ordertype = front
+		execution_type = balanced
+		execute_order = no
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 663 #derna
+
+		ratio = 0.0
+
+		priority = 300
+		ordertype = front
+		execution_type = balanced
+		execute_order = no
+	}
+
+
+}
+ENG_blitzkrieging_north_africa_for_the_giggle_w2 = {
+	enable = {
+		entire_condition_of_blitzkrieg_africa = yes
+		OR = {
+			LBA = { surrender_progress > 0.6 }
+			450 = { controller = { is_in_faction_with = ENG } }
+			450 = { controller = { is_in_faction_with = FRA } }
+		}
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+
+		state = 451 #derna
+
+		ratio = 0.1
+
+		priority = 100
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 448 #derna
+
+		ratio = 0.1
+
+		priority = 100
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 661 #derna
+
+		ratio = 0.1
+
+		priority = 100
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		state = 663 #derna
+
+		ratio = 0.1
+
+		priority = 100
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+
+}
+ENG_prepare_the_onslaught_on_north_africa_p = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		NOT = { has_war_with = ITA }
+		NOT = { surrender_progress > 0 }
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		date < 1942.1.1
+		is_historical_focus_on = yes
+		has_navy_size = {
+			size > 250
+		}
+		NOT = { is_in_faction_with = ITA }
+		OR = {
+			date > 1939.1.1
+			threat > 0.50
+		}
+		NOT = { has_idea = incredibly_funni_navy_stuffs_2 }
+		NOT = {
+			OR = {
+				has_war_with = ITA
+				has_war_with = GER
+ 			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 20
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 50
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "ITA"
+		value = 50
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "LBA"
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+	ai_strategy = {
+		type = invade
+		id = "LBA"
+		value = 750 #counterbalances...
+	}
+}
+ENG_prepare_the_onslaught_on_north_africa_w = {
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		has_war_with = ITA
+		NOT = { surrender_progress > 0 }
+		ITA = { has_government = fascism }
+		NOT = { 
+			OR = {
+				has_idea = d_day_preparation_1
+				has_idea = d_day_preparation_2
+				has_idea = d_day_preparation_3
+			}
+		}
+		date < 1942.1.1
+		is_historical_focus_on = yes
+		has_navy_size = {
+			size > 250
+		}
+		NOT = { is_in_faction_with = ITA }
+		OR = {
+			date > 1939.1.1
+			threat > 0.50
+		}
+		NOT = { has_idea = incredibly_funni_navy_stuffs_2 }
+		OR = {
+			has_war_with = GER
+			has_war_with = ITA
+		}
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 20
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 10
+	}
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 50
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "ITA"
+		value = 50
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "LBA"
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+	ai_strategy = {
+		type = invade
+		id = "LBA"
+		value = 750 #counterbalances...
+	}
+}
+naval_landing_preparation = {
+	allowed = {
+		is_allied_ai = yes
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+			tag = ENG
+			tag = USA
+		}
+		OR = {
+			has_war = yes
+			original_tag = USA
+		}
+		date > 1939.1.1
+	}
+
+	abort = {
+		has_tech = mtg_transport
+	}
+
+	ai_strategy = {
+		type = research_tech
+		id = mtg_transport
+		value = 300
+	}
+}
+naval_landing_preparation_2 = {
+	allowed = {
+		is_allied_ai = yes
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+			tag = ENG
+			tag = USA
+		}
+		OR = {
+			has_war = yes
+			original_tag = USA
+		}
+		date > 1940.1.1
+	}
+
+	abort = {
+		has_tech = mtg_landing_craft
+	}
+
+	ai_strategy = {
+		type = research_tech
+		id = mtg_landing_craft
+		value = 300
+	}
+}
+naval_landing_preparation_3 = {
+	allowed = {
+		is_allied_ai = yes
+	}
+	enable = {
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+			tag = ENG
+			tag = USA
+		}
+		OR = {
+			has_war = yes
+			original_tag = USA
+		}
+		date > 1941.1.1
+	}
+
+	abort = {
+		has_tech = mtg_tank_landing_craft 
+	}
+
+	ai_strategy = {
+		type = research_tech
+		id = mtg_tank_landing_craft 
+		value = 300
+	}
+}
+
+careful_with_early_invasions = {
+	enable = {
+		date < 1941.1.1
+		has_war_with = GER
+		OR = {
+			has_war_with = FRA
+			FRA = { has_capitulated = yes }
+			NOT = { country_exists = FRA }
+			date < 1941.1.1
+		}
+		NOT = { original_tag = USA }
+
+		OR = {
+			is_in_faction_with = ENG # anyone in allies
+			tag = FRA
+		}
+
+		NOT = {
+			SOV = {
+				has_war_with = GER
+				surrender_progress > 0.15
+			}
+		}
+	}
+	abort = {
+		OR = {
+			is_in_faction_with = USA
+			SOV = {
+				has_war_with = GER
+				surrender_progress > 0.23
+			}
+			date > 1941.1.1
+			is_historical_focus_on = no
+		}
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "GER"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "VIC"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -300
+	}
+
+	ai_strategy = {
+		type = front_control
+		area = all_mainland_europe
+		ordertype = invasion
+		execute_order = no
+	}
+
+	ai_strategy = { #TODO why does this crash
+		type = invade
+		id = "JAP"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = scandinavia
+		value = -300
+	}
+}
+
+careful_with_early_invasions_USA = { #Same as above, alter in tandem
+
+	allowed = { original_tag = USA }
+
+	enable = {
+		date < 1941.1.1
+
+		NOT = {
+			SOV = {
+				has_war_with = GER
+				surrender_progress > 0.15
+			}
+		}
+		has_war_with = GER
+		OR = {
+			has_war_with = FRA
+			FRA = { has_capitulated = yes }
+			NOT = { country_exists = FRA }
+		}
+	}
+	abort = {
+		OR = {
+			is_in_faction_with = ENG
+			SOV = {
+				has_war_with = GER
+				surrender_progress > 0.23
+			}
+			date > 1941.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "GER"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "VIC"
+		value = -500
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = all_mainland_europe
+		value = -300
+	}
+
+
+	ai_strategy = {
+		type = front_control
+
+		area = all_mainland_europe
+
+		ordertype = invasion
+		execute_order = no
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = scandinavia
+		value = -300
+	}
+	
+}
+
+east_prussia_invasion_is_death_trap = {
+	enable = {
+
+		OR = {
+			is_in_faction_with = ENG # anyone in allies
+			tag = FRA
+		}
+
+		GER = { has_war_with = POL }
+		POL = {
+			OR = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+
+		date < 1940.6.1
+	}
+
+	abort = {
+		OR = {
+			NOT = { GER = { has_war_with = POL } }
+			POL = {
+				OR = {
+					exists = no
+					has_capitulated = yes
+				}
+			}
+			date > 1940.6.1
+		}
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "GER"
+		value = -2000
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = "POL"
+		value = 100
+	}
+}
+ENG_USA_focus_on_europe = {
+	allowed = {
+		OR = {
+			tag = USA
+			tag = ENG
+		}
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			date > 1942.1.1
+			SOV = {
+				surrender_progress > 0.05
+			}
+		}
+		has_global_flag = FRA_already_surrendered
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = mainland_europe
+		value = 70
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 20
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			capital_scope = {
+				is_on_continent = asia
+			}
+		}
+		value = -5
+	}
+}
+
+ENG_USA_focus_on_europe_more = {
+	allowed = {
+		OR = {
+			tag = USA
+			tag = ENG
+		}
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			date > 1942.6.1
+			SOV = {
+				surrender_progress > 0.25
+			}
+		}
+		has_global_flag = FRA_already_surrendered
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			capital_scope = {
+				is_on_continent = asia
+			}
+		}
+		value = -5
+	}
+	
+}
+
+ENG_USA_focus_on_europe_loads_more = {
+	allowed = {
+		OR = {
+			tag = USA
+			tag = ENG
+		}
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		date > 1943.1.1
+		has_global_flag = FRA_already_surrendered
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			capital_scope = {
+				is_on_continent = asia
+			}
+		}
+		value = -20
+	}
+}
+
+ENG_order_of_the_day = {
+	allowed = {
+		OR = {
+			original_tag = ENG
+			original_tag = USA
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		ENG = {
+			OR = {
+				divisions_in_state = { state = 127 size > 20 }
+				divisions_in_state = { state = 126 size > 20 }
+				divisions_in_state = { state = 125 size > 20 }
+			}
+		}
+		OR = {
+			date > 1943.1.1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+			d_day_secured = yes
+		}
+	}
+	abort = {
+		OR = {
+			FRA = { surrender_progress < 0.2 }
+			GER = { has_country_flag = LSM_eligibility_nation }
+		}
+	}
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 208
+		value = 15000
+	}
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 19
+		value = 15000
+	}
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 18
+		value = 5000
+	}
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 5
+		value = 10000
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 18 
+		value = 10000
+	}
+}
+
+ENG_Italy_is_dead = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+		is_historical_focus_on = yes
+	}
+	enable = {
+		is_historical_focus_on = yes
+		game_is_on_historical_course = yes
+		OR = {
+			date > 1943.1.1
+			AND = {
+				date > 1943.6.1
+				NOT = {
+					OR = {
+						has_global_flag = vanilla_history
+					}
+				}
+			}
+		}
+		OR = {
+			ITA = { surrender_progress > 0.2 }
+			ITA = { has_civil_war = yes }
+			date > 1943.1.1
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = south_france_landing_zone
+		value = -5
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "GER"
+		value = 600 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = -50 #counterbalances...
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -9999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+
+allies_retake_england = {
+	enable = {
+		is_in_faction_with = ENG
+		is_in_faction_with = USA
+		ENG = { has_capitulated = yes }
+		OR = {
+			has_idea = d_day_preparation_1 
+			has_idea = d_day_preparation_2 
+			has_idea = d_day_preparation_3
+			date > 1943.1.1
+			GER = { has_war_with = SOV }
+		}	
+		usa_have_surrender_progress = no
+		foreign_countries_have_surrender_progress = no
+
+	}
+	abort_when_not_enabled = yes	
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = UK
+		value = 100
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		area = UK
+		value = 100
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = UK
+		value = 100
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -9999
+   	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = ENG } }
+		}
+		value = -250
+	}
+
+}
+
+ENG_take_italys_spaghetti_preparation = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		game_is_on_historical_course = yes
+		is_historical_focus_on = yes
+		any_state = {
+			is_core_of = LBA
+			controller = { is_in_faction_with = ENG }
+		}
+		NOT = { has_idea = d_day_preparation_2 }
+		NOT = { has_idea = d_day_preparation_3 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 29 
+		value = 5000 #Too easy to lose planes here
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = { 
+			state = 116
+		}
+		value = -75
+	}
+	ai_strategy = {
+  		type = garrison
+   		value = -200
+   	}
+}
+
+ENG_take_italys_spaghetti = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		date > 1942.1.1
+		OR = {
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+			has_global_flag = allied_victory_in_africa
+			date > 1942.6.1 #d-day prep must begin
+			any_country = {
+				is_in_faction_with = ENG
+				is_ai = no
+			}
+		}
+		NOT = {
+			any_country = {
+				original_tag = ITA
+				OR = {
+					surrender_progress > 0.2
+					has_civil_war = yes
+				}
+			}
+		}
+		any_state = {
+			is_core_of = LBA
+			OR = {
+				controller = { is_in_faction_with = ENG }
+				owner = { is_in_faction_with = ENG }
+			}
+		}
+		date < 1943.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 23
+		value = 10000
+	}
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 29
+		value = 10000
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = 30
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = ITA
+		value = 20
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = south_france_landing_zone
+		value = -200
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -20
+	}
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 69 # north sea
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -200
+   	}
+}
+
+ENG_vs_italys_troops_proportion = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		d_day_secured = no
+		date < 1943.4.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			OR = {
+				state = 162
+				state = 2
+			}
+		}
+		value = -25
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		state_trigger = {
+			OR = {
+				state = 117
+				state = 115
+			}
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -20
+	}
+}
+AI_mob_dont_invade = {
+	enable = {
+		is_in_faction_with = ENG
+		is_historical_focus_on = yes
+		OR = {
+			is_ai_mech_mob = yes
+			is_ai_mass_mob = yes
+		}
+		is_ai_marine = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = -100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		country_trigger = {
+			always = yes
+		}
+		value = -100
+	}
+
+}
+ENG_it_is_invade_time = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_idea = d_day_preparation_3 }
+		OR = { 
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+		}
+		d_day_secured = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 35
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -200
+   	}
+
+}
+
+allies_d_day_build_up = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+		is_historical_focus_on = yes
+	}
+	enable = {
+		OR = {
+			has_global_flag = allied_victory_in_africa
+			date > 1943.1.1 #d-day prep must begin
+		}
+		NOT = { has_idea = d_day_preparation_3 }
+		OR = { 
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+		}
+		d_day_secured = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 100
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = normandy_landing_zone
+		value = 75
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		area = southern_italy
+		value = 15
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -200
+   	}
+
+	ai_strategy = {
+		type = area_priority
+		id = normandy_landing_zone
+		value = 80
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -150
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = -100
+	}
+
+
+}
+
+
+ENG_supply_for_tobruk_push = {
+	allowed = { 
+		OR = {
+			original_tag = ENG 
+			original_tag = USA 
+			original_tag = EGY
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			451 = { is_controlled_by = ITA }
+			451 = { is_controlled_by = LBA }
+		}
+		452 = {
+			controller = { is_in_faction_with = ENG }
+		}
+		452 = { 
+			any_province_building_level = {
+				province = {
+					id = 10061
+					id = 7079
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+		451 = { 
+			any_province_building_level = {
+				province = {
+					id = 4151
+					id = 10120
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 10061
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 7079
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 4151
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 10120
+		value = 500
+	}
+}
+ENG_supply_for_tobruk_push_edge = {
+	allowed = { 
+		OR = {
+			original_tag = ENG 
+			original_tag = USA
+		}
+	}
+	enable = {
+		is_historical_focus_on = yes
+		451 = { 
+			controller = { has_war_with = ENG }
+			any_province_building_level = {
+				province = {
+					id = 10120
+					id = 1204
+				}
+				# building = supply_node
+				building = naval_base
+				level < 1
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 10120
+		value = 500
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 1204
+		value = 500
+	}
+}
+
+ENG_to_tobruk = {
+	allowed = { 
+		OR = {
+			original_tag = ENG 
+			original_tag = FRA
+		}
+	}
+	enable = { 
+		is_historical_focus_on = yes
+		OR = {
+			451 = { is_controlled_by = ITA }
+			451 = { is_controlled_by = LBA }
+		}
+		has_war_with = ITA
+		FRA = { has_capitulated = no }
+	}
+
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = north_africa
+		value = 15
+	}
+	
+	ai_strategy = {
+		type = invasion_unit_request
+		area = italy
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = north_africa
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = italy
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "ITA"
+		value = 550 #counterbalances...
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "LBA"
+		value = 550 #counterbalances...
+	}
+	
+}
+allies_do_not_rely_on_AIFC_before_DD = {
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		is_prepping_d_day = yes
+		d_day_secured = no #spread out more evenly
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_concentration_factor
+		value = -100
+	}
+}
+
+DD_if_hold_ground_hold_ground_forever = {
+	enable = {
+		game_is_on_historical_course = yes
+		is_historical_focus_on = yes
+		OR = {
+			is_in_faction_with = ENG
+			tag = ENG
+		}
+		d_day_secured = yes
+		capital_scope = {
+			OR = {
+				is_on_continent = europe
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		OR = {
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+			is_major = yes
+		}
+		NOT = {
+			OR = {
+				any_enemy_country = {
+					capital_scope = { is_on_continent = north_america }
+					OR = {
+						is_major = yes
+						is_ai = no
+					}
+				}
+				any_enemy_country = {
+					capital_scope = { is_on_continent = south_america }
+					OR = {
+						is_major = yes
+						is_ai = no
+					}
+				}
+			}
+		}
+		usa_have_surrender_progress = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = asia
+				is_on_continent = africa
+			}
+		}
+		value = -25
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = south_america
+			}
+			controller = { NOT = { has_war_with = FROM } }
+		}
+		value = -25
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		state_trigger = {
+			is_on_continent = europe
+		}
+		value = 15
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = mainland_europe_excluding_italy
+		value = -100
+	}
+
+	ai_strategy = {
+  		type = garrison
+   		value = -9999
+   	}
+}
+
+
+DD_if_push_out_push_out_hard = {
+	enable = {
+		game_is_on_historical_course = yes
+		is_historical_focus_on = yes
+		usa_have_surrender_progress = no
+		OR = {
+			is_in_faction_with = ENG
+			tag = ENG
+		}
+		is_ai_mass_mob = no
+		d_day_secured = yes
+		capital_scope = {
+			OR = {
+				is_on_continent = europe
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+			is_major = yes
+		}
+		set_temp_variable = { apush_days = global.num_days }
+		modulo_temp_variable = { apush_days = 90 }
+		check_variable = { apush_days < 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			has_war_with = FROM
+			capital_scope = { is_on_continent = europe }
+		}
+
+		ratio = 0.0
+
+		priority = 1500
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+}
+DD_if_pushed_out_hold_every_other_month = {
+	enable = {
+		game_is_on_historical_course = yes
+		is_historical_focus_on = yes
+		usa_have_surrender_progress = no
+		OR = {
+			is_in_faction_with = ENG
+			tag = ENG
+		}
+		d_day_secured = yes
+		NOT = { has_idea = AI_aggressive }
+		capital_scope = {
+			OR = {
+				is_on_continent = europe
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		NOT = {
+			has_global_flag = {
+				flag = last_map_change_dday_purpose
+				days < 3
+			}
+		}
+		NOT = { has_idea = AI_aggressive }
+		any_enemy_country = {
+			capital_scope = { is_on_continent = europe }
+			is_major = yes
+		}
+		set_temp_variable = { slow_days = global.num_days }
+		modulo_temp_variable = { slow_days = 90 }
+		check_variable = { slow_days > 30 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		country_trigger = {
+			has_war_with = FROM
+			capital_scope = { is_on_continent = europe }
+		}
+
+		ratio = 0.0
+
+		priority = 3000
+		ordertype = front
+		execution_type = balanced
+		execute_order = no
+	}
+}
+USA_ENG_D_Day_Normandy = {
+
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = ENG
+		if = {
+			limit = {
+				NOT = { has_global_flag = vanilla_history }
+			}
+			date < 1943.1.15
+		}
+		if = {
+			limit = {
+				has_global_flag = vanilla_history
+			}
+			date < 1944.5.22
+		}
+		ITA = { has_civil_war = no }
+		ITA = { has_capitulated = no }
+		ITA = { surrender_progress < 0.5 }
+		GER_is_vulnerable_to_d_day = no
+		should_rush_invasion = no
+		SOV = { surrender_progress < 0.6 } #in this case, we panic
+		d_day_secured = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		area = normandy_landing_zone
+
+		ordertype = invasion
+		execute_order = no
+	}
+}
+
+USA_ENG_sync_invasions_on_europe = {
+	allowed = {
+		always = no
+	}
+
+	enable = {
+		is_historical_focus_on = yes
+		OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = USA
+		}
+		NOT = { has_idea = AI_aggressive_2 }
+		NOT = {
+			has_global_flag = {
+				flag = tremor_of_d_day
+				days < 120
+			}
+		}
+		SOV = { surrender_progress < 0.6 }
+		set_temp_variable = { days = global.num_days }
+		modulo_temp_variable = { days = 90 }
+		check_variable = { days < 30 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		area = mainland_europe_excluding_italy
+
+		ordertype = invasion
+		execute_order = no
+	}
+}
+
+USA_ENG_sync_invasions_on_europe_hardstop = {
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = GER
+		OR = {
+			has_war_with = FRA
+			FRA = { has_capitulated = yes }
+			NOT = { country_exists = FRA }
+		}
+		OR = {
+			date < 1943.1.1
+			AND = {
+				NOT = { has_idea = d_day_preparation_2 }
+				NOT = { has_idea = d_day_preparation_3 }
+			}
+			has_global_flag = is_blocked_by_a_human_player
+		}
+		is_in_faction_with = ENG
+		d_day_secured = no
+		SOV = { surrender_progress < 0.6 }
+		GER_is_vulnerable_to_d_day = no
+		should_rush_invasion = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		area = mainland_europe_excluding_italy
+		ordertype = invasion
+		execute_order = no
+	}
+}
+
+USA_ENG_sync_invasions_on_southern_italy_hardstop = {
+
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = GER
+		date < 1942.12.25
+		is_in_faction_with = ENG
+		NOT = { 
+			any_country = {
+				original_tag = ITA
+				OR = {
+					surrender_progress > 0.2
+					has_civil_war = yes
+				}
+			}
+		}
+		d_day_secured = no
+		SOV = { surrender_progress < 0.6 }
+		GER_is_vulnerable_to_d_day = no
+		should_rush_invasion = no
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		area = southern_italy
+		ordertype = invasion
+		execute_order = no
+	}
+}
+
+USA_torch_boost = {
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		country_exists = VIC 
+		has_war_with = GER 
+		date > 1941.1.1 
+	}
+	abort = {
+		OR = {
+			date > 1941.9.1
+			461 = { is_controlled_by_ROOT_or_ally = yes }
+			459 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = torch_landing_zone
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = vichy_mainland
+		value = -200
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = torch_landing_zone
+		value = 3
+	}
+	ai_strategy = {
+		type = front_unit_request
+		area = torch_landing_zone
+		value = 1
+	}
+	ai_strategy = {
+		type = invade
+		id = VIC
+		value = 200
+	}
+}
+
+ENG_avoid_norway_because_it_is_an_IC_sink = {
+	enable = {
+		is_in_faction_with = ENG
+		any_enemy_country = {
+			is_in_faction_with = NOR
+			is_faction_leader = yes
+			capital_scope = { is_on_continent = europe }
+			NOT = { surrender_progress > 0 } #oh well, now maybe we can kill them too
+			surrender_progress < 0.80 #no point in this case
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = just_norway
+		value = -300
+	}
+}
+ENG_avoid_bad_area_because_it_is_an_IC_sink = {
+	enable = {
+		is_in_faction_with = ENG
+		any_enemy_country = {
+			is_faction_leader = yes
+			capital_scope = { is_on_continent = europe }
+			NOT = { surrender_progress > 0.3 }
+			surrender_progress < 0.80 #no point in this case
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = very_bad_area_to_naval_invade
+		value = -300
+	}
+}
+
+USA_avoid_pacific_because_it_is_an_IC_sink = {
+	enable = {
+		OR = {
+			original_tag = USA
+			original_tag = ENG
+		}
+		OR = {
+			is_prepping_d_day = yes
+			date < 1942.1.1
+		}
+		NOT = { has_idea = LSM_victory_in_europe }
+		any_enemy_country = {
+			is_faction_leader = yes
+			capital_scope = { is_on_continent = europe }
+			surrender_progress < 0.50
+		}
+		NOT = {	
+			AND = {
+				is_historical_focus_on = yes
+				GER = { has_country_flag = LSM_eligibility_nation }
+				has_global_flag = kwantung_intervention
+				SOV = { has_idea = LSM_victory_in_europe }
+				ENG = { has_idea = LSM_victory_in_europe }
+				USA = { has_idea = LSM_victory_in_europe }
+				RAJ = { has_capitulated = no } #we haven't yet killed India
+				NOT = { SOV = { surrender_progress > 0.05 } }
+				NOT = { ENG = { surrender_progress > 0.05 } }
+				NOT = { USA = { surrender_progress > 0.05 } }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = pacific
+		value = -300
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		area = asia
+		value = -300
+	}
+}

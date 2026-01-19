@@ -1,0 +1,241 @@
+NOR_historical_plan = {
+	name = "Norwegian Historical Plan"
+	desc = ""
+
+	allowed = {
+		NOR_AAT = yes
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = NOR_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = NOR_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = NOR_ai_behavior
+				option = HISTORICAL
+			}
+		}	
+	}
+	abort = {
+		OR = {
+			AND = {
+				is_subject = yes
+				NOT = { is_subject_of = GER }
+			}
+			AND = { 
+				GER_is_oppose_hitler = yes
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = NOR_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		NOR_the_kings_no
+		NOR_replace_laake
+		NOR_reform_the_army
+		NOR_officers_academy
+		NOR_improved_training
+		NOR_offensive_doctrines
+		
+		NOR_quislings_coup
+		NOR_get_rid_of_quisling
+		NOR_crackdown_on_civilian_life
+		NOR_abandoning_nynorsk
+		NOR_pan_germanic_cooperation
+		NOR_secret_police
+		NOR_the_administrative_council
+		NOR_fascist_industrial_investments
+		NOR_fascist_military_collaboration
+		NOR_norwegian_reichsprotectorate
+
+		NOR_start_rearmament
+		NOR_kickstart_military_industry
+		NOR_continue_nygaardsvold_government
+		NOR_leaving_the_hard_thirties_behind
+		NOR_bail_out_towns
+
+		NOR_print_more_money
+		NOR_broken_gun_policies
+		NOR_cut_military_budget
+		NOR_social_incrementalism
+		NOR_restart_public_investment
+
+		NOR_weathering_the_storm_to_come
+		NOR_restore_public_trust_in_the_storting
+		NOR_the_neutrality_guard
+		NOR_rearm_for_defense
+		NOR_building_an_independent_norway
+
+		NOR_norges_tekniske_hogskole
+		NOR_increase_research_funding
+		NOR_expand_norges_tekniske_hogskole
+		NOR_fortify_norway
+		NOR_norwegian_school_of_economics
+
+		NOR_fund_local_construction
+		NOR_revamp_hydroelectric_capacity
+		NOR_aluminum_production
+		NOR_expand_Haeren
+		NOR_improved_weapons
+
+		NOR_rikstanken
+		NOR_norges_rikstanksfabrikk
+		NOR_improve_production_lines
+		NOR_haerens_flyvevaaben
+		NOR_norwegian_planes
+
+		NOR_anti_air_artillery_research
+		NOR_increase_air_production
+		NOR_luftforsvaret
+		NOR_pilot_training
+		NOR_approach_the_coordinating_committee
+		NOR_approach_kretsen
+		NOR_empower_sivorg
+		NOR_prince_olavs_inspiration
+
+		NOR_the_royal_norwegian_navy
+		NOR_expand_the_dockyards
+		NOR_expand_merchant_marine
+		NOR_kystvakten
+		NOR_submarine_fleet
+		NOR_mine_laying_effort
+	}
+
+	focus_factors = {
+		NOR_jonas_lie_coup = 0
+		NOR_bring_back_quisling = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+NOR_alternate_historical_plan = {
+	name = "Norwegian Alternative Historical Plan"
+	desc = ""
+
+	allowed = {
+		NOR_AAT = yes
+	}
+	enable = {
+		OR = {
+			has_country_flag = NOR_AI_RANDOM_ALTERNATE_HISTORICAL
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = NOR_AI_BEHAVIOR
+					option = DEFAULT
+				}
+				GER_is_oppose_hitler = yes
+			}
+		}
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		NOR_vote_of_no_confidence
+		NOR_liberal_conservative_alliance
+		NOR_weathering_the_storm_to_come
+		NOR_invite_foreign_investment
+		NOR_consolidate_power
+		NOR_squash_dissent
+		NOR_denounce_the_german_reich
+		NOR_prepare_for_war
+		NOR_start_rearmament
+		NOR_building_an_independent_norway
+		
+		NOR_the_royal_norwegian_navy
+		NOR_expand_the_dockyards
+		NOR_expand_merchant_marine
+		NOR_battleship_focus
+		NOR_norwegian_carriers
+
+
+		NOR_restore_public_trust_in_the_storting
+		NOR_sabotage_unions
+		NOR_contain_the_labor_movement
+		NOR_the_neutrality_guard
+
+
+		NOR_uproot_secret_army
+		NOR_replace_laake
+		NOR_reform_the_army
+		NOR_officers_academy
+		NOR_improved_training
+
+		NOR_offensive_doctrines
+
+		NOR_kickstart_military_industry
+
+		NOR_join_the_allies
+		NOR_rearm_for_defense
+		NOR_expand_Haeren
+		NOR_improved_weapons
+		NOR_rikstanken
+		NOR_norges_rikstanksfabrikk
+		NOR_improve_production_lines
+		NOR_norges_tekniske_hogskole
+		NOR_increase_research_funding
+		NOR_expand_norges_tekniske_hogskole
+		NOR_norwegian_school_of_economics
+		NOR_fund_local_construction
+		NOR_aluminum_production
+		NOR_revamp_hydroelectric_capacity
+	
+		NOR_proactive_defense
+		NOR_secure_the_swedish_iron_ore
+		NOR_secure_denmark
+		NOR_crush_hitler
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		NOR_johan_ludwig_mowinckel = 25.0
+		NOR_hans_ystgaard = 15.0
+		NOR_trygve_halvdan_lie = 5.0
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+

@@ -1,0 +1,177 @@
+URG_historical_plan = {
+	name = "URUGUAY Historical Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = URG
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = URG_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = URG_AI_RANDOM_HISTORICAL
+			
+			has_game_rule = {
+				rule = URG_AI_BEHAVIOR
+				option = HISTORICAL
+			}	
+		}	
+	}
+	abort = {
+		is_subject = yes 
+		#has_war = no 
+	}
+
+	ai_national_focuses = {
+		GUAY_clamp_down_on_new_territories
+		GUAY_no_second_american_colonization
+
+
+		URG_terras_dictatorship
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+		GUAY_laissez_faire
+		GUAY_empower_the_land_owners
+		GUAY_river_trade
+		GUAY_cash_crop_exports
+		GUAY_agricultural_colonization
+		GUAY_beef_and_hide_industry
+		GUAY_wool_makers
+		GUAY_the_tag_economic_miracle
+		GUAY_protect_domestic_industries
+		GUAY_exploit_mineral_wealth
+		GUAY_national_academy_of_sciences
+		GUAY_land_reforms
+		GUAY_heavy_industry
+		URG_blanco_victory
+		URG_statism
+		URG_herrerismo
+		URG_ruralism
+		URG_anticentralism
+		URG_right_to_food_housing_and_health
+		URG_womens_vote
+		GUAY_export_focus
+		URG_prohibition_of_usury
+		URG_ministry_of_public_works
+		URG_rapid_industrialization
+		URG_la_teja_refinery
+
+
+		SMB_army
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+
+		GUAY_laissez_faire
+		GUAY_empower_the_land_owners
+		SMB_army
+		SMB_air_force
+		SMB_military_facilities
+		SMB_motorized
+		SMB_tank_warfare
+		SMB_mechanized_troops
+		GUAY_the_tag_economic_miracle
+		GUAY_agricultural_colonization
+		GUAY_beef_and_hide_industry
+		GUAY_wool_makers
+		GUAY_river_trade
+		GUAY_cash_crop_exports
+		GUAY_protect_domestic_industries
+		GUAY_heavy_industry
+		GUAY_exploit_mineral_wealth
+		GUAY_national_academy_of_sciences
+		GUAY_national_academy_of_sciences_2
+		GUAY_national_academy_of_sciences_3
+		GUAY_land_reforms
+		GUAY_workers_rights
+		URG_terras_dictatorship
+		URG_womens_vote
+		URG_statism
+		URG_right_to_food_housing_and_health
+		URG_prohibition_of_usury
+		URG_ministry_of_public_works
+		URG_import_substitution
+		URG_rapid_industrialization
+		URG_revaluation_law
+		URG_pluna
+		URG_conaprole
+		URG_mercado_modelo
+		URG_la_teja_refinery
+		URG_brou
+		URG_pay_of_all_external_debts
+		URG_colorado_victory
+		URG_ruralism
+		URG_traditionalism
+		URG_americanism
+		URG_anticentralism
+		URG_a_new_constitution
+		URG_the_good_coup
+		URG_join_the_allies
+		URG_legacy_of_batlle
+		URG_legalize_the_pool
+		URG_break_relations_with_the_ussr
+		URG_rincon_del_bonete_hydroelectric_power_station
+		URG_allow_nazi_movements_among_german_uruguayan
+		URG_recognize_francoist_spain
+		URG_merge_falangist_movements
+		URG_declare_neutrality
+		URG_investigate_german_and_italian_cultural_organization
+		URG_law_no_9943
+		URG_break_diplomatic_relations_with_the_axis
+		URG_blanco_victory
+		URG_herrerismo
+
+		SMB_air_defense
+		SMB_regular_infantry
+		SMB_domestic_production
+		SMB_foreign_advisors
+		SMB_conscription
+		SMB_air_academy
+		SMB_domestic_designs
+		SMB_navy
+		SMB_construct_naval_bases
+		SMB_special_forces
+		SMB_special_forces_option_2
+		SMB_special_forces_option_2_continuation
+		SMB_army_academy
+		SMB_joint_operative_command
+		SMB_war_planning_office
+		SMB_women_in_aviation
+		SMB_jungle_warfare_training
+		SMB_brown_water_navy
+		SMB_establish_aircraft_industry
+		SMB_nimble_air_force
+		SMB_winning_the_air_war
+		SMB_air_modifier_boost_2
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

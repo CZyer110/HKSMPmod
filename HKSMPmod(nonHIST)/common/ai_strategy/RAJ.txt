@@ -1,0 +1,124 @@
+
+RAJ_goes_hard_against_japan = {
+	allowed = {
+		original_tag = RAJ
+	}
+	reversed = yes
+	enable = {
+		is_historical_focus_on = yes
+		is_in_faction_with = RAJ
+		JAP = {
+			OR = {
+				is_ai = no
+				has_completed_focus = JAP_strike_the_southern_road
+			}
+			OR = {
+				can_declare_war_on = ENG
+				can_declare_war_on = USA
+				can_declare_war_on = FRA
+				can_declare_war_on = MAL
+				can_declare_war_on = RAJ
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = -500
+		id = "RAJ"
+	}
+}
+NEP_goes_hard_against_japan = {
+	allowed = {
+		original_tag = NEP
+	}
+	enable = {
+		is_in_faction_with = RAJ
+		is_historical_focus_on = yes
+		JAP = {
+			OR = {
+				is_ai = no
+				has_completed_focus = JAP_strike_the_southern_road
+			}
+			OR = {
+				can_declare_war_on = ENG
+				can_declare_war_on = USA
+				can_declare_war_on = FRA
+				can_declare_war_on = MAL
+				can_declare_war_on = RAJ
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 600
+		id = "RAJ"
+	}
+
+	ai_strategy = {
+		type = garrison
+		value = -9999
+	}
+}
+
+RAJ_communist_prioritize_decisions = { # ensures the AI actually has PP before going communist and doesnt waste it all
+	allowed = {
+		original_tag = RAJ
+		OR = {
+			has_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_INDIA_COMMUNISM	
+			}
+			has_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM_SOVIET
+			has_game_rule = {
+				rule = RAJ_ai_behavior
+				option = GOE_INDIA_COMMUNISM_SOVIET
+			}
+		}
+	}
+	enable = {
+		NOT = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 10
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = decision
+		value = 100
+	}
+}
+
+RAJ_communist_agrarian_dont_waste_focus_bonuses = {
+	allowed = {
+		original_tag = RAJ
+	}
+	enable = {
+		has_completed_focus = RAJ_every_man_a_leader
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = research_tech
+		id = tech_mountaineers
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 100
+	}
+}

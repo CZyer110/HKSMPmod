@@ -1,0 +1,26 @@
+
+churchill_drinking_cat = {
+	icon = generic_propaganda
+
+	visible = {
+		tag = ENG
+		has_global_flag = ENG_churchill_alcoholism
+	}
+}
+
+USA_propaganda_campaigns = {
+	icon = generic_propaganda
+
+	priority = 100
+
+	scripted_gui = sov_propaganda_campaigns_ui
+
+	allowed = {
+		original_tag = USA
+	}
+
+	visible = {
+		tag = USA
+		has_global_flag = propaganda_done
+	}
+}

@@ -1,0 +1,547 @@
+DD_normandy_shore_supply_6449 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		15 = {
+			any_province_building_level = {
+				province = {
+					id = 6449
+				}
+				# building = supply_node
+				building = naval_base
+				level < 10
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 6449
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_3579 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		15 = {
+			any_province_building_level = {
+				province = {
+					id = 3579
+				}
+				# building = supply_node
+				building = naval_base
+				level < 4
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 3579
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_6599 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		15 = {
+			any_province_building_level = {
+				province = {
+					id = 6599
+				}
+				# building = supply_node
+				building = naval_base
+				level < 4
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 6599
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_11535 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		15 = {
+			any_province_building_level = {
+				province = {
+					id = 11535
+				}
+				# building = supply_node
+				building = naval_base
+				level < 5
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 11535
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_11508 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		14 = {
+			any_province_building_level = {
+				province = {
+					id = 11508
+				}
+				# building = supply_node
+				building = naval_base
+				level < 4
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 11508
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_6572 = {
+	allowed = { always = yes }
+	enable = {
+		is_in_faction_with = ENG
+		num_of_civilian_factories_available_for_projects > 15
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		14 = {
+			any_province_building_level = {
+				province = {
+					id = 6572
+				}
+				# building = supply_node
+				building = naval_base
+				level < 4
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 6572
+		value = 5
+	}
+}
+
+DD_normandy_shore_supply_9898 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		22 = {
+			any_province_building_level = {
+				province = {
+					id = 9898
+				}
+				# building = supply_node
+				building = naval_base
+				level < 5
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 9898
+		value = 5
+	}
+}
+
+DD_italian_shore_supply_6851 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		1 = {
+			any_province_building_level = {
+				province = {
+					id = 6851
+				}
+				# building = supply_node
+				building = naval_base
+				level < 5
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 6851
+		value = 5
+	}
+}
+DD_italian_shore_supply_11804 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		1 = {
+			any_province_building_level = {
+				province = {
+					id = 11804
+				}
+				# building = supply_node
+				building = naval_base
+				level < 5
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 11804
+		value = 5
+	}
+}
+DD_italian_shore_supply_3838 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		1 = {
+			any_province_building_level = {
+				province = {
+					id = 3838
+				}
+				# building = supply_node
+				building = naval_base
+				level < 5
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 3838
+		value = 5
+	}
+}
+DD_italian_shore_supply_9772 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		114 = {
+			any_province_building_level = {
+				province = {
+					id = 9772
+				}
+				# building = supply_node
+				building = naval_base
+				level < 4
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 9772
+		value = 5
+	}
+}
+DD_normandy_shore_supply_743 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		806 = {
+			any_province_building_level = {
+				province = {
+					id = 743
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 743
+		value = 5
+	}
+}
+DD_normandy_shore_supply_9710 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		806 = {
+			any_province_building_level = {
+				province = {
+					id = 9710
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 9710
+		value = 5
+	}
+}
+DD_normandy_shore_supply_6777 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		19 = {
+			any_province_building_level = {
+				province = {
+					id = 6777
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 6777
+		value = 5
+	}
+}
+DD_normandy_shore_supply_3211 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		7 = {
+			any_province_building_level = {
+				province = {
+					id = 3211
+				}
+				# building = supply_node
+				building = naval_base
+				level < 3
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 3211
+		value = 5
+	}
+}
+DD_normandy_shore_supply_9431 = {
+	allowed = { always = yes }
+	enable = {
+		num_of_civilian_factories_available_for_projects > 15
+		is_in_faction_with = ENG
+		OR = {
+			has_global_flag = d_day_happened
+			has_idea = d_day_preparation_1
+			has_idea = d_day_preparation_2
+			has_idea = d_day_preparation_3
+		}
+		35 = {
+			any_province_building_level = {
+				province = {
+					id = 9431
+				}
+				# building = supply_node
+				building = naval_base
+				level < 2
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = naval_base
+		target = 9431
+		value = 5
+	}
+}
+
+
+USA_infra_dd114 = {
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		114 = { controller = { is_in_faction_with = USA } }
+		is_historical_focus_on = yes
+		date > 1942.1.1		
+	}
+
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 114 
+		value = 2000
+	}
+}
+USA_infra_dd1 = {
+	allowed = {
+		original_tag = USA
+	}
+	enable = {
+		1 = { controller = { is_in_faction_with = USA } }
+		is_historical_focus_on = yes
+		date > 1942.1.1		
+	}
+
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 1 
+		value = 2000
+	}
+}

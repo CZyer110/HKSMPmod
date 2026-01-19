@@ -1,0 +1,12 @@
+on_actions = {	
+	on_startup = {
+		effect = {
+			524 = {
+				set_compliance = 70
+			}
+			745 = {
+				set_compliance = 50
+			}
+		}
+	}
+}

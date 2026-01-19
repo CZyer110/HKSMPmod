@@ -1,0 +1,1198 @@
+
+GER_play_safe_play_healthy_ahist = {
+	reversed = yes
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		is_historical_focus_on = no
+		OR = {
+			GER = { surrender_progress > 0.1 }
+			AND = {
+				GER = { 
+					has_war = yes
+					any_enemy_country = {
+						is_major = yes
+						is_neighbor_of = GER
+						has_capitulated = no
+					}
+					OR = {
+						surrender_progress > 0 
+						has_equipment = { infantry_equipment < 10000 }
+					}
+				}
+				is_in_faction = yes
+				NOT = { 
+					any_allied_country = {
+						has_war_with = GER
+					}
+				}
+			}
+			AND = {
+				GER = { 
+					has_war = yes
+					any_enemy_country = {
+						is_major = yes
+						is_neighbor_of = GER
+						has_capitulated = no
+					}
+					OR = {
+						surrender_progress > 0 
+						has_equipment = { infantry_equipment < 10000 }
+					}
+				}
+				is_in_faction = no
+				is_major = yes
+			}
+			AND = {
+				NOT = { 
+					any_country = {
+						NOT = { tag = GER }
+						is_in_faction_with = GER
+					}
+				}
+				is_in_faction = yes
+				strength_ratio = { tag = GER ratio > 0.8 }
+				GER = {
+					has_army_manpower = { size < 1200000 }
+				}
+			}
+			AND = {
+				NOT = { 
+					any_country = {
+						NOT = { tag = GER }
+						is_in_faction_with = GER
+					}
+				}
+				is_in_faction = yes
+				any_allied_country = {
+					strength_ratio = { tag = GER ratio > 1.5 }
+				}
+				GER = {
+					has_army_manpower = { size < 1200000 }
+				}
+			}
+			AND = {
+				NOT = { 
+					any_country = {
+						NOT = { tag = GER }
+						is_in_faction_with = GER
+					}
+				}
+				is_in_faction = no
+				strength_ratio = { tag = GER ratio > 1 }
+				GER = {
+					has_army_manpower = { size < 1200000 }
+				}
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "GER"
+		value = -2000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "GER"
+		value = -200 
+	}
+}
+GER_kill_POL_assstab = {
+
+	allowed = {
+		OR = {
+			tag = GER
+		}
+	}
+	enable = {
+		OR = {
+			has_global_flag = rebellious_poland
+			AND = {
+				FRA = { 
+					OR = {
+						has_capitulated = yes 
+						exists = no 
+						is_in_faction_with = GER
+					}
+				}
+				ITA = { 
+					OR = {
+						has_capitulated = yes 
+						exists = no 
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+		NOT = { POL = { has_idea = anti_soviet_pact } }
+		has_government = fascism
+		NOT = { POL = { is_in_faction_with = GER } }
+		OR = {
+			POL = { is_faction_leader = yes } 
+			POL = { is_in_faction = no }
+		}
+		NOT = { has_war_with = POL }
+		NOT = { surrender_progress > 0 }
+		NOT = {
+			any_country = {
+				is_in_faction_with = GER
+				is_faction_leader = yes
+				surrender_progress > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = POL
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = POL
+		value = 500 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = POL
+		value = 200 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+}
+SOV_kill_POL_cuz_necessary = {
+
+	allowed = {
+		OR = {
+			original_tag = SOV
+		}
+	}
+	enable = {
+		NOT = { 85 = { is_owned_by = POL } }
+		has_war_with = GER
+		NOT = { POL = { has_war_with = SOV } }
+		NOT = { POL = { has_war_with = GER } }
+		is_neighbor_of = GER
+		is_neighbor_of = POL
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = consider_weak
+		id = POL
+		value = 100
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = POL
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = POL
+		value = 500 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = POL
+		value = 200 # we hateses them filthy Vichy Frenches. strategy >= 500 forces declaration
+	}
+}
+
+ITA_kill_GRE = {
+
+	allowed = {
+		OR = {
+			tag = ITA
+			tag = BUL
+			tag = TUR
+			tag = YUG
+		}
+	}
+	enable = {
+		NOT = { has_country_flag = recently_declared_war }
+		NOT = { has_global_flag = vanilla_history }
+		OR = { 
+			AND = {
+				original_tag = ITA
+				date > 1940.10.10
+				is_in_faction = yes
+			}
+			AND = {
+				OR = {
+					original_tag = BUL
+					original_tag = YUG
+					original_tag = TUR
+					original_tag = ITA
+				}
+				has_war = yes
+				is_in_faction = yes
+				OR = { 
+					NOT = { country_exists = FRA }
+					FRA = { has_capitulated = yes }
+				}
+				OR = { 
+					NOT = { country_exists = YUG }
+					YUG = { has_capitulated = yes }
+				}
+			}
+		}
+		NOT = { has_war_with = GRE }
+		NOT = { is_in_faction_with = GRE }
+		can_declare_war_on = GRE
+		is_historical_focus_on = yes
+		NOT = { surrender_progress > 0 }
+		NOT = {
+			any_country = {
+				is_in_faction_with = ROOT
+				is_faction_leader = yes
+				surrender_progress > 0
+			}
+		}
+		NOT = {
+			AND = {
+				is_in_faction_with = GER
+				any_country = {
+					is_neighbor_of = GER
+					has_war_with = GER
+					is_major = yes
+					has_capitulated = no
+				}
+			}
+		}
+		NOT = {
+			AND = {
+				is_in_faction_with = ITA
+				any_country = {
+					is_neighbor_of = ITA
+					has_war_with = ITA
+					is_major = yes
+					has_capitulated = no
+				}
+			}
+		}
+		OR = {
+			is_in_faction_with = FRA
+			FRA = { has_capitulated = yes }
+			FRA = { exists = no }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = GRE
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = GRE
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = GRE
+		value = 200
+	}
+}
+Axis_kill_YUG = {
+
+	allowed = {
+		OR = {
+			tag = ITA
+			tag = BUL
+			tag = GER
+			tag = HUN
+		}
+	}
+	enable = {
+		NOT = { has_country_flag = recently_declared_war }
+		NOT = { has_global_flag = vanilla_history }
+		OR = {
+			is_faction_leader = yes
+			is_in_faction_with = GER
+		}
+		NOT = { has_war_with = YUG }
+		YUG = { NOT = { is_in_faction_with = GER } }
+		is_historical_focus_on = yes
+		OR = {
+			has_war_with = FRA
+			has_war_with = USA
+			has_war_with = ENG
+			has_war_with = SOV
+		}
+		can_declare_war_on = YUG
+		NOT = { surrender_progress > 0 }
+		NOT = {
+			any_country = {
+				is_in_faction_with = GER
+				is_faction_leader = yes
+				surrender_progress > 0
+			}
+		}
+		NOT = {
+			any_country = {
+				is_neighbor_of = GER
+				has_war_with = GER
+				is_major = yes
+				has_capitulated = no
+			}
+		}
+		OR = {
+			is_in_faction_with = FRA
+			FRA = { has_capitulated = yes }
+			FRA = { exists = no }
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = YUG
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = YUG
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = YUG
+		value = 200
+	}
+}
+AUH_fight_YUG = {
+
+	allowed = {
+		OR = {
+			tag = HUN
+		}
+	}
+	enable = {
+		OR = {
+			is_faction_leader = yes
+			is_in_faction_with = GER
+			is_in_faction = no
+		}
+		has_completed_focus = HUN_march_to_the_shore
+		YUG = { has_war = yes }
+		can_declare_war_on = YUG
+		NOT = { has_war_with = YUG }
+		OR = {
+			NOT = {
+				any_country = {
+					num_of_military_factories > 50
+					is_neighbor_of = HUN
+					is_major = yes
+					is_in_faction_with = YUG
+				}
+			}
+			YUG = { surrender_progress > 0.2 }
+			any_country = {
+				is_faction_leader = yes
+				is_in_faction_with = YUG
+				surrender_progress > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = YUG
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = YUG
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = YUG
+		value = 200
+	}
+}
+AUH_fight_ROM = {
+
+	allowed = {
+		OR = {
+			tag = HUN
+		}
+	}
+	enable = {
+		OR = {
+			is_faction_leader = yes
+			is_in_faction_with = GER
+			is_in_faction = no
+		}
+		has_completed_focus = HUN_march_to_the_shore
+		ROM = { has_war = yes }
+		can_declare_war_on = ROM
+		NOT = { has_war_with = ROM }
+		OR = {
+			NOT = {
+				any_country = {
+					num_of_military_factories > 50
+					is_neighbor_of = HUN
+					is_major = yes
+					is_in_faction_with = ROM
+				}
+			}
+			ROM = { surrender_progress > 0.2 }
+			any_country = {
+				is_faction_leader = yes
+				is_in_faction_with = ROM
+				surrender_progress > 0
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = ROM
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = ROM
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = ROM
+		value = 200
+	}
+}
+AUH_fight_GER = {
+
+	allowed = {
+		OR = {
+			tag = HUN
+		}
+	}
+	enable = {
+		OR = {
+			is_faction_leader = yes
+			is_in_faction = no
+		}
+		GER = { 
+			surrender_progress > 0
+			has_war = yes 
+		}
+		NOT = { has_war_with = GER }
+		can_declare_war_on = GER
+		any_state = {
+			is_owned_by = GER
+			OR = {
+				is_claimed_by = HUN
+				is_core_of = HUN
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 2500 # we hateses them filthy Vichy Frenches
+	}
+	ai_strategy = {
+		type = declare_war
+		id = GER
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = GER
+		value = 200
+	}
+}
+
+
+central_european_world_war_prep = {
+
+	allowed = {
+		OR = {
+			original_tag = SOV
+			original_tag = FRA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		NOT = {
+			OR = {
+				FRA = { has_war_with = SOV }
+				ENG = { has_war_with = SOV }
+				ENG = { has_war_with = FRA }
+			}
+		}
+		threat > 0.3
+		has_civil_war = no
+		NOT = { surrender_progress > 0.1 }
+		OR = {
+			is_neighbor_of = GER
+			any_other_country = {
+				is_in_faction_with = GER
+				is_neighbor_of = ROOT
+			}
+			any_other_country = {
+				is_in_faction_with = ROOT
+				is_neighbor_of = GER
+			}
+			any_other_country = {
+				is_in_faction_with = GER
+				any_other_country = {
+					is_in_faction_with = ROOT
+					is_neighbor_of = PREV
+				}
+			}
+		}
+		OR = {
+			is_faction_leader = yes
+			is_in_faction = yes
+		}
+		is_historical_focus_on = no
+		NOT = { is_in_faction_with = GER }
+		OR = {
+			NOT = { has_government = democratic }
+			NOT = { GER = { has_government = democratic } }
+		}
+		NOT = { has_non_aggression_pact_with = GER }
+		NOT = { is_guaranteed_by = GER }
+		NOT = { has_guaranteed = GER }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 2500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = GER
+		value = 300
+	}
+}
+
+central_european_world_war = {
+
+	allowed = {
+		OR = {
+			original_tag = SOV
+			original_tag = FRA
+			original_tag = ENG
+		}
+	}
+	enable = {
+		NOT = {
+			OR = {
+				FRA = { has_war_with = SOV }
+				ENG = { has_war_with = SOV }
+				ENG = { has_war_with = FRA }
+			}
+		}
+		threat > 0.8
+		has_civil_war = no
+		NOT = { surrender_progress > 0.1 }
+		OR = {
+			is_neighbor_of = GER
+			any_other_country = {
+				is_in_faction_with = GER
+				is_neighbor_of = ROOT
+			}
+			any_other_country = {
+				is_in_faction_with = ROOT
+				is_neighbor_of = GER
+			}
+			any_other_country = {
+				is_in_faction_with = GER
+				any_other_country = {
+					is_in_faction_with = ROOT
+					is_neighbor_of = PREV
+				}
+			}
+		}
+		OR = {
+			is_faction_leader = yes
+			is_in_faction = yes
+		}
+		is_historical_focus_on = no
+		NOT = { is_in_faction_with = GER }
+		OR = {
+			NOT = { has_government = democratic }
+			NOT = { GER = { has_government = democratic } }
+		}
+		NOT = { has_non_aggression_pact_with = GER }
+		NOT = { is_guaranteed_by = GER }
+		NOT = { has_guaranteed = GER }
+		OR = {
+			AND = {
+				OR = {
+					original_tag = FRA
+					original_tag = ENG
+				}
+				GER = { has_war_with = SOV }
+			}
+			AND = {
+				original_tag = SOV
+				NOT = { has_idea = SOV_molotov_ribbentrop_pact }
+				GER = { has_war_with = FRA }
+				FRA = { is_in_faction = yes }
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = consider_weak
+		id = GER
+		value = 100
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 2500
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = GER
+		value = 2500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = GER
+		value = 700
+	}
+}
+
+RAJ_kill_PAK_if_not_democratic = {
+	allowed = {
+		tag = RAJ
+	}
+	enable = {
+		NOT = { has_government = democratic }
+		PAK = { exists = yes }
+		PAK = { is_in_faction = no }
+		NOT = { has_war_with = PAK }
+		NOT = {
+			any_country = {
+				has_guaranteed = PAK
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = PAK
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = PAK
+		value = 2500
+	}
+	ai_strategy = {
+		type = declare_war
+		id = PAK
+		value = 500
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = PAK
+		value = 200
+	}
+}
+
+make_fun_of_soviets = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		OR = {
+			SOV_is_careless = yes
+			has_global_flag = SOV_has_early_war
+			AND = {
+				is_historical_focus_on = yes
+				has_wargoal_against = SOV 
+				SOV = { has_war_with = GER }
+			}
+		}
+		OR = {
+			SOV = { has_war_with = GER }
+			SOV = { has_war_with = ENG }
+			SOV = { has_war_with = USA }
+		}
+		NOT = {
+			OR = {
+				JAP = { has_war_with = GER }
+				JAP = { has_war_with = ENG }
+				JAP = { has_war_with = USA }
+			}	
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = consider_weak
+		id = SOV
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "SOV"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "SOV"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "SOV"
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 200
+	}
+}
+
+make_fun_of_soviets_allies_are_no_threat = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		NOT = { surrender_progress > 0 }
+		SOV = {
+			has_war = yes
+			surrender_progress > 0.3
+		}
+		has_idea = crossing_the_pacific_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = SOV
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "SOV"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "SOV"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "SOV"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "SOV"
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 200
+	}
+}
+
+make_fun_of_soviets_subject = {
+	reversed = yes
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		NOT = { has_war_with = JAP }
+		SOV = { has_war_with = JAP }
+		is_in_faction_with = SOV
+		OR = {
+			is_neighbor_of = JAP
+			AND = {
+				is_neighbor_of = CHI
+				CHI = { is_subject_of = JAP }
+			}
+			AND = {
+				is_neighbor_of = MAN
+				MAN = { is_subject_of = JAP }
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = JAP
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "JAP"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "JAP"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "JAP"
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = JAP
+		value = 200
+	}
+}
+
+SOV_in_case_of_sealion_justify_on_axis_to_save_the_UK_soft = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_war_with = GER }
+		ENG = { has_war_with = GER }
+		ENG = { surrender_progress > 0 } #sealion is happening and Germany has taken a port
+		GER = { is_ai = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = GER
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "GER"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "GER"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "GER"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "GER"
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = GER
+		value = 200
+	}
+	ai_strategy = {
+
+	 	type = front_unit_request
+
+		country_trigger = {
+			OR = {
+				is_in_faction_with = GER
+				tag = GER
+			}
+		}
+
+		value = 10
+	}
+}
+SOV_in_case_of_sealion_justify_on_axis_to_save_the_UK = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_war_with = GER }
+		ENG = { has_war_with = GER }
+		ENG = { surrender_progress > 0.05 } #sealion is happening and Germany has taken a port
+		any_state = {
+			is_core_of = ENG
+			is_in_home_area = yes
+			GER = { divisions_in_state = { state = PREV size > 1 } }
+		}
+		GER = { is_ai = no }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = GER
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "GER"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "GER"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "GER"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "GER"
+		value = 9999
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = GER
+		value = 200
+	}
+	ai_strategy = {
+
+	 	type = front_unit_request
+
+		country_trigger = {
+			OR = {
+				is_in_faction_with = GER
+				tag = GER
+			}
+		}
+
+		value = 10
+	}
+}
+no_molotov_ribbentrop_kill_GER_while_they_fight_FRA = {
+	enable = {
+		original_tag = SOV
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				NOT = { has_idea = SOV_molotov_ribbentrop_pact }
+				NOT = { has_global_flag = SOV_yes_pact }
+				OR = {
+					GER = { has_war_with = BEL }
+					GER = { surrender_progress > 0.05 }
+					GER = { has_manpower < 200000 }
+					BEL = { 
+						is_in_faction_with = FRA 
+						NOT = { surrender_progress > 0.10 }
+					}
+				}
+			}
+			AND = {
+				date > 1941.1.1
+				FRA = { has_capitulated = no }
+			}
+		}
+		GER = { 
+			is_ai = no 
+			is_subject = no
+			has_war_with = FRA
+		}
+		FRA = { 
+			has_capitulated = no
+			NOT = { surrender_progress > 0.05 }
+		}
+		is_neighbor_of = GER
+		has_completed_focus = SOV_nkvd_primacy
+		NOT = { has_war_with = GER }
+		OR = {
+			GER = { is_in_faction_with = LIT }
+			is_in_faction_with = LIT
+			LIT = { exists = no }
+		}
+		OR = {
+			GER = { is_in_faction_with = LAT }
+			is_in_faction_with = LAT
+			LAT = { exists = no }
+		}
+		OR = {
+			GER = { is_in_faction_with = EST }
+			is_in_faction_with = EST
+			EST = { exists = no }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = GER
+		value = 500
+	}
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = GER
+		value = 2000
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = GER
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = GER
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = GER
+		target = declare_war
+		value = 50000
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = GER
+		value = 9999
+	}
+	ai_strategy = {
+
+	 	type = front_unit_request
+
+		country_trigger = {
+			OR = {
+				is_in_faction_with = GER
+				tag = GER
+			}
+		}
+
+		value = 10
+	}
+}
+RAJ_seek_to_kill_the_breakaways = {
+	reversed = yes
+	allowed = {
+		original_tag = RAJ
+	}
+	enable = {
+		OR = {
+			original_tag = MYS
+			original_tag = HYD
+			original_tag = MYS
+			original_tag = RJP
+			original_tag = CIP
+			original_tag = WIS
+			original_tag = SIN
+			original_tag = KAS
+			original_tag = KOL
+			original_tag = KAS
+			original_tag = WIS
+			original_tag = NWF
+			original_tag = MPU
+			original_tag = KHL
+			original_tag = FSS
+			original_tag = SKK
+			original_tag = RAS
+			original_tag = KLT
+			original_tag = PAK
+		}
+		is_subject = no
+		is_in_faction = no
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = RAJ
+		value = 500
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "RAJ"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "RAJ"
+		target = declare_war
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = declare_war
+		id = "RAJ"
+		value = 9999
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "RAJ"
+		value = 9999
+	}
+}

@@ -1,0 +1,197 @@
+# frames: Frame numbers for ribbon sprite layers.
+# colors: Tint colors (R G B A) for ribbon sprite layers
+
+unique_id = sheep_achievements
+	
+sheep_welcome_to_the_mod = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+   	}
+    
+   	happened = {
+		date > 1936.1.1
+    	}    
+}
+
+	
+sheep_not_one_step_back = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = SOV
+   	}
+    
+   	happened = {
+		date > 1945.1.1
+		SOV = {
+			NOT = {
+				has_country_flag = achievement_lost_state #flag set if a state changes control away from Soviets
+			}
+		}
+    	}    
+}
+
+sheep_into_the_fire = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+   	}
+
+	happened = {
+		has_war = yes
+		any_enemy_country = {
+			is_major = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = "World War has begun"
+			world_war_is_active = yes
+		}
+	}
+}
+
+sheep_one_cheese_forward = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = SOV
+   	}
+
+	happened = {
+		date < 1940.1.1
+		OR = {
+			GER = { exists = no }
+			GER = { is_subject_of = SOV }
+		}
+	}
+}
+
+sheep_apex_conqueror = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = GER
+		is_historical_focus_on = yes
+   	}
+
+	happened = {
+		date < 1945.1.1
+		SOV = { has_doctrine = mass_assault }
+		OR = {
+			NOT = { country_exists = SOV }
+			SOV = { is_subject_of = GER }
+		}
+	}
+}
+sheep_the_people_have_spoken = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = PRC
+	}
+
+	happened = {
+		NOT = {
+			any_state = {
+				is_core_of = PRC
+				owner = {
+					is_literally_china = yes
+					NOT = { tag = PRC }
+				}
+			}
+		}
+	}
+}
+sheep_victory_for_the_chinese_united_front = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = CHI
+	}
+
+	happened = {
+		is_in_faction_with = GXC
+		is_in_faction_with = SHX
+		is_in_faction_with = YUN
+		is_in_faction_with = XSM
+		is_in_faction_with = SIK
+		is_in_faction_with = PRC
+		NOT = {
+			any_state = {
+				is_core_of = CHI
+				owner = {
+					OR = {
+						tag = MAN
+						tag = JAP
+						tag = MEN
+					}
+				}
+			}
+		}
+	}
+}
+sheep_quantity_is_quality = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		NOT = { tag = GER }
+	}
+
+	happened = {
+		has_army_manpower = { size > 10000000 }
+		any_state = {
+			is_core_of = GER
+			is_owned_by = ROOT
+		}
+	}
+}
+sheep_ultimate_victory = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = GER
+	}
+
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = "Have prevailed in the Endsieg struggle"
+			has_idea = LSM_the_final_push_success_GER
+		}
+	}
+}
+sheep_30_min_of_hel = {
+	possible = {
+        	difficulty > 0
+        	has_start_date < 1936.01.02
+        	has_any_custom_difficulty_setting = no
+        	game_rules_allow_achievements = yes
+		tag = POL
+	}
+	
+	happened = {
+		GER = {
+			casualties_inflicted_by = {
+				opponent = POL
+				thousands > 2500
+			}
+		}
+	}
+}

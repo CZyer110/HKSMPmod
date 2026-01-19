@@ -1,0 +1,82 @@
+PER_countries_should_avoid_war_with_iran = {
+	enable = { 
+		is_historical_focus_on = yes
+		OR = {
+			AND = {
+				PER = { 
+					OR = {
+						is_guaranteed_by = ENG 
+						is_guaranteed_by = SOV 
+						is_guaranteed_by = FRA 
+						is_guaranteed_by = USA 
+					}
+				}
+				is_allied_ai = yes
+			}
+			AND = {
+				PER = { 
+					OR = {
+						is_guaranteed_by = GER 
+						is_guaranteed_by = JAP 
+						is_guaranteed_by = ITA
+					}
+				}
+				is_axis_ai = yes
+			}
+		}	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = "PER"
+		value = -5000
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "PER"
+		target = declare_war
+		value = -1000
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "PER"
+		value = 5000
+	}
+
+}
+
+PER_infra_prep = {
+	allowed = {
+		original_tag = PER
+	}
+	enable = {
+		is_historical_focus_on = yes	
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 413 
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 412 
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 421 
+		value = 1000
+	}
+}

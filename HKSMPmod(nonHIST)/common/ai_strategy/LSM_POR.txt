@@ -1,0 +1,68 @@
+POR_demilitarization = {
+	allowed = {
+		original_tag = POR
+	}
+	enable = {
+		has_war = no
+		is_historical_focus_on = yes
+		GER = { is_ai = yes }
+		has_idea = civilian_economy
+		has_idea = LSM_neutrality_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = -10
+	}
+}
+
+POR_infra_prep = {
+	allowed = {
+		original_tag = POR
+	}
+	enable = {
+		is_historical_focus_on = yes		
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = build_building
+		id = infrastructure
+		target = 181 
+		value = 1
+	}
+}
+POR_support_axis = {
+	allowed = {
+		original_tag = POR
+	}
+	enable = {
+		is_historical_focus_on = yes	
+		has_war = no	
+		GER = { 
+			is_ai = yes 
+			has_war = yes
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "GER"
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = "GER"
+		value = 500
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = support_equipment
+		value = 20
+	}
+}
