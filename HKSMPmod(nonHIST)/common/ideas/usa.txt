@@ -365,7 +365,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				production_speed_dockyard_factor = 0.2	
+				production_speed_dockyard_factor = 0.1	
 			}
 		}
 		USA_greenland_patrol_idea = {
@@ -450,43 +450,7 @@ ideas = {
 
 			removal_cost = -1
 
-			on_add = {
-				division_template = {
-					name = "State Reserve"
-					priority = 1
-					division_names_group = USA_INF_01
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-						infantry = { x = 0 y = 4 }
-						infantry = { x = 1 y = 0 }
-					}
-					support = {
-						artillery = { x = 0 y = 0 }
-						anti_air = { x = 0 y = 1 }
-						engineer = { x = 0 y = 2 }
-					}
-				}
-				every_owned_state = {
-					limit = {	
-						is_in_home_area = yes
-						OR = {
-							NOT = { is_fully_controlled_by = USA }
-							any_neighbor_state = {
-								controller = { has_war_with = USA }
-							}
-						}
-					}
-					create_unit = {
-						division = "name = \"State Reserve\" division_template = \"State Reserve\" start_experience_factor = 0.05" 
-						owner = USA 
-						allow_spawning_on_enemy_provs = yes  
-						count = 5
-					}
-				}
-			}
+			
 
 			modifier = {
 				army_core_defence_factor = 0.2
@@ -550,7 +514,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				industrial_capacity_factory = 0.10	
+				industrial_capacity_factory = 0.05	
 			}
 		}
 		USA_labour_management_relations_act = {
@@ -601,7 +565,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.10
+				consumer_goods_factor = -0.10
 				stability_factor = 0.1
 			}
 		}
@@ -634,7 +598,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				production_speed_industrial_complex_factor = 0.2
+				production_speed_industrial_complex_factor = 0.1
 				production_speed_arms_factory_factor = 0.1
 			}
 		}
@@ -652,7 +616,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				production_speed_infrastructure_factor = 0.2
+				production_speed_infrastructure_factor = 0.1
 			}
 		}
 		USA_national_employment_strategy = {
@@ -668,7 +632,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				production_speed_industrial_complex_factor = 0.2
+				production_speed_industrial_complex_factor = 0.1
 				production_speed_arms_factory_factor = 0.1
 				production_factory_efficiency_gain_factor = 0.1
 			}
@@ -908,7 +872,7 @@ ideas = {
 			
 			equipment_bonus = {
 				large_plane_airframe = {
-					air_range = 0.3 instant = yes
+					air_range = 0.1 instant = yes
 				}	
 			}
 		}
@@ -1379,6 +1343,7 @@ ideas = {
 					PHI_SEA = yes
 				}
 			}
+			
 			available = {
 				if = {
 					limit = {
@@ -1397,7 +1362,6 @@ ideas = {
 					}
 				}
 			}
-
 			
 			research_bonus = {
 				armor = 0.15
@@ -1579,8 +1543,6 @@ ideas = {
 				}
 			}
 			
-
-			
 			research_bonus = {
 				naval_equipment = 0.15
 			}
@@ -1663,8 +1625,6 @@ ideas = {
 				}
 			}
 			
-
-			
 			research_bonus = {
 				air_equipment = 0.15
 			}
@@ -1722,8 +1682,6 @@ ideas = {
 					}
 				}
 			}
-			
-
 			
 			research_bonus = {
 				air_equipment = 0.15
@@ -1846,8 +1804,6 @@ ideas = {
 				}
 			}
 			
-
-			
 			research_bonus = {
 				infantry_weapons = 0.15
 			}
@@ -1856,6 +1812,7 @@ ideas = {
 			
 			modifier = {
 			}
+
 		}
 		
 		ford_motor_company = {
@@ -1886,8 +1843,6 @@ ideas = {
 					}
 				}
 			}
-			
-
 			
 			research_bonus = {
 				motorized_equipment = 0.15
@@ -1929,8 +1884,6 @@ ideas = {
 					}
 				}
 			}
-			
-
 			
 			research_bonus = {
 				artillery = 0.15

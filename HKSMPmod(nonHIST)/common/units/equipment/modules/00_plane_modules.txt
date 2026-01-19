@@ -778,7 +778,7 @@ equipment_modules = {
 			build_cost_ic = 1
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -796,7 +796,7 @@ equipment_modules = {
 			build_cost_ic = 2
 			weight = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -818,7 +818,7 @@ equipment_modules = {
 			build_cost_ic = 1.5
 			weight = 2.5
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -836,14 +836,14 @@ equipment_modules = {
 			build_cost_ic = 3
 			weight = 5
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
 		}
 		mission_type_stats = {
 			limit = {
-				attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 1
@@ -867,7 +867,7 @@ equipment_modules = {
 			air_agility = -1
 			weight = 3
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -886,14 +886,14 @@ equipment_modules = {
 			air_agility = -2
 			weight = 6
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
 		}
 		mission_type_stats = {
 			limit = {
-				attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 2
@@ -917,7 +917,7 @@ equipment_modules = {
 			air_agility = -0.5
 			weight = 3
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -936,14 +936,14 @@ equipment_modules = {
 			air_agility = -1
 			weight = 6
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
 		}
 		mission_type_stats = {
 			limit = {
-				attack_logistics
+				cas
 			}
 			add_stats = {
 				air_ground_attack = 2
@@ -967,7 +967,7 @@ equipment_modules = {
 			air_agility = -2
 			weight = 4
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -986,14 +986,14 @@ equipment_modules = {
 			air_agility = -4
 			weight = 8
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			air_superiority
 			interception
 		}
 		mission_type_stats = {
 			limit = {
-				attack_logistics
+				 cas
 			}
 			add_stats = {
 				air_ground_attack = 2
@@ -1014,16 +1014,16 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 			naval_bomber
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_agility = -15
@@ -1056,16 +1056,16 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 			naval_bomber
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_agility = -20
@@ -1098,16 +1098,16 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 			naval_bomber
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_agility = -20
@@ -1140,15 +1140,15 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_ground_attack = 4
@@ -1169,16 +1169,16 @@ equipment_modules = {
 			weight = 2
 			
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 			port_strike
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_ground_attack = 8
@@ -1212,17 +1212,17 @@ equipment_modules = {
 			build_cost_ic = 6
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 			strategic_bomber
 			port_strike
 		}
 		mission_type_stats = {
 			limit = {
 				cas
-				attack_logistics
+				## attack_logistics
 			}
 			add_stats = {
 				air_ground_attack = 6
@@ -1264,7 +1264,7 @@ equipment_modules = {
 			air_agility = -15
 			weight = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			strategic_bomber
 			port_strike
@@ -1302,10 +1302,10 @@ equipment_modules = {
 			weight = 8
 			air_agility = -15
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 		}
 		dismantle_cost_ic = 1.5
 	}
@@ -1322,10 +1322,10 @@ equipment_modules = {
 			weight = 12
 			air_agility = -20
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			cas
-			attack_logistics
+			## attack_logistics
 		}
 		dismantle_cost_ic = 3.5
 	}
@@ -1339,7 +1339,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 4
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -1371,7 +1371,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 4
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -1403,7 +1403,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 4
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -1443,7 +1443,7 @@ equipment_modules = {
 			build_cost_ic = 1
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			recon
 		}
@@ -1459,7 +1459,7 @@ equipment_modules = {
 			weight = 2
 			mines_planting = 0.05
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_mines_planting
 		}
@@ -1474,7 +1474,7 @@ equipment_modules = {
 		add_stats = {	
 			build_cost_ic = 15
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -1508,7 +1508,7 @@ equipment_modules = {
 			air_agility = -10
 			air_defence = -5
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_kamikaze
 		}
@@ -1536,7 +1536,7 @@ equipment_modules = {
 			build_cost_ic = 9
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			strategic_bomber
 			port_strike
@@ -1578,7 +1578,7 @@ equipment_modules = {
 			air_agility = -15
 			air_defence = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			strategic_bomber
 			port_strike
@@ -1615,7 +1615,7 @@ equipment_modules = {
 			air_agility = -18
 			air_defence = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			strategic_bomber
 			port_strike
@@ -1665,7 +1665,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = -0.1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 0.5
 	}
 
@@ -1683,7 +1683,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = 0.5
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 0.5
 	}
 
@@ -1700,7 +1700,7 @@ equipment_modules = {
 		build_cost_resources = {
 			rubber = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 0.5
 	}
 
@@ -1723,7 +1723,7 @@ equipment_modules = {
 		dismantle_cost_resources = {
 			aluminium = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	drop_tanks = {
@@ -1739,7 +1739,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = 0.25
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	dive_brakes_small = {
@@ -1768,7 +1768,7 @@ equipment_modules = {
 			}
 		}
 		dismantle_cost_ic = 2 #you essentially have to redesign part of the wing
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	floats = { 
@@ -1787,7 +1787,7 @@ equipment_modules = {
 			maximum_speed = -0.3
 		}
 		dismantle_cost_ic = 2.5
-		xp_cost = 1
+		xp_cost = 0
 	}
 
  ######  ########  ########  ######  ####    ###    ##          ##     ##  #######  ########  ##     ## ##       ########  ######                ##     ## ######## ########  #### ##     ## ##     ## 
@@ -1811,7 +1811,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = -0.1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 1
 	}
 
@@ -1828,7 +1828,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = 0.5
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 1
 	}
 
@@ -1846,7 +1846,7 @@ equipment_modules = {
 			rubber = 2
 		}
 		dismantle_cost_ic = 1
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	non_strategic_materials_medium = {
@@ -1865,7 +1865,7 @@ equipment_modules = {
 		build_cost_resources = {
 			aluminium = -2
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 12
 		dismantle_cost_resources = {
 			aluminium = 2
@@ -1886,7 +1886,7 @@ equipment_modules = {
 			maximum_speed = -0.4
 		}
 		dismantle_cost_ic = 2
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	demining_coil = {
@@ -1900,7 +1900,7 @@ equipment_modules = {
 			air_agility = -5
 			mines_sweeping = 0.1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		allow_mission_type = {
 			naval_mines_sweeping
 		}
@@ -1928,7 +1928,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = -0.1
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 1
 	}
 
@@ -1945,7 +1945,7 @@ equipment_modules = {
 		multiply_stats = {
 			air_range = 0.50
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 1.5
 	}
 
@@ -1963,7 +1963,7 @@ equipment_modules = {
 			rubber = 2
 		}
 		dismantle_cost_ic = 1.5
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	non_strategic_materials_large = {
@@ -1986,7 +1986,7 @@ equipment_modules = {
 		dismantle_cost_resources = {
 			aluminium = 3
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	flying_boat_large = { 
@@ -2002,7 +2002,7 @@ equipment_modules = {
 		multiply_stats = {
 			maximum_speed = -0.4
 		}
-		xp_cost = 1
+		xp_cost = 0
 		dismantle_cost_ic = 5
 	}
 
@@ -2026,7 +2026,7 @@ equipment_modules = {
 			build_cost_ic = 1.5
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	bomb_sights_2 = {
@@ -2041,7 +2041,7 @@ equipment_modules = {
 			build_cost_ic = 2
 			weight = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	radio_navigation_1 = {
@@ -2056,7 +2056,7 @@ equipment_modules = {
 			weight = 1
 			night_penalty = -0.1
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	radio_navigation_2 = {
@@ -2072,7 +2072,7 @@ equipment_modules = {
 			weight = 1
 			night_penalty = -0.2
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	air_ground_radar_1 = {
@@ -2100,7 +2100,7 @@ equipment_modules = {
 				sub_detection = 5
 			}
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	air_ground_radar_2 = {
@@ -2129,7 +2129,7 @@ equipment_modules = {
 				sub_detection = 10
 			}
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	air_air_radar_1 = {
@@ -2150,7 +2150,7 @@ equipment_modules = {
 				night_penalty = -0.2
 			}
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	air_air_radar_2 = {
@@ -2172,7 +2172,7 @@ equipment_modules = {
 				night_penalty = -0.4
 			}
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 ########  ######## ######## ######## ##    ##  ######  #### ##     ## ########    ######## ##     ## ########  ########  ######## ########  ######  
@@ -2202,7 +2202,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 
@@ -2228,7 +2228,7 @@ equipment_modules = {
 			module = cannon_defense_turret
 			convert_cost_ic = 1
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	lmg_defense_turret_2x = {
@@ -2251,7 +2251,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 
@@ -2277,7 +2277,7 @@ equipment_modules = {
 			module = cannon_defense_turret_2x
 			convert_cost_ic = 2.25
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	hmg_defense_turret = {
@@ -2300,7 +2300,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 			add_stats = {
@@ -2325,7 +2325,7 @@ equipment_modules = {
 			module = cannon_defense_turret
 			convert_cost_ic = 2
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	hmg_defense_turret_2x = {
@@ -2348,7 +2348,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 			add_stats = {
@@ -2373,7 +2373,7 @@ equipment_modules = {
 			module = cannon_defense_turret_2x
 			convert_cost_ic = 3
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	cannon_defense_turret = {
@@ -2396,7 +2396,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 			add_stats = {
@@ -2417,7 +2417,7 @@ equipment_modules = {
 			module = hmg_defense_turret
 			convert_cost_ic = 2.5
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 	cannon_defense_turret_2x = {
@@ -2440,7 +2440,7 @@ equipment_modules = {
 				strategic_bomber
 				naval_patrol
 				cas
-				attack_logistics
+				## attack_logistics
 				naval_mines_planting
 			}
 			add_stats = {
@@ -2461,7 +2461,7 @@ equipment_modules = {
 			module = hmg_defense_turret_2x
 			convert_cost_ic = 5
 		}
-		xp_cost = 1
+		xp_cost = 0
 	}
 
 }
