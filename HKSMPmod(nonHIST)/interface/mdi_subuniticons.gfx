@@ -1,0 +1,4 @@
+spriteTypes = {
+    spriteType = { name = "GFX_div_templ_121_small"										textureFile = "gfx/interface/counters/division_templates_small/custom_template_1000.dds" }
+	spriteType = { name = "GFX_div_templ_121_large"										textureFile = "gfx/interface/counters/division_templates_large/custom_template_1000.dds" }	
+}
