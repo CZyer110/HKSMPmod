@@ -92,4 +92,40 @@ HKS_decisions = {
 			air_experience = 10
 		}	
 	}
+	HKS_equipment = { # ЧТобы не срал дивками 
+
+		icon = GFX_decision_generic_industry
+
+		available = {
+			ROOT = {
+				has_equipment = {
+    				anti_abuz_1 < 10
+				}
+			}
+		}
+
+		visible = {
+			ROOT = {
+				has_equipment = {
+    				anti_abuz_1 < 10
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		priority = 100
+		
+		complete_effect = {
+			ROOT = {
+				add_equipment_to_stockpile = {
+    				type = anti_abuz_1
+					amount = 1000000000
+    				variant_name = "PISA POPA"
+				} 
+			}
+		}	
+	}
 }

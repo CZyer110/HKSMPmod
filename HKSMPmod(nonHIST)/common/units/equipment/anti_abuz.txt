@@ -30,6 +30,6 @@ equipments = {
 		year = 1918
 
 		archetype = anti_abuz
-		priority = 20	
+		priority = 0	
 	}
 }

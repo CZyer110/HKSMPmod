@@ -238,4 +238,44 @@ on_actions = {
 			}
 		}
 	}
+	on_startup = {
+		effect = {
+			any_country = {
+				limit = {
+					ROOT = {
+						has_equipment = {
+    						anti_abuz_1 < 10
+						}
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = {
+    					type = anti_abuz_1
+						amount = 100
+    					variant_name = "PISA POPA"
+					} 
+				}
+			}
+		}
+	}
+	on_startup = {
+		effect = {
+			random_country = {
+				limit = {
+					ROOT = {
+						has_equipment = {
+    						anti_abuz_1 < 10
+						}
+					}
+				}
+				ROOT = {
+					add_equipment_to_stockpile = {
+    					type = anti_abuz_1
+						amount = 100
+    					variant_name = "PISA POPA"
+					} 
+				}
+			}
+		}
+	}
 }

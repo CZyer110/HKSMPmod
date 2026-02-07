@@ -47,6 +47,6 @@ on_actions = {
 	on_release_as_puppet = {
 		
 	}
-
-
+	
+	
 }
