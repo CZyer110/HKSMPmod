@@ -161,5 +161,25 @@ ideas = {
 				neutrality_drift = -100
 			}
 		}
+		abuz_dok = {
+			
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_fascism_drift_bonus
+
+			
+			modifier = {
+				industrial_capacity_dockyard = -1
+				industrial_capacity_factory = -1
+				production_speed_buildings_factor = -1
+				production_speed_industrial_complex_factor = -1
+				production_speed_industrial_complex_factor = -1
+				research_speed_factor = -1
+			}
+		}
 	}
 }
