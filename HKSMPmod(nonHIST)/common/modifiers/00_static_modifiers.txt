@@ -365,27 +365,11 @@ attache_sent = {
 # Difficulty modifiers
 
 diff_very_easy_player = {
-	production_factory_max_efficiency_factor = 0.3
-	research_speed_factor = 0.15
-	political_power_factor = 0.5
-	production_lack_of_resource_penalty_factor = -0.8
-	army_fuel_consumption_factor = -0.5
-	air_fuel_consumption_factor = -0.5
- 	navy_fuel_consumption_factor = -0.5
-	supply_consumption_factor = -0.1
-	no_supply_grace = 72
+	no_supply_grace = 36
 }
 
 diff_easy_player = {
-	production_factory_max_efficiency_factor = 0.2
-	research_speed_factor = 0.07
-	political_power_factor = 0.25
-	production_lack_of_resource_penalty_factor = -0.3
-	army_fuel_consumption_factor = -0.25
-	air_fuel_consumption_factor = -0.25
- 	navy_fuel_consumption_factor = -0.25
-	supply_consumption_factor = -0.05
-	no_supply_grace = 48
+	no_supply_grace = 36
 }
 
 diff_normal_player = {
@@ -393,28 +377,20 @@ diff_normal_player = {
 }
 
 diff_hard_player = {
-	production_factory_max_efficiency_factor = -0.2
-	research_speed_factor = -0.15
-	political_power_factor = -0.1
-	supply_consumption_factor = 0.05
-	no_supply_grace = 24
+	no_supply_grace = 36
 }
 
 diff_very_hard_player = {
-	production_factory_max_efficiency_factor = -0.3
-	research_speed_factor = -0.30
-	political_power_factor = -0.15
-	supply_consumption_factor = 0.1
+	no_supply_grace = 36
 }
 
 
 diff_very_easy_ai = {
-	peace_score_ratio_transferred_to_players = 0.25
+	no_supply_grace = 36
 }
 
 diff_easy_ai = {
-	no_supply_grace = 24
-	peace_score_ratio_transferred_to_players = 0.1
+	no_supply_grace = 36
 }
 
 diff_normal_ai = {
@@ -422,17 +398,11 @@ diff_normal_ai = {
 }
 
 diff_hard_ai = {
-	army_fuel_consumption_factor = -0.25
-	air_fuel_consumption_factor = -0.25
- 	navy_fuel_consumption_factor = -0.25
-	no_supply_grace = 48
+	no_supply_grace = 36
 }
 
 diff_very_hard_ai = {
-	army_fuel_consumption_factor = -0.5
-	air_fuel_consumption_factor = -0.5
- 	navy_fuel_consumption_factor = -0.5
-	no_supply_grace = 72
+	no_supply_grace = 36
 }
 
 
@@ -756,4 +726,36 @@ JAP_support_ethiopia_static_modifier = {
 the_great_wall = {
 	dig_in_speed_factor = 0.15
 	max_dig_in_factor = 0.1
+}
+
+### PfOT
+
+CZE_license_equipment_agreement = {
+	valid_relation_trigger = {
+		FROM = {
+			exists = yes
+			NOT = { has_war_with = ROOT }
+		}
+	}
+
+	license_purchase_cost = 0 #base cost reduction
+	ai_license_acceptance = 50 #more to AI acceptance value. 
+	license_production_speed = 0.25 #speed increase for being a license
+	license_tech_difference_speed = 0.25 #less cost increase for each tech level between the license and own tech level
+}
+
+CZE_i_am_agreeable_to_license = { #I just like to license things
+	valid_relation_trigger = {
+		FROM = {
+			exists = yes
+			NOT = { has_war_with = ROOT}
+		}
+	}
+
+	ai_license_acceptance = 45 #more to AI acceptance value.
+	license_tech_difference_speed = 0.05 #less cost increase for each tech level between the license and own tech level
+	license_production_speed = 0.05 #speed increase for being a license
+}
+CZE_usurp_the_mantle = {
+	compliance_gain = 0.25
 }

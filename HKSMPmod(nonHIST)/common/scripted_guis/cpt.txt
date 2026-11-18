@@ -9,7 +9,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = cpt_enabled
+				has_country_flag = cpt_enabled
 				OR = {
 					has_country_flag = tp_is_host
 					NOT = {
@@ -42,7 +42,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.149 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_add_10_click = {
@@ -51,7 +51,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.150 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_add_50_click = {
@@ -60,7 +60,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.151 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_add_500_click = {
@@ -69,7 +69,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.152 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_sub_1_click = {
@@ -78,7 +78,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.153 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_sub_10_click = {
@@ -87,7 +87,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.154 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_sub_50_click = {
@@ -96,7 +96,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.155 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_autonomy_sub_500_click = {
@@ -105,7 +105,7 @@ scripted_gui = {
 					localization = Toolpack
 				}
 				every_country={
-					news_event = { id = toolpacknews.156 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			cpt_tab_button_frame_1a_click = {
@@ -143,7 +143,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.157 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -162,7 +162,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.158 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -192,7 +192,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.159 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -211,7 +211,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.160 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -229,7 +229,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.161 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -247,7 +247,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.162 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -265,7 +265,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.163 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -285,7 +285,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.164 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -303,7 +303,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.165 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -321,7 +321,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.166 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -351,7 +351,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.167 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -370,7 +370,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.168 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -388,7 +388,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.169 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -406,7 +406,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.170 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -436,7 +436,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.171 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -455,7 +455,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.172 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -473,7 +473,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.173 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -503,7 +503,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.174 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -522,7 +522,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.175 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -540,7 +540,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.176 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -558,7 +558,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.177 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}
@@ -588,7 +588,7 @@ scripted_gui = {
 					clr_country_flag = cpt_puppetee
 				}
 				every_country={
-					news_event = { id = toolpacknews.178 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 				bst_count_civf = yes
 			}

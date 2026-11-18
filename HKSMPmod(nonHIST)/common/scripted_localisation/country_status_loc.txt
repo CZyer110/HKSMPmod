@@ -1,0 +1,27 @@
+defined_text = {
+    name = GetCustomStatusText
+    text = {
+        trigger = {
+            has_country_flag = custom_status_supermajor
+        }
+        localization_key = custom_status_supermajor_loc
+    }
+    text = {
+        trigger = {
+            has_country_flag = custom_status_major
+        }
+        localization_key = custom_status_major_loc
+    }
+	text = {
+        trigger = {
+            has_country_flag = custom_status_max
+        }
+        localization_key = custom_status_max_loc
+    }
+    text = {
+        trigger = {
+            always = yes
+        }
+        localization_key = custom_status_minor_loc
+    }
+}

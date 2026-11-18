@@ -9,7 +9,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = bst_enabled
+				has_country_flag = bst_enabled
 				OR = {
 					has_country_flag = tp_is_host
 					NOT = {
@@ -4436,7 +4436,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = bst_enabled
+				has_country_flag = bst_enabled
 				NOT = { has_global_flag = bst_window2_closed }
 				OR = {
 					has_country_flag = tp_is_host

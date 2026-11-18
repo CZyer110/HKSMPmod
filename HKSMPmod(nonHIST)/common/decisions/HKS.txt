@@ -26,4 +26,24 @@ HKS_decisions = {
 			air_experience = 10
 		}	
 	}
+	HKS_interface = { 
+		name = "Открыть рейтинг мировых держав"
+		icon = GFX_decision_generic_industry
+		available = {
+		}
+		visible = {
+		}
+		
+		
+		fire_only_once = no
+		ai_will_do = {
+			factor = 0
+		}
+		
+		priority = 99
+		
+		complete_effect = {
+			set_country_flag = show_industry_ranking
+		}	
+	}
 }

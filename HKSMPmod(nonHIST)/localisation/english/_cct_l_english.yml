@@ -1,0 +1,9 @@
+﻿l_english:
+ cct_off:0 "Country Cosmetic Tool: £trigger_no"
+ cct_on:0 "Country Cosmetic Tool: £trigger_yes"
+ CCT_democratic_pretend: "Pretend to be §YDemocratic§!"
+ CCT_neutrality_pretend: "Pretend to be §YNon-Aligned§!"
+ CCT_fascism_pretend: "Pretend to be §YFascist§!"
+ CCT_communism_pretend: "Pretend to be §YCommunist§!"
+ CCT_clear_pretend: "Clear cosmetic tag"
+ CCT_target_pretend: "Pretend to be [?global.toolpack_cct_country.GetNonIdeologyName]"

@@ -1,0 +1,28 @@
+﻿l_english:
+ 
+ ret_off:0 "Country Releasing Tool: £trigger_no"
+ ret_on:0 "Country Releasing Tool: £trigger_yes"
+ RET_COUNTRY_ONE: "[toolpack_country_with_core_of_this_state_1]"
+ RET_COUNTRY_TWO: "[toolpack_country_with_core_of_this_state_2]"
+ RET_COUNTRY_THREE: "[toolpack_country_with_core_of_this_state_3]"
+ RET_COUNTRY_FOUR: "[toolpack_country_with_core_of_this_state_4]"
+ RET_COUNTRY_FIVE: "[toolpack_country_with_core_of_this_state_5]"
+ RET_COUNTRY_SIX: "[toolpack_country_with_core_of_this_state_6]"
+ RET_COUNTRY_SEVEN: "[toolpack_country_with_core_of_this_state_7]"
+ RET_COUNTRY_EIGHT: "[toolpack_country_with_core_of_this_state_8]"
+
+ RET_COUNTRY_ONE_DEF: "[?FROM.country_with_core_of_this_state_1.GetNameDefCap]"
+ RET_COUNTRY_TWO_DEF: "[?FROM.country_with_core_of_this_state_2.GetNameDefCap]"
+ RET_COUNTRY_THREE_DEF: "[?FROM.country_with_core_of_this_state_3.GetNameDefCap]"
+ RET_COUNTRY_FOUR_DEF: "[?FROM.country_with_core_of_this_state_4.GetNameDefCap]"
+ RET_COUNTRY_FIVE_DEF: "[?FROM.country_with_core_of_this_state_5.GetNameDefCap]"
+ RET_COUNTRY_SIX_DEF: "[?FROM.country_with_core_of_this_state_6.GetNameDefCap]"
+ RET_COUNTRY_SEVEN_DEF: "[?FROM.country_with_core_of_this_state_7.GetNameDefCap]"
+ RET_COUNTRY_EIGHT_DEF: "[?FROM.country_with_core_of_this_state_8.GetNameDefCap]"
+
+ RET_RELEASE: "Release"
+ RET_RELEASE_HERE: "Here"
+ RET_RELEASE_WITHIN: "Within Country"
+ RET_RELEASE_ALL: "All Cores"
+ 
+ RET_NO_CORES: "No Claimants Found Here\nUse State Managing Tool instead for existent countries"

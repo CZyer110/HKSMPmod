@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = cpt_enabled
+			has_country_flag = cpt_enabled
 		}
 		localization_key = CPT_ACTIVITY_OFF
 	}

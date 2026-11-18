@@ -1,0 +1,284 @@
+﻿###########################
+# Уведомления о смене статуса страны
+###########################
+
+add_namespace = country_status_events
+
+# Мажор -> Сверхмажор
+news_event = {
+	id = country_status_events.1
+	title = country_status_events.1.t
+	desc = {
+		text = country_status_events.1.d
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = ITA
+					tag = FRA
+					tag = JAP
+					tag = USA
+					tag = ENG
+					tag = SOV
+				}
+			}
+		}
+	}
+	desc = {
+		text = country_status_events.1.d_major
+		trigger = {
+			OR = {
+				tag = GER
+				tag = ITA
+				tag = FRA
+				tag = JAP
+				tag = USA
+				tag = ENG
+				tag = SOV
+			}
+		}
+	}
+	picture = GFX_news_event_009
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = country_status_events.1.a
+	}
+}
+
+# Сверхмажор -> Мажор
+news_event = {
+	id = country_status_events.2
+	title = country_status_events.2.t
+	desc = {
+		text = country_status_events.2.d
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = ITA
+					tag = FRA
+					tag = JAP
+					tag = USA
+					tag = ENG
+					tag = SOV
+				}
+			}
+		}
+	}
+	desc = {
+		text = country_status_events.2.d_major
+		trigger = {
+			OR = {
+				tag = GER
+				tag = ITA
+				tag = FRA
+				tag = JAP
+				tag = USA
+				tag = ENG
+				tag = SOV
+			}
+		}
+	}
+	picture = GFX_news_event_009
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = country_status_events.2.a
+	}
+}
+
+# Минор -> Мажор
+news_event = {
+	id = country_status_events.3
+	title = country_status_events.3.t
+	desc = {
+		text = country_status_events.3.d
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = ITA
+					tag = FRA
+					tag = JAP
+					tag = USA
+					tag = ENG
+					tag = SOV
+				}
+			}
+		}
+	}
+	desc = {
+		text = country_status_events.3.d_major
+		trigger = {
+			OR = {
+				tag = GER
+				tag = ITA
+				tag = FRA
+				tag = JAP
+				tag = USA
+				tag = ENG
+				tag = SOV
+			}
+		}
+	}
+	picture = GFX_news_event_009
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = country_status_events.3.a
+	}
+}
+
+# Мажор -> Минор
+news_event = {
+	id = country_status_events.4
+	title = country_status_events.4.t
+	desc = {
+		text = country_status_events.4.d
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = ITA
+					tag = FRA
+					tag = JAP
+					tag = USA
+					tag = ENG
+					tag = SOV
+				}
+			}
+		}
+	}
+	desc = {
+		text = country_status_events.4.d_major
+		trigger = {
+			OR = {
+				tag = GER
+				tag = ITA
+				tag = FRA
+				tag = JAP
+				tag = USA
+				tag = ENG
+				tag = SOV
+			}
+		}
+	}
+	picture = GFX_news_event_009
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = country_status_events.4.a
+	}
+}
+
+add_namespace = ai_capitulate
+country_event = {
+	id = ai_capitulate.1
+	title = ai_capitulate.1.t
+	desc = ai_capitulate.1.desc
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes
+
+	option = { # Аннексия
+		name = ai_capitulate.1.a
+		ai_chance = {
+			factor = 10
+		}
+		#custom_effect_tooltip = ai_capitulate_annex_tt
+		hidden_effect = {
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				event_target:boss_country = { annex_country = { target = PREV } }
+			}
+			every_state = { clr_state_flag = ai_capitulate_states }
+		}
+	}
+	
+	option = { # Одна большая марионетка
+		name = ai_capitulate.1.b
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = ai_capitulate_puppet_tt
+		hidden_effect = {
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				event_target:boss_country = { puppet = PREV } 
+			}
+			every_state = { clr_state_flag = ai_capitulate_states }
+		}
+	}
+	
+	option = { # Разделить на марионетки
+		name = ai_capitulate.1.c
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			any_country = {
+				exists = no
+				NOT = { has_country_flag = ai_capitulated_country }
+				any_core_state = { has_state_flag = ai_capitulate_states }
+			}
+		}
+		#custom_effect_tooltip = ai_capitulate_divide_tt
+		hidden_effect = {
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				save_event_target_as = current_capitulated
+
+				# 1. Аннексируем, чтобы победитель получил владение (own) территориями
+				event_target:boss_country = { 
+					annex_country = { target = PREV transfer_troops = yes } 
+				}
+
+				# 2. Если страна всё ещё существует (например, правительство в изгнании) — делаем её марионеткой напрямую
+				if = {
+					limit = { exists = yes }
+					event_target:boss_country = { puppet = event_target:current_capitulated }
+				}
+				# 3. Если страна не существует — используем release_puppet (он сработает только для несуществующих)
+				else = {
+					event_target:boss_country = { release_puppet = event_target:current_capitulated }
+				}
+
+				# 4. Передаём марионетке все территории, помеченные флагом (включая не-ядра)
+				every_state = {
+					limit = { has_state_flag = ai_capitulate_states }
+					event_target:boss_country = { 
+						transfer_state_to = event_target:current_capitulated 
+					}
+				}
+			}
+			every_possible_country = {
+				limit = {
+					exists = no
+					NOT = { has_country_flag = ai_capitulated_country }
+					any_core_state = { has_state_flag = ai_capitulate_states }
+				}
+				event_target:boss_country = {
+					release_puppet_on_controlled = PREV
+					set_autonomy = { 
+						target = PREV
+						autonomy_state = autonomy_integrated_puppet
+					}
+				}
+			}
+			every_state = { clr_state_flag = ai_capitulate_states }
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				clr_country_flag = ai_capitulated_country
+			}
+			clr_country_flag = ai_boss_country
+		}
+	}
+}

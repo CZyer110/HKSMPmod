@@ -1,0 +1,97 @@
+on_actions = {
+    on_startup = {
+        effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_10
+					}
+				}
+				every_country = {
+					add_ideas = base_percent_sp_10
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_5
+					}
+				}
+				every_country = {
+					add_ideas = base_percent_sp_5
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_2_5
+					}
+				}
+				every_country = {
+					add_ideas = base_percent_sp_2_5
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_0
+					}
+				}
+				every_country = {
+					add_ideas = base_percent_sp_0
+				}
+			}
+			
+			
+			
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_min
+						option = min_sp_10000
+					}
+				}
+				every_country = {
+					add_ideas = min_sp_10000
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_min
+						option = min_sp_100
+					}
+				}
+				every_country = {
+					add_ideas = min_sp_100
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_min
+						option = min_sp_50
+					}
+				}
+				every_country = {
+					add_ideas = min_sp_50
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_min
+						option = min_sp_0
+					}
+				}
+				every_country = {
+					add_ideas = min_sp_0
+				}
+			}
+        }
+    }
+}

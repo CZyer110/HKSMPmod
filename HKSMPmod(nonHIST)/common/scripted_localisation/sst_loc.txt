@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = sst_enabled
+			has_country_flag = sst_enabled
 		}
 		localization_key = SST_ACTIVITY_OFF
 	}
@@ -17,7 +17,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = sst_enabled
+			has_country_flag = sst_enabled
 		}
 		localization_key = SST_OPEN
 	}

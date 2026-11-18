@@ -1,0 +1,42 @@
+﻿l_english:
+  
+ crt_off:0 "Country Rule Tool: £trigger_no"
+ crt_on:0 "Country Rule Tool: £trigger_yes"
+  
+ CRT_FACTION_CATEGORY: "Faction"
+ CRT_WARNING: "§RWarning: Due to a hardcoded bug, the options below each can only be used 2 times per country, then you need to reload this savegame.§!"
+ CRT_TEMPLATE_LISTING: "Remove Army/Template Restrictions for this Country:"
+
+ CRT_PEACE_CATEGORY: "Peace Deals"
+
+
+ CRT_UNLOCK_TEMPLATES_TT:0 "§HRemove training restrictions on country and unlocks any basegame locked templates.§!§R\nDue to technical limitations, modded units cannot be automatically unlocked.§!"
+ CRT_TOGGLE_FACTION_CREATION_ON_TT: "§GEnable§! §Hfaction creation for this country§!"
+ CRT_TOGGLE_FACTION_CREATION_OFF_TT: "§RDisable§! §Hfaction creation for this country§!"
+ CRT_TOGGLE_FACTION_JOINING_ON_TT: "§GEnable§! §Hfaction joining for this country§!"
+ CRT_TOGGLE_FACTION_JOINING_OFF_TT: "§RDisable§! §Hfaction joining for this country§!"
+
+ CRT_TOGGLE_COUP_ON_TT: "§GEnable§! §Hforcing government for this country§!"
+ CRT_TOGGLE_COUP_OFF_TT: "§RDisable§! §Hforcing government for this country§!"
+ CRT_TOGGLE_PUPPETING_ON_TT: "§GEnable§! §Hpuppeting for this country§!"
+ CRT_TOGGLE_PUPPETING_OFF_TT: "§RDisable§! §Hpuppeting for this country§!"
+
+ CRT_INFLUENCE_CATEGORY: "Influence"
+
+ CRT_IDEOLOGY_CATEGORY: "Ideology"
+ CRT_TOGGLE_FEMALE_ACE_OFF_TT: "§RDisable§! §Hfemale aces for this country§!"
+ CRT_TOGGLE_FEMALE_ACE_ON_TT: "§GEnable§! §Hfemale aces for this country§!"
+ CRT_TOGGLE_KAMIKAZE_OFF_TT: "§RDisable§! §Hkamikazes for this country§!"
+ CRT_TOGGLE_KAMIKAZE_ON_TT: "§GEnable§! §Hkamikazes for this country§!"
+ CRT_TOGGLE_DEM_JUSTIFY_OFF_TT: "§GEnable§! §Htension-free justification for this country§!"  #these are reversed, bit confusing
+ CRT_TOGGLE_DEM_JUSTIFY_ON_TT: "§RDisable§! §Htension-free justification for this country§!"
+ CRT_TOGGLE_BOOSTING_OFF_TT: "§RDisable§! §Hboosting all ideologies for this country§!"
+ CRT_TOGGLE_BOOSTING_ON_TT: "§GEnable§! §Hboosting all ideologies for this country§!"
+ CRT_TOGGLE_GUARANTEE_ALL_OFF_TT: "§RDisable§! §Hguaranteeing all ideologies for this country§!"
+ CRT_TOGGLE_GUARANTEE_ALL_ON_TT: "§GEnable§! §Hguaranteeing all ideologies for this country§!"
+
+ CRT_TOGGLE_VOLUNTEER_ON_TT: "§GEnable§! §Hvolunteer sending for this country§!"
+ CRT_TOGGLE_VOLUNTEER_OFF_TT: "§RDisable§! §Hvolunteer sending for this country§!"
+
+ CRT_TOGGLE_COLLAB_GOV_ON_TT: "§GEnable§! §Hcollaboration government formation for this country§!"
+ CRT_TOGGLE_COLLAB_GOV_OFF_TT: "§RDisable§! §Hcollaboration government formation for this country§!"

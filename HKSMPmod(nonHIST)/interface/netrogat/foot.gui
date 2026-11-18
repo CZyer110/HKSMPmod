@@ -1,0 +1,28 @@
+guiTypes = { 
+
+		
+	containerWindowType = {
+		name = "god_9"
+		position = { x=0 y=0 }
+		
+		buttonType = {
+			name = "god_on_button"
+			position ={ x = 1935 y = 860 }
+			quadTextureSprite = "GFX_god"
+		}
+		
+		buttonType = {
+			name = "god_off_button"
+			position ={ x = 1935 y = 860 }
+			quadTextureSprite = "GFX_god"
+		}
+		
+		buttonType = {
+			name = "god_noo"
+			position ={ x = -1 y = -1 }
+			shortcut = "/"
+			quadTextureSprite = "GFX_god"
+		}
+
+	}
+}

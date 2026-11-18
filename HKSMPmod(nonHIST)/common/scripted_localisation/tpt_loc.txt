@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = TPT_enabled
+			has_country_flag = TPT_enabled
 		}
 		localization_key = TPT_ACTIVITY_OFF
 	}

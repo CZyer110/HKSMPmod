@@ -1,0 +1,1876 @@
+#	Triggers to control if diplomatic actions are enabled:
+#		Format:
+#
+#		<diplomatic action tag>_enabled_trigger = {
+#			<trigger contents>
+#		}
+#
+#		ROOT is the country initiating the diplomatic action.
+#		FROM is the recipient or target of the diplomatic action.
+#
+#		Note:  For cleaner tooltips, it is recommended that you use
+#			if triggers within the enable triggers, and a single
+#			custom_trigger_tooltip trigger within each if trigger.
+#
+#		Example: (Germany is prevented from declaring war on the Soviet Union.)
+#
+#		DIPLOMACY_WAR_ENABLE_TRIGGER = {
+#			if = {
+#				limit = {
+#					tag = GER
+#				}
+#				custom_trigger_tooltip = {
+#					tooltip = PREVENT_GER_WAR_ON_SOV
+#					FROM = {
+#						NOT = {
+#							tag = SOV
+#						}
+#					}
+#				}
+#			}
+#		}
+
+DIPLOMACY_WAR_ENABLE_TRIGGER = {
+        # ПРОВЕРКА 1: Против JAP and CHI можно только после 1940
+		if = {
+			limit = {
+				NOT = {has_country_flag = panay_no_sorry}
+				OR = {
+					FROM = {
+						has_war_with = JAP
+						OR = {
+							tag = CHI
+							tag = PRC
+							tag = SND
+							tag = HBC
+							tag = SHX
+							tag = GDC
+							tag = GXC
+							tag = YUN
+							tag = SIC
+							tag = XIC
+							tag = XSM
+							tag = GSM
+							tag = NXM
+							tag = KHM
+							tag = SIK
+						}
+					}
+					FROM = {
+						has_war_with = CHI
+						OR = {
+							tag = JAP
+							tag = MAN
+							tag = MEN
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+				date > 1940.1.1
+			}
+		}
+		# ПРОВЕРКА 1.2: Против SOV или RUS можно только после 1940
+        else_if = {
+                limit = {
+						is_ai = no
+                        FROM = {
+                                OR = {
+                                        tag = SOV
+                                        tag = RUS
+										is_puppet_of = SOV
+										is_puppet_of = RUS
+										is_guaranteed_by = SOV
+										is_guaranteed_by = RUS
+                                }
+                        }
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_SOV
+					date > 1940.1.1
+				}
+        }
+		# ПРОВЕРКА 1.3: Против JAP можно только после 1940
+		else_if = {
+                limit = {
+						is_ai = no
+                        FROM = {
+                                OR = {
+                                        tag = JAP
+										is_puppet_of = JAP
+										is_guaranteed_by = JAP
+										tag = BRA
+										is_puppet_of = BRA
+										is_guaranteed_by = BRA
+                                }
+                        }
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_JAP_OR_BRA
+					date > 1937.1.1
+				}
+        }
+        # ПРОВЕРКА 2: Против игрока Мажора/Супермажора — после 1939
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = no
+                                OR = {
+                                        has_country_flag = custom_status_supermajor
+                                        has_country_flag = custom_status_major
+                                }
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+									is_ai = no
+								}
+						}
+						any_country = {
+							OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+							is_ai = no
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MAJOR_PLAYERS
+					date > 1939.1.1
+				}
+        }
+        # ПРОВЕРКА 3: Против ИИ Мажора/Супермажора — после 1938
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = yes
+                                OR = {
+                                        has_country_flag = custom_status_supermajor
+                                        has_country_flag = custom_status_major
+                                }
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+									is_ai = yes
+								}
+						}
+						any_country = {
+							OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+							is_ai = yes
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MAJOR_AI
+					date > 1938.1.1
+				}
+        }
+		# ПРОВЕРКА 6: Миноры в Азии/Америках против таких же миноров (Всегда можно)
+		else_if = {
+                limit = {
+						is_ai = no
+                        capital_scope = {
+							is_on_continent = asia
+                        }
+                        FROM = {
+                                has_country_flag = custom_status_minor
+                                capital_scope = {
+									is_on_continent = asia
+                                }
+                        }
+                }
+                always = yes
+        }
+		else_if = {
+                limit = {
+						is_ai = no
+                        has_country_flag = custom_status_minor
+                        capital_scope = {
+							is_on_continent = south_america
+                        }
+                        FROM = {
+                                has_country_flag = custom_status_minor
+                                capital_scope = {
+									is_on_continent = south_america
+                                }
+                        }
+                }
+                always = yes
+        }
+		# ПРОВЕРКА 4: Против игрока Минора — после 1938
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = no
+                                has_country_flag = custom_status_minor
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									has_country_flag = custom_status_minor
+									is_ai = no
+								}
+						}
+						any_country = {
+							has_country_flag = custom_status_minor
+							is_ai = no
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MINOR_PLAYERS
+					date > 1938.1.1
+				}
+        }
+		else_if = {
+                limit = {
+					tag = ENG
+					has_civil_war = yes
+                    FROM = {NOT = {tag = MAL}}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_DOMINIONS_IN_CIVIL_WAR
+					always = no
+				}
+        }
+		else_if = {
+                limit = {
+					tag = ENG
+					has_civil_war = yes
+                    FROM = {tag = MAL}
+                }
+				always = yes
+        }
+        # ПРОВЕРКА 5: Против ИИ Минора — после 1937
+		else_if = {
+			limit = {
+				OR = {
+					FROM = {
+						is_ai = yes
+						has_country_flag = custom_status_minor
+					}
+					FROM = {
+						is_subject = yes
+						overlord = {
+							has_country_flag = custom_status_minor
+							is_ai = yes
+						}
+					}
+					any_country = {
+						has_country_flag = custom_status_minor
+						is_ai = yes
+						has_guaranteed = FROM
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = RULE_BAN_WAR_WITH_MINOR_AI
+				date > 1937.1.1
+			}
+        }
+        else = {
+                always = yes
+        }
+}
+
+# This specifically overrides the rule check as to whether or not you can guarantee other ideologies
+DIPLOMACY_GUARANTEE_ENABLE_TRIGGER_OVERRIDES_GAME_TRIGGER = {
+	NOT = {
+		has_game_rule = {
+			rule = allow_guarantees
+			option = LIMITED
+		}
+	}
+}
+
+DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			any_country = {
+				OR = {
+					is_justifying_wargoal_against = FROM
+					has_wargoal_against = FROM
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_GUARANTEE_WHILE_JUSTIFYING_WARGOAL
+			always = no
+		}
+	}
+
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_guarantees
+				option = ALWAYS_FREE
+			}
+		}
+		always = yes
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_guarantees
+				option = LIMITED
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_guarantees
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_GUARANTEES_SAME_IDEOLOGY_TOOLTIP
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_guarantees
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_GUARANTEES_BLOCKED_TOOLTIP
+			always = no
+		}
+	}
+}
+
+DIPLOMACY_REVOKE_GUARANTEE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_revoke_guarantees
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_REVOKE_GUARANTEES_BLOCKED_TOOLTIP
+			always = no
+		}
+	}
+}
+
+DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
+	custom_trigger_tooltip = {
+		tooltip = RULE_BAN_RELEASE_NATIONS
+		always = no
+	}
+}
+DIPLOMACY_MILACC_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = FREE
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = FREE
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+			always = no
+		}
+	}
+}
+
+DIPLOMACY_REVOKE_OFFER_MILACC_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			original_tag = PHI
+			FROM = {
+				original_tag = USA
+			}
+		}
+		NOT = {
+			has_country_flag = PHI_permanent_usa_land_bases
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = IRQ
+			FROM = {
+				original_tag = ENG
+			}
+		}
+		NOT = {
+			has_idea = IRQ_anglo_iraqi_treaty
+		}
+	}
+}
+
+DIPLOMACY_REVOKE_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			original_tag = PHI
+			FROM = {
+				original_tag = USA
+			}
+		}
+		NOT = {
+			has_country_flag = PHI_permanent_usa_naval_bases
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = IRQ
+			FROM = {
+				original_tag = ENG
+			}
+		}
+		NOT = {
+			has_idea = IRQ_anglo_iraqi_treaty
+		}
+	}
+}
+
+DIPLOMACY_AIR_BASE_ACCESS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			original_tag = PHI
+			FROM = {
+				original_tag = USA
+			}
+		}
+		NOT = {
+			has_country_flag = PHI_permanent_usa_air_bases
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = IRQ
+			FROM = {
+				original_tag = ENG
+			}
+		}
+		NOT = {
+			has_idea = IRQ_anglo_iraqi_treaty
+		}
+	}
+}
+DIPLOMACY_OFFER_AIR_BASE_ACCESS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			original_tag = PHI
+			FROM = {
+				original_tag = USA
+			}
+		}
+		NOT = {
+			has_country_flag = PHI_permanent_usa_air_bases
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = IRQ
+			FROM = {
+				original_tag = ENG
+			}
+		}
+		NOT = {
+			has_idea = IRQ_anglo_iraqi_treaty
+		}
+	}
+}
+
+
+DIPLOMACY_REVOKE_OFFER_AIR_BASE_ACCESS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			original_tag = PHI
+			FROM = {
+				original_tag = USA
+			}
+		}
+		NOT = {
+			has_country_flag = PHI_permanent_usa_air_bases
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = IRQ
+			FROM = {
+				original_tag = ENG
+			}
+		}
+		NOT = {
+			has_idea = IRQ_anglo_iraqi_treaty
+		}
+	}
+}
+
+DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			is_in_faction = yes
+			FROM = {is_in_faction = yes}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_MILITARY_ACCESS_OTHER_FACTION
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_access
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_MILITARY_ACCESS_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = FREE
+			}
+		}
+		always = yes
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = LIMITED
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = SAME_FACTION
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_SAME_FACTION_TT
+			is_in_faction_with = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = FREE
+			}
+		}
+		always = yes
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = LIMITED
+			}
+		}
+		always = yes #handled by game logic, see above
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = SAME_FACTION
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_SAME_FACTION_TT
+			is_in_faction_with = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEND_LEASE_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_licensing
+				option = FREE
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_licensing
+				option = SAME_IDEOLOGY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LICENSING_SAME_IDEOLOGY_TT
+			has_government = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_licensing
+				option = SAME_FACTION
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LICENSING_SAME_FACTION_TT
+			is_in_faction_with = FROM
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_licensing
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LICENSING_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
+	        # ПРОВЕРКА 1: Против JAP and CHI можно только после 1940
+		if = {
+			limit = {
+				NOT = {has_country_flag = panay_no_sorry}
+				OR = {
+					FROM = {
+						has_war_with = JAP
+						OR = {
+							tag = CHI
+							tag = PRC
+							tag = SND
+							tag = HBC
+							tag = SHX
+							tag = GDC
+							tag = GXC
+							tag = YUN
+							tag = SIC
+							tag = XIC
+							tag = XSM
+							tag = GSM
+							tag = NXM
+							tag = KHM
+							tag = SIK
+						}
+					}
+					FROM = {
+						has_war_with = CHI
+						OR = {
+							tag = JAP
+							tag = MAN
+							tag = MEN
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+				date > 1940.1.1
+			}
+		}
+		# ПРОВЕРКА 1.2: Против SOV или RUS можно только после 1940
+        else_if = {
+                limit = {
+						is_ai = no
+                        FROM = {
+                                OR = {
+                                        tag = SOV
+                                        tag = RUS
+										is_puppet_of = SOV
+										is_puppet_of = RUS
+										is_guaranteed_by = SOV
+										is_guaranteed_by = RUS
+                                }
+                        }
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_SOV
+					date > 1940.1.1
+				}
+        }
+		# ПРОВЕРКА 1.3: Против JAP можно только после 1940
+		else_if = {
+                limit = {
+						is_ai = no
+                        FROM = {
+                                OR = {
+                                        tag = JAP
+										is_puppet_of = JAP
+										is_guaranteed_by = JAP
+										tag = BRA
+										is_puppet_of = BRA
+										is_guaranteed_by = BRA
+                                }
+                        }
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_JAP_OR_BRA
+					date > 1937.1.1
+				}
+        }
+        # ПРОВЕРКА 2: Против игрока Мажора/Супермажора — после 1939
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = no
+                                OR = {
+                                        has_country_flag = custom_status_supermajor
+                                        has_country_flag = custom_status_major
+                                }
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+									is_ai = no
+								}
+						}
+						any_country = {
+							OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+							is_ai = no
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MAJOR_PLAYERS
+					date > 1939.1.1
+				}
+        }
+        # ПРОВЕРКА 3: Против ИИ Мажора/Супермажора — после 1938
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = yes
+                                OR = {
+                                        has_country_flag = custom_status_supermajor
+                                        has_country_flag = custom_status_major
+                                }
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+									is_ai = yes
+								}
+						}
+						any_country = {
+							OR = { has_country_flag = custom_status_supermajor has_country_flag = custom_status_major}
+							is_ai = yes
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MAJOR_AI
+					date > 1938.1.1
+				}
+        }
+		# ПРОВЕРКА 6: Миноры в Азии/Америках против таких же миноров (Всегда можно)
+		else_if = {
+                limit = {
+						is_ai = no
+                        capital_scope = {
+							is_on_continent = asia
+                        }
+                        FROM = {
+                                has_country_flag = custom_status_minor
+                                capital_scope = {
+									is_on_continent = asia
+                                }
+                        }
+                }
+                always = yes
+        }
+		else_if = {
+                limit = {
+						is_ai = no
+                        has_country_flag = custom_status_minor
+                        capital_scope = {
+							is_on_continent = south_america
+                        }
+                        FROM = {
+                                has_country_flag = custom_status_minor
+                                capital_scope = {
+									is_on_continent = south_america
+                                }
+                        }
+                }
+                always = yes
+        }
+		# ПРОВЕРКА 4: Против игрока Минора — после 1938
+        else_if = {
+                limit = {
+					is_ai = no
+					OR = {
+                        FROM = {
+                                is_ai = no
+                                has_country_flag = custom_status_minor
+						}
+						FROM = {
+								is_subject = yes
+								overlord = {
+									has_country_flag = custom_status_minor
+									is_ai = no
+								}
+						}
+						any_country = {
+							has_country_flag = custom_status_minor
+							is_ai = no
+							has_guaranteed = FROM
+						}
+					}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_MINOR_PLAYERS
+					date > 1938.1.1
+				}
+        }
+		else_if = {
+                limit = {
+					tag = ENG
+					has_civil_war = yes
+                    FROM = {NOT = {tag = MAL}}
+                }
+				custom_trigger_tooltip = {
+					tooltip = RULE_BAN_WAR_WITH_DOMINIONS_IN_CIVIL_WAR
+					always = no
+				}
+        }
+		else_if = {
+                limit = {
+					tag = ENG
+					has_civil_war = yes
+                    FROM = {tag = MAL}
+                }
+				always = yes
+        }
+        # ПРОВЕРКА 5: Против ИИ Минора — после 1937
+		else_if = {
+			limit = {
+				OR = {
+					FROM = {
+						is_ai = yes
+						has_country_flag = custom_status_minor
+					}
+					FROM = {
+						is_subject = yes
+						overlord = {
+							has_country_flag = custom_status_minor
+							is_ai = yes
+						}
+					}
+					any_country = {
+						has_country_flag = custom_status_minor
+						is_ai = yes
+						has_guaranteed = FROM
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = RULE_BAN_WAR_WITH_MINOR_AI
+				date > 1937.1.1
+			}
+        }
+        else = {
+                always = yes
+        }
+}
+DIPLOMACY_BOOST_PARTY_POPULARITY_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_party_boosting
+				option = FREE
+			}
+		}
+		always = yes
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_party_boosting
+				option = AI_ONLY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BOOST_PARTY_AI_ONLY_TT
+			FROM = { is_ai = yes }
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_party_boosting
+				option = PLAYER_ONLY
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BOOST_PARTY_PLAYER_ONLY_TT
+			FROM = { is_ai = no }
+		}
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_party_boosting
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BOOST_PARTY_BLOCKED_TT
+			always = no
+		}
+	}
+}
+DIPLOMACY_STAGE_COUP_ENABLE_TRIGGER = {
+	custom_trigger_tooltip = {
+		tooltip = RULE_COUP_AI_ONLY_TT
+		FROM = { is_ai = yes }
+	}
+}
+DIPLOMACY_LEAVE_FACTION_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_leave_faction
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_LEAVE_FACTION_BLOCKED_TOOLTIP
+			always = no
+		}
+	}
+}
+DIPLOMACY_ASSUME_FACTION_LEADERSHIP_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_take_over_faction
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ASSUME_LEADERSHIP_BLOCKED_TOOLTIP
+			always = no
+		}
+	}
+}
+DIPLOMACY_KICK_FROM_FACTION_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_kick_faction
+				option = BLOCKED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_KICK_FROM_FACTION_BLOCKED_TOOLTIP
+			always = no
+		}
+	}
+}
+DIPLOMACY_RECALL_VOLUNTEERS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_volunteers
+				option = ALWAYS_FREE
+			}
+		}
+		if = {
+			limit = {
+				has_volunteers = from
+			}
+		}
+	}
+}
+DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			FROM = {
+				OR = {
+					all_enemy_country = {is_ai = yes}
+					tag = SPR
+					tag = SPD
+					tag = D01
+					tag = D02
+					tag = D03
+				}
+			}
+		}
+		always = yes
+	}
+	else = {
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_VOLUNTEERS_AGAINST_PLAYERS
+			date > 1938.1.1
+		}
+	}
+}
+
+game_weight_can_add_fascist = {
+	GER = {
+		AND = {
+			OR = {
+				check_variable = { fascist_game_weight < democratic_game_weight }
+				check_variable = { fascist_game_weight = democratic_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { fascist_game_weight < unaligned_game_weight }
+				check_variable = { fascist_game_weight = unaligned_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { fascist_game_weight < communist_game_weight }
+				check_variable = { fascist_game_weight = communist_game_weight }
+			}
+		}
+	}
+}
+
+game_weight_can_add_democratic = {
+	GER = {
+		AND = {
+			OR = {
+				check_variable = { democratic_game_weight < fascist_game_weight }
+				check_variable = { democratic_game_weight = fascist_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { democratic_game_weight < unaligned_game_weight }
+				check_variable = { democratic_game_weight = unaligned_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { democratic_game_weight < communist_game_weight }
+				check_variable = { democratic_game_weight = communist_game_weight }
+			}
+		}
+	}
+}
+
+game_weight_can_add_unaligned = {
+	GER = {
+		AND = {
+			OR = {
+				check_variable = { unaligned_game_weight < fascist_game_weight }
+				check_variable = { unaligned_game_weight = fascist_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { unaligned_game_weight < democratic_game_weight }
+				check_variable = { unaligned_game_weight = democratic_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { unaligned_game_weight < communist_game_weight }
+				check_variable = { unaligned_game_weight = communist_game_weight }
+			}
+		}
+	}
+}
+
+game_weight_can_add_communist = {
+	GER = {
+		AND = {
+			OR = {
+				check_variable = { communist_game_weight < fascist_game_weight }
+				check_variable = { communist_game_weight = fascist_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { communist_game_weight < democratic_game_weight }
+				check_variable = { communist_game_weight = democratic_game_weight }
+			}
+		}
+		AND = {
+			OR = {
+				check_variable = { communist_game_weight < unaligned_game_weight }
+				check_variable = { communist_game_weight = unaligned_game_weight }
+			}
+		}
+	}
+}
+
+DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			FROM = {
+				tag = ENG
+				has_civil_war = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_WAR_WITH_DOMINIONS_IN_CIVIL_WAR
+			always = no
+		}
+    }
+	if = { 
+		limit = {
+			NOT = { has_global_flag = ethiopia_recognized_flag }
+			OR = {
+				ROOT = {
+					tag = ETH
+				}
+				FROM = {
+					tag = ETH
+				}
+			}
+			
+		}
+		custom_trigger_tooltip = {
+			tooltip = LON_NON_INTERFERENCE_RESOLUTION_JOIN
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			FROM = { NOT = { has_war_with_non_exiled_country = yes } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_NON_GIE_JOIN
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			ROOT = {
+				original_tag = ICE
+				has_idea = neutrality_idea
+				is_subject = yes 
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_JOIN
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			ROOT = {
+				original_tag = DEN
+				has_country_flag = DEN_is_protectorate_flag
+				is_subject = yes 
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_JOIN
+			always = no
+		}
+	}
+}
+DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			FROM = {
+				is_subject = yes
+				overlord = {
+					tag = ENG
+					has_civil_war = yes
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_WAR_WITH_DOMINIONS_IN_CIVIL_WAR
+			always = no
+		}
+    }
+	if = { 
+		limit = {
+			NOT = { has_global_flag = ethiopia_recognized_flag }
+			OR = {
+				ROOT = {
+					tag = ETH
+				}
+				FROM = {
+					tag = ETH
+				}
+			}
+			
+		}
+		custom_trigger_tooltip = {
+			tooltip = LON_NON_INTERFERENCE_RESOLUTION_CALL
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			NOT = { has_war_with_non_exiled_country = yes } 
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_NON_GIE_CALL
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			FROM = {
+				original_tag = ICE
+				has_idea = neutrality_idea
+				is_subject = yes 
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_CALL
+			always = no
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			FROM = {
+				original_tag = DEN
+				has_country_flag = DEN_is_protectorate_flag
+				is_subject = yes 
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_CALL
+			always = no
+		}
+	}
+}
+DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			any_country = {
+				is_justifying_wargoal_against = FROM
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_GUARANTEE_WHILE_JUSTIFYING_WARGOAL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	if = {
+		limit = {
+			FROM = {
+				NOT = {
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+			}
+			OR = {
+				tag = CHI
+				tag = PRC
+				tag = SND
+				tag = HBC
+				tag = SHX
+				tag = GDC
+				tag = GXC
+				tag = YUN
+				tag = SIC
+				tag = XIC
+				tag = XSM
+				tag = GSM
+				tag = NXM
+				tag = KHM
+				tag = SIK
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_CHI_OTHER_FACTION
+			date > 1939.6.1
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			original_tag = DEN
+			has_country_flag = DEN_is_protectorate_flag
+			is_subject = yes 
+
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_FACTION
+			always = no
+		}
+	}
+}
+DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			any_country = {
+				is_justifying_wargoal_against = FROM
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_GUARANTEE_WHILE_JUSTIFYING_WARGOAL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = {has_country_flag = panay_no_sorry}
+			OR = {
+				FROM = {
+					has_war_with = JAP
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+				FROM = {
+					has_war_with = CHI
+					OR = {
+						tag = JAP
+						tag = MAN
+						tag = MEN
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_INTERVENTIONS_IN_JAP_CHI
+			date > 1940.1.1
+		}
+	}
+	if = {
+		limit = {
+			FROM = {
+				NOT = {
+					OR = {
+						tag = CHI
+						tag = PRC
+						tag = SND
+						tag = HBC
+						tag = SHX
+						tag = GDC
+						tag = GXC
+						tag = YUN
+						tag = SIC
+						tag = XIC
+						tag = XSM
+						tag = GSM
+						tag = NXM
+						tag = KHM
+						tag = SIK
+					}
+				}
+			}
+			OR = {
+				tag = CHI
+				tag = PRC
+				tag = SND
+				tag = HBC
+				tag = SHX
+				tag = GDC
+				tag = GXC
+				tag = YUN
+				tag = SIC
+				tag = XIC
+				tag = XSM
+				tag = GSM
+				tag = NXM
+				tag = KHM
+				tag = SIK
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_BAN_CHI_OTHER_FACTION
+			date > 1939.6.1
+		}
+	}
+	if = { 
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			FROM = {
+				original_tag = DEN
+				has_country_flag = DEN_is_protectorate_flag
+				is_subject = yes 
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_FACTION
+			always = no
+		}
+	}
+}
+
+

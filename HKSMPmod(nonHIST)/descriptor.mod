@@ -1,8 +1,8 @@
-version="3"
+version="1"
 tags={
-	"Alternative History"
+	"Gameplay"
 	"Balance"
+	"Fixes"
 }
-name="HKS MPmod (non-HIST)"
-supported_version="1.17.4.0"
-remote_file_id="3536010404"
+name="Просто строй укрепы"
+supported_version="1.19.3.0"

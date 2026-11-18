@@ -1,0 +1,29 @@
+scripted_gui = {
+    custom_status_list_gui = {
+        window_name = "custom_status_main_window"
+        visible = {
+            has_country_flag = show_industry_ranking
+        }
+
+        effects = {
+            close_button_click = {
+                clr_country_flag = show_industry_ranking
+            }
+        }
+
+        dynamic_lists = {
+            status_country_list = {
+                array = global.countries_by_industry_array
+                change_scope = yes
+                entry_container = "status_country_list_entry"
+            }
+        }
+
+        # ВОТ ЭТОТ БЛОК ЗАСТАВЛЯЕТ ФЛАГИ РАБОТАТЬ:
+        properties = {
+            country_flag = {
+                image = "[?this.GetFlag]"
+            }
+        }
+    }
+}

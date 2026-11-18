@@ -1,4 +1,14 @@
 on_actions = {
+    on_government_change = {
+        effect = {
+            ROOT = {
+                every_controlled_state = {
+                    limit = { NOT = {is_core_of = ROOT} }   # только неосновные регионы
+                    add_compliance = 50
+                }
+            }
+        }
+    }
 	on_startup = {
 		effect = {
 			if = {

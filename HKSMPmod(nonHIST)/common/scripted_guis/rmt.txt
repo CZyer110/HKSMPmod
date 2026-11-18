@@ -9,7 +9,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = rmt_enabled
+				has_country_flag = rmt_enabled
 				OR = {
 					has_country_flag = tp_is_host
 					NOT = {
@@ -196,7 +196,7 @@ scripted_gui = {
 						}
 						add_to_variable = { rmt_modifier_size = 1 }
 						every_country={
-							news_event = { id = toolpacknews.223 days = 0}
+							news_event = { id = toolpacknews.301 days = 0}
 						}
 					}
 				}
@@ -263,7 +263,7 @@ scripted_gui = {
 								amount = 1
 							}
 							every_country={
-								news_event = { id = toolpacknews.223 days = 0}
+								news_event = { id = toolpacknews.301 days = 0}
 							}
 						}
 						if = {
@@ -398,6 +398,9 @@ scripted_gui = {
 						}
 					}
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			rmt_add_25_click = {
 				if = {
@@ -521,6 +524,9 @@ scripted_gui = {
 						}
 					}
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			rmt_add_200_click = {
 				if = {
@@ -643,6 +649,9 @@ scripted_gui = {
 							add_to_variable = { rmt_modifier_size = 200 }
 						}
 					}
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			rmt_sub_1_click = {
@@ -775,6 +784,9 @@ scripted_gui = {
 						}
 					}
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			rmt_sub_5_click = {
 				if = {
@@ -905,6 +917,9 @@ scripted_gui = {
 							subtract_from_variable = { rmt_modifier_size = 5 }
 						}
 					}
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			rmt_sub_25_click = {
@@ -1037,6 +1052,9 @@ scripted_gui = {
 						}
 					}
 				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
+				}
 			}
 			rmt_sub_200_click = {
 				if = {
@@ -1167,6 +1185,9 @@ scripted_gui = {
 							subtract_from_variable = { rmt_modifier_size = 200 }
 						}
 					}
+				}
+				every_country={
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			#rmt_sub_var_click = {

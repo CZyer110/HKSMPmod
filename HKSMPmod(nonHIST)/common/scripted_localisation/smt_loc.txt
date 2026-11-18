@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = smt_enabled
+			has_country_flag = smt_enabled
 		}
 		localization_key = smt_off
 	}

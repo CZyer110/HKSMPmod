@@ -1,0 +1,90 @@
+ideas = {
+	hidden_ideas = {
+	
+		base_percent_sp_10 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				special_forces_cap = 0.09
+			}
+		}
+		base_percent_sp_5 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				special_forces_cap = 0.04
+			}
+		}
+		base_percent_sp_2_5 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			
+			modifier = {
+				special_forces_cap = 0.015
+			}
+		}
+		base_percent_sp_0 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				special_forces_cap = -1
+			}
+		}
+		
+		
+
+		min_sp_10000 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			
+			modifier = {
+				special_forces_cap_flat = 9976
+			}
+		}
+		min_sp_100 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			
+			modifier = {
+				special_forces_cap_flat = 76
+			}
+		}
+		min_sp_50 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				special_forces_cap_flat = 26
+			}
+		}
+		min_sp_0 = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			modifier = {
+				special_forces_cap_flat = -24
+			}
+		}
+	
+		
+	}###
+}###################

@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = tp_page_2
+			has_country_flag = tp_page_2
 		}
 		localization_key = TP_PAGE_NUMBER_2
 	}
@@ -16,7 +16,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = tp_page_2
+			has_country_flag = tp_page_2
 		}
 		localization_key = TP_OTHER_PAGE_NUMBER_1
 	}
@@ -30,7 +30,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = tp_page_2
+			has_country_flag = tp_page_2
 		}
 		localization_key = TP_OTHER_PAGE_NUMBER_0
 	}

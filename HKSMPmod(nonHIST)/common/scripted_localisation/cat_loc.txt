@@ -3,7 +3,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = cat_enabled
+			has_country_flag = cat_enabled
 		}
 		localization_key = CAT_ACTIVITY_OFF
 	}
@@ -17,7 +17,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_global_flag = cat_enabled
+			has_country_flag = cat_enabled
 		}
 		localization_key = CAT_OPEN
 	}

@@ -1,0 +1,115 @@
+on_actions = {
+    on_before_peace_conference_start = {
+        effect = {
+            # ROOT — победитель (игрок), FROM — страна, которая капитулировала
+            if = {
+                limit = {
+                    ROOT = {
+                        is_ai = no                          # Победитель — игрок
+                        any_war_score > 0                   # Есть вклад
+                    }
+                    FROM = {
+                        is_ai = yes                         # Капитулировавший — ИИ
+                        is_major = no                       # Минор
+                        is_subject = no                     # Не марионетка
+                        OR = {
+                            num_of_controlled_states < 6    # 5 и меньше регионов
+                            tag = ETH
+                            tag = INS
+                        }
+                    }
+                    # Против FROM воюет только ROOT (нет других значимых участников)
+                    FROM = {
+                        NOT = {
+                            any_country = {
+                                is_subject = no
+                                any_war_score > 10
+                                OR = {
+                                    AND = {
+                                        NOT = { tag = ROOT }
+                                        has_war_with = FROM
+                                    }
+                                    AND = {
+                                        NOT = { tag = FROM }
+                                        has_war_with = ROOT
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+				# Запускаем событие для игрока
+                ROOT = { 
+					save_event_target_as = boss_country 
+					country_event = { id = ai_capitulate.1 }
+				}
+                FROM = {
+					save_event_target_as = capitulated_country
+                    set_country_flag = ai_capitulated_country
+                    every_country = {
+                        limit = { is_subject_of = PREV }
+                        set_country_flag = ai_capitulated_country
+                    }
+                    every_state = {
+                        limit = { owner = { has_country_flag = ai_capitulated_country } }
+                        set_state_flag = ai_capitulate_states
+                    }
+                    every_country = {
+                        limit = { has_country_flag = ai_capitulated_country }
+                        white_peace = {
+                            tag = event_target:boss_country
+                            message = ai_capitulate_message
+                        }
+                    }
+                }
+            }
+        }
+    }
+    on_startup = {
+        effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = USA
+						tag = SOV
+					}
+				}
+                set_country_flag = custom_status_supermajor
+            }
+			every_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = ITA
+						tag = ENG
+						tag = JAP
+						tag = GER
+					}
+				}
+                set_country_flag = custom_status_major
+            }
+			every_country = {
+				limit = {
+					NOT = {
+						OR = {
+							tag = USA
+							tag = SOV
+							tag = FRA
+							tag = ITA
+							tag = ENG
+							tag = JAP
+							tag = GER
+						}
+					}
+				}
+                set_country_flag = custom_status_minor
+            }
+			random_country = {calculate_custom_statuses_effect = yes}
+        }
+    }
+    on_monthly = {
+        effect = {
+            random_country = {calculate_custom_statuses_effect = yes}
+        }
+    }
+}

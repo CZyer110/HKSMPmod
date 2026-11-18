@@ -1,0 +1,95 @@
+calculate_custom_statuses_effect = {
+    # НАХОДИМ НАИБ ПРОМ -------------------------------------------------------
+	set_variable = { global.max_factories_var = 0 }                               # финальная переменная
+	every_country = {                                                             # все страны:
+		set_variable = { f_temp = 0 }                                             # временная переменная (с чем сравниваем)
+		every_owned_state = {                                                     # все регионы во валдении:
+			PREV = {
+				add_to_variable = { f_temp = PREV.industrial_complex_level }               # + цивки
+				add_to_variable = { f_temp = PREV.arms_factory_level }                     # + военки
+			}
+		}	
+		if = {
+			limit = { check_variable = { f_temp > global.max_factories_var } }    # Если эта страна больше текущей страны с наиб. промом
+			set_variable = { global.max_factories_var = f_temp }                  # Тогда её пром наиб.
+			every_country = {clr_country_flag = custom_status_max}                # Ей присваивается флаг max
+			set_country_flag = custom_status_max                                  #
+		}
+	}
+	# НАХОДИМ ЛИМИТЫ -----------------------------------------------------------
+    set_variable = { global.supermajor_threshold_up = global.max_factories_var }  # Лимит для повышения в сверхмажора
+    multiply_variable = { global.supermajor_threshold_up = 0.5 }                  # = 50% от наиб. прома
+    set_variable = { global.major_threshold_up = global.max_factories_var }       # Лимит для повышения в мажора
+    multiply_variable = { global.major_threshold_up = 0.3 }                       # = 30% от наиб. прома
+	
+	set_variable = { global.supermajor_threshold_down = global.max_factories_var }# Лимит для понижения в мажора
+    multiply_variable = { global.supermajor_threshold_down = 0.4 }                # = 50% от наиб. прома
+    set_variable = { global.major_threshold_down = global.max_factories_var }     # Лимит для понижения в минора
+    multiply_variable = { global.major_threshold_down = 0.2 }                     # = 30% от наиб. прома
+
+    # ИЗМЕНЕНИЕ СТАТУСОВ -------------------------------------------------------
+    every_country = {
+		set_variable = { f_temp = 0 }                                             # временная переменная (с чем сравниваем)
+		every_owned_state = {                                                     # все регионы во валдении:
+			PREV = {
+				add_to_variable = { f_temp = PREV.industrial_complex_level }               # + цивки
+				add_to_variable = { f_temp = PREV.arms_factory_level }                     # + военки
+			}
+		}
+		
+        if = {                                                                    # Мажор -> Сверхмажор
+            limit = {
+				check_variable = { f_temp > global.supermajor_threshold_up }      # Пром > 50%
+				has_country_flag = custom_status_major
+			}
+			clr_country_flag = custom_status_major
+            set_country_flag = custom_status_supermajor
+			news_event = { id = country_status_events.1 days = 1 }
+        }
+        if = {                                                                    # Сверхмажор -> Мажор
+            limit = {
+				check_variable = { f_temp < global.supermajor_threshold_down }    # Пром < 40%
+				has_country_flag = custom_status_supermajor
+			}
+			clr_country_flag = custom_status_supermajor
+            set_country_flag = custom_status_major
+			news_event = { id = country_status_events.2 days = 2 }
+        }
+		if = {                                                                    # Минор -> Мажор
+            limit = {
+				check_variable = { f_temp > global.major_threshold_up }           # Пром > 30%
+				has_country_flag = custom_status_minor
+			}
+			clr_country_flag = custom_status_minor
+            set_country_flag = custom_status_major
+			news_event = { id = country_status_events.3 days = 3 }
+        }
+		if = {                                                                    # Мажор -> Минор
+            limit = {
+				check_variable = { f_temp < global.major_threshold_down }         # Пром < 20%
+				has_country_flag = custom_status_major
+			}
+			clr_country_flag = custom_status_major
+            set_country_flag = custom_status_minor
+			news_event = { id = country_status_events.4 days = 4 }
+        }	
+    }
+
+    # ДОБАВЛЯЕМ В ГУИ ------------------------------------------------------------
+    clear_array = global.countries_by_industry_array
+	every_country = {
+        limit = {has_country_flag = custom_status_max}
+        add_to_array = { global.countries_by_industry_array = THIS }
+    }
+    every_country = {
+        limit = {
+			has_country_flag = custom_status_supermajor
+			NOT = {has_country_flag = custom_status_max}
+		}
+        add_to_array = { global.countries_by_industry_array = THIS }
+    }
+	every_country = {
+        limit = {has_country_flag = custom_status_major}
+        add_to_array = { global.countries_by_industry_array = THIS }
+    }
+}

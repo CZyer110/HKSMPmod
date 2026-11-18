@@ -9,7 +9,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = dst_A_enabled
+				has_country_flag = dst_A_enabled
 				OR = {
 					has_country_flag = tp_is_host
 					NOT = {
@@ -409,7 +409,7 @@ scripted_gui = {
 					set_country_flag = dsta_unit_deletion_target
 				}
 				every_country={
-					news_event = { id = toolpacknews.204 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_1_click = {
@@ -484,7 +484,7 @@ scripted_gui = {
 					clr_country_flag = dst_marked
 				}
 				every_country={
-					news_event = { id = toolpacknews.200 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_5_click = {
@@ -567,7 +567,7 @@ scripted_gui = {
 					clr_country_flag = dst_marked
 				}
 				every_country={
-					news_event = { id = toolpacknews.201 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_10_click = {
@@ -660,7 +660,7 @@ scripted_gui = {
 					clr_country_flag = dst_marked
 				}
 				every_country={
-					news_event = { id = toolpacknews.202 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_50_click = {
@@ -833,7 +833,7 @@ scripted_gui = {
 					clr_country_flag = dst_marked
 				}
 				every_country={
-					news_event = { id = toolpacknews.203 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 		}

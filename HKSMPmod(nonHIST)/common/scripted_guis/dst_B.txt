@@ -9,7 +9,7 @@ scripted_gui = {
 		visible = {
 			ROOT = {
 				is_ai = no
-				has_global_flag = dst_B_enabled
+				has_country_flag = dst_B_enabled
 				OR = {
 					has_country_flag = tp_is_host
 					NOT = {
@@ -188,7 +188,7 @@ scripted_gui = {
 					set_country_flag = dstb_unit_deletion_target
 				}
 				every_country={
-					news_event = { id = toolpacknews.205 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_add_template_click = {
@@ -265,7 +265,7 @@ scripted_gui = {
 					}
 				}
 				every_country={
-					news_event = { id = toolpacknews.206 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_add_army_experience_click = {
@@ -273,7 +273,7 @@ scripted_gui = {
 					army_experience = 50
 				}
 				every_country={
-					news_event = { id = toolpacknews.207 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_remove_army_experience_click = {
@@ -281,7 +281,7 @@ scripted_gui = {
 					army_experience = -50000
 				}
 				every_country={
-					news_event = { id = toolpacknews.208 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_add_air_experience_click = {
@@ -289,7 +289,7 @@ scripted_gui = {
 					air_experience = 50
 				}
 				every_country={
-					news_event = { id = toolpacknews.209 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_remove_air_experience_click = {
@@ -297,7 +297,7 @@ scripted_gui = {
 					air_experience = -50000
 				}
 				every_country={
-					news_event = { id = toolpacknews.210 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_add_command_power_click = {
@@ -305,7 +305,7 @@ scripted_gui = {
 					add_command_power = 50
 				}
 				every_country={
-					news_event = { id = toolpacknews.211 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_remove_command_power_click = {
@@ -313,7 +313,7 @@ scripted_gui = {
 					add_command_power = -50000
 				}
 				every_country={
-					news_event = { id = toolpacknews.212 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_increase_exp_click = {
@@ -4046,7 +4046,7 @@ scripted_gui = {
 					}
 				}
 				every_country={
-					news_event = { id = toolpacknews.213 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_custom_5_click = {
@@ -22279,7 +22279,7 @@ scripted_gui = {
 					}
 				}
 				every_country={
-					news_event = { id = toolpacknews.214 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 			dst_spawn_custom_10_click = {
@@ -58737,7 +58737,7 @@ scripted_gui = {
 					}
 				}
 				every_country={
-					news_event = { id = toolpacknews.215 days = 0}
+					news_event = { id = toolpacknews.301 days = 0}
 				}
 			}
 #			dst_spawn_custom_50_click = {

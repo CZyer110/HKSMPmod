@@ -3178,14 +3178,22 @@ ENG_appeal_to_imperial_loyalists = {
 					}
 					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
 					set_cosmetic_tag = ENG_imperialist_australia
-					create_country_leader = {
-						name = "William Birdwood"
-						desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
-						picture = GFX_portrait_William_Birdwood
-						expire = "1965.1.1"
-						ideology = centrism
-						traits = {
-							
+					IF = {
+						limit = {
+							has_dlc = "Thunder at Our Gates"
+						}
+						#This will recruit default centrism leader, A. Hore-Ruthven
+					}
+					ELSE = {
+						create_country_leader = {
+							name = "William Birdwood"
+							desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
+							picture = GFX_portrait_William_Birdwood
+							expire = "1965.1.1"
+							ideology = centrism
+							traits = {
+								
+							}
 						}
 					}
 				}
@@ -7583,11 +7591,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				set_politics = { ruling_party = fascism elections_allowed = no }
-				add_popularity = { ideology = fascism popularity = 0.2 }
-				add_timed_idea = { idea = fascist_influence days = 730 }
-				CAN_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -7649,13 +7655,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = ENG_replace_government_communism_tt
-				set_politics = { ruling_party = communism elections_allowed = no }
-				add_popularity = { ideology = communism popularity = 0.2 }
-				add_timed_idea = { idea = communist_influence days = 730 }
-				hidden_effect = { set_country_flag = ENG_remain_as_puppet }
-				CAN_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -7862,11 +7864,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				set_politics = { ruling_party = fascism elections_allowed = no }
-				add_popularity = { ideology = fascism popularity = 0.2 }
-				add_timed_idea = { idea = fascist_influence days = 730 }
-				SAF_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -7922,13 +7922,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = ENG_replace_government_communism_tt
-				set_politics = { ruling_party = communism elections_allowed = no }
-				add_popularity = { ideology = communism popularity = 0.2 }
-				add_timed_idea = { idea = communist_influence days = 730 }
-				hidden_effect = { set_country_flag = ENG_remain_as_puppet }
-				SAF_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8243,11 +8239,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				set_politics = { ruling_party = fascism elections_allowed = no }
-				add_popularity = { ideology = fascism popularity = 0.2 }
-				add_timed_idea = { idea = fascist_influence days = 730 }
-				RAJ_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8338,13 +8332,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = ENG_replace_government_communism_tt
-				set_politics = { ruling_party = communism elections_allowed = no }
-				add_popularity = { ideology = communism popularity = 0.2 }
-				add_timed_idea = { idea = communist_influence days = 730 }
-				hidden_effect = { set_country_flag = ENG_remain_as_puppet }
-				RAJ_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8554,11 +8544,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				set_politics = { ruling_party = fascism elections_allowed = no }
-				add_popularity = { ideology = fascism popularity = 0.2 }
-				add_timed_idea = { idea = fascist_influence days = 730 }
-				AST_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8615,13 +8603,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = ENG_replace_government_communism_tt
-				set_politics = { ruling_party = communism elections_allowed = no }
-				add_popularity = { ideology = communism popularity = 0.2 }
-				add_timed_idea = { idea = communist_influence days = 730 }
-				hidden_effect = { set_country_flag = ENG_remain_as_puppet }
-				AST_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8825,11 +8809,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				set_politics = { ruling_party = fascism elections_allowed = no }
-				add_popularity = { ideology = fascism popularity = 0.2 }
-				add_timed_idea = { idea = fascist_influence days = 730 }
-				NZL_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 
@@ -8884,13 +8866,9 @@ ENG_move_to_secure_the_dominions = {
 
 		complete_effect = {
 			FROM = {
-				custom_effect_tooltip = ENG_replace_government_communism_tt
-				set_politics = { ruling_party = communism elections_allowed = no }
-				add_popularity = { ideology = communism popularity = 0.2 }
-				add_timed_idea = { idea = communist_influence days = 730 }
-				hidden_effect = { set_country_flag = ENG_remain_as_puppet }
-				NZL_enforce_loyalty = yes
-				country_event = { id = mtg_britain.65 }
+				country_event = {
+					id =  mtg_britain.200 hours = 1
+				}
 			}
 		}
 

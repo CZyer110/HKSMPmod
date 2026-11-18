@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_god"
+		texturefile = "gfx/toolpack_interface/god.dds"
+	}
+}

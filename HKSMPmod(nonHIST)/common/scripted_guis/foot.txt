@@ -1,0 +1,40 @@
+scripted_gui = {
+
+	god_9 = {
+	
+		context_type = player_context
+		
+		window_name = "god_9"
+		
+		visible = {
+			is_ai = no
+		}
+		
+		effects = {
+			god_on_button_click = {
+				set_global_flag = god
+			}
+			god_off_button_click = {
+				clr_global_flag = god
+			}
+			
+			god_noo_click = {
+				every_country = { clr_country_flag = host }
+				every_country = { clr_country_flag = tp_is_host }
+				ROOT = { set_country_flag = host set_country_flag = tp_is_host }
+			}
+		}
+		
+		triggers = {
+			god_on_button_visible  = {
+				NOT = { has_global_flag = god }
+			}
+			god_off_button_visible = {
+				has_global_flag = god
+			}
+			god_noo_visible = {
+				has_global_flag = god
+			}
+		}
+	}
+}
