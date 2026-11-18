@@ -200,6 +200,11 @@ country_event = {
 				event_target:boss_country = { annex_country = { target = PREV } }
 			}
 			every_state = { clr_state_flag = ai_capitulate_states }
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				clr_country_flag = ai_capitulated_country
+			}
+			clr_country_flag = ai_boss_country
 		}
 	}
 	
@@ -215,6 +220,11 @@ country_event = {
 				event_target:boss_country = { puppet = PREV } 
 			}
 			every_state = { clr_state_flag = ai_capitulate_states }
+			every_country = {
+				limit = { has_country_flag = ai_capitulated_country }
+				clr_country_flag = ai_capitulated_country
+			}
+			clr_country_flag = ai_boss_country
 		}
 	}
 	
