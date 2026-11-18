@@ -2142,7 +2142,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5
 
 		available = {
 			any_owned_state = {
@@ -2211,7 +2211,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2329,7 +2329,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_intensify_pilot_training_program }
 
@@ -2381,7 +2381,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2408,7 +2408,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_foster_flying_clubs
-		cost = 10
+		cost = 5
 
 		available = {
 			OR = {
@@ -2441,7 +2441,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_women_in_aviation
-		cost = 10
+		cost = 5
 
 		available = {
 			any_enemy_country = {
@@ -2528,7 +2528,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_foster_flying_clubs
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_increase_aircraft_production }
 
@@ -2559,7 +2559,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -2584,7 +2584,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_increase_aircraft_production
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_long_range_aircraft }
 
@@ -2616,7 +2616,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_intensify_pilot_training_program
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_ground_support }
 
@@ -2649,7 +2649,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_ground_support
-		cost = 10
+		cost = 5
+
 
 		available = {
 
@@ -5131,7 +5132,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 2
 
 		available = {
 			has_full_control_of_state = 219 #MOSCOW
@@ -5400,7 +5401,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_improve_the_stalin_line }
 
@@ -5641,7 +5642,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_the_molotov_line }
 
@@ -5918,7 +5919,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_improve_the_stalin_line
-		cost = 10
+		cost = 5
 
 		available = {
 			OR = {
@@ -6138,7 +6139,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 5
 
 		available = {
 			OR = {
@@ -8735,7 +8736,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 10
+		cost = 5
 
 		bypass = { has_global_flag = SOV_soviet_civil_war }
 
@@ -8764,7 +8765,7 @@ focus_tree = {
 		x = -2 
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 5
+		cost = 2
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = SOV_bring_old_trotskyists_back_trigger_tt
@@ -8793,7 +8794,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 10
+		cost = 2
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -8815,7 +8816,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_the_left_opposition
-		cost = 10
+		cost = 5
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -8950,7 +8951,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = SOV_the_fourth_international
-		cost = 10
+		cost = 2
 
 		available = {
 		}
@@ -8976,7 +8977,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_integrate_smirnovs_bloc
-		cost = 10
+		cost = 2
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes
@@ -9070,7 +9071,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_integrate_smirnovs_bloc
-		cost = 10
+		cost = 2
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9149,7 +9150,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_approach_tukhachevsky
-		cost = 5
+		cost = 3
 
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9256,7 +9257,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_funds_for_the_cause
-		cost = 10
+		cost = 5
 
 		available = {
 			has_global_flag = SOV_soviet_civil_war 
@@ -9324,7 +9325,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = SOV_left_opposition_coup
-		cost = 10
+		cost = 5
 
 		available = {
 			has_global_flag = SOV_soviet_civil_war_over
@@ -9358,7 +9359,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_long_live_the_workers_government
 		mutually_exclusive = { focus = SOV_reigniting_the_revolutionary_spirit }
-		cost = 10
+		cost = 5
 
 		available = {
 			SOV_lev_trotsky = {	is_country_leader = yes }
@@ -9411,7 +9412,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_long_live_the_workers_government
 		mutually_exclusive = { focus = SOV_the_builder_of_the_red_army }
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -9436,7 +9437,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SOV_committee_in_exile
 		
-		cost = 10
+		cost = 5
 
 		available = {
 			has_global_flag = SOV_soviet_civil_war_over
@@ -9485,7 +9486,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_builder_of_the_red_army
 		
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -9528,7 +9529,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_builder_of_the_red_army
 		
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -9629,7 +9630,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_permanent_revolution
 		
-		cost = 10
+		cost = 5
 
 		available = {
 			surrender_progress < 0.15
@@ -9851,7 +9852,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_a_global_class_struggle 
 		
-		cost = 10
+		cost = 5
 
 		available = {	
 			surrender_progress < 0.05
@@ -9872,7 +9873,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_a_global_class_struggle
 		
-		cost = 10
+		cost = 5
 
 		available = {
 			surrender_progress < 0.05
@@ -9893,7 +9894,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_onslaught_on_colonialism
 		
-		cost = 10
+		cost = 5
 
 		available = {
 			surrender_progress < 0.05
@@ -10048,7 +10049,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10077,7 +10078,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 10
+		cost = 8
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10226,7 +10227,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_organize_uprisings_in_the_country
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10251,7 +10252,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_organize_uprisings_in_the_country
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10273,7 +10274,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_undermine_stalins_authority
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 			NOT = { has_idea = SOV_lavrenty_beriya }
@@ -10483,7 +10484,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = SOV_coup_detat
-		cost = 10
+		cost = 5
 		available = {
 		}
 		                
@@ -10514,7 +10515,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_coup_detat
-		cost = 10
+		cost = 5
 		available = {
 			NOT = { has_global_flag = SOV_soviet_civil_war_over }
 		}
@@ -10560,7 +10561,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 8
 		available = {
 			OR = {
 				has_character = SOV_aleksey_rykov
@@ -10584,7 +10585,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 8
 		available = {
 			SOV_nikolay_bukharin = { is_country_leader = yes }
 		}
@@ -10624,7 +10625,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 5
+		cost = 10
 		available = {
 			has_war = no
 		}
@@ -10649,7 +10650,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 2.5
+		cost = 8
 		available = {
 		}
 		                
@@ -10701,7 +10702,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 8
 		available = {
 		}
 		                
@@ -10750,7 +10751,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 8
 		available = {
 			has_idea = SOV_mikhail_tomsky
 		}
@@ -10778,7 +10779,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_administrative_reforms
-		cost = 10
+		cost = 8
 		available = {
 
 		}
@@ -10931,7 +10932,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_a_new_theory_of_revolution
-		cost = 2.5
+		cost = 8
 		available = {
 			surrender_progress < 0.1
 			OR = {
@@ -11078,7 +11079,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_international_revolutionary_marxist_centre
-		cost = 10
+		cost = 5
 		available = {
 			surrender_progress < 0.05
 		}
@@ -11165,7 +11166,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_left_opposition
 		mutually_exclusive = { focus = SOV_divert_attention_towards_military }
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11361,7 +11362,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = SOV_the_left_opposition
-		cost = 10
+		cost = 2
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11387,7 +11388,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_gain_support_from_party_members
-		cost = 5
+		cost = 8
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11442,7 +11443,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_cooperation_against_stalin
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -11518,7 +11519,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_cooperation_against_stalin
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}

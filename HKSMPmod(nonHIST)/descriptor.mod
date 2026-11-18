@@ -1,8 +1,8 @@
-version="1"
+version="2.3"
 tags={
 	"Gameplay"
 	"Balance"
 	"Fixes"
 }
-name="Просто строй укрепы"
-supported_version="1.19.3.0"
+name="HKS MP nonhist"
+supported_version="1.19.*"
