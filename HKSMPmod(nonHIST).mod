@@ -1,5 +1,6 @@
-version="2.4"
+version="2.5"
 replace_path="gfx/loadingscreens"
+replace_path="common/bookmarks"
 tags={
 	"Alternative History"
 	"Balance"
