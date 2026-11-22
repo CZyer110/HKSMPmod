@@ -13,7 +13,7 @@ scripted_gui = {
 
         dynamic_lists = {
             status_country_list = {
-                array = global.countries_by_industry_array
+                array = global.sorted_countries_by_industry 
                 change_scope = yes
                 entry_container = "status_country_list_entry"
             }

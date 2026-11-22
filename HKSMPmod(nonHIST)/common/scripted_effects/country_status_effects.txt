@@ -1,95 +1,227 @@
 calculate_custom_statuses_effect = {
     # НАХОДИМ НАИБ ПРОМ -------------------------------------------------------
-	set_variable = { global.max_factories_var = 0 }                               # финальная переменная
-	every_country = {                                                             # все страны:
-		set_variable = { f_temp = 0 }                                             # временная переменная (с чем сравниваем)
-		every_owned_state = {                                                     # все регионы во валдении:
-			PREV = {
-				add_to_variable = { f_temp = PREV.industrial_complex_level }               # + цивки
-				add_to_variable = { f_temp = PREV.arms_factory_level }                     # + военки
+    set_variable = { global.max_factories_var = 0 }
+    every_country = {
+        set_variable = { f_temp = 0 }
+        every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = PREV
+					compliance > 40
+				}
 			}
-		}	
-		if = {
-			limit = { check_variable = { f_temp > global.max_factories_var } }    # Если эта страна больше текущей страны с наиб. промом
-			set_variable = { global.max_factories_var = f_temp }                  # Тогда её пром наиб.
-			every_country = {clr_country_flag = custom_status_max}                # Ей присваивается флаг max
-			set_country_flag = custom_status_max                                  #
-		}
-	}
-	# НАХОДИМ ЛИМИТЫ -----------------------------------------------------------
-    set_variable = { global.supermajor_threshold_up = global.max_factories_var }  # Лимит для повышения в сверхмажора
-    multiply_variable = { global.supermajor_threshold_up = 0.5 }                  # = 50% от наиб. прома
-    set_variable = { global.major_threshold_up = global.max_factories_var }       # Лимит для повышения в мажора
-    multiply_variable = { global.major_threshold_up = 0.3 }                       # = 30% от наиб. прома
-	
-	set_variable = { global.supermajor_threshold_down = global.max_factories_var }# Лимит для понижения в мажора
-    multiply_variable = { global.supermajor_threshold_down = 0.4 }                # = 50% от наиб. прома
-    set_variable = { global.major_threshold_down = global.max_factories_var }     # Лимит для понижения в минора
-    multiply_variable = { global.major_threshold_down = 0.2 }                     # = 30% от наиб. прома
+            PREV = {
+                add_to_variable = { f_temp = PREV.industrial_complex_level }
+                add_to_variable = { f_temp = PREV.arms_factory_level }
+				add_to_variable = { f_temp = PREV.building_level@dockyard }
+            }
+        }
+        set_variable = { f_puppet_temp = 0 }
+        every_country = {
+            limit = {
+                is_subject_of = PREV
+                compare_autonomy_state < autonomy_colony
+            }
+            set_variable = { f_puppet_temp = 0 }
+            every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = PREV
+						compliance > 40
+					}
+				}
+                PREV = {
+                    add_to_variable = { f_puppet_temp = PREV.industrial_complex_level }
+                    add_to_variable = { f_puppet_temp = PREV.arms_factory_level }
+					add_to_variable = { f_puppet_temp = PREV.building_level@dockyard }
+                }
+            }
+            divide_variable = { f_puppet_temp = 2 }
+            PREV = {
+                add_to_variable = { f_temp = PREV.f_puppet_temp }
+            }
+        }
+        if = {
+            limit = { check_variable = { f_temp > global.max_factories_var } }
+            set_variable = { global.max_factories_var = f_temp }
+            every_country = {clr_country_flag = custom_status_max}
+            set_country_flag = custom_status_max
+        }
+    }
+    
+    # НАХОДИМ ЛИМИТЫ -----------------------------------------------------------
+    set_variable = { global.supermajor_threshold_up = global.max_factories_var }
+    multiply_variable = { global.supermajor_threshold_up = 0.5 }
+    set_variable = { global.major_threshold_up = global.max_factories_var }
+    multiply_variable = { global.major_threshold_up = 0.3 }
+    
+    set_variable = { global.supermajor_threshold_down = global.max_factories_var }
+    multiply_variable = { global.supermajor_threshold_down = 0.4 }
+    set_variable = { global.major_threshold_down = global.max_factories_var }
+    multiply_variable = { global.major_threshold_down = 0.2 }
 
     # ИЗМЕНЕНИЕ СТАТУСОВ -------------------------------------------------------
     every_country = {
-		set_variable = { f_temp = 0 }                                             # временная переменная (с чем сравниваем)
-		every_owned_state = {                                                     # все регионы во валдении:
-			PREV = {
-				add_to_variable = { f_temp = PREV.industrial_complex_level }               # + цивки
-				add_to_variable = { f_temp = PREV.arms_factory_level }                     # + военки
+        set_variable = { f_temp = 0 }
+        every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = PREV
+					compliance > 40
+				}
 			}
-		}
+            PREV = {
+                add_to_variable = { f_temp = PREV.industrial_complex_level }
+                add_to_variable = { f_temp = PREV.arms_factory_level }
+				add_to_variable = { f_temp = PREV.building_level@dockyard }
+            }
+        }
+        set_variable = { f_puppet_temp = 0 }
+        every_country = {
+            limit = {
+                is_subject_of = PREV
+                compare_autonomy_state < autonomy_colony
+            }
+            set_variable = { f_puppet_temp = 0 }
+            every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = PREV
+						compliance > 40
+					}
+				}
+                PREV = {
+                    add_to_variable = { f_puppet_temp = PREV.industrial_complex_level }
+                    add_to_variable = { f_puppet_temp = PREV.arms_factory_level }
+					add_to_variable = { f_puppet_temp = PREV.building_level@dockyard }
+                }
+            }
+            divide_variable = { f_puppet_temp = 2 }
+            PREV = {
+                add_to_variable = { f_temp = PREV.f_puppet_temp }
+            }
+        }
+        set_variable = { country_industry_score = f_temp }
 		
-        if = {                                                                    # Мажор -> Сверхмажор
+        if = {                                                                    # Принудительное понижение субъектов
             limit = {
-				check_variable = { f_temp > global.supermajor_threshold_up }      # Пром > 50%
-				has_country_flag = custom_status_major
-			}
-			clr_country_flag = custom_status_major
-            set_country_flag = custom_status_supermajor
-			news_event = { id = country_status_events.1 days = 1 }
-        }
-        if = {                                                                    # Сверхмажор -> Мажор
-            limit = {
-				check_variable = { f_temp < global.supermajor_threshold_down }    # Пром < 40%
-				has_country_flag = custom_status_supermajor
-			}
-			clr_country_flag = custom_status_supermajor
-            set_country_flag = custom_status_major
-			news_event = { id = country_status_events.2 days = 2 }
-        }
-		if = {                                                                    # Минор -> Мажор
-            limit = {
-				check_variable = { f_temp > global.major_threshold_up }           # Пром > 30%
-				has_country_flag = custom_status_minor
-			}
-			clr_country_flag = custom_status_minor
-            set_country_flag = custom_status_major
-			news_event = { id = country_status_events.3 days = 3 }
-        }
-		if = {                                                                    # Мажор -> Минор
-            limit = {
-				check_variable = { f_temp < global.major_threshold_down }         # Пром < 20%
-				has_country_flag = custom_status_major
-			}
-			clr_country_flag = custom_status_major
+                is_subject = yes
+                OR = {
+                    has_country_flag = custom_status_supermajor
+                    has_country_flag = custom_status_major
+                }
+            }
+            clr_country_flag = custom_status_supermajor
+            clr_country_flag = custom_status_major
             set_country_flag = custom_status_minor
-			news_event = { id = country_status_events.4 days = 4 }
-        }	
+            news_event = { id = country_status_events.4 days = 4 }
+        }
+        else_if = {                                                               # Мажор -> Сверхмажор
+            limit = {
+                is_subject = no                                                   # <-- ЗАПРЕТ ДЛЯ СУБЪЕКТОВ
+                check_variable = { f_temp > global.supermajor_threshold_up }
+                has_country_flag = custom_status_major
+            }
+            clr_country_flag = custom_status_major
+            set_country_flag = custom_status_supermajor
+            news_event = { id = country_status_events.1 days = 1 }
+        }
+        else_if = {                                                               # Сверхмажор -> Мажор
+            limit = {
+                is_subject = no                                                   # <-- ЗАПРЕТ ДЛЯ СУБЪЕКТОВ
+                check_variable = { f_temp < global.supermajor_threshold_down }
+                has_country_flag = custom_status_supermajor
+            }
+            clr_country_flag = custom_status_supermajor
+            set_country_flag = custom_status_major
+            news_event = { id = country_status_events.2 days = 2 }
+        }
+        else_if = {                                                               # Минор -> Мажор
+            limit = {
+                is_subject = no                                                   # <-- ЗАПРЕТ ДЛЯ СУБЪЕКТОВ
+                check_variable = { f_temp > global.major_threshold_up }
+                has_country_flag = custom_status_minor
+            }
+            clr_country_flag = custom_status_minor
+            set_country_flag = custom_status_major
+            news_event = { id = country_status_events.3 days = 3 }
+        }
+        else_if = {                                                               # Мажор -> Минор
+            limit = {
+                is_subject = no                                                   # <-- ЗАПРЕТ ДЛЯ СУБЪЕКТОВ
+                check_variable = { f_temp < global.major_threshold_down }
+                has_country_flag = custom_status_major
+            }
+            clr_country_flag = custom_status_major
+            set_country_flag = custom_status_minor
+            news_event = { id = country_status_events.4 days = 4 }
+        }
     }
-
+	
     # ДОБАВЛЯЕМ В ГУИ ------------------------------------------------------------
     clear_array = global.countries_by_industry_array
-	every_country = {
+    clear_array = global.temp_country_scores
+
+    every_country = {
         limit = {has_country_flag = custom_status_max}
         add_to_array = { global.countries_by_industry_array = THIS }
+        add_to_array = { global.temp_country_scores = country_industry_score }
     }
     every_country = {
         limit = {
-			has_country_flag = custom_status_supermajor
-			NOT = {has_country_flag = custom_status_max}
-		}
+            has_country_flag = custom_status_supermajor
+            NOT = {has_country_flag = custom_status_max}
+        }
         add_to_array = { global.countries_by_industry_array = THIS }
+        add_to_array = { global.temp_country_scores = country_industry_score }
     }
-	every_country = {
+    every_country = {
         limit = {has_country_flag = custom_status_major}
         add_to_array = { global.countries_by_industry_array = THIS }
+        add_to_array = { global.temp_country_scores = country_industry_score }
+    }
+
+    # СОРТИРОВКА ОТ БОЛЬШЕГО К МЕНЬШЕМУ (С СОХРАНЕНИЕМ ИСХОДНОГО МАССИВА) --------
+    clear_array = global.sorted_countries_by_industry
+    clear_array = global.temp_sort_countries
+    clear_array = global.temp_sort_scores
+
+    every_country = {
+        limit = { has_country_flag = custom_status_max }
+        add_to_array = { global.temp_sort_countries = THIS }
+        add_to_array = { global.temp_sort_scores = country_industry_score }
+    }
+    every_country = {
+        limit = {
+            has_country_flag = custom_status_supermajor
+            NOT = { has_country_flag = custom_status_max }
+        }
+        add_to_array = { global.temp_sort_countries = THIS }
+        add_to_array = { global.temp_sort_scores = country_industry_score }
+    }
+    every_country = {
+        limit = { has_country_flag = custom_status_major }
+        add_to_array = { global.temp_sort_countries = THIS }
+        add_to_array = { global.temp_sort_scores = country_industry_score }
+    }
+
+    while_loop_effect = {
+        limit = { check_variable = { global.temp_sort_countries^num > 0 } }
+        find_highest_in_array = {
+            array = global.temp_sort_scores
+            value = sort_max_score
+            index = sort_max_index
+        }
+        add_to_array = {
+            global.sorted_countries_by_industry = global.temp_sort_countries^sort_max_index
+        }
+        remove_from_array = {
+            array = global.temp_sort_countries
+            index = sort_max_index
+        }
+        remove_from_array = {
+            array = global.temp_sort_scores
+            index = sort_max_index
+        }
     }
 }

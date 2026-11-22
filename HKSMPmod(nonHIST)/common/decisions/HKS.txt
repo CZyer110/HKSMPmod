@@ -1,17 +1,39 @@
 HKS_decisions = {	
-	
-	HKS_xp_mio = { #Опыт для КБ
+	HKS_give_me_horsttool = { # Тулпак
 
 		icon = GFX_decision_generic_industry
 
-		available = {
-			
-		}
-
 		visible = {
-			
+			var:global.toolpack_owner = {
+				OR = {
+					is_ai = yes
+					NOT = { exists = yes }
+				}
+			}
 		}
 		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		priority = 101
+		
+		complete_effect = {
+			hidden_effect = {
+				every_country = {
+					clr_country_flag = host
+					clr_country_flag = tp_is_host
+				}
+				set_variable = { global.toolpack_owner = THIS }
+				set_variable = { marked_states = 0 }
+				set_country_flag = host
+				set_country_flag = tp_is_host
+			}
+		}	
+	}
+	HKS_xp_mio = { #Опыт для КБ
+
+		icon = GFX_decision_generic_industry
 		
 		fire_only_once = yes
 		ai_will_do = {
@@ -27,7 +49,6 @@ HKS_decisions = {
 		}	
 	}
 	HKS_interface = { 
-		name = "Открыть рейтинг мировых держав"
 		icon = GFX_decision_generic_industry
 		available = {
 		}

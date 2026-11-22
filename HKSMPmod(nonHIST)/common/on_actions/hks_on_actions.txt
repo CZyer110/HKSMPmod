@@ -10,12 +10,14 @@ on_actions = {
 					}
                     ROOT = {
                         is_ai = no                          # Победитель — игрок
-                        any_war_score > 0                   # Есть вклад
+                        any_war_score > 0       			# Есть вклад
+						has_civil_war = no
                     }
                     FROM = {
                         is_ai = yes                         # Капитулировавший — ИИ
                         is_major = no                       # Минор
                         is_subject = no                     # Не марионетка
+						has_civil_war = no
                         OR = {
                             num_of_controlled_states < 6    # 5 и меньше регионов
                             tag = ETH
@@ -76,6 +78,7 @@ on_actions = {
 					OR = {
 						tag = USA
 						tag = SOV
+						tag = GER
 					}
 				}
                 set_country_flag = custom_status_supermajor
@@ -87,7 +90,6 @@ on_actions = {
 						tag = ITA
 						tag = ENG
 						tag = JAP
-						tag = GER
 					}
 				}
                 set_country_flag = custom_status_major

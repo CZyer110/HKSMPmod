@@ -951,7 +951,7 @@ sp_land_super_heavy_howitzer = {
 	
 	available = {
 		FROM = {
-			has_tech = artillery4
+			has_tech = artillery1
 		}
 	}
 	

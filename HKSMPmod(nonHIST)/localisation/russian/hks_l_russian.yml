@@ -28,13 +28,18 @@
  country_status_events.4.d_major: "Любое государство не вечно, и народ страны всегда это понимал. Бывшая великая нация, о которой написано в каждом учебнике мира, останется лишь в небольших заголовках газет."
  country_status_events.4.a: "Ещё один обездоленный"
  
- ai_capitulate.1.t: "[From.GetName] капитулирует"
+ ai_capitulate.1.t: "Страна капитулирует"
  ai_capitulate.1.desc: "Без задержки остальных"
  ai_capitulate.1.a: "Аннексия"
  ai_capitulate.1.b: "Одна марионетка"
  ai_capitulate.1.c: "Разделение на марионетки"
  ai_capitulate_message: "Соглашение о прекращении огня"
  
+ HKS_decisions: "HKS Mp"
+ HKS_decisions_desc: "Сейчас тулпак у [?global.toolpack_owner.GetName]"
+ HKS_xp_mio: "Опыт для шаблонов"
+ HKS_interface: "Открыть рейтинг мировых держав"
+ HKS_give_me_horsttool: "Забрать тулпак"
  
  hks_rules: "HKS правила"
  

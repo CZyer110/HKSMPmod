@@ -234,11 +234,7 @@ country_event = {
 			factor = 0
 		}
 		trigger = {
-			any_country = {
-				exists = no
-				NOT = { has_country_flag = ai_capitulated_country }
-				any_core_state = { has_state_flag = ai_capitulate_states }
-			}
+			
 		}
 		#custom_effect_tooltip = ai_capitulate_divide_tt
 		hidden_effect = {
@@ -265,7 +261,7 @@ country_event = {
 				every_state = {
 					limit = { has_state_flag = ai_capitulate_states }
 					event_target:boss_country = { 
-						transfer_state_to = event_target:current_capitulated 
+						#transfer_state_to = event_target:current_capitulated 
 					}
 				}
 			}
