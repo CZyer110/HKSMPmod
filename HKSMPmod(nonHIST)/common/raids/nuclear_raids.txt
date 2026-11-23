@@ -416,6 +416,11 @@ types = {
 								modifier = fallout_atomic
 								days = 365
 							}
+							damage_units = {
+								state = THIS
+								damage = 0.5   # 50% урона (можно настроить)
+								army = yes
+							}
 						}
 					}
 					var:actor_country = {
@@ -570,6 +575,11 @@ types = {
 							add_dynamic_modifier = {
 								modifier = fallout_atomic
 								days = 365
+							}
+							damage_units = {
+								state = THIS
+								damage = 0.5   # 50% урона (можно настроить)
+								army = yes
 							}
 						}
 					}
