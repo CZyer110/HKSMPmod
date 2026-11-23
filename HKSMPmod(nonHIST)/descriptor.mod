@@ -1,6 +1,5 @@
-version="2.5.1"
+version="2.4"
 replace_path="gfx/loadingscreens"
-replace_path="common/bookmarks"
 tags={
 	"Gameplay"
 	"Balance"

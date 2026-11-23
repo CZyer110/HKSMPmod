@@ -1274,7 +1274,7 @@ equipment_modules = {
 				strategic_bomber
 			}
 			add_stats = {
-				air_bombing = 15
+				air_bombing = 30
 				weight = 8
 			}
 		}
@@ -1283,7 +1283,7 @@ equipment_modules = {
 				port_strike
 			}
 			add_stats = {
-				naval_strike_attack = 2
+				naval_strike_attack = 4
 				weight = 8
 			}
 		}
@@ -1546,7 +1546,7 @@ equipment_modules = {
 				port_strike
 			}
 			add_stats = {
-				naval_strike_attack = 9
+				naval_strike_attack = 18
 				weight = 9
 				air_agility = -20
 			}
@@ -1559,8 +1559,8 @@ equipment_modules = {
 				strategic_bomber
 			}
 			add_stats = {
-				air_bombing = 15
-				weight = 9
+				air_bombing = 30
+				weight = 10
 				air_agility = -20
 			}
 		}
@@ -1576,7 +1576,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 12
 			air_agility = -15
-			air_defence = 2
+			air_defence = 10
 		}
 		xp_cost = 1
 		allow_mission_type = {
@@ -1588,7 +1588,7 @@ equipment_modules = {
 				strategic_bomber
 			}
 			add_stats = {
-				air_bombing = 14
+				air_bombing = 28
 				weight = 12
 			}
 		}
@@ -1597,7 +1597,7 @@ equipment_modules = {
 				port_strike
 			}
 			add_stats = {
-				naval_strike_attack = 12
+				naval_strike_attack = 24
 				weight = 12
 			}
 		}
@@ -1613,7 +1613,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 16
 			air_agility = -18
-			air_defence = 2
+			air_defence = 20
 		}
 		xp_cost = 1
 		allow_mission_type = {
@@ -1625,7 +1625,7 @@ equipment_modules = {
 				strategic_bomber
 			}
 			add_stats = {
-				air_bombing = 16
+				air_bombing = 32
 				weight = 15
 			}
 		}
@@ -1634,7 +1634,7 @@ equipment_modules = {
 				port_strike
 			}
 			add_stats = {
-				naval_strike_attack = 18
+				naval_strike_attack = 36
 				weight = 15
 			}
 		}

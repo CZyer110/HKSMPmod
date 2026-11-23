@@ -26,3 +26,4 @@ NDefines.NMilitary.AIR_EQUIPMENT_RAMP_COST = 1
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 35
 NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0.01	-- 0.05 ванила
 NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 24 	-- 24 ванила
+NDefines.NBuildings.SAM_MISSION_SUPERIORITY = 1000 
