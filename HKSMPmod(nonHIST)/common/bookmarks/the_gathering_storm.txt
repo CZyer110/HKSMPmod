@@ -20,21 +20,6 @@ bookmarks = {
 		#                                     # any label used by a country that is missing from this list
 		# scrollable_country_list = yes       # defaults to no: scroll the minor list with its vertical scrollbar instead of the overflow dropdown
 
-"USA"={
-    history = "USA_GATHERING_STORM_DESC"
-    ideology = democratic
-    version = base_game
-    ideas = {
-        home_of_the_free
-        great_depression
-        undisturbed_isolation
-    }
-    focuses = {
-        USA_war_plan_black
-        USA_limited_intervention
-        USA_reestablish_the_gold_standard
-    }
-}
 
 "ENG"={
     history = "ENG_GATHERING_STORM_DESC"
@@ -101,6 +86,57 @@ bookmarks = {
         FRA_invite_communist_ministers
         FRA_utilize_the_leagues
         FRA_je_suis_la_deluge
+    }
+}
+JAP = {
+    history = "JAP_GATHERING_STORM_DESC"
+    available = { NOT = { has_dlc = "No Compromise, No Surrender" } }
+    ideology = neutrality
+    version = base_game
+    override_leader_portrait = JAP_emperor_hirohito
+    ideas = {
+        JAP_1936_fake_state_shintoism_idea
+        JAP_1936_fake_industrial_idea
+        JAP_militarism
+    }
+    focuses = {
+        JAP_sea_purge_the_kodoha_faction
+        JAP_the_unthinkable_option
+        JAP_support_the_kodoha_faction
+    }
+}
+
+JAP = {
+    history = "JAP_GATHERING_STORM_DESC"
+    required_dlc = { "No Compromise, No Surrender" }
+    version = no_compromise_no_surrender
+    ideology = neutrality
+    override_leader_portrait = JAP_emperor_hirohito
+    ideas = {
+        JAP_1936_fake_state_shintoism_idea
+        JAP_1936_fake_industrial_idea
+        JAP_militarism
+    }
+    focuses = {
+        JAP_sea_purge_the_kodoha_faction
+        JAP_revere_the_emperor_destroy_the_traitors
+        JAP_okadas_military_purge_speech
+    }
+}
+
+"USA"={
+    history = "USA_GATHERING_STORM_DESC"
+    ideology = democratic
+    version = base_game
+    ideas = {
+        home_of_the_free
+        great_depression
+        undisturbed_isolation
+    }
+    focuses = {
+        USA_war_plan_black
+        USA_limited_intervention
+        USA_reestablish_the_gold_standard
     }
 }
 
@@ -203,42 +239,6 @@ GER = {
         ITA_comandante_diavolo
         ITA_to_live_as_a_lion
         ITA_a_colonial_empire
-    }
-}
-
-JAP = {
-    history = "JAP_GATHERING_STORM_DESC"
-    available = { NOT = { has_dlc = "No Compromise, No Surrender" } }
-    ideology = neutrality
-    version = base_game
-    override_leader_portrait = JAP_emperor_hirohito
-    ideas = {
-        JAP_1936_fake_state_shintoism_idea
-        JAP_1936_fake_industrial_idea
-        JAP_militarism
-    }
-    focuses = {
-        JAP_sea_purge_the_kodoha_faction
-        JAP_the_unthinkable_option
-        JAP_support_the_kodoha_faction
-    }
-}
-
-JAP = {
-    history = "JAP_GATHERING_STORM_DESC"
-    required_dlc = { "No Compromise, No Surrender" }
-    version = no_compromise_no_surrender
-    ideology = neutrality
-    override_leader_portrait = JAP_emperor_hirohito
-    ideas = {
-        JAP_1936_fake_state_shintoism_idea
-        JAP_1936_fake_industrial_idea
-        JAP_militarism
-    }
-    focuses = {
-        JAP_sea_purge_the_kodoha_faction
-        JAP_revere_the_emperor_destroy_the_traitors
-        JAP_okadas_military_purge_speech
     }
 }
 
