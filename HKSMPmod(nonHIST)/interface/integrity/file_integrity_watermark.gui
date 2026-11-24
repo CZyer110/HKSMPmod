@@ -1,0 +1,14 @@
+guiTypes = {
+	containerWindowType = {
+		name = "file_integrity_watermark"
+	}
+
+	# Remove the background block entirely from the code.
+	instantTextBoxType = {
+		name = "watermark_header"
+	}
+	
+	instantTextBoxType = {
+		name = "watermark_text"
+	}
+}
