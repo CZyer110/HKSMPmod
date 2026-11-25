@@ -2336,7 +2336,42 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = ROM_armed_forces_dynamic_modifier_tt
-			add_to_variable = { ROM_resistance_special_forces_cap = 0.10 tooltip = special_forces_cap_tt }
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_10
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.10 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_5
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_2_5
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.025 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_1
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.01 tooltip = special_forces_cap_tt }
+			}
 			if = {
 				limit = { has_dlc = "Arms Against Tyranny" }
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -2503,7 +2538,42 @@ focus_tree = {
 				ROM_no_supply_grace = 24
 				tooltip = no_supply_grace_tt
 			}
-			add_to_variable = { ROM_resistance_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_10
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.1 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_5
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_2_5
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.025 tooltip = special_forces_cap_tt }
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = hks_specura_base_percent
+						option = base_percent_sp_1
+					}
+				}
+				add_to_variable = { ROM_resistance_special_forces_cap = 0.01 tooltip = special_forces_cap_tt }
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = ROM_bring_back_bicycle_infantry
 			custom_effect_tooltip = generic_skip_one_line_tt

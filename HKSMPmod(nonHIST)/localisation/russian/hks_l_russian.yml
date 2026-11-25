@@ -43,6 +43,8 @@
  
  hks_rules: "HKS правила"
  
+ NORDIC_annex_all: "Полное объединение"
+ 
  fast_conference_name: "Быстрые конференции"
  fast_conference_on_text: "Включены"
  fast_conference_on_text_desc: "Соглашение о прекращении огня"

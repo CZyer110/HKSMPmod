@@ -4863,7 +4863,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FIN_political_unity
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5285,7 +5285,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FIN_finnish_neutrality
-		cost = 5
+		cost = 2
 		available = {
 		}
 
@@ -5361,7 +5361,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = FIN_moderate_politics
-		cost = 5
+		cost = 2
 
 		bypass = {
 			OR = {
@@ -6687,7 +6687,7 @@ focus_tree = {
 			}
 		}
 
-		cost = 5
+		cost = 2
 
 		available = {
 			threat > 0.35
@@ -6708,7 +6708,7 @@ focus_tree = {
 		x = 3
 		y = 0
 		relative_position_id = FIN_weapon_caches
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -6790,7 +6790,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FIN_viron_kansa
-		cost = 10
+		cost = 5
 
 		bypass = {
 			EST = {
@@ -6871,7 +6871,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FIN_national_unity
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -6902,7 +6902,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FIN_arm_the_lotta_svard
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -6923,7 +6923,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = FIN_union_of_finnish_brothers_in_arms
-		cost = 5
+		cost = 2
 		available = {
 		}
 
@@ -7035,7 +7035,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = FIN_national_unity
-		cost = 5
+		cost = 2
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = FIN_in_a_defensive_war_against_a_major_tt
@@ -7611,7 +7611,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = FIN_a_fascist_regime
-		cost = 10
+		cost = 2
 		available = {
 			is_subject = no
 			GER = {
@@ -7665,7 +7665,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = FIN_a_fascist_regime
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			base = 1
@@ -7807,7 +7807,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = FIN_join_axis
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -7857,7 +7857,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = FIN_join_axis
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -7907,7 +7907,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = FIN_military_research
-		cost = 10
+		cost = 5
 		available = {
 			if = {
 				limit = {

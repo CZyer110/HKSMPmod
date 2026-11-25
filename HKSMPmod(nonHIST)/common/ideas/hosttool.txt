@@ -5,6 +5,11 @@ ideas = {
 				production_factory_start_efficiency_factor = 1.2 
 			}
 		}
+		YUG_no_stability_idea = { 
+			modifier = { 
+				stability_factor = -0.5
+			}
+		}
 		debuff_tanks_idea = { 
 			equipment_bonus = { 
 				heavy_tank_chassis = { instant = yes build_cost_ic = 0.5 } 

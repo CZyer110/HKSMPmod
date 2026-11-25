@@ -324,7 +324,7 @@ shared_focus = {
 		}
 	}
 	#relative_position_id = NORDIC_mutual_guarantees
-	cost = 10
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
@@ -541,7 +541,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_political_cooperation
-	cost = 10
+	cost = 1 # я бесполезнее фокуса не видел (он обязательный)
 
 	text_icon = NORDIC_focus_style
 
@@ -614,7 +614,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_shared_intelligence
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -759,7 +759,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_first_joint_institution
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -811,7 +811,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_procurement_fund
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -965,7 +965,7 @@ joint_focus = {
 	x = 3
 	y = 1
 	relative_position_id = NORDIC_northern_command
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1060,7 +1060,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_joint_military_exercises
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1137,7 +1137,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_unified_recruitment
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1205,7 +1205,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_unified_recruitment
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1321,7 +1321,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_nordic_navy
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -1399,7 +1399,7 @@ joint_focus = {
 	x = 3
 	y = 1
 	relative_position_id = NORDIC_nordic_navy
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1431,7 +1431,7 @@ joint_focus = {
 	x = -2
 	y = 1
 	relative_position_id = NORDIC_naval_exercises
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1589,7 +1589,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_naval_exercises
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1748,7 +1748,7 @@ joint_focus = {
 	x = 2
 	y = 1
 	relative_position_id = NORDIC_naval_exercises
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -1906,7 +1906,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_control_the_northern_sea
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -2168,7 +2168,7 @@ joint_focus = {
 	x = -5
 	y = 0
 	relative_position_id = NORDIC_nordic_navy
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -2223,7 +2223,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_nordic_airforce
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -2379,7 +2379,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_air_production
-	cost = 5
+	cost = 10
 
 	text_icon = NORDIC_focus_style
 
@@ -2475,7 +2475,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_air_production
-	cost = 5
+	cost = 15
 
 	text_icon = NORDIC_focus_style
 
@@ -2566,7 +2566,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_bomber_command
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -2697,7 +2697,7 @@ joint_focus = {
 	x = 0
 	y = 3
 	relative_position_id = NORDIC_naval_aircraft
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -2796,7 +2796,7 @@ joint_focus = {
 	x = 7
 	y = 1
 	relative_position_id = NORDIC_form_joint_alliance
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -2831,7 +2831,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_nordic_research
-	cost = 5
+	cost = 10
 
 	text_icon = NORDIC_focus_style
 
@@ -2875,7 +2875,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_nordic_research
-	cost = 5
+	cost = 10
 
 	text_icon = NORDIC_focus_style
 
@@ -2932,7 +2932,7 @@ joint_focus = {
 	x = -2
 	y = 1
 	relative_position_id = NORDIC_nordic_construction_developments
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3049,7 +3049,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_civilian_contributions
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3108,7 +3108,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_civilian_contributions
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -3231,7 +3231,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_fill_the_infrastructure_gaps
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3299,7 +3299,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_fill_the_infrastructure_gaps
-	cost = 5
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
@@ -3384,7 +3384,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_materiel_design
-	cost = 5
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -3578,7 +3578,7 @@ joint_focus = {
 	x = 0
 	y = 1
 	relative_position_id = NORDIC_research_investments
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -3624,7 +3624,7 @@ joint_focus = {
 	x = 0
 	y = 2
 	relative_position_id = NORDIC_nordic_rocketry
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3699,7 +3699,7 @@ joint_focus = {
 	x = 2
 	y = 1 
 	relative_position_id = NORDIC_materiel_design
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3840,7 +3840,7 @@ joint_focus = {
 	x = -1
 	y = 1
 	relative_position_id = NORDIC_standarized_parts
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3938,7 +3938,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_standarized_parts
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -3993,7 +3993,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_ad_hoc_military_industry
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -4057,7 +4057,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = NORDIC_military_industry_hub
-	cost = 10
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -4151,7 +4151,27 @@ joint_focus = {
 	joint_trigger = {
   		NORDIC_basic_joint_trigger = yes 
 	}
-
+	completion_reward_joint_originator = {
+		every_country = {
+			limit = { 
+				OR = {
+					tag = ICE
+					tag = SMI 
+				}
+				is_in_faction_with = PREV
+			}
+			random_country = {
+				limit = { 
+					is_faction_leader = yes
+					is_in_faction_with = PREV
+				}
+				annex_country = {
+					target = PREV
+					transfer_troops = yes
+				}
+			}
+		}
+	}
 	completion_reward_joint_member = {
 		random_country = {
 			limit = { 
